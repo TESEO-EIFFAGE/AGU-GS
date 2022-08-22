@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     QTimer timer;
     QObject::connect(&timer, &QTimer::timeout, [Serial0]() { Serial0->write("000000010100101001"); });
     timer.start(500);
-
+    /* PROVA */
     //Serial0->write(data);
 
      w.show();
