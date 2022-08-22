@@ -51,6 +51,7 @@ int main(int argc, char *argv[])
      //w.show();
 
     QQmlApplicationEngine engine;
+    engine.addImportPath("qrc:/imports");
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
