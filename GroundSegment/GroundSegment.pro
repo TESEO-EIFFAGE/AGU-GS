@@ -9,18 +9,20 @@ CONFIG += c++17
 
 SOURCES += \
     hmi.cpp \
+    hmi_controller.cpp \
     main.cpp \
-    mainwindow.cpp \
+#    mainwindow.cpp \
     mavlinkprotocol.cpp \
     storage.cpp \
-    topdialog.cpp
+#    topdialog.cpp
 
 HEADERS += \
     hmi.h \
-    mainwindow.h \
+    hmi_controller.h \
+#    mainwindow.h \
     mavlinkprotocol.h \
     storage.h \
-    topdialog.h
+#    topdialog.h
 
 RESOURCES += \
     GroundSegmentUI/GroundSegmentUI.qrc
