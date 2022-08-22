@@ -25,7 +25,9 @@ HEADERS += \
 RESOURCES += \
     GroundSegmentUI/GroundSegmentUI.qrc
 
-QML_IMPORT_PATH = GroundSegmentUI/
+QML_IMPORT_PATH += \
+    GroundSegmentUI/ \
+    GroundSegmentUI/imports
 
 QT       += serialport
 # Default rules for deployment.
