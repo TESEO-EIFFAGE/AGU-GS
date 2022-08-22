@@ -11,5 +11,7 @@
 <file>./main.qml</file>
 <file>./qmlmodules</file>
 <file>./qtquickcontrols2.conf</file>
+<file>./content/ParamsViewer.ui.qml</file>
+<file>./content/SegmentsPosMap.ui.qml</file>
 </qresource>
 </RCC>
