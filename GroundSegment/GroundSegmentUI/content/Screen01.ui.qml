@@ -16,6 +16,7 @@ Rectangle {
     height: Constants.height
 
     color: Constants.backgroundColor
+    property alias params: params
 
     RowLayout {
         id: rowLayout
