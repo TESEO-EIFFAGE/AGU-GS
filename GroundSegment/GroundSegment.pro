@@ -1,8 +1,6 @@
-QT       += core gui
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += quick widgets
 
 CONFIG += c++17
-
 
 #CONFIG += c++11
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -24,9 +22,10 @@ HEADERS += \
     storage.h \
     topdialog.h
 
-FORMS += \
-    mainwindow.ui \
-    topdialog.ui
+RESOURCES += \
+    GroundSegmentUI/GroundSegmentUI.qrc
+
+QML_IMPORT_PATH = GroundSegmentUI/
 
 QT       += serialport
 # Default rules for deployment.

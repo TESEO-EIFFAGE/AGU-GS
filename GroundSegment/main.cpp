@@ -1,6 +1,7 @@
-#include "mainwindow.h"
-#include "topdialog.h"
-#include <QApplication>
+//#include "mainwindow.h"
+//#include "topdialog.h"
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
 #include <QtSerialPort/QtSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 #include <QDebug>
@@ -11,8 +12,11 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+
+    QGuiApplication app(argc, argv);
+    //QApplication a(argc, argv);
+    //MainWindow w;
 
     QByteArray data  = "FD77000000FFAA000011"
                        "000102030405060708090A0B0C0D0E0F"   /*  P  */
@@ -44,7 +48,16 @@ int main(int argc, char *argv[])
     /* PROVA */
     //Serial0->write(data);
 
-     w.show();
+     //w.show();
 
-     return a.exec();
+    QQmlApplicationEngine engine;
+    const QUrl url(QStringLiteral("qrc:/main.qml"));
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
+                     &app, [url](QObject *obj, const QUrl &objUrl) {
+        if (!obj && url == objUrl)
+            QCoreApplication::exit(-1);
+    }, Qt::QueuedConnection);
+    engine.load(url);
+
+    return app.exec();
 }
