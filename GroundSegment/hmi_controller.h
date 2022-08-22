@@ -9,7 +9,7 @@ class HMIController : public QObject
     Q_OBJECT
 
 public:
-    HMIController(QWidget *parent = nullptr);
+    HMIController(QObject *parent = nullptr);
     ~HMIController();
 
     QSerialPort *Serial1;

@@ -13,7 +13,7 @@ HMIController::HMIController(QObject *parent)
     MavlinkProtocol *Mavlink = new MavlinkProtocol();
     Storage *StorageData = new Storage();
     HMI *Interface = new HMI();
-    TopDialog *TopDialogWindow = new TopDialog(Mavlink);
+    //TopDialog *TopDialogWindow = new TopDialog(Mavlink);
 
 
     //Serial1 PORTA CHE RICEVE
@@ -32,7 +32,7 @@ HMIController::HMIController(QObject *parent)
     HMIController::connect(Mavlink, SIGNAL(toStorageSystemStatus(SystemStatusPack *)), StorageData, SLOT(StoreDataInMemorySystemStatus(SystemStatusPack *)));
     HMIController::connect(Mavlink, SIGNAL(toHMI(Telemetry *)), Interface, SLOT(showData(Telemetry *)));
     HMIController::connect(Mavlink, SIGNAL(toHMISystemStatus(SystemStatusPack *)), Interface, SLOT(showDataSystemStatus(SystemStatusPack *)));
-    HMIController::connect(this, SIGNAL(updateTopDiagLog()), TopDialogWindow, SLOT(UpdateWindow()));  /* Spostare l'UpdateWindow signal dal pushbutton*/
+    //HMIController::connect(this, SIGNAL(updateTopDiagLog()), TopDialogWindow, SLOT(UpdateWindow()));  /* Spostare l'UpdateWindow signal dal pushbutton*/
 
     QTimer *timer = new QTimer();
     HMIController::connect(timer, &QTimer::timeout, this, [this](){ emit work_is_down(); });
@@ -42,7 +42,7 @@ HMIController::HMIController(QObject *parent)
 
 HMIController::~HMIController()
 {
-    delete ui;
+    //delete ui;
 }
 
 void HMIController::WriteHartBeat()
@@ -129,22 +129,22 @@ void HMIController::ReadData()
 
 
 
-void HMIController::on_pushButton_clicked()
-{
-    //MavlinkProtocol m;
+//void HMIController::on_pushButton_clicked()
+//{
+//    //MavlinkProtocol m;
 
-   // T->show();
+//   // T->show();
 
-   // ui->
-    //TopDialogWindow = new TopDialog();
+//   // ui->
+//    //TopDialogWindow = new TopDialog();
 
-    //TopDialogWindow->l
-    //TopDialogWindow->lbs
-    //TopDialogWindow->exec();
-    emit updateTopDiagLog();
-    //ui->l ->setText("CIAO");
-    //ui->;
-    //TopDialogWindow->show();
-}
+//    //TopDialogWindow->l
+//    //TopDialogWindow->lbs
+//    //TopDialogWindow->exec();
+//    emit updateTopDiagLog();
+//    //ui->l ->setText("CIAO");
+//    //ui->;
+//    //TopDialogWindow->show();
+//}
 
 
