@@ -1,19 +1,18 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "hmi_controller.h"
+#include "storage.h"
+#include "hmi.h"
 #include <QTimer>
 #include <QObject>
 
 
-HMIController::HMIController(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+HMIController::HMIController(QObject *parent)
+    : QObject(parent)
 {       
-    ui->setupUi(this);
     Counter = 0;
     Serial1 = new QSerialPort(this);
     MavlinkProtocol *Mavlink = new MavlinkProtocol();
     Storage *StorageData = new Storage();
-    HMI *Interface = new HMI(ui);
+    HMI *Interface = new HMI();
     TopDialog *TopDialogWindow = new TopDialog(Mavlink);
 
 

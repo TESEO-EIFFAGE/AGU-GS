@@ -9,14 +9,6 @@ HMI::HMI(QObject *parent)
 
 }
 
-HMI::HMI(Ui::MainWindow *ui)
-{
-   myui = *ui;
-   QObject::connect(myui.pushButton, SIGNAL(clicked()), this, SLOT(on_pushButton_clicked()));
-   qInfo() << "sono nel costruttore";
-}
-
-
 void HMI::showData(Telemetry *t)
 {
     QString s;
@@ -32,113 +24,113 @@ void HMI::showData(Telemetry *t)
 /*
     s = QString::number(t->TimeStamp);
     qInfo() << "TimeStamp = " << s;
-    myui.lbl1->setText(s);
+
 */
     s = QString::number(t->TimeStampRIO);
     qInfo() << "TimeStampRIO = " << s;
-    myui.lbl2->setText(s);
+
     s = QString::number(t->Latitude);
     qInfo() << "Latitude = " << s;
-    myui.lbl3->setText(s);
+
     s = QString::number(t->Longitude);
     qInfo() << "Longitude = " << s;
-    myui.lbl4->setText(s);
+
     s = QString::number(t->GNSSAltitude);
     qInfo() << "GNSSAltitude = " << s;
-    myui.lbl5->setText(s);
+
     s = QString::number(t->AirSpeed_UVector);
     qInfo() << "AirSpeed_UVector = " << s;
-    myui.lbl6->setText(s);
+
     s = QString::number(t->AirSpeed_VVector);
     qInfo() << "AirSpeed_VVector = " << s;
-    myui.lbl7->setText(s);
+
     s = QString::number(t->AirSpeed_WVector);
     qInfo() << "AirSpeed_WVector = " << s;
-    myui.lbl8->setText(s);
+
     s = QString::number(t->AirTemperature);
     qInfo() << "AirTemperature = " << s;
-    myui.lbl9->setText(s);
+
     s = QString::number(t->AltitudeFromRadarAltimeter);
     qInfo() << "AltitudeFromRadarAltimeter = " << s;
-    myui.lbl10->setText(s);
+
     s = QString::number(t->AltitudeFromPayloadAltimeter);
     qInfo() << "AltitudeFromPayloadAltimeter = " << s;
-    myui.lbl11->setText(s);
+
     s = QString::number(t->LinearVelocityHorizontal);
     qInfo() << "LinearVelocityHorizontal = " << s;
-    myui.lbl12->setText(s);
+
     s = QString::number(t->LinearVelocityVertical);
     qInfo() << "LinearVelocityVertical = " << s;
-    myui.lbl13->setText(s);
+
     s = QString::number(t->PositionAccuracy);
     qInfo() << "PositionAccuracy = " << s;
-    myui.lbl14->setText(s);
+
     s = QString::number(t->SpeedAccuracy);
     qInfo() << "SpeedAccuracy   = " << s;
-    myui.lbl15->setText(s);
+
     s = QString::number(t->LinearAccelerationX);
     qInfo() << "LinearAccelerationX = " << s;
-    myui.lbl16->setText(s);
+
     s = QString::number(t->LinearAccelerationY);
     qInfo() << "LinearAccelerationY = " << s;
-    myui.lbl17->setText(s);
+
     s = QString::number(t->LinearAccelerationZ);
     qInfo() << "LinearAccelerationZ = " << s;
-    myui.lbl18->setText(s);
+
     s = QString::number(t->ECEFVectorPositionX);
     qInfo() << "PositionAccuracy = " << s;
-    myui.lbl19->setText(s);
+
     s = QString::number(t->ECEFVectorPositionY);
     qInfo() << "PositionAccuracy = " << s;
-    myui.lbl20->setText(s);
+
     s = QString::number(t->ECEFVectorPositionZ);
     qInfo() << "PositionAccuracy = " << s;
-    myui.lbl21->setText(s);
+
     s = QString::number(t->ECEFVectorVelocityX);
     qInfo() << "PositionAccuracy = " << s;
-    myui.lbl22->setText(s);
+
     s = QString::number(t->ECEFVectorVelocityY);
     qInfo() << "PositionAccuracy = " << s;
-    myui.lbl23->setText(s);
+
     s = QString::number(t->ECEFVectorVelocityZ);
     qInfo() << "PositionAccuracy = " << s;
-    myui.lbl24->setText(s);
+
     s = QString::number(t->RollAngle);
     qInfo() << "RollAngle = " << s;
-    myui.lbl25->setText(s);
+
     s = QString::number(t->PitchAngle);
     qInfo() << "PitchAngle = " << s;
-    myui.lbl26->setText(s);
+
     s = QString::number(t->YawAngle);
     qInfo() << "YawAngle = " << s;
-    myui.lbl27->setText(s);
+
     s = QString::number(t->AgularRateRoll);
     qInfo() << "AgularRateRoll = " << s;
-    myui.lbl28->setText(s);
+
     s = QString::number(t->AgularRatePitch);
     qInfo() << "AgularRatePitch = " << s;
-    myui.lbl29->setText(s);
+
     s = QString::number(t->AgularRateYaw);
     qInfo() << "AgularRateYaw = " << s;
-    myui.lbl30->setText(s);
+
     s = QString::number(t->Quaternion0);
     qInfo() << "Quaternion0 = " << s;
-    myui.lbl31->setText(s);
+
     s = QString::number(t->Quaternion1);
     qInfo() << "Quaternion1 = " << s;
-    myui.lbl32->setText(s);
+
     s = QString::number(t->Quaternion2);
     qInfo() << "Quaternion2 = " << s;
-    myui.lbl33->setText(s);
+
     s = QString::number(t->Quaternion3);
     qInfo() << "Quaternion3 = " << s;
-    myui.lbl34->setText(s);
+
     s = QString::number(t->TelemetryStatusMask);
     qInfo() << "TelemetryStatusMask = " << s;
-    myui.lbl35->setText(s);
+
     s = QString::number(t->NumberOfGPSSatellite);
     qInfo() << "NumberOfGPSSatellite = " << s;
-    myui.lbl36->setText(s);
+
 
 
 
@@ -422,18 +414,5 @@ void HMI::showDataSystemStatus(SystemStatusPack *s)
 
      is_setRadioLink24  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(24);  /* BIT 9*/
      if (is_setRadioLink24)  { /*accensione LED rosso*/ }
-}
-
-void HMI::on_pushButton_clicked()
-{
-
-    qInfo() << "TopDialogWindow = *******************************************" ;
-
-}
-
-
-void HMI::on_pushButton_2_clicked()
-{
-        qInfo() << "TopDialogWindow = *******************************************" ;
 }
 
