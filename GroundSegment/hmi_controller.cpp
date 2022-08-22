@@ -10,10 +10,9 @@ HMIController::HMIController(QObject *parent)
 {       
     Counter = 0;
     Serial1 = new QSerialPort(this);
-    MavlinkProtocol *Mavlink = new MavlinkProtocol();
-    Storage *StorageData = new Storage();
-    HMI *Interface = new HMI();
-    //TopDialog *TopDialogWindow = new TopDialog(Mavlink);
+    MavlinkProtocol *Mavlink = new MavlinkProtocol(this);
+    Storage *StorageData = new Storage(this);
+    HMI *Interface = new HMI(this);
 
 
     //Serial1 PORTA CHE RICEVE
@@ -34,7 +33,7 @@ HMIController::HMIController(QObject *parent)
     HMIController::connect(Mavlink, SIGNAL(toHMISystemStatus(SystemStatusPack *)), Interface, SLOT(showDataSystemStatus(SystemStatusPack *)));
     //HMIController::connect(this, SIGNAL(updateTopDiagLog()), TopDialogWindow, SLOT(UpdateWindow()));  /* Spostare l'UpdateWindow signal dal pushbutton*/
 
-    QTimer *timer = new QTimer();
+    QTimer *timer = new QTimer(this);
     HMIController::connect(timer, &QTimer::timeout, this, [this](){ emit work_is_down(); });
     HMIController::connect(this, SIGNAL(work_is_down()), this, SLOT(WriteHartBeat()));
     timer->start(1000);
@@ -42,7 +41,6 @@ HMIController::HMIController(QObject *parent)
 
 HMIController::~HMIController()
 {
-    //delete ui;
 }
 
 void HMIController::WriteHartBeat()
@@ -126,25 +124,5 @@ void HMIController::ReadData()
       /*   }*/
     }
 }
-
-
-
-//void HMIController::on_pushButton_clicked()
-//{
-//    //MavlinkProtocol m;
-
-//   // T->show();
-
-//   // ui->
-//    //TopDialogWindow = new TopDialog();
-
-//    //TopDialogWindow->l
-//    //TopDialogWindow->lbs
-//    //TopDialogWindow->exec();
-//    emit updateTopDiagLog();
-//    //ui->l ->setText("CIAO");
-//    //ui->;
-//    //TopDialogWindow->show();
-//}
 
 
