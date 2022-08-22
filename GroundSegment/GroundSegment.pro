@@ -9,6 +9,7 @@ CONFIG += c++17
 
 SOURCES += \
     hmi.cpp \
+    hmi_controller.cpp \
     main.cpp \
     mainwindow.cpp \
     mavlinkprotocol.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
 
 HEADERS += \
     hmi.h \
+    hmi_controller.h \
     mainwindow.h \
     mavlinkprotocol.h \
     storage.h \
