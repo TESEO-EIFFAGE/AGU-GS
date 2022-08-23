@@ -11,8 +11,8 @@ QMAKE_LFLAGS += -DHAVE_CBLAS=1
 include($$PWD/libs/F9P-Viewer/F9P_Coordinates_Viewer.pri)
 
 SOURCES += \
+    gs_core.cpp \
     hmi.cpp \
-    hmi_controller.cpp \
     main.cpp \
 #    mainwindow.cpp \
     mavlinkprotocol.cpp \
@@ -20,8 +20,8 @@ SOURCES += \
 #    topdialog.cpp
 
 HEADERS += \
+    gs_core.h \
     hmi.h \
-    hmi_controller.h \
 #    mainwindow.h \
     mavlinkprotocol.h \
     storage.h \

@@ -233,9 +233,9 @@ void Storage::StoreDataInMemory(Telemetry *t)
                  out << t->RollAngle << ";";
                  out << t->PitchAngle << ";";
                  out << t->YawAngle << ";";
-                 out << t->AgularRateRoll << ";";
-                 out << t->AgularRatePitch << ";";
-                 out << t->AgularRateYaw << ";";
+                 out << t->AngularRateRoll << ";";
+                 out << t->AngularRatePitch << ";";
+                 out << t->AngularRateYaw << ";";
                  out << t->Quaternion0 << ";";
                  out << t->Quaternion1 << ";";
                  out << t->Quaternion2 << ";";
@@ -275,9 +275,9 @@ void Storage::StoreDataInMemory(Telemetry *t)
                  out << "RollAngle;";
                  out << "PitchAngle;";
                  out << "YawAngle;";
-                 out << "AgularRateRoll;";
-                 out << "AgularRatePitch;";
-                 out << "AgularRateYaw;";
+                 out << "AngularRateRoll;";
+                 out << "AngularRatePitch;";
+                 out << "AngularRateYaw;";
                  out << "Quaternion0;";
                  out << "Quaternion1;";
                  out << "Quaternion2;";
@@ -311,9 +311,9 @@ void Storage::StoreDataInMemory(Telemetry *t)
                  out << t->RollAngle << ";";
                  out << t->PitchAngle << ";";
                  out << t->YawAngle << ";";
-                 out << t->AgularRateRoll << ";";
-                 out << t->AgularRatePitch << ";";
-                 out << t->AgularRateYaw << ";";
+                 out << t->AngularRateRoll << ";";
+                 out << t->AngularRatePitch << ";";
+                 out << t->AngularRateYaw << ";";
                  out << t->Quaternion0 << ";";
                  out << t->Quaternion1 << ";";
                  out << t->Quaternion2 << ";";

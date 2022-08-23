@@ -1,19 +1,18 @@
-#include "hmi_controller.h"
+#include "gs_core.h"
 #include "storage.h"
 #include "hmi.h"
 #include <QTimer>
 #include <QObject>
 
 
-HMIController::HMIController(QObject *parent)
+GSCore::GSCore(QObject *parent)
     : QObject(parent)
 {       
     Counter = 0;
     Serial1 = new QSerialPort(this);
-    MavlinkProtocol *Mavlink = new MavlinkProtocol();
-    Storage *StorageData = new Storage();
-    HMI *Interface = new HMI();
-    //TopDialog *TopDialogWindow = new TopDialog(Mavlink);
+    MavlinkProtocol *Mavlink = new MavlinkProtocol(this);
+    Storage *StorageData = new Storage(this);
+    setHmi(new HMI(this));
 
 
     //Serial1 PORTA CHE RICEVE
@@ -25,32 +24,41 @@ HMIController::HMIController(QObject *parent)
     Serial1->setFlowControl(QSerialPort::NoFlowControl);
     Serial1->open(QIODevice::ReadWrite);
 
-    HMIController::connect(Serial1, SIGNAL(readyRead()), this, SLOT(ReadData()));                                   /*segnale emesso dalla porta seriale*/
-    HMIController::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataTelemetry(QByteArray)));             /*segnale emesso da MainWindow::ReadData()*/
-    HMIController::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataSystemStatus(QByteArray)));             /*segnale emesso da MainWindow::ReadData()*/
-    HMIController::connect(Mavlink, SIGNAL(toStorage(Telemetry *)), StorageData, SLOT(StoreDataInMemory(Telemetry *)));
-    HMIController::connect(Mavlink, SIGNAL(toStorageSystemStatus(SystemStatusPack *)), StorageData, SLOT(StoreDataInMemorySystemStatus(SystemStatusPack *)));
-    HMIController::connect(Mavlink, SIGNAL(toHMI(Telemetry *)), Interface, SLOT(showData(Telemetry *)));
-    HMIController::connect(Mavlink, SIGNAL(toHMISystemStatus(SystemStatusPack *)), Interface, SLOT(showDataSystemStatus(SystemStatusPack *)));
+    GSCore::connect(Serial1, SIGNAL(readyRead()), this, SLOT(ReadData()));                                   /*segnale emesso dalla porta seriale*/
+    GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataTelemetry(QByteArray)));             /*segnale emesso da MainWindow::ReadData()*/
+    GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataSystemStatus(QByteArray)));             /*segnale emesso da MainWindow::ReadData()*/
+    GSCore::connect(Mavlink, SIGNAL(toStorage(Telemetry *)), StorageData, SLOT(StoreDataInMemory(Telemetry *)));
+    GSCore::connect(Mavlink, SIGNAL(toStorageSystemStatus(SystemStatusPack *)), StorageData, SLOT(StoreDataInMemorySystemStatus(SystemStatusPack *)));
+    GSCore::connect(Mavlink, SIGNAL(toHMI(Telemetry *)), m_hmi, SLOT(showData(Telemetry *)));
+    GSCore::connect(Mavlink, SIGNAL(toHMISystemStatus(SystemStatusPack *)), m_hmi, SLOT(showDataSystemStatus(SystemStatusPack *)));
     //HMIController::connect(this, SIGNAL(updateTopDiagLog()), TopDialogWindow, SLOT(UpdateWindow()));  /* Spostare l'UpdateWindow signal dal pushbutton*/
 
-    QTimer *timer = new QTimer();
-    HMIController::connect(timer, &QTimer::timeout, this, [this](){ emit work_is_down(); });
-    HMIController::connect(this, SIGNAL(work_is_down()), this, SLOT(WriteHartBeat()));
+    QTimer *timer = new QTimer(this);
+    GSCore::connect(timer, &QTimer::timeout, this, [this](){ emit work_is_down(); });
+    GSCore::connect(this, SIGNAL(work_is_down()), this, SLOT(WriteHartBeat()));
     timer->start(1000);
 }
 
-HMIController::~HMIController()
+GSCore::~GSCore()
 {
-    //delete ui;
 }
 
-void HMIController::WriteHartBeat()
+HMI *GSCore::hmi()
+{
+    return m_hmi;
+}
+
+void GSCore::setHmi(HMI* hmi)
+{
+    m_hmi = hmi;
+}
+
+void GSCore::WriteHartBeat()
 {
     QByteArray HeartBeatMessage;
-  //  qInfo() << "RX Message sono in WriteHartBeat inizio " << data;
+    //  qInfo() << "RX Message sono in WriteHartBeat inizio " << data;
 
-  // if (Serial1->isWritable())
+    // if (Serial1->isWritable())
 
     HeartBeatMessage.append("FD");
     HeartBeatMessage.append("01");
@@ -90,7 +98,7 @@ void HMIController::WriteHartBeat()
     {
         HeartBeatMessage.append(q);
     }
-        //QByteArray hexvalue = q.toHex();
+    //QByteArray hexvalue = q.toHex();
 
 
     qInfo() << "***************** HeartBeatMessage   = " << HeartBeatMessage;
@@ -99,7 +107,7 @@ void HMIController::WriteHartBeat()
 }
 
 
-void HMIController::ReadData()
+void GSCore::ReadData()
 {
     QByteArray  retData;
     qInfo() << "RX Message sono in ReadData inizio ";
@@ -122,29 +130,9 @@ void HMIController::ReadData()
          else
          {
              /*verifica se è l'hartbeat e rispedisci*/
-             //Serial1->write(retData);*/
-      /*   }*/
+        //Serial1->write(retData);*/
+        /*   }*/
     }
 }
-
-
-
-//void HMIController::on_pushButton_clicked()
-//{
-//    //MavlinkProtocol m;
-
-//   // T->show();
-
-//   // ui->
-//    //TopDialogWindow = new TopDialog();
-
-//    //TopDialogWindow->l
-//    //TopDialogWindow->lbs
-//    //TopDialogWindow->exec();
-//    emit updateTopDiagLog();
-//    //ui->l ->setText("CIAO");
-//    //ui->;
-//    //TopDialogWindow->show();
-//}
 
 

@@ -32,6 +32,7 @@ import QtQuick.Window 2.15
 import GroundSegmentUI 1.0
 
 Window {
+    //property
     width: mainScreen.width
     height: mainScreen.height
 
@@ -41,6 +42,50 @@ Window {
     Screen01 {
         id: mainScreen
         anchors.fill:parent
+
+        params.txtTimeStamp: hmi.TimeStamp
+        params.txtTimeStampRIO: hmi.TimeStampRIO
+        params.txtLatitude: hmi.Latitude
+        params.txtLongitude: hmi.Longitude
+        params.txtGNSSAltitude: hmi.GNSSAltitude
+        params.txtAirSpeed_UVector: hmi.AirSpeed_UVector
+
+        params.txtAirSpeed_VVector: hmi.AirSpeed_VVector
+        params.txtAirSpeed_WVector: hmi.AirSpeed_WVector
+        params.txtAirTemperature: hmi.AirTemperature
+        params.txtAltitudeFromRadarAltimeter: hmi.AltitudeFromRadarAltimeter
+        params.txtAltitudeFromPayloadAltimeter: hmi.AltitudeFromPayloadAltimeter
+        params.txtLinearVelocityHorizontal: hmi.LinearVelocityHorizontal
+
+        params.txtLinearVelocityVertical: hmi.LinearVelocityVertical
+        params.txtPositionAccuracy: hmi.PositionAccuracy
+        params.txtSpeedAccuracy:hmi.SpeedAccuracy
+        params.txtLinearAccelerationX: hmi.LinearAccelerationX
+        params.txtLinearAccelerationY: hmi.LinearAccelerationY
+        params.txtLinearAccelerationZ: hmi.LinearAccelerationZ
+
+        params.txtECEFVectorPositionX: hmi.ECEFVectorPositionX
+        params.txtECEFVectorPositionY: hmi.ECEFVectorPositionY
+        params.txtECEFVectorPositionZ: hmi.ECEFVectorPositionZ
+        params.txtECEFVectorVelocityX: hmi.ECEFVectorVelocityX
+        params.txtECEFVectorVelocityY: hmi.ECEFVectorVelocityY
+        params.txtECEFVectorVelocityZ: hmi.ECEFVectorVelocityZ
+
+        params.txtRollAngle: hmi.RollAngle
+        params.txtPitchAngle: hmi.PitchAngle
+        params.txtYawAngle: hmi.YawAngle
+        params.txtAngularRateRoll: hmi.AngularRateRoll
+        params.txtAngularRatePitch: hmi.AngularRatePitch
+        params.txtAngularRateYaw: hmi.AngularRateYaw
+
+        params.txtQuaternion0: hmi.Quaternion0
+        params.txtQuaternion1: hmi.Quaternion1
+        params.txtQuaternion2: hmi.Quaternion2
+        params.txtQuaternion3: hmi.Quaternion3
+        params.txtTelemetryStatusMask: hmi.TelemetryStatusMask
+        params.txtNumberOfGPSSatellite: hmi.NumberOfGPSSatellite
+
+
     }
 }
 

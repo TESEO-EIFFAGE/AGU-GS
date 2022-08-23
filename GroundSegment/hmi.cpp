@@ -22,20 +22,20 @@ void HMI::showData(Telemetry *t)
     int id=0;
     uint8_t DataByte32, DataByte40, DataByte48, DataByte56;
 /*
-    s = QString::number(t->TimeStamp);
+    m_TimeStamp = t->TimeStamp;
     qInfo() << "TimeStamp = " << s;
 
 */
-    s = QString::number(t->TimeStampRIO);
+    m_TimeStampRIO = t->TimeStampRIO;
     qInfo() << "TimeStampRIO = " << s;
 
-    s = QString::number(t->Latitude);
+    m_Latitude = t->Latitude;
     qInfo() << "Latitude = " << s;
 
-    s = QString::number(t->Longitude);
+    m_Longitude = t->Longitude;
     qInfo() << "Longitude = " << s;
 
-    s = QString::number(t->GNSSAltitude);
+    m_GNSSAltitude = t->GNSSAltitude;
     qInfo() << "GNSSAltitude = " << s;
 
     s = QString::number(t->AirSpeed_UVector);
@@ -47,71 +47,71 @@ void HMI::showData(Telemetry *t)
     s = QString::number(t->AirSpeed_WVector);
     qInfo() << "AirSpeed_WVector = " << s;
 
-    s = QString::number(t->AirTemperature);
+    m_AirTemperature = t->AirTemperature;
     qInfo() << "AirTemperature = " << s;
 
-    s = QString::number(t->AltitudeFromRadarAltimeter);
+    m_AltitudeFromRadarAltimeter = t->AltitudeFromRadarAltimeter;
     qInfo() << "AltitudeFromRadarAltimeter = " << s;
 
-    s = QString::number(t->AltitudeFromPayloadAltimeter);
+    m_AltitudeFromPayloadAltimeter = t->AltitudeFromPayloadAltimeter;
     qInfo() << "AltitudeFromPayloadAltimeter = " << s;
 
-    s = QString::number(t->LinearVelocityHorizontal);
+    m_LinearVelocityHorizontal = t->LinearVelocityHorizontal;
     qInfo() << "LinearVelocityHorizontal = " << s;
 
-    s = QString::number(t->LinearVelocityVertical);
+    m_LinearVelocityVertical = t->LinearVelocityVertical;
     qInfo() << "LinearVelocityVertical = " << s;
 
-    s = QString::number(t->PositionAccuracy);
+    m_PositionAccuracy = t->PositionAccuracy;
     qInfo() << "PositionAccuracy = " << s;
 
-    s = QString::number(t->SpeedAccuracy);
+    m_SpeedAccuracy = t->SpeedAccuracy;
     qInfo() << "SpeedAccuracy   = " << s;
 
-    s = QString::number(t->LinearAccelerationX);
+    m_LinearAccelerationX = t->LinearAccelerationX;
     qInfo() << "LinearAccelerationX = " << s;
 
-    s = QString::number(t->LinearAccelerationY);
+    m_LinearAccelerationY = t->LinearAccelerationY;
     qInfo() << "LinearAccelerationY = " << s;
 
-    s = QString::number(t->LinearAccelerationZ);
+    m_LinearAccelerationZ = t->LinearAccelerationZ;
     qInfo() << "LinearAccelerationZ = " << s;
 
-    s = QString::number(t->ECEFVectorPositionX);
+    m_ECEFVectorPositionX = t->ECEFVectorPositionX;
     qInfo() << "PositionAccuracy = " << s;
 
-    s = QString::number(t->ECEFVectorPositionY);
+    m_ECEFVectorPositionY = t->ECEFVectorPositionY;
     qInfo() << "PositionAccuracy = " << s;
 
-    s = QString::number(t->ECEFVectorPositionZ);
+    m_ECEFVectorPositionZ = t->ECEFVectorPositionZ;
     qInfo() << "PositionAccuracy = " << s;
 
-    s = QString::number(t->ECEFVectorVelocityX);
+    m_ECEFVectorVelocityX = t->ECEFVectorVelocityX;
     qInfo() << "PositionAccuracy = " << s;
 
-    s = QString::number(t->ECEFVectorVelocityY);
+    m_ECEFVectorVelocityY = t->ECEFVectorVelocityY;
     qInfo() << "PositionAccuracy = " << s;
 
-    s = QString::number(t->ECEFVectorVelocityZ);
+    m_ECEFVectorVelocityZ = t->ECEFVectorVelocityZ;
     qInfo() << "PositionAccuracy = " << s;
 
-    s = QString::number(t->RollAngle);
+    m_RollAngle = t->RollAngle;
     qInfo() << "RollAngle = " << s;
 
-    s = QString::number(t->PitchAngle);
+    m_PitchAngle = t->PitchAngle;
     qInfo() << "PitchAngle = " << s;
 
-    s = QString::number(t->YawAngle);
+    m_YawAngle = t->YawAngle;
     qInfo() << "YawAngle = " << s;
 
-    s = QString::number(t->AgularRateRoll);
-    qInfo() << "AgularRateRoll = " << s;
+    m_AngularRateRoll = t->AngularRateRoll;
+    qInfo() << "AngularRateRoll = " << s;
 
-    s = QString::number(t->AgularRatePitch);
-    qInfo() << "AgularRatePitch = " << s;
+    m_AngularRatePitch = t->AngularRatePitch;
+    qInfo() << "AngularRatePitch = " << s;
 
-    s = QString::number(t->AgularRateYaw);
-    qInfo() << "AgularRateYaw = " << s;
+    m_AngularRateYaw = t->AngularRateYaw;
+    qInfo() << "AngularRateYaw = " << s;
 
     s = QString::number(t->Quaternion0);
     qInfo() << "Quaternion0 = " << s;
@@ -125,10 +125,10 @@ void HMI::showData(Telemetry *t)
     s = QString::number(t->Quaternion3);
     qInfo() << "Quaternion3 = " << s;
 
-    s = QString::number(t->TelemetryStatusMask);
+    m_TelemetryStatusMask = t->TelemetryStatusMask;
     qInfo() << "TelemetryStatusMask = " << s;
 
-    s = QString::number(t->NumberOfGPSSatellite);
+    m_NumberOfGPSSatellite = t->NumberOfGPSSatellite;
     qInfo() << "NumberOfGPSSatellite = " << s;
 
 
@@ -415,4 +415,3 @@ void HMI::showDataSystemStatus(SystemStatusPack *s)
      is_setRadioLink24  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(24);  /* BIT 9*/
      if (is_setRadioLink24)  { /*accensione LED rosso*/ }
 }
-
