@@ -6,11 +6,12 @@ import QtPositioning 5.6
 import io.qt.examples.gps_data 1.0
 
 
-Item {
+Item{
     id: mapviewer
-    //width: Qt.platform.os == "android" ? Screen.width : 512
+    //width: Qt.platform.os =ss= "android" ? Screen.width : 512
     //height: Qt.platform.os == "android" ? Screen.height : 512
     visible: true
+
 
     GPSData {
        id: gpsData

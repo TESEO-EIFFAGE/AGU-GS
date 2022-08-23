@@ -17,14 +17,14 @@ Rectangle {
 
     color: Constants.backgroundColor
     property alias params: params
-
     RowLayout {
         id: rowLayout
         anchors.fill: parent
 
         MapViewer {
             id: map
-            Layout.preferredWidth: parent.implicitWidth/2
+            //width: parent.implicitWidth
+            //Layout.preferredWidth: 512
             Layout.fillHeight: true
             Layout.fillWidth: true
         }
