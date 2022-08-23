@@ -32,6 +32,7 @@ import QtQuick.Window 2.15
 import GroundSegmentUI 1.0
 
 Window {
+    //property
     width: mainScreen.width
     height: mainScreen.height
 
@@ -40,6 +41,7 @@ Window {
 
     Screen01 {
         id: mainScreen
+        //params.parametrotext:HMI.parametro
     }
 }
 

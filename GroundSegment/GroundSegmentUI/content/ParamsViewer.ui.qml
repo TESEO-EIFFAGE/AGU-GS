@@ -8,4 +8,20 @@ Rectangle {
     width: 200
     height: 200
     color: "#ffffff"
+    RowLayout{
+        anchors.fill:parent
+        Column{
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            Row{
+                width:parent.width
+                Label{
+                text:""
+            }
+            Label{
+                text:""
+            }
+            }
+        }
+    }
 }
