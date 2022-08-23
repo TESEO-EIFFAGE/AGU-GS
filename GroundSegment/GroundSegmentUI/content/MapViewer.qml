@@ -8,8 +8,8 @@ import io.qt.examples.gps_data 1.0
 
 Item {
     id: mapviewer
-    width: Qt.platform.os == "android" ? Screen.width : 512
-    height: Qt.platform.os == "android" ? Screen.height : 512
+    //width: Qt.platform.os == "android" ? Screen.width : 512
+    //height: Qt.platform.os == "android" ? Screen.height : 512
     visible: true
 
     GPSData {

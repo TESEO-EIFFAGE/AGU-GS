@@ -22,8 +22,9 @@ Rectangle {
         id: rowLayout
         anchors.fill: parent
 
-        SegmentsPosMap {
+        MapViewer {
             id: map
+            Layout.preferredWidth: parent.implicitWidth/2
             Layout.fillHeight: true
             Layout.fillWidth: true
         }
