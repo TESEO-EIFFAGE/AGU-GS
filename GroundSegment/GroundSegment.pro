@@ -8,7 +8,7 @@ QMAKE_LFLAGS += -DHAVE_CBLAS=1
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-include($$PWD/libs/F9P-Coordinates-Viewer/F9P_Coordinates_Viewer.pri)
+include($$PWD/libs/F9P-Viewer/F9P_Coordinates_Viewer.pri)
 
 SOURCES += \
     hmi.cpp \
