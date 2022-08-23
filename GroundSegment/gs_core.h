@@ -1,16 +1,16 @@
-#ifndef HMICONTROLLER_H
-#define HMICONTROLLER_H
+#ifndef GS_CORE
+#define GS_CORE
 
 #include <QtSerialPort/QtSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 
-class HMIController : public QObject
+class GSCore : public QObject
 {
     Q_OBJECT
 
 public:
-    HMIController(QObject *parent = nullptr);
-    ~HMIController();
+    GSCore(QObject *parent = nullptr);
+    ~GSCore();
 
     QSerialPort *Serial1;
     uint64_t TimeStampToHMI;
@@ -19,11 +19,11 @@ public:
 signals:
     void DataIsRead (QByteArray data);
     void work_is_down(void);
-    void updateTopDiagLog(void);
+    //void updateTopDiagLog(void);
 
 public slots:
     void ReadData(void);
     void WriteHartBeat();
 
 };
-#endif // HMICONTROLLER_H
+#endif // GS_CORE

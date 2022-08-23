@@ -8,8 +8,8 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    gs_core.cpp \
     hmi.cpp \
-    hmi_controller.cpp \
     main.cpp \
 #    mainwindow.cpp \
     mavlinkprotocol.cpp \
@@ -17,8 +17,8 @@ SOURCES += \
 #    topdialog.cpp
 
 HEADERS += \
+    gs_core.h \
     hmi.h \
-    hmi_controller.h \
 #    mainwindow.h \
     mavlinkprotocol.h \
     storage.h \
