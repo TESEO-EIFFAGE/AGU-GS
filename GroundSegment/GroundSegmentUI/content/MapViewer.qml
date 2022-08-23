@@ -12,11 +12,11 @@ Item{
     //height: Qt.platform.os == "android" ? Screen.height : 512
     visible: true
 
-
+/*
     GPSData {
        id: gpsData
     }
-
+*/
     CustomCursor {
        id: customCursor
     }

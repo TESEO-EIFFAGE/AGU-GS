@@ -13,6 +13,7 @@ GSCore::GSCore(QObject *parent)
     MavlinkProtocol *Mavlink = new MavlinkProtocol(this);
     Storage *StorageData = new Storage(this);
     setHmi(new HMI(this));
+    setGpsData(new GPSData(this));
 
 
     //Serial1 PORTA CHE RICEVE
@@ -51,6 +52,16 @@ HMI *GSCore::hmi()
 void GSCore::setHmi(HMI* hmi)
 {
     m_hmi = hmi;
+}
+
+GPSData *GSCore::gpsData()
+{
+    return m_gpsData;
+}
+
+void GSCore::setGpsData(GPSData* gpsData)
+{
+    m_gpsData = gpsData;
 }
 
 void GSCore::WriteHartBeat()

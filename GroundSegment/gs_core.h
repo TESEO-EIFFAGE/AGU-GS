@@ -1,6 +1,7 @@
 #ifndef GS_CORE
 #define GS_CORE
 #include "hmi.h"
+#include <GPSData.h>
 #include <QtSerialPort/QtSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 
@@ -19,6 +20,8 @@ public:
     qint8 Counter;
     HMI* hmi();
     void setHmi(HMI*);
+    GPSData* gpsData();
+    void setGpsData(GPSData*);
 
 signals:
     void DataIsRead (QByteArray data);
@@ -30,6 +33,7 @@ public slots:
     void WriteHartBeat();
 private:
     HMI* m_hmi;
+    GPSData* m_gpsData;
 
 };
 #endif // GS_CORE
