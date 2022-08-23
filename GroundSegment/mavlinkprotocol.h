@@ -24,7 +24,7 @@ typedef struct
     uint32_t  ECEFVectorPositionX, ECEFVectorPositionY, ECEFVectorPositionZ;
     uint32_t  ECEFVectorVelocityX, ECEFVectorVelocityY, ECEFVectorVelocityZ;
     uint16_t  RollAngle, PitchAngle, YawAngle;
-    uint16_t  AgularRateRoll, AgularRatePitch, AgularRateYaw;
+    uint16_t  AngularRateRoll, AngularRatePitch, AngularRateYaw;
     float     Quaternion0, Quaternion1, Quaternion2, Quaternion3;
     uint64_t  TelemetryStatusMask;
     uint8_t   NumberOfGPSSatellite;
