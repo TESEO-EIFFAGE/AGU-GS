@@ -1,10 +1,10 @@
 #ifndef GS_CORE
 #define GS_CORE
-
+#include "hmi.h"
 #include <QtSerialPort/QtSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 
-class HMI;
+//class HMI;
 
 class GSCore : public QObject
 {

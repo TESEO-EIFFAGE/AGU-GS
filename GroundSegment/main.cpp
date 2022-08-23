@@ -54,7 +54,8 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     auto gsCore = new GSCore(&app);
-    engine.rootContext()->setContextProperty("hmi",gsCore->hmi());
+    auto hmi = gsCore->hmi();
+    engine.rootContext()->setContextProperty("hmi", hmi);
     engine.addImportPath("qrc:/imports");
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
