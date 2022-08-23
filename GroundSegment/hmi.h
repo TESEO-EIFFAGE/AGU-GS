@@ -138,7 +138,7 @@ signals:
 
 private:
 
-    uint64_t m_TimeStamp { 1000 };
+    uint64_t m_TimeStamp;
     uint64_t m_TimeStampRIO;
     uint32_t m_Latitude;
     uint32_t m_Longitude;
