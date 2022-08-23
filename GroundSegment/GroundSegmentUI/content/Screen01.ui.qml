@@ -17,22 +17,34 @@ Rectangle {
 
     color: Constants.backgroundColor
     property alias params: params
-    RowLayout {
-        id: rowLayout
-        anchors.fill: parent
 
-        MapViewer {
-            id: map
-            //width: parent.implicitWidth
-            //Layout.preferredWidth: 512
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-        }
-
-        ParamsViewer {
-            id: params
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-        }
+    //    RowLayout {
+    //        id: rowLayout
+    //        anchors.fill: parent
+    MapViewer {
+        id: map
+        width: parent.width / 2
+        height: parent.height
+        anchors.left: parent.left
+        //width: parent.implicitWidth
+        //Layout.preferredWidth: 512
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
     }
+
+    ParamsViewer {
+        id: params
+        width: parent.width / 2
+        height: parent.height
+        anchors.right: parent.right
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+    }
+    //  }
 }
+
+/*##^##
+Designer {
+    D{i:0;height:600;width:1200}
+}
+##^##*/
