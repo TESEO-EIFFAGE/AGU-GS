@@ -20,7 +20,7 @@ Rectangle {
     property alias txtAltitudeFromPayloadAltimeter: txtAltitudeFromPayloadAltimeter.text
     property alias txtLinearVelocityHorizontal: txtLinearVelocityHorizontal.text
 
-    property alias txtLinearVelocityVertical:txtLinearVelocityVertical.text
+    property alias txtLinearVelocityVertical: txtLinearVelocityVertical.text
     property alias txtPositionAccuracy: txtPositionAccuracy.text
     property alias txtSpeedAccuracy: txtSpeedAccuracy.text
     property alias txtLinearAccelerationX: txtLinearAccelerationX.text
@@ -48,364 +48,359 @@ Rectangle {
     property alias txtTelemetryStatusMask: txtTelemetryStatusMask.text
     property alias txtNumberOfGPSSatellite: txtNumberOfGPSSatellite.text
 
-
-
-
-
     width: 200
     height: 200
     color: "#ffffff"
-    ColumnLayout{
-        anchors.fill:parent
-        RowLayout{
+    ColumnLayout {
+        anchors.fill: parent
+        RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Label{
+            Label {
                 id: txtTimeStamp
+            }
+            Column {
+                width: parent.width
+                Label {
+                    text: "TimeStamp RIO"
+                }
+                Label {
+                    id: txtTimeStampRIO
+                }
+            }
+            Column {
+                width: parent.width
+                Label {
+                    text: "Latitude"
+                }
+                Label {
+                    id: txtLatitude
+                }
+            }
 
-            }
-            Column{
-                width:parent.width
-                Label{
-                    text:"TimeStamp RIO"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Longitude"
                 }
-                Label{
-                    id:txtTimeStampRIO
-                }
-            }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Latitude"
-                }
-                Label{
-                    id:txtLatitude
+                Label {
+                    id: txtLongitude
                 }
             }
-
-            Column{
-                width:parent.width
-                Label{
-                    text:"Longitude"
+            Column {
+                width: parent.width
+                Label {
+                    text: "GNSS Altitude"
                 }
-                Label{
-                    id:txtLongitude
-                }
-            }
-            Column{
-                width:parent.width
-                Label{
-                    text:"GNSS Altitude"
-                }
-                Label{
-                    id:txtGNSSAltitude
+                Label {
+                    id: txtGNSSAltitude
                 }
             }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Air Speed UVector"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Air Speed UVector"
                 }
-                Label{
-                    id:txtAirSpeed_UVector
+                Label {
+                    id: txtAirSpeed_UVector
                 }
             }
         }
-        RowLayout{
+        RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Column{
-                width:parent.width
-                Label{
-                    text:"Air Speed VVector"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Air Speed VVector"
                 }
-                Label{
-                    id:txtAirSpeed_VVector
-                }
-            }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Air Speed WVector"
-                }
-                Label{
-                    id:txtAirSpeed_WVector
+                Label {
+                    id: txtAirSpeed_VVector
                 }
             }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Air Temperature"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Air Speed WVector"
                 }
-                Label{
-                    id:txtAirTemperature
+                Label {
+                    id: txtAirSpeed_WVector
+                }
+            }
+            Column {
+                width: parent.width
+                Label {
+                    text: "Air Temperature"
+                }
+                Label {
+                    id: txtAirTemperature
                 }
             }
 
-            Column{
-                width:parent.width
-                Label{
-                    text:"Altitude From RadarAltimeter"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Altitude From RadarAltimeter"
                 }
-                Label{
-                    id:txtAltitudeFromRadarAltimeter
-                }
-            }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Altitude From Payload Altimeter"
-                }
-                Label{
-                    id:txtAltitudeFromPayloadAltimeter
+                Label {
+                    id: txtAltitudeFromRadarAltimeter
                 }
             }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Linear Velocity Horizontal"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Altitude From Payload Altimeter"
                 }
-                Label{
-                    id:txtLinearVelocityHorizontal
+                Label {
+                    id: txtAltitudeFromPayloadAltimeter
+                }
+            }
+            Column {
+                width: parent.width
+                Label {
+                    text: "Linear Velocity Horizontal"
+                }
+                Label {
+                    id: txtLinearVelocityHorizontal
                 }
             }
         }
-        RowLayout{
+        RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Column{
-                width:parent.width
-                Label{
-                    text:"Linear Velocity Vertical"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Linear Velocity Vertical"
                 }
-                Label{
-                    id:txtLinearVelocityVertical
-                }
-            }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Position Accuracy"
-                }
-                Label{
-                    id:txtPositionAccuracy
+                Label {
+                    id: txtLinearVelocityVertical
                 }
             }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Speed Accuracy"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Position Accuracy"
                 }
-                Label{
-                    id:txtSpeedAccuracy
+                Label {
+                    id: txtPositionAccuracy
+                }
+            }
+            Column {
+                width: parent.width
+                Label {
+                    text: "Speed Accuracy"
+                }
+                Label {
+                    id: txtSpeedAccuracy
                 }
             }
 
-            Column{
-                width:parent.width
-                Label{
-                    text:"Linear Acceleration X"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Linear Acceleration X"
                 }
-                Label{
-                    id:txtLinearAccelerationX
-                }
-            }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Linear Acceleration Y"
-                }
-                Label{
-                    id:txtLinearAccelerationY
+                Label {
+                    id: txtLinearAccelerationX
                 }
             }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Linear Acceleration Z"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Linear Acceleration Y"
                 }
-                Label{
-                    id:txtLinearAccelerationZ
+                Label {
+                    id: txtLinearAccelerationY
+                }
+            }
+            Column {
+                width: parent.width
+                Label {
+                    text: "Linear Acceleration Z"
+                }
+                Label {
+                    id: txtLinearAccelerationZ
                 }
             }
         }
-        RowLayout{
+        RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Column{
-                width:parent.width
-                Label{
-                    text:"ECEF Vector Position X"
+            Column {
+                width: parent.width
+                Label {
+                    text: "ECEF Vector Position X"
                 }
-                Label{
-                    id:txtECEFVectorPositionX
-                }
-            }
-            Column{
-                width:parent.width
-                Label{
-                    text:"ECEF Vector Position Y"
-                }
-                Label{
-                    id:txtECEFVectorPositionY
+                Label {
+                    id: txtECEFVectorPositionX
                 }
             }
-            Column{
-                width:parent.width
-                Label{
-                    text:"ECEF Vector Position Z"
+            Column {
+                width: parent.width
+                Label {
+                    text: "ECEF Vector Position Y"
                 }
-                Label{
-                    id:txtECEFVectorPositionZ
+                Label {
+                    id: txtECEFVectorPositionY
+                }
+            }
+            Column {
+                width: parent.width
+                Label {
+                    text: "ECEF Vector Position Z"
+                }
+                Label {
+                    id: txtECEFVectorPositionZ
                 }
             }
 
-            Column{
-                width:parent.width
-                Label{
-                    text:"ECEF Vector Velocity X"
+            Column {
+                width: parent.width
+                Label {
+                    text: "ECEF Vector Velocity X"
                 }
-                Label{
-                    id:txtECEFVectorVelocityX
-                }
-            }
-            Column{
-                width:parent.width
-                Label{
-                    text:"ECEF Vector Velocity Y"
-                }
-                Label{
-                    id:txtECEFVectorVelocityY
+                Label {
+                    id: txtECEFVectorVelocityX
                 }
             }
-            Column{
-                width:parent.width
-                Label{
-                    text:"ECEF Vector Velocity Z"
+            Column {
+                width: parent.width
+                Label {
+                    text: "ECEF Vector Velocity Y"
                 }
-                Label{
-                    id:txtECEFVectorVelocityZ
+                Label {
+                    id: txtECEFVectorVelocityY
+                }
+            }
+            Column {
+                width: parent.width
+                Label {
+                    text: "ECEF Vector Velocity Z"
+                }
+                Label {
+                    id: txtECEFVectorVelocityZ
                 }
             }
         }
-        RowLayout{
+        RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Column{
-                width:parent.width
-                Label{
-                    text:"Roll Angle"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Roll Angle"
                 }
-                Label{
-                    id:txtRollAngle
-                }
-            }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Pitch Angle"
-                }
-                Label{
-                    id:txtPitchAngle
+                Label {
+                    id: txtRollAngle
                 }
             }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Yaw Angle"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Pitch Angle"
                 }
-                Label{
-                    id:txtYawAngle
+                Label {
+                    id: txtPitchAngle
+                }
+            }
+            Column {
+                width: parent.width
+                Label {
+                    text: "Yaw Angle"
+                }
+                Label {
+                    id: txtYawAngle
                 }
             }
 
-            Column{
-                width:parent.width
-                Label{
-                    text:"Angular Rate Roll"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Angular Rate Roll"
                 }
-                Label{
-                    id:txtAngularRateRoll
-                }
-            }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Angular Rate Pitch"
-                }
-                Label{
-                    id:txtAngularRatePitch
+                Label {
+                    id: txtAngularRateRoll
                 }
             }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Angular Rate Yaw"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Angular Rate Pitch"
                 }
-                Label{
-                    id:txtAngularRateYaw
+                Label {
+                    id: txtAngularRatePitch
+                }
+            }
+            Column {
+                width: parent.width
+                Label {
+                    text: "Angular Rate Yaw"
+                }
+                Label {
+                    id: txtAngularRateYaw
                 }
             }
         }
-        RowLayout{
+        RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Column{
-                width:parent.width
-                Label{
-                    text:"Quaternion 0"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Quaternion 0"
                 }
-                Label{
-                    id:txtQuaternion0
-                }
-            }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Quaternion 1"
-                }
-                Label{
-                    id:txtQuaternion1
+                Label {
+                    id: txtQuaternion0
                 }
             }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Quaternion 2"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Quaternion 1"
                 }
-                Label{
-                    id:txtQuaternion2
+                Label {
+                    id: txtQuaternion1
+                }
+            }
+            Column {
+                width: parent.width
+                Label {
+                    text: "Quaternion 2"
+                }
+                Label {
+                    id: txtQuaternion2
                 }
             }
 
-            Column{
-                width:parent.width
-                Label{
-                    text:"Quaternion 3"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Quaternion 3"
                 }
-                Label{
-                    id:txtQuaternion3
-                }
-            }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Telemetry Status Mask"
-                }
-                Label{
-                    id:txtTelemetryStatusMask
+                Label {
+                    id: txtQuaternion3
                 }
             }
-            Column{
-                width:parent.width
-                Label{
-                    text:"Number Of GPS Satellite"
+            Column {
+                width: parent.width
+                Label {
+                    text: "Telemetry Status Mask"
                 }
-                Label{
-                    id:txtNumberOfGPSSatellite
+                Label {
+                    id: txtTelemetryStatusMask
+                }
+            }
+            Column {
+                width: parent.width
+                Label {
+                    text: "Number Of GPS Satellite"
+                }
+                Label {
+                    id: txtNumberOfGPSSatellite
                 }
             }
         }
+
     }
 }
-
