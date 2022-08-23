@@ -42,6 +42,9 @@ Window {
     Screen01 {
         id: mainScreen
         //params.parametrotext:HMI.parametro
+        params.txtTimeStamp: hmi.TimeStamp
+        params.txtTimeStampRIO: hmi.TimeStampRIO
+        params.txtLatitude: hmi.Latitude
     }
 }
 
