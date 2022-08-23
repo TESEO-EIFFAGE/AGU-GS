@@ -1,17 +1,18 @@
-<!DOCTYPE RCC><RCC version="1.0">
-<qresource>
-<file>./content/App.qml</file>
-<file>./content/fonts/fonts.txt</file>
-<file>./content/Screen01.ui.qml</file>
-<file>./imports/GroundSegmentUI/Constants.qml</file>
-<file>./imports/GroundSegmentUI/DirectoryFontLoader.qml</file>
-<file>./imports/GroundSegmentUI/EventListModel.qml</file>
-<file>./imports/GroundSegmentUI/EventListSimulator.qml</file>
-<file>./imports/GroundSegmentUI/qmldir</file>
-<file>./main.qml</file>
-<file>./qmlmodules</file>
-<file>./qtquickcontrols2.conf</file>
-<file>./content/ParamsViewer.ui.qml</file>
-<file>./content/SegmentsPosMap.ui.qml</file>
-</qresource>
+<RCC>
+    <qresource prefix="/">
+        <file>content/App.qml</file>
+        <file>content/fonts/fonts.txt</file>
+        <file>content/Screen01.ui.qml</file>
+        <file>imports/GroundSegmentUI/Constants.qml</file>
+        <file>imports/GroundSegmentUI/DirectoryFontLoader.qml</file>
+        <file>imports/GroundSegmentUI/EventListModel.qml</file>
+        <file>imports/GroundSegmentUI/EventListSimulator.qml</file>
+        <file>imports/GroundSegmentUI/qmldir</file>
+        <file>main.qml</file>
+        <file>qmlmodules</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>content/ParamsViewer.ui.qml</file>
+        <file>content/SegmentsPosMap.ui.qml</file>
+        <file>content/MapViewer.qml</file>
+    </qresource>
 </RCC>
