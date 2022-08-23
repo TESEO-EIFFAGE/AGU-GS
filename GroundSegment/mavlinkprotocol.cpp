@@ -39,7 +39,7 @@ void MavlinkProtocol::parseDataTelemetry(QByteArray data)
     uint32_t  ECEFVectorPositionX_FromMavlink = 19, ECEFVectorPositionY_FromMavlink = 20, ECEFVectorPositionZ_FromMavlink = 21;
     uint32_t  ECEFVectorVelocityX_FromMavlink = 22, ECEFVectorVelocityY_FromMavlink = 23, ECEFVectorVelocityZ_FromMavlink = 24;
     uint16_t  RollAngle_FromMavlink = 25, PitchAngle_FromMavlink = 26, YawAngle_FromMavlink = 27;
-    uint16_t  AgularRateRoll_FromMavlink = 28, AgularRatePitch_FromMavlink = 29, AgularRateYaw_FromMavlink = 30;
+    uint16_t  AngularRateRoll_FromMavlink = 28, AngularRatePitch_FromMavlink = 29, AngularRateYaw_FromMavlink = 30;
     float     Quaternion0_FromMavlink = 31, Quaternion1_FromMavlink = 32, Quaternion2_FromMavlink = 33, Quaternion3_FromMavlink = 34;
     uint64_t  TelemetryStatusMask_FromMavlink = 2459565876494606882;
     uint8_t   NumberOfGPSSatellite_FromMavlink = 36;
@@ -60,9 +60,9 @@ void MavlinkProtocol::parseDataTelemetry(QByteArray data)
     t.ECEFVectorVelocityZ = ECEFVectorVelocityZ_FromMavlink;
     t.LinearVelocityHorizontal = LinearVelocityHorizontal_FromMavlink;
     t.LinearVelocityVertical = LinearVelocityVertical_FromMavlink;
-    t.AgularRatePitch = AgularRatePitch_FromMavlink;
-    t.AgularRateRoll = AgularRateRoll_FromMavlink;
-    t.AgularRateYaw = AgularRateYaw_FromMavlink;
+    t.AngularRatePitch = AngularRatePitch_FromMavlink;
+    t.AngularRateRoll = AngularRateRoll_FromMavlink;
+    t.AngularRateYaw = AngularRateYaw_FromMavlink;
     t.RollAngle = RollAngle_FromMavlink;
     t.PitchAngle = PitchAngle_FromMavlink;
     t.YawAngle = YawAngle_FromMavlink;

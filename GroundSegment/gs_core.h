@@ -4,6 +4,8 @@
 #include <QtSerialPort/QtSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 
+class HMI;
+
 class GSCore : public QObject
 {
     Q_OBJECT
@@ -15,6 +17,8 @@ public:
     QSerialPort *Serial1;
     uint64_t TimeStampToHMI;
     qint8 Counter;
+    HMI* hmi();
+    void setHmi(HMI*);
 
 signals:
     void DataIsRead (QByteArray data);
@@ -24,6 +28,8 @@ signals:
 public slots:
     void ReadData(void);
     void WriteHartBeat();
+private:
+    HMI* m_hmi;
 
 };
 #endif // GS_CORE

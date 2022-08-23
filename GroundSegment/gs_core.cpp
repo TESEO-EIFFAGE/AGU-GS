@@ -12,7 +12,7 @@ GSCore::GSCore(QObject *parent)
     Serial1 = new QSerialPort(this);
     MavlinkProtocol *Mavlink = new MavlinkProtocol(this);
     Storage *StorageData = new Storage(this);
-    HMI *Interface = new HMI(this);
+    setHmi(new HMI(this));
 
 
     //Serial1 PORTA CHE RICEVE
@@ -29,8 +29,8 @@ GSCore::GSCore(QObject *parent)
     GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataSystemStatus(QByteArray)));             /*segnale emesso da MainWindow::ReadData()*/
     GSCore::connect(Mavlink, SIGNAL(toStorage(Telemetry *)), StorageData, SLOT(StoreDataInMemory(Telemetry *)));
     GSCore::connect(Mavlink, SIGNAL(toStorageSystemStatus(SystemStatusPack *)), StorageData, SLOT(StoreDataInMemorySystemStatus(SystemStatusPack *)));
-    GSCore::connect(Mavlink, SIGNAL(toHMI(Telemetry *)), Interface, SLOT(showData(Telemetry *)));
-    GSCore::connect(Mavlink, SIGNAL(toHMISystemStatus(SystemStatusPack *)), Interface, SLOT(showDataSystemStatus(SystemStatusPack *)));
+    GSCore::connect(Mavlink, SIGNAL(toHMI(Telemetry *)), m_hmi, SLOT(showData(Telemetry *)));
+    GSCore::connect(Mavlink, SIGNAL(toHMISystemStatus(SystemStatusPack *)), m_hmi, SLOT(showDataSystemStatus(SystemStatusPack *)));
     //HMIController::connect(this, SIGNAL(updateTopDiagLog()), TopDialogWindow, SLOT(UpdateWindow()));  /* Spostare l'UpdateWindow signal dal pushbutton*/
 
     QTimer *timer = new QTimer(this);
@@ -43,12 +43,22 @@ GSCore::~GSCore()
 {
 }
 
+HMI *GSCore::hmi()
+{
+    return m_hmi;
+}
+
+void GSCore::setHmi(HMI* hmi)
+{
+    m_hmi = hmi;
+}
+
 void GSCore::WriteHartBeat()
 {
     QByteArray HeartBeatMessage;
-  //  qInfo() << "RX Message sono in WriteHartBeat inizio " << data;
+    //  qInfo() << "RX Message sono in WriteHartBeat inizio " << data;
 
-  // if (Serial1->isWritable())
+    // if (Serial1->isWritable())
 
     HeartBeatMessage.append("FD");
     HeartBeatMessage.append("01");
@@ -88,7 +98,7 @@ void GSCore::WriteHartBeat()
     {
         HeartBeatMessage.append(q);
     }
-        //QByteArray hexvalue = q.toHex();
+    //QByteArray hexvalue = q.toHex();
 
 
     qInfo() << "***************** HeartBeatMessage   = " << HeartBeatMessage;
@@ -120,8 +130,8 @@ void GSCore::ReadData()
          else
          {
              /*verifica se è l'hartbeat e rispedisci*/
-             //Serial1->write(retData);*/
-      /*   }*/
+        //Serial1->write(retData);*/
+        /*   }*/
     }
 }
 

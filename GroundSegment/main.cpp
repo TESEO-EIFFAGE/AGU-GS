@@ -1,13 +1,15 @@
 //#include "mainwindow.h"
 //#include "topdialog.h"
+#include "gs_core.h"
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 #include <QtSerialPort/QtSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 #include <QDebug>
 #include <QObject>
-#include "mavlinkprotocol.h"
-#include "storage.h"
+//#include "mavlinkprotocol.h"
+//#include "storage.h"
 #include <thread>
 
 int main(int argc, char *argv[])
@@ -51,6 +53,8 @@ int main(int argc, char *argv[])
      //w.show();
 
     QQmlApplicationEngine engine;
+    auto gsCore = new GSCore(&app);
+    engine.rootContext()->setContextProperty("hmi",gsCore->hmi());
     engine.addImportPath("qrc:/imports");
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
