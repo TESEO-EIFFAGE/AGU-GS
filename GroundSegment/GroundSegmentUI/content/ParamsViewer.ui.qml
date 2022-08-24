@@ -48,87 +48,168 @@ Rectangle {
     property alias txtTelemetryStatusMask: txtTelemetryStatusMask.text
     property alias txtNumberOfGPSSatellite: txtNumberOfGPSSatellite.text
 
-    width: 200
-    height: 200
+    width: 667 //Constants.width / 2
+    height: 750 //Constants.height
     color: "#ffffff"
-    ColumnLayout {
-        anchors.fill: parent
+    Column {
+        anchors.top: parent.top
+        anchors.topMargin: 8
+        anchors.right: parent.right
+        anchors.rightMargin: 8
+        spacing: 8
         RowLayout {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
+            spacing: 8
+            Label {
+                text: "TimeStamp"
+            }
             Label {
                 id: txtTimeStamp
+                text: ""
             }
-            Column {
-                width: parent.width
-                Label {
-                    text: "TimeStamp RIO"
-                }
-                Label {
-                    id: txtTimeStampRIO
-                }
+        }
+        Row {
+            //width: parent.width
+            spacing: 8
+            Label {
+                text: "TimeStamp RIO"
             }
+            Label {
+                id: txtTimeStampRIO
+            }
+        }
+    }
+    ColumnLayout {
+        anchors.fill: parent
+        spacing: 16
+        anchors.margins: 16
+        Label {
+            Layout.topMargin: 8
+            text: "Position Info"
+            font.pixelSize: 16
+        }
+        RowLayout {
+            spacing: 8
+            Layout.fillWidth: true
             Column {
-                width: parent.width
-                Label {
-                    text: "Latitude"
+                //Layout.alignment: Qt.AlignRight
+                spacing: 8
+                Row {
+                    Label {
+                        text: "Latitude"
+                    }
+                    Label {
+                        id: txtLatitude
+                    }
                 }
-                Label {
-                    id: txtLatitude
+
+                Row {
+                    Label {
+                        text: "Longitude"
+                    }
+                    Label {
+                        id: txtLongitude
+                    }
+                }
+                Row {
+                    Label {
+                        text: "Altitude"
+                    }
+                    Label {
+                        id: txtGNSSAltitude
+                    }
                 }
             }
 
             Column {
-                width: parent.width
-                Label {
-                    text: "Longitude"
+                spacing: 8
+                Row {
+                    Label {
+                        text: "ECEF Position X"
+                    }
+                    Label {
+                        id: txtECEFVectorPositionX
+                    }
                 }
-                Label {
-                    id: txtLongitude
+                Row {
+                    Label {
+                        text: "ECEF Position Y"
+                    }
+                    Label {
+                        id: txtECEFVectorPositionY
+                    }
+                }
+                Row {
+                    Label {
+                        text: "ECEF Position Z"
+                    }
+                    Label {
+                        id: txtECEFVectorPositionZ
+                    }
                 }
             }
             Column {
-                width: parent.width
-                Label {
-                    text: "GNSS Altitude"
+                spacing: 8
+                Layout.alignment: Qt.AlignTop
+
+                Row {
+                    Label {
+                        text: "Altitude From Radar"
+                    }
+                    Label {
+                        id: txtAltitudeFromRadarAltimeter
+                    }
                 }
-                Label {
-                    id: txtGNSSAltitude
-                }
-            }
-            Column {
-                width: parent.width
-                Label {
-                    text: "Air Speed UVector"
-                }
-                Label {
-                    id: txtAirSpeed_UVector
+                Row {
+                    Label {
+                        text: "Altitude From Payload"
+                    }
+                    Label {
+                        id: txtAltitudeFromPayloadAltimeter
+                    }
                 }
             }
         }
+        Label {
+            text: "Air Info"
+            font.pointSize: 16
+        }
+
         RowLayout {
             Layout.fillWidth: true
-            Layout.fillHeight: true
+            spacing: 8
             Column {
-                width: parent.width
-                Label {
-                    text: "Air Speed VVector"
+                spacing: 8
+                Layout.alignment: Qt.AlignTop
+
+                Row {
+                    Label {
+                        text: "Air Speed UVector"
+                    }
+                    Label {
+                        id: txtAirSpeed_UVector
+                    }
                 }
-                Label {
-                    id: txtAirSpeed_VVector
+
+                Row {
+                    Label {
+                        text: "Air Speed VVector"
+                    }
+                    Label {
+                        id: txtAirSpeed_VVector
+                    }
+                }
+                Row {
+                    Label {
+                        text: "Air Speed WVector"
+                    }
+                    Label {
+                        id: txtAirSpeed_WVector
+                    }
                 }
             }
             Column {
-                width: parent.width
-                Label {
-                    text: "Air Speed WVector"
-                }
-                Label {
-                    id: txtAirSpeed_WVector
-                }
-            }
-            Column {
-                width: parent.width
+                Layout.alignment: Qt.AlignTop
+
                 Label {
                     text: "Air Temperature"
                 }
@@ -136,254 +217,233 @@ Rectangle {
                     id: txtAirTemperature
                 }
             }
+        }
+        Label {
+            text: "Velocity Info"
+            font.pixelSize: 16
+        }
+        RowLayout {
+            spacing: 8
+            Layout.fillWidth: true
+            Column {
+                spacing: 8
+                Layout.alignment: Qt.AlignTop
 
-            Column {
-                width: parent.width
-                Label {
-                    text: "Altitude From RadarAltimeter"
+                Row {
+                    Label {
+                        text: "Linear Velocity Horizontal"
+                    }
+                    Label {
+                        id: txtLinearVelocityHorizontal
+                    }
                 }
-                Label {
-                    id: txtAltitudeFromRadarAltimeter
+
+                Row {
+                    Label {
+                        text: "Linear Velocity Vertical"
+                    }
+                    Label {
+                        id: txtLinearVelocityVertical
+                    }
                 }
             }
             Column {
-                width: parent.width
-                Label {
-                    text: "Altitude From Payload Altimeter"
+                spacing: 8
+                Layout.alignment: Qt.AlignTop
+
+                Row {
+
+                    Label {
+                        text: "ECEF Vector Velocity X"
+                    }
+                    Label {
+                        id: txtECEFVectorVelocityX
+                    }
                 }
-                Label {
-                    id: txtAltitudeFromPayloadAltimeter
+                Row {
+
+                    Label {
+                        text: "ECEF Vector Velocity Y"
+                    }
+                    Label {
+                        id: txtECEFVectorVelocityY
+                    }
+                }
+                Row {
+
+                    Label {
+                        text: "ECEF Vector Velocity Z"
+                    }
+                    Label {
+                        id: txtECEFVectorVelocityZ
+                    }
                 }
             }
             Column {
-                width: parent.width
-                Label {
-                    text: "Linear Velocity Horizontal"
+                spacing: 8
+                Layout.alignment: Qt.AlignTop
+
+                Row {
+                    Label {
+                        text: "Linear Acceleration X"
+                    }
+                    Label {
+                        id: txtLinearAccelerationX
+                    }
                 }
-                Label {
-                    id: txtLinearVelocityHorizontal
+                Row {
+                    Label {
+                        text: "Linear Acceleration Y"
+                    }
+                    Label {
+                        id: txtLinearAccelerationY
+                    }
+                }
+                Row {
+                    Label {
+                        text: "Linear Acceleration Z"
+                    }
+                    Label {
+                        id: txtLinearAccelerationZ
+                    }
                 }
             }
         }
-        RowLayout {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Column {
-                width: parent.width
-                Label {
-                    text: "Linear Velocity Vertical"
-                }
-                Label {
-                    id: txtLinearVelocityVertical
-                }
-            }
-            Column {
-                width: parent.width
-                Label {
-                    text: "Position Accuracy"
-                }
-                Label {
-                    id: txtPositionAccuracy
-                }
-            }
-            Column {
-                width: parent.width
-                Label {
-                    text: "Speed Accuracy"
-                }
-                Label {
-                    id: txtSpeedAccuracy
-                }
-            }
-
-            Column {
-                width: parent.width
-                Label {
-                    text: "Linear Acceleration X"
-                }
-                Label {
-                    id: txtLinearAccelerationX
-                }
-            }
-            Column {
-                width: parent.width
-                Label {
-                    text: "Linear Acceleration Y"
-                }
-                Label {
-                    id: txtLinearAccelerationY
-                }
-            }
-            Column {
-                width: parent.width
-                Label {
-                    text: "Linear Acceleration Z"
-                }
-                Label {
-                    id: txtLinearAccelerationZ
-                }
-            }
+        Label {
+            text: "Rotation Info"
+            font.pixelSize: 16
         }
         RowLayout {
             Layout.fillWidth: true
-            Layout.fillHeight: true
+            spacing: 8
             Column {
-                width: parent.width
-                Label {
-                    text: "ECEF Vector Position X"
+                spacing: 8
+                Layout.alignment: Qt.AlignTop
+                Row {
+                    Label {
+                        text: "Roll Angle"
+                    }
+                    Label {
+                        id: txtRollAngle
+                    }
                 }
-                Label {
-                    id: txtECEFVectorPositionX
+                Row {
+                    Label {
+                        text: "Pitch Angle"
+                    }
+                    Label {
+                        id: txtPitchAngle
+                    }
+                }
+                Row {
+                    Label {
+                        text: "Yaw Angle"
+                    }
+                    Label {
+                        id: txtYawAngle
+                    }
                 }
             }
             Column {
-                width: parent.width
-                Label {
-                    text: "ECEF Vector Position Y"
-                }
-                Label {
-                    id: txtECEFVectorPositionY
-                }
-            }
-            Column {
-                width: parent.width
-                Label {
-                    text: "ECEF Vector Position Z"
-                }
-                Label {
-                    id: txtECEFVectorPositionZ
-                }
-            }
+                spacing: 8
+                Layout.alignment: Qt.AlignTop
 
-            Column {
-                width: parent.width
-                Label {
-                    text: "ECEF Vector Velocity X"
+                Row {
+
+                    Label {
+                        text: "Angular Rate Roll"
+                    }
+                    Label {
+                        id: txtAngularRateRoll
+                    }
                 }
-                Label {
-                    id: txtECEFVectorVelocityX
+                Row {
+                    Label {
+                        text: "Angular Rate Pitch"
+                    }
+                    Label {
+                        id: txtAngularRatePitch
+                    }
+                }
+                Row {
+                    Label {
+                        text: "Angular Rate Yaw"
+                    }
+                    Label {
+                        id: txtAngularRateYaw
+                    }
                 }
             }
             Column {
-                width: parent.width
-                Label {
-                    text: "ECEF Vector Velocity Y"
+                spacing: 8
+                Layout.alignment: Qt.AlignTop
+
+                Row {
+                    width: parent.width
+                    Label {
+                        text: "Quaternion 0"
+                    }
+                    Label {
+                        id: txtQuaternion0
+                    }
                 }
-                Label {
-                    id: txtECEFVectorVelocityY
+                Row {
+                    Label {
+                        text: "Quaternion 1"
+                    }
+                    Label {
+                        id: txtQuaternion1
+                    }
                 }
-            }
-            Column {
-                width: parent.width
-                Label {
-                    text: "ECEF Vector Velocity Z"
+                Row {
+                    width: parent.width
+                    Label {
+                        text: "Quaternion 2"
+                    }
+                    Label {
+                        id: txtQuaternion2
+                    }
                 }
-                Label {
-                    id: txtECEFVectorVelocityZ
+
+                Row {
+                    Label {
+                        text: "Quaternion 3"
+                    }
+                    Label {
+                        id: txtQuaternion3
+                    }
                 }
             }
         }
-        RowLayout {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Column {
-                width: parent.width
-                Label {
-                    text: "Roll Angle"
-                }
-                Label {
-                    id: txtRollAngle
-                }
-            }
-            Column {
-                width: parent.width
-                Label {
-                    text: "Pitch Angle"
-                }
-                Label {
-                    id: txtPitchAngle
-                }
-            }
-            Column {
-                width: parent.width
-                Label {
-                    text: "Yaw Angle"
-                }
-                Label {
-                    id: txtYawAngle
-                }
-            }
-
-            Column {
-                width: parent.width
-                Label {
-                    text: "Angular Rate Roll"
-                }
-                Label {
-                    id: txtAngularRateRoll
-                }
-            }
-            Column {
-                width: parent.width
-                Label {
-                    text: "Angular Rate Pitch"
-                }
-                Label {
-                    id: txtAngularRatePitch
-                }
-            }
-            Column {
-                width: parent.width
-                Label {
-                    text: "Angular Rate Yaw"
-                }
-                Label {
-                    id: txtAngularRateYaw
-                }
-            }
+        Label {
+            text: "Status Info"
+            font.pixelSize: 16
         }
         RowLayout {
             Layout.fillWidth: true
-            Layout.fillHeight: true
+            spacing: 8
             Column {
-                width: parent.width
-                Label {
-                    text: "Quaternion 0"
+                spacing: 8
+                Row {
+                    Label {
+                        text: "Position Accuracy"
+                    }
+                    Label {
+                        id: txtPositionAccuracy
+                    }
                 }
-                Label {
-                    id: txtQuaternion0
+                Row {
+                    Label {
+                        text: "Speed Accuracy"
+                    }
+                    Label {
+                        id: txtSpeedAccuracy
+                    }
                 }
             }
             Column {
-                width: parent.width
-                Label {
-                    text: "Quaternion 1"
-                }
-                Label {
-                    id: txtQuaternion1
-                }
-            }
-            Column {
-                width: parent.width
-                Label {
-                    text: "Quaternion 2"
-                }
-                Label {
-                    id: txtQuaternion2
-                }
-            }
+                Layout.alignment: Qt.AlignTop
 
-            Column {
-                width: parent.width
-                Label {
-                    text: "Quaternion 3"
-                }
-                Label {
-                    id: txtQuaternion3
-                }
-            }
-            Column {
-                width: parent.width
                 Label {
                     text: "Telemetry Status Mask"
                 }
@@ -392,7 +452,8 @@ Rectangle {
                 }
             }
             Column {
-                width: parent.width
+                Layout.alignment: Qt.AlignTop
+
                 Label {
                     text: "Number Of GPS Satellite"
                 }
@@ -401,6 +462,8 @@ Rectangle {
                 }
             }
         }
-
+        Item {
+            Layout.fillHeight: true
+        }
     }
 }
