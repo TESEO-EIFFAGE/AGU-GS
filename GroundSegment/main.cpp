@@ -12,6 +12,7 @@
 //#include "storage.h"
 #include <thread>
 
+
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -55,7 +56,10 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     auto gsCore = new GSCore(&app);
     auto hmi = gsCore->hmi();
+    auto gpsData = gsCore->gpsData();
     engine.rootContext()->setContextProperty("hmi", hmi);
+    engine.rootContext()->setContextProperty("gpsData", gpsData);
+
     engine.addImportPath("qrc:/imports");
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
