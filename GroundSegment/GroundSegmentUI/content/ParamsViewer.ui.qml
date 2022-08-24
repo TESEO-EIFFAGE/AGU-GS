@@ -94,6 +94,7 @@ Rectangle {
                 //Layout.alignment: Qt.AlignRight
                 spacing: 8
                 Row {
+                    spacing: 8
                     Label {
                         text: "Latitude"
                     }
@@ -103,6 +104,7 @@ Rectangle {
                 }
 
                 Row {
+                    spacing: 8
                     Label {
                         text: "Longitude"
                     }
@@ -111,6 +113,8 @@ Rectangle {
                     }
                 }
                 Row {
+
+                    spacing: 8
                     Label {
                         text: "Altitude"
                     }
@@ -123,6 +127,7 @@ Rectangle {
             Column {
                 spacing: 8
                 Row {
+                    spacing: 8
                     Label {
                         text: "ECEF Position X"
                     }
@@ -131,6 +136,7 @@ Rectangle {
                     }
                 }
                 Row {
+                    spacing: 8
                     Label {
                         text: "ECEF Position Y"
                     }
@@ -139,6 +145,7 @@ Rectangle {
                     }
                 }
                 Row {
+                    spacing: 8
                     Label {
                         text: "ECEF Position Z"
                     }
@@ -152,6 +159,7 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
 
                 Row {
+                    spacing: 8
                     Label {
                         text: "Altitude From Radar"
                     }
@@ -160,6 +168,7 @@ Rectangle {
                     }
                 }
                 Row {
+                    spacing: 8
                     Label {
                         text: "Altitude From Payload"
                     }
@@ -182,6 +191,7 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
 
                 Row {
+                    spacing: 8
                     Label {
                         text: "Air Speed UVector"
                     }
@@ -191,6 +201,7 @@ Rectangle {
                 }
 
                 Row {
+                    spacing: 8
                     Label {
                         text: "Air Speed VVector"
                     }
@@ -199,6 +210,7 @@ Rectangle {
                     }
                 }
                 Row {
+                    spacing: 8
                     Label {
                         text: "Air Speed WVector"
                     }
@@ -209,12 +221,14 @@ Rectangle {
             }
             Column {
                 Layout.alignment: Qt.AlignTop
-
-                Label {
-                    text: "Air Temperature"
-                }
-                Label {
-                    id: txtAirTemperature
+                Row {
+                    spacing: 8
+                    Label {
+                        text: "Air Temperature"
+                    }
+                    Label {
+                        id: txtAirTemperature
+                    }
                 }
             }
         }
@@ -230,6 +244,7 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
 
                 Row {
+                    spacing: 8
                     Label {
                         text: "Linear Velocity Horizontal"
                     }
@@ -239,6 +254,7 @@ Rectangle {
                 }
 
                 Row {
+                    spacing: 8
                     Label {
                         text: "Linear Velocity Vertical"
                     }
@@ -252,7 +268,7 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
 
                 Row {
-
+                    spacing: 8
                     Label {
                         text: "ECEF Vector Velocity X"
                     }
@@ -261,7 +277,7 @@ Rectangle {
                     }
                 }
                 Row {
-
+                    spacing: 8
                     Label {
                         text: "ECEF Vector Velocity Y"
                     }
@@ -270,7 +286,7 @@ Rectangle {
                     }
                 }
                 Row {
-
+                    spacing: 8
                     Label {
                         text: "ECEF Vector Velocity Z"
                     }
@@ -284,6 +300,7 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
 
                 Row {
+                    spacing: 8
                     Label {
                         text: "Linear Acceleration X"
                     }
@@ -292,6 +309,7 @@ Rectangle {
                     }
                 }
                 Row {
+                    spacing: 8
                     Label {
                         text: "Linear Acceleration Y"
                     }
@@ -300,6 +318,7 @@ Rectangle {
                     }
                 }
                 Row {
+                    spacing: 8
                     Label {
                         text: "Linear Acceleration Z"
                     }
@@ -320,6 +339,7 @@ Rectangle {
                 spacing: 8
                 Layout.alignment: Qt.AlignTop
                 Row {
+                    spacing: 8
                     Label {
                         text: "Roll Angle"
                     }
@@ -328,6 +348,7 @@ Rectangle {
                     }
                 }
                 Row {
+                    spacing: 8
                     Label {
                         text: "Pitch Angle"
                     }
@@ -336,6 +357,7 @@ Rectangle {
                     }
                 }
                 Row {
+                    spacing: 8
                     Label {
                         text: "Yaw Angle"
                     }
@@ -349,7 +371,7 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
 
                 Row {
-
+                    spacing: 8
                     Label {
                         text: "Angular Rate Roll"
                     }
@@ -358,6 +380,7 @@ Rectangle {
                     }
                 }
                 Row {
+                    spacing: 8
                     Label {
                         text: "Angular Rate Pitch"
                     }
@@ -366,6 +389,7 @@ Rectangle {
                     }
                 }
                 Row {
+                    spacing: 8
                     Label {
                         text: "Angular Rate Yaw"
                     }
@@ -379,7 +403,7 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
 
                 Row {
-                    width: parent.width
+                    spacing: 8
                     Label {
                         text: "Quaternion 0"
                     }
@@ -388,6 +412,7 @@ Rectangle {
                     }
                 }
                 Row {
+                    spacing: 8
                     Label {
                         text: "Quaternion 1"
                     }
@@ -396,7 +421,7 @@ Rectangle {
                     }
                 }
                 Row {
-                    width: parent.width
+                    spacing: 8
                     Label {
                         text: "Quaternion 2"
                     }
@@ -406,6 +431,7 @@ Rectangle {
                 }
 
                 Row {
+                    spacing: 8
                     Label {
                         text: "Quaternion 3"
                     }
@@ -425,6 +451,7 @@ Rectangle {
             Column {
                 spacing: 8
                 Row {
+                    spacing: 8
                     Label {
                         text: "Position Accuracy"
                     }
@@ -433,6 +460,7 @@ Rectangle {
                     }
                 }
                 Row {
+                    spacing: 8
                     Label {
                         text: "Speed Accuracy"
                     }
@@ -443,22 +471,26 @@ Rectangle {
             }
             Column {
                 Layout.alignment: Qt.AlignTop
-
-                Label {
-                    text: "Telemetry Status Mask"
-                }
-                Label {
-                    id: txtTelemetryStatusMask
+                Row {
+                    spacing: 8
+                    Label {
+                        text: "Telemetry Status Mask"
+                    }
+                    Label {
+                        id: txtTelemetryStatusMask
+                    }
                 }
             }
             Column {
                 Layout.alignment: Qt.AlignTop
-
-                Label {
-                    text: "Number Of GPS Satellite"
-                }
-                Label {
-                    id: txtNumberOfGPSSatellite
+                Row {
+                    spacing: 8
+                    Label {
+                        text: "Number Of GPS Satellite"
+                    }
+                    Label {
+                        id: txtNumberOfGPSSatellite
+                    }
                 }
             }
         }
