@@ -1,0 +1,1136 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "CustomCursor",
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "latitude",
+                        "notify": "latitudeChanged",
+                        "read": "latitude",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false,
+                        "write": "setLatitude"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "longitude",
+                        "notify": "longitudeChanged",
+                        "read": "longitude",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false,
+                        "write": "setLongitude"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "latitudeIsSet",
+                        "notify": "latitudeIsSetChanged",
+                        "read": "latitudeIsSet",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setLatitudeIsSet"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "longitudeIsSet",
+                        "notify": "longitudeIsSetChanged",
+                        "read": "longitudeIsSet",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setLongitudeIsSet"
+                    }
+                ],
+                "qualifiedClassName": "CustomCursor",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "latitudeChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "longitudeChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "latitudeIsSetChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "longitudeIsSetChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "CustomCursor.h",
+        "outputRevision": 67
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "GPSData",
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "latitude",
+                        "notify": "latitudeChanged",
+                        "read": "latitude",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false,
+                        "write": "setLatitude"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "longitude",
+                        "notify": "longitudeChanged",
+                        "read": "longitude",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false,
+                        "write": "setLongitude"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "altitude",
+                        "notify": "altitudeChanged",
+                        "read": "altitude",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false,
+                        "write": "setAltitude"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "hasFix",
+                        "notify": "hasFixChanged",
+                        "read": "hasFix",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setHasFix"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "hour",
+                        "notify": "hourChanged",
+                        "read": "hour",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setHour"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "minute",
+                        "notify": "minuteChanged",
+                        "read": "minute",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setMinute"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "second",
+                        "notify": "secondChanged",
+                        "read": "second",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false,
+                        "write": "setSecond"
+                    }
+                ],
+                "qualifiedClassName": "GPSData",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "latitudeChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "longitudeChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "altitudeChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "hasFixChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "hourChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "minuteChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "secondChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "name": "UpdateData",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "GPSData.h",
+        "outputRevision": 67
+    },
+    {
+        "classes": [
+            {
+                "className": "GSCore",
+                "object": true,
+                "qualifiedClassName": "GSCore",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "data",
+                                "type": "QByteArray"
+                            }
+                        ],
+                        "name": "DataIsRead",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "work_is_down",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "name": "ReadData",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "WriteHartBeat",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "gs_core.h",
+        "outputRevision": 67
+    },
+    {
+        "classes": [
+            {
+                "className": "HMI",
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_TimeStamp",
+                        "name": "TimeStamp",
+                        "notify": "TimeStampChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_TimeStampRIO",
+                        "name": "TimeStampRIO",
+                        "notify": "TimeStampRIOChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_Latitude",
+                        "name": "Latitude",
+                        "notify": "LatitudeChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_Longitude",
+                        "name": "Longitude",
+                        "notify": "LongitudeChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_GNSSAltitude",
+                        "name": "GNSSAltitude",
+                        "notify": "GNSSAltitudeChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_AirSpeed_UVector",
+                        "name": "AirSpeed_UVector",
+                        "notify": "AirSpeed_UVectorChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_AirSpeed_VVector",
+                        "name": "AirSpeed_VVector",
+                        "notify": "AirSpeed_VVectorChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_AirSpeed_WVector",
+                        "name": "AirSpeed_WVector",
+                        "notify": "AirSpeed_WVectorChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_AirTemperature",
+                        "name": "AirTemperature",
+                        "notify": "AirTemperatureChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_AltitudeFromRadarAltimeter",
+                        "name": "AltitudeFromRadarAltimeter",
+                        "notify": "AltitudeFromRadarAltimeterChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_AltitudeFromPayloadAltimeter",
+                        "name": "AltitudeFromPayloadAltimeter",
+                        "notify": "AltitudeFromPayloadAltimeterChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_LinearVelocityHorizontal",
+                        "name": "LinearVelocityHorizontal",
+                        "notify": "LinearVelocityHorizontalChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_LinearVelocityVertical",
+                        "name": "LinearVelocityVertical",
+                        "notify": "LinearVelocityVerticalChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_PositionAccuracy",
+                        "name": "PositionAccuracy",
+                        "notify": "PositionAccuracyChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_SpeedAccuracy",
+                        "name": "SpeedAccuracy",
+                        "notify": "SpeedAccuracyChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_LinearAccelerationX",
+                        "name": "LinearAccelerationX",
+                        "notify": "LinearAccelerationXChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_LinearAccelerationY",
+                        "name": "LinearAccelerationY",
+                        "notify": "LinearAccelerationYChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_LinearAccelerationZ",
+                        "name": "LinearAccelerationZ",
+                        "notify": "LinearAccelerationZChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_ECEFVectorPositionX",
+                        "name": "ECEFVectorPositionX",
+                        "notify": "ECEFVectorPositionXChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_ECEFVectorPositionY",
+                        "name": "ECEFVectorPositionY",
+                        "notify": "ECEFVectorPositionYChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_ECEFVectorPositionZ",
+                        "name": "ECEFVectorPositionZ",
+                        "notify": "ECEFVectorPositionZChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_ECEFVectorVelocityX",
+                        "name": "ECEFVectorVelocityX",
+                        "notify": "ECEFVectorVelocityXChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_ECEFVectorVelocityY",
+                        "name": "ECEFVectorVelocityY",
+                        "notify": "ECEFVectorVelocityYChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_ECEFVectorVelocityZ",
+                        "name": "ECEFVectorVelocityZ",
+                        "notify": "ECEFVectorVelocityZChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_RollAngle",
+                        "name": "RollAngle",
+                        "notify": "RollAngleChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_PitchAngle",
+                        "name": "PitchAngle",
+                        "notify": "PitchAngleChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_YawAngle",
+                        "name": "YawAngle",
+                        "notify": "YawAngleChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_AngularRateRoll",
+                        "name": "AngularRateRoll",
+                        "notify": "AngularRateRollChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_AngularRatePitch",
+                        "name": "AngularRatePitch",
+                        "notify": "AngularRatePitchChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_AngularRateYaw",
+                        "name": "AngularRateYaw",
+                        "notify": "AngularRateYawChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_Quaternion0",
+                        "name": "Quaternion0",
+                        "notify": "Quaternion0Changed",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_Quaternion1",
+                        "name": "Quaternion1",
+                        "notify": "Quaternion1Changed",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_Quaternion2",
+                        "name": "Quaternion2",
+                        "notify": "Quaternion2Changed",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_Quaternion3",
+                        "name": "Quaternion3",
+                        "notify": "Quaternion3Changed",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_TelemetryStatusMask",
+                        "name": "TelemetryStatusMask",
+                        "notify": "TelemetryStatusMaskChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "member": "m_NumberOfGPSSatellite",
+                        "name": "NumberOfGPSSatellite",
+                        "notify": "NumberOfGPSSatelliteChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "HMI",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "TimeStampChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "TimeStampRIOChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "LatitudeChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "LongitudeChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "GNSSAltitudeChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "AirSpeed_UVectorChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "AirSpeed_VVectorChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "AirSpeed_WVectorChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "AirTemperatureChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "AltitudeFromRadarAltimeterChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "AltitudeFromPayloadAltimeterChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "LinearVelocityHorizontalChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "LinearVelocityVerticalChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "PositionAccuracyChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "SpeedAccuracyChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "LinearAccelerationXChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "LinearAccelerationYChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "LinearAccelerationZChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "ECEFVectorPositionXChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "ECEFVectorPositionYChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "ECEFVectorPositionZChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "ECEFVectorVelocityXChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "ECEFVectorVelocityYChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "ECEFVectorVelocityZChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "RollAngleChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "PitchAngleChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "YawAngleChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "AngularRateRollChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "AngularRatePitchChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "AngularRateYawChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "Quaternion0Changed",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "Quaternion1Changed",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "Quaternion2Changed",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "Quaternion3Changed",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "TelemetryStatusMaskChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "NumberOfGPSSatelliteChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "t",
+                                "type": "Telemetry*"
+                            }
+                        ],
+                        "name": "showData",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "s",
+                                "type": "SystemStatusPack*"
+                            }
+                        ],
+                        "name": "showDataSystemStatus",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "hmi.h",
+        "outputRevision": 67
+    },
+    {
+        "classes": [
+            {
+                "className": "MavlinkProtocol",
+                "object": true,
+                "qualifiedClassName": "MavlinkProtocol",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "type": "Telemetry*"
+                            }
+                        ],
+                        "name": "toStorage",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "type": "SystemStatusPack*"
+                            }
+                        ],
+                        "name": "toStorageSystemStatus",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "type": "Telemetry*"
+                            }
+                        ],
+                        "name": "toHMI",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "type": "SystemStatusPack*"
+                            }
+                        ],
+                        "name": "toHMISystemStatus",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "data",
+                                "type": "QByteArray"
+                            }
+                        ],
+                        "name": "parseDataTelemetry",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "data",
+                                "type": "QByteArray"
+                            }
+                        ],
+                        "name": "parseDataSystemStatus",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "mavlinkprotocol.h",
+        "outputRevision": 67
+    },
+    {
+        "classes": [
+            {
+                "className": "Storage",
+                "object": true,
+                "qualifiedClassName": "Storage",
+                "slots": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "t",
+                                "type": "Telemetry*"
+                            }
+                        ],
+                        "name": "StoreDataInMemory",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "s",
+                                "type": "SystemStatusPack*"
+                            }
+                        ],
+                        "name": "StoreDataInMemorySystemStatus",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "storage.h",
+        "outputRevision": 67
+    }
+]
