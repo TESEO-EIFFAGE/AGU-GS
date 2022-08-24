@@ -88,7 +88,7 @@ Rectangle {
             font.pixelSize: 16
         }
         RowLayout {
-            spacing: 8
+            spacing: 48
             Layout.fillWidth: true
             Column {
                 //Layout.alignment: Qt.AlignRight
@@ -185,7 +185,7 @@ Rectangle {
 
         RowLayout {
             Layout.fillWidth: true
-            spacing: 8
+            spacing: 48
             Column {
                 spacing: 8
                 Layout.alignment: Qt.AlignTop
@@ -237,7 +237,7 @@ Rectangle {
             font.pixelSize: 16
         }
         RowLayout {
-            spacing: 8
+            spacing: 48
             Layout.fillWidth: true
             Column {
                 spacing: 8
@@ -334,7 +334,7 @@ Rectangle {
         }
         RowLayout {
             Layout.fillWidth: true
-            spacing: 8
+            spacing: 48
             Column {
                 spacing: 8
                 Layout.alignment: Qt.AlignTop
@@ -447,7 +447,7 @@ Rectangle {
         }
         RowLayout {
             Layout.fillWidth: true
-            spacing: 8
+            spacing: 48
             Column {
                 spacing: 8
                 Row {
