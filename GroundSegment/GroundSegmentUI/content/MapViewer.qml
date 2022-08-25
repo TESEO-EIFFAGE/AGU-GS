@@ -3,24 +3,25 @@ import QtQuick.Window 2.14
 import QtQuick.Controls 1.4
 import QtLocation 5.15
 import QtPositioning 5.6
-//import io.qt.examples.gps_data 1.0
+import io.qt.examples.gps_data 1.0
 
 
 Item{
     id: mapviewer
     property bool hasGps: gpsData.hasFix
+    property int zoomLevel: 10
     //width: Qt.platform.os =ss= "android" ? Screen.width : 512
     //height: Qt.platform.os == "android" ? Screen.height : 512
     visible: true
 
 
-//    GPSData {
-//       id: gpsData
-//    }
+    GPSData {
+       id: gpsData
+    }
 
-//    CustomCursor {
-//       id: customCursor
-//    }
+    CustomCursor {
+       id: customCursor
+    }
 
     Map {
         id: map
@@ -34,7 +35,7 @@ Item{
             }
         }
         center: hasGps ? QtPositioning.coordinate(gpsData.longitude, gpsData.latitude) : QtPositioning.coordinate(customCursor.longitude, customCursor.latitude)
-        zoomLevel: 10
+        zoomLevel: mapviewer.zoomLevel
 
         MapQuickItem {
             id: gpsCursor
@@ -65,7 +66,7 @@ Item{
 
     Rectangle {
         id: gpsDataRectangle
-        width: 200; height: 290
+        width: 200; height: 310
         color: "#FFD2D2D2"
         opacity: 0.75
         x: 5; y: 5
@@ -184,7 +185,7 @@ Item{
                     id: legendSectionTitle
                     text: "Legend"
                     font.pointSize: 13; font.bold: true
-                    anchors.top: customCursorSection.top
+
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
             Row{
