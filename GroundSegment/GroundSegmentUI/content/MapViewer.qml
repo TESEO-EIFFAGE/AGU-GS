@@ -8,6 +8,7 @@ import io.qt.examples.gps_data 1.0
 
 Item{
     id: mapviewer
+    property bool hasGps: gpsData.hasFix
     //width: Qt.platform.os =ss= "android" ? Screen.width : 512
     //height: Qt.platform.os == "android" ? Screen.height : 512
     visible: true
@@ -32,8 +33,8 @@ Item{
                  value: ":/Offline_tiles/"
             }
         }
-        center: QtPositioning.coordinate(gpsData.longitude, gpsData.latitude)
-        zoomLevel: 1
+        center: hasGps ? QtPositioning.coordinate(gpsData.longitude, gpsData.latitude) : QtPositioning.coordinate(customCursor.longitude, customCursor.latitude)
+        zoomLevel: 10
 
         MapQuickItem {
             id: gpsCursor
@@ -54,8 +55,8 @@ Item{
         }
         MapQuickItem {
             id: flightSegmentIcon
-            sourceItem: Rectangle { width: 40; height: 40; color: "red"; border.width: 2; border.color: "black"; smooth: true; radius: 15; opacity:0.5 }
-            coordinate : QtPositioning.coordinate(customCursor.latitude, customCursor.longitude+10)
+            sourceItem: Rectangle { width: 20; height: 20; color: "red"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
+            coordinate : QtPositioning.coordinate(customCursor.latitude+0.1, customCursor.longitude+0.2)
             opacity: 1.0
             anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
             visible: customCursor.latitudeIsSet && customCursor.longitudeIsSet
