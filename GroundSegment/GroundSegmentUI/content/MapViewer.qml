@@ -3,7 +3,7 @@ import QtQuick.Window 2.14
 import QtQuick.Controls 1.4
 import QtLocation 5.15
 import QtPositioning 5.6
-import io.qt.examples.gps_data 1.0
+//import io.qt.examples.gps_data 1.0
 
 
 Item{
@@ -14,13 +14,13 @@ Item{
     visible: true
 
 
-    GPSData {
-       id: gpsData
-    }
+//    GPSData {
+//       id: gpsData
+//    }
 
-    CustomCursor {
-       id: customCursor
-    }
+//    CustomCursor {
+//       id: customCursor
+//    }
 
     Map {
         id: map
@@ -65,7 +65,7 @@ Item{
 
     Rectangle {
         id: gpsDataRectangle
-        width: 200; height: 235
+        width: 200; height: 290
         color: "#FFD2D2D2"
         opacity: 0.75
         x: 5; y: 5
@@ -124,6 +124,8 @@ Item{
 
         Rectangle {
             id: customCursorSection
+            color: "#00000000"
+            height: childrenRect.height
             anchors.top: gpsDataSection.bottom
             anchors.left: parent.left; anchors.leftMargin: 5
             anchors.right: parent.right
@@ -141,6 +143,7 @@ Item{
                 text: "Lat: "
                 font.pointSize: 11;
                 anchors.top: customCursorSectionTitle.bottom
+                anchors.topMargin: 4
             }
 
             TextField {
@@ -167,5 +170,44 @@ Item{
                 onEditingFinished: text !== "" ? customCursor.longitude = text : customCursor.longitudeIsSet = false
             }
         }
+        Rectangle {
+            id: legendSection
+            anchors.top: customCursorSection.bottom
+            anchors.left: parent.left; anchors.leftMargin: 5
+            anchors.right: parent.right
+            Column{
+                anchors.top:parent.top
+                height: childrenRect.height+14
+                anchors.topMargin: 8
+                spacing: 4
+                Text {
+                    id: legendSectionTitle
+                    text: "Legend"
+                    font.pointSize: 13; font.bold: true
+                    anchors.top: customCursorSection.top
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+            Row{
+                width: parent.width
+                spacing: 4
+                Rectangle { width: 20; height: 20; color: "yellow"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
+                Text{text: "Ground Segment"; anchors.verticalCenter: parent.verticalCenter}
+            }
+            Row{
+                width: parent.width
+                spacing: 4
+                Rectangle { width: 20; height: 20; color: "red"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
+                Text{text: "Flight Segment"; anchors.verticalCenter: parent.verticalCenter}
+            }
+            }
+        }
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}D{i:4}D{i:6}D{i:8}D{i:1}D{i:12}D{i:13}D{i:14}
+D{i:15}D{i:16}D{i:17}D{i:11}D{i:19}D{i:20}D{i:21}D{i:22}D{i:23}D{i:18}D{i:26}D{i:28}
+D{i:29}D{i:27}D{i:31}D{i:32}D{i:30}D{i:25}D{i:24}D{i:10}
+}
+##^##*/
