@@ -12,11 +12,11 @@ Item{
     //height: Qt.platform.os == "android" ? Screen.height : 512
     visible: true
 
-/*
+
     GPSData {
        id: gpsData
     }
-*/
+
     CustomCursor {
        id: customCursor
     }
@@ -48,6 +48,14 @@ Item{
             id: customCursorIcon
             sourceItem: Rectangle { width: 20; height: 20; color: "yellow"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
             coordinate : QtPositioning.coordinate(customCursor.latitude, customCursor.longitude)
+            opacity: 1.0
+            anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
+            visible: customCursor.latitudeIsSet && customCursor.longitudeIsSet
+        }
+        MapQuickItem {
+            id: flightSegmentIcon
+            sourceItem: Rectangle { width: 40; height: 40; color: "red"; border.width: 2; border.color: "black"; smooth: true; radius: 15; opacity:0.5 }
+            coordinate : QtPositioning.coordinate(customCursor.latitude, customCursor.longitude+10)
             opacity: 1.0
             anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
             visible: customCursor.latitudeIsSet && customCursor.longitudeIsSet
