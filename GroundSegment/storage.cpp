@@ -13,15 +13,8 @@ Storage::~Storage()
 QString Storage::CalculatePathName()
 {
     QString PathName = "/home/AGU/GroundSegment/";
-    QTime time,i;
     QDate date, j;
-    int sec, min, hour;
     int gg, mm, aa;
-
-    time = i.currentTime();
-    sec  = time.second();
-    min  = time.minute();
-    hour = time.hour();
 
     date = j.currentDate();
     gg   = date.day();
@@ -59,45 +52,61 @@ QString Storage::CalculatePathName()
     }
 
     PathName.append("_");
-
-    if (hour < 10)
-    {
-        PathName.append("0");
-        PathName.append(QString::number(hour));
-    }
-    else
-    {
-        PathName.append(QString::number(hour));
-    }
-
-    if (min < 10)
-    {
-        PathName.append("0");
-        PathName.append(QString::number(min));
-    }
-    else
-    {
-        PathName.append(QString::number(min));
-    }
-
-    if (sec < 10)
-    {
-        PathName.append("0");
-        PathName.append(QString::number(sec));
-    }
-    else
-    {
-        PathName.append(QString::number(sec));
-    }
+    PathName.append(CalculateSystemTime());
 
     qInfo() << "PATH ----------------------------  : " << PathName;
 
     return PathName;
 }
 
+QString Storage::CalculateSystemTime()
+{
+    QString SystemTime;
+    QTime time,i;
+    int sec, min, hour;
+
+    time = i.currentTime();
+    sec  = time.second();
+    min  = time.minute();
+    hour = time.hour();
+
+    if (hour < 10)
+    {
+        SystemTime.append("0");
+        SystemTime.append(QString::number(hour));
+    }
+    else
+    {
+        SystemTime.append(QString::number(hour));
+    }
+
+    if (min < 10)
+    {
+        SystemTime.append("0");
+        SystemTime.append(QString::number(min));
+    }
+    else
+    {
+        SystemTime.append(QString::number(min));
+    }
+
+    if (sec < 10)
+    {
+        SystemTime.append("0");
+        SystemTime.append(QString::number(sec));
+    }
+    else
+    {
+        SystemTime.append(QString::number(sec));
+    }
+
+    return SystemTime;
+}
+
 void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 {
     QString NewPathName = CalculatePathName();
+    QString GlobalTime  = CalculateSystemTime();
 
     NewPathName.append("_STP_Log.csv");
 
@@ -116,6 +125,7 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
         {
              if (file.open(QIODevice::WriteOnly | QIODevice::Append))
              {
+                 out << GlobalTime << ";";
                  out << s->TimeStamp << ";";
                  out << s->CoreModuleStatusMask << ";";
                  out << s->TelemetryStatusMask << ";";
@@ -136,13 +146,14 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
                  else if (s->fm == FlightMode::OpenLoop)     out << "3;";
                  else if (s->fm == FlightMode::ClosedLoop)   out << "4;";
 
-                 out << s->FlyPhaseExecutionTime << ";\n";
+                 out << s->FlyPhaseExecutionTime << ";\r\n";
               }
          }
          else
          {
               if (file.open(QIODevice::WriteOnly))
               {
+                 out << "GlobalTime;";
                  out << "TimeStamp;";
                  out << "CoreModuleStatusMask;";
                  out << "TelemetryStatusMask;";
@@ -153,6 +164,7 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
                  out << "FlightPhase;";
                  out << "FlightMode;";
                  out << "FlyPhaseExecutionTime;" << "\n";
+                 out << GlobalTime << ";";
                  out << s->TimeStamp << ";";
                  out << s->CoreModuleStatusMask << ";";
                  out << s->TelemetryStatusMask << ";";
@@ -188,6 +200,7 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 void Storage::StoreDataInMemory(Telemetry *t)
 {
     QString NewPathName = CalculatePathName();
+    QString GlobalTime = CalculateSystemTime();
 
     NewPathName.append("_TLM_Log.csv");
 
@@ -206,6 +219,7 @@ void Storage::StoreDataInMemory(Telemetry *t)
         {
             if (file.open(QIODevice::WriteOnly | QIODevice::Append))
             {
+                 out << GlobalTime << ";";
                  out << t->TimeStamp << ";";                                        /*OCCHIO CHE TELEMETRY LOG FORMAT è DIVERSO*/
                  out << t->TimeStampRIO << ";";
                  out << t->Latitude << ";";
@@ -248,6 +262,7 @@ void Storage::StoreDataInMemory(Telemetry *t)
           {
               if (file.open(QIODevice::WriteOnly))
               {
+                 out << "GlobalTime;";
                  out << "TimeStamp;";
                  out << "TimeStampRIO;";
                  out << "Latitude;";
@@ -284,6 +299,7 @@ void Storage::StoreDataInMemory(Telemetry *t)
                  out << "Quaternion3;";
                  out << "TelemetryStatusMask;";
                  out << "NumberOfGPSSatellite;" << "\n";
+                 out << GlobalTime << ";";
                  out << t->TimeStamp << ";";
                  out << t->TimeStampRIO << ";";
                  out << t->Latitude << ";";
@@ -319,7 +335,7 @@ void Storage::StoreDataInMemory(Telemetry *t)
                  out << t->Quaternion2 << ";";
                  out << t->Quaternion3 << ";";
                  out << t->TelemetryStatusMask << ";";
-                 out << t->NumberOfGPSSatellite << ";\n";
+                 out << t->NumberOfGPSSatellite << ";\r\n";
               }
           }
      }
@@ -329,5 +345,4 @@ void Storage::StoreDataInMemory(Telemetry *t)
      }
 
 }
-
 
