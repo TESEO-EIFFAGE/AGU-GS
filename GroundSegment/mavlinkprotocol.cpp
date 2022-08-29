@@ -120,6 +120,50 @@ void MavlinkProtocol::parseDataSystemStatus(QByteArray data)
     emit toHMISystemStatus(&s);
 }
 
+void MavlinkProtocol::parseMotorStatusPack(QByteArray data)
+{
+    // Eseguire un test sul header di "data" per essere sicuri che sia MotorStatusPack
+    // Spacchettare "data" e scrivere i dati ricevuti al posto sei segnali "_fromMavlink" definiti sotto
+
+    //if (data == PACCHETTO MotorStatusPack)
+
+    uint32_t  MotorARealPosition_FromMavlink = 2222;
+    uint32_t  MotorBRealPosition_FromMavlink = 1111;
+    uint32_t  MotorADemandPosition_FromMavlink = 3333;
+    uint32_t  MotorBDemandPosition_FromMavlink = 5555;
+    uint32_t  MotorATorque_FromMavlink = 23423;
+    uint32_t  MotorBTorque_FromMavlink = 23400;
+    int16_t   MotorATemperature_FromMavlink = 7777;
+    int16_t   MotorBTemperature_FromMavlink = 5764;
+    uint16_t  BMS1CurrentVoltage_FromMavlink = 45745;
+    uint16_t  BMS2CurrentVoltage_FromMavlink = 45346;
+    uint16_t  BMS1CurrentAbsorption_FromMavlink = 2354;
+    uint16_t  BMS2CurrentAbsorption_FromMavlink = 34566;
+    int16_t   BMS1CurrentTemperature_FromMavlink = 3466;
+    int16_t   BMS2CurrentTemperature_FromMavlink = 12444;
+    uint32_t  MotorControlStatusMask_FromMavlink = 146536;
+
+    m.MotorARealPosition = MotorARealPosition_FromMavlink;
+    m.MotorBRealPosition = MotorBRealPosition_FromMavlink;
+    m.MotorADemandPosition = MotorADemandPosition_FromMavlink;
+    m.MotorBDemandPosition = MotorBDemandPosition_FromMavlink;
+    m.MotorATorque = MotorATorque_FromMavlink;
+    m.MotorBTorque = MotorBTorque_FromMavlink;
+    m.MotorATemperature = MotorATemperature_FromMavlink;
+    m.MotorBTemperature = MotorBTemperature_FromMavlink;
+    m.BMS1CurrentVoltage = BMS1CurrentVoltage_FromMavlink;
+    m.BMS2CurrentVoltage = BMS2CurrentVoltage_FromMavlink;
+    m.BMS1CurrentAbsorption = BMS1CurrentAbsorption_FromMavlink;
+    m.BMS2CurrentAbsorption = BMS2CurrentAbsorption_FromMavlink;
+    m.BMS1CurrentTemperature = BMS1CurrentTemperature_FromMavlink;
+    m.BMS2CurrentTemperature = BMS2CurrentTemperature_FromMavlink;
+    m.MotorControlStatusMask = MotorControlStatusMask_FromMavlink;
+
+
+    emit toStorageMotorStatusPack(&m);
+    emit toHMIMotorStatusPack(&m);
+}
+
 quint16 MavlinkProtocol::GetCRC(const QByteArray & data)
 {
      return qChecksum(data, data.size(), Qt::ChecksumIso3309);
