@@ -16,10 +16,18 @@ QString Storage::CalculatePathName()
     QDate date, j;
     int gg, mm, aa;
 
+    QTime time,i;
+    int sec, min, hour;
+
     date = j.currentDate();
     gg   = date.day();
     mm   = date.month();
     aa   = date.year();
+
+    time = i.currentTime();
+    sec  = time.second();
+    min  = time.minute();
+    hour = time.hour();
 
     if (aa < 10)
     {
@@ -52,61 +60,46 @@ QString Storage::CalculatePathName()
     }
 
     PathName.append("_");
-    PathName.append(CalculateSystemTime());
-
-    qInfo() << "PATH ----------------------------  : " << PathName;
-
-    return PathName;
-}
-
-QString Storage::CalculateSystemTime()
-{
-    QString SystemTime;
-    QTime time,i;
-    int sec, min, hour;
-
-    time = i.currentTime();
-    sec  = time.second();
-    min  = time.minute();
-    hour = time.hour();
 
     if (hour < 10)
     {
-        SystemTime.append("0");
-        SystemTime.append(QString::number(hour));
+        PathName.append("0");
+        PathName.append(QString::number(hour));
     }
     else
     {
-        SystemTime.append(QString::number(hour));
+        PathName.append(QString::number(hour));
     }
 
     if (min < 10)
     {
-        SystemTime.append("0");
-        SystemTime.append(QString::number(min));
+        PathName.append("0");
+        PathName.append(QString::number(min));
     }
     else
     {
-        SystemTime.append(QString::number(min));
+        PathName.append(QString::number(min));
     }
 
     if (sec < 10)
     {
-        SystemTime.append("0");
-        SystemTime.append(QString::number(sec));
+        PathName.append("0");
+        PathName.append(QString::number(sec));
     }
     else
     {
-        SystemTime.append(QString::number(sec));
+        PathName.append(QString::number(sec));
     }
 
-    return SystemTime;
+    return PathName;
 }
 
 void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 {
     QString NewPathName = CalculatePathName();
-    QString GlobalTime  = CalculateSystemTime();
+    unsigned long milliseconds_since_epoch;
+
+    milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
     NewPathName.append("_STP_Log.csv");
 
@@ -125,7 +118,7 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
         {
              if (file.open(QIODevice::WriteOnly | QIODevice::Append))
              {
-                 out << GlobalTime << ";";
+                 out << milliseconds_since_epoch << ";";
                  out << s->TimeStamp << ";";
                  out << s->CoreModuleStatusMask << ";";
                  out << s->TelemetryStatusMask << ";";
@@ -164,7 +157,7 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
                  out << "FlightPhase;";
                  out << "FlightMode;";
                  out << "FlyPhaseExecutionTime;" << "\r\n";
-                 out << GlobalTime << ";";
+                 out << milliseconds_since_epoch << ";";
                  out << s->TimeStamp << ";";
                  out << s->CoreModuleStatusMask << ";";
                  out << s->TelemetryStatusMask << ";";
@@ -199,7 +192,9 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
 {
     QString NewPathName = CalculatePathName();
-    QString GlobalTime = CalculateSystemTime();
+    unsigned long milliseconds_since_epoch;
+
+    milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
     NewPathName.append("_MSTP_Log.csv");
 
@@ -218,7 +213,7 @@ void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
         {
             if (file.open(QIODevice::WriteOnly | QIODevice::Append))
             {
-                out << GlobalTime << ";";
+                out << milliseconds_since_epoch << ";";
                 out << m->MotorARealPosition << ";";
                 out << m->MotorBRealPosition << ";";
                 out << m->MotorADemandPosition << ";";
@@ -256,7 +251,7 @@ void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
                  out << "BMS1CurrentTemperature;";
                  out << "BMS2CurrentTemperature;";
                  out << "MotorControlStatusMask;" << "\r\n";
-                 out << GlobalTime << ";";
+                 out << milliseconds_since_epoch << ";";
                  out << m->MotorARealPosition << ";";
                  out << m->MotorBRealPosition << ";";
                  out << m->MotorADemandPosition << ";";
@@ -285,7 +280,9 @@ void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
 void Storage::StoreDataInMemory(Telemetry *t)
 {
     QString NewPathName = CalculatePathName();
-    QString GlobalTime = CalculateSystemTime();
+    unsigned long milliseconds_since_epoch;
+
+    milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
     NewPathName.append("_TLM_Log.csv");
 
@@ -293,7 +290,7 @@ void Storage::StoreDataInMemory(Telemetry *t)
     {
         PathTelemetry = NewPathName.mid(0);  /*esegue la copia*/
         CountT = true;
-    }
+    }   
 
     QFile file(PathTelemetry);
     QTextStream out(&file);
@@ -304,7 +301,7 @@ void Storage::StoreDataInMemory(Telemetry *t)
         {
             if (file.open(QIODevice::WriteOnly | QIODevice::Append))
             {
-                 out << GlobalTime << ";";
+                 out << milliseconds_since_epoch << ";";
                  out << t->TimeStamp << ";";
                  out << t->TimeStampRIO << ";";
                  out << t->Latitude << ";";
@@ -384,7 +381,7 @@ void Storage::StoreDataInMemory(Telemetry *t)
                  out << "AirTemperature;";
                  out << "TelemetryStatusMask;";
                  out << "NumberOfGPSSatellite;" << "\n";
-                 out << GlobalTime << ";";
+                 out << milliseconds_since_epoch << ";";
                  out << t->TimeStamp << ";";
                  out << t->TimeStampRIO << ";";
                  out << t->Latitude << ";";
