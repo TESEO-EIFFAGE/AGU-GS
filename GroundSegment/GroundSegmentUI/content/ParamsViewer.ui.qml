@@ -188,7 +188,7 @@ Rectangle {
         }
         Label {
             text: "Air Info"
-            font.pointSize: 16
+            font.pixelSize: 16
         }
 
         RowLayout {
