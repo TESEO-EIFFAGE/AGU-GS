@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import GroundSegmentUI 1.0
 import QtQuick.Layouts 1.11
+import "controls"
 
 Rectangle {
     id: params
@@ -48,13 +49,13 @@ Rectangle {
     property alias txtTelemetryStatusMask: txtTelemetryStatusMask.text
     property alias txtNumberOfGPSSatellite: txtNumberOfGPSSatellite.text
 
-    property alias txtLatitudeGPSData:  txtLatitudeGPSData.text
+    property alias txtLatitudeGPSData: txtLatitudeGPSData.text
     property alias txtLongitudeGPSData: txtLongitudeGPSData.text
-    property alias txtAltitudeGPSData:  txtAltitudeGPSData.text
-    property alias txtHasFix:           txtHasFix.text
-    property alias txtHourGPSData:      txtHourGPSData.text
-    property alias txtminuteGPSData:    txtminuteGPSData.text
-    property alias txtsecondGPSData:    txtsecondGPSData.text
+    property alias txtAltitudeGPSData: txtAltitudeGPSData.text
+    property alias txtHasFix: txtHasFix.text
+    property alias txtHourGPSData: txtHourGPSData.text
+    property alias txtminuteGPSData: txtminuteGPSData.text
+    property alias txtsecondGPSData: txtsecondGPSData.text
 
     width: 667 //Constants.width / 2
     height: 750 //Constants.height
@@ -67,10 +68,10 @@ Rectangle {
         spacing: 8
         RowLayout {
             spacing: 8
-            Label {
+            ParamLabel {
                 text: "TimeStamp"
             }
-            Label {
+            ParamValue {
                 id: txtTimeStamp
                 text: ""
             }
@@ -78,10 +79,10 @@ Rectangle {
         Row {
             //width: parent.width
             spacing: 8
-            Label {
+            ParamLabel {
                 text: "TimeStamp RIO"
             }
-            Label {
+            ParamValue {
                 id: txtTimeStampRIO
             }
         }
@@ -90,10 +91,9 @@ Rectangle {
         anchors.fill: parent
         spacing: 16
         anchors.margins: 16
-        Label {
+        ParamGrpLabel {
             Layout.topMargin: 8
             text: "Position Info"
-            font.pixelSize: 16
         }
         RowLayout {
             spacing: 48
@@ -103,30 +103,30 @@ Rectangle {
                 spacing: 8
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Latitude"
                     }
-                    Label {
+                    ParamValue {
                         id: txtLatitude
                     }
                 }
 
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Longitude"
                     }
-                    Label {
+                    ParamValue {
                         id: txtLongitude
                     }
                 }
                 Row {
 
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Altitude"
                     }
-                    Label {
+                    ParamValue {
                         id: txtGNSSAltitude
                     }
                 }
@@ -136,28 +136,28 @@ Rectangle {
                 spacing: 8
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "ECEF Position X"
                     }
-                    Label {
+                    ParamValue {
                         id: txtECEFVectorPositionX
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "ECEF Position Y"
                     }
-                    Label {
+                    ParamValue {
                         id: txtECEFVectorPositionY
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "ECEF Position Z"
                     }
-                    Label {
+                    ParamValue {
                         id: txtECEFVectorPositionZ
                     }
                 }
@@ -168,27 +168,27 @@ Rectangle {
 
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Altitude From Radar"
                     }
-                    Label {
+                    ParamValue {
                         id: txtAltitudeFromRadarAltimeter
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Altitude From Payload"
                     }
-                    Label {
+                    ParamValue {
                         id: txtAltitudeFromPayloadAltimeter
                     }
                 }
             }
         }
-        Label {
+        ParamGrpLabel {
             text: "Air Info"
-            font.pixelSize: 16
+
         }
 
         RowLayout {
@@ -200,29 +200,29 @@ Rectangle {
 
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Air Speed UVector"
                     }
-                    Label {
+                    ParamValue {
                         id: txtAirSpeed_UVector
                     }
                 }
 
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Air Speed VVector"
                     }
-                    Label {
+                    ParamValue {
                         id: txtAirSpeed_VVector
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Air Speed WVector"
                     }
-                    Label {
+                    ParamValue {
                         id: txtAirSpeed_WVector
                     }
                 }
@@ -231,18 +231,18 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Air Temperature"
                     }
-                    Label {
+                    ParamValue {
                         id: txtAirTemperature
                     }
                 }
             }
         }
-        Label {
+        ParamGrpLabel {
             text: "Velocity Info"
-            font.pixelSize: 16
+
         }
         RowLayout {
             spacing: 48
@@ -253,20 +253,20 @@ Rectangle {
 
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Linear Velocity Horizontal"
                     }
-                    Label {
+                    ParamValue {
                         id: txtLinearVelocityHorizontal
                     }
                 }
 
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Linear Velocity Vertical"
                     }
-                    Label {
+                    ParamValue {
                         id: txtLinearVelocityVertical
                     }
                 }
@@ -277,28 +277,28 @@ Rectangle {
 
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "ECEF Vector Velocity X"
                     }
-                    Label {
+                    ParamValue {
                         id: txtECEFVectorVelocityX
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "ECEF Vector Velocity Y"
                     }
-                    Label {
+                    ParamValue {
                         id: txtECEFVectorVelocityY
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "ECEF Vector Velocity Z"
                     }
-                    Label {
+                    ParamValue {
                         id: txtECEFVectorVelocityZ
                     }
                 }
@@ -309,36 +309,36 @@ Rectangle {
 
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Linear Acceleration X"
                     }
-                    Label {
+                    ParamValue {
                         id: txtLinearAccelerationX
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Linear Acceleration Y"
                     }
-                    Label {
+                    ParamValue {
                         id: txtLinearAccelerationY
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Linear Acceleration Z"
                     }
-                    Label {
+                    ParamValue {
                         id: txtLinearAccelerationZ
                     }
                 }
             }
         }
-        Label {
+        ParamGrpLabel {
             text: "Rotation Info"
-            font.pixelSize: 16
+
         }
         RowLayout {
             Layout.fillWidth: true
@@ -348,28 +348,28 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Roll Angle"
                     }
-                    Label {
+                    ParamValue {
                         id: txtRollAngle
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Pitch Angle"
                     }
-                    Label {
+                    ParamValue {
                         id: txtPitchAngle
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Yaw Angle"
                     }
-                    Label {
+                    ParamValue {
                         id: txtYawAngle
                     }
                 }
@@ -380,28 +380,28 @@ Rectangle {
 
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Angular Rate Roll"
                     }
-                    Label {
+                    ParamValue {
                         id: txtAngularRateRoll
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Angular Rate Pitch"
                     }
-                    Label {
+                    ParamValue {
                         id: txtAngularRatePitch
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Angular Rate Yaw"
                     }
-                    Label {
+                    ParamValue {
                         id: txtAngularRateYaw
                     }
                 }
@@ -412,46 +412,46 @@ Rectangle {
 
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Quaternion 0"
                     }
-                    Label {
+                    ParamValue {
                         id: txtQuaternion0
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Quaternion 1"
                     }
-                    Label {
+                    ParamValue {
                         id: txtQuaternion1
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Quaternion 2"
                     }
-                    Label {
+                    ParamValue {
                         id: txtQuaternion2
                     }
                 }
 
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Quaternion 3"
                     }
-                    Label {
+                    ParamValue {
                         id: txtQuaternion3
                     }
                 }
             }
         }
-        Label {
+        ParamGrpLabel {
             text: "Status Info"
-            font.pixelSize: 16
+
         }
         RowLayout {
             Layout.fillWidth: true
@@ -460,19 +460,19 @@ Rectangle {
                 spacing: 8
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Position Accuracy"
                     }
-                    Label {
+                    ParamValue {
                         id: txtPositionAccuracy
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Speed Accuracy"
                     }
-                    Label {
+                    ParamValue {
                         id: txtSpeedAccuracy
                     }
                 }
@@ -481,10 +481,10 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Telemetry Status Mask"
                     }
-                    Label {
+                    ParamValue {
                         id: txtTelemetryStatusMask
                     }
                 }
@@ -493,20 +493,19 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Number Of GPS Satellite"
                     }
-                    Label {
+                    ParamValue {
                         id: txtNumberOfGPSSatellite
                     }
                 }
             }
         }
 
-
-        Label {
+        ParamGrpLabel {
             text: "GPSdata"
-            font.pixelSize: 16
+
         }
         RowLayout {
             Layout.fillWidth: true
@@ -515,72 +514,69 @@ Rectangle {
                 spacing: 8
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Latitude from GS GPS"
                     }
-                    Label {
+                    ParamValue {
                         id: txtLatitudeGPSData
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Longitude from GS GPS"
                     }
-                    Label {
+                    ParamValue {
                         id: txtLongitudeGPSData
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Altitude from GS GPS"
                     }
-                    Label {
+                    ParamValue {
                         id: txtAltitudeGPSData
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "HasFix from GS GPS"
                     }
-                    Label {
+                    ParamValue {
                         id: txtHasFix
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Hour from GS GPS"
                     }
-                    Label {
+                    ParamValue {
                         id: txtHourGPSData
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Minute from GS GPS"
                     }
-                    Label {
+                    ParamValue {
                         id: txtminuteGPSData
                     }
                 }
                 Row {
                     spacing: 8
-                    Label {
+                    ParamLabel {
                         text: "Second from GS GPS"
                     }
-                    Label {
+                    ParamValue {
                         id: txtsecondGPSData
                     }
                 }
             }
-
         }
-
-
 
         Item {
             Layout.fillHeight: true
