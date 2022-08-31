@@ -104,17 +104,17 @@ Rectangle {
                 ParamRow {
                     id: txtLatitude
                     text: "Latitude"
-                    span: 3
+                    span: 4
                 }
 
                 ParamRow {
                     text: "Longitude"
-                    span: 3
+                    span: 4
                     id: txtLongitude
                 }
                 ParamRow {
                     text: "Altitude"
-                    span: 3
+                    span: 4
                     id: txtGNSSAltitude
                 }
             }
@@ -171,13 +171,13 @@ Rectangle {
 
                 ParamRow {
                     text: "Horizontal"
-                    span: 3
+                    span: 4
                     id: txtLinearVelocityHorizontal
                 }
 
                 ParamRow {
                     text: "Vertical"
-                    span: 3
+                    span: 4
                     id: txtLinearVelocityVertical
                 }
             }
@@ -218,19 +218,19 @@ Rectangle {
 
                 ParamRow {
                     text: "Position"
-                    span: 6
+                    span: 7
                     id: txtPositionAccuracy
                 }
 
                 ParamRow {
                     text: "Speed"
-                    span: 6
+                    span: 7
                     id: txtSpeedAccuracy
                 }
 
                 ParamRow {
                     text: "# GNSS satellites"
-                    span: 6
+                    span: 7
                     id: txtNumberOfGPSSatellite
                 }
             }
@@ -346,24 +346,24 @@ Rectangle {
 
                 ParamRow {
                     text: "Air Speed U"
-                    span: 4
+                    span: 5
                     id: txtAirSpeed_UVector
                 }
 
                 ParamRow {
                     text: "Air Speed V"
-                    span: 4
+                    span: 5
                     id: txtAirSpeed_VVector
                 }
                 ParamRow {
                     text: "Air Speed W"
-                    span: 4
+                    span: 5
                     id: txtAirSpeed_WVector
                 }
 
                 ParamRow {
                     text: "Air Temp."
-                    span: 4
+                    span: 5
                     id: txtAirTemperature
                 }
             }
@@ -438,7 +438,6 @@ Rectangle {
             spacing: 8
 
             Image {
-                id: triangleexclamation
                 x: 0
                 y: 0
                 width: 24
@@ -458,7 +457,7 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
                 ParamRow {
                     text: "Telemetry Status Mask"
-                    span: 8
+                    span: 9
                     id: txtTelemetryStatusMask
                 }
             }
