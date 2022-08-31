@@ -33,5 +33,6 @@
         <file>main.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>qmlmodules</file>
+        <file>content/controls/StatusLight.ui.qml</file>
     </qresource>
 </RCC>

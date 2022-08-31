@@ -460,9 +460,23 @@ Rectangle {
                     span: 9
                     id: txtTelemetryStatusMask
                 }
-            }
-            Column {
-                Layout.alignment: Qt.AlignTop
+
+                Grid {
+                    id: grid
+                    columnSpacing: 16
+                    rowSpacing: 16
+                    flow: Grid.TopToBottom
+                    columns: 4
+                    rows: 10
+
+                    StatusLight {
+                        text: "0 - Anemom NOT present"
+                    }
+
+                    StatusLight {
+                        text: "0 - Anemom NOT present"
+                    }
+                }
             }
         }
 
