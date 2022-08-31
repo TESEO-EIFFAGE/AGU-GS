@@ -224,7 +224,10 @@ Item{
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "+"
 
-                function onClicked(){ mapviewer.zoomLevel+=1}
+                function onClicked(){ m
+                    apviewer.zoomLevel+=1
+                    console.log("zooming in")
+                }
             }
             Button{
                 id: zoomOutBtn
@@ -233,7 +236,10 @@ Item{
                 anchors.horizontalCenter: parent.horizontalCenter
 
                 text: "-"
-                function onClicked(){ mapviewer.zoomLevel-=1}
+                function onClicked(){ mapviewer.zoomLevel-=1
+                    console.log("zooming out")
+
+                }
 
             }
         }
