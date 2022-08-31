@@ -2,8 +2,8 @@ pragma Singleton
 import QtQuick 2.15
 
 QtObject {
-    readonly property int width: 1334
-    readonly property int height: 750
+    readonly property int width: 1600
+    readonly property int height: 900
 
     property string relativeFontDirectory: "fonts"
 

@@ -1,18 +1,37 @@
 <RCC>
     <qresource prefix="/">
-        <file>content/App.qml</file>
+        <file>content/controls/ParamGrp1Label.ui.qml</file>
+        <file>content/controls/ParamGrp2Label.ui.qml</file>
+        <file>content/controls/ParamGrp3Label.ui.qml</file>
+        <file>content/controls/ParamLabel.ui.qml</file>
+        <file>content/controls/ParamRow.ui.qml</file>
+        <file>content/controls/ParamValue.ui.qml</file>
+        <file>content/controls/SectionLabel.ui.qml</file>
         <file>content/fonts/fonts.txt</file>
+        <file>content/fonts/JetBrainsMono-VariableFont_wght.ttf</file>
+        <file>content/fonts/TitilliumWeb-Bold.ttf</file>
+        <file>content/fonts/TitilliumWeb-Regular.ttf</file>
+        <file>content/fonts/TitilliumWeb-SemiBold.ttf</file>
+        <file>content/App.qml</file>
+        <file>content/FSParamsViewer.ui.qml</file>
+        <file>content/GSParamsViewer.ui.qml</file>
+        <file>content/MapViewer.qml</file>
         <file>content/Screen01.ui.qml</file>
+        <file>content/SegmentsPosMap.ui.qml</file>
+        <file>content/Styleguide.qml</file>
+        <file>imports/GroundSegmentUI/designer/plugin.metainfo</file>
         <file>imports/GroundSegmentUI/Constants.qml</file>
         <file>imports/GroundSegmentUI/DirectoryFontLoader.qml</file>
         <file>imports/GroundSegmentUI/EventListModel.qml</file>
         <file>imports/GroundSegmentUI/EventListSimulator.qml</file>
         <file>imports/GroundSegmentUI/qmldir</file>
+        <file>content/images/svgs/solid/satellite-dish.svg</file>
+        <file>content/images/svgs/solid/satellite.svg</file>
+        <file>content/images/svgs/solid/wind.svg</file>
+        <file>content/images/svgs/solid/triangle-exclamation.svg</file>
+        <file>content/images/svgs/solid/weight-hanging.svg</file>
         <file>main.qml</file>
-        <file>qmlmodules</file>
         <file>qtquickcontrols2.conf</file>
-        <file>content/ParamsViewer.ui.qml</file>
-        <file>content/SegmentsPosMap.ui.qml</file>
-        <file>content/MapViewer.qml</file>
+        <file>qmlmodules</file>
     </qresource>
 </RCC>

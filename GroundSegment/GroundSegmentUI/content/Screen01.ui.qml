@@ -16,35 +16,38 @@ Rectangle {
     height: Constants.height
 
     color: Constants.backgroundColor
-    property alias params: params
+    border.width: 0
+    property alias gsParams: gsParams
+    property alias fsParams: fsParams
 
-    //    RowLayout {
-    //        id: rowLayout
-    //        anchors.fill: parent
     MapViewer {
         id: map
-        width: parent.width / 2
+        //color: "lightblue"
+        width: parent.width * 4 / 12
         height: parent.height
         anchors.left: parent.left
-        //width: parent.implicitWidth
-        //Layout.preferredWidth: 512
-        //            Layout.fillHeight: true
-        //            Layout.fillWidth: true
     }
 
-    ParamsViewer {
-        id: params
-        width: parent.width / 2
+    FSParamsViewer {
+        id: fsParams
+        width: parent.width * 6 / 12
         height: parent.height
-        anchors.right: parent.right
-        //            Layout.fillHeight: true
-        //            Layout.fillWidth: true
+        anchors.left: map.right
+        anchors.right: gsParams.left
     }
-    //  }
+
+    GSParamsViewer {
+        id: gsParams
+        width: parent.width * 2 / 12
+        height: parent.height
+        color: "#e9f2de"
+        anchors.right: parent.right
+    }
 }
 
 /*##^##
 Designer {
-    D{i:0;height:600;width:1200}
+    D{i:0;formeditorZoom:0.75}
 }
 ##^##*/
+
