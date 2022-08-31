@@ -65,7 +65,7 @@ Rectangle {
 
             ParamRow {
                 text: "TimeStamp RIO"
-                span: 5
+                span: 6
                 id: txtTimeStampRIO
             }
         }
