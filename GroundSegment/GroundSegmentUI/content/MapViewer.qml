@@ -9,7 +9,7 @@ import io.qt.examples.gps_data 1.0
 Item{
     id: mapviewer
     property bool hasGps: gpsData.hasFix
-    property int zoomLevel: 10
+    property int zoomLevel: 1//0
     //width: Qt.platform.os =ss= "android" ? Screen.width : 512
     //height: Qt.platform.os == "android" ? Screen.height : 512
     visible: true
@@ -199,7 +199,7 @@ Item{
             Row{
                 width: parent.width
                 spacing: 4
-                Rectangle { width: 20; height: 20; color: "red"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
+                Rectangle { width: 20; height: 20; color: "blue"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
                 Text{text: "Flight Segment"; anchors.verticalCenter: parent.verticalCenter}
             }
             }
@@ -216,7 +216,7 @@ Item{
         border.color: "black"
         Column{
             anchors.centerIn: parent
-
+width:parent.width
             spacing:4
             Button{
                 id: zoomInBtn
@@ -226,9 +226,16 @@ Item{
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "+"
 
-                function onClicked(){ m
-                    apviewer.zoomLevel+=1
+                onClicked:{
+                    mapviewer.zoomLevel+=1
                     console.log("zooming in")
+                    if(mapviewer.hasGps){
+                                            map.center= QtPositioning.coordinate(gpsData.longitude, gpsData.latitude)
+                                        }
+                                        else{
+                                                map.center= QtPositioning.coordinate(customCursor.longitude, customCursor.latitude)
+                                            }
+
                 }
             }
             Button{
@@ -238,8 +245,15 @@ Item{
                 anchors.horizontalCenter: parent.horizontalCenter
 
                 text: "-"
-                function onClicked(){ mapviewer.zoomLevel-=1
+                onClicked:{ mapviewer.zoomLevel-=1
                     console.log("zooming out")
+
+                    if(mapviewer.hasGps){
+                                            map.center= QtPositioning.coordinate(gpsData.longitude, gpsData.latitude)
+                                        }
+                                        else{
+                                                map.center= QtPositioning.coordinate(customCursor.longitude, customCursor.latitude)
+                                            }
 
                 }
 
