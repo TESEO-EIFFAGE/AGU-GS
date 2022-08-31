@@ -65,22 +65,22 @@ Rectangle {
 
                 ParamRow {
                     text: "Latitude"
-                    span: 3
+                    span: 4
                     id: txtLatitudeGPSData
                 }
                 ParamRow {
                     text: "Longitude"
-                    span: 3
+                    span: 4
                     id: txtLongitudeGPSData
                 }
                 ParamRow {
                     text: "Altitude"
-                    span: 3
+                    span: 4
                     id: txtAltitudeGPSData
                 }
                 ParamRow {
                     text: "HasFix"
-                    span: 3
+                    span: 4
                     id: txtHasFix
                 }
 
@@ -88,7 +88,7 @@ Rectangle {
                     spacing: 8
                     ParamRow {
                         text: "Time"
-                        span: 3
+                        span: 4
                         id: txtHourGPSData
                     }
                     ParamRow {
@@ -113,7 +113,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;height:900;width:320}D{i:7}
+    D{i:0;height:900;width:320}
 }
 ##^##*/
 
