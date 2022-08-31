@@ -332,7 +332,6 @@ Rectangle {
                     spacing: 8
 
                     Image {
-                        id: wind
                         x: 0
                         y: 0
                         source: "images/svgs/solid/wind.svg"
@@ -373,7 +372,6 @@ Rectangle {
                 Row {
                     id: row4
                     Image {
-                        id: wind1
                         x: 0
                         y: 0
                         source: "images/svgs/solid/satellite-dish.svg"
@@ -401,7 +399,6 @@ Rectangle {
                 Row {
                     id: row5
                     Image {
-                        id: wind2
                         x: 0
                         y: 0
                         source: "images/svgs/solid/weight-hanging.svg"
