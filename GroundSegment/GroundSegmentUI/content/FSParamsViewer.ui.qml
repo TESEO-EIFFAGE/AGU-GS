@@ -463,9 +463,11 @@ Rectangle {
 
                 Grid {
                     id: grid
-                    columns: 16
-                    rows: 16
+                    columnSpacing: 16
+                    rowSpacing: 16
                     flow: Grid.TopToBottom
+                    columns: 4
+                    rows: 10
 
                     StatusLight {
                         text: "0 - Anemom NOT present"
