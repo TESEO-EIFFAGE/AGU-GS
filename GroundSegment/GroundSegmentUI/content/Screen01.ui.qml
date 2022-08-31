@@ -20,10 +20,9 @@ Rectangle {
     property alias gsParams: gsParams
     property alias fsParams: fsParams
 
-    Rectangle {
-        //MapViewer {
+    MapViewer {
         id: map
-        color: "lightblue"
+        //color: "lightblue"
         width: parent.width * 4 / 12
         height: parent.height
         anchors.left: parent.left
