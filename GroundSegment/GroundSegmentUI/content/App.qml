@@ -85,6 +85,14 @@ Window {
         params.txtTelemetryStatusMask: hmi.TelemetryStatusMask
         params.txtNumberOfGPSSatellite: hmi.NumberOfGPSSatellite
 
+        params.txtLatitudeGPSData:  gpsData.latitude
+        params.txtLongitudeGPSData: gpsData.longitude
+        params.txtAltitudeGPSData:  gpsData.altitude
+        params.txtHasFix:           gpsData.hasFix
+        params.txtHourGPSData:      gpsData.hour
+        params.txtminuteGPSData:    gpsData.minute
+        params.txtsecondGPSData:    gpsData.second
+
 
     }
 }

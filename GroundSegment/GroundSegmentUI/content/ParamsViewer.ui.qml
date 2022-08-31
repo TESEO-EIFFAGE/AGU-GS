@@ -48,6 +48,14 @@ Rectangle {
     property alias txtTelemetryStatusMask: txtTelemetryStatusMask.text
     property alias txtNumberOfGPSSatellite: txtNumberOfGPSSatellite.text
 
+    property alias txtLatitudeGPSData:  txtLatitudeGPSData.text
+    property alias txtLongitudeGPSData: txtLongitudeGPSData.text
+    property alias txtAltitudeGPSData:  txtAltitudeGPSData.text
+    property alias txtHasFix:           txtHasFix.text
+    property alias txtHourGPSData:      txtHourGPSData.text
+    property alias txtminuteGPSData:    txtminuteGPSData.text
+    property alias txtsecondGPSData:    txtsecondGPSData.text
+
     width: 667 //Constants.width / 2
     height: 750 //Constants.height
     color: "#ffffff"
@@ -180,7 +188,7 @@ Rectangle {
         }
         Label {
             text: "Air Info"
-            font.pointSize: 16
+            font.pixelSize: 16
         }
 
         RowLayout {
@@ -494,6 +502,86 @@ Rectangle {
                 }
             }
         }
+
+
+        Label {
+            text: "GPSdata"
+            font.pixelSize: 16
+        }
+        RowLayout {
+            Layout.fillWidth: true
+            spacing: 48
+            Column {
+                spacing: 8
+                Row {
+                    spacing: 8
+                    Label {
+                        text: "Latitude from GS GPS"
+                    }
+                    Label {
+                        id: txtLatitudeGPSData
+                    }
+                }
+                Row {
+                    spacing: 8
+                    Label {
+                        text: "Longitude from GS GPS"
+                    }
+                    Label {
+                        id: txtLongitudeGPSData
+                    }
+                }
+                Row {
+                    spacing: 8
+                    Label {
+                        text: "Altitude from GS GPS"
+                    }
+                    Label {
+                        id: txtAltitudeGPSData
+                    }
+                }
+                Row {
+                    spacing: 8
+                    Label {
+                        text: "HasFix from GS GPS"
+                    }
+                    Label {
+                        id: txtHasFix
+                    }
+                }
+                Row {
+                    spacing: 8
+                    Label {
+                        text: "Hour from GS GPS"
+                    }
+                    Label {
+                        id: txtHourGPSData
+                    }
+                }
+                Row {
+                    spacing: 8
+                    Label {
+                        text: "Minute from GS GPS"
+                    }
+                    Label {
+                        id: txtminuteGPSData
+                    }
+                }
+                Row {
+                    spacing: 8
+                    Label {
+                        text: "Second from GS GPS"
+                    }
+                    Label {
+                        id: txtsecondGPSData
+                    }
+                }
+            }
+
+        }
+
+
+
         Item {
             Layout.fillHeight: true
         }

@@ -13,15 +13,8 @@ Storage::~Storage()
 QString Storage::CalculatePathName()
 {
     QString PathName = "/home/AGU/GroundSegment/";
-    QTime time,i;
     QDate date, j;
-    int sec, min, hour;
     int gg, mm, aa;
-
-    time = i.currentTime();
-    sec  = time.second();
-    min  = time.minute();
-    hour = time.hour();
 
     date = j.currentDate();
     gg   = date.day();
@@ -59,45 +52,61 @@ QString Storage::CalculatePathName()
     }
 
     PathName.append("_");
-
-    if (hour < 10)
-    {
-        PathName.append("0");
-        PathName.append(QString::number(hour));
-    }
-    else
-    {
-        PathName.append(QString::number(hour));
-    }
-
-    if (min < 10)
-    {
-        PathName.append("0");
-        PathName.append(QString::number(min));
-    }
-    else
-    {
-        PathName.append(QString::number(min));
-    }
-
-    if (sec < 10)
-    {
-        PathName.append("0");
-        PathName.append(QString::number(sec));
-    }
-    else
-    {
-        PathName.append(QString::number(sec));
-    }
+    PathName.append(CalculateSystemTime());
 
     qInfo() << "PATH ----------------------------  : " << PathName;
 
     return PathName;
 }
 
+QString Storage::CalculateSystemTime()
+{
+    QString SystemTime;
+    QTime time,i;
+    int sec, min, hour;
+
+    time = i.currentTime();
+    sec  = time.second();
+    min  = time.minute();
+    hour = time.hour();
+
+    if (hour < 10)
+    {
+        SystemTime.append("0");
+        SystemTime.append(QString::number(hour));
+    }
+    else
+    {
+        SystemTime.append(QString::number(hour));
+    }
+
+    if (min < 10)
+    {
+        SystemTime.append("0");
+        SystemTime.append(QString::number(min));
+    }
+    else
+    {
+        SystemTime.append(QString::number(min));
+    }
+
+    if (sec < 10)
+    {
+        SystemTime.append("0");
+        SystemTime.append(QString::number(sec));
+    }
+    else
+    {
+        SystemTime.append(QString::number(sec));
+    }
+
+    return SystemTime;
+}
+
 void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 {
     QString NewPathName = CalculatePathName();
+    QString GlobalTime  = CalculateSystemTime();
 
     NewPathName.append("_STP_Log.csv");
 
@@ -110,12 +119,13 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
     QFile file(PathSystemStatus);
     QTextStream out(&file);
 
-    if (file.size() < 10000)
+    if (file.size() < 3000)
     {
         if (file.size() > 0)
         {
              if (file.open(QIODevice::WriteOnly | QIODevice::Append))
              {
+                 out << GlobalTime << ";";
                  out << s->TimeStamp << ";";
                  out << s->CoreModuleStatusMask << ";";
                  out << s->TelemetryStatusMask << ";";
@@ -136,13 +146,14 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
                  else if (s->fm == FlightMode::OpenLoop)     out << "3;";
                  else if (s->fm == FlightMode::ClosedLoop)   out << "4;";
 
-                 out << s->FlyPhaseExecutionTime << ";\n";
+                 out << s->FlyPhaseExecutionTime << ";\r\n";
               }
          }
          else
          {
               if (file.open(QIODevice::WriteOnly))
               {
+                 out << "GlobalTime;";
                  out << "TimeStamp;";
                  out << "CoreModuleStatusMask;";
                  out << "TelemetryStatusMask;";
@@ -152,7 +163,8 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
                  out << "GuidanceModuleStatusMask;";
                  out << "FlightPhase;";
                  out << "FlightMode;";
-                 out << "FlyPhaseExecutionTime;" << "\n";
+                 out << "FlyPhaseExecutionTime;" << "\r\n";
+                 out << GlobalTime << ";";
                  out << s->TimeStamp << ";";
                  out << s->CoreModuleStatusMask << ";";
                  out << s->TelemetryStatusMask << ";";
@@ -173,7 +185,7 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
                  else if (s->fm == FlightMode::OpenLoop)     out << "3;";
                  else if (s->fm == FlightMode::ClosedLoop)   out << "4;";
 
-                 out << s->FlyPhaseExecutionTime << ";\n";
+                 out << s->FlyPhaseExecutionTime << ";\r\n";
               }
           }
      }
@@ -184,10 +196,96 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 
 }
 
+void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
+{
+    QString NewPathName = CalculatePathName();
+    QString GlobalTime = CalculateSystemTime();
+
+    NewPathName.append("_MSTP_Log.csv");
+
+    if (CountM == false)
+    {
+        PathMotor = NewPathName.mid(0);  /*esegue la copia*/
+        CountM = true;
+    }
+
+    QFile file(PathMotor);
+    QTextStream out(&file);
+
+    if (file.size() < 3000)
+    {
+        if (file.size() > 0)
+        {
+            if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+            {
+                out << GlobalTime << ";";
+                out << m->MotorARealPosition << ";";
+                out << m->MotorBRealPosition << ";";
+                out << m->MotorADemandPosition << ";";
+                out << m->MotorBDemandPosition << ";";
+                out << m->MotorATorque << ";";
+                out << m->MotorBTorque << ";";
+                out << m->MotorATemperature << ";";
+                out << m->MotorBTemperature << ";";
+                out << m->BMS1CurrentVoltage << ";";
+                out << m->BMS2CurrentVoltage << ";";
+                out << m->BMS1CurrentAbsorption << ";";
+                out << m->BMS2CurrentAbsorption << ";";
+                out << m->BMS1CurrentTemperature << ";";
+                out << m->BMS2CurrentTemperature << ";";
+                out << m->MotorControlStatusMask << ";\r\n";
+             }
+          }
+          else
+          {
+              if (file.open(QIODevice::WriteOnly))
+              {
+                 out << "GlobalTime;";
+                 out << "MotorARealPosition;";
+                 out << "MotorBRealPosition;";
+                 out << "MotorADemandPosition;";
+                 out << "MotorBDemandPosition;";
+                 out << "MotorATorque;";
+                 out << "MotorBTorque;";
+                 out << "MotorATemperature;";
+                 out << "MotorBTemperature;";
+                 out << "BMS1CurrentVoltage;";
+                 out << "BMS2CurrentVoltage;";
+                 out << "BMS1CurrentAbsorption;";
+                 out << "BMS2CurrentAbsorption;";
+                 out << "BMS1CurrentTemperature;";
+                 out << "BMS2CurrentTemperature;";
+                 out << "MotorControlStatusMask;" << "\r\n";
+                 out << GlobalTime << ";";
+                 out << m->MotorARealPosition << ";";
+                 out << m->MotorBRealPosition << ";";
+                 out << m->MotorADemandPosition << ";";
+                 out << m->MotorBDemandPosition << ";";
+                 out << m->MotorATorque << ";";
+                 out << m->MotorBTorque << ";";
+                 out << m->MotorATemperature << ";";
+                 out << m->MotorBTemperature << ";";
+                 out << m->BMS1CurrentVoltage << ";";
+                 out << m->BMS2CurrentVoltage << ";";
+                 out << m->BMS1CurrentAbsorption << ";";
+                 out << m->BMS2CurrentAbsorption << ";";
+                 out << m->BMS1CurrentTemperature << ";";
+                 out << m->BMS2CurrentTemperature << ";";
+                 out << m->MotorControlStatusMask << ";\r\n";
+              }
+          }
+     }
+     else
+     {
+         CountM = false;
+     }
+}
+
 
 void Storage::StoreDataInMemory(Telemetry *t)
 {
     QString NewPathName = CalculatePathName();
+    QString GlobalTime = CalculateSystemTime();
 
     NewPathName.append("_TLM_Log.csv");
 
@@ -200,23 +298,18 @@ void Storage::StoreDataInMemory(Telemetry *t)
     QFile file(PathTelemetry);
     QTextStream out(&file);
 
-    if (file.size() < 10000)
+    if (file.size() < 3000)
     {
         if (file.size() > 0)
         {
             if (file.open(QIODevice::WriteOnly | QIODevice::Append))
             {
-                 out << t->TimeStamp << ";";                                        /*OCCHIO CHE TELEMETRY LOG FORMAT è DIVERSO*/
+                 out << GlobalTime << ";";
+                 out << t->TimeStamp << ";";
                  out << t->TimeStampRIO << ";";
                  out << t->Latitude << ";";
                  out << t->Longitude << ";";
                  out << t->GNSSAltitude << ";";
-                 out << t->AirSpeed_UVector  << ";";
-                 out << t->AirSpeed_VVector << ";";
-                 out << t->AirSpeed_WVector << ";";
-                 out << t->AirTemperature << ";";
-                 out << t->AltitudeFromRadarAltimeter << ";";
-                 out << t->AltitudeFromPayloadAltimeter << ";";
                  out << t->LinearVelocityHorizontal << ";";
                  out << t->LinearVelocityVertical << ";";
                  out << t->PositionAccuracy  << ";";
@@ -240,6 +333,12 @@ void Storage::StoreDataInMemory(Telemetry *t)
                  out << t->Quaternion1 << ";";
                  out << t->Quaternion2 << ";";
                  out << t->Quaternion3 << ";";
+                 out << t->AltitudeFromRadarAltimeter << ";";
+                 out << t->AltitudeFromPayloadAltimeter << ";";
+                 out << t->AirSpeed_UVector  << ";";
+                 out << t->AirSpeed_VVector << ";";
+                 out << t->AirSpeed_WVector << ";";
+                 out << t->AirTemperature << ";";
                  out << t->TelemetryStatusMask << ";";
                  out << t->NumberOfGPSSatellite << ";\n";
              }
@@ -248,17 +347,12 @@ void Storage::StoreDataInMemory(Telemetry *t)
           {
               if (file.open(QIODevice::WriteOnly))
               {
+                 out << "GlobalTime;";
                  out << "TimeStamp;";
                  out << "TimeStampRIO;";
                  out << "Latitude;";
                  out << "Longitude;";
-                 out << "GNSSAltitude;";
-                 out << "AirSpeed_UVector;";
-                 out << "AirSpeed_VVector;";
-                 out << "AirSpeed_WVector;";
-                 out << "AirTemperature;";
-                 out << "AltitudeFromRadarAltimeter;";
-                 out << "AltitudeFromPayloadAltimeter;";
+                 out << "GNSSAltitude;";                            
                  out << "LinearVelocityHorizontal;";
                  out << "LinearVelocityVertical;";
                  out << "PositionAccuracy;";
@@ -282,19 +376,20 @@ void Storage::StoreDataInMemory(Telemetry *t)
                  out << "Quaternion1;";
                  out << "Quaternion2;";
                  out << "Quaternion3;";
+                 out << "AltitudeFromRadarAltimeter;";
+                 out << "AltitudeFromPayloadAltimeter;";
+                 out << "AirSpeed_UVector;";
+                 out << "AirSpeed_VVector;";
+                 out << "AirSpeed_WVector;";
+                 out << "AirTemperature;";
                  out << "TelemetryStatusMask;";
                  out << "NumberOfGPSSatellite;" << "\n";
+                 out << GlobalTime << ";";
                  out << t->TimeStamp << ";";
                  out << t->TimeStampRIO << ";";
                  out << t->Latitude << ";";
                  out << t->Longitude << ";";
                  out << t->GNSSAltitude << ";";
-                 out << t->AirSpeed_UVector  << ";";
-                 out << t->AirSpeed_VVector << ";";
-                 out << t->AirSpeed_WVector << ";";
-                 out << t->AirTemperature << ";";
-                 out << t->AltitudeFromRadarAltimeter << ";";
-                 out << t->AltitudeFromPayloadAltimeter << ";";
                  out << t->LinearVelocityHorizontal << ";";
                  out << t->LinearVelocityVertical << ";";
                  out << t->PositionAccuracy  << ";";
@@ -318,8 +413,14 @@ void Storage::StoreDataInMemory(Telemetry *t)
                  out << t->Quaternion1 << ";";
                  out << t->Quaternion2 << ";";
                  out << t->Quaternion3 << ";";
+                 out << t->AltitudeFromRadarAltimeter << ";";
+                 out << t->AltitudeFromPayloadAltimeter << ";";
+                 out << t->AirSpeed_UVector  << ";";
+                 out << t->AirSpeed_VVector << ";";
+                 out << t->AirSpeed_WVector << ";";
+                 out << t->AirTemperature << ";";
                  out << t->TelemetryStatusMask << ";";
-                 out << t->NumberOfGPSSatellite << ";\n";
+                 out << t->NumberOfGPSSatellite << ";\r\n";
               }
           }
      }
@@ -329,5 +430,4 @@ void Storage::StoreDataInMemory(Telemetry *t)
      }
 
 }
-
 

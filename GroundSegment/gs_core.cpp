@@ -26,10 +26,12 @@ GSCore::GSCore(QObject *parent)
     Serial1->open(QIODevice::ReadWrite);
 
     GSCore::connect(Serial1, SIGNAL(readyRead()), this, SLOT(ReadData()));                                   /*segnale emesso dalla porta seriale*/
-    GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataTelemetry(QByteArray)));             /*segnale emesso da MainWindow::ReadData()*/
-    GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataSystemStatus(QByteArray)));             /*segnale emesso da MainWindow::ReadData()*/
+    GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataTelemetry(QByteArray)));          /*segnale emesso da MainWindow::ReadData()*/
+    GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataSystemStatus(QByteArray)));       /*segnale emesso da MainWindow::ReadData()*/
+    GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseMotorStatusPack(QByteArray)));    /*segnale emesso da MainWindow::ReadData()*/
     GSCore::connect(Mavlink, SIGNAL(toStorage(Telemetry *)), StorageData, SLOT(StoreDataInMemory(Telemetry *)));
     GSCore::connect(Mavlink, SIGNAL(toStorageSystemStatus(SystemStatusPack *)), StorageData, SLOT(StoreDataInMemorySystemStatus(SystemStatusPack *)));
+    GSCore::connect(Mavlink, SIGNAL(toStorageMotorStatusPack(MotorStatusPackDataset *)), StorageData, SLOT(StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *)));
     GSCore::connect(Mavlink, SIGNAL(toHMI(Telemetry *)), m_hmi, SLOT(showData(Telemetry *)));
     GSCore::connect(Mavlink, SIGNAL(toHMISystemStatus(SystemStatusPack *)), m_hmi, SLOT(showDataSystemStatus(SystemStatusPack *)));
     //HMIController::connect(this, SIGNAL(updateTopDiagLog()), TopDialogWindow, SLOT(UpdateWindow()));  /* Spostare l'UpdateWindow signal dal pushbutton*/

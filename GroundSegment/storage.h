@@ -13,13 +13,16 @@ public:
     explicit Storage(QObject *parent = nullptr);
     ~Storage();
     QString CalculatePathName(void);
+    QString CalculateSystemTime(void);
     bool CountT = 0;
     bool CountS = 0;
-    QString PathSystemStatus, PathTelemetry;
+    bool CountM = 0;
+    QString PathSystemStatus, PathTelemetry, PathMotor;
 
 public slots:
     void StoreDataInMemory(Telemetry *t);
     void StoreDataInMemorySystemStatus(SystemStatusPack *s);
+    void StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m);
 
 };
 

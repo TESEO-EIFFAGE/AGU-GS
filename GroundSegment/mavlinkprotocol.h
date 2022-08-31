@@ -65,6 +65,29 @@ typedef struct
 }SystemStatusPack;
 Q_DECLARE_METATYPE(SystemStatusPack);  /*MESSAGGIO MAVLINK*/
 
+
+typedef struct
+{
+   /*MOTOR STATUS PACK*/
+
+    uint32_t  MotorARealPosition;
+    uint32_t  MotorBRealPosition;
+    uint32_t  MotorADemandPosition;
+    uint32_t  MotorBDemandPosition;
+    uint32_t  MotorATorque;
+    uint32_t  MotorBTorque;
+    int16_t   MotorATemperature;
+    int16_t   MotorBTemperature;
+    uint16_t  BMS1CurrentVoltage;
+    uint16_t  BMS2CurrentVoltage;
+    uint16_t  BMS1CurrentAbsorption;
+    uint16_t  BMS2CurrentAbsorption;
+    int16_t   BMS1CurrentTemperature;
+    int16_t   BMS2CurrentTemperature;
+    uint32_t  MotorControlStatusMask;
+}MotorStatusPackDataset;
+Q_DECLARE_METATYPE(MotorStatusPackDataset);  /*MESSAGGIO MAVLINK*/
+
 class MavlinkProtocol : public QObject
 {
     Q_OBJECT
@@ -80,17 +103,20 @@ public:
     int Index = 0;
     Telemetry t;
     SystemStatusPack s;
+    MotorStatusPackDataset m;
 
 public slots:
     void parseDataTelemetry(QByteArray data);
     void parseDataSystemStatus(QByteArray data);
+    void parseMotorStatusPack(QByteArray data);
 
 signals:
     void toStorage(Telemetry *);
     void toStorageSystemStatus(SystemStatusPack *);
+    void toStorageMotorStatusPack(MotorStatusPackDataset *);
     void toHMI(Telemetry *);
     void toHMISystemStatus(SystemStatusPack *);
-
+    void toHMIMotorStatusPack(MotorStatusPackDataset *);
 };
 
 #endif // MAVLINKPROTOCOL_H
