@@ -90,7 +90,7 @@ Rectangle {
             }
         }
         RowLayout {
-            spacing: 48
+            spacing: 40 //48
             Layout.fillWidth: true
             Column {
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
@@ -98,7 +98,7 @@ Rectangle {
                 spacing: 8
 
                 ParamGrp2Label {
-                    text: "Coordinates"
+                    text: "Coordinates (°)"
                 }
 
                 ParamRow {
@@ -123,7 +123,7 @@ Rectangle {
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 spacing: 8
                 ParamGrp2Label {
-                    text: "ECEF Position"
+                    text: "ECEF Position (°)"
                 }
 
                 ParamRow {
@@ -144,7 +144,7 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
 
                 ParamGrp2Label {
-                    text: "ECEF Velocity"
+                    text: "ECEF Velocity (m/s)"
                 }
 
                 ParamRow {
@@ -166,7 +166,7 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
 
                 ParamGrp2Label {
-                    text: "Linear Velocity"
+                    text: "Linear Velocity (m/s)"
                 }
 
                 ParamRow {
@@ -187,7 +187,7 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
 
                 ParamGrp2Label {
-                    text: "Linear Acceleration"
+                    text: "Linear Acceleration (m/s²)"
                 }
 
                 ParamRow {
@@ -239,7 +239,7 @@ Rectangle {
                 spacing: 8
                 Layout.alignment: Qt.AlignTop
                 ParamGrp2Label {
-                    text: "Angle"
+                    text: "Angle (°)"
                 }
 
                 ParamRow {
