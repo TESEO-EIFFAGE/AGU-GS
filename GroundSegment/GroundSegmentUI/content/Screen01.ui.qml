@@ -24,14 +24,14 @@ Rectangle {
         //MapViewer {
         id: map
         color: "lightblue"
-        width: parent.width * 2 / 5
+        width: parent.width * 4 / 12
         height: parent.height
         anchors.left: parent.left
     }
 
     FSParamsViewer {
         id: fsParams
-        width: parent.width * 2 / 5
+        width: parent.width * 6 / 12
         height: parent.height
         anchors.left: map.right
         anchors.right: gsParams.left
@@ -39,7 +39,7 @@ Rectangle {
 
     GSParamsViewer {
         id: gsParams
-        width: parent.width * 1 / 5
+        width: parent.width * 2 / 12
         height: parent.height
         color: "#e9f2de"
         anchors.right: parent.right

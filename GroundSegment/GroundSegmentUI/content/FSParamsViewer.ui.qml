@@ -53,21 +53,19 @@ Rectangle {
     color: "#ffffff"
     ColumnLayout {
         anchors.fill: parent
-        spacing: 16
+        spacing: 24
         anchors.margins: 32
 
-        Row {
-            id: row
-            spacing: 32
+        Column {
+            spacing: 0
 
             SectionLabel {
                 text: "Flight Segment"
-                anchors.verticalCenter: parent.verticalCenter
             }
 
             ParamRow {
                 text: "TimeStamp RIO"
-                anchors.verticalCenter: parent.verticalCenter
+                span: 5
                 id: txtTimeStampRIO
             }
         }
@@ -86,14 +84,10 @@ Rectangle {
                 fillMode: Image.PreserveAspectFit
             }
 
-            ParamGrpLabel {
+            ParamGrp1Label {
                 text: "GNSS"
                 Layout.topMargin: 8
             }
-        }
-
-        ParamSubGrpLabel {
-            text: "Position"
         }
         RowLayout {
             spacing: 48
@@ -102,143 +96,165 @@ Rectangle {
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 //Layout.alignment: Qt.AlignRight
                 spacing: 8
+
+                ParamGrp2Label {
+                    text: "Coordinates"
+                }
+
                 ParamRow {
                     id: txtLatitude
                     text: "Latitude"
+                    span: 3
                 }
 
                 ParamRow {
                     text: "Longitude"
+                    span: 3
                     id: txtLongitude
                 }
                 ParamRow {
                     text: "Altitude"
+                    span: 3
                     id: txtGNSSAltitude
-                }
-
-                ParamRow {
-                    text: "# GPS satellites"
-                    id: txtNumberOfGPSSatellite
                 }
             }
 
             Column {
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 spacing: 8
+                ParamGrp2Label {
+                    text: "ECEF Position"
+                }
+
                 ParamRow {
-                    text: "ECEF Position X"
+                    text: "X"
                     id: txtECEFVectorPositionX
                 }
                 ParamRow {
-                    text: "ECEF Position Y"
+                    text: "Y"
                     id: txtECEFVectorPositionY
                 }
                 ParamRow {
-                    text: "ECEF Position Z"
+                    text: "Z"
                     id: txtECEFVectorPositionZ
                 }
             }
             Column {
-                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 spacing: 8
+                Layout.alignment: Qt.AlignTop
 
-                ParamRow {
-                    text: "Altitude From Radar"
-                    id: txtAltitudeFromRadarAltimeter
-                }
-                ParamRow {
-                    text: "Altitude From Payload"
-                    id: txtAltitudeFromPayloadAltimeter
+                ParamGrp2Label {
+                    text: "ECEF Velocity"
                 }
 
                 ParamRow {
-                    text: "Position Accuracy"
-                    id: txtPositionAccuracy
+                    text: "X"
+                    id: txtECEFVectorVelocityX
                 }
-
                 ParamRow {
-                    text: "Speed Accuracy"
-                    id: txtSpeedAccuracy
+                    text: "Y"
+                    id: txtECEFVectorVelocityY
+                }
+                ParamRow {
+                    text: "Z"
+                    id: txtECEFVectorVelocityZ
                 }
             }
-        }
-        ParamSubGrpLabel {
-            text: "Velocity"
-        }
 
-        RowLayout {
-            spacing: 48
-            Layout.fillWidth: true
             Column {
                 spacing: 8
                 Layout.alignment: Qt.AlignTop
 
+                ParamGrp2Label {
+                    text: "Linear Velocity"
+                }
+
                 ParamRow {
-                    text: "Linear Velocity Horizontal"
+                    text: "Horizontal"
+                    span: 3
                     id: txtLinearVelocityHorizontal
                 }
 
                 ParamRow {
-                    text: "Linear Velocity Vertical"
+                    text: "Vertical"
+                    span: 3
                     id: txtLinearVelocityVertical
                 }
             }
+
             Column {
                 spacing: 8
                 Layout.alignment: Qt.AlignTop
 
-                ParamRow {
-                    text: "ECEF Vector Velocity X"
-                    id: txtECEFVectorVelocityX
+                ParamGrp2Label {
+                    text: "Linear Acceleration"
                 }
-                ParamRow {
-                    text: "ECEF Vector Velocity Y"
-                    id: txtECEFVectorVelocityY
-                }
-                ParamRow {
-                    text: "ECEF Vector Velocity Z"
-                    id: txtECEFVectorVelocityZ
-                }
-            }
-            Column {
-                spacing: 8
-                Layout.alignment: Qt.AlignTop
 
                 ParamRow {
-                    text: "Linear Acceleration X"
+                    text: "X"
                     id: txtLinearAccelerationX
                 }
                 ParamRow {
-                    text: "Linear Acceleration Y"
+                    text: "Y"
                     id: txtLinearAccelerationY
                 }
                 ParamRow {
-                    text: "Linear Acceleration Z"
+                    text: "Z"
                     id: txtLinearAccelerationZ
                 }
             }
         }
 
-        ParamSubGrpLabel {
-            text: "Rotation"
-        }
-
         RowLayout {
             Layout.fillWidth: true
             spacing: 48
             Column {
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                spacing: 8
+
+                ParamGrp2Label {
+                    text: "Accuracy"
+                }
+
+                ParamRow {
+                    text: "Position"
+                    span: 6
+                    id: txtPositionAccuracy
+                }
+
+                ParamRow {
+                    text: "Speed"
+                    span: 6
+                    id: txtSpeedAccuracy
+                }
+
+                ParamRow {
+                    text: "# GNSS satellites"
+                    span: 6
+                    id: txtNumberOfGPSSatellite
+                }
+            }
+
+            Column {
                 spacing: 8
                 Layout.alignment: Qt.AlignTop
+                ParamGrp2Label {
+                    text: "Angle"
+                }
+
                 ParamRow {
-                    text: "Roll Angle"
+                    text: "Roll"
+                    span: 2
                     id: txtRollAngle
                 }
                 ParamRow {
-                    text: "Pitch Angle"
+                    text: "Pitch"
+                    span: 2
                     id: txtPitchAngle
                 }
                 ParamRow {
-                    text: "Yaw Angle"
+                    text: "Yaw"
+                    span: 2
                     id: txtYawAngle
                 }
             }
@@ -246,17 +262,24 @@ Rectangle {
                 spacing: 8
                 Layout.alignment: Qt.AlignTop
 
+                ParamGrp2Label {
+                    text: "Angular Rate"
+                }
+
                 ParamRow {
-                    text: "Angular Rate Roll"
+                    text: "Roll"
+                    span: 2
                     id: txtAngularRateRoll
                 }
                 ParamRow {
-                    text: "Angular Rate Pitch"
+                    text: "Pitch"
+                    span: 2
                     id: txtAngularRatePitch
                 }
 
                 ParamRow {
-                    text: "Angular Rate Yaw"
+                    text: "Yaw"
+                    span: 2
                     id: txtAngularRateYaw
                 }
             }
@@ -264,75 +287,153 @@ Rectangle {
                 spacing: 8
                 Layout.alignment: Qt.AlignTop
 
+                ParamGrp2Label {
+                    text: "Quaternion"
+                }
+
                 ParamRow {
-                    text: "Quaternion 0"
+                    text: "Q0"
                     id: txtQuaternion0
                 }
                 ParamRow {
-                    text: "Quaternion 1"
+                    text: "Q1"
                     id: txtQuaternion1
                 }
                 ParamRow {
-                    text: "Quaternion 2"
+                    text: "Q2"
                     id: txtQuaternion2
                 }
 
                 ParamRow {
-                    text: "Quaternion 3"
+                    text: "Q3"
                     id: txtQuaternion3
                 }
             }
         }
 
-        Row {
-            id: row2
+        Rectangle {
+            id: rectangle
             width: 200
-            height: 400
-            spacing: 8
-
-            Image {
-                id: wind
-                x: 0
-                y: 0
-                source: "images/svgs/solid/wind.svg"
-                sourceSize.height: 24
-                sourceSize.width: 24
-                fillMode: Image.PreserveAspectFit
-            }
-            ParamGrpLabel {
-                text: "Anemometer"
-            }
+            height: 200
+            color: "#d9d9d9"
+            Layout.preferredHeight: 1
+            Layout.fillWidth: true
         }
 
         RowLayout {
             Layout.fillWidth: true
-            spacing: 48
+            spacing: 104
             Column {
                 spacing: 8
                 Layout.alignment: Qt.AlignTop
 
+                Row {
+                    id: row2
+                    spacing: 8
+
+                    Image {
+                        id: wind
+                        x: 0
+                        y: 0
+                        source: "images/svgs/solid/wind.svg"
+                        sourceSize.height: 24
+                        sourceSize.width: 24
+                        fillMode: Image.PreserveAspectFit
+                    }
+                    ParamGrp1Label {
+                        text: "Anemometer"
+                    }
+                }
+
                 ParamRow {
-                    text: "Air Speed UVector"
+                    text: "Air Speed U"
+                    span: 4
                     id: txtAirSpeed_UVector
                 }
 
                 ParamRow {
-                    text: "Air Speed VVector"
+                    text: "Air Speed V"
+                    span: 4
                     id: txtAirSpeed_VVector
                 }
                 ParamRow {
-                    text: "Air Speed WVector"
+                    text: "Air Speed W"
+                    span: 4
                     id: txtAirSpeed_WVector
                 }
-            }
-            Column {
-                Layout.alignment: Qt.AlignTop
+
                 ParamRow {
-                    text: "Air Temperature"
+                    text: "Air Temp."
+                    span: 4
                     id: txtAirTemperature
                 }
             }
+
+            Column {
+                Row {
+                    id: row4
+                    Image {
+                        id: wind1
+                        x: 0
+                        y: 0
+                        source: "images/svgs/solid/satellite-dish.svg"
+                        fillMode: Image.PreserveAspectFit
+                        sourceSize.height: 24
+                        sourceSize.width: 24
+                    }
+
+                    ParamGrp1Label {
+                        text: "Radar"
+                    }
+                    spacing: 8
+                }
+
+                ParamRow {
+                    text: "Altitude"
+                    span: 3
+                    id: txtAltitudeFromRadarAltimeter
+                }
+                Layout.alignment: Qt.AlignTop
+                spacing: 8
+            }
+
+            Column {
+                Row {
+                    id: row5
+                    Image {
+                        id: wind2
+                        x: 0
+                        y: 0
+                        source: "images/svgs/solid/weight-hanging.svg"
+                        fillMode: Image.PreserveAspectFit
+                        sourceSize.height: 24
+                        sourceSize.width: 24
+                    }
+
+                    ParamGrp1Label {
+                        text: "Payload"
+                    }
+                    spacing: 8
+                }
+
+                ParamRow {
+                    text: "Altitude"
+                    span: 3
+                    id: txtAltitudeFromPayloadAltimeter
+                }
+                Layout.alignment: Qt.AlignTop
+                spacing: 8
+            }
         }
+        Rectangle {
+            id: rectangle1
+            width: 200
+            height: 200
+            color: "#d9d9d9"
+            Layout.fillWidth: true
+            Layout.preferredHeight: 1
+        }
+
         Row {
             id: row3
             width: 200
@@ -348,10 +449,11 @@ Rectangle {
                 fillMode: Image.PreserveAspectFit
             }
 
-            ParamGrpLabel {
+            ParamGrp1Label {
                 text: "Telemetry status"
             }
         }
+
         RowLayout {
             Layout.fillWidth: true
             spacing: 48
@@ -359,6 +461,7 @@ Rectangle {
                 Layout.alignment: Qt.AlignTop
                 ParamRow {
                     text: "Telemetry Status Mask"
+                    span: 8
                     id: txtTelemetryStatusMask
                 }
             }
@@ -372,10 +475,3 @@ Rectangle {
         }
     }
 }
-
-/*##^##
-Designer {
-    D{i:0;height:900;width:640}D{i:3}D{i:7}D{i:52}D{i:62}
-}
-##^##*/
-

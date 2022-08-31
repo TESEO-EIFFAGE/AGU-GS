@@ -26,18 +26,16 @@ Rectangle {
         spacing: 16
         anchors.margins: 32
 
-        Row {
-            id: row
-            spacing: 32
+        Column {
+            spacing: 0
 
             SectionLabel {
                 text: "Ground Segment"
-                anchors.verticalCenter: parent.verticalCenter
             }
 
             ParamRow {
                 text: "TimeStamp"
-                anchors.verticalCenter: parent.verticalCenter
+                span: 4
                 id: txtTimeStamp
             }
         }
@@ -48,20 +46,41 @@ Rectangle {
             Column {
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 spacing: 8
+                Row {
+                    id: row1
+                    Image {
+                        id: satellite
+                        source: "images/svgs/solid/satellite.svg"
+                        fillMode: Image.PreserveAspectFit
+                        sourceSize.height: 24
+                        sourceSize.width: 24
+                    }
+
+                    ParamGrp1Label {
+                        text: "GNSS"
+                        Layout.topMargin: 8
+                    }
+                    spacing: 8
+                }
+
                 ParamRow {
                     text: "Latitude"
+                    span: 3
                     id: txtLatitudeGPSData
                 }
                 ParamRow {
                     text: "Longitude"
+                    span: 3
                     id: txtLongitudeGPSData
                 }
                 ParamRow {
                     text: "Altitude"
+                    span: 3
                     id: txtAltitudeGPSData
                 }
                 ParamRow {
                     text: "HasFix"
+                    span: 3
                     id: txtHasFix
                 }
 
@@ -69,14 +88,17 @@ Rectangle {
                     spacing: 8
                     ParamRow {
                         text: "Time"
+                        span: 3
                         id: txtHourGPSData
                     }
                     ParamRow {
                         text: ":"
+                        span: 0.5
                         id: txtminuteGPSData
                     }
                     ParamRow {
                         text: ":"
+                        span: 0.5
                         id: txtsecondGPSData
                     }
                 }
@@ -91,7 +113,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;height:900;width:320}
+    D{i:0;height:900;width:320}D{i:7}
 }
 ##^##*/
 

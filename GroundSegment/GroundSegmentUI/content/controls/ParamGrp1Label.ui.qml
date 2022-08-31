@@ -4,15 +4,8 @@ import GroundSegmentUI 1.0
 
 Label {
     color: "#000000"
-    text: "[ParamGrp3Label]"
-    font.pixelSize: 12
+    text: "[ParamGrp1Label]"
+    font.pixelSize: 16
     font.styleName: "SemiBold"
     font.family: "Titillium Web"
 }
-
-/*##^##
-Designer {
-    D{i:0;height:22;width:49}
-}
-##^##*/
-
