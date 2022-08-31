@@ -467,14 +467,122 @@ Rectangle {
                     rowSpacing: 16
                     flow: Grid.TopToBottom
                     columns: 4
-                    rows: 10
+                    rows: 8
 
                     StatusLight {
                         text: "0 - Anemom NOT present"
                     }
 
                     StatusLight {
-                        text: "0 - Anemom NOT present"
+                        text: "1 - RD Altimeter NOT present"
+                    }
+
+                    StatusLight {
+                        text: "2 - GNSS NOT present"
+                    }
+
+                    StatusLight {
+                        text: "3 - PL Altimeter NOT present"
+                    }
+                    StatusLight {
+                        text: "4 - Anemom TO"
+                    }
+
+                    StatusLight {
+                        text: "5 - Anemom CS"
+                    }
+                    StatusLight {
+                        text: "6 - RD Altimeter TO"
+                    }
+
+                    StatusLight {
+                        text: "7 - RD Altimeter CS"
+                    }
+                    StatusLight {
+                        text: "8 - GNSS pack1 TO"
+                    }
+
+                    StatusLight {
+                        text: "9 - GNSS pack1 CS"
+                    }
+                    StatusLight {
+                        text: "10 - GNSS pack2 TO"
+                    }
+
+                    StatusLight {
+                        text: "11 - GNSS pack2 CS"
+                    }
+
+                    StatusLight {
+                        text: "12 - GNSS pack3 TO"
+                    }
+
+                    StatusLight {
+                        text: "13 - GNSS pack3 CS"
+                    }
+                    StatusLight {
+                        text: "14 - PL Altimeter TO"
+                    }
+
+                    StatusLight {
+                        text: "15 - RS232 HW failure"
+                    }
+                    StatusLight {
+                        text: "16 - RS422 HW failure"
+                    }
+
+                    StatusLight {
+                        text: "17 - CAN HW failure"
+                    }
+                    StatusLight {
+                        text: "18 - GNSS_time NOT valid"
+                    }
+
+                    StatusLight {
+                        text: "19 - GNSS_pos NOT valid"
+                    }
+                    StatusLight {
+                        text: "20 - Anem_speed NOT valid"
+                    }
+
+                    StatusLight {
+                        text: "21 - Anem_temp NOT valid"
+                    }
+
+                    StatusLight {
+                        text: "22 - RD_altitude NOT valid"
+                    }
+
+                    StatusLight {
+                        text: "23 - PL_altitude NOT valid"
+                    }
+                    StatusLight {
+                        text: "24 - GNSS_vel NOT valid"
+                    }
+
+                    StatusLight {
+                        text: "25 - GNSS_acc NOT valid"
+                    }
+                    StatusLight {
+                        text: "26 - GNSS_ECEFpos NOT valid"
+                    }
+
+                    StatusLight {
+                        text: "27 - GNSS_ECEFvel NOT valid"
+                    }
+                    StatusLight {
+                        text: "28 - GNSS_angle NOT valid"
+                    }
+
+                    StatusLight {
+                        text: "29 - GNSS_angRate NOT valid"
+                    }
+                    StatusLight {
+                        text: "30 - GNSS_quat NOT valid"
+                    }
+
+                    StatusLight {
+                        text: "31 - GNSS_fix done"
                     }
                 }
             }
