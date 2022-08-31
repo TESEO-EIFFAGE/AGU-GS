@@ -6,7 +6,7 @@ Label {
     color: "#000000"
     text: "[val]"
     font.pixelSize: 12
-    font.family: "JetBrains Mono"
+    //font.family: "JetBrains Mono"
     styleColor: "#ffffff"
 }
 
