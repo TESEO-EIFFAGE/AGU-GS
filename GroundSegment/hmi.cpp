@@ -30,10 +30,10 @@ void HMI::showData(/*Telemetry *t*/)
     m_TimeStampRIO =  QDateTime::currentDateTime().toSecsSinceEpoch();//QRandomGenerator::global()->bounded(999999999, 10000000000);//t->TimeStampRIO;
     qInfo() << "TimeStampRIO = " << m_TimeStampRIO;
 
-    m_Latitude = QRandomGenerator::global()->bounded(999999, 9999999);//t->Latitude;
+    m_Latitude = QRandomGenerator::global()->bounded(-90, 90);//t->Latitude;
     qInfo() << "Latitude = " << m_Latitude;
 
-    m_Longitude =  QRandomGenerator::global()->bounded(999999, 9999999);//t->Longitude;
+    m_Longitude =  QRandomGenerator::global()->bounded(-180, 180);//t->Longitude;
     qInfo() << "Longitude = " << m_Longitude;
 
     m_GNSSAltitude = QRandomGenerator::global()->bounded(999999, 9999999);// t->GNSSAltitude;
@@ -48,7 +48,7 @@ void HMI::showData(/*Telemetry *t*/)
     m_AirSpeed_WVector = QRandomGenerator::global()->bounded(9, 100);// t->AirSpeed_WVector;
     qInfo() << "AirSpeed_WVector = " << m_AirSpeed_WVector;
 
-    m_AirTemperature = QRandomGenerator::global()->bounded(-100, 100);// t->AirTemperature;
+    m_AirTemperature = QRandomGenerator::global()->bounded(-30, 50);// t->AirTemperature;
     qInfo() << "AirTemperature = " << m_AirTemperature;
 
     m_AltitudeFromRadarAltimeter= QRandomGenerator::global()->bounded(999999, 9999999);// t->AltitudeFromRadarAltimeter;
@@ -96,13 +96,13 @@ void HMI::showData(/*Telemetry *t*/)
     m_ECEFVectorVelocityZ = QRandomGenerator::global()->bounded(9, 100);// t->ECEFVectorVelocityZ;
     qInfo() << "PositionAccuracy = " << m_ECEFVectorVelocityZ;
 
-    m_RollAngle = QRandomGenerator::global()->bounded(-180, 180);//t->RollAngle;
+    m_RollAngle = QRandomGenerator::global()->bounded(0, 360);//t->RollAngle;
     qInfo() << "RollAngle = " << m_RollAngle;
 
-    m_PitchAngle = QRandomGenerator::global()->bounded(-180, 180);// t->PitchAngle;
+    m_PitchAngle = QRandomGenerator::global()->bounded(0, 360);// t->PitchAngle;
     qInfo() << "PitchAngle = " << m_PitchAngle;
 
-    m_YawAngle = QRandomGenerator::global()->bounded(-180, 180);// t->YawAngle;
+    m_YawAngle = QRandomGenerator::global()->bounded(0, 360);// t->YawAngle;
     qInfo() << "YawAngle = " << m_YawAngle;
 
     m_AngularRateRoll = QRandomGenerator::global()->bounded(99, 999);// t->AngularRateRoll;
