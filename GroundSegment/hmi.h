@@ -77,6 +77,37 @@ public:
     Q_PROPERTY(bool telemetry30 MEMBER m_telemetry30 NOTIFY telemetry30Changed)
     Q_PROPERTY(bool telemetry31 MEMBER m_telemetry31 NOTIFY telemetry31Changed)
 
+
+    Q_PROPERTY(bool storage0 MEMBER m_storage0 NOTIFY storage0Changed)
+    Q_PROPERTY(bool storage1 MEMBER m_storage1 NOTIFY storage1Changed)
+    Q_PROPERTY(bool storage2 MEMBER m_storage2 NOTIFY storage2Changed)
+    Q_PROPERTY(bool storage3 MEMBER m_storage3 NOTIFY storage3Changed)
+
+    Q_PROPERTY(bool storage4 MEMBER m_storage4 NOTIFY storage4Changed)
+    Q_PROPERTY(bool storage5 MEMBER m_storage5 NOTIFY storage5Changed)
+    Q_PROPERTY(bool storage6 MEMBER m_storage6 NOTIFY storage6Changed)
+    Q_PROPERTY(bool storage7 MEMBER m_storage7 NOTIFY storage7Changed)
+    Q_PROPERTY(bool storage8 MEMBER m_storage8 NOTIFY storage8Changed)
+
+    Q_PROPERTY(bool storage9 MEMBER m_storage9 NOTIFY storage9Changed)
+    Q_PROPERTY(bool storage10 MEMBER m_storage10 NOTIFY storage10Changed)
+    Q_PROPERTY(bool storage11 MEMBER m_storage11 NOTIFY storage11Changed)
+    Q_PROPERTY(bool storage12 MEMBER m_storage12 NOTIFY storage12Changed)
+    Q_PROPERTY(bool storage13 MEMBER m_storage13 NOTIFY storage13Changed)
+
+    Q_PROPERTY(bool storage14 MEMBER m_storage14 NOTIFY storage14Changed)
+    Q_PROPERTY(bool storage15 MEMBER m_storage15 NOTIFY storage15Changed)
+    Q_PROPERTY(bool storage16 MEMBER m_storage16 NOTIFY storage16Changed)
+    Q_PROPERTY(bool storage17 MEMBER m_storage17 NOTIFY storage17Changed)
+    Q_PROPERTY(bool storage18 MEMBER m_storage18 NOTIFY storage18Changed)
+
+    Q_PROPERTY(bool storage19 MEMBER m_storage19 NOTIFY storage19Changed)
+    Q_PROPERTY(bool storage20 MEMBER m_storage20 NOTIFY storage20Changed)
+    Q_PROPERTY(bool storage21 MEMBER m_storage21 NOTIFY storage21Changed)
+    Q_PROPERTY(bool storage22 MEMBER m_storage22 NOTIFY storage22Changed)
+    Q_PROPERTY(bool storage23 MEMBER m_storage23 NOTIFY storage23Changed)
+
+
 public slots:
     void showData(/*Telemetry *t*/);
     void showDataSystemStatus (SystemStatusPack *s);
@@ -216,6 +247,54 @@ signals:
 
     void telemetry31Changed();
 
+    void storage0Changed();
+
+    void storage1Changed();
+
+    void storage2Changed();
+
+    void storage3Changed();
+
+    void storage4Changed();
+
+    void storage5Changed();
+
+    void storage6Changed();
+
+    void storage7Changed();
+
+    void storage8Changed();
+
+    void storage9Changed();
+
+    void storage10Changed();
+
+    void storage11Changed();
+
+    void storage12Changed();
+
+    void storage13Changed();
+
+    void storage14Changed();
+
+    void storage15Changed();
+
+    void storage16Changed();
+
+    void storage17Changed();
+
+    void storage18Changed();
+
+    void storage19Changed();
+
+    void storage20Changed();
+
+    void storage21Changed();
+
+    void storage22Changed();
+
+    void storage23Changed();
+
 private:
 
     uint64_t m_TimeStamp{};
@@ -286,6 +365,31 @@ private:
     bool m_telemetry29;
     bool m_telemetry30;
     bool m_telemetry31;
+
+    bool m_storage0;
+    bool m_storage1;
+    bool m_storage2;
+    bool m_storage3;
+    bool m_storage4;
+    bool m_storage5;
+    bool m_storage6;
+    bool m_storage7;
+    bool m_storage8;
+    bool m_storage9;
+    bool m_storage10;
+    bool m_storage11;
+    bool m_storage12;
+    bool m_storage13;
+    bool m_storage14;
+    bool m_storage15;
+    bool m_storage16;
+    bool m_storage17;
+    bool m_storage18;
+    bool m_storage19;
+    bool m_storage20;
+    bool m_storage21;
+    bool m_storage22;
+    bool m_storage23;
 };
 
 #endif // HMI_H
