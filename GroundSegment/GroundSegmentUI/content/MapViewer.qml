@@ -83,6 +83,7 @@ Item{
 
             Text {
                 id: gpsDataSectionTitle
+                visible: false
                 text: "GPS data"
                 font.pointSize: 13; font.bold: true
                 anchors.top: gpsDataSection.top
@@ -91,6 +92,7 @@ Item{
 
             Text {
                 id: longitude
+                visible: false
                 text: "Longitude: " + (gpsData.longitude).toFixed(5) + "°"
                 font.pointSize: 11;
                 anchors.top: gpsDataSectionTitle.bottom
@@ -98,6 +100,7 @@ Item{
 
             Text {
                 id: latitude
+                visible: false
                 text: "Latitude: " + (gpsData.latitude).toFixed(5) + "°"
                 font.pointSize: 11;
                 anchors.top: longitude.bottom
@@ -105,6 +108,7 @@ Item{
 
             Text {
                 id: altitude
+                visible: false
                 text: "Altitude: " + gpsData.altitude + "m"
                 font.pointSize: 11;
                 anchors.top: latitude.bottom
@@ -112,6 +116,7 @@ Item{
 
             Text {
                 id: time
+                visible: false
                 text: "UTC Time: " + gpsData.hour.valueOf() + ":" + gpsData.minute.valueOf() + ":" + gpsData.second.valueOf()
                 font.pointSize: 11;
                 anchors.top: altitude.bottom
@@ -119,6 +124,7 @@ Item{
 
             Text {
                 id: hasFix
+                visible: false
                 text: "Has fix: " + gpsData.hasFix
                 font.pointSize: 11;
                 anchors.top: time.bottom
@@ -262,9 +268,4 @@ width:parent.width
     }
 }
 
-/*##^##
-Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:4}D{i:6}D{i:8}D{i:1}D{i:11}D{i:18}D{i:24}
-D{i:10}D{i:35}D{i:36}D{i:34}D{i:33}
-}
-##^##*/
+
