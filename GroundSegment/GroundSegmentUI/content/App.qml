@@ -130,7 +130,6 @@ Window {
         fsParams.storageLight12.up: hmi.storage12
         fsParams.storageLight11.up: hmi.storage11
         fsParams.storageLight10.up: hmi.storage10
-        fsParams.storageLight9.up: hmi.storage9
         fsParams.storageLight8.up: hmi.storage8
         fsParams.storageLight7.up: hmi.storage7
         fsParams.storageLight6.up: hmi.storage6

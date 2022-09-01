@@ -89,7 +89,6 @@ public:
     Q_PROPERTY(bool storage7 MEMBER m_storage7 NOTIFY storage7Changed)
     Q_PROPERTY(bool storage8 MEMBER m_storage8 NOTIFY storage8Changed)
 
-    Q_PROPERTY(bool storage9 MEMBER m_storage9 NOTIFY storage9Changed)
     Q_PROPERTY(bool storage10 MEMBER m_storage10 NOTIFY storage10Changed)
     Q_PROPERTY(bool storage11 MEMBER m_storage11 NOTIFY storage11Changed)
     Q_PROPERTY(bool storage12 MEMBER m_storage12 NOTIFY storage12Changed)
@@ -265,7 +264,6 @@ signals:
 
     void storage8Changed();
 
-    void storage9Changed();
 
     void storage10Changed();
 
@@ -375,7 +373,6 @@ private:
     bool m_storage6;
     bool m_storage7;
     bool m_storage8;
-    bool m_storage9;
     bool m_storage10;
     bool m_storage11;
     bool m_storage12;

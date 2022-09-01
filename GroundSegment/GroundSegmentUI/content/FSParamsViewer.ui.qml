@@ -93,7 +93,6 @@ Rectangle {
     property alias storageLight12: storageLight12
     property alias storageLight11: storageLight11
     property alias storageLight10: storageLight10
-    property alias storageLight9: storageLight9
     property alias storageLight8: storageLight8
     property alias storageLight7: storageLight7
     property alias storageLight6: storageLight6
@@ -716,10 +715,6 @@ Rectangle {
                         text: "8 - Guidance module log write error"
                     }
 
-                    StatusLight {
-                        id: storageLight9
-                        text: "9 - "
-                    }
                     StatusLight {
                         id: storageLight10
                         text: "10 - PCNC initialization verification error"
