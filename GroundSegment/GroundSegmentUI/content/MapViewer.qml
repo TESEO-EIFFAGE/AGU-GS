@@ -68,74 +68,74 @@ Item{
 
     Rectangle {
         id: gpsDataRectangle
-        width: 200; height: 310
+        width: 200; height: 150
         color: "#FFD2D2D2"
         opacity: 0.75
         x: 5; y: 5
         border.color: "black"
 
-        Rectangle {
-            id: gpsDataSection
-            anchors.left: gpsDataRectangle.left; anchors.leftMargin: 5
-            anchors.right: parent.right; anchors.rightMargin: 5
-            height: 150
-            color: "transparent"
+//        Rectangle {
+//            id: gpsDataSection
+//            anchors.left: gpsDataRectangle.left; anchors.leftMargin: 5
+//            anchors.right: parent.right; anchors.rightMargin: 5
+//            height: 150
+//            color: "transparent"
 
-            Text {
-                id: gpsDataSectionTitle
-                visible: false
-                text: "GPS data"
-                font.pointSize: 13; font.bold: true
-                anchors.top: gpsDataSection.top
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
+//            Text {
+//                id: gpsDataSectionTitle
+//                visible: false
+//                text: "GPS data"
+//                font.pointSize: 13; font.bold: true
+//                anchors.top: gpsDataSection.top
+//                anchors.horizontalCenter: parent.horizontalCenter
+//            }
 
-            Text {
-                id: longitude
-                visible: false
-                text: "Longitude: " + (gpsData.longitude).toFixed(5) + "°"
-                font.pointSize: 11;
-                anchors.top: gpsDataSectionTitle.bottom
-            }
+//            Text {
+//                id: longitude
+//                visible: false
+//                text: "Longitude: " + (gpsData.longitude).toFixed(5) + "°"
+//                font.pointSize: 11;
+//                anchors.top: gpsDataSectionTitle.bottom
+//            }
 
-            Text {
-                id: latitude
-                visible: false
-                text: "Latitude: " + (gpsData.latitude).toFixed(5) + "°"
-                font.pointSize: 11;
-                anchors.top: longitude.bottom
-            }
+//            Text {
+//                id: latitude
+//                visible: false
+//                text: "Latitude: " + (gpsData.latitude).toFixed(5) + "°"
+//                font.pointSize: 11;
+//                anchors.top: longitude.bottom
+//            }
 
-            Text {
-                id: altitude
-                visible: false
-                text: "Altitude: " + gpsData.altitude + "m"
-                font.pointSize: 11;
-                anchors.top: latitude.bottom
-            }
+//            Text {
+//                id: altitude
+//                visible: false
+//                text: "Altitude: " + gpsData.altitude + "m"
+//                font.pointSize: 11;
+//                anchors.top: latitude.bottom
+//            }
 
-            Text {
-                id: time
-                visible: false
-                text: "UTC Time: " + gpsData.hour.valueOf() + ":" + gpsData.minute.valueOf() + ":" + gpsData.second.valueOf()
-                font.pointSize: 11;
-                anchors.top: altitude.bottom
-            }
+//            Text {
+//                id: time
+//                visible: false
+//                text: "UTC Time: " + gpsData.hour.valueOf() + ":" + gpsData.minute.valueOf() + ":" + gpsData.second.valueOf()
+//                font.pointSize: 11;
+//                anchors.top: altitude.bottom
+//            }
 
-            Text {
-                id: hasFix
-                visible: false
-                text: "Has fix: " + gpsData.hasFix
-                font.pointSize: 11;
-                anchors.top: time.bottom
-            }
-        }
+//            Text {
+//                id: hasFix
+//                visible: false
+//                text: "Has fix: " + gpsData.hasFix
+//                font.pointSize: 11;
+//                anchors.top: time.bottom
+//            }
+//        }
 
         Rectangle {
             id: customCursorSection
             color: "#00000000"
             height: childrenRect.height
-            anchors.top: gpsDataSection.bottom
+            anchors.top: parent.top//gpsDataSection.bottom
             anchors.left: parent.left; anchors.leftMargin: 5
             anchors.right: parent.right
 
@@ -222,7 +222,7 @@ Item{
         border.color: "black"
         Column{
             anchors.centerIn: parent
-width:parent.width
+            width:parent.width
             spacing:4
             Button{
                 id: zoomInBtn
