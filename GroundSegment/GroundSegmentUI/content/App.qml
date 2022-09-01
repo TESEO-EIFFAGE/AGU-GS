@@ -84,7 +84,6 @@ Window {
         fsParams.txtQuaternion1: hmi.Quaternion1
         fsParams.txtQuaternion2: hmi.Quaternion2
         fsParams.txtQuaternion3: hmi.Quaternion3
-        fsParams.txtTelemetryStatusMask: hmi.TelemetryStatusMask
         fsParams.txtNumberOfGPSSatellite: hmi.NumberOfGPSSatellite
 
         fsParams.statusLight0.up: hmi.telemetry0
