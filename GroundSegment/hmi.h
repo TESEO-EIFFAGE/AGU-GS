@@ -78,7 +78,7 @@ public:
     Q_PROPERTY(bool telemetry31 MEMBER m_telemetry31 NOTIFY telemetry31Changed)
 
 public slots:
-    void showData(Telemetry *t);
+    void showData(/*Telemetry *t*/);
     void showDataSystemStatus (SystemStatusPack *s);
 
 signals:
