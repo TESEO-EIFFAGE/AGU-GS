@@ -7,5 +7,5 @@ Label {
     text: "[ParamLabel]"
     font.pixelSize: 12
     font.styleName: "Regular"
-    font.family: "Titillium Web"
+    font.family: "Roboto"
 }

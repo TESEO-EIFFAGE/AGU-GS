@@ -6,8 +6,8 @@ Label {
     color: "#000000"
     text: "[ParamGrp3Label]"
     font.pixelSize: 12
-    font.styleName: "SemiBold"
-    font.family: "Titillium Web"
+    font.styleName: "Bold"
+    font.family: "Roboto"
 }
 
 /*##^##
