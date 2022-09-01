@@ -493,150 +493,150 @@ Rectangle {
 
                     StatusLight {
                         id: telemetryLight0
-                        text: "0 - Anemom NOT present"
+                        text: "Anemom NOT present"
                     }
 
                     StatusLight {
                         id: telemetryLight1
-                        text: "1 - RD Altimeter NOT present"
+                        text: "RD Altimeter NOT present"
                     }
 
                     StatusLight {
                         id: telemetryLight2
-                        text: "2 - GNSS NOT present"
+                        text: "GNSS NOT present"
                     }
 
                     StatusLight {
                         id: telemetryLight3
-                        text: "3 - PL Altimeter NOT present"
+                        text: "PL Altimeter NOT present"
                     }
                     StatusLight {
                         id: telemetryLight4
-                        text: "4 - Anemom TO"
+                        text: "Anemom TO"
                     }
 
                     StatusLight {
                         id: telemetryLight5
-                        text: "5 - Anemom CS"
+                        text: "Anemom CS"
                     }
                     StatusLight {
                         id: telemetryLight6
-                        text: "6 - RD Altimeter TO"
+                        text: "RD Altimeter TO"
                     }
 
                     StatusLight {
                         id: telemetryLight7
-                        text: "7 - RD Altimeter CS"
+                        text: "RD Altimeter CS"
                     }
                     StatusLight {
                         id: telemetryLight8
-                        text: "8 - GNSS pack1 TO"
+                        text: "GNSS pack1 TO"
                     }
 
                     StatusLight {
                         id: telemetryLight9
-                        text: "9 - GNSS pack1 CS"
+                        text: "GNSS pack1 CS"
                     }
                     StatusLight {
                         id: telemetryLight10
-                        text: "10 - GNSS pack2 TO"
+                        text: "GNSS pack2 TO"
                     }
 
                     StatusLight {
                         id: telemetryLight11
-                        text: "11 - GNSS pack2 CS"
+                        text: "GNSS pack2 CS"
                     }
 
                     StatusLight {
                         id: telemetryLight12
-                        text: "12 - GNSS pack3 TO"
+                        text: "GNSS pack3 TO"
                     }
 
                     StatusLight {
                         id: telemetryLight13
-                        text: "13 - GNSS pack3 CS"
+                        text: "GNSS pack3 CS"
                     }
                     StatusLight {
                         id: telemetryLight14
-                        text: "14 - PL Altimeter TO"
+                        text: "PL Altimeter TO"
                     }
 
                     StatusLight {
                         id: telemetryLight15
-                        text: "15 - RS232 HW failure"
+                        text: "RS232 HW failure"
                     }
                     StatusLight {
                         id: telemetryLight16
-                        text: "16 - RS422 HW failure"
+                        text: "RS422 HW failure"
                     }
 
                     StatusLight {
                         id: telemetryLight17
-                        text: "17 - CAN HW failure"
+                        text: "CAN HW failure"
                     }
                     StatusLight {
                         id: telemetryLight18
-                        text: "18 - GNSS_time NOT valid"
+                        text: "GNSS_time NOT valid"
                     }
 
                     StatusLight {
                         id: telemetryLight19
-                        text: "19 - GNSS_pos NOT valid"
+                        text: "GNSS_pos NOT valid"
                     }
                     StatusLight {
                         id: telemetryLight20
-                        text: "20 - Anem_speed NOT valid"
+                        text: "Anem_speed NOT valid"
                     }
 
                     StatusLight {
                         id: telemetryLight21
-                        text: "21 - Anem_temp NOT valid"
+                        text: "Anem_temp NOT valid"
                     }
 
                     StatusLight {
                         id: telemetryLight22
-                        text: "22 - RD_altitude NOT valid"
+                        text: "RD_altitude NOT valid"
                     }
 
                     StatusLight {
                         id: telemetryLight23
-                        text: "23 - PL_altitude NOT valid"
+                        text: "PL_altitude NOT valid"
                     }
                     StatusLight {
                         id: telemetryLight24
-                        text: "24 - GNSS_vel NOT valid"
+                        text: "GNSS_vel NOT valid"
                     }
 
                     StatusLight {
                         id: telemetryLight25
-                        text: "25 - GNSS_acc NOT valid"
+                        text: "GNSS_acc NOT valid"
                     }
                     StatusLight {
                         id: telemetryLight26
-                        text: "26 - GNSS_ECEFpos NOT valid"
+                        text: "GNSS_ECEFpos NOT valid"
                     }
 
                     StatusLight {
                         id: telemetryLight27
-                        text: "27 - GNSS_ECEFvel NOT valid"
+                        text: "GNSS_ECEFvel NOT valid"
                     }
                     StatusLight {
                         id: telemetryLight28
-                        text: "28 - GNSS_angle NOT valid"
+                        text: "GNSS_angle NOT valid"
                     }
 
                     StatusLight {
                         id: telemetryLight29
-                        text: "29 - GNSS_angRate NOT valid"
+                        text: "GNSS_angRate NOT valid"
                     }
                     StatusLight {
                         id: telemetryLight30
-                        text: "30 - GNSS_quat NOT valid"
+                        text: "GNSS_quat NOT valid"
                     }
 
                     StatusLight {
                         id: telemetryLight31
-                        text: "31 - GNSS_fix done"
+                        text: "GNSS_fix done"
                     }
                 }
             }
@@ -683,110 +683,110 @@ Rectangle {
 
                     StatusLight {
                         id: storageLight0
-                        text: "0 - uSD HW failure"
+                        text: "uSD HW failure"
                     }
 
                     StatusLight {
                         id: storageLight1
-                        text: "1 - uSD not present error"
+                        text: "uSD not present error"
                     }
 
                     StatusLight {
                         id: storageLight2
-                        text: "2 - uSD full"
+                        text: "uSD full"
                     }
 
                     StatusLight {
                         id: storageLight3
-                        text: "3 - System Status log write error"
+                        text: "System Status log write error"
                     }
                     StatusLight {
                         id: storageLight4
-                        text: "4 - Telemetry module log write error"
+                        text: "Telemetry module log write error"
                     }
 
                     StatusLight {
                         id: storageLight5
-                        text: "5 - Storage module log write error"
+                        text: "Storage module log write error"
                     }
                     StatusLight {
                         id: storageLight6
-                        text: "6 - Radio link module log write error"
+                        text: "Radio link module log write error"
                     }
 
                     StatusLight {
                         id: storageLight7
-                        text: "7 - Motor control log write error"
+                        text: "Motor control log write error"
                     }
                     StatusLight {
                         id: storageLight8
-                        text: "8 - Guidance module log write error"
+                        text: "Guidance module log write error"
                     }
 
                     StatusLight {
                         id: storageLight10
-                        text: "10 - PCNC initialization verification error"
+                        text: "PCNC initialization verification error"
                     }
 
                     StatusLight {
                         id: storageLight11
-                        text: "11 - PCNC initialization storage error"
+                        text: "PCNC initialization storage error"
                     }
 
                     StatusLight {
                         id: storageLight12
-                        text: "12 - PCNC flight path verification error"
+                        text: "PCNC flight path verification error"
                     }
 
                     StatusLight {
                         id: storageLight13
-                        text: "13 - PCNC flight path storage error"
+                        text: "PCNC flight path storage error"
                     }
                     StatusLight {
                         id: storageLight14
-                        text: "14 - Trim script verification error"
+                        text: "Trim script verification error"
                     }
 
                     StatusLight {
                         id: storageLight15
-                        text: "15 - Trim script storage error"
+                        text: "Trim script storage error"
                     }
                     StatusLight {
                         id: storageLight16
-                        text: "16 - Open-Loop script verification error"
+                        text: "Open-Loop script verification error"
                     }
 
                     StatusLight {
                         id: storageLight17
-                        text: "17 - Open-Loop script storage error"
+                        text: "Open-Loop script storage error"
                     }
                     StatusLight {
                         id: storageLight18
-                        text: "18 - Recovery-A script verification error"
+                        text: "Recovery-A script verification error"
                     }
 
                     StatusLight {
                         id: storageLight19
-                        text: "19 - Recovery-A script storage error"
+                        text: "Recovery-A script storage error"
                     }
                     StatusLight {
                         id: storageLight20
-                        text: "20 - Recovery-B script verification error"
+                        text: "Recovery-B script verification error"
                     }
 
                     StatusLight {
                         id: storageLight21
-                        text: "21 - Recovery-B script storage error"
+                        text: "Recovery-B script storage error"
                     }
 
                     StatusLight {
                         id: storageLight22
-                        text: "22 - Flare script verification error"
+                        text: "Flare script verification error"
                     }
 
                     StatusLight {
                         id: storageLight23
-                        text: "23 - Flare script storage error"
+                        text: "Flare script storage error"
                     }
                 }
             }
