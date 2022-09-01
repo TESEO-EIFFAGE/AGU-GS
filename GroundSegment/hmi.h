@@ -53,7 +53,7 @@ public:
     //TopDialog TopDialogWindow;
 
 public slots:
-    void showData(Telemetry *t);
+    void showData(/*Telemetry *t*/);
     void showDataSystemStatus (SystemStatusPack *s);
 
 //signals:

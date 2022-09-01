@@ -10,7 +10,7 @@ HMI::HMI(QObject *parent)
 
 }
 
-void HMI::showData(Telemetry *t)
+void HMI::showData(/*Telemetry *t*/)
 {
     QString s;
 
@@ -126,7 +126,7 @@ void HMI::showData(Telemetry *t)
     m_Quaternion3 = QRandomGenerator::global()->bounded(999999, 9999999);//  t->Quaternion3;
     qInfo() << "Quaternion3 = " << m_Quaternion3;
 
-    m_TelemetryStatusMask = t->TelemetryStatusMask;
+    m_TelemetryStatusMask = 1;//t->TelemetryStatusMask;
     qInfo() << "TelemetryStatusMask = " << m_TelemetryStatusMask;
 
     m_NumberOfGPSSatellite = QRandomGenerator::global()->bounded(0, 99);// t->NumberOfGPSSatellite;
@@ -137,157 +137,157 @@ void HMI::showData(Telemetry *t)
 
     /* TELEMETRY STATUS MASK */
 
-    is_set0  = IntBits(t->TelemetryStatusMask).test(0);  /* BIT 0*/
-    if (is_set0)  { /*accensione LED rosso*/ }
+//    is_set0  = IntBits(t->TelemetryStatusMask).test(0);  /* BIT 0*/
+//    if (is_set0)  { /*accensione LED rosso*/ }
 
-    is_set1  = IntBits(t->TelemetryStatusMask).test(1);  /* BIT 1*/
-    if (is_set1)  { /*accensione LED rosso*/ }
+//    is_set1  = IntBits(t->TelemetryStatusMask).test(1);  /* BIT 1*/
+//    if (is_set1)  { /*accensione LED rosso*/ }
 
-    is_set2  = IntBits(t->TelemetryStatusMask).test(2);  /* BIT 2*/
-    if (is_set2)  { /*accensione LED rosso*/ }
+//    is_set2  = IntBits(t->TelemetryStatusMask).test(2);  /* BIT 2*/
+//    if (is_set2)  { /*accensione LED rosso*/ }
 
-    is_set3  = IntBits(t->TelemetryStatusMask).test(3);  /* BIT 3*/
-    if (is_set3)  { /*accensione LED rosso*/ }
+//    is_set3  = IntBits(t->TelemetryStatusMask).test(3);  /* BIT 3*/
+//    if (is_set3)  { /*accensione LED rosso*/ }
 
-    is_set4  = IntBits(t->TelemetryStatusMask).test(4);  /* BIT 4*/
-    if (is_set4)  { /*accensione LED rosso*/ }
+//    is_set4  = IntBits(t->TelemetryStatusMask).test(4);  /* BIT 4*/
+//    if (is_set4)  { /*accensione LED rosso*/ }
 
-    is_set5  = IntBits(t->TelemetryStatusMask).test(5);  /* BIT 5*/
-    if (is_set5)  { /*accensione LED rosso*/ }
+//    is_set5  = IntBits(t->TelemetryStatusMask).test(5);  /* BIT 5*/
+//    if (is_set5)  { /*accensione LED rosso*/ }
 
-    is_set6  = IntBits(t->TelemetryStatusMask).test(6);  /* BIT 6*/
-    if (is_set6)  { /*accensione LED rosso*/ }
+//    is_set6  = IntBits(t->TelemetryStatusMask).test(6);  /* BIT 6*/
+//    if (is_set6)  { /*accensione LED rosso*/ }
 
-    is_set7  = IntBits(t->TelemetryStatusMask).test(7);  /* BIT 7*/
-    if (is_set7)  { /*accensione LED rosso*/ }
+//    is_set7  = IntBits(t->TelemetryStatusMask).test(7);  /* BIT 7*/
+//    if (is_set7)  { /*accensione LED rosso*/ }
 
-    is_set8  = IntBits(t->TelemetryStatusMask).test(8);  /* BIT 8*/
-    if (is_set8)  { /*accensione LED rosso*/ }
+//    is_set8  = IntBits(t->TelemetryStatusMask).test(8);  /* BIT 8*/
+//    if (is_set8)  { /*accensione LED rosso*/ }
 
-    is_set9  = IntBits(t->TelemetryStatusMask).test(9);  /* BIT 9*/
-    if (is_set9)  { /*accensione LED rosso*/ }
+//    is_set9  = IntBits(t->TelemetryStatusMask).test(9);  /* BIT 9*/
+//    if (is_set9)  { /*accensione LED rosso*/ }
 
-    is_set10 = IntBits(t->TelemetryStatusMask).test(10); /* BIT 10*/
-    if (is_set10) { /*accensione LED rosso*/ }
+//    is_set10 = IntBits(t->TelemetryStatusMask).test(10); /* BIT 10*/
+//    if (is_set10) { /*accensione LED rosso*/ }
 
-    is_set11 = IntBits(t->TelemetryStatusMask).test(11); /* BIT 11*/
-    if (is_set11) { /*accensione LED rosso*/ }
+//    is_set11 = IntBits(t->TelemetryStatusMask).test(11); /* BIT 11*/
+//    if (is_set11) { /*accensione LED rosso*/ }
 
-    is_set12 = IntBits(t->TelemetryStatusMask).test(12); /* BIT 12*/
-    if (is_set12) { /*accensione LED rosso*/ }
+//    is_set12 = IntBits(t->TelemetryStatusMask).test(12); /* BIT 12*/
+//    if (is_set12) { /*accensione LED rosso*/ }
 
-    is_set13 = IntBits(t->TelemetryStatusMask).test(13); /* BIT 13*/
-    if (is_set13) { /*accensione LED rosso*/ }
+//    is_set13 = IntBits(t->TelemetryStatusMask).test(13); /* BIT 13*/
+//    if (is_set13) { /*accensione LED rosso*/ }
 
-    is_set14 = IntBits(t->TelemetryStatusMask).test(14); /* BIT 14*/
-    if (is_set14) { /*accensione LED rosso*/ }
+//    is_set14 = IntBits(t->TelemetryStatusMask).test(14); /* BIT 14*/
+//    if (is_set14) { /*accensione LED rosso*/ }
 
-    is_set15 = IntBits(t->TelemetryStatusMask).test(15); /* BIT 15*/
-    if (is_set15) { /*accensione LED rosso*/ }
+//    is_set15 = IntBits(t->TelemetryStatusMask).test(15); /* BIT 15*/
+//    if (is_set15) { /*accensione LED rosso*/ }
 
-    is_set16 = IntBits(t->TelemetryStatusMask).test(16); /* BIT 16*/
-    if (is_set16) { /*accensione LED rosso*/ }
+//    is_set16 = IntBits(t->TelemetryStatusMask).test(16); /* BIT 16*/
+//    if (is_set16) { /*accensione LED rosso*/ }
 
-    is_set17 = IntBits(t->TelemetryStatusMask).test(17); /* BIT 17*/
-    if (is_set17) { /*accensione LED rosso*/ }
+//    is_set17 = IntBits(t->TelemetryStatusMask).test(17); /* BIT 17*/
+//    if (is_set17) { /*accensione LED rosso*/ }
 
-    is_set18 = IntBits(t->TelemetryStatusMask).test(18); /* BIT 18*/
-    if (is_set18) { /*accensione LED rosso*/ }
+//    is_set18 = IntBits(t->TelemetryStatusMask).test(18); /* BIT 18*/
+//    if (is_set18) { /*accensione LED rosso*/ }
 
-    is_set19 = IntBits(t->TelemetryStatusMask).test(19); /* BIT 19*/
-    if (is_set19) { /*accensione LED rosso*/ }
+//    is_set19 = IntBits(t->TelemetryStatusMask).test(19); /* BIT 19*/
+//    if (is_set19) { /*accensione LED rosso*/ }
 
-    is_set20 = IntBits(t->TelemetryStatusMask).test(20); /* BIT 20*/
-    if (is_set20) { /*accensione LED rosso*/ }
+//    is_set20 = IntBits(t->TelemetryStatusMask).test(20); /* BIT 20*/
+//    if (is_set20) { /*accensione LED rosso*/ }
 
-    is_set21 = IntBits(t->TelemetryStatusMask).test(21); /* BIT 21*/
-    if (is_set21) { /*accensione LED rosso*/ }
+//    is_set21 = IntBits(t->TelemetryStatusMask).test(21); /* BIT 21*/
+//    if (is_set21) { /*accensione LED rosso*/ }
 
-    is_set22 = IntBits(t->TelemetryStatusMask).test(22); /* BIT 22*/
-    if (is_set22) { /*accensione LED rosso*/ }
+//    is_set22 = IntBits(t->TelemetryStatusMask).test(22); /* BIT 22*/
+//    if (is_set22) { /*accensione LED rosso*/ }
 
-    is_set23 = IntBits(t->TelemetryStatusMask).test(23); /* BIT 23*/
-    if (is_set23) { /*accensione LED rosso*/ }
+//    is_set23 = IntBits(t->TelemetryStatusMask).test(23); /* BIT 23*/
+//    if (is_set23) { /*accensione LED rosso*/ }
 
-    is_set24 = IntBits(t->TelemetryStatusMask).test(24); /* BIT 24*/
-    if (is_set24) { /*accensione LED rosso*/ }
+//    is_set24 = IntBits(t->TelemetryStatusMask).test(24); /* BIT 24*/
+//    if (is_set24) { /*accensione LED rosso*/ }
 
-    is_set25 = IntBits(t->TelemetryStatusMask).test(25); /* BIT 25*/
-    if (is_set25) { /*accensione LED rosso*/ }
+//    is_set25 = IntBits(t->TelemetryStatusMask).test(25); /* BIT 25*/
+//    if (is_set25) { /*accensione LED rosso*/ }
 
-    is_set26 = IntBits(t->TelemetryStatusMask).test(26); /* BIT 26*/
-    if (is_set26) { /*accensione LED rosso*/ }
+//    is_set26 = IntBits(t->TelemetryStatusMask).test(26); /* BIT 26*/
+//    if (is_set26) { /*accensione LED rosso*/ }
 
-    is_set27 = IntBits(t->TelemetryStatusMask).test(27); /* BIT 27*/
-    if (is_set27) { /*accensione LED rosso*/ }
+//    is_set27 = IntBits(t->TelemetryStatusMask).test(27); /* BIT 27*/
+//    if (is_set27) { /*accensione LED rosso*/ }
 
-    is_set28 = IntBits(t->TelemetryStatusMask).test(28); /* BIT 28*/
-    if (is_set28) { /*accensione LED rosso*/ }
+//    is_set28 = IntBits(t->TelemetryStatusMask).test(28); /* BIT 28*/
+//    if (is_set28) { /*accensione LED rosso*/ }
 
-    is_set29 = IntBits(t->TelemetryStatusMask).test(29); /* BIT 29*/
-    if (is_set29) { /*accensione LED rosso*/ }
+//    is_set29 = IntBits(t->TelemetryStatusMask).test(29); /* BIT 29*/
+//    if (is_set29) { /*accensione LED rosso*/ }
 
-    is_set30 = IntBits(t->TelemetryStatusMask).test(30); /* BIT 30*/
-    if (is_set30) { /*accensione LED rosso*/ }
+//    is_set30 = IntBits(t->TelemetryStatusMask).test(30); /* BIT 30*/
+//    if (is_set30) { /*accensione LED rosso*/ }
 
-    is_set31 = IntBits(t->TelemetryStatusMask).test(31); /* BIT 31*/
-    if (is_set31) { /*accensione LED rosso*/ }
+//    is_set31 = IntBits(t->TelemetryStatusMask).test(31); /* BIT 31*/
+//    if (is_set31) { /*accensione LED rosso*/ }
 
-    id=0;
-    DataByte32=0;
-    do
-    {
-        if (IntBits(t->TelemetryStatusMask).test(32 + id))
-        {
-            qInfo() << "id = " << id;
-            DataByte32 += pow(2,id);
-        }
-        id++;
-    }
-    while (id < 8);
-    qInfo() << "DataByte32 = " << DataByte32;  // Da visualizzare su Interfaccia
+//    id=0;
+//    DataByte32=0;
+//    do
+//    {
+//        if (IntBits(t->TelemetryStatusMask).test(32 + id))
+//        {
+//            qInfo() << "id = " << id;
+//            DataByte32 += pow(2,id);
+//        }
+//        id++;
+//    }
+//    while (id < 8);
+//    qInfo() << "DataByte32 = " << DataByte32;  // Da visualizzare su Interfaccia
 
-    id=0;
-    DataByte40=0;
-    do
-    {
-        if (IntBits(t->TelemetryStatusMask).test(40 + id))
-        {
-            qInfo() << "id = " << id;
-            DataByte40 += pow(2,id);
-        }
-        id++;
-    }
-    while (id < 8);
-    qInfo() << "DataByte40 = " << DataByte40;   // Da visualizzare su Interfaccia
+//    id=0;
+//    DataByte40=0;
+//    do
+//    {
+//        if (IntBits(t->TelemetryStatusMask).test(40 + id))
+//        {
+//            qInfo() << "id = " << id;
+//            DataByte40 += pow(2,id);
+//        }
+//        id++;
+//    }
+//    while (id < 8);
+//    qInfo() << "DataByte40 = " << DataByte40;   // Da visualizzare su Interfaccia
 
-    id=0;
-    DataByte48=0;
-    do
-    {
-        if (IntBits(t->TelemetryStatusMask).test(48 + id))
-        {
-            qInfo() << "id = " << id;
-            DataByte48 += pow(2,id);
-        }
-        id++;
-    }
-    while (id < 8);
-    qInfo() << "DataByte48 = " << DataByte48;   // Da visualizzare su Interfaccia
+//    id=0;
+//    DataByte48=0;
+//    do
+//    {
+//        if (IntBits(t->TelemetryStatusMask).test(48 + id))
+//        {
+//            qInfo() << "id = " << id;
+//            DataByte48 += pow(2,id);
+//        }
+//        id++;
+//    }
+//    while (id < 8);
+//    qInfo() << "DataByte48 = " << DataByte48;   // Da visualizzare su Interfaccia
 
-    id=0;
-    DataByte56=0;
-    do
-    {
-        if (IntBits(t->TelemetryStatusMask).test(56 + id))
-        {
-            qInfo() << "id = " << id;
-            DataByte56 += pow(2,id);
-        }
-        id++;
-    }
-    while (id < 8);
-    qInfo() << "DataByte56 = " << DataByte56;   // Da visualizzare su Interfaccia
+//    id=0;
+//    DataByte56=0;
+//    do
+//    {
+//        if (IntBits(t->TelemetryStatusMask).test(56 + id))
+//        {
+//            qInfo() << "id = " << id;
+//            DataByte56 += pow(2,id);
+//        }
+//        id++;
+//    }
+//    while (id < 8);
+//    qInfo() << "DataByte56 = " << DataByte56;   // Da visualizzare su Interfaccia
 }
 
 void HMI::showDataSystemStatus(SystemStatusPack *s)

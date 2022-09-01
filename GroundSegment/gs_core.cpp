@@ -25,6 +25,8 @@ GSCore::GSCore(QObject *parent)
     Serial1->setFlowControl(QSerialPort::NoFlowControl);
     Serial1->open(QIODevice::ReadWrite);
 
+    m_hmi->showData();
+
     GSCore::connect(Serial1, SIGNAL(readyRead()), this, SLOT(ReadData()));                                   /*segnale emesso dalla porta seriale*/
     GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataTelemetry(QByteArray)));          /*segnale emesso da MainWindow::ReadData()*/
     GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataSystemStatus(QByteArray)));       /*segnale emesso da MainWindow::ReadData()*/
