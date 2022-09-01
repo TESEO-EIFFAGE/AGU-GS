@@ -124,7 +124,7 @@ Window {
 
         gsParams.txtLatitudeGPSData:  gpsData.latitude.toFixed(7)
         gsParams.txtLongitudeGPSData: gpsData.longitude.toFixed(7)
-        gsParams.txtAltitudeGPSData:  gpsData.altitude.toFixed(7)
+        gsParams.txtAltitudeGPSData:  gpsData.altitude.toFixed(3)
         gsParams.txtHasFix:           gpsData.hasFix
         gsParams.txtHourGPSData:      gpsData.hour
         gsParams.txtminuteGPSData:    gpsData.minute

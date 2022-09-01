@@ -2,6 +2,7 @@
 #include <bitset>
 #include <QString>
 #include <cmath>
+#include<stdlib.h>
 
 HMI::HMI(QObject *parent)
     : QObject{parent}
@@ -26,110 +27,110 @@ void HMI::showData(Telemetry *t)
     qInfo() << "TimeStamp = " << s;
 
 */
-    m_TimeStampRIO = t->TimeStampRIO;
-    qInfo() << "TimeStampRIO = " << s;
+    m_TimeStampRIO =  QDateTime::currentDateTime().toSecsSinceEpoch();//QRandomGenerator::global()->bounded(999999999, 10000000000);//t->TimeStampRIO;
+    qInfo() << "TimeStampRIO = " << m_TimeStampRIO;
 
-    m_Latitude = t->Latitude;
-    qInfo() << "Latitude = " << s;
+    m_Latitude = QRandomGenerator::global()->bounded(999999, 9999999);//t->Latitude;
+    qInfo() << "Latitude = " << m_Latitude;
 
-    m_Longitude = t->Longitude;
-    qInfo() << "Longitude = " << s;
+    m_Longitude =  QRandomGenerator::global()->bounded(999999, 9999999);//t->Longitude;
+    qInfo() << "Longitude = " << m_Longitude;
 
-    m_GNSSAltitude = t->GNSSAltitude;
-    qInfo() << "GNSSAltitude = " << s;
+    m_GNSSAltitude = QRandomGenerator::global()->bounded(999999, 9999999);// t->GNSSAltitude;
+    qInfo() << "GNSSAltitude = " << m_GNSSAltitude;
 
-    s = QString::number(t->AirSpeed_UVector);
-    qInfo() << "AirSpeed_UVector = " << s;
+    m_AirSpeed_UVector = QRandomGenerator::global()->bounded(9, 100);// t->AirSpeed_UVector;
+    qInfo() << "AirSpeed_UVector = " << m_AirSpeed_UVector;
 
-    s = QString::number(t->AirSpeed_VVector);
-    qInfo() << "AirSpeed_VVector = " << s;
+    m_AirSpeed_VVector = QRandomGenerator::global()->bounded(9, 100);// t->AirSpeed_VVector;
+    qInfo() << "AirSpeed_VVector = " << m_AirSpeed_VVector;
 
-    s = QString::number(t->AirSpeed_WVector);
-    qInfo() << "AirSpeed_WVector = " << s;
+    m_AirSpeed_WVector = QRandomGenerator::global()->bounded(9, 100);// t->AirSpeed_WVector;
+    qInfo() << "AirSpeed_WVector = " << m_AirSpeed_WVector;
 
-    m_AirTemperature = t->AirTemperature;
-    qInfo() << "AirTemperature = " << s;
+    m_AirTemperature = QRandomGenerator::global()->bounded(-100, 100);// t->AirTemperature;
+    qInfo() << "AirTemperature = " << m_AirTemperature;
 
-    m_AltitudeFromRadarAltimeter = t->AltitudeFromRadarAltimeter;
-    qInfo() << "AltitudeFromRadarAltimeter = " << s;
+    m_AltitudeFromRadarAltimeter= QRandomGenerator::global()->bounded(999999, 9999999);// t->AltitudeFromRadarAltimeter;
+    qInfo() << "AltitudeFromRadarAltimeter = " << m_AltitudeFromRadarAltimeter;
 
-    m_AltitudeFromPayloadAltimeter = t->AltitudeFromPayloadAltimeter;
-    qInfo() << "AltitudeFromPayloadAltimeter = " << s;
+    m_AltitudeFromPayloadAltimeter = QRandomGenerator::global()->bounded(999999, 9999999);//t->AltitudeFromPayloadAltimeter;
+    qInfo() << "AltitudeFromPayloadAltimeter = " << m_AltitudeFromPayloadAltimeter;
 
-    m_LinearVelocityHorizontal = t->LinearVelocityHorizontal;
-    qInfo() << "LinearVelocityHorizontal = " << s;
+    m_LinearVelocityHorizontal = QRandomGenerator::global()->bounded(9, 100);// t->LinearVelocityHorizontal;
+    qInfo() << "LinearVelocityHorizontal = " << m_LinearVelocityHorizontal;
 
-    m_LinearVelocityVertical = t->LinearVelocityVertical;
-    qInfo() << "LinearVelocityVertical = " << s;
+    m_LinearVelocityVertical = QRandomGenerator::global()->bounded(9, 100);// t->LinearVelocityVertical;
+    qInfo() << "LinearVelocityVertical = " << m_LinearVelocityVertical;
 
-    m_PositionAccuracy = t->PositionAccuracy;
-    qInfo() << "PositionAccuracy = " << s;
+    m_PositionAccuracy = QRandomGenerator::global()->bounded(0, 9999);// t->PositionAccuracy;
+    qInfo() << "PositionAccuracy = " << m_PositionAccuracy;
 
-    m_SpeedAccuracy = t->SpeedAccuracy;
-    qInfo() << "SpeedAccuracy   = " << s;
+    m_SpeedAccuracy = QRandomGenerator::global()->bounded(0, 9999);// t->SpeedAccuracy;
+    qInfo() << "SpeedAccuracy   = " << m_SpeedAccuracy;
 
-    m_LinearAccelerationX = t->LinearAccelerationX;
-    qInfo() << "LinearAccelerationX = " << s;
+    m_LinearAccelerationX = QRandomGenerator::global()->bounded(9, 100);// t->LinearAccelerationX;
+    qInfo() << "LinearAccelerationX = " << m_LinearAccelerationX;
 
-    m_LinearAccelerationY = t->LinearAccelerationY;
-    qInfo() << "LinearAccelerationY = " << s;
+    m_LinearAccelerationY = QRandomGenerator::global()->bounded(9, 100);// t->LinearAccelerationY;
+    qInfo() << "LinearAccelerationY = " << m_LinearAccelerationY;
 
-    m_LinearAccelerationZ = t->LinearAccelerationZ;
-    qInfo() << "LinearAccelerationZ = " << s;
+    m_LinearAccelerationZ = QRandomGenerator::global()->bounded(9, 100);// t->LinearAccelerationZ;
+    qInfo() << "LinearAccelerationZ = " << m_LinearAccelerationZ;
 
-    m_ECEFVectorPositionX = t->ECEFVectorPositionX;
-    qInfo() << "PositionAccuracy = " << s;
+    m_ECEFVectorPositionX = QRandomGenerator::global()->bounded(999999, 9999999);// t->ECEFVectorPositionX;
+    qInfo() << "PositionAccuracy = " << m_ECEFVectorPositionX;
 
-    m_ECEFVectorPositionY = t->ECEFVectorPositionY;
-    qInfo() << "PositionAccuracy = " << s;
+    m_ECEFVectorPositionY = QRandomGenerator::global()->bounded(999999, 9999999);// t->ECEFVectorPositionY;
+    qInfo() << "PositionAccuracy = " << m_ECEFVectorPositionY;
 
-    m_ECEFVectorPositionZ = t->ECEFVectorPositionZ;
-    qInfo() << "PositionAccuracy = " << s;
+    m_ECEFVectorPositionZ = QRandomGenerator::global()->bounded(999999, 9999999);// t->ECEFVectorPositionZ;
+    qInfo() << "PositionAccuracy = " << m_ECEFVectorPositionZ;
 
-    m_ECEFVectorVelocityX = t->ECEFVectorVelocityX;
-    qInfo() << "PositionAccuracy = " << s;
+    m_ECEFVectorVelocityX = QRandomGenerator::global()->bounded(9, 100);// t->ECEFVectorVelocityX;
+    qInfo() << "PositionAccuracy = " << m_ECEFVectorVelocityX;
 
-    m_ECEFVectorVelocityY = t->ECEFVectorVelocityY;
-    qInfo() << "PositionAccuracy = " << s;
+    m_ECEFVectorVelocityY = QRandomGenerator::global()->bounded(9, 100);// t->ECEFVectorVelocityY;
+    qInfo() << "PositionAccuracy = " << m_ECEFVectorVelocityY;
 
-    m_ECEFVectorVelocityZ = t->ECEFVectorVelocityZ;
-    qInfo() << "PositionAccuracy = " << s;
+    m_ECEFVectorVelocityZ = QRandomGenerator::global()->bounded(9, 100);// t->ECEFVectorVelocityZ;
+    qInfo() << "PositionAccuracy = " << m_ECEFVectorVelocityZ;
 
-    m_RollAngle = t->RollAngle;
-    qInfo() << "RollAngle = " << s;
+    m_RollAngle = QRandomGenerator::global()->bounded(-180, 180);//t->RollAngle;
+    qInfo() << "RollAngle = " << m_RollAngle;
 
-    m_PitchAngle = t->PitchAngle;
-    qInfo() << "PitchAngle = " << s;
+    m_PitchAngle = QRandomGenerator::global()->bounded(-180, 180);// t->PitchAngle;
+    qInfo() << "PitchAngle = " << m_PitchAngle;
 
-    m_YawAngle = t->YawAngle;
-    qInfo() << "YawAngle = " << s;
+    m_YawAngle = QRandomGenerator::global()->bounded(-180, 180);// t->YawAngle;
+    qInfo() << "YawAngle = " << m_YawAngle;
 
-    m_AngularRateRoll = t->AngularRateRoll;
-    qInfo() << "AngularRateRoll = " << s;
+    m_AngularRateRoll = QRandomGenerator::global()->bounded(99, 999);// t->AngularRateRoll;
+    qInfo() << "AngularRateRoll = " << m_AngularRateRoll;
 
-    m_AngularRatePitch = t->AngularRatePitch;
-    qInfo() << "AngularRatePitch = " << s;
+    m_AngularRatePitch = QRandomGenerator::global()->bounded(99, 999);// t->AngularRatePitch;
+    qInfo() << "AngularRatePitch = " << m_AngularRatePitch;
 
-    m_AngularRateYaw = t->AngularRateYaw;
-    qInfo() << "AngularRateYaw = " << s;
+    m_AngularRateYaw = QRandomGenerator::global()->bounded(99, 999);// t->AngularRateYaw;
+    qInfo() << "AngularRateYaw = " << m_AngularRateYaw;
 
-    s = QString::number(t->Quaternion0);
-    qInfo() << "Quaternion0 = " << s;
+    m_Quaternion0 = QRandomGenerator::global()->bounded(999999, 9999999);//  t->Quaternion0;
+    qInfo() << "Quaternion0 = " << m_Quaternion0;
 
-    s = QString::number(t->Quaternion1);
-    qInfo() << "Quaternion1 = " << s;
+    m_Quaternion1 = QRandomGenerator::global()->bounded(999999, 9999999);//  t->Quaternion1;
+    qInfo() << "Quaternion1 = " << m_Quaternion1;
 
-    s = QString::number(t->Quaternion2);
-    qInfo() << "Quaternion2 = " << s;
+    m_Quaternion2 = QRandomGenerator::global()->bounded(999999, 9999999);//  t->Quaternion2;
+    qInfo() << "Quaternion2 = " << m_Quaternion2;
 
-    s = QString::number(t->Quaternion3);
-    qInfo() << "Quaternion3 = " << s;
+    m_Quaternion3 = QRandomGenerator::global()->bounded(999999, 9999999);//  t->Quaternion3;
+    qInfo() << "Quaternion3 = " << m_Quaternion3;
 
     m_TelemetryStatusMask = t->TelemetryStatusMask;
-    qInfo() << "TelemetryStatusMask = " << s;
+    qInfo() << "TelemetryStatusMask = " << m_TelemetryStatusMask;
 
-    m_NumberOfGPSSatellite = t->NumberOfGPSSatellite;
-    qInfo() << "NumberOfGPSSatellite = " << s;
+    m_NumberOfGPSSatellite = QRandomGenerator::global()->bounded(0, 99);// t->NumberOfGPSSatellite;
+    qInfo() << "NumberOfGPSSatellite = " << m_NumberOfGPSSatellite;
 
 
 
