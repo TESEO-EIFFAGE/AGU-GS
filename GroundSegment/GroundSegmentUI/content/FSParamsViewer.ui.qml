@@ -45,7 +45,6 @@ Rectangle {
     property alias txtQuaternion1: txtQuaternion1.value
     property alias txtQuaternion2: txtQuaternion2.value
     property alias txtQuaternion3: txtQuaternion3.value
-    property alias txtTelemetryStatusMask: txtTelemetryStatusMask.value
     property alias txtNumberOfGPSSatellite: txtNumberOfGPSSatellite.value
 
     width: Constants.width / 2 //750 //C
@@ -488,11 +487,6 @@ Rectangle {
             spacing: 48
             Column {
                 Layout.alignment: Qt.AlignTop
-                ParamRow {
-                    text: "Telemetry Status Mask"
-                    span: 9
-                    id: txtTelemetryStatusMask
-                }
 
                 Grid {
                     id: grid

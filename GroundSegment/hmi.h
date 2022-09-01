@@ -1,17 +1,13 @@
 #ifndef HMI_H
 #define HMI_H
-//#include "mainwindow.h"
 #include "mavlinkprotocol.h"
-//#include "ui_mainwindow.h"
 #include <QObject>
-//#include "topdialog.h"
 
 class HMI : public QObject
 {
     Q_OBJECT
 public:
     explicit HMI(QObject *parent = nullptr);
-    //HMI(Ui::MainWindow *ui);
     Q_PROPERTY(int TimeStamp MEMBER m_TimeStamp NOTIFY TimeStampChanged)
     Q_PROPERTY(int TimeStampRIO MEMBER m_TimeStampRIO NOTIFY TimeStampRIOChanged)
     Q_PROPERTY(int Latitude MEMBER m_Latitude NOTIFY LatitudeChanged)
@@ -46,7 +42,6 @@ public:
     Q_PROPERTY(double Quaternion1 MEMBER m_Quaternion1 NOTIFY Quaternion1Changed)
     Q_PROPERTY(double Quaternion2 MEMBER m_Quaternion2 NOTIFY Quaternion2Changed)
     Q_PROPERTY(double Quaternion3 MEMBER m_Quaternion3 NOTIFY Quaternion3Changed)
-    Q_PROPERTY(int TelemetryStatusMask MEMBER m_TelemetryStatusMask NOTIFY TelemetryStatusMaskChanged)
     Q_PROPERTY(int NumberOfGPSSatellite MEMBER m_NumberOfGPSSatellite NOTIFY NumberOfGPSSatelliteChanged)
 
     Q_PROPERTY(bool telemetry0 MEMBER m_telemetry0 NOTIFY telemetry0Changed)
@@ -82,21 +77,9 @@ public:
     Q_PROPERTY(bool telemetry30 MEMBER m_telemetry30 NOTIFY telemetry30Changed)
     Q_PROPERTY(bool telemetry31 MEMBER m_telemetry31 NOTIFY telemetry31Changed)
 
-
-
-    //Ui::MainWindow myui;
-    //TopDialog TopDialogWindow;
-
 public slots:
     void showData(/*Telemetry *t*/);
     void showDataSystemStatus (SystemStatusPack *s);
-
-//signals:
-//    void clicked_HMI();
-//private slots:
-//    void on_pushButton_clicked();
-
-//    void on_pushButton_2_clicked();
 
 signals:
     void TimeStampChanged();
@@ -166,8 +149,6 @@ signals:
     void Quaternion2Changed();
 
     void Quaternion3Changed();
-
-    void TelemetryStatusMaskChanged();
 
     void NumberOfGPSSatelliteChanged();
 
@@ -271,7 +252,6 @@ private:
     float m_Quaternion1{};
     float m_Quaternion2{};
     float m_Quaternion3{};
-    uint64_t m_TelemetryStatusMask{};
     uint8_t m_NumberOfGPSSatellite{};
 
     bool m_telemetry0;
