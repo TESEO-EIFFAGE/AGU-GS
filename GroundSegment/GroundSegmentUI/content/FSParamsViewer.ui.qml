@@ -51,6 +51,38 @@ Rectangle {
     width: Constants.width / 2 //750 //C
     height: Constants.height //667 //
     color: "#ffffff"
+    property alias statusLight0: statusLight0
+    property alias statusLight31: statusLight31
+    property alias statusLight30: statusLight30
+    property alias statusLight29: statusLight29
+    property alias statusLight28: statusLight28
+    property alias statusLight27: statusLight27
+    property alias statusLight26: statusLight26
+    property alias statusLight25: statusLight25
+    property alias statusLight24: statusLight24
+    property alias statusLight23: statusLight23
+    property alias statusLight22: statusLight22
+    property alias statusLight21: statusLight21
+    property alias statusLight20: statusLight20
+    property alias statusLight19: statusLight19
+    property alias statusLight18: statusLight18
+    property alias statusLight17: statusLight17
+    property alias statusLight16: statusLight16
+    property alias statusLight15: statusLight15
+    property alias statusLight14: statusLight14
+    property alias statusLight13: statusLight13
+    property alias statusLight12: statusLight12
+    property alias statusLight11: statusLight11
+    property alias statusLight10: statusLight10
+    property alias statusLight9: statusLight9
+    property alias statusLight8: statusLight8
+    property alias statusLight7: statusLight7
+    property alias statusLight6: statusLight6
+    property alias statusLight5: statusLight5
+    property alias statusLight4: statusLight4
+    property alias statusLight3: statusLight3
+    property alias statusLight2: statusLight2
+    property alias statusLight1: statusLight1
     ColumnLayout {
         anchors.fill: parent
         spacing: 24
@@ -391,7 +423,6 @@ Rectangle {
 
                     span: 3
                     id: txtAltitudeFromRadarAltimeter
-
                 }
                 Layout.alignment: Qt.AlignTop
                 spacing: 8
@@ -472,118 +503,150 @@ Rectangle {
                     rows: 8
 
                     StatusLight {
+                        id: statusLight0
                         text: "0 - Anemom NOT present"
                     }
 
                     StatusLight {
+                        id: statusLight1
                         text: "1 - RD Altimeter NOT present"
                     }
 
                     StatusLight {
+                        id: statusLight2
                         text: "2 - GNSS NOT present"
                     }
 
                     StatusLight {
+                        id: statusLight3
                         text: "3 - PL Altimeter NOT present"
                     }
                     StatusLight {
+                        id: statusLight4
                         text: "4 - Anemom TO"
                     }
 
                     StatusLight {
+                        id: statusLight5
                         text: "5 - Anemom CS"
                     }
                     StatusLight {
+                        id: statusLight6
                         text: "6 - RD Altimeter TO"
                     }
 
                     StatusLight {
+                        id: statusLight7
                         text: "7 - RD Altimeter CS"
                     }
                     StatusLight {
+                        id: statusLight8
                         text: "8 - GNSS pack1 TO"
                     }
 
                     StatusLight {
+                        id: statusLight9
                         text: "9 - GNSS pack1 CS"
                     }
                     StatusLight {
+                        id: statusLight10
                         text: "10 - GNSS pack2 TO"
                     }
 
                     StatusLight {
+                        id: statusLight11
                         text: "11 - GNSS pack2 CS"
                     }
 
                     StatusLight {
+                        id: statusLight12
                         text: "12 - GNSS pack3 TO"
                     }
 
                     StatusLight {
+                        id: statusLight13
                         text: "13 - GNSS pack3 CS"
                     }
                     StatusLight {
+                        id: statusLight14
                         text: "14 - PL Altimeter TO"
                     }
 
                     StatusLight {
+                        id: statusLight15
                         text: "15 - RS232 HW failure"
                     }
                     StatusLight {
+                        id: statusLight16
                         text: "16 - RS422 HW failure"
                     }
 
                     StatusLight {
+                        id: statusLight17
                         text: "17 - CAN HW failure"
                     }
                     StatusLight {
+                        id: statusLight18
                         text: "18 - GNSS_time NOT valid"
                     }
 
                     StatusLight {
+                        id: statusLight19
                         text: "19 - GNSS_pos NOT valid"
                     }
                     StatusLight {
+                        id: statusLight20
                         text: "20 - Anem_speed NOT valid"
                     }
 
                     StatusLight {
+                        id: statusLight21
                         text: "21 - Anem_temp NOT valid"
                     }
 
                     StatusLight {
+                        id: statusLight22
                         text: "22 - RD_altitude NOT valid"
                     }
 
                     StatusLight {
+                        id: statusLight23
                         text: "23 - PL_altitude NOT valid"
                     }
                     StatusLight {
+                        id: statusLight24
                         text: "24 - GNSS_vel NOT valid"
                     }
 
                     StatusLight {
+                        id: statusLight25
                         text: "25 - GNSS_acc NOT valid"
                     }
                     StatusLight {
+                        id: statusLight26
                         text: "26 - GNSS_ECEFpos NOT valid"
                     }
 
                     StatusLight {
+                        id: statusLight27
                         text: "27 - GNSS_ECEFvel NOT valid"
                     }
                     StatusLight {
+                        id: statusLight28
                         text: "28 - GNSS_angle NOT valid"
                     }
 
                     StatusLight {
+                        id: statusLight29
                         text: "29 - GNSS_angRate NOT valid"
                     }
                     StatusLight {
+                        id: statusLight30
                         text: "30 - GNSS_quat NOT valid"
                     }
 
                     StatusLight {
+                        id: statusLight31
                         text: "31 - GNSS_fix done"
                     }
                 }
