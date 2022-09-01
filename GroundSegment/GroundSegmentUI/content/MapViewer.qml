@@ -68,7 +68,7 @@ Item{
 
     Rectangle {
         id: gpsDataRectangle
-        width: 200; height: 150
+        width: 200; height: 160
         color: "#FFD2D2D2"
         opacity: 0.75
         x: 5; y: 5
