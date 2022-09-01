@@ -78,6 +78,32 @@ Rectangle {
     property alias telemetryLight3: telemetryLight3
     property alias telemetryLight2: telemetryLight2
     property alias telemetryLight1: telemetryLight1
+
+    property alias storageLight23: storageLight23
+    property alias storageLight22: storageLight22
+    property alias storageLight21: storageLight21
+    property alias storageLight20: storageLight20
+    property alias storageLight19: storageLight19
+    property alias storageLight18: storageLight18
+    property alias storageLight17: storageLight17
+    property alias storageLight16: storageLight16
+    property alias storageLight15: storageLight15
+    property alias storageLight14: storageLight14
+    property alias storageLight13: storageLight13
+    property alias storageLight12: storageLight12
+    property alias storageLight11: storageLight11
+    property alias storageLight10: storageLight10
+    property alias storageLight9: storageLight9
+    property alias storageLight8: storageLight8
+    property alias storageLight7: storageLight7
+    property alias storageLight6: storageLight6
+    property alias storageLight5: storageLight5
+    property alias storageLight4: storageLight4
+    property alias storageLight3: storageLight3
+    property alias storageLight2: storageLight2
+    property alias storageLight1: storageLight1
+    property alias storageLight0: storageLight0
+
     ColumnLayout {
         anchors.fill: parent
         spacing: 24
@@ -612,6 +638,152 @@ Rectangle {
                     StatusLight {
                         id: telemetryLight31
                         text: "31 - GNSS_fix done"
+                    }
+                }
+            }
+        }
+        Row {
+            id: row6
+            width: 200
+            height: 400
+            spacing: 8
+
+            Image {
+                x: 0
+                y: 0
+                width: 24
+                source: "images/svgs/solid/database.svg"
+                fillMode: Image.PreserveAspectFit
+            }
+
+            ParamGrp1Label {
+                text: "Storage status"
+            }
+        }
+
+        RowLayout {
+            Layout.fillWidth: true
+            spacing: 48
+            Column {
+                Layout.alignment: Qt.AlignTop
+                Grid {
+                    id: gridStorage
+                    columnSpacing: 16
+                    rowSpacing: 16
+                    flow: Grid.TopToBottom
+                    columns: 4
+                    rows: 6
+
+                    StatusLight {
+                        id: storageLight0
+                        text: "0 - uSD HW failure"
+                    }
+
+                    StatusLight {
+                        id: storageLight1
+                        text: "1 - uSD not present error"
+                    }
+
+                    StatusLight {
+                        id: storageLight2
+                        text: "2 - uSD full"
+                    }
+
+                    StatusLight {
+                        id: storageLight3
+                        text: "3 - System Status log write error"
+                    }
+                    StatusLight {
+                        id: storageLight4
+                        text: "4 - Telemetry module log write error"
+                    }
+
+                    StatusLight {
+                        id: storageLight5
+                        text: "5 - Storage module log write error"
+                    }
+                    StatusLight {
+                        id: storageLight6
+                        text: "6 - Radio link module log write error"
+                    }
+
+                    StatusLight {
+                        id: storageLight7
+                        text: "7 - Motor control log write error"
+                    }
+                    StatusLight {
+                        id: storageLight8
+                        text: "8 - Guidance module log write error"
+                    }
+
+                    StatusLight {
+                        id: storageLight9
+                        text: "9 - "
+                    }
+                    StatusLight {
+                        id: storageLight10
+                        text: "10 - PCNC initialization verification error"
+                    }
+
+                    StatusLight {
+                        id: storageLight11
+                        text: "11 - PCNC initialization storage error"
+                    }
+
+                    StatusLight {
+                        id: storageLight12
+                        text: "12 - PCNC flight path verification error"
+                    }
+
+                    StatusLight {
+                        id: storageLight13
+                        text: "13 - PCNC flight path storage error"
+                    }
+                    StatusLight {
+                        id: storageLight14
+                        text: "14 - Trim script verification error"
+                    }
+
+                    StatusLight {
+                        id: storageLight15
+                        text: "15 - Trim script storage error"
+                    }
+                    StatusLight {
+                        id: storageLight16
+                        text: "16 - Open-Loop script verification error"
+                    }
+
+                    StatusLight {
+                        id: storageLight17
+                        text: "17 - Open-Loop script storage error"
+                    }
+                    StatusLight {
+                        id: storageLight18
+                        text: "18 - Recovery-A script verification error"
+                    }
+
+                    StatusLight {
+                        id: storageLight19
+                        text: "19 - Recovery-A script storage error"
+                    }
+                    StatusLight {
+                        id: storageLight20
+                        text: "20 - Recovery-B script verification error"
+                    }
+
+                    StatusLight {
+                        id: storageLight21
+                        text: "21 - Recovery-B script storage error"
+                    }
+
+                    StatusLight {
+                        id: storageLight22
+                        text: "22 - Flare script verification error"
+                    }
+
+                    StatusLight {
+                        id: storageLight23
+                        text: "23 - Flare script storage error"
                     }
                 }
             }
