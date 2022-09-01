@@ -51,38 +51,38 @@ Rectangle {
     width: Constants.width / 2 //750 //C
     height: Constants.height //667 //
     color: "#ffffff"
-    property alias statusLight0: hmi.telemetry0
-    property alias statusLight31: hmi.telemetry31
-    property alias statusLight30: hmi.telemetry30
-    property alias statusLight29: hmi.telemetry29
-    property alias statusLight28: hmi.telemetry28
-    property alias statusLight27: hmi.telemetry27
-    property alias statusLight26: hmi.telemetry26
-    property alias statusLight25: hmi.telemetry25
-    property alias statusLight24: hmi.telemetry24
-    property alias statusLight23: hmi.telemetry23
-    property alias statusLight22: hmi.telemetry22
-    property alias statusLight21: hmi.telemetry21
-    property alias statusLight20: hmi.telemetry20
-    property alias statusLight19: hmi.telemetry19
-    property alias statusLight18: hmi.telemetry18
-    property alias statusLight17: hmi.telemetry17
-    property alias statusLight16: hmi.telemetry16
-    property alias statusLight15: hmi.telemetry15
-    property alias statusLight14: hmi.telemetry14
-    property alias statusLight13: hmi.telemetry13
-    property alias statusLight12: hmi.telemetry12
-    property alias statusLight11: hmi.telemetry11
-    property alias statusLight10: hmi.telemetry10
-    property alias statusLight9: hmi.telemetry9
-    property alias statusLight8: hmi.telemetry8
-    property alias statusLight7: hmi.telemetry7
-    property alias statusLight6: hmi.telemetry6
-    property alias statusLight5: hmi.telemetry5
-    property alias statusLight4: hmi.telemetry4
-    property alias statusLight3: hmi.telemetry3
-    property alias statusLight2: hmi.telemetry2
-    property alias statusLight1: hmi.telemetry1
+    property alias statusLight0: statusLight0
+    property alias statusLight31: statusLight31
+    property alias statusLight30: statusLight30
+    property alias statusLight29: statusLight29
+    property alias statusLight28: statusLight28
+    property alias statusLight27: statusLight27
+    property alias statusLight26: statusLight26
+    property alias statusLight25: statusLight25
+    property alias statusLight24: statusLight24
+    property alias statusLight23: statusLight23
+    property alias statusLight22: statusLight22
+    property alias statusLight21: statusLight21
+    property alias statusLight20: statusLight20
+    property alias statusLight19: statusLight19
+    property alias statusLight18: statusLight18
+    property alias statusLight17: statusLight17
+    property alias statusLight16: statusLight16
+    property alias statusLight15: statusLight15
+    property alias statusLight14: statusLight14
+    property alias statusLight13: statusLight13
+    property alias statusLight12: statusLight12
+    property alias statusLight11: statusLight11
+    property alias statusLight10: statusLight10
+    property alias statusLight9: statusLight9
+    property alias statusLight8: statusLight8
+    property alias statusLight7: statusLight7
+    property alias statusLight6: statusLight6
+    property alias statusLight5: statusLight5
+    property alias statusLight4: statusLight4
+    property alias statusLight3: statusLight3
+    property alias statusLight2: statusLight2
+    property alias statusLight1: statusLight1
     ColumnLayout {
         anchors.fill: parent
         spacing: 24
