@@ -21,7 +21,7 @@ Row {
         text: qsTr("Text")
         anchors.verticalCenter: parent.verticalCenter
         font.pixelSize: 12
-        font.family: "Titillium Web"
+        font.family: "Roboto"
     }
 }
 

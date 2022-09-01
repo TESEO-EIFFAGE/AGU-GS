@@ -11,6 +11,7 @@
 //#include "mavlinkprotocol.h"
 //#include "storage.h"
 #include <thread>
+#include <QFontDatabase>
 
 
 int main(int argc, char *argv[])
@@ -18,6 +19,14 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
+
+    QFontDatabase::addApplicationFont(":/content/fonts/Roboto-Bold.ttf");
+    QFontDatabase::addApplicationFont(":/content/fonts/Roboto-Regular.ttf");
+    QFontDatabase::addApplicationFont(":/content/fonts/Roboto-Medium.ttf");
+    QFontDatabase::addApplicationFont(":/content/fonts/RobotoMono-Bold.ttf");
+    QFontDatabase::addApplicationFont(":/content/fonts/RobotoMono-SemiBold.ttf");
+    QFontDatabase::addApplicationFont(":/content/fonts/RobotoMono-Regular.ttf");
+    QFontDatabase::addApplicationFont(":/content/fonts/RobotoMono-Medium.ttf");
     //QApplication a(argc, argv);
     //MainWindow w;
 

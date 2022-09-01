@@ -3,11 +3,12 @@ import QtQuick.Controls 2.15
 import GroundSegmentUI 1.0
 
 Label {
+    color: "#000000"
     text: "[SectionLabel]"
     font.pixelSize: 20
     font.styleName: "Bold"
     styleColor: "#ffffff"
-    font.family: "Titillium Web"
+    font.family: "Roboto"
 }
 
 /*##^##

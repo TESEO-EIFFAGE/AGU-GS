@@ -34,5 +34,12 @@
         <file>qtquickcontrols2.conf</file>
         <file>qmlmodules</file>
         <file>content/controls/StatusLight.ui.qml</file>
+        <file>content/fonts/RobotoMono-Bold.ttf</file>
+        <file>content/fonts/RobotoMono-Medium.ttf</file>
+        <file>content/fonts/RobotoMono-Regular.ttf</file>
+        <file>content/fonts/RobotoMono-SemiBold.ttf</file>
+        <file>content/fonts/Roboto-Bold.ttf</file>
+        <file>content/fonts/Roboto-Medium.ttf</file>
+        <file>content/fonts/Roboto-Regular.ttf</file>
     </qresource>
 </RCC>
