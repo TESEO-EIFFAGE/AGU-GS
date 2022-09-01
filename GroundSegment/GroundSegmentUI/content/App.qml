@@ -46,29 +46,29 @@ Window {
         fsParams.txtTimeStampRIO: hmi.TimeStampRIO
         fsParams.txtLatitude: hmi.Latitude.toFixed(7)
         fsParams.txtLongitude: hmi.Longitude.toFixed(7)
-        fsParams.txtGNSSAltitude: hmi.GNSSAltitude.toFixed(7)
+        fsParams.txtGNSSAltitude: hmi.GNSSAltitude.toFixed(3)
 
         fsParams.txtAirSpeed_UVector: hmi.AirSpeed_UVector.toFixed(2)
         fsParams.txtAirSpeed_VVector: hmi.AirSpeed_VVector.toFixed(2)
         fsParams.txtAirSpeed_WVector: hmi.AirSpeed_WVector.toFixed(2)
         fsParams.txtAirTemperature: hmi.AirTemperature.toFixed(2)
 
-        fsParams.txtAltitudeFromRadarAltimeter: hmi.AltitudeFromRadarAltimeter.toFixed(7)
-        fsParams.txtAltitudeFromPayloadAltimeter: hmi.AltitudeFromPayloadAltimeter.toFixed(7)
+        fsParams.txtAltitudeFromRadarAltimeter: hmi.AltitudeFromRadarAltimeter.toFixed(2)
+        fsParams.txtAltitudeFromPayloadAltimeter: hmi.AltitudeFromPayloadAltimeter.toFixed(2)
 
         fsParams.txtLinearVelocityHorizontal: hmi.LinearVelocityHorizontal.toFixed(2)
         fsParams.txtLinearVelocityVertical: hmi.LinearVelocityVertical.toFixed(2)
 
-        fsParams.txtPositionAccuracy: hmi.PositionAccuracy.toFixed(4)
+        fsParams.txtPositionAccuracy: hmi.PositionAccuracy.toFixed(2)
         fsParams.txtSpeedAccuracy:hmi.SpeedAccuracy.toFixed(2)
 
         fsParams.txtLinearAccelerationX: hmi.LinearAccelerationX.toFixed(2)
         fsParams.txtLinearAccelerationY: hmi.LinearAccelerationY.toFixed(2)
         fsParams.txtLinearAccelerationZ: hmi.LinearAccelerationZ.toFixed(2)
 
-        fsParams.txtECEFVectorPositionX: hmi.ECEFVectorPositionX.toFixed(7)
-        fsParams.txtECEFVectorPositionY: hmi.ECEFVectorPositionY.toFixed(7)
-        fsParams.txtECEFVectorPositionZ: hmi.ECEFVectorPositionZ.toFixed(7)
+        fsParams.txtECEFVectorPositionX: hmi.ECEFVectorPositionX.toFixed(2)
+        fsParams.txtECEFVectorPositionY: hmi.ECEFVectorPositionY.toFixed(2)
+        fsParams.txtECEFVectorPositionZ: hmi.ECEFVectorPositionZ.toFixed(2)
         fsParams.txtECEFVectorVelocityX: hmi.ECEFVectorVelocityX.toFixed(2)
         fsParams.txtECEFVectorVelocityY: hmi.ECEFVectorVelocityY.toFixed(2)
         fsParams.txtECEFVectorVelocityZ: hmi.ECEFVectorVelocityZ.toFixed(2)
@@ -80,10 +80,10 @@ Window {
         fsParams.txtAngularRatePitch: hmi.AngularRatePitch.toFixed(2)
         fsParams.txtAngularRateYaw: hmi.AngularRateYaw.toFixed(2)
 
-        fsParams.txtQuaternion0: hmi.Quaternion0.toFixed(8)
-        fsParams.txtQuaternion1: hmi.Quaternion1.toFixed(8)
-        fsParams.txtQuaternion2: hmi.Quaternion2.toFixed(8)
-        fsParams.txtQuaternion3: hmi.Quaternion3.toFixed(8)
+        fsParams.txtQuaternion0: hmi.Quaternion0
+        fsParams.txtQuaternion1: hmi.Quaternion1
+        fsParams.txtQuaternion2: hmi.Quaternion2
+        fsParams.txtQuaternion3: hmi.Quaternion3
         fsParams.txtTelemetryStatusMask: hmi.TelemetryStatusMask
         fsParams.txtNumberOfGPSSatellite: hmi.NumberOfGPSSatellite
 
