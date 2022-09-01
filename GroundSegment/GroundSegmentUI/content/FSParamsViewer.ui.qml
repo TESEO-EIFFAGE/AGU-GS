@@ -641,6 +641,14 @@ Rectangle {
                 }
             }
         }
+        Rectangle {
+            id: rectangle3
+            width: 200
+            height: 200
+            color: "#d9d9d9"
+            Layout.preferredHeight: 1
+            Layout.fillWidth: true
+        }
         Row {
             id: row6
             width: 200
