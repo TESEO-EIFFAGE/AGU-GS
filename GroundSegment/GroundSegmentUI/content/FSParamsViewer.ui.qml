@@ -388,8 +388,10 @@ Rectangle {
 
                 ParamRow {
                     text: "Altitude"
+
                     span: 3
                     id: txtAltitudeFromRadarAltimeter
+
                 }
                 Layout.alignment: Qt.AlignTop
                 spacing: 8
