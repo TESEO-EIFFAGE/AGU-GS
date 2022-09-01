@@ -141,9 +141,13 @@ Rectangle {
                 Layout.topMargin: 8
             }
         }
-        RowLayout {
-            spacing: 40 //48
+        GridLayout {
             Layout.fillWidth: true
+            rowSpacing: 32
+            columnSpacing: 48
+            columns: 4
+            rows: 2
+            //48
             Column {
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 //Layout.alignment: Qt.AlignRight
@@ -233,11 +237,7 @@ Rectangle {
                     id: txtLinearVelocityVertical
                 }
             }
-        }
 
-        RowLayout {
-            Layout.fillWidth: true
-            spacing: 48
             Column {
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 spacing: 8
@@ -288,6 +288,7 @@ Rectangle {
                     id: txtYawAngle
                 }
             }
+
             Column {
                 spacing: 8
                 Layout.alignment: Qt.AlignTop
@@ -313,7 +314,6 @@ Rectangle {
                     id: txtAngularRateYaw
                 }
             }
-
             Column {
                 spacing: 8
                 Layout.alignment: Qt.AlignTop
