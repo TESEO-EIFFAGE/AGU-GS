@@ -87,6 +87,39 @@ Window {
         fsParams.txtTelemetryStatusMask: hmi.TelemetryStatusMask
         fsParams.txtNumberOfGPSSatellite: hmi.NumberOfGPSSatellite
 
+        fsParams.statusLight0.up: hmi.isSet0
+        fsParams.statusLight31.up: hmi.isSet1
+        fsParams.statusLight30.up: hmi.isSet0
+        fsParams.statusLight29.up: hmi.isSet9
+        fsParams.statusLight28.up: hmi.isSet8
+        fsParams.statusLight27.up: hmi.isSet7
+        fsParams.statusLight26.up: hmi.isSet6
+        fsParams.statusLight25.up: hmi.isSet5
+        fsParams.statusLight24.up: hmi.isSet4
+        fsParams.statusLight23.up: hmi.isSet3
+        fsParams.statusLight22.up: hmi.isSet2
+        fsParams.statusLight21.up: hmi.isSet1
+        fsParams.statusLight20.up: hmi.isSet0
+        fsParams.statusLight19.up: hmi.isSet9
+        fsParams.statusLight18.up: hmi.isSet8
+        fsParams.statusLight17.up: hmi.isSet7
+        fsParams.statusLight16.up: hmi.isSet6
+        fsParams.statusLight15.up: hmi.isSet5
+        fsParams.statusLight14.up: hmi.isSet4
+        fsParams.statusLight13.up: hmi.isSet3
+        fsParams.statusLight12.up: hmi.isSet2
+        fsParams.statusLight11.up: hmi.isSet1
+        fsParams.statusLight10.up: hmi.isSet0
+        fsParams.statusLight9.up: hmi.isSet9
+        fsParams.statusLight8.up: hmi.isSet8
+        fsParams.statusLight7.up: hmi.isSet7
+        fsParams.statusLight6.up: hmi.isSet6
+        fsParams.statusLight5.up: hmi.isSet5
+        fsParams.statusLight4.up: hmi.isSet4
+        fsParams.statusLight3.up: hmi.isSet3
+        fsParams.statusLight2.up: hmi.isSet2
+        fsParams.statusLight1.up: hmi.isSet1
+
         gsParams.txtTimeStamp: hmi.TimeStamp
 
         gsParams.txtLatitudeGPSData:  gpsData.latitude.toFixed(7)
