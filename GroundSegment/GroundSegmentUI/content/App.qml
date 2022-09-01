@@ -86,38 +86,38 @@ Window {
         fsParams.txtQuaternion3: hmi.Quaternion3
         fsParams.txtNumberOfGPSSatellite: hmi.NumberOfGPSSatellite
 
-        fsParams.statusLight0.up: hmi.telemetry0
-        fsParams.statusLight31.up: hmi.telemetry31
-        fsParams.statusLight30.up: hmi.telemetry30
-        fsParams.statusLight29.up: hmi.telemetry29
-        fsParams.statusLight28.up: hmi.telemetry28
-        fsParams.statusLight27.up: hmi.telemetry27
-        fsParams.statusLight26.up: hmi.telemetry26
-        fsParams.statusLight25.up: hmi.telemetry25
-        fsParams.statusLight24.up: hmi.telemetry24
-        fsParams.statusLight23.up: hmi.telemetry23
-        fsParams.statusLight22.up: hmi.telemetry22
-        fsParams.statusLight21.up: hmi.telemetry21
-        fsParams.statusLight20.up: hmi.telemetry20
-        fsParams.statusLight19.up: hmi.telemetry19
-        fsParams.statusLight18.up: hmi.telemetry18
-        fsParams.statusLight17.up: hmi.telemetry17
-        fsParams.statusLight16.up: hmi.telemetry16
-        fsParams.statusLight15.up: hmi.telemetry15
-        fsParams.statusLight14.up: hmi.telemetry14
-        fsParams.statusLight13.up: hmi.telemetry13
-        fsParams.statusLight12.up: hmi.telemetry12
-        fsParams.statusLight11.up: hmi.telemetry11
-        fsParams.statusLight10.up: hmi.telemetry10
-        fsParams.statusLight9.up: hmi.telemetry9
-        fsParams.statusLight8.up: hmi.telemetry8
-        fsParams.statusLight7.up: hmi.telemetry7
-        fsParams.statusLight6.up: hmi.telemetry6
-        fsParams.statusLight5.up: hmi.telemetry5
-        fsParams.statusLight4.up: hmi.telemetry4
-        fsParams.statusLight3.up: hmi.telemetry3
-        fsParams.statusLight2.up: hmi.telemetry2
-        fsParams.statusLight1.up: hmi.telemetry1
+        fsParams.telemetryLight0.up: hmi.telemetry0
+        fsParams.telemetryLight31.up: hmi.telemetry31
+        fsParams.telemetryLight30.up: hmi.telemetry30
+        fsParams.telemetryLight29.up: hmi.telemetry29
+        fsParams.telemetryLight28.up: hmi.telemetry28
+        fsParams.telemetryLight27.up: hmi.telemetry27
+        fsParams.telemetryLight26.up: hmi.telemetry26
+        fsParams.telemetryLight25.up: hmi.telemetry25
+        fsParams.telemetryLight24.up: hmi.telemetry24
+        fsParams.telemetryLight23.up: hmi.telemetry23
+        fsParams.telemetryLight22.up: hmi.telemetry22
+        fsParams.telemetryLight21.up: hmi.telemetry21
+        fsParams.telemetryLight20.up: hmi.telemetry20
+        fsParams.telemetryLight19.up: hmi.telemetry19
+        fsParams.telemetryLight18.up: hmi.telemetry18
+        fsParams.telemetryLight17.up: hmi.telemetry17
+        fsParams.telemetryLight16.up: hmi.telemetry16
+        fsParams.telemetryLight15.up: hmi.telemetry15
+        fsParams.telemetryLight14.up: hmi.telemetry14
+        fsParams.telemetryLight13.up: hmi.telemetry13
+        fsParams.telemetryLight12.up: hmi.telemetry12
+        fsParams.telemetryLight11.up: hmi.telemetry11
+        fsParams.telemetryLight10.up: hmi.telemetry10
+        fsParams.telemetryLight9.up: hmi.telemetry9
+        fsParams.telemetryLight8.up: hmi.telemetry8
+        fsParams.telemetryLight7.up: hmi.telemetry7
+        fsParams.telemetryLight6.up: hmi.telemetry6
+        fsParams.telemetryLight5.up: hmi.telemetry5
+        fsParams.telemetryLight4.up: hmi.telemetry4
+        fsParams.telemetryLight3.up: hmi.telemetry3
+        fsParams.telemetryLight2.up: hmi.telemetry2
+        fsParams.telemetryLight1.up: hmi.telemetry1
 
         gsParams.txtTimeStamp: hmi.TimeStamp
 
