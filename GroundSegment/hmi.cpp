@@ -15,10 +15,10 @@ void HMI::showData(/*Telemetry *t*/)
     QString s;
 
     typedef std::bitset<64> IntBits;
-    bool is_set0,is_set1,is_set2,is_set3,is_set4,is_set5,is_set6,is_set7,is_set8,is_set9;
-    bool is_set10,is_set11,is_set12,is_set13,is_set14,is_set15,is_set16,is_set17,is_set18,is_set19;
-    bool is_set20,is_set21,is_set22,is_set23,is_set24,is_set25,is_set26,is_set27,is_set28,is_set29;
-    bool is_set30,is_set31;
+//    bool is_set0,is_set1,is_set2,is_set3,is_set4,is_set5,is_set6,is_set7,is_set8,is_set9;
+//    bool is_set10,is_set11,is_set12,is_set13,is_set14,is_set15,is_set16,is_set17,is_set18,is_set19;
+//    bool is_set20,is_set21,is_set22,is_set23,is_set24,is_set25,is_set26,is_set27,is_set28,is_set29;
+//    bool is_set30,is_set31;
 
     int id=0;
     uint8_t DataByte32, DataByte40, DataByte48, DataByte56;

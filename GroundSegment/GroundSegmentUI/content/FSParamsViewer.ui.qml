@@ -41,10 +41,6 @@ Rectangle {
     property alias txtAngularRatePitch: txtAngularRatePitch.value
     property alias txtAngularRateYaw: txtAngularRateYaw.value
 
-    property alias txtQuaternion0: txtQuaternion0.value
-    property alias txtQuaternion1: txtQuaternion1.value
-    property alias txtQuaternion2: txtQuaternion2.value
-    property alias txtQuaternion3: txtQuaternion3.value
     property alias txtNumberOfGPSSatellite: txtNumberOfGPSSatellite.value
 
     width: Constants.width / 2 //750 //C
@@ -238,28 +234,6 @@ Rectangle {
                     id: txtLinearVelocityVertical
                 }
             }
-
-            Column {
-                spacing: 8
-                Layout.alignment: Qt.AlignTop
-
-                ParamGrp2Label {
-                    text: "Linear Acceleration (m/s²)"
-                }
-
-                ParamRow {
-                    text: "X"
-                    id: txtLinearAccelerationX
-                }
-                ParamRow {
-                    text: "Y"
-                    id: txtLinearAccelerationY
-                }
-                ParamRow {
-                    text: "Z"
-                    id: txtLinearAccelerationZ
-                }
-            }
         }
 
         RowLayout {
@@ -340,30 +314,26 @@ Rectangle {
                     id: txtAngularRateYaw
                 }
             }
+
             Column {
                 spacing: 8
                 Layout.alignment: Qt.AlignTop
 
                 ParamGrp2Label {
-                    text: "Quaternion"
+                    text: "Linear Acceleration (m/s²)"
                 }
 
                 ParamRow {
-                    text: "Q0"
-                    id: txtQuaternion0
+                    text: "X"
+                    id: txtLinearAccelerationX
                 }
                 ParamRow {
-                    text: "Q1"
-                    id: txtQuaternion1
+                    text: "Y"
+                    id: txtLinearAccelerationY
                 }
                 ParamRow {
-                    text: "Q2"
-                    id: txtQuaternion2
-                }
-
-                ParamRow {
-                    text: "Q3"
-                    id: txtQuaternion3
+                    text: "Z"
+                    id: txtLinearAccelerationZ
                 }
             }
         }

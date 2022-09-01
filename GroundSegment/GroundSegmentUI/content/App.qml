@@ -80,10 +80,6 @@ Window {
         fsParams.txtAngularRatePitch: hmi.AngularRatePitch.toFixed(2)
         fsParams.txtAngularRateYaw: hmi.AngularRateYaw.toFixed(2)
 
-        fsParams.txtQuaternion0: hmi.Quaternion0
-        fsParams.txtQuaternion1: hmi.Quaternion1
-        fsParams.txtQuaternion2: hmi.Quaternion2
-        fsParams.txtQuaternion3: hmi.Quaternion3
         fsParams.txtNumberOfGPSSatellite: hmi.NumberOfGPSSatellite
 
         fsParams.telemetryLight0.up: hmi.telemetry0
