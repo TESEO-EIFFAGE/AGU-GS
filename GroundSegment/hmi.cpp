@@ -303,75 +303,75 @@ void HMI::showDataSystemStatus(SystemStatusPack *s)
          /* STORAGE STATUS MASK */
 
 
-         m_storage0 = IntBits(s->StorageModuleStatusMask).test(0);  /* BIT 0*/
+//         m_storage0 = IntBits(s->StorageModuleStatusMask).test(0);  /* BIT 0*/
 
 
-         m_storage1 = IntBits(s->StorageModuleStatusMask).test(1);  /* BIT 1*/
+//         m_storage1 = IntBits(s->StorageModuleStatusMask).test(1);  /* BIT 1*/
 
 
-         m_storage2 = IntBits(s->StorageModuleStatusMask).test(2);  /* BIT 2*/
+//         m_storage2 = IntBits(s->StorageModuleStatusMask).test(2);  /* BIT 2*/
 
 
-         m_storage3 = IntBits(s->StorageModuleStatusMask).test(3);  /* BIT 3*/
+//         m_storage3 = IntBits(s->StorageModuleStatusMask).test(3);  /* BIT 3*/
 
 
-         m_storage4 = IntBits(s->StorageModuleStatusMask).test(4);  /* BIT 4*/
+//         m_storage4 = IntBits(s->StorageModuleStatusMask).test(4);  /* BIT 4*/
 
 
-         m_storage5 = IntBits(s->StorageModuleStatusMask).test(5);  /* BIT 5*/
+//         m_storage5 = IntBits(s->StorageModuleStatusMask).test(5);  /* BIT 5*/
 
 
-         m_storage6 = IntBits(s->StorageModuleStatusMask).test(6);  /* BIT 6*/
+//         m_storage6 = IntBits(s->StorageModuleStatusMask).test(6);  /* BIT 6*/
 
 
-         m_storage7 = IntBits(s->StorageModuleStatusMask).test(7);  /* BIT 7*/
+//         m_storage7 = IntBits(s->StorageModuleStatusMask).test(7);  /* BIT 7*/
 
 
-         m_storage8 = IntBits(s->StorageModuleStatusMask).test(8);  /* BIT 8*/
+//         m_storage8 = IntBits(s->StorageModuleStatusMask).test(8);  /* BIT 8*/
 
 
 
 
-         m_storage10 = IntBits(s->StorageModuleStatusMask).test(10); /* BIT 10*/
+//         m_storage10 = IntBits(s->StorageModuleStatusMask).test(10); /* BIT 10*/
 
 
-         m_storage11 = IntBits(s->StorageModuleStatusMask).test(11); /* BIT 11*/
+//         m_storage11 = IntBits(s->StorageModuleStatusMask).test(11); /* BIT 11*/
 
 
-         m_storage12 = IntBits(s->StorageModuleStatusMask).test(12); /* BIT 12*/
+//         m_storage12 = IntBits(s->StorageModuleStatusMask).test(12); /* BIT 12*/
 
 
-         m_storage13 = IntBits(s->StorageModuleStatusMask).test(13); /* BIT 13*/
+//         m_storage13 = IntBits(s->StorageModuleStatusMask).test(13); /* BIT 13*/
 
 
-         m_storage14 = IntBits(s->StorageModuleStatusMask).test(14); /* BIT 14*/
+//         m_storage14 = IntBits(s->StorageModuleStatusMask).test(14); /* BIT 14*/
 
 
-         m_storage15 = IntBits(s->StorageModuleStatusMask).test(15); /* BIT 15*/
+//         m_storage15 = IntBits(s->StorageModuleStatusMask).test(15); /* BIT 15*/
 
 
-         m_storage16 = IntBits(s->StorageModuleStatusMask).test(16); /* BIT 16*/
+//         m_storage16 = IntBits(s->StorageModuleStatusMask).test(16); /* BIT 16*/
 
 
-         m_storage17 = IntBits(s->StorageModuleStatusMask).test(17); /* BIT 17*/
+//         m_storage17 = IntBits(s->StorageModuleStatusMask).test(17); /* BIT 17*/
 
 
-         m_storage18 = IntBits(s->StorageModuleStatusMask).test(18); /* BIT 18*/
+//         m_storage18 = IntBits(s->StorageModuleStatusMask).test(18); /* BIT 18*/
 
 
-         m_storage19 = IntBits(s->StorageModuleStatusMask).test(19); /* BIT 19*/
+//         m_storage19 = IntBits(s->StorageModuleStatusMask).test(19); /* BIT 19*/
 
 
-         m_storage20 = IntBits(s->StorageModuleStatusMask).test(20); /* BIT 20*/
+//         m_storage20 = IntBits(s->StorageModuleStatusMask).test(20); /* BIT 20*/
 
 
-         m_storage21 = IntBits(s->StorageModuleStatusMask).test(21); /* BIT 21*/
+//         m_storage21 = IntBits(s->StorageModuleStatusMask).test(21); /* BIT 21*/
 
 
-         m_storage22 = IntBits(s->StorageModuleStatusMask).test(22); /* BIT 22*/
+//         m_storage22 = IntBits(s->StorageModuleStatusMask).test(22); /* BIT 22*/
 
 
-         m_storage23 = IntBits(s->StorageModuleStatusMask).test(23); /* BIT 23*/
+//         m_storage23 = IntBits(s->StorageModuleStatusMask).test(23); /* BIT 23*/
 
 //     is_setStorage0  = IntBitsStorage(s->StorageModuleStatusMask).test(0);  /* BIT 0*/
 //     if (is_setStorage0)  { /*accensione LED rosso*/ }
