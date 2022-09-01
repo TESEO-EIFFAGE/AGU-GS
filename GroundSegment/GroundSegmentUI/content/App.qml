@@ -44,51 +44,54 @@ Window {
         anchors.fill:parent
 
         fsParams.txtTimeStampRIO: hmi.TimeStampRIO
-        fsParams.txtLatitude: hmi.Latitude
-        fsParams.txtLongitude: hmi.Longitude
-        fsParams.txtGNSSAltitude: hmi.GNSSAltitude
-        fsParams.txtAirSpeed_UVector: hmi.AirSpeed_UVector
+        fsParams.txtLatitude: hmi.Latitude.toFixed(7)
+        fsParams.txtLongitude: hmi.Longitude.toFixed(7)
+        fsParams.txtGNSSAltitude: hmi.GNSSAltitude.toFixed(7)
 
-        fsParams.txtAirSpeed_VVector: hmi.AirSpeed_VVector
-        fsParams.txtAirSpeed_WVector: hmi.AirSpeed_WVector
-        fsParams.txtAirTemperature: hmi.AirTemperature
-        fsParams.txtAltitudeFromRadarAltimeter: hmi.AltitudeFromRadarAltimeter
-        fsParams.txtAltitudeFromPayloadAltimeter: hmi.AltitudeFromPayloadAltimeter
-        fsParams.txtLinearVelocityHorizontal: hmi.LinearVelocityHorizontal
+        fsParams.txtAirSpeed_UVector: hmi.AirSpeed_UVector.toFixed(2)
+        fsParams.txtAirSpeed_VVector: hmi.AirSpeed_VVector.toFixed(2)
+        fsParams.txtAirSpeed_WVector: hmi.AirSpeed_WVector.toFixed(2)
+        fsParams.txtAirTemperature: hmi.AirTemperature.toFixed(2)
 
-        fsParams.txtLinearVelocityVertical: hmi.LinearVelocityVertical
-        fsParams.txtPositionAccuracy: hmi.PositionAccuracy
-        fsParams.txtSpeedAccuracy:hmi.SpeedAccuracy
-        fsParams.txtLinearAccelerationX: hmi.LinearAccelerationX
-        fsParams.txtLinearAccelerationY: hmi.LinearAccelerationY
-        fsParams.txtLinearAccelerationZ: hmi.LinearAccelerationZ
+        fsParams.txtAltitudeFromRadarAltimeter: hmi.AltitudeFromRadarAltimeter.toFixed(7)
+        fsParams.txtAltitudeFromPayloadAltimeter: hmi.AltitudeFromPayloadAltimeter.toFixed(7)
 
-        fsParams.txtECEFVectorPositionX: hmi.ECEFVectorPositionX
-        fsParams.txtECEFVectorPositionY: hmi.ECEFVectorPositionY
-        fsParams.txtECEFVectorPositionZ: hmi.ECEFVectorPositionZ
-        fsParams.txtECEFVectorVelocityX: hmi.ECEFVectorVelocityX
-        fsParams.txtECEFVectorVelocityY: hmi.ECEFVectorVelocityY
-        fsParams.txtECEFVectorVelocityZ: hmi.ECEFVectorVelocityZ
+        fsParams.txtLinearVelocityHorizontal: hmi.LinearVelocityHorizontal.toFixed(2)
+        fsParams.txtLinearVelocityVertical: hmi.LinearVelocityVertical.toFixed(2)
 
-        fsParams.txtRollAngle: hmi.RollAngle
-        fsParams.txtPitchAngle: hmi.PitchAngle
-        fsParams.txtYawAngle: hmi.YawAngle
-        fsParams.txtAngularRateRoll: hmi.AngularRateRoll
-        fsParams.txtAngularRatePitch: hmi.AngularRatePitch
-        fsParams.txtAngularRateYaw: hmi.AngularRateYaw
+        fsParams.txtPositionAccuracy: hmi.PositionAccuracy.toFixed(4)
+        fsParams.txtSpeedAccuracy:hmi.SpeedAccuracy.toFixed(2)
 
-        fsParams.txtQuaternion0: hmi.Quaternion0
-        fsParams.txtQuaternion1: hmi.Quaternion1
-        fsParams.txtQuaternion2: hmi.Quaternion2
-        fsParams.txtQuaternion3: hmi.Quaternion3
+        fsParams.txtLinearAccelerationX: hmi.LinearAccelerationX.toFixed(2)
+        fsParams.txtLinearAccelerationY: hmi.LinearAccelerationY.toFixed(2)
+        fsParams.txtLinearAccelerationZ: hmi.LinearAccelerationZ.toFixed(2)
+
+        fsParams.txtECEFVectorPositionX: hmi.ECEFVectorPositionX.toFixed(7)
+        fsParams.txtECEFVectorPositionY: hmi.ECEFVectorPositionY.toFixed(7)
+        fsParams.txtECEFVectorPositionZ: hmi.ECEFVectorPositionZ.toFixed(7)
+        fsParams.txtECEFVectorVelocityX: hmi.ECEFVectorVelocityX.toFixed(2)
+        fsParams.txtECEFVectorVelocityY: hmi.ECEFVectorVelocityY.toFixed(2)
+        fsParams.txtECEFVectorVelocityZ: hmi.ECEFVectorVelocityZ.toFixed(2)
+
+        fsParams.txtRollAngle: hmi.RollAngle.toFixed(2)
+        fsParams.txtPitchAngle: hmi.PitchAngle.toFixed(2)
+        fsParams.txtYawAngle: hmi.YawAngle.toFixed(2)
+        fsParams.txtAngularRateRoll: hmi.AngularRateRoll.toFixed(2)
+        fsParams.txtAngularRatePitch: hmi.AngularRatePitch.toFixed(2)
+        fsParams.txtAngularRateYaw: hmi.AngularRateYaw.toFixed(2)
+
+        fsParams.txtQuaternion0: hmi.Quaternion0.toFixed(8)
+        fsParams.txtQuaternion1: hmi.Quaternion1.toFixed(8)
+        fsParams.txtQuaternion2: hmi.Quaternion2.toFixed(8)
+        fsParams.txtQuaternion3: hmi.Quaternion3.toFixed(8)
         fsParams.txtTelemetryStatusMask: hmi.TelemetryStatusMask
         fsParams.txtNumberOfGPSSatellite: hmi.NumberOfGPSSatellite
 
         gsParams.txtTimeStamp: hmi.TimeStamp
 
-        gsParams.txtLatitudeGPSData:  gpsData.latitude
-        gsParams.txtLongitudeGPSData: gpsData.longitude
-        gsParams.txtAltitudeGPSData:  gpsData.altitude
+        gsParams.txtLatitudeGPSData:  gpsData.latitude.toFixed(7)
+        gsParams.txtLongitudeGPSData: gpsData.longitude.toFixed(7)
+        gsParams.txtAltitudeGPSData:  gpsData.altitude.toFixed(7)
         gsParams.txtHasFix:           gpsData.hasFix
         gsParams.txtHourGPSData:      gpsData.hour
         gsParams.txtminuteGPSData:    gpsData.minute
