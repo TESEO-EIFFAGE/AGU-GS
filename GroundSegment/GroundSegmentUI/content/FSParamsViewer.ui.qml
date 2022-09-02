@@ -492,7 +492,7 @@ Rectangle {
                 Grid {
                     id: grid
                     columnSpacing: 16
-                    rowSpacing: 16
+                    rowSpacing: 12
                     flow: Grid.TopToBottom
                     columns: 4
                     rows: 8
@@ -704,7 +704,7 @@ Rectangle {
                 Grid {
                     id: gridStorage
                     columnSpacing: 16
-                    rowSpacing: 16
+                    rowSpacing: 12
                     flow: Grid.TopToBottom
                     columns: 4
                     rows: 6

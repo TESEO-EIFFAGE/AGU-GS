@@ -307,11 +307,6 @@ void HMI::showDataSystemStatus(SystemStatusPack *s)
      /* STORAGE STATUS MASK */
 
      typedef std::bitset<32> IntBitsStorage;
-     bool is_setStorage0,is_setStorage1,is_setStorage2,is_setStorage3,is_setStorage4;
-     bool is_setStorage5,is_setStorage6,is_setStorage7,is_setStorage8/*,is_setStorage9*/;
-     bool is_setStorage10,is_setStorage11,is_setStorage12,is_setStorage13,is_setStorage14;
-     bool is_setStorage15,is_setStorage16,is_setStorage17,is_setStorage18,is_setStorage19;
-     bool is_setStorage20,is_setStorage21,is_setStorage22,is_setStorage23;
 
          /* STORAGE STATUS MASK */
 
@@ -385,78 +380,6 @@ void HMI::showDataSystemStatus(SystemStatusPack *s)
 
 
 //         m_storage23 = IntBits(s->StorageModuleStatusMask).test(23); /* BIT 23*/
-
-//     is_setStorage0  = IntBitsStorage(s->StorageModuleStatusMask).test(0);  /* BIT 0*/
-//     if (is_setStorage0)  { /*accensione LED rosso*/ }
-
-//     is_setStorage1  = IntBitsStorage(s->StorageModuleStatusMask).test(1);  /* BIT 1*/
-//     if (is_setStorage1)  { /*accensione LED rosso*/ }
-
-//     is_setStorage2  = IntBitsStorage(s->StorageModuleStatusMask).test(2);  /* BIT 2*/
-//     if (is_setStorage2)  { /*accensione LED rosso*/ }
-
-//     is_setStorage3  = IntBitsStorage(s->StorageModuleStatusMask).test(3);  /* BIT 3*/
-//     if (is_setStorage3)  { /*accensione LED rosso*/ }
-
-//     is_setStorage4  = IntBitsStorage(s->StorageModuleStatusMask).test(4);  /* BIT 4*/
-//     if (is_setStorage4)  { /*accensione LED rosso*/ }
-
-//     is_setStorage5  = IntBitsStorage(s->StorageModuleStatusMask).test(5);  /* BIT 5*/
-//     if (is_setStorage5)  { /*accensione LED rosso*/ }
-
-//     is_setStorage6  = IntBitsStorage(s->StorageModuleStatusMask).test(6);  /* BIT 6*/
-//     if (is_setStorage6)  { /*accensione LED rosso*/ }
-
-//     is_setStorage7  = IntBitsStorage(s->StorageModuleStatusMask).test(7);  /* BIT 7*/
-//     if (is_setStorage7)  { /*accensione LED rosso*/ }
-
-//     is_setStorage8  = IntBitsStorage(s->StorageModuleStatusMask).test(8);  /* BIT 8*/
-//     if (is_setStorage8)  { /*accensione LED rosso*/ }
-
-////     is_setStorage9  = IntBits(s->StorageModuleStatusMask).test(9);  /* BIT 9*/
-////     if (is_setStorage9)  { /*accensione LED rosso*/ }
-
-//     is_setStorage10 = IntBitsStorage(s->StorageModuleStatusMask).test(10); /* BIT 10*/
-//     if (is_setStorage10) { /*accensione LED rosso*/ }
-
-//     is_setStorage11 = IntBitsStorage(s->StorageModuleStatusMask).test(11); /* BIT 11*/
-//     if (is_setStorage11) { /*accensione LED rosso*/ }
-
-//     is_setStorage12 = IntBitsStorage(s->StorageModuleStatusMask).test(12); /* BIT 12*/
-//     if (is_setStorage12) { /*accensione LED rosso*/ }
-
-//     is_setStorage13 = IntBitsStorage(s->StorageModuleStatusMask).test(13); /* BIT 13*/
-//     if (is_setStorage13) { /*accensione LED rosso*/ }
-
-//     is_setStorage14 = IntBitsStorage(s->StorageModuleStatusMask).test(14); /* BIT 14*/
-//     if (is_setStorage14) { /*accensione LED rosso*/ }
-
-//     is_setStorage15 = IntBitsStorage(s->StorageModuleStatusMask).test(15); /* BIT 15*/
-//     if (is_setStorage15) { /*accensione LED rosso*/ }
-
-//     is_setStorage16 = IntBitsStorage(s->StorageModuleStatusMask).test(16); /* BIT 16*/
-//     if (is_setStorage16) { /*accensione LED rosso*/ }
-
-//     is_setStorage17 = IntBitsStorage(s->StorageModuleStatusMask).test(17); /* BIT 17*/
-//     if (is_setStorage17) { /*accensione LED rosso*/ }
-
-//     is_setStorage18 = IntBitsStorage(s->StorageModuleStatusMask).test(18); /* BIT 18*/
-//     if (is_setStorage18) { /*accensione LED rosso*/ }
-
-//     is_setStorage19 = IntBitsStorage(s->StorageModuleStatusMask).test(19); /* BIT 19*/
-//     if (is_setStorage19) { /*accensione LED rosso*/ }
-
-//     is_setStorage20 = IntBitsStorage(s->StorageModuleStatusMask).test(20); /* BIT 20*/
-//     if (is_setStorage20) { /*accensione LED rosso*/ }
-
-//     is_setStorage21 = IntBitsStorage(s->StorageModuleStatusMask).test(21); /* BIT 21*/
-//     if (is_setStorage21) { /*accensione LED rosso*/ }
-
-//     is_setStorage22 = IntBitsStorage(s->StorageModuleStatusMask).test(22); /* BIT 22*/
-//     if (is_setStorage22) { /*accensione LED rosso*/ }
-
-//     is_setStorage23 = IntBitsStorage(s->StorageModuleStatusMask).test(23); /* BIT 23*/
-//     if (is_setStorage23) { /*accensione LED rosso*/ }
 
 
      /* RADIOLINK STATUS MASK */
