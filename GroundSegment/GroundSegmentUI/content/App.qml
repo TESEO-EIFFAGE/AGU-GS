@@ -82,6 +82,11 @@ Window {
 
         fsParams.txtNumberOfGPSSatellite: hmi.NumberOfGPSSatellite
 
+        fsParams.txtAnemCommErrorCounter: hmi.AnemCommErrorCounter
+        fsParams.txtRDAltCommErrorCounter: hmi.RDAltCommErrorCounter
+        fsParams.txtGNSSCommErrorCounter: hmi.GNSSCommErrorCounter
+        fsParams.txtPLAltCommErrorCounter: hmi.PLAltCommErrorCounter
+
         fsParams.telemetryLight0.up: hmi.telemetry0
         fsParams.telemetryLight31.up: hmi.telemetry31
         fsParams.telemetryLight30.up: hmi.telemetry30

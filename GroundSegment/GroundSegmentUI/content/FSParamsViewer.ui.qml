@@ -43,6 +43,12 @@ Rectangle {
 
     property alias txtNumberOfGPSSatellite: txtNumberOfGPSSatellite.value
 
+    property alias txtAnemCommErrorCounter: txtAnemCommErrorCounter.value
+    property alias txtRDAltCommErrorCounter: txtRDAltCommErrorCounter.value
+    property alias txtGNSSCommErrorCounter: txtGNSSCommErrorCounter.value
+    property alias txtPLAltCommErrorCounter: txtPLAltCommErrorCounter.value
+
+
     width: Constants.width / 2 //750 //C
     height: Constants.height //667 //
     color: "#ffffff"
@@ -638,6 +644,28 @@ Rectangle {
                         id: telemetryLight31
                         text: "GNSS_fix done"
                     }
+
+                    ParamRow {
+                        id: txtAnemCommErrorCounter
+                        text: "Anemometer Communication error counter"
+                        span: 4
+                    }
+                    ParamRow {
+                        id: txtRDAltCommErrorCounter
+                        text: "RD Altimeter Communication error counter"
+                        span: 4
+                    }
+                    ParamRow {
+                        id: txtGNSSCommErrorCounter
+                        text: "GNSS Communication error counter"
+                        span: 4
+                    }
+                    ParamRow {
+                        id: txtPLAltCommErrorCounter
+                        text: "PL Altimeter Communication error counter"
+                        span: 4
+                    }
+
                 }
             }
         }

@@ -130,6 +130,19 @@ void HMI::showData(/*Telemetry *t*/)
     qInfo() << "NumberOfGPSSatellite = " << m_NumberOfGPSSatellite;
 
 
+    m_AnemCommErrorCounter = QRandomGenerator::global()->bounded(0, 100);//  t->AnemCommErrorCounter;
+    qInfo() << "Anemometer Communication error counter = " << m_AnemCommErrorCounter;
+
+    m_RDAltCommErrorCounter = QRandomGenerator::global()->bounded(0, 100);//  t->RDAltCommErrorCounter;
+    qInfo() << "Radar Altimeter Communication error counter = " << m_RDAltCommErrorCounter;
+
+    m_GNSSCommErrorCounter = QRandomGenerator::global()->bounded(0, 100);//  t->GNSSCommErrorCounter;
+    qInfo() << "GNSS Communication error counter = " << m_GNSSCommErrorCounter;
+
+    m_PLAltCommErrorCounter = QRandomGenerator::global()->bounded(0, 100);//  t->PLAltCommErrorCounter;
+    qInfo() << "Payload Altimeter Communication error counter = " << m_PLAltCommErrorCounter;
+
+
 //    /* TELEMETRY STATUS MASK */
 
 

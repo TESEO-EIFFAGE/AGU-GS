@@ -44,6 +44,11 @@ public:
     Q_PROPERTY(double Quaternion3 MEMBER m_Quaternion3 NOTIFY Quaternion3Changed)
     Q_PROPERTY(int NumberOfGPSSatellite MEMBER m_NumberOfGPSSatellite NOTIFY NumberOfGPSSatelliteChanged)
 
+    Q_PROPERTY(int AnemCommErrorCounter MEMBER m_AnemCommErrorCounter NOTIFY AnemCommErrorCounterChanged)
+    Q_PROPERTY(int RDAltCommErrorCounter MEMBER m_RDAltCommErrorCounter NOTIFY RDAltCommErrorCounterChanged)
+    Q_PROPERTY(int GNSSCommErrorCounter MEMBER m_GNSSCommErrorCounter NOTIFY GNSSCommErrorCounterChanged)
+    Q_PROPERTY(int PLAltCommErrorCounter MEMBER m_PLAltCommErrorCounter NOTIFY PLAltCommErrorCounterChanged)
+
     Q_PROPERTY(bool telemetry0 MEMBER m_telemetry0 NOTIFY telemetry0Changed)
     Q_PROPERTY(bool telemetry1 MEMBER m_telemetry1 NOTIFY telemetry1Changed)
     Q_PROPERTY(bool telemetry2 MEMBER m_telemetry2 NOTIFY telemetry2Changed)
@@ -293,6 +298,14 @@ signals:
 
     void storage23Changed();
 
+    void AnemCommErrorCounterChanged();
+
+    void RDAltCommErrorCounterChanged();
+
+    void GNSSCommErrorCounterChanged();
+
+    void PLAltCommErrorCounterChanged();
+
 private:
 
     uint64_t m_TimeStamp{};
@@ -387,6 +400,10 @@ private:
     bool m_storage21;
     bool m_storage22;
     bool m_storage23;
+    int m_AnemCommErrorCounter;
+    int m_RDAltCommErrorCounter;
+    int m_GNSSCommErrorCounter;
+    int m_PLAltCommErrorCounter;
 };
 
 #endif // HMI_H
