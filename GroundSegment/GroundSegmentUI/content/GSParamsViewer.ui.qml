@@ -30,7 +30,7 @@ Rectangle {
     property alias radioLinkLight0: radioLinkLight0
     RowLayout {
         anchors.fill: parent
-        spacing: 16 //24
+        spacing: 40
         anchors.margins: 32
         anchors.leftMargin: 48
 
@@ -182,7 +182,7 @@ Rectangle {
         }
 
         Item {
-            Layout.fillHeight: true
+            Layout.fillWidth: true
         }
     }
 }
