@@ -1,17 +1,13 @@
 #ifndef HMI_H
 #define HMI_H
-//#include "mainwindow.h"
 #include "mavlinkprotocol.h"
-//#include "ui_mainwindow.h"
 #include <QObject>
-//#include "topdialog.h"
 
 class HMI : public QObject
 {
     Q_OBJECT
 public:
     explicit HMI(QObject *parent = nullptr);
-    //HMI(Ui::MainWindow *ui);
     Q_PROPERTY(int TimeStamp MEMBER m_TimeStamp NOTIFY TimeStampChanged)
     Q_PROPERTY(int TimeStampRIO MEMBER m_TimeStampRIO NOTIFY TimeStampRIOChanged)
     Q_PROPERTY(int Latitude MEMBER m_Latitude NOTIFY LatitudeChanged)
@@ -46,22 +42,79 @@ public:
     Q_PROPERTY(double Quaternion1 MEMBER m_Quaternion1 NOTIFY Quaternion1Changed)
     Q_PROPERTY(double Quaternion2 MEMBER m_Quaternion2 NOTIFY Quaternion2Changed)
     Q_PROPERTY(double Quaternion3 MEMBER m_Quaternion3 NOTIFY Quaternion3Changed)
-    Q_PROPERTY(int TelemetryStatusMask MEMBER m_TelemetryStatusMask NOTIFY TelemetryStatusMaskChanged)
     Q_PROPERTY(int NumberOfGPSSatellite MEMBER m_NumberOfGPSSatellite NOTIFY NumberOfGPSSatelliteChanged)
 
-    //Ui::MainWindow myui;
-    //TopDialog TopDialogWindow;
+    Q_PROPERTY(int AnemCommErrorCounter MEMBER m_AnemCommErrorCounter NOTIFY AnemCommErrorCounterChanged)
+    Q_PROPERTY(int RDAltCommErrorCounter MEMBER m_RDAltCommErrorCounter NOTIFY RDAltCommErrorCounterChanged)
+    Q_PROPERTY(int GNSSCommErrorCounter MEMBER m_GNSSCommErrorCounter NOTIFY GNSSCommErrorCounterChanged)
+    Q_PROPERTY(int PLAltCommErrorCounter MEMBER m_PLAltCommErrorCounter NOTIFY PLAltCommErrorCounterChanged)
+
+    Q_PROPERTY(bool telemetry0 MEMBER m_telemetry0 NOTIFY telemetry0Changed)
+    Q_PROPERTY(bool telemetry1 MEMBER m_telemetry1 NOTIFY telemetry1Changed)
+    Q_PROPERTY(bool telemetry2 MEMBER m_telemetry2 NOTIFY telemetry2Changed)
+    Q_PROPERTY(bool telemetry3 MEMBER m_telemetry3 NOTIFY telemetry3Changed)
+    Q_PROPERTY(bool telemetry4 MEMBER m_telemetry4 NOTIFY telemetry4Changed)
+    Q_PROPERTY(bool telemetry5 MEMBER m_telemetry5 NOTIFY telemetry5Changed)
+    Q_PROPERTY(bool telemetry6 MEMBER m_telemetry6 NOTIFY telemetry6Changed)
+    Q_PROPERTY(bool telemetry7 MEMBER m_telemetry7 NOTIFY telemetry7Changed)
+    Q_PROPERTY(bool telemetry8 MEMBER m_telemetry8 NOTIFY telemetry8Changed)
+    Q_PROPERTY(bool telemetry9 MEMBER m_telemetry9 NOTIFY telemetry9Changed)
+    Q_PROPERTY(bool telemetry10 MEMBER m_telemetry10 NOTIFY telemetry10Changed)
+    Q_PROPERTY(bool telemetry11 MEMBER m_telemetry11 NOTIFY telemetry11Changed)
+    Q_PROPERTY(bool telemetry12 MEMBER m_telemetry12 NOTIFY telemetry12Changed)
+    Q_PROPERTY(bool telemetry13 MEMBER m_telemetry13 NOTIFY telemetry13Changed)
+    Q_PROPERTY(bool telemetry14 MEMBER m_telemetry14 NOTIFY telemetry14Changed)
+    Q_PROPERTY(bool telemetry15 MEMBER m_telemetry15 NOTIFY telemetry15Changed)
+    Q_PROPERTY(bool telemetry16 MEMBER m_telemetry16 NOTIFY telemetry16Changed)
+    Q_PROPERTY(bool telemetry17 MEMBER m_telemetry17 NOTIFY telemetry17Changed)
+    Q_PROPERTY(bool telemetry18 MEMBER m_telemetry18 NOTIFY telemetry18Changed)
+    Q_PROPERTY(bool telemetry19 MEMBER m_telemetry19 NOTIFY telemetry19Changed)
+    Q_PROPERTY(bool telemetry20 MEMBER m_telemetry20 NOTIFY telemetry20Changed)
+    Q_PROPERTY(bool telemetry21 MEMBER m_telemetry21 NOTIFY telemetry21Changed)
+    Q_PROPERTY(bool telemetry22 MEMBER m_telemetry22 NOTIFY telemetry22Changed)
+    Q_PROPERTY(bool telemetry23 MEMBER m_telemetry23 NOTIFY telemetry23Changed)
+    Q_PROPERTY(bool telemetry24 MEMBER m_telemetry24 NOTIFY telemetry24Changed)
+    Q_PROPERTY(bool telemetry25 MEMBER m_telemetry25 NOTIFY telemetry25Changed)
+    Q_PROPERTY(bool telemetry26 MEMBER m_telemetry26 NOTIFY telemetry26Changed)
+    Q_PROPERTY(bool telemetry27 MEMBER m_telemetry27 NOTIFY telemetry27Changed)
+    Q_PROPERTY(bool telemetry28 MEMBER m_telemetry28 NOTIFY telemetry28Changed)
+    Q_PROPERTY(bool telemetry29 MEMBER m_telemetry29 NOTIFY telemetry29Changed)
+    Q_PROPERTY(bool telemetry30 MEMBER m_telemetry30 NOTIFY telemetry30Changed)
+    Q_PROPERTY(bool telemetry31 MEMBER m_telemetry31 NOTIFY telemetry31Changed)
+
+
+    Q_PROPERTY(bool storage0 MEMBER m_storage0 NOTIFY storage0Changed)
+    Q_PROPERTY(bool storage1 MEMBER m_storage1 NOTIFY storage1Changed)
+    Q_PROPERTY(bool storage2 MEMBER m_storage2 NOTIFY storage2Changed)
+    Q_PROPERTY(bool storage3 MEMBER m_storage3 NOTIFY storage3Changed)
+
+    Q_PROPERTY(bool storage4 MEMBER m_storage4 NOTIFY storage4Changed)
+    Q_PROPERTY(bool storage5 MEMBER m_storage5 NOTIFY storage5Changed)
+    Q_PROPERTY(bool storage6 MEMBER m_storage6 NOTIFY storage6Changed)
+    Q_PROPERTY(bool storage7 MEMBER m_storage7 NOTIFY storage7Changed)
+    Q_PROPERTY(bool storage8 MEMBER m_storage8 NOTIFY storage8Changed)
+
+    Q_PROPERTY(bool storage10 MEMBER m_storage10 NOTIFY storage10Changed)
+    Q_PROPERTY(bool storage11 MEMBER m_storage11 NOTIFY storage11Changed)
+    Q_PROPERTY(bool storage12 MEMBER m_storage12 NOTIFY storage12Changed)
+    Q_PROPERTY(bool storage13 MEMBER m_storage13 NOTIFY storage13Changed)
+
+    Q_PROPERTY(bool storage14 MEMBER m_storage14 NOTIFY storage14Changed)
+    Q_PROPERTY(bool storage15 MEMBER m_storage15 NOTIFY storage15Changed)
+    Q_PROPERTY(bool storage16 MEMBER m_storage16 NOTIFY storage16Changed)
+    Q_PROPERTY(bool storage17 MEMBER m_storage17 NOTIFY storage17Changed)
+    Q_PROPERTY(bool storage18 MEMBER m_storage18 NOTIFY storage18Changed)
+
+    Q_PROPERTY(bool storage19 MEMBER m_storage19 NOTIFY storage19Changed)
+    Q_PROPERTY(bool storage20 MEMBER m_storage20 NOTIFY storage20Changed)
+    Q_PROPERTY(bool storage21 MEMBER m_storage21 NOTIFY storage21Changed)
+    Q_PROPERTY(bool storage22 MEMBER m_storage22 NOTIFY storage22Changed)
+    Q_PROPERTY(bool storage23 MEMBER m_storage23 NOTIFY storage23Changed)
+
 
 public slots:
-    void showData(Telemetry *t);
+    void showData(/*Telemetry *t*/);
     void showDataSystemStatus (SystemStatusPack *s);
-
-//signals:
-//    void clicked_HMI();
-//private slots:
-//    void on_pushButton_clicked();
-
-//    void on_pushButton_2_clicked();
 
 signals:
     void TimeStampChanged();
@@ -132,9 +185,126 @@ signals:
 
     void Quaternion3Changed();
 
-    void TelemetryStatusMaskChanged();
-
     void NumberOfGPSSatelliteChanged();
+
+    void telemetry0Changed();
+
+    void telemetry1Changed();
+
+    void telemetry2Changed();
+
+    void telemetry3Changed();
+
+    void telemetry4Changed();
+
+    void telemetry5Changed();
+
+    void telemetry6Changed();
+
+    void telemetry7Changed();
+
+    void telemetry8Changed();
+
+    void telemetry9Changed();
+
+    void telemetry10Changed();
+
+    void telemetry11Changed();
+
+    void telemetry12Changed();
+
+    void telemetry13Changed();
+
+    void telemetry14Changed();
+
+    void telemetry15Changed();
+
+    void telemetry16Changed();
+
+    void telemetry17Changed();
+
+    void telemetry18Changed();
+
+    void telemetry19Changed();
+
+    void telemetry20Changed();
+
+    void telemetry21Changed();
+
+    void telemetry22Changed();
+
+    void telemetry23Changed();
+
+    void telemetry24Changed();
+
+    void telemetry25Changed();
+
+    void telemetry26Changed();
+
+    void telemetry27Changed();
+
+    void telemetry28Changed();
+
+    void telemetry29Changed();
+
+    void telemetry30Changed();
+
+    void telemetry31Changed();
+
+    void storage0Changed();
+
+    void storage1Changed();
+
+    void storage2Changed();
+
+    void storage3Changed();
+
+    void storage4Changed();
+
+    void storage5Changed();
+
+    void storage6Changed();
+
+    void storage7Changed();
+
+    void storage8Changed();
+
+
+    void storage10Changed();
+
+    void storage11Changed();
+
+    void storage12Changed();
+
+    void storage13Changed();
+
+    void storage14Changed();
+
+    void storage15Changed();
+
+    void storage16Changed();
+
+    void storage17Changed();
+
+    void storage18Changed();
+
+    void storage19Changed();
+
+    void storage20Changed();
+
+    void storage21Changed();
+
+    void storage22Changed();
+
+    void storage23Changed();
+
+    void AnemCommErrorCounterChanged();
+
+    void RDAltCommErrorCounterChanged();
+
+    void GNSSCommErrorCounterChanged();
+
+    void PLAltCommErrorCounterChanged();
 
 private:
 
@@ -172,8 +342,68 @@ private:
     float m_Quaternion1{};
     float m_Quaternion2{};
     float m_Quaternion3{};
-    uint64_t m_TelemetryStatusMask{};
     uint8_t m_NumberOfGPSSatellite{};
+
+    bool m_telemetry0;
+    bool m_telemetry1;
+    bool m_telemetry2;
+    bool m_telemetry3;
+    bool m_telemetry4;
+    bool m_telemetry5;
+    bool m_telemetry6;
+    bool m_telemetry7;
+    bool m_telemetry8;
+    bool m_telemetry9;
+    bool m_telemetry10;
+    bool m_telemetry11;
+    bool m_telemetry12;
+    bool m_telemetry13;
+    bool m_telemetry14;
+    bool m_telemetry15;
+    bool m_telemetry16;
+    bool m_telemetry17;
+    bool m_telemetry18;
+    bool m_telemetry19;
+    bool m_telemetry20;
+    bool m_telemetry21;
+    bool m_telemetry22;
+    bool m_telemetry23;
+    bool m_telemetry24;
+    bool m_telemetry25;
+    bool m_telemetry26;
+    bool m_telemetry27;
+    bool m_telemetry28;
+    bool m_telemetry29;
+    bool m_telemetry30;
+    bool m_telemetry31;
+
+    bool m_storage0;
+    bool m_storage1;
+    bool m_storage2;
+    bool m_storage3;
+    bool m_storage4;
+    bool m_storage5;
+    bool m_storage6;
+    bool m_storage7;
+    bool m_storage8;
+    bool m_storage10;
+    bool m_storage11;
+    bool m_storage12;
+    bool m_storage13;
+    bool m_storage14;
+    bool m_storage15;
+    bool m_storage16;
+    bool m_storage17;
+    bool m_storage18;
+    bool m_storage19;
+    bool m_storage20;
+    bool m_storage21;
+    bool m_storage22;
+    bool m_storage23;
+    int m_AnemCommErrorCounter;
+    int m_RDAltCommErrorCounter;
+    int m_GNSSCommErrorCounter;
+    int m_PLAltCommErrorCounter;
 };
 
 #endif // HMI_H

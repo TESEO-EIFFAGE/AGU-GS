@@ -2,6 +2,7 @@
 #include <bitset>
 #include <QString>
 #include <cmath>
+#include<stdlib.h>
 
 HMI::HMI(QObject *parent)
     : QObject{parent}
@@ -9,15 +10,15 @@ HMI::HMI(QObject *parent)
 
 }
 
-void HMI::showData(Telemetry *t)
+void HMI::showData(/*Telemetry *t*/)
 {
     QString s;
 
     typedef std::bitset<64> IntBits;
-    bool is_set0,is_set1,is_set2,is_set3,is_set4,is_set5,is_set6,is_set7,is_set8,is_set9;
-    bool is_set10,is_set11,is_set12,is_set13,is_set14,is_set15,is_set16,is_set17,is_set18,is_set19;
-    bool is_set20,is_set21,is_set22,is_set23,is_set24,is_set25,is_set26,is_set27,is_set28,is_set29;
-    bool is_set30,is_set31;
+//    bool is_set0,is_set1,is_set2,is_set3,is_set4,is_set5,is_set6,is_set7,is_set8,is_set9;
+//    bool is_set10,is_set11,is_set12,is_set13,is_set14,is_set15,is_set16,is_set17,is_set18,is_set19;
+//    bool is_set20,is_set21,is_set22,is_set23,is_set24,is_set25,is_set26,is_set27,is_set28,is_set29;
+//    bool is_set30,is_set31;
 
     int id=0;
     uint8_t DataByte32, DataByte40, DataByte48, DataByte56;
@@ -26,267 +27,277 @@ void HMI::showData(Telemetry *t)
     qInfo() << "TimeStamp = " << s;
 
 */
-    m_TimeStampRIO = t->TimeStampRIO;
-    qInfo() << "TimeStampRIO = " << s;
+    m_TimeStampRIO =  QDateTime::currentDateTime().toSecsSinceEpoch();//QRandomGenerator::global()->bounded(999999999, 10000000000);//t->TimeStampRIO;
+    qInfo() << "TimeStampRIO = " << m_TimeStampRIO;
 
-    m_Latitude = t->Latitude;
-    qInfo() << "Latitude = " << s;
+    m_Latitude = QRandomGenerator::global()->bounded(-90, 90);//t->Latitude;
+    qInfo() << "Latitude = " << m_Latitude;
 
-    m_Longitude = t->Longitude;
-    qInfo() << "Longitude = " << s;
+    m_Longitude =  QRandomGenerator::global()->bounded(-180, 180);//t->Longitude;
+    qInfo() << "Longitude = " << m_Longitude;
 
-    m_GNSSAltitude = t->GNSSAltitude;
-    qInfo() << "GNSSAltitude = " << s;
+    m_GNSSAltitude = QRandomGenerator::global()->bounded(999999, 9999999);// t->GNSSAltitude;
+    qInfo() << "GNSSAltitude = " << m_GNSSAltitude;
 
-    s = QString::number(t->AirSpeed_UVector);
-    qInfo() << "AirSpeed_UVector = " << s;
+    m_AirSpeed_UVector = QRandomGenerator::global()->bounded(9, 100);// t->AirSpeed_UVector;
+    qInfo() << "AirSpeed_UVector = " << m_AirSpeed_UVector;
 
-    s = QString::number(t->AirSpeed_VVector);
-    qInfo() << "AirSpeed_VVector = " << s;
+    m_AirSpeed_VVector = QRandomGenerator::global()->bounded(9, 100);// t->AirSpeed_VVector;
+    qInfo() << "AirSpeed_VVector = " << m_AirSpeed_VVector;
 
-    s = QString::number(t->AirSpeed_WVector);
-    qInfo() << "AirSpeed_WVector = " << s;
+    m_AirSpeed_WVector = QRandomGenerator::global()->bounded(9, 100);// t->AirSpeed_WVector;
+    qInfo() << "AirSpeed_WVector = " << m_AirSpeed_WVector;
 
-    m_AirTemperature = t->AirTemperature;
-    qInfo() << "AirTemperature = " << s;
+    m_AirTemperature = QRandomGenerator::global()->bounded(-30, 50);// t->AirTemperature;
+    qInfo() << "AirTemperature = " << m_AirTemperature;
 
-    m_AltitudeFromRadarAltimeter = t->AltitudeFromRadarAltimeter;
-    qInfo() << "AltitudeFromRadarAltimeter = " << s;
+    m_AltitudeFromRadarAltimeter= QRandomGenerator::global()->bounded(999999, 9999999);// t->AltitudeFromRadarAltimeter;
+    qInfo() << "AltitudeFromRadarAltimeter = " << m_AltitudeFromRadarAltimeter;
 
-    m_AltitudeFromPayloadAltimeter = t->AltitudeFromPayloadAltimeter;
-    qInfo() << "AltitudeFromPayloadAltimeter = " << s;
+    m_AltitudeFromPayloadAltimeter = QRandomGenerator::global()->bounded(999999, 9999999);//t->AltitudeFromPayloadAltimeter;
+    qInfo() << "AltitudeFromPayloadAltimeter = " << m_AltitudeFromPayloadAltimeter;
 
-    m_LinearVelocityHorizontal = t->LinearVelocityHorizontal;
-    qInfo() << "LinearVelocityHorizontal = " << s;
+    m_LinearVelocityHorizontal = QRandomGenerator::global()->bounded(9, 100);// t->LinearVelocityHorizontal;
+    qInfo() << "LinearVelocityHorizontal = " << m_LinearVelocityHorizontal;
 
-    m_LinearVelocityVertical = t->LinearVelocityVertical;
-    qInfo() << "LinearVelocityVertical = " << s;
+    m_LinearVelocityVertical = QRandomGenerator::global()->bounded(9, 100);// t->LinearVelocityVertical;
+    qInfo() << "LinearVelocityVertical = " << m_LinearVelocityVertical;
 
-    m_PositionAccuracy = t->PositionAccuracy;
-    qInfo() << "PositionAccuracy = " << s;
+    m_PositionAccuracy = QRandomGenerator::global()->bounded(0, 9999);// t->PositionAccuracy;
+    qInfo() << "PositionAccuracy = " << m_PositionAccuracy;
 
-    m_SpeedAccuracy = t->SpeedAccuracy;
-    qInfo() << "SpeedAccuracy   = " << s;
+    m_SpeedAccuracy = QRandomGenerator::global()->bounded(0, 9999);// t->SpeedAccuracy;
+    qInfo() << "SpeedAccuracy   = " << m_SpeedAccuracy;
 
-    m_LinearAccelerationX = t->LinearAccelerationX;
-    qInfo() << "LinearAccelerationX = " << s;
+    m_LinearAccelerationX = QRandomGenerator::global()->bounded(9, 100);// t->LinearAccelerationX;
+    qInfo() << "LinearAccelerationX = " << m_LinearAccelerationX;
 
-    m_LinearAccelerationY = t->LinearAccelerationY;
-    qInfo() << "LinearAccelerationY = " << s;
+    m_LinearAccelerationY = QRandomGenerator::global()->bounded(9, 100);// t->LinearAccelerationY;
+    qInfo() << "LinearAccelerationY = " << m_LinearAccelerationY;
 
-    m_LinearAccelerationZ = t->LinearAccelerationZ;
-    qInfo() << "LinearAccelerationZ = " << s;
+    m_LinearAccelerationZ = QRandomGenerator::global()->bounded(9, 100);// t->LinearAccelerationZ;
+    qInfo() << "LinearAccelerationZ = " << m_LinearAccelerationZ;
 
-    m_ECEFVectorPositionX = t->ECEFVectorPositionX;
-    qInfo() << "PositionAccuracy = " << s;
+    m_ECEFVectorPositionX = QRandomGenerator::global()->bounded(999999, 9999999);// t->ECEFVectorPositionX;
+    qInfo() << "PositionAccuracy = " << m_ECEFVectorPositionX;
 
-    m_ECEFVectorPositionY = t->ECEFVectorPositionY;
-    qInfo() << "PositionAccuracy = " << s;
+    m_ECEFVectorPositionY = QRandomGenerator::global()->bounded(999999, 9999999);// t->ECEFVectorPositionY;
+    qInfo() << "PositionAccuracy = " << m_ECEFVectorPositionY;
 
-    m_ECEFVectorPositionZ = t->ECEFVectorPositionZ;
-    qInfo() << "PositionAccuracy = " << s;
+    m_ECEFVectorPositionZ = QRandomGenerator::global()->bounded(999999, 9999999);// t->ECEFVectorPositionZ;
+    qInfo() << "PositionAccuracy = " << m_ECEFVectorPositionZ;
 
-    m_ECEFVectorVelocityX = t->ECEFVectorVelocityX;
-    qInfo() << "PositionAccuracy = " << s;
+    m_ECEFVectorVelocityX = QRandomGenerator::global()->bounded(9, 100);// t->ECEFVectorVelocityX;
+    qInfo() << "PositionAccuracy = " << m_ECEFVectorVelocityX;
 
-    m_ECEFVectorVelocityY = t->ECEFVectorVelocityY;
-    qInfo() << "PositionAccuracy = " << s;
+    m_ECEFVectorVelocityY = QRandomGenerator::global()->bounded(9, 100);// t->ECEFVectorVelocityY;
+    qInfo() << "PositionAccuracy = " << m_ECEFVectorVelocityY;
 
-    m_ECEFVectorVelocityZ = t->ECEFVectorVelocityZ;
-    qInfo() << "PositionAccuracy = " << s;
+    m_ECEFVectorVelocityZ = QRandomGenerator::global()->bounded(9, 100);// t->ECEFVectorVelocityZ;
+    qInfo() << "PositionAccuracy = " << m_ECEFVectorVelocityZ;
 
-    m_RollAngle = t->RollAngle;
-    qInfo() << "RollAngle = " << s;
+    m_RollAngle = QRandomGenerator::global()->bounded(0, 360);//t->RollAngle;
+    qInfo() << "RollAngle = " << m_RollAngle;
 
-    m_PitchAngle = t->PitchAngle;
-    qInfo() << "PitchAngle = " << s;
+    m_PitchAngle = QRandomGenerator::global()->bounded(0, 360);// t->PitchAngle;
+    qInfo() << "PitchAngle = " << m_PitchAngle;
 
-    m_YawAngle = t->YawAngle;
-    qInfo() << "YawAngle = " << s;
+    m_YawAngle = QRandomGenerator::global()->bounded(0, 360);// t->YawAngle;
+    qInfo() << "YawAngle = " << m_YawAngle;
 
-    m_AngularRateRoll = t->AngularRateRoll;
-    qInfo() << "AngularRateRoll = " << s;
+    m_AngularRateRoll = QRandomGenerator::global()->bounded(99, 999);// t->AngularRateRoll;
+    qInfo() << "AngularRateRoll = " << m_AngularRateRoll;
 
-    m_AngularRatePitch = t->AngularRatePitch;
-    qInfo() << "AngularRatePitch = " << s;
+    m_AngularRatePitch = QRandomGenerator::global()->bounded(99, 999);// t->AngularRatePitch;
+    qInfo() << "AngularRatePitch = " << m_AngularRatePitch;
 
-    m_AngularRateYaw = t->AngularRateYaw;
-    qInfo() << "AngularRateYaw = " << s;
+    m_AngularRateYaw = QRandomGenerator::global()->bounded(99, 999);// t->AngularRateYaw;
+    qInfo() << "AngularRateYaw = " << m_AngularRateYaw;
 
-    s = QString::number(t->Quaternion0);
-    qInfo() << "Quaternion0 = " << s;
+    m_Quaternion0 = QRandomGenerator::global()->bounded(999999, 9999999);//  t->Quaternion0;
+    qInfo() << "Quaternion0 = " << m_Quaternion0;
 
-    s = QString::number(t->Quaternion1);
-    qInfo() << "Quaternion1 = " << s;
+    m_Quaternion1 = QRandomGenerator::global()->bounded(999999, 9999999);//  t->Quaternion1;
+    qInfo() << "Quaternion1 = " << m_Quaternion1;
 
-    s = QString::number(t->Quaternion2);
-    qInfo() << "Quaternion2 = " << s;
+    m_Quaternion2 = QRandomGenerator::global()->bounded(999999, 9999999);//  t->Quaternion2;
+    qInfo() << "Quaternion2 = " << m_Quaternion2;
 
-    s = QString::number(t->Quaternion3);
-    qInfo() << "Quaternion3 = " << s;
+    m_Quaternion3 = QRandomGenerator::global()->bounded(999999, 9999999);//  t->Quaternion3;
+    qInfo() << "Quaternion3 = " << m_Quaternion3;
 
-    m_TelemetryStatusMask = t->TelemetryStatusMask;
-    qInfo() << "TelemetryStatusMask = " << s;
+    m_NumberOfGPSSatellite = QRandomGenerator::global()->bounded(0, 99);// t->NumberOfGPSSatellite;
+    qInfo() << "NumberOfGPSSatellite = " << m_NumberOfGPSSatellite;
 
-    m_NumberOfGPSSatellite = t->NumberOfGPSSatellite;
-    qInfo() << "NumberOfGPSSatellite = " << s;
 
+    m_AnemCommErrorCounter = QRandomGenerator::global()->bounded(0, 100);//  t->AnemCommErrorCounter;
+    qInfo() << "Anemometer Communication error counter = " << m_AnemCommErrorCounter;
 
+    m_RDAltCommErrorCounter = QRandomGenerator::global()->bounded(0, 100);//  t->RDAltCommErrorCounter;
+    qInfo() << "Radar Altimeter Communication error counter = " << m_RDAltCommErrorCounter;
 
+    m_GNSSCommErrorCounter = QRandomGenerator::global()->bounded(0, 100);//  t->GNSSCommErrorCounter;
+    qInfo() << "GNSS Communication error counter = " << m_GNSSCommErrorCounter;
 
-    /* TELEMETRY STATUS MASK */
+    m_PLAltCommErrorCounter = QRandomGenerator::global()->bounded(0, 100);//  t->PLAltCommErrorCounter;
+    qInfo() << "Payload Altimeter Communication error counter = " << m_PLAltCommErrorCounter;
 
-    is_set0  = IntBits(t->TelemetryStatusMask).test(0);  /* BIT 0*/
-    if (is_set0)  { /*accensione LED rosso*/ }
 
-    is_set1  = IntBits(t->TelemetryStatusMask).test(1);  /* BIT 1*/
-    if (is_set1)  { /*accensione LED rosso*/ }
+//    /* TELEMETRY STATUS MASK */
 
-    is_set2  = IntBits(t->TelemetryStatusMask).test(2);  /* BIT 2*/
-    if (is_set2)  { /*accensione LED rosso*/ }
 
-    is_set3  = IntBits(t->TelemetryStatusMask).test(3);  /* BIT 3*/
-    if (is_set3)  { /*accensione LED rosso*/ }
+//    m_telemetry0 = IntBits(t->TelemetryStatusMask).test(0);  /* BIT 0*/
 
-    is_set4  = IntBits(t->TelemetryStatusMask).test(4);  /* BIT 4*/
-    if (is_set4)  { /*accensione LED rosso*/ }
 
-    is_set5  = IntBits(t->TelemetryStatusMask).test(5);  /* BIT 5*/
-    if (is_set5)  { /*accensione LED rosso*/ }
+//    m_telemetry1 = IntBits(t->TelemetryStatusMask).test(1);  /* BIT 1*/
 
-    is_set6  = IntBits(t->TelemetryStatusMask).test(6);  /* BIT 6*/
-    if (is_set6)  { /*accensione LED rosso*/ }
 
-    is_set7  = IntBits(t->TelemetryStatusMask).test(7);  /* BIT 7*/
-    if (is_set7)  { /*accensione LED rosso*/ }
+//    m_telemetry2 = IntBits(t->TelemetryStatusMask).test(2);  /* BIT 2*/
 
-    is_set8  = IntBits(t->TelemetryStatusMask).test(8);  /* BIT 8*/
-    if (is_set8)  { /*accensione LED rosso*/ }
 
-    is_set9  = IntBits(t->TelemetryStatusMask).test(9);  /* BIT 9*/
-    if (is_set9)  { /*accensione LED rosso*/ }
+//    m_telemetry3 = IntBits(t->TelemetryStatusMask).test(3);  /* BIT 3*/
 
-    is_set10 = IntBits(t->TelemetryStatusMask).test(10); /* BIT 10*/
-    if (is_set10) { /*accensione LED rosso*/ }
 
-    is_set11 = IntBits(t->TelemetryStatusMask).test(11); /* BIT 11*/
-    if (is_set11) { /*accensione LED rosso*/ }
+//    m_telemetry4 = IntBits(t->TelemetryStatusMask).test(4);  /* BIT 4*/
 
-    is_set12 = IntBits(t->TelemetryStatusMask).test(12); /* BIT 12*/
-    if (is_set12) { /*accensione LED rosso*/ }
 
-    is_set13 = IntBits(t->TelemetryStatusMask).test(13); /* BIT 13*/
-    if (is_set13) { /*accensione LED rosso*/ }
+//    m_telemetry5 = IntBits(t->TelemetryStatusMask).test(5);  /* BIT 5*/
 
-    is_set14 = IntBits(t->TelemetryStatusMask).test(14); /* BIT 14*/
-    if (is_set14) { /*accensione LED rosso*/ }
 
-    is_set15 = IntBits(t->TelemetryStatusMask).test(15); /* BIT 15*/
-    if (is_set15) { /*accensione LED rosso*/ }
+//    m_telemetry6 = IntBits(t->TelemetryStatusMask).test(6);  /* BIT 6*/
 
-    is_set16 = IntBits(t->TelemetryStatusMask).test(16); /* BIT 16*/
-    if (is_set16) { /*accensione LED rosso*/ }
 
-    is_set17 = IntBits(t->TelemetryStatusMask).test(17); /* BIT 17*/
-    if (is_set17) { /*accensione LED rosso*/ }
+//    m_telemetry7 = IntBits(t->TelemetryStatusMask).test(7);  /* BIT 7*/
 
-    is_set18 = IntBits(t->TelemetryStatusMask).test(18); /* BIT 18*/
-    if (is_set18) { /*accensione LED rosso*/ }
 
-    is_set19 = IntBits(t->TelemetryStatusMask).test(19); /* BIT 19*/
-    if (is_set19) { /*accensione LED rosso*/ }
+//    m_telemetry8 = IntBits(t->TelemetryStatusMask).test(8);  /* BIT 8*/
 
-    is_set20 = IntBits(t->TelemetryStatusMask).test(20); /* BIT 20*/
-    if (is_set20) { /*accensione LED rosso*/ }
 
-    is_set21 = IntBits(t->TelemetryStatusMask).test(21); /* BIT 21*/
-    if (is_set21) { /*accensione LED rosso*/ }
+//    m_telemetry9 = IntBits(t->TelemetryStatusMask).test(9);  /* BIT 9*/
 
-    is_set22 = IntBits(t->TelemetryStatusMask).test(22); /* BIT 22*/
-    if (is_set22) { /*accensione LED rosso*/ }
 
-    is_set23 = IntBits(t->TelemetryStatusMask).test(23); /* BIT 23*/
-    if (is_set23) { /*accensione LED rosso*/ }
+//    m_telemetry10 = IntBits(t->TelemetryStatusMask).test(10); /* BIT 10*/
 
-    is_set24 = IntBits(t->TelemetryStatusMask).test(24); /* BIT 24*/
-    if (is_set24) { /*accensione LED rosso*/ }
 
-    is_set25 = IntBits(t->TelemetryStatusMask).test(25); /* BIT 25*/
-    if (is_set25) { /*accensione LED rosso*/ }
+//    m_telemetry11 = IntBits(t->TelemetryStatusMask).test(11); /* BIT 11*/
 
-    is_set26 = IntBits(t->TelemetryStatusMask).test(26); /* BIT 26*/
-    if (is_set26) { /*accensione LED rosso*/ }
 
-    is_set27 = IntBits(t->TelemetryStatusMask).test(27); /* BIT 27*/
-    if (is_set27) { /*accensione LED rosso*/ }
+//    m_telemetry12 = IntBits(t->TelemetryStatusMask).test(12); /* BIT 12*/
 
-    is_set28 = IntBits(t->TelemetryStatusMask).test(28); /* BIT 28*/
-    if (is_set28) { /*accensione LED rosso*/ }
 
-    is_set29 = IntBits(t->TelemetryStatusMask).test(29); /* BIT 29*/
-    if (is_set29) { /*accensione LED rosso*/ }
+//    m_telemetry13 = IntBits(t->TelemetryStatusMask).test(13); /* BIT 13*/
 
-    is_set30 = IntBits(t->TelemetryStatusMask).test(30); /* BIT 30*/
-    if (is_set30) { /*accensione LED rosso*/ }
 
-    is_set31 = IntBits(t->TelemetryStatusMask).test(31); /* BIT 31*/
-    if (is_set31) { /*accensione LED rosso*/ }
+//    m_telemetry14 = IntBits(t->TelemetryStatusMask).test(14); /* BIT 14*/
 
-    id=0;
-    DataByte32=0;
-    do
-    {
-        if (IntBits(t->TelemetryStatusMask).test(32 + id))
-        {
-            qInfo() << "id = " << id;
-            DataByte32 += pow(2,id);
-        }
-        id++;
-    }
-    while (id < 8);
-    qInfo() << "DataByte32 = " << DataByte32;  // Da visualizzare su Interfaccia
 
-    id=0;
-    DataByte40=0;
-    do
-    {
-        if (IntBits(t->TelemetryStatusMask).test(40 + id))
-        {
-            qInfo() << "id = " << id;
-            DataByte40 += pow(2,id);
-        }
-        id++;
-    }
-    while (id < 8);
-    qInfo() << "DataByte40 = " << DataByte40;   // Da visualizzare su Interfaccia
+//    m_telemetry15 = IntBits(t->TelemetryStatusMask).test(15); /* BIT 15*/
 
-    id=0;
-    DataByte48=0;
-    do
-    {
-        if (IntBits(t->TelemetryStatusMask).test(48 + id))
-        {
-            qInfo() << "id = " << id;
-            DataByte48 += pow(2,id);
-        }
-        id++;
-    }
-    while (id < 8);
-    qInfo() << "DataByte48 = " << DataByte48;   // Da visualizzare su Interfaccia
 
-    id=0;
-    DataByte56=0;
-    do
-    {
-        if (IntBits(t->TelemetryStatusMask).test(56 + id))
-        {
-            qInfo() << "id = " << id;
-            DataByte56 += pow(2,id);
-        }
-        id++;
-    }
-    while (id < 8);
-    qInfo() << "DataByte56 = " << DataByte56;   // Da visualizzare su Interfaccia
+//    m_telemetry16 = IntBits(t->TelemetryStatusMask).test(16); /* BIT 16*/
+
+
+//    m_telemetry17 = IntBits(t->TelemetryStatusMask).test(17); /* BIT 17*/
+
+
+//    m_telemetry18 = IntBits(t->TelemetryStatusMask).test(18); /* BIT 18*/
+
+
+//    m_telemetry19 = IntBits(t->TelemetryStatusMask).test(19); /* BIT 19*/
+
+
+//    m_telemetry20 = IntBits(t->TelemetryStatusMask).test(20); /* BIT 20*/
+
+
+//    m_telemetry21 = IntBits(t->TelemetryStatusMask).test(21); /* BIT 21*/
+
+
+//    m_telemetry22 = IntBits(t->TelemetryStatusMask).test(22); /* BIT 22*/
+
+
+//    m_telemetry23 = IntBits(t->TelemetryStatusMask).test(23); /* BIT 23*/
+
+
+//    m_telemetry24 = IntBits(t->TelemetryStatusMask).test(24); /* BIT 24*/
+
+
+//    m_telemetry25 = IntBits(t->TelemetryStatusMask).test(25); /* BIT 25*/
+
+
+//    m_telemetry26 = IntBits(t->TelemetryStatusMask).test(26); /* BIT 26*/
+
+
+//    m_telemetry27 = IntBits(t->TelemetryStatusMask).test(27); /* BIT 27*/
+
+
+//    m_telemetry28 = IntBits(t->TelemetryStatusMask).test(28); /* BIT 28*/
+
+
+//    m_telemetry29 = IntBits(t->TelemetryStatusMask).test(29); /* BIT 29*/
+
+
+//    m_telemetry30 = IntBits(t->TelemetryStatusMask).test(30); /* BIT 30*/
+
+
+//    m_telemetry31 = IntBits(t->TelemetryStatusMask).test(31); /* BIT 31*/
+
+
+//    id=0;
+//    DataByte32=0;
+//    do
+//    {
+//        if (IntBits(t->TelemetryStatusMask).test(32 + id))
+//        {
+//            qInfo() << "id = " << id;
+//            DataByte32 += pow(2,id);
+//        }
+//        id++;
+//    }
+//    while (id < 8);
+//    qInfo() << "DataByte32 = " << DataByte32;  // Da visualizzare su Interfaccia
+
+//    id=0;
+//    DataByte40=0;
+//    do
+//    {
+//        if (IntBits(t->TelemetryStatusMask).test(40 + id))
+//        {
+//            qInfo() << "id = " << id;
+//            DataByte40 += pow(2,id);
+//        }
+//        id++;
+//    }
+//    while (id < 8);
+//    qInfo() << "DataByte40 = " << DataByte40;   // Da visualizzare su Interfaccia
+
+//    id=0;
+//    DataByte48=0;
+//    do
+//    {
+//        if (IntBits(t->TelemetryStatusMask).test(48 + id))
+//        {
+//            qInfo() << "id = " << id;
+//            DataByte48 += pow(2,id);
+//        }
+//        id++;
+//    }
+//    while (id < 8);
+//    qInfo() << "DataByte48 = " << DataByte48;   // Da visualizzare su Interfaccia
+
+//    id=0;
+//    DataByte56=0;
+//    do
+//    {
+//        if (IntBits(t->TelemetryStatusMask).test(56 + id))
+//        {
+//            qInfo() << "id = " << id;
+//            DataByte56 += pow(2,id);
+//        }
+//        id++;
+//    }
+//    while (id < 8);
+//    qInfo() << "DataByte56 = " << DataByte56;   // Da visualizzare su Interfaccia
+
 }
 
 void HMI::showDataSystemStatus(SystemStatusPack *s)
@@ -296,83 +307,79 @@ void HMI::showDataSystemStatus(SystemStatusPack *s)
      /* STORAGE STATUS MASK */
 
      typedef std::bitset<32> IntBitsStorage;
-     bool is_setStorage0,is_setStorage1,is_setStorage2,is_setStorage3,is_setStorage4;
-     bool is_setStorage5,is_setStorage6,is_setStorage7,is_setStorage8/*,is_setStorage9*/;
-     bool is_setStorage10,is_setStorage11,is_setStorage12,is_setStorage13,is_setStorage14;
-     bool is_setStorage15,is_setStorage16,is_setStorage17,is_setStorage18,is_setStorage19;
-     bool is_setStorage20,is_setStorage21,is_setStorage22,is_setStorage23;
 
-     is_setStorage0  = IntBitsStorage(s->StorageModuleStatusMask).test(0);  /* BIT 0*/
-     if (is_setStorage0)  { /*accensione LED rosso*/ }
+         /* STORAGE STATUS MASK */
 
-     is_setStorage1  = IntBitsStorage(s->StorageModuleStatusMask).test(1);  /* BIT 1*/
-     if (is_setStorage1)  { /*accensione LED rosso*/ }
 
-     is_setStorage2  = IntBitsStorage(s->StorageModuleStatusMask).test(2);  /* BIT 2*/
-     if (is_setStorage2)  { /*accensione LED rosso*/ }
+//         m_storage0 = IntBits(s->StorageModuleStatusMask).test(0);  /* BIT 0*/
 
-     is_setStorage3  = IntBitsStorage(s->StorageModuleStatusMask).test(3);  /* BIT 3*/
-     if (is_setStorage3)  { /*accensione LED rosso*/ }
 
-     is_setStorage4  = IntBitsStorage(s->StorageModuleStatusMask).test(4);  /* BIT 4*/
-     if (is_setStorage4)  { /*accensione LED rosso*/ }
+//         m_storage1 = IntBits(s->StorageModuleStatusMask).test(1);  /* BIT 1*/
 
-     is_setStorage5  = IntBitsStorage(s->StorageModuleStatusMask).test(5);  /* BIT 5*/
-     if (is_setStorage5)  { /*accensione LED rosso*/ }
 
-     is_setStorage6  = IntBitsStorage(s->StorageModuleStatusMask).test(6);  /* BIT 6*/
-     if (is_setStorage6)  { /*accensione LED rosso*/ }
+//         m_storage2 = IntBits(s->StorageModuleStatusMask).test(2);  /* BIT 2*/
 
-     is_setStorage7  = IntBitsStorage(s->StorageModuleStatusMask).test(7);  /* BIT 7*/
-     if (is_setStorage7)  { /*accensione LED rosso*/ }
 
-     is_setStorage8  = IntBitsStorage(s->StorageModuleStatusMask).test(8);  /* BIT 8*/
-     if (is_setStorage8)  { /*accensione LED rosso*/ }
+//         m_storage3 = IntBits(s->StorageModuleStatusMask).test(3);  /* BIT 3*/
 
-//     is_setStorage9  = IntBits(s->StorageModuleStatusMask).test(9);  /* BIT 9*/
-//     if (is_setStorage9)  { /*accensione LED rosso*/ }
 
-     is_setStorage10 = IntBitsStorage(s->StorageModuleStatusMask).test(10); /* BIT 10*/
-     if (is_setStorage10) { /*accensione LED rosso*/ }
+//         m_storage4 = IntBits(s->StorageModuleStatusMask).test(4);  /* BIT 4*/
 
-     is_setStorage11 = IntBitsStorage(s->StorageModuleStatusMask).test(11); /* BIT 11*/
-     if (is_setStorage11) { /*accensione LED rosso*/ }
 
-     is_setStorage12 = IntBitsStorage(s->StorageModuleStatusMask).test(12); /* BIT 12*/
-     if (is_setStorage12) { /*accensione LED rosso*/ }
+//         m_storage5 = IntBits(s->StorageModuleStatusMask).test(5);  /* BIT 5*/
 
-     is_setStorage13 = IntBitsStorage(s->StorageModuleStatusMask).test(13); /* BIT 13*/
-     if (is_setStorage13) { /*accensione LED rosso*/ }
 
-     is_setStorage14 = IntBitsStorage(s->StorageModuleStatusMask).test(14); /* BIT 14*/
-     if (is_setStorage14) { /*accensione LED rosso*/ }
+//         m_storage6 = IntBits(s->StorageModuleStatusMask).test(6);  /* BIT 6*/
 
-     is_setStorage15 = IntBitsStorage(s->StorageModuleStatusMask).test(15); /* BIT 15*/
-     if (is_setStorage15) { /*accensione LED rosso*/ }
 
-     is_setStorage16 = IntBitsStorage(s->StorageModuleStatusMask).test(16); /* BIT 16*/
-     if (is_setStorage16) { /*accensione LED rosso*/ }
+//         m_storage7 = IntBits(s->StorageModuleStatusMask).test(7);  /* BIT 7*/
 
-     is_setStorage17 = IntBitsStorage(s->StorageModuleStatusMask).test(17); /* BIT 17*/
-     if (is_setStorage17) { /*accensione LED rosso*/ }
 
-     is_setStorage18 = IntBitsStorage(s->StorageModuleStatusMask).test(18); /* BIT 18*/
-     if (is_setStorage18) { /*accensione LED rosso*/ }
+//         m_storage8 = IntBits(s->StorageModuleStatusMask).test(8);  /* BIT 8*/
 
-     is_setStorage19 = IntBitsStorage(s->StorageModuleStatusMask).test(19); /* BIT 19*/
-     if (is_setStorage19) { /*accensione LED rosso*/ }
 
-     is_setStorage20 = IntBitsStorage(s->StorageModuleStatusMask).test(20); /* BIT 20*/
-     if (is_setStorage20) { /*accensione LED rosso*/ }
 
-     is_setStorage21 = IntBitsStorage(s->StorageModuleStatusMask).test(21); /* BIT 21*/
-     if (is_setStorage21) { /*accensione LED rosso*/ }
 
-     is_setStorage22 = IntBitsStorage(s->StorageModuleStatusMask).test(22); /* BIT 22*/
-     if (is_setStorage22) { /*accensione LED rosso*/ }
+//         m_storage10 = IntBits(s->StorageModuleStatusMask).test(10); /* BIT 10*/
 
-     is_setStorage23 = IntBitsStorage(s->StorageModuleStatusMask).test(23); /* BIT 23*/
-     if (is_setStorage23) { /*accensione LED rosso*/ }
+
+//         m_storage11 = IntBits(s->StorageModuleStatusMask).test(11); /* BIT 11*/
+
+
+//         m_storage12 = IntBits(s->StorageModuleStatusMask).test(12); /* BIT 12*/
+
+
+//         m_storage13 = IntBits(s->StorageModuleStatusMask).test(13); /* BIT 13*/
+
+
+//         m_storage14 = IntBits(s->StorageModuleStatusMask).test(14); /* BIT 14*/
+
+
+//         m_storage15 = IntBits(s->StorageModuleStatusMask).test(15); /* BIT 15*/
+
+
+//         m_storage16 = IntBits(s->StorageModuleStatusMask).test(16); /* BIT 16*/
+
+
+//         m_storage17 = IntBits(s->StorageModuleStatusMask).test(17); /* BIT 17*/
+
+
+//         m_storage18 = IntBits(s->StorageModuleStatusMask).test(18); /* BIT 18*/
+
+
+//         m_storage19 = IntBits(s->StorageModuleStatusMask).test(19); /* BIT 19*/
+
+
+//         m_storage20 = IntBits(s->StorageModuleStatusMask).test(20); /* BIT 20*/
+
+
+//         m_storage21 = IntBits(s->StorageModuleStatusMask).test(21); /* BIT 21*/
+
+
+//         m_storage22 = IntBits(s->StorageModuleStatusMask).test(22); /* BIT 22*/
+
+
+//         m_storage23 = IntBits(s->StorageModuleStatusMask).test(23); /* BIT 23*/
 
 
      /* RADIOLINK STATUS MASK */

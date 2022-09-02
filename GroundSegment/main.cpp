@@ -11,6 +11,7 @@
 //#include "mavlinkprotocol.h"
 //#include "storage.h"
 #include <thread>
+#include <QFontDatabase>
 
 
 int main(int argc, char *argv[])
@@ -18,6 +19,14 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
+
+    QFontDatabase::addApplicationFont(":/content/fonts/Roboto-Bold.ttf");
+    QFontDatabase::addApplicationFont(":/content/fonts/Roboto-Regular.ttf");
+    QFontDatabase::addApplicationFont(":/content/fonts/Roboto-Medium.ttf");
+    QFontDatabase::addApplicationFont(":/content/fonts/RobotoMono-Bold.ttf");
+    QFontDatabase::addApplicationFont(":/content/fonts/RobotoMono-SemiBold.ttf");
+    QFontDatabase::addApplicationFont(":/content/fonts/RobotoMono-Regular.ttf");
+    QFontDatabase::addApplicationFont(":/content/fonts/RobotoMono-Medium.ttf");
     //QApplication a(argc, argv);
     //MainWindow w;
 
@@ -44,6 +53,11 @@ int main(int argc, char *argv[])
     Serial0->setStopBits(QSerialPort::OneStop);
     Serial0->setFlowControl(QSerialPort::NoFlowControl);
     Serial0->open(QIODevice::ReadWrite);
+
+
+    QProcess flight_segment_simulator;
+    flight_segment_simulator.setProgram("libs/F9P-Viewer/simulate_flying_vehicle/simulate_flying_vehicle");
+    flight_segment_simulator.start();
 
     QTimer timer;
     QObject::connect(&timer, &QTimer::timeout, [Serial0]() { Serial0->write("000000010100101001"); });
