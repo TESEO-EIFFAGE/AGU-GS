@@ -48,7 +48,6 @@ Rectangle {
     property alias txtGNSSCommErrorCounter: txtGNSSCommErrorCounter.value
     property alias txtPLAltCommErrorCounter: txtPLAltCommErrorCounter.value
 
-
     width: Constants.width / 2 //750 //C
     height: Constants.height //667 //
     color: "#ffffff"
@@ -494,7 +493,7 @@ Rectangle {
                     columnSpacing: 16
                     rowSpacing: 12
                     flow: Grid.TopToBottom
-                    columns: 4
+                    columns: 5
                     rows: 8
 
                     StatusLight {
@@ -665,7 +664,6 @@ Rectangle {
                         text: "PL Altimeter Communication error counter"
                         span: 4
                     }
-
                 }
             }
         }
