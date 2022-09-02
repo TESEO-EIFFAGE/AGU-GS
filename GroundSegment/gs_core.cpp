@@ -20,7 +20,7 @@ GSCore::GSCore(QObject *parent)
     Serial1->setPortName("/dev/ttyUSB1");
     Serial1->setParity(QSerialPort::NoParity);
     Serial1->setDataBits(QSerialPort::Data8);
-    Serial1->setBaudRate(QSerialPort::Baud115200);
+    Serial1->setBaudRate(QSerialPort::Baud57600);
     Serial1->setStopBits(QSerialPort::OneStop);
     Serial1->setFlowControl(QSerialPort::NoFlowControl);
     Serial1->open(QIODevice::ReadWrite);
@@ -29,9 +29,14 @@ GSCore::GSCore(QObject *parent)
     GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataTelemetry(QByteArray)));          /*segnale emesso da MainWindow::ReadData()*/
     GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataSystemStatus(QByteArray)));       /*segnale emesso da MainWindow::ReadData()*/
     GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseMotorStatusPack(QByteArray)));    /*segnale emesso da MainWindow::ReadData()*/
+    GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseRadioLink(QByteArray)));    /*segnale emesso da MainWindow::ReadData()*/
+    GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseStorageStatusPack(QByteArray)));
     GSCore::connect(Mavlink, SIGNAL(toStorage(Telemetry *)), StorageData, SLOT(StoreDataInMemory(Telemetry *)));
     GSCore::connect(Mavlink, SIGNAL(toStorageSystemStatus(SystemStatusPack *)), StorageData, SLOT(StoreDataInMemorySystemStatus(SystemStatusPack *)));
     GSCore::connect(Mavlink, SIGNAL(toStorageMotorStatusPack(MotorStatusPackDataset *)), StorageData, SLOT(StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *)));
+    GSCore::connect(Mavlink, SIGNAL(toStorageRadioLink(RadioLinkPackDataset *)), StorageData, SLOT(StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *)));
+    GSCore::connect(Mavlink, SIGNAL(toStorageStorageStatusPack(StorageStatusPack *)), StorageData, SLOT(StoreDataInMemoryStorageStatusPack(StorageStatusPack *)));
+
     GSCore::connect(Mavlink, SIGNAL(toHMI(Telemetry *)), m_hmi, SLOT(showData(Telemetry *)));
     GSCore::connect(Mavlink, SIGNAL(toHMISystemStatus(SystemStatusPack *)), m_hmi, SLOT(showDataSystemStatus(SystemStatusPack *)));
     //HMIController::connect(this, SIGNAL(updateTopDiagLog()), TopDialogWindow, SLOT(UpdateWindow()));  /* Spostare l'UpdateWindow signal dal pushbutton*/
@@ -123,14 +128,15 @@ void GSCore::WriteHartBeat()
 void GSCore::ReadData()
 {
     QByteArray  retData;
-    qInfo() << "RX Message sono in ReadData inizio ";
+    //qInfo() << "RX Message sono in ReadData inizio ";
 
     retData = Serial1->readAll();
-    qInfo() << retData;
+    retData = retData.toHex(0);
+    qInfo() << "RX MESSAGE retData" << "\n" << retData;
     if (retData != nullptr)
     {
         emit DataIsRead (retData);
-        qInfo() << "RX Message sono in ReadData " << retData;
+        //qInfo() << "RX Message sono in ReadData " << retData;
 
         /*
          if ( (retData.sliced(0,2)) == "FD")

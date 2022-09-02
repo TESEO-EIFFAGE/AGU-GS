@@ -29,7 +29,7 @@ typedef struct
     uint64_t  TelemetryStatusMask;
     uint8_t   NumberOfGPSSatellite;
 }Telemetry;
-Q_DECLARE_METATYPE(Telemetry);  /*MESSAGGIO MAVLINK*/
+Q_DECLARE_METATYPE(Telemetry);
 
 enum class FlightMode
 {
@@ -63,30 +63,50 @@ typedef struct
     FlightMode  fm;
     uint32_t  FlyPhaseExecutionTime;
 }SystemStatusPack;
-Q_DECLARE_METATYPE(SystemStatusPack);  /*MESSAGGIO MAVLINK*/
+Q_DECLARE_METATYPE(SystemStatusPack);
 
+typedef struct
+{
+   /*SYSTEM STATUS PACK DATASET*/
+    uint64_t  TimeStamp;
+    uint32_t  StorageFreeDataSize;
+    uint32_t  StorageLinkStatusMask;
+}StorageStatusPack;
+Q_DECLARE_METATYPE(StorageStatusPack);
 
 typedef struct
 {
    /*MOTOR STATUS PACK*/
 
-    uint32_t  MotorARealPosition;
-    uint32_t  MotorBRealPosition;
-    uint32_t  MotorADemandPosition;
-    uint32_t  MotorBDemandPosition;
-    uint32_t  MotorATorque;
-    uint32_t  MotorBTorque;
+    uint64_t  TimeStamp;
+    int32_t   MotorARealPosition;
+    int32_t   MotorBRealPosition;
+    int32_t   MotorADemandPosition;
+    int32_t   MotorBDemandPosition;
+    int32_t   MotorATorque;
+    int32_t   MotorBTorque;
     int16_t   MotorATemperature;
     int16_t   MotorBTemperature;
     uint16_t  BMS1CurrentVoltage;
-    uint16_t  BMS2CurrentVoltage;
-    uint16_t  BMS1CurrentAbsorption;
-    uint16_t  BMS2CurrentAbsorption;
+    int16_t   BMS1CurrentAbsorption;
     int16_t   BMS1CurrentTemperature;
-    int16_t   BMS2CurrentTemperature;
     uint32_t  MotorControlStatusMask;
+    uint32_t  MotorAFaultMask;
+    uint32_t  MotorBFaultMask;
+    uint32_t  BMSFaultMask;
 }MotorStatusPackDataset;
-Q_DECLARE_METATYPE(MotorStatusPackDataset);  /*MESSAGGIO MAVLINK*/
+Q_DECLARE_METATYPE(MotorStatusPackDataset);
+
+typedef struct
+{
+   /*RadioLink STATUS PACK*/
+
+    uint64_t  TimeStamp;
+    int32_t   RSSI;
+    int32_t   RadioLinkStatusMask;
+
+}RadioLinkPackDataset;
+Q_DECLARE_METATYPE(RadioLinkPackDataset);
 
 class MavlinkProtocol : public QObject
 {
@@ -104,19 +124,27 @@ public:
     Telemetry t;
     SystemStatusPack s;
     MotorStatusPackDataset m;
+    RadioLinkPackDataset r;
+    StorageStatusPack st;
 
 public slots:
     void parseDataTelemetry(QByteArray data);
     void parseDataSystemStatus(QByteArray data);
     void parseMotorStatusPack(QByteArray data);
+    void parseRadioLink(QByteArray data);
+    void parseStorageStatusPack(QByteArray data);
 
 signals:
     void toStorage(Telemetry *);
     void toStorageSystemStatus(SystemStatusPack *);
     void toStorageMotorStatusPack(MotorStatusPackDataset *);
+    void toStorageRadioLink(RadioLinkPackDataset *);
+    void toStorageStorageStatusPack(StorageStatusPack *);
     void toHMI(Telemetry *);
     void toHMISystemStatus(SystemStatusPack *);
     void toHMIMotorStatusPack(MotorStatusPackDataset *);
+    void toHMIRadioLink(RadioLinkPackDataset *);
+    void toHMIStorageStatusPack(StorageStatusPack *);
 };
 
 #endif // MAVLINKPROTOCOL_H

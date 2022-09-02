@@ -101,7 +101,7 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 
     milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
-    NewPathName.append("_STP_Log.csv");
+    NewPathName.append("_CORE_Log.csv");
 
     if (CountS == false)
     {
@@ -146,17 +146,17 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
          {
               if (file.open(QIODevice::WriteOnly))
               {
-                 out << "GlobalTime;";
-                 out << "TimeStamp;";
-                 out << "CoreModuleStatusMask;";
-                 out << "TelemetryStatusMask;";
-                 out << "StorageModuleStatusMask;";
-                 out << "RadioLinkModuleStatusMask;";
-                 out << "MotorControlModuleStatusMask;";
-                 out << "GuidanceModuleStatusMask;";
+                 out << "SystemTime;";
+                 out << "Timestamp;";
+                 out << "AguCORE_SM;";
+                 out << "TLM_SM;";
+                 out << "Storage_SM;";
+                 out << "RadioL_SM;";
+                 out << "MotorCtrl_SM;";
+                 out << "Guid_SM;";
                  out << "FlightPhase;";
                  out << "FlightMode;";
-                 out << "FlyPhaseExecutionTime;" << "\r\n";
+                 out << "ExecTime;" << "\r\n";
                  out << milliseconds_since_epoch << ";";
                  out << s->TimeStamp << ";";
                  out << s->CoreModuleStatusMask << ";";
@@ -184,6 +184,32 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
      }
      else
      {
+        if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+        {
+             out << milliseconds_since_epoch << ";";   /*stampa ultima riga del file*/
+             out << s->TimeStamp << ";";
+             out << s->CoreModuleStatusMask << ";";
+             out << s->TelemetryStatusMask << ";";
+             out << s->StorageModuleStatusMask << ";";
+             out << s->RadioLinkModuleStatusMask << ";";
+             out << s->MotorControlModuleStatusMask  << ";";
+             out << s->GuidanceModuleStatusMask << ";";
+
+             if (s->fp == FlightPhase::Initialization)   out << "0;";
+             else if (s->fp == FlightPhase::Trim)        out << "1;";
+             else if (s->fp == FlightPhase::Guidance)    out << "2;";
+             else if (s->fp == FlightPhase::Flare)       out << "3;";
+             else if (s->fp == FlightPhase::Finalization)out << "4;";
+
+             if (s->fm == FlightMode::EmergencyMode)     out << "0;";
+             else if (s->fm == FlightMode::RecoveryMode) out << "1;";
+             else if (s->fm == FlightMode::ManualMode)   out << "2;";
+             else if (s->fm == FlightMode::OpenLoop)     out << "3;";
+             else if (s->fm == FlightMode::ClosedLoop)   out << "4;";
+
+             out << s->FlyPhaseExecutionTime << ";\r\n";
+         }
+
          CountS = false;
      }
 
@@ -214,6 +240,7 @@ void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
             if (file.open(QIODevice::WriteOnly | QIODevice::Append))
             {
                 out << milliseconds_since_epoch << ";";
+                out << m->TimeStamp << ";";
                 out << m->MotorARealPosition << ";";
                 out << m->MotorBRealPosition << ";";
                 out << m->MotorADemandPosition << ";";
@@ -223,35 +250,37 @@ void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
                 out << m->MotorATemperature << ";";
                 out << m->MotorBTemperature << ";";
                 out << m->BMS1CurrentVoltage << ";";
-                out << m->BMS2CurrentVoltage << ";";
                 out << m->BMS1CurrentAbsorption << ";";
-                out << m->BMS2CurrentAbsorption << ";";
                 out << m->BMS1CurrentTemperature << ";";
-                out << m->BMS2CurrentTemperature << ";";
-                out << m->MotorControlStatusMask << ";\r\n";
+                out << m->MotorControlStatusMask << ";";
+                out << m->MotorAFaultMask << ";";
+                out << m->MotorBFaultMask << ";";
+                out << m->BMSFaultMask << ";\r\n";
              }
           }
           else
           {
               if (file.open(QIODevice::WriteOnly))
               {
-                 out << "GlobalTime;";
-                 out << "MotorARealPosition;";
-                 out << "MotorBRealPosition;";
-                 out << "MotorADemandPosition;";
-                 out << "MotorBDemandPosition;";
-                 out << "MotorATorque;";
-                 out << "MotorBTorque;";
-                 out << "MotorATemperature;";
-                 out << "MotorBTemperature;";
-                 out << "BMS1CurrentVoltage;";
-                 out << "BMS2CurrentVoltage;";
-                 out << "BMS1CurrentAbsorption;";
-                 out << "BMS2CurrentAbsorption;";
-                 out << "BMS1CurrentTemperature;";
-                 out << "BMS2CurrentTemperature;";
-                 out << "MotorControlStatusMask;" << "\r\n";
+                 out << "SystemTime;";
+                 out << "Timestamp;";
+                 out << "MotA_RealPos;";
+                 out << "MotB_RealPos;";
+                 out << "MotA_DemPos;";
+                 out << "MotB_DemPos;";
+                 out << "MotA_Torque;";
+                 out << "MotB_Torque;";
+                 out << "MotA_Temp;";
+                 out << "MotB_Temp;";
+                 out << "BMS_Volt;";
+                 out << "BMS_Current;";
+                 out << "BMS_Temp;";
+                 out << "MotControl_SM;";
+                 out << "MotA_faultSM;";
+                 out << "MotB_faultSM;"      ;
+                 out << "BMS_faultSM;" << "\r\n";
                  out << milliseconds_since_epoch << ";";
+                 out << m->TimeStamp << ";";
                  out << m->MotorARealPosition << ";";
                  out << m->MotorBRealPosition << ";";
                  out << m->MotorADemandPosition << ";";
@@ -261,19 +290,158 @@ void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
                  out << m->MotorATemperature << ";";
                  out << m->MotorBTemperature << ";";
                  out << m->BMS1CurrentVoltage << ";";
-                 out << m->BMS2CurrentVoltage << ";";
                  out << m->BMS1CurrentAbsorption << ";";
-                 out << m->BMS2CurrentAbsorption << ";";
                  out << m->BMS1CurrentTemperature << ";";
-                 out << m->BMS2CurrentTemperature << ";";
-                 out << m->MotorControlStatusMask << ";\r\n";
+                 out << m->MotorControlStatusMask << ";";
+                 out << m->MotorAFaultMask << ";";
+                 out << m->MotorBFaultMask << ";";
+                 out << m->BMSFaultMask << ";\r\n";
               }
           }
      }
      else
      {
-         CountM = false;
+        if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+        {
+             out << milliseconds_since_epoch << ";";  /*Stampo ultima riga del file*/
+             out << m->TimeStamp << ";";
+             out << m->MotorARealPosition << ";";
+             out << m->MotorBRealPosition << ";";
+             out << m->MotorADemandPosition << ";";
+             out << m->MotorBDemandPosition << ";";
+             out << m->MotorATorque << ";";
+             out << m->MotorBTorque << ";";
+             out << m->MotorATemperature << ";";
+             out << m->MotorBTemperature << ";";
+             out << m->BMS1CurrentVoltage << ";";
+             out << m->BMS1CurrentAbsorption << ";";
+             out << m->BMS1CurrentTemperature << ";";
+             out << m->MotorControlStatusMask << ";";
+             out << m->MotorAFaultMask << ";";
+             out << m->MotorBFaultMask << ";";
+             out << m->BMSFaultMask << ";\r\n";
+        }
+
+        CountM = false;
+    }
+}
+
+void Storage::StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r)
+{
+    QString NewPathName = CalculatePathName();
+    unsigned long milliseconds_since_epoch;
+
+    milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+
+    NewPathName.append("_RL_Log.csv");
+
+    if (CountR == false)
+    {
+        PathRadioLink = NewPathName.mid(0);  /*esegue la copia*/
+        CountR = true;
+    }
+
+    QFile file(PathRadioLink);
+    QTextStream out(&file);
+
+    if (file.size() < 3000)
+    {
+        if (file.size() > 0)
+        {
+             if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+             {
+                 out << milliseconds_since_epoch << ";";
+                 out << r->TimeStamp << ";";
+                 out << r->RSSI << ";";
+                 out << r->RadioLinkStatusMask << ";\r\n";;
+              }
+         }
+         else
+         {
+              if (file.open(QIODevice::WriteOnly))
+              {
+                 out << "SystemTime;";
+                 out << "Timestamp;";
+                 out << "RSSI;";
+                 out << "RL_SM;"<< "\r\n";
+                 out << milliseconds_since_epoch << ";";
+                 out << r->TimeStamp << ";";
+                 out << r->RSSI << ";";
+                 out << r->RadioLinkStatusMask << ";\r\n";
+              }
+          }
      }
+     else
+     {
+        if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+        {
+             out << milliseconds_since_epoch << ";";   /*Stampo ultima riga del file*/
+             out << r->TimeStamp << ";";
+             out << r->RSSI << ";";
+             out << r->RadioLinkStatusMask << ";\r\n";
+        }
+
+        CountR = false;
+    }
+}
+
+void Storage::StoreDataInMemoryStorageStatusPack(StorageStatusPack *st)
+{
+    QString NewPathName = CalculatePathName();
+    unsigned long milliseconds_since_epoch;
+
+    milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+
+    NewPathName.append("_STR_Log.csv");
+
+    if (CountST == false)
+    {
+        PathStorageStatus = NewPathName.mid(0);  /*esegue la copia*/
+        CountST = true;
+    }
+
+    QFile file(PathStorageStatus);
+    QTextStream out(&file);
+
+    if (file.size() < 3000)
+    {
+        if (file.size() > 0)
+        {
+             if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+             {
+                 out << milliseconds_since_epoch << ";";
+                 out << st->TimeStamp << ";";
+                 out << st->StorageFreeDataSize << ";";
+                 out << st->StorageLinkStatusMask << ";\r\n";;
+              }
+         }
+         else
+         {
+              if (file.open(QIODevice::WriteOnly))
+              {
+                 out << "SystemTime;";
+                 out << "Timestamp;";
+                 out << "FreeSpace;";
+                 out << "STR_SM;"<< "\r\n";
+                 out << milliseconds_since_epoch << ";";
+                 out << st->TimeStamp << ";";
+                 out << st->StorageFreeDataSize << ";";
+                 out << st->StorageLinkStatusMask << ";\r\n";;
+              }
+          }
+     }
+     else
+     {
+        if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+        {
+            out << milliseconds_since_epoch << ";";   /*stampo ultima riga file*/
+            out << st->TimeStamp << ";";
+            out << st->StorageFreeDataSize << ";";
+            out << st->StorageLinkStatusMask << ";\r\n";;
+        }
+
+        CountST = false;
+    }
 }
 
 
@@ -295,7 +463,7 @@ void Storage::StoreDataInMemory(Telemetry *t)
     QFile file(PathTelemetry);
     QTextStream out(&file);
 
-    if (file.size() < 3000)
+    if (file.size() < 3000  )
     {
         if (file.size() > 0)
         {
@@ -337,50 +505,50 @@ void Storage::StoreDataInMemory(Telemetry *t)
                  out << t->AirSpeed_WVector << ";";
                  out << t->AirTemperature << ";";
                  out << t->TelemetryStatusMask << ";";
-                 out << t->NumberOfGPSSatellite << ";\n";
+                 out << t->NumberOfGPSSatellite << "\r\n";
              }
           }
           else
           {
               if (file.open(QIODevice::WriteOnly))
               {
-                 out << "GlobalTime;";
+                 out << "SystemTime;";
                  out << "TimeStamp;";
-                 out << "TimeStampRIO;";
-                 out << "Latitude;";
-                 out << "Longitude;";
-                 out << "GNSSAltitude;";                            
-                 out << "LinearVelocityHorizontal;";
-                 out << "LinearVelocityVertical;";
-                 out << "PositionAccuracy;";
-                 out << "SpeedAccuracy;";
-                 out << "LinearAccelerationX;";
-                 out << "LinearAccelerationY;";
-                 out << "LinearAccelerationZ;";
-                 out << "ECEFVectorPositionX;";
-                 out << "ECEFVectorPositionY;";
-                 out << "ECEFVectorPositionZ;";
-                 out << "ECEFVectorVelocityX;";
-                 out << "ECEFVectorVelocityY;";
-                 out << "ECEFVectorPositionZ;";
-                 out << "RollAngle;";
-                 out << "PitchAngle;";
-                 out << "YawAngle;";
-                 out << "AngularRateRoll;";
-                 out << "AngularRatePitch;";
-                 out << "AngularRateYaw;";
-                 out << "Quaternion0;";
-                 out << "Quaternion1;";
-                 out << "Quaternion2;";
-                 out << "Quaternion3;";
-                 out << "AltitudeFromRadarAltimeter;";
-                 out << "AltitudeFromPayloadAltimeter;";
-                 out << "AirSpeed_UVector;";
-                 out << "AirSpeed_VVector;";
-                 out << "AirSpeed_WVector;";
-                 out << "AirTemperature;";
-                 out << "TelemetryStatusMask;";
-                 out << "NumberOfGPSSatellite;" << "\n";
+                 out << "GNSS_TimeStamp;";
+                 out << "GNSS_Latitude;";
+                 out << "GNSS_Longitude;";
+                 out << "GNSS_Altitude;";
+                 out << "GNSS_LinVelH;";
+                 out << "GNSS_LinVelV;";
+                 out << "GNSS_PosAcc;";
+                 out << "GNSS_SpeedAcc;";
+                 out << "GNSS_LinAccX;";
+                 out << "GNSS_LinAccY;";
+                 out << "GNSS_LinAccZ;";
+                 out << "GNSS_VecPosX;";
+                 out << "GNSS_VecPosY;";
+                 out << "GNSS_VecPosZ;";
+                 out << "GNSS_VecVelX;";
+                 out << "GNSS_VecVelY;";
+                 out << "GNSS_VecVelZ;";
+                 out << "GNSS_RollAng;";
+                 out << "GNSS_PitchAng;";
+                 out << "GNSS_YawAng;";
+                 out << "GNSS_RollAngRate;";
+                 out << "GNSS_PitchAngRate;";
+                 out << "GNSS_YawAngRate;";
+                 out << "GNSS_Quat0;";
+                 out << "GNSS_Quat1;";
+                 out << "GNSS_Quat2;";
+                 out << "GNSS_Quat3;";
+                 out << "RDaltitude;";
+                 out << "PLaltitude;";
+                 out << "Anem_U;";
+                 out << "Anem_V;";
+                 out << "Anem_W;";
+                 out << "Anem_Temp;";
+                 out << "StatusMask;";
+                 out << "GPSnum;" << "\r\n";
                  out << milliseconds_since_epoch << ";";
                  out << t->TimeStamp << ";";
                  out << t->TimeStampRIO << ";";
@@ -423,6 +591,47 @@ void Storage::StoreDataInMemory(Telemetry *t)
      }
      else
      {
+         if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+         {
+             out << milliseconds_since_epoch << ";";
+             out << t->TimeStamp << ";";
+             out << t->TimeStampRIO << ";";
+             out << t->Latitude << ";";
+             out << t->Longitude << ";";
+             out << t->GNSSAltitude << ";";
+             out << t->LinearVelocityHorizontal << ";";
+             out << t->LinearVelocityVertical << ";";
+             out << t->PositionAccuracy  << ";";
+             out << t->SpeedAccuracy << ";";
+             out << t->LinearAccelerationX << ";";
+             out << t->LinearAccelerationY << ";";
+             out << t->LinearAccelerationZ << ";";
+             out << t->ECEFVectorPositionX << ";";
+             out << t->ECEFVectorPositionY << ";";
+             out << t->ECEFVectorPositionZ << ";";
+             out << t->ECEFVectorVelocityX << ";";
+             out << t->ECEFVectorVelocityY << ";";
+             out << t->ECEFVectorVelocityZ << ";";
+             out << t->RollAngle << ";";
+             out << t->PitchAngle << ";";
+             out << t->YawAngle << ";";
+             out << t->AngularRateRoll << ";";
+             out << t->AngularRatePitch << ";";
+             out << t->AngularRateYaw << ";";
+             out << t->Quaternion0 << ";";
+             out << t->Quaternion1 << ";";
+             out << t->Quaternion2 << ";";
+             out << t->Quaternion3 << ";";
+             out << t->AltitudeFromRadarAltimeter << ";";
+             out << t->AltitudeFromPayloadAltimeter << ";";
+             out << t->AirSpeed_UVector  << ";";
+             out << t->AirSpeed_VVector << ";";
+             out << t->AirSpeed_WVector << ";";
+             out << t->AirTemperature << ";";
+             out << t->TelemetryStatusMask << ";";
+             out << t->NumberOfGPSSatellite << ";\r\n";
+         }
+
          CountT = false;
      }
 

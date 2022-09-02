@@ -127,22 +127,24 @@ void MavlinkProtocol::parseMotorStatusPack(QByteArray data)
 
     //if (data == PACCHETTO MotorStatusPack)
 
-    uint32_t  MotorARealPosition_FromMavlink = 2222;
-    uint32_t  MotorBRealPosition_FromMavlink = 1111;
-    uint32_t  MotorADemandPosition_FromMavlink = 3333;
-    uint32_t  MotorBDemandPosition_FromMavlink = 5555;
-    uint32_t  MotorATorque_FromMavlink = 23423;
-    uint32_t  MotorBTorque_FromMavlink = 23400;
+    uint64_t  TimeStamp_FromMavlink = 1232213;
+    int32_t   MotorARealPosition_FromMavlink = 2222;
+    int32_t   MotorBRealPosition_FromMavlink = 1111;
+    int32_t   MotorADemandPosition_FromMavlink = 3333;
+    int32_t   MotorBDemandPosition_FromMavlink = 5555;
+    int32_t   MotorATorque_FromMavlink = 23423;
+    int32_t   MotorBTorque_FromMavlink = 23400;
     int16_t   MotorATemperature_FromMavlink = 7777;
     int16_t   MotorBTemperature_FromMavlink = 5764;
     uint16_t  BMS1CurrentVoltage_FromMavlink = 45745;
-    uint16_t  BMS2CurrentVoltage_FromMavlink = 45346;
-    uint16_t  BMS1CurrentAbsorption_FromMavlink = 2354;
-    uint16_t  BMS2CurrentAbsorption_FromMavlink = 34566;
+    int16_t   BMS1CurrentAbsorption_FromMavlink = 2354;
     int16_t   BMS1CurrentTemperature_FromMavlink = 3466;
-    int16_t   BMS2CurrentTemperature_FromMavlink = 12444;
     uint32_t  MotorControlStatusMask_FromMavlink = 146536;
+    uint32_t  MotorAFaultMask_FromMavlink = 146536;
+    uint32_t  MotorBFaultMask_FromMavlink = 146536;
+    uint32_t  BMSFaultMask_FromMavlink = 146536;
 
+    m.TimeStamp = TimeStamp_FromMavlink;
     m.MotorARealPosition = MotorARealPosition_FromMavlink;
     m.MotorBRealPosition = MotorBRealPosition_FromMavlink;
     m.MotorADemandPosition = MotorADemandPosition_FromMavlink;
@@ -152,16 +154,51 @@ void MavlinkProtocol::parseMotorStatusPack(QByteArray data)
     m.MotorATemperature = MotorATemperature_FromMavlink;
     m.MotorBTemperature = MotorBTemperature_FromMavlink;
     m.BMS1CurrentVoltage = BMS1CurrentVoltage_FromMavlink;
-    m.BMS2CurrentVoltage = BMS2CurrentVoltage_FromMavlink;
     m.BMS1CurrentAbsorption = BMS1CurrentAbsorption_FromMavlink;
-    m.BMS2CurrentAbsorption = BMS2CurrentAbsorption_FromMavlink;
     m.BMS1CurrentTemperature = BMS1CurrentTemperature_FromMavlink;
-    m.BMS2CurrentTemperature = BMS2CurrentTemperature_FromMavlink;
     m.MotorControlStatusMask = MotorControlStatusMask_FromMavlink;
-
+    m.MotorAFaultMask = MotorAFaultMask_FromMavlink;
+    m.MotorBFaultMask = MotorBFaultMask_FromMavlink;
+    m.BMSFaultMask = BMSFaultMask_FromMavlink;
 
     emit toStorageMotorStatusPack(&m);
     emit toHMIMotorStatusPack(&m);
+}
+
+void MavlinkProtocol::parseRadioLink(QByteArray data)
+{
+    // Eseguire un test sul header di "data" per essere sicuri che sia RadioLinkPackDataset
+    // Spacchettare "data" e scrivere i dati ricevuti al posto sei segnali "_fromMavlink" definiti sotto
+
+    //if (data == PACCHETTO RadioLinkPackDataset)
+    uint64_t  TimeStamp_FromMavlink = 1232213;
+    int32_t   RSSI_FromMavlink = 123;
+    int32_t   RadioLinkStatusMask_FromMavlink = 321;
+
+    r.TimeStamp = TimeStamp_FromMavlink;
+    r.RSSI = RSSI_FromMavlink;
+    r.RadioLinkStatusMask = RadioLinkStatusMask_FromMavlink;
+
+    emit toStorageRadioLink(&r);
+    emit toHMIRadioLink(&r);
+}
+
+void MavlinkProtocol::parseStorageStatusPack(QByteArray data)
+{
+    // Eseguire un test sul header di "data" per essere sicuri che sia StorageStatusPack
+    // Spacchettare "data" e scrivere i dati ricevuti al posto sei segnali "_fromMavlink" definiti sotto
+
+    //if (data == PACCHETTO StorageStatusPack)
+    uint64_t  TimeStamp_FromMavlink = 1232213;
+    uint32_t  StorageFreeDataSize_FromMavlink = 123;
+    uint32_t  StorageLinkStatusMask_FromMavlink = 321;
+
+    st.TimeStamp = TimeStamp_FromMavlink;
+    st.StorageFreeDataSize = StorageFreeDataSize_FromMavlink;
+    st.StorageLinkStatusMask = StorageLinkStatusMask_FromMavlink;
+
+    emit toStorageStorageStatusPack(&st);
+    emit toHMIStorageStatusPack(&st);
 }
 
 quint16 MavlinkProtocol::GetCRC(const QByteArray & data)
