@@ -42,5 +42,6 @@
         <file>content/fonts/Roboto-Medium.ttf</file>
         <file>content/fonts/Roboto-Regular.ttf</file>
         <file>content/images/svgs/solid/database.svg</file>
+        <file>content/images/svgs/solid/radio.svg</file>
     </qresource>
 </RCC>
