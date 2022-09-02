@@ -647,22 +647,22 @@ Rectangle {
                     ParamRow {
                         id: txtAnemCommErrorCounter
                         text: "Anemometer Comm error counter"
-                        span: 11
+                        span: 12
                     }
                     ParamRow {
                         id: txtRDAltCommErrorCounter
                         text: "RD Altimeter Comm error counter"
-                        span: 11
+                        span: 12
                     }
                     ParamRow {
                         id: txtGNSSCommErrorCounter
                         text: "GNSS Comm error counter"
-                        span: 11
+                        span: 12
                     }
                     ParamRow {
                         id: txtPLAltCommErrorCounter
                         text: "PL Altimeter Comm error counter"
-                        span: 11
+                        span: 12
                     }
                 }
             }
