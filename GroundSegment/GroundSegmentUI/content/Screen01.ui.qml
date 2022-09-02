@@ -19,35 +19,37 @@ Rectangle {
     border.width: 0
     property alias gsParams: gsParams
     property alias fsParams: fsParams
-
+    GSParamsViewer {
+        id: gsParams
+        width: parent.width * 4 / 12
+        height: parent.height *1/3
+        color: "#e9f2de"
+        anchors.left: parent.left
+        anchors.top:parent.top
+    }
     MapViewer {
         id: map
         //color: "lightblue"
         width: parent.width * 4 / 12
-        height: parent.height
+        height: parent.height * 2 /3
+        anchors.top:gsParams.bottom
         anchors.left: parent.left
     }
 
     FSParamsViewer {
         id: fsParams
-        width: parent.width * 6 / 12
+        width: parent.width * 8 / 12
         height: parent.height
         anchors.left: map.right
-        anchors.right: gsParams.left
+
     }
 
-    GSParamsViewer {
-        id: gsParams
-        width: parent.width * 2 / 12
-        height: parent.height
-        color: "#e9f2de"
-        anchors.right: parent.right
-    }
+
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}
+    D{i:0;formeditorZoom:0.75}D{i:1}D{i:2}D{i:3}
 }
 ##^##*/
 
