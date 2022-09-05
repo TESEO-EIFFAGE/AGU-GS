@@ -22,7 +22,7 @@ Rectangle {
     GSParamsViewer {
         id: gsParams
         width: parent.width * 5 / 12
-        height: parent.height * 8 / 30
+        height: parent.height * 9 / 30
         color: "#e9f2de"
         anchors.left: parent.left
         anchors.top: parent.top
@@ -31,7 +31,7 @@ Rectangle {
         id: map
         //color: "lightblue"
         width: parent.width * 5 / 12
-        height: parent.height * 22 / 30
+        height: parent.height * 21 / 30
         anchors.top: gsParams.bottom
         anchors.left: parent.left
     }
@@ -46,7 +46,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:1}D{i:2}D{i:3}
+    D{i:0;formeditorZoom:0.75}
 }
 ##^##*/
 
