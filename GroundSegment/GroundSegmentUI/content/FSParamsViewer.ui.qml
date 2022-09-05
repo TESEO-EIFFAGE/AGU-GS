@@ -706,7 +706,7 @@ Rectangle {
                 }
 
                 ParamGrp1Label {
-                    text: "Motor"
+                    text: "Motors & BMS"
                     transform: Rotation {
                         angle: 90
                         origin.x: 25
