@@ -870,6 +870,13 @@ Rectangle {
                         text: "BMS"
                     }
 
+                    ParamRow {
+                        text: "Charge %"
+                        span: 3
+                    }
+                    StatusLight {
+                        text: "Battery LOW"
+                    }
                     StatusLight {
                         text: "BMS INDICATION"
                     }
@@ -878,13 +885,6 @@ Rectangle {
                     }
                     StatusLight {
                         text: "BMS REQUEST"
-                    }
-                    StatusLight {
-                        text: "Battery LOW"
-                    }
-                    ParamRow {
-                        text: "Charge %"
-                        span: 3
                     }
 
                     StatusLight {
