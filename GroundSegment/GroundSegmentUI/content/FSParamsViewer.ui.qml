@@ -353,7 +353,7 @@ Rectangle {
 
         RowLayout {
             Layout.fillWidth: true
-            spacing: 104
+            spacing: 32 // 104
             Column {
                 spacing: 8
                 Layout.alignment: Qt.AlignTop
@@ -423,11 +423,13 @@ Rectangle {
                     span: 3
                     id: txtAltitudeFromRadarAltimeter
                 }
+                Item {
+                    width: 1
+                    height: 8
+                }
+
                 Layout.alignment: Qt.AlignTop
                 spacing: 8
-            }
-
-            Column {
                 Row {
                     id: row5
                     Image {
@@ -450,8 +452,119 @@ Rectangle {
                     span: 3
                     id: txtAltitudeFromPayloadAltimeter
                 }
-                Layout.alignment: Qt.AlignTop
+            }
+            Column {
                 spacing: 8
+                Layout.alignment: Qt.AlignTop
+
+                Row {
+                    id: row7
+                    Image {
+                        x: 0
+                        y: 0
+                        source: "images/svgs/solid/satellite-dish.svg"
+                        fillMode: Image.PreserveAspectFit
+                        sourceSize.height: 24
+                        sourceSize.width: 24
+                    }
+
+                    ParamGrp1Label {
+                        text: "Motor"
+                    }
+                    spacing: 8
+                }
+                ParamRow {
+                    text: "TimeStamp"
+                    span: 6
+                }
+                ParamRow {
+                    text: "BMS1 Voltage"
+                    span: 6
+                }
+                ParamRow {
+                    text: "BMS1 Absorption"
+                    span: 6
+                }
+                ParamRow {
+                    text: "BMS1 Temperature"
+                    span: 6
+                }
+            }
+            Column {
+                spacing: 8
+                Layout.alignment: Qt.AlignTop
+
+                Item {
+                    height: 24
+                    width: 1
+                }
+
+                ParamRow {
+                    text: "MotorA RealPosition"
+                    span: 8
+                }
+                ParamRow {
+                    text: "MotorB RealPosition"
+                    span: 8
+                }
+                ParamRow {
+                    text: "MotorA DemandPosition"
+                    span: 8
+                }
+                ParamRow {
+                    text: "MotorA DemandPosition"
+                    span: 8
+                }
+            }
+            Column {
+                spacing: 8
+                Layout.alignment: Qt.AlignTop
+
+                Item {
+                    height: 24
+                    width: 1
+                }
+                ParamRow {
+                    text: "MotorA Torque"
+                    span: 5
+                }
+                ParamRow {
+                    text: "MotorB Torque"
+                    span: 5
+                }
+                ParamRow {
+                    text: "MotorA Temp"
+                    span: 5
+                }
+                ParamRow {
+                    text: "MotorB Temp"
+                    span: 5
+                }
+            }
+            Column {
+                spacing: 8
+                Layout.alignment: Qt.AlignTop
+
+                Item {
+                    height: 24
+                    width: 1
+                }
+                ParamRow {
+                    text: "MotorControlStatusMask"
+                    span: 8
+                }
+                ParamRow {
+                    text: "MotorAFaultMask"
+                    span: 8
+                }
+                ParamRow {
+                    text: "MotorBFaultMask"
+                    span: 8
+                }
+                ParamRow {
+                    text: "BMSFaultMask"
+                    span: 8
+                }
             }
         }
         Rectangle {
@@ -823,3 +936,23 @@ Rectangle {
         }
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;width:1600}D{i:3}D{i:4}D{i:2}D{i:6}D{i:7}D{i:5}D{i:10}D{i:11}D{i:12}D{i:13}
+D{i:9}D{i:15}D{i:16}D{i:17}D{i:18}D{i:14}D{i:20}D{i:21}D{i:22}D{i:23}D{i:19}D{i:25}
+D{i:26}D{i:27}D{i:24}D{i:29}D{i:30}D{i:31}D{i:32}D{i:28}D{i:34}D{i:35}D{i:36}D{i:37}
+D{i:33}D{i:39}D{i:40}D{i:41}D{i:42}D{i:38}D{i:44}D{i:45}D{i:46}D{i:47}D{i:43}D{i:8}
+D{i:48}D{i:52}D{i:53}D{i:51}D{i:54}D{i:55}D{i:56}D{i:57}D{i:50}D{i:60}D{i:61}D{i:59}
+D{i:62}D{i:63}D{i:65}D{i:66}D{i:64}D{i:67}D{i:58}D{i:70}D{i:71}D{i:69}D{i:72}D{i:73}
+D{i:74}D{i:75}D{i:68}D{i:77}D{i:78}D{i:79}D{i:80}D{i:81}D{i:76}D{i:83}D{i:84}D{i:85}
+D{i:86}D{i:87}D{i:82}D{i:89}D{i:90}D{i:91}D{i:92}D{i:93}D{i:88}D{i:49}D{i:94}D{i:96}
+D{i:97}D{i:95}D{i:101}D{i:102}D{i:103}D{i:104}D{i:105}D{i:106}D{i:107}D{i:108}D{i:109}
+D{i:110}D{i:111}D{i:112}D{i:113}D{i:114}D{i:115}D{i:116}D{i:117}D{i:118}D{i:119}D{i:120}
+D{i:121}D{i:122}D{i:123}D{i:124}D{i:125}D{i:126}D{i:127}D{i:128}D{i:129}D{i:130}D{i:131}
+D{i:132}D{i:133}D{i:134}D{i:135}D{i:136}D{i:100}D{i:99}D{i:98}D{i:137}D{i:139}D{i:140}
+D{i:138}D{i:144}D{i:145}D{i:146}D{i:147}D{i:148}D{i:149}D{i:150}D{i:151}D{i:152}D{i:153}
+D{i:154}D{i:155}D{i:156}D{i:157}D{i:158}D{i:159}D{i:160}D{i:161}D{i:162}D{i:163}D{i:164}
+D{i:165}D{i:166}D{i:143}D{i:142}D{i:141}D{i:167}D{i:1}
+}
+##^##*/
