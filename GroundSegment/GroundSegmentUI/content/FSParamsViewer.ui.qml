@@ -127,233 +127,226 @@ Rectangle {
             }
         }
 
-        Row {
-            id: row1
-            width: 200
-            height: 400
-            spacing: 8
-
-            Image {
-                id: satellite
-                source: "images/svgs/solid/satellite.svg"
-                sourceSize.height: 24
-                sourceSize.width: 24
-                fillMode: Image.PreserveAspectFit
-            }
-
-            ParamGrp1Label {
-                text: "GNSS"
-                Layout.topMargin: 8
-            }
-        }
-        GridLayout {
-            Layout.fillWidth: true
-            rowSpacing: 24 //32
-            columnSpacing: 48
-            columns: 4
-            rows: 2
-            //48
-            Column {
-                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                //Layout.alignment: Qt.AlignRight
-                spacing: 8
-
-                ParamGrp2Label {
-                    text: "Coordinates (°)"
-                }
-
-                ParamRow {
-                    id: txtLatitude
-                    text: "Latitude"
-                    span: 4
-                }
-
-                ParamRow {
-                    text: "Longitude"
-                    span: 4
-                    id: txtLongitude
-                }
-                ParamRow {
-                    text: "Altitude"
-                    span: 4
-                    id: txtGNSSAltitude
-                }
-            }
-
-            Column {
-                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                spacing: 8
-                ParamGrp2Label {
-                    text: "ECEF Position (°)"
-                }
-
-                ParamRow {
-                    text: "X"
-                    id: txtECEFVectorPositionX
-                }
-                ParamRow {
-                    text: "Y"
-                    id: txtECEFVectorPositionY
-                }
-                ParamRow {
-                    text: "Z"
-                    id: txtECEFVectorPositionZ
-                }
-            }
-            Column {
-                spacing: 8
-                Layout.alignment: Qt.AlignTop
-
-                ParamGrp2Label {
-                    text: "ECEF Velocity (m/s)"
-                }
-
-                ParamRow {
-                    text: "X"
-                    id: txtECEFVectorVelocityX
-                }
-                ParamRow {
-                    text: "Y"
-                    id: txtECEFVectorVelocityY
-                }
-                ParamRow {
-                    text: "Z"
-                    id: txtECEFVectorVelocityZ
-                }
-            }
-
-            Column {
-                spacing: 8
-                Layout.alignment: Qt.AlignTop
-
-                ParamGrp2Label {
-                    text: "Linear Velocity (m/s)"
-                }
-
-                ParamRow {
-                    text: "Horizontal"
-                    span: 4
-                    id: txtLinearVelocityHorizontal
-                }
-
-                ParamRow {
-                    text: "Vertical"
-                    span: 4
-                    id: txtLinearVelocityVertical
-                }
-            }
-
-            Column {
-                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                spacing: 8
-
-                ParamGrp2Label {
-                    text: "Accuracy"
-                }
-
-                ParamRow {
-                    text: "Position"
-                    span: 7
-                    id: txtPositionAccuracy
-                }
-
-                ParamRow {
-                    text: "Speed"
-                    span: 7
-                    id: txtSpeedAccuracy
-                }
-
-                ParamRow {
-                    text: "# GNSS satellites"
-                    span: 7
-                    id: txtNumberOfGPSSatellite
-                }
-            }
-
-            Column {
-                spacing: 8
-                Layout.alignment: Qt.AlignTop
-                ParamGrp2Label {
-                    text: "Angle (°)"
-                }
-
-                ParamRow {
-                    text: "Roll"
-                    span: 2
-                    id: txtRollAngle
-                }
-                ParamRow {
-                    text: "Pitch"
-                    span: 2
-                    id: txtPitchAngle
-                }
-                ParamRow {
-                    text: "Yaw"
-                    span: 2
-                    id: txtYawAngle
-                }
-            }
-
-            Column {
-                spacing: 8
-                Layout.alignment: Qt.AlignTop
-
-                ParamGrp2Label {
-                    text: "Angular Rate"
-                }
-
-                ParamRow {
-                    text: "Roll"
-                    span: 2
-                    id: txtAngularRateRoll
-                }
-                ParamRow {
-                    text: "Pitch"
-                    span: 2
-                    id: txtAngularRatePitch
-                }
-
-                ParamRow {
-                    text: "Yaw"
-                    span: 2
-                    id: txtAngularRateYaw
-                }
-            }
-            Column {
-                spacing: 8
-                Layout.alignment: Qt.AlignTop
-
-                ParamGrp2Label {
-                    text: "Linear Acceleration (m/s²)"
-                }
-
-                ParamRow {
-                    text: "X"
-                    id: txtLinearAccelerationX
-                }
-                ParamRow {
-                    text: "Y"
-                    id: txtLinearAccelerationY
-                }
-                ParamRow {
-                    text: "Z"
-                    id: txtLinearAccelerationZ
-                }
-            }
-        }
-
-        Rectangle {
-            id: rectangle
-            width: 200
-            height: 200
-            color: "#d9d9d9"
-            Layout.preferredHeight: 1
-            Layout.fillWidth: true
-        }
-
         RowLayout {
             Layout.fillWidth: true
-            spacing: 32 // 104
+            spacing: 40
+            Column {
+                Row {
+                    id: row1
+                    width: 200
+                    //        height: 400
+                    spacing: 8
+
+                    Image {
+                        id: satellite
+                        source: "images/svgs/solid/satellite.svg"
+                        sourceSize.height: 24
+                        sourceSize.width: 24
+                        fillMode: Image.PreserveAspectFit
+                    }
+
+                    ParamGrp1Label {
+                        text: "GNSS"
+                        Layout.topMargin: 8
+                    }
+                }
+                GridLayout {
+                    Layout.fillWidth: true
+                    rowSpacing: 24 //32
+                    columnSpacing: 40 //48
+                    columns: 4
+                    rows: 2
+                    //48
+                    Column {
+                        Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                        //Layout.alignment: Qt.AlignRight
+                        spacing: 8
+
+                        ParamGrp2Label {
+                            text: "Coordinates (°)"
+                        }
+
+                        ParamRow {
+                            id: txtLatitude
+                            text: "Latitude"
+                            span: 4
+                        }
+
+                        ParamRow {
+                            text: "Longitude"
+                            span: 4
+                            id: txtLongitude
+                        }
+                        ParamRow {
+                            text: "Altitude"
+                            span: 4
+                            id: txtGNSSAltitude
+                        }
+                    }
+
+                    Column {
+                        Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                        spacing: 8
+                        ParamGrp2Label {
+                            text: "ECEF Position (°)"
+                        }
+
+                        ParamRow {
+                            text: "X"
+                            id: txtECEFVectorPositionX
+                        }
+                        ParamRow {
+                            text: "Y"
+                            id: txtECEFVectorPositionY
+                        }
+                        ParamRow {
+                            text: "Z"
+                            id: txtECEFVectorPositionZ
+                        }
+                    }
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+
+                        ParamGrp2Label {
+                            text: "ECEF Velocity (m/s)"
+                        }
+
+                        ParamRow {
+                            text: "X"
+                            id: txtECEFVectorVelocityX
+                        }
+                        ParamRow {
+                            text: "Y"
+                            id: txtECEFVectorVelocityY
+                        }
+                        ParamRow {
+                            text: "Z"
+                            id: txtECEFVectorVelocityZ
+                        }
+                    }
+
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+
+                        ParamGrp2Label {
+                            text: "Linear Velocity (m/s)"
+                        }
+
+                        ParamRow {
+                            text: "Horizontal"
+                            span: 4
+                            id: txtLinearVelocityHorizontal
+                        }
+
+                        ParamRow {
+                            text: "Vertical"
+                            span: 4
+                            id: txtLinearVelocityVertical
+                        }
+                    }
+
+                    Column {
+                        Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                        spacing: 8
+
+                        ParamGrp2Label {
+                            text: "Accuracy"
+                        }
+
+                        ParamRow {
+                            text: "Position"
+                            span: 7
+                            id: txtPositionAccuracy
+                        }
+
+                        ParamRow {
+                            text: "Speed"
+                            span: 7
+                            id: txtSpeedAccuracy
+                        }
+
+                        ParamRow {
+                            text: "# GNSS satellites"
+                            span: 7
+                            id: txtNumberOfGPSSatellite
+                        }
+                    }
+
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+                        ParamGrp2Label {
+                            text: "Angle (°)"
+                        }
+
+                        ParamRow {
+                            text: "Roll"
+                            span: 2
+                            id: txtRollAngle
+                        }
+                        ParamRow {
+                            text: "Pitch"
+                            span: 2
+                            id: txtPitchAngle
+                        }
+                        ParamRow {
+                            text: "Yaw"
+                            span: 2
+                            id: txtYawAngle
+                        }
+                    }
+
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+
+                        ParamGrp2Label {
+                            text: "Angular Rate"
+                        }
+
+                        ParamRow {
+                            text: "Roll"
+                            span: 2
+                            id: txtAngularRateRoll
+                        }
+                        ParamRow {
+                            text: "Pitch"
+                            span: 2
+                            id: txtAngularRatePitch
+                        }
+
+                        ParamRow {
+                            text: "Yaw"
+                            span: 2
+                            id: txtAngularRateYaw
+                        }
+                    }
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+
+                        ParamGrp2Label {
+                            text: "Linear Acceleration (m/s²)"
+                        }
+
+                        ParamRow {
+                            text: "X"
+                            id: txtLinearAccelerationX
+                        }
+                        ParamRow {
+                            text: "Y"
+                            id: txtLinearAccelerationY
+                        }
+                        ParamRow {
+                            text: "Z"
+                            id: txtLinearAccelerationZ
+                        }
+                    }
+                }
+            }
+
             Column {
                 spacing: 8
                 Layout.alignment: Qt.AlignTop
@@ -453,6 +446,19 @@ Rectangle {
                     id: txtAltitudeFromPayloadAltimeter
                 }
             }
+        }
+        Rectangle {
+            id: rectangle
+            width: 200
+            height: 200
+            color: "#d9d9d9"
+            Layout.preferredHeight: 1
+            Layout.fillWidth: true
+        }
+
+        RowLayout {
+            Layout.fillWidth: true
+            spacing: 32 // 104
 
             Column {
                 spacing: 8
@@ -474,95 +480,328 @@ Rectangle {
                     }
                     spacing: 8
                 }
-                ParamRow {
-                    text: "TimeStamp"
-                    span: 6
-                }
-                ParamRow {
-                    text: "BMS1 Voltage"
-                    span: 6
-                }
-                ParamRow {
-                    text: "BMS1 Absorption"
-                    span: 6
-                }
-                ParamRow {
-                    text: "BMS1 Temperature"
-                    span: 6
-                }
-            }
+                GridLayout {
+                    columnSpacing: 16
+                    rowSpacing: 16
+                    flow: Grid.TopToBottom
+                    columns: 6
+                    rows: 2
+                    Column {
 
-            Column {
-                spacing: 8
-                Layout.alignment: Qt.AlignTop
+                        spacing: 8
+                        ParamRow {
+                            text: "TimeStamp"
+                            span: 6
+                        }
+                        ParamRow {
+                            text: "BMS1 Voltage"
+                            span: 6
+                        }
+                        ParamRow {
+                            text: "BMS1 Absorption"
+                            span: 6
+                        }
+                        ParamRow {
+                            text: "BMS1 Temperature"
+                            span: 6
+                        }
+                    }
 
-                Item {
-                    height: 24
-                    width: 1
-                }
-                ParamRow {
-                    text: "MotorA RealPosition"
-                    span: 8
-                }
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
 
-                ParamRow {
-                    text: "MotorA DemandPosition"
-                    span: 8
-                }
-                ParamRow {
-                    text: "MotorA Torque"
-                    span: 5
-                }
-                ParamRow {
-                    text: "MotorA Temp"
-                    span: 5
-                }
-            }
-            Column {
-                spacing: 8
-                Layout.alignment: Qt.AlignTop
+                        ParamRow {
+                            text: "MotorA RealPosition"
+                            span: 8
+                        }
 
-                Item {
-                    height: 24
-                    width: 1
-                }
-                ParamRow {
-                    text: "MotorB RealPosition"
-                    span: 8
-                }
-                ParamRow {
-                    text: "MotorB DemandPosition"
-                    span: 8
-                }
-                ParamRow {
-                    text: "MotorB Torque"
-                    span: 5
-                }
+                        ParamRow {
+                            text: "MotorA DemandPosition"
+                            span: 8
+                        }
+                        ParamRow {
+                            text: "MotorA Torque"
+                            span: 5
+                        }
+                        ParamRow {
+                            text: "MotorA Temp"
+                            span: 5
+                        }
+                    }
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
 
-                ParamRow {
-                    text: "MotorB Temp"
-                    span: 5
-                }
-            }
-            Column {
-                spacing: 8
-                Layout.alignment: Qt.AlignTop
+                        ParamRow {
+                            text: "MotorB RealPosition"
+                            span: 8
+                        }
+                        ParamRow {
+                            text: "MotorB DemandPosition"
+                            span: 8
+                        }
+                        ParamRow {
+                            text: "MotorB Torque"
+                            span: 5
+                        }
 
-                Item {
-                    height: 24
-                    width: 1
-                }
-                StatusLight {
-                    text: "MotorControlStatusMask"
-                }
-                StatusLight {
-                    text: "MotorAFaultMask"
-                }
-                StatusLight {
-                    text: "MotorBFaultMask"
-                }
-                StatusLight {
-                    text: "BMSFaultMask"
+                        ParamRow {
+                            text: "MotorB Temp"
+                            span: 5
+                        }
+                    }
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+
+                        StatusLight {
+                            text: "RS232 HW failure"
+                        }
+                        StatusLight {
+                            text: "CAN HW failure"
+                        }
+                        StatusLight {
+                            text: "PT100 HW failure"
+                        }
+                        StatusLight {
+                            text: "GPIO HW failure"
+                        }
+                    }
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+
+                        StatusLight {
+                            text: "MotorControllerA comm error"
+                        }
+                        StatusLight {
+                            text: "MotorControllerB comm error"
+                        }
+                        StatusLight {
+                            text: "PT100 A sensor breakage"
+                        }
+                        StatusLight {
+                            text: "PT100 B sensor breakage"
+                        }
+                    }
+
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+
+                        StatusLight {
+                            text: "BMS comm error"
+                        }
+                        StatusLight {
+                            text: "MotorA breakage error"
+                        }
+                        StatusLight {
+                            text: "MotorB breakage error"
+                        }
+                        StatusLight {
+                            text: "MotorA demand pos error"
+                        }
+                    }
+
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+                        StatusLight {
+                            text: "MotorB demand pos error"
+                        }
+                        StatusLight {
+                            text: "MotorA over-torque error"
+                        }
+                        StatusLight {
+                            text: "MotorB over-torque error"
+                        }
+                        StatusLight {
+                            text: "MotorA over-current error"
+                        }
+                    }
+
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+                        StatusLight {
+                            text: "MotorB over-current error"
+                        }
+                        StatusLight {
+                            text: "MotorA under-voltage error"
+                        }
+                        StatusLight {
+                            text: "MotorB under-voltage error"
+                        }
+                        StatusLight {
+                            text: "MotorA resolver err"
+                        }
+                    }
+
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+                        StatusLight {
+                            text: "MotorB resolver error"
+                        }
+                        StatusLight {
+                            text: "BMS INDICATION"
+                        }
+                        StatusLight {
+                            text: "BMS FAULT"
+                        }
+                        StatusLight {
+                            text: "BMS REQUEST"
+                        }
+                    }
+
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+                        StatusLight {
+                            text: "Battery LOW"
+                        }
+                        ParamRow {
+                            text: "Charge %"
+                            span: 3
+                        }
+                    }
+
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+                        StatusLight {
+                            text: "Battery OVERVOLTAGE INDICATION"
+                        }
+                        StatusLight {
+                            text: "Battery OVERVOLTAGE FAULT"
+                        }
+                        StatusLight {
+                            text: "Battery UNDERVOLTAGE INDICATION"
+                        }
+                        StatusLight {
+                            text: "Battery UNDERVOLTAGE FAULT"
+                        }
+                    }
+
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+                        StatusLight {
+                            text: "Battery EXCESSIVE INDICATION"
+                        }
+                        StatusLight {
+                            text: "Battery EXCESSIVE FAULT"
+                        }
+
+                        StatusLight {
+                            text: "Battery temp HIGH INDICATION"
+                        }
+                        StatusLight {
+                            text: "Battery temp HIGH FAULT"
+                        }
+                    }
+
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+
+                        StatusLight {
+                            text: "Battery temp LOW INDICATION"
+                        }
+                        StatusLight {
+                            text: "Battery temp LOW FAULT"
+                        }
+                        StatusLight {
+                            text: "Cell UNDERVOLTAGE INDICATION"
+                        }
+                        StatusLight {
+                            text: "Cell UNDERVOLTAGE FAULT"
+                        }
+                    }
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+                        StatusLight {
+                            text: "Cell OVERVOLTAGE INDICATION"
+                        }
+                        StatusLight {
+                            text: "Cell OVERVOLTAGE FAULT"
+                        }
+                        StatusLight {
+                            text: "Cell voltage difference INDICATION"
+                        }
+                        StatusLight {
+                            text: "Cell voltage difference FAULT"
+                        }
+                    }
+
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+                        StatusLight {
+                            text: "Cell temp difference INDICATION"
+                        }
+                        StatusLight {
+                            text: "Cell temp difference FAULT"
+                        }
+
+                        StatusLight {
+                            text: "Cell temp sensor FAULT"
+                        }
+                        StatusLight {
+                            text: "Generic HW FAULT"
+                        }
+                    }
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+                        StatusLight {
+                            text: "Charge switch FAULT"
+                        }
+                        StatusLight {
+                            text: "Discharge switch FAULT"
+                        }
+                        StatusLight {
+                            text: "Self-test FAULT"
+                        }
+                        StatusLight {
+                            text: "Collection line FAULT"
+                        }
+                    }
+
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+                        StatusLight {
+                            text: "Temp line FAULT"
+                        }
+                        StatusLight {
+                            text: "BMS alarm FAULT"
+                        }
+                        StatusLight {
+                            text: "Activity limit request"
+                        }
+                        StatusLight {
+                            text: "Discharge current limit request"
+                        }
+                    }
+                    Column {
+                        spacing: 8
+                        Layout.alignment: Qt.AlignTop
+                        StatusLight {
+                            text: "Consumption STOP request"
+                        }
+                        StatusLight {
+                            text: "Charging temp low FAULT"
+                        }
+                        StatusLight {
+                            text: "Charging temp high FAULT"
+                        }
+                        StatusLight {
+                            text: "Excessive charging current FAULT"
+                        }
+                    }
                 }
             }
         }
@@ -755,9 +994,18 @@ Rectangle {
                         id: telemetryLight31
                         text: "GNSS_fix done"
                     }
-                    Item{height:1; width:1}
-                    Item{height:1; width:1}
-                    Item{height:1; width:1}
+                    Item {
+                        height: 1
+                        width: 1
+                    }
+                    Item {
+                        height: 1
+                        width: 1
+                    }
+                    Item {
+                        height: 1
+                        width: 1
+                    }
 
                     ParamRow {
                         id: txtAnemCommErrorCounter
@@ -941,7 +1189,19 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;height:1080;width:1600}
+    D{i:0;height:1080;width:1600}D{i:3}D{i:4}D{i:2}D{i:8}D{i:9}D{i:7}D{i:11}D{i:16}D{i:21}
+D{i:26}D{i:30}D{i:35}D{i:40}D{i:45}D{i:10}D{i:6}D{i:51}D{i:54}D{i:55}D{i:56}D{i:57}
+D{i:50}D{i:59}D{i:62}D{i:63}D{i:64}D{i:67}D{i:58}D{i:5}D{i:68}D{i:72}D{i:73}D{i:71}
+D{i:76}D{i:77}D{i:78}D{i:79}D{i:75}D{i:81}D{i:82}D{i:83}D{i:84}D{i:80}D{i:86}D{i:87}
+D{i:88}D{i:89}D{i:85}D{i:91}D{i:92}D{i:93}D{i:94}D{i:90}D{i:96}D{i:97}D{i:98}D{i:99}
+D{i:95}D{i:101}D{i:102}D{i:103}D{i:104}D{i:100}D{i:106}D{i:107}D{i:108}D{i:109}D{i:105}
+D{i:111}D{i:112}D{i:113}D{i:114}D{i:110}D{i:116}D{i:117}D{i:118}D{i:119}D{i:115}D{i:121}
+D{i:122}D{i:120}D{i:124}D{i:125}D{i:126}D{i:127}D{i:123}D{i:129}D{i:130}D{i:131}D{i:132}
+D{i:128}D{i:134}D{i:135}D{i:136}D{i:137}D{i:133}D{i:139}D{i:140}D{i:141}D{i:142}D{i:138}
+D{i:144}D{i:145}D{i:146}D{i:147}D{i:143}D{i:149}D{i:150}D{i:151}D{i:152}D{i:148}D{i:154}
+D{i:155}D{i:156}D{i:157}D{i:153}D{i:159}D{i:160}D{i:161}D{i:162}D{i:158}D{i:74}D{i:70}
+D{i:69}D{i:163}D{i:165}D{i:166}D{i:164}D{i:168}D{i:167}D{i:209}D{i:211}D{i:212}D{i:210}
+D{i:214}D{i:213}D{i:239}D{i:1}
 }
 ##^##*/
 
