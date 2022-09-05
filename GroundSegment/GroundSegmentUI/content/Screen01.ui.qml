@@ -16,12 +16,13 @@ Rectangle {
     height: Constants.height
 
     color: Constants.backgroundColor
+    border.color: "#ffffff"
     border.width: 0
     property alias gsParams: gsParams
     property alias fsParams: fsParams
     GSParamsViewer {
         id: gsParams
-        width: parent.width * 5 / 12
+        width: parent.width * 3.5 / 12
         height: parent.height * 10 / 30
         color: "#e9f2de"
         anchors.left: parent.left
@@ -30,7 +31,7 @@ Rectangle {
     MapViewer {
         id: map
         //color: "lightblue"
-        width: parent.width * 5 / 12
+        width: parent.width * 3.5 / 12
         height: parent.height * 20 / 30
         anchors.top: gsParams.bottom
         anchors.left: parent.left
@@ -38,7 +39,7 @@ Rectangle {
 
     FSParamsViewer {
         id: fsParams
-        width: parent.width * 8 / 12
+        width: parent.width * 8.5 / 12
         height: parent.height
         anchors.left: map.right
     }
@@ -46,7 +47,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}
+    D{i:0;formeditorZoom:0.75}D{i:1}D{i:2}D{i:3}
 }
 ##^##*/
 
