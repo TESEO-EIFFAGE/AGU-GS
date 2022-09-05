@@ -108,6 +108,17 @@ typedef struct
 }RadioLinkPackDataset;
 Q_DECLARE_METATYPE(RadioLinkPackDataset);
 
+typedef struct
+{
+   /*Guidance*/
+
+    uint64_t  TimeStamp;
+    int32_t   GuidanceStatusMask;
+
+}GuidancePackDataset;
+Q_DECLARE_METATYPE(GuidancePackDataset);
+
+
 class MavlinkProtocol : public QObject
 {
     Q_OBJECT
@@ -126,6 +137,7 @@ public:
     MotorStatusPackDataset m;
     RadioLinkPackDataset r;
     StorageStatusPack st;
+    GuidancePackDataset g;
 
 public slots:
     void parseDataTelemetry(QByteArray data);
@@ -133,6 +145,7 @@ public slots:
     void parseMotorStatusPack(QByteArray data);
     void parseRadioLink(QByteArray data);
     void parseStorageStatusPack(QByteArray data);
+    void parseGuidance(QByteArray data);
 
 signals:
     void toStorage(Telemetry *);
@@ -140,11 +153,13 @@ signals:
     void toStorageMotorStatusPack(MotorStatusPackDataset *);
     void toStorageRadioLink(RadioLinkPackDataset *);
     void toStorageStorageStatusPack(StorageStatusPack *);
+    void toStorageGuidance(GuidancePackDataset *);
     void toHMI(Telemetry *);
     void toHMISystemStatus(SystemStatusPack *);
     void toHMIMotorStatusPack(MotorStatusPackDataset *);
     void toHMIRadioLink(RadioLinkPackDataset *);
     void toHMIStorageStatusPack(StorageStatusPack *);
+    void toHMIGuidance(GuidancePackDataset *);
 };
 
 #endif // MAVLINKPROTOCOL_H

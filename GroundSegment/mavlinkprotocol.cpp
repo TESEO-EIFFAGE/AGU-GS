@@ -201,6 +201,22 @@ void MavlinkProtocol::parseStorageStatusPack(QByteArray data)
     emit toHMIStorageStatusPack(&st);
 }
 
+void MavlinkProtocol::parseGuidance(QByteArray data)
+{
+    // Eseguire un test sul header di "data" per essere sicuri che sia StorageStatusPack
+    // Spacchettare "data" e scrivere i dati ricevuti al posto sei segnali "_fromMavlink" definiti sotto
+
+    //if (data == PACCHETTO StorageStatusPack)
+    uint64_t  TimeStamp_FromMavlink = 1232213;
+    uint32_t  GuidanceStatusMask_FromMavlink = 321;
+
+    g.TimeStamp = TimeStamp_FromMavlink;
+    g.GuidanceStatusMask = GuidanceStatusMask_FromMavlink;
+
+    emit toStorageGuidance(&g);
+    emit toHMIGuidance(&g);
+}
+
 quint16 MavlinkProtocol::GetCRC(const QByteArray & data)
 {
      return qChecksum(data, data.size(), Qt::ChecksumIso3309);

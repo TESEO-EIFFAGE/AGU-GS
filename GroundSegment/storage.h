@@ -18,7 +18,8 @@ public:
     bool CountM = 0;
     bool CountR = 0;
     bool CountST = 0;
-    QString PathSystemStatus, PathTelemetry, PathMotor, PathRadioLink, PathStorageStatus;
+    bool CountG = 0;
+    QString PathSystemStatus, PathTelemetry, PathMotor, PathRadioLink, PathStorageStatus, PathGuidance;
 
 public slots:
     void StoreDataInMemory(Telemetry *t);
@@ -26,6 +27,7 @@ public slots:
     void StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m);
     void StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r);
     void StoreDataInMemoryStorageStatusPack(StorageStatusPack *st);
+    void StoreDataInMemoryGuidance(GuidancePackDataset *g);
 };
 
 #endif // STORAGE_H

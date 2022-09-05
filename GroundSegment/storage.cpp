@@ -444,6 +444,61 @@ void Storage::StoreDataInMemoryStorageStatusPack(StorageStatusPack *st)
     }
 }
 
+void Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g)
+{
+    QString NewPathName = CalculatePathName();
+    unsigned long milliseconds_since_epoch;
+
+    milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+
+    NewPathName.append("_GUID_Log.csv");
+
+    if (CountG == false)
+    {
+        PathGuidance = NewPathName.mid(0);  /*esegue la copia*/
+        CountG = true;
+    }
+
+    QFile file(PathGuidance);
+    QTextStream out(&file);
+
+    if (file.size() < 3000)
+    {
+        if (file.size() > 0)
+        {
+             if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+             {
+                 out << milliseconds_since_epoch << ";";
+                 out << g->TimeStamp << ";";
+                 out << g->GuidanceStatusMask << ";\r\n";;
+             }
+         }
+         else
+         {
+              if (file.open(QIODevice::WriteOnly))
+              {
+                 out << "SystemTime;";
+                 out << "Timestamp;";
+                 out << "GUID_SM;"<< "\r\n";
+                 out << milliseconds_since_epoch << ";";
+                 out << g->TimeStamp << ";";
+                 out << g->GuidanceStatusMask << ";\r\n";;
+              }
+          }
+     }
+     else
+     {
+        if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+        {
+            out << milliseconds_since_epoch << ";";   /*stampo ultima riga file*/
+            out << g->TimeStamp << ";";
+            out << g->GuidanceStatusMask << ";\r\n";;
+        }
+
+        CountG = false;
+    }
+}
+
 
 void Storage::StoreDataInMemory(Telemetry *t)
 {
