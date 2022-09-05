@@ -605,8 +605,8 @@ Rectangle {
                     columnSpacing: 16
                     rowSpacing: 12
                     flow: Grid.TopToBottom
-                    columns: 6
-                    rows: 6
+                    columns: 8
+                    rows: 5
 
                     StatusLight {
                         id: telemetryLight0
@@ -755,6 +755,9 @@ Rectangle {
                         id: telemetryLight31
                         text: "GNSS_fix done"
                     }
+                    Item{height:1; width:1}
+                    Item{height:1; width:1}
+                    Item{height:1; width:1}
 
                     ParamRow {
                         id: txtAnemCommErrorCounter
@@ -816,8 +819,8 @@ Rectangle {
                     columnSpacing: 16
                     rowSpacing: 12
                     flow: Grid.TopToBottom
-                    columns: 5
-                    rows: 5
+                    columns: 6
+                    rows: 4
 
                     StatusLight {
                         id: storageLight0
