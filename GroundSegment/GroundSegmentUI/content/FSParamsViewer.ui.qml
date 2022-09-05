@@ -464,7 +464,7 @@ Rectangle {
 
         Row {
             Layout.fillWidth: true
-            Layout.preferredHeight: childrenRect.height + 20
+            Layout.preferredHeight: childrenRect.height + 10
             Column {
                 spacing: 32
                 width: 40
@@ -487,7 +487,6 @@ Rectangle {
             }
             Grid {
                 id: grid
-                anchors.verticalCenter: parent.verticalCenter
                 columnSpacing: 16
                 rowSpacing: 12
                 flow: Grid.TopToBottom
@@ -1023,7 +1022,7 @@ Rectangle {
 
         Row {
             Layout.fillWidth: true
-            Layout.preferredHeight: childrenRect.height + 20
+            Layout.preferredHeight: childrenRect.height
             Column {
                 spacing: 32
                 width: 40
@@ -1046,7 +1045,6 @@ Rectangle {
             }
             Grid {
                 id: gridStorage
-                anchors.verticalCenter: parent.verticalCenter
                 columnSpacing: 16
                 rowSpacing: 12
                 flow: Grid.TopToBottom
