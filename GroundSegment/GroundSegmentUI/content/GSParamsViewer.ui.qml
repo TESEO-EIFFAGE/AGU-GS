@@ -18,7 +18,7 @@ Rectangle {
     property alias txtsecondGPSData: txtsecondGPSData.value
 
     width: Constants.width / 2 //750 //C
-    height: Constants.height //667 //
+    height: Constants.height * 1 / 3 //667 //
     color: "#ffffff"
     border.color: "#ffffff"
     property alias txtRadioLinkErrorCounter: txtRadioLinkErrorCounter.value
@@ -30,11 +30,13 @@ Rectangle {
     property alias radioLinkLight0: radioLinkLight0
     ColumnLayout {
         anchors.fill: parent
-        spacing: 16
+        spacing: 20
         anchors.margins: 32
 
+        //anchors.leftMargin: 48
         Column {
-            spacing: 0
+            spacing: 0 //16
+            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
 
             SectionLabel {
                 text: "Ground Segment"
@@ -46,142 +48,156 @@ Rectangle {
                 id: txtTimeStamp
             }
         }
-        Column {
-            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-            spacing: 8
-            Row {
-                id: row1
-                Image {
-                    anchors.verticalCenter: parent.verticalCenter
-                    source: "images/svgs/solid/satellite.svg"
-                    fillMode: Image.PreserveAspectFit
-                    sourceSize.height: 24
-                    sourceSize.width: 24
-                }
-
-                ParamGrp1Label {
-                    text: "GNSS"
-                    anchors.verticalCenter: parent.verticalCenter
-                    Layout.topMargin: 8
-                }
-                spacing: 8
-            }
-
-            ParamRow {
-                text: "Latitude"
-                span: 4
-                id: txtLatitudeGPSData
-            }
-            ParamRow {
-                text: "Longitude"
-                span: 4
-                id: txtLongitudeGPSData
-            }
-            ParamRow {
-                text: "Altitude"
-                span: 4
-                id: txtAltitudeGPSData
-            }
-            ParamRow {
-                text: "HasFix"
-                span: 4
-                id: txtHasFix
-            }
-
-            Row {
-                spacing: 8
-                ParamRow {
-                    text: "Time"
-                    span: 4
-                    id: txtHourGPSData
-                }
-                ParamRow {
-                    text: ":"
-                    span: 0.5
-                    id: txtminuteGPSData
-                }
-                ParamRow {
-                    text: ":"
-                    span: 0.5
-                    id: txtsecondGPSData
-                }
-            }
-        }
-
-        Rectangle {
-            id: rectangle
-            width: 200
-            height: 200
-            color: "#d9d9d9"
-            Layout.preferredHeight: 1
+        RowLayout {
+            Layout.fillHeight: true
             Layout.fillWidth: true
-        }
+            spacing: 16
 
-        Column {
+            //48
             Row {
-                Image {
-                    anchors.verticalCenter: parent.verticalCenter
-                    source: "images/svgs/solid/radio.svg"
-                    fillMode: Image.PreserveAspectFit
-                    sourceSize.width: 24
-                    sourceSize.height: 24
+                Layout.alignment: Qt.AlignTop
+                Column {
+                    spacing: 32
+                    width: 40
+                    Image {
+                        x: 3
+                        y: 0
+                        source: "images/svgs/solid/satellite.svg"
+                        fillMode: Image.PreserveAspectFit
+                        sourceSize.height: 24
+                        sourceSize.width: 24
+                    }
+
+                    ParamGrp1Label {
+                        text: "GNSS"
+                        transform: Rotation {
+                            angle: 90
+                            origin.x: 25
+                        }
+                    }
+                }
+                Column {
+                    spacing: 8
+                    ParamRow {
+                        text: "Latitude"
+                        span: 4
+                        id: txtLatitudeGPSData
+                    }
+                    ParamRow {
+                        text: "Longitude"
+                        span: 4
+                        id: txtLongitudeGPSData
+                    }
+                    ParamRow {
+                        text: "Altitude"
+                        span: 4
+                        id: txtAltitudeGPSData
+                    }
+                    ParamRow {
+                        text: "HasFix"
+                        span: 4
+                        id: txtHasFix
+                    }
+
+                    Row {
+                        spacing: 8
+                        ParamRow {
+                            text: "Time"
+                            span: 4
+                            id: txtHourGPSData
+                        }
+                        ParamRow {
+                            text: ":"
+                            span: 0.5
+                            id: txtminuteGPSData
+                        }
+                        ParamRow {
+                            text: ":"
+                            span: 0.5
+                            id: txtsecondGPSData
+                        }
+                    }
+                }
+            }
+
+            //        Rectangle {
+            //            id: rectangle
+            //            width: 200
+            //            height: 200
+            //            color: "#d9d9d9"
+            //            Layout.preferredHeight: 1
+            //            Layout.fillWidth: true
+            //        }
+            Row {
+                Column {
+
+                    spacing: 32
+                    width: 40
+                    Image {
+                        x: 3
+                        y: 0
+                        source: "images/svgs/solid/radio.svg"
+                        fillMode: Image.PreserveAspectFit
+                        sourceSize.height: 24
+                        sourceSize.width: 24
+                    }
+
+                    ParamGrp1Label {
+                        text: "Radio Link"
+                        transform: Rotation {
+                            angle: 90
+                            origin.x: 25
+                        }
+                    }
                 }
 
-                ParamGrp1Label {
-                    text: "Radio Link"
-                    anchors.verticalCenter: parent.verticalCenter
+                Column {
+                    spacing: 8
+                    StatusLight {
+                        id: radioLinkLight0
+                        text: "RS232 HW failure"
+                    }
+
+                    StatusLight {
+                        id: radioLinkLight1
+                        text: "USB to V-COM failure"
+                    }
+
+                    StatusLight {
+                        id: radioLinkLight2
+                        text: "Radio link monitor comm error"
+                    }
+
+                    StatusLight {
+                        id: radioLinkLight3
+                        text: "RSSI value invalid"
+                    }
+
+                    StatusLight {
+                        id: radioLinkLight8
+                        text: "Heartbeat packet timeout error"
+                    }
+
+                    StatusLight {
+                        id: radioLinkLight9
+                        text: "Heartbeat packet checksum error"
+                    }
+
+                    ParamRow {
+                        id: txtRadioLinkErrorCounter
+                        text: "Error counter"
+                        span: 4
+                    }
                 }
-                spacing: 8
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             }
 
-            StatusLight {
-                id: radioLinkLight0
-                text: "RS232 HW failure"
+            Item {
+                Layout.fillWidth: true
             }
-
-            StatusLight {
-                id: radioLinkLight1
-                text: "USB to V-COM failure"
-            }
-
-            StatusLight {
-                id: radioLinkLight2
-                text: "Radio link monitor comm error"
-            }
-
-            StatusLight {
-                id: radioLinkLight3
-                text: "RSSI value invalid"
-            }
-
-            StatusLight {
-                id: radioLinkLight8
-                text: "Heartbeat packet timeout error"
-            }
-
-            StatusLight {
-                id: radioLinkLight9
-                text: "Heartbeat packet checksum error"
-            }
-
-            ParamRow {
-                id: txtRadioLinkErrorCounter
-                text: "Error counter"
-                span: 4
-            }
-            spacing: 8
-            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
         }
-
         Item {
             Layout.fillHeight: true
         }
     }
 }
-
-/*##^##
-Designer {
-    D{i:0;height:900;width:320}D{i:17}D{i:23}D{i:24}D{i:25}D{i:26}D{i:27}D{i:28}
-}
-##^##*/
-
