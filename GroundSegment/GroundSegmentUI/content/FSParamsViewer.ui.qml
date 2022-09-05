@@ -905,6 +905,12 @@ Rectangle {
                     StatusLight {
                         text: "Battery EXCESSIVE FAULT"
                     }
+                    StatusLight {
+                        text: "Battery temp HIGH INDICATION"
+                    }
+                    StatusLight {
+                        text: "Battery temp HIGH FAULT"
+                    }
                 }
 
                 Column {
@@ -914,12 +920,6 @@ Rectangle {
                     Item {
                         height: 16
                         width: 1
-                    }
-                    StatusLight {
-                        text: "Battery temp HIGH INDICATION"
-                    }
-                    StatusLight {
-                        text: "Battery temp HIGH FAULT"
                     }
 
                     StatusLight {
@@ -951,16 +951,6 @@ Rectangle {
                     StatusLight {
                         text: "Cell temp difference INDICATION"
                     }
-                }
-
-                Column {
-                    spacing: 8
-                    Layout.alignment: Qt.AlignTop
-                    Item {
-                        height: 16
-                        width: 1
-                    }
-
                     StatusLight {
                         text: "Cell temp difference FAULT"
                     }
@@ -975,6 +965,16 @@ Rectangle {
                     StatusLight {
                         text: "Charge switch FAULT"
                     }
+                }
+
+                Column {
+                    spacing: 8
+                    Layout.alignment: Qt.AlignTop
+                    Item {
+                        height: 16
+                        width: 1
+                    }
+
                     StatusLight {
                         text: "Discharge switch FAULT"
                     }
@@ -998,16 +998,6 @@ Rectangle {
                     StatusLight {
                         text: "Discharge current limit request"
                     }
-                }
-                Column {
-                    spacing: 8
-                    Layout.alignment: Qt.AlignTop
-
-                    Item {
-                        height: 16
-                        width: 1
-                    }
-
                     StatusLight {
                         text: "Consumption STOP request"
                     }
@@ -1195,13 +1185,13 @@ D{i:124}D{i:125}D{i:123}D{i:129}D{i:130}D{i:131}D{i:132}D{i:133}D{i:134}D{i:135}
 D{i:137}D{i:138}D{i:139}D{i:140}D{i:141}D{i:142}D{i:128}D{i:144}D{i:145}D{i:146}D{i:147}
 D{i:148}D{i:149}D{i:150}D{i:151}D{i:152}D{i:153}D{i:154}D{i:143}D{i:156}D{i:157}D{i:158}
 D{i:159}D{i:160}D{i:161}D{i:162}D{i:163}D{i:164}D{i:165}D{i:166}D{i:155}D{i:168}D{i:169}
-D{i:170}D{i:171}D{i:172}D{i:173}D{i:174}D{i:175}D{i:176}D{i:177}D{i:178}D{i:179}D{i:167}
-D{i:181}D{i:182}D{i:183}D{i:184}D{i:185}D{i:186}D{i:187}D{i:188}D{i:189}D{i:190}D{i:191}
-D{i:192}D{i:180}D{i:194}D{i:195}D{i:196}D{i:197}D{i:198}D{i:199}D{i:200}D{i:201}D{i:202}
-D{i:203}D{i:204}D{i:205}D{i:193}D{i:207}D{i:208}D{i:209}D{i:210}D{i:211}D{i:206}D{i:127}
-D{i:122}D{i:212}D{i:215}D{i:216}D{i:214}D{i:219}D{i:220}D{i:221}D{i:222}D{i:223}D{i:224}
+D{i:170}D{i:171}D{i:172}D{i:173}D{i:174}D{i:175}D{i:176}D{i:177}D{i:178}D{i:179}D{i:180}
+D{i:181}D{i:167}D{i:183}D{i:184}D{i:185}D{i:186}D{i:187}D{i:188}D{i:189}D{i:190}D{i:191}
+D{i:192}D{i:193}D{i:194}D{i:195}D{i:196}D{i:182}D{i:198}D{i:199}D{i:200}D{i:201}D{i:202}
+D{i:203}D{i:204}D{i:205}D{i:206}D{i:207}D{i:208}D{i:209}D{i:197}D{i:127}D{i:122}D{i:210}
+D{i:213}D{i:214}D{i:212}D{i:217}D{i:218}D{i:219}D{i:220}D{i:221}D{i:222}D{i:223}D{i:224}
 D{i:225}D{i:226}D{i:227}D{i:228}D{i:229}D{i:230}D{i:231}D{i:232}D{i:233}D{i:234}D{i:235}
-D{i:236}D{i:237}D{i:238}D{i:239}D{i:240}D{i:241}D{i:218}D{i:213}D{i:242}D{i:1}
+D{i:236}D{i:237}D{i:238}D{i:239}D{i:216}D{i:211}D{i:240}D{i:1}
 }
 ##^##*/
 
