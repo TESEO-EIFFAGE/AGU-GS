@@ -718,10 +718,14 @@ Rectangle {
                 rowSpacing: 16
                 flow: Grid.TopToBottom
                 columns: 6
-                rows: 2
+                rows: 1
                 Column {
 
                     spacing: 8
+
+                    ParamGrp2Label {
+                        text: "General"
+                    }
                     ParamRow {
                         text: "TimeStamp"
                         span: 6
@@ -738,7 +742,41 @@ Rectangle {
                         text: "BMS1 Temperature"
                         span: 6
                     }
+                    StatusLight {
+                        text: "MotorControllerA comm error"
+                    }
+                    StatusLight {
+                        text: "MotorControllerB comm error"
+                    }
+                    StatusLight {
+                        text: "RS232 HW failure"
+                    }
+                    StatusLight {
+                        text: "CAN HW failure"
+                    }
+                    StatusLight {
+                        text: "PT100 HW failure"
+                    }
+                    StatusLight {
+                        text: "GPIO HW failure"
+                    }
+                    StatusLight {
+                        text: "PT100 A sensor breakage"
+                    }
+                    StatusLight {
+                        text: "PT100 B sensor breakage"
+                    }
 
+                    StatusLight {
+                        text: "BMS comm error"
+                    }
+                }
+                Column {
+                    spacing: 8
+                    Layout.alignment: Qt.AlignTop
+                    ParamGrp2Label {
+                        text: "Motor A"
+                    }
                     ParamRow {
                         text: "MotorA RealPosition"
                         span: 8
@@ -748,11 +786,6 @@ Rectangle {
                         text: "MotorA DemandPosition"
                         span: 8
                     }
-                }
-                Column {
-                    spacing: 8
-                    Layout.alignment: Qt.AlignTop
-
                     ParamRow {
                         text: "MotorA Torque"
                         span: 5
@@ -762,6 +795,33 @@ Rectangle {
                         span: 5
                     }
 
+                    StatusLight {
+                        text: "MotorA breakage error"
+                    }
+                    StatusLight {
+                        text: "MotorA demand pos error"
+                    }
+                    StatusLight {
+                        text: "MotorA over-torque error"
+                    }
+                    StatusLight {
+                        text: "MotorA over-current error"
+                    }
+
+                    StatusLight {
+                        text: "MotorA under-voltage error"
+                    }
+                    StatusLight {
+                        text: "MotorA resolver err"
+                    }
+                }
+
+                Column {
+                    spacing: 8
+                    Layout.alignment: Qt.AlignTop
+                    ParamGrp2Label {
+                        text: "Motor B"
+                    }
                     ParamRow {
                         text: "MotorB RealPosition"
                         span: 8
@@ -780,94 +840,36 @@ Rectangle {
                         text: "MotorB Temp"
                         span: 5
                     }
-                }
-                Column {
-                    spacing: 8
-                    Layout.alignment: Qt.AlignTop
 
-                    StatusLight {
-                        text: "RS232 HW failure"
-                    }
-                    StatusLight {
-                        text: "CAN HW failure"
-                    }
-                    StatusLight {
-                        text: "PT100 HW failure"
-                    }
-                    StatusLight {
-                        text: "GPIO HW failure"
-                    }
-
-                    StatusLight {
-                        text: "MotorControllerA comm error"
-                    }
-                    StatusLight {
-                        text: "MotorControllerB comm error"
-                    }
-                }
-                Column {
-                    spacing: 8
-                    Layout.alignment: Qt.AlignTop
-
-                    StatusLight {
-                        text: "PT100 A sensor breakage"
-                    }
-                    StatusLight {
-                        text: "PT100 B sensor breakage"
-                    }
-
-                    StatusLight {
-                        text: "BMS comm error"
-                    }
-                    StatusLight {
-                        text: "MotorA breakage error"
-                    }
                     StatusLight {
                         text: "MotorB breakage error"
                     }
                     StatusLight {
-                        text: "MotorA demand pos error"
-                    }
-                }
-                Column {
-                    spacing: 8
-                    Layout.alignment: Qt.AlignTop
-
-                    StatusLight {
                         text: "MotorB demand pos error"
-                    }
-                    StatusLight {
-                        text: "MotorA over-torque error"
                     }
 
                     StatusLight {
                         text: "MotorB over-torque error"
                     }
                     StatusLight {
-                        text: "MotorA over-current error"
-                    }
-
-                    StatusLight {
                         text: "MotorB over-current error"
                     }
                     StatusLight {
-                        text: "MotorA under-voltage error"
-                    }
-                }
-                Column {
-                    spacing: 8
-                    Layout.alignment: Qt.AlignTop
-
-                    StatusLight {
                         text: "MotorB under-voltage error"
-                    }
-                    StatusLight {
-                        text: "MotorA resolver err"
                     }
 
                     StatusLight {
                         text: "MotorB resolver error"
                     }
+                }
+
+                Column {
+                    spacing: 8
+                    Layout.alignment: Qt.AlignTop
+                    ParamGrp2Label {
+                        text: "BMS"
+                    }
+
                     StatusLight {
                         text: "BMS INDICATION"
                     }
@@ -877,11 +879,6 @@ Rectangle {
                     StatusLight {
                         text: "BMS REQUEST"
                     }
-                }
-                Column {
-                    spacing: 8
-                    Layout.alignment: Qt.AlignTop
-
                     StatusLight {
                         text: "Battery LOW"
                     }
@@ -902,18 +899,22 @@ Rectangle {
                     StatusLight {
                         text: "Battery UNDERVOLTAGE FAULT"
                     }
-                }
-
-                Column {
-                    spacing: 8
-                    Layout.alignment: Qt.AlignTop
                     StatusLight {
                         text: "Battery EXCESSIVE INDICATION"
                     }
                     StatusLight {
                         text: "Battery EXCESSIVE FAULT"
                     }
+                }
 
+                Column {
+                    spacing: 8
+                    Layout.alignment: Qt.AlignTop
+
+                    Item {
+                        height: 16
+                        width: 1
+                    }
                     StatusLight {
                         text: "Battery temp HIGH INDICATION"
                     }
@@ -927,10 +928,6 @@ Rectangle {
                     StatusLight {
                         text: "Battery temp LOW FAULT"
                     }
-                }
-                Column {
-                    spacing: 8
-                    Layout.alignment: Qt.AlignTop
 
                     StatusLight {
                         text: "Cell UNDERVOLTAGE INDICATION"
@@ -951,14 +948,19 @@ Rectangle {
                     StatusLight {
                         text: "Cell voltage difference FAULT"
                     }
+                    StatusLight {
+                        text: "Cell temp difference INDICATION"
+                    }
                 }
 
                 Column {
                     spacing: 8
                     Layout.alignment: Qt.AlignTop
-                    StatusLight {
-                        text: "Cell temp difference INDICATION"
+                    Item {
+                        height: 16
+                        width: 1
                     }
+
                     StatusLight {
                         text: "Cell temp difference FAULT"
                     }
@@ -976,10 +978,6 @@ Rectangle {
                     StatusLight {
                         text: "Discharge switch FAULT"
                     }
-                }
-                Column {
-                    spacing: 8
-                    Layout.alignment: Qt.AlignTop
 
                     StatusLight {
                         text: "Self-test FAULT"
@@ -1004,6 +1002,12 @@ Rectangle {
                 Column {
                     spacing: 8
                     Layout.alignment: Qt.AlignTop
+
+                    Item {
+                        height: 16
+                        width: 1
+                    }
+
                     StatusLight {
                         text: "Consumption STOP request"
                     }
@@ -1187,17 +1191,17 @@ D{i:75}D{i:78}D{i:79}D{i:77}D{i:82}D{i:83}D{i:84}D{i:85}D{i:86}D{i:87}D{i:88}D{i
 D{i:90}D{i:91}D{i:92}D{i:93}D{i:94}D{i:95}D{i:96}D{i:97}D{i:98}D{i:99}D{i:100}D{i:101}
 D{i:102}D{i:103}D{i:104}D{i:105}D{i:106}D{i:107}D{i:108}D{i:109}D{i:110}D{i:111}D{i:112}
 D{i:113}D{i:114}D{i:115}D{i:116}D{i:117}D{i:118}D{i:119}D{i:120}D{i:81}D{i:76}D{i:121}
-D{i:124}D{i:125}D{i:123}D{i:129}D{i:130}D{i:131}D{i:132}D{i:133}D{i:134}D{i:128}D{i:136}
-D{i:137}D{i:138}D{i:139}D{i:140}D{i:141}D{i:135}D{i:143}D{i:144}D{i:145}D{i:146}D{i:147}
-D{i:148}D{i:142}D{i:150}D{i:151}D{i:152}D{i:153}D{i:154}D{i:155}D{i:149}D{i:157}D{i:158}
-D{i:159}D{i:160}D{i:161}D{i:162}D{i:156}D{i:164}D{i:165}D{i:166}D{i:167}D{i:168}D{i:169}
-D{i:163}D{i:171}D{i:172}D{i:173}D{i:174}D{i:175}D{i:176}D{i:170}D{i:178}D{i:179}D{i:180}
-D{i:181}D{i:182}D{i:183}D{i:177}D{i:185}D{i:186}D{i:187}D{i:188}D{i:189}D{i:190}D{i:184}
-D{i:192}D{i:193}D{i:194}D{i:195}D{i:196}D{i:197}D{i:191}D{i:199}D{i:200}D{i:201}D{i:202}
-D{i:203}D{i:204}D{i:198}D{i:206}D{i:207}D{i:208}D{i:209}D{i:205}D{i:127}D{i:122}D{i:210}
-D{i:213}D{i:214}D{i:212}D{i:217}D{i:218}D{i:219}D{i:220}D{i:221}D{i:222}D{i:223}D{i:224}
+D{i:124}D{i:125}D{i:123}D{i:129}D{i:130}D{i:131}D{i:132}D{i:133}D{i:134}D{i:135}D{i:136}
+D{i:137}D{i:138}D{i:139}D{i:140}D{i:141}D{i:142}D{i:128}D{i:144}D{i:145}D{i:146}D{i:147}
+D{i:148}D{i:149}D{i:150}D{i:151}D{i:152}D{i:153}D{i:154}D{i:143}D{i:156}D{i:157}D{i:158}
+D{i:159}D{i:160}D{i:161}D{i:162}D{i:163}D{i:164}D{i:165}D{i:166}D{i:155}D{i:168}D{i:169}
+D{i:170}D{i:171}D{i:172}D{i:173}D{i:174}D{i:175}D{i:176}D{i:177}D{i:178}D{i:179}D{i:167}
+D{i:181}D{i:182}D{i:183}D{i:184}D{i:185}D{i:186}D{i:187}D{i:188}D{i:189}D{i:190}D{i:191}
+D{i:192}D{i:180}D{i:194}D{i:195}D{i:196}D{i:197}D{i:198}D{i:199}D{i:200}D{i:201}D{i:202}
+D{i:203}D{i:204}D{i:205}D{i:193}D{i:207}D{i:208}D{i:209}D{i:210}D{i:211}D{i:206}D{i:127}
+D{i:122}D{i:212}D{i:215}D{i:216}D{i:214}D{i:219}D{i:220}D{i:221}D{i:222}D{i:223}D{i:224}
 D{i:225}D{i:226}D{i:227}D{i:228}D{i:229}D{i:230}D{i:231}D{i:232}D{i:233}D{i:234}D{i:235}
-D{i:236}D{i:237}D{i:238}D{i:239}D{i:216}D{i:211}D{i:240}D{i:1}
+D{i:236}D{i:237}D{i:238}D{i:239}D{i:240}D{i:241}D{i:218}D{i:213}D{i:242}D{i:1}
 }
 ##^##*/
 

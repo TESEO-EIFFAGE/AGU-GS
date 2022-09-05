@@ -51,7 +51,7 @@ Rectangle {
         RowLayout {
             Layout.fillHeight: true
             Layout.fillWidth: true
-            spacing: 48
+            spacing: 16
 
             //48
             Row {
@@ -201,5 +201,3 @@ Rectangle {
         }
     }
 }
-
-
