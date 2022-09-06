@@ -87,6 +87,27 @@ Window {
         fsParams.txtGNSSCommErrorCounter: hmi.GNSSCommErrorCounter
         fsParams.txtPLAltCommErrorCounter: hmi.PLAltCommErrorCounter
 
+        fsParams.txtMotorARealPosition: hmi.MotorARealPosition
+        fsParams.txtMotorADemandPosition: hmi.MotorADemandPosition
+        fsParams.txtMotorATorque: hmi.MotorATorque
+        fsParams.txtMotorATemp: hmi.MotorATemp
+
+
+        fsParams.txtMotorBRealPosition: hmi.MotorBRealPosition
+        fsParams.txtMotorBDemandPosition: hmi.MotorBDemandPosition
+        fsParams.txtMotorBTorque: hmi.MotorBTorque
+        fsParams.txtMotorBTemp: hmi.MotorBTemp
+
+
+        fsParams.txtBMS1Voltage: hmi.BMS1Voltage
+        fsParams.txtBMS1Absorption: hmi.BMS1Absorption
+        fsParams.txtBMS1Temp: hmi.BMS1Temp
+        fsParams.txtMotorTimestamp: hmi.MotorTimestamp
+        fsParams.txtChargeValue: hmi.ChargeValue
+
+
+
+
         fsParams.telemetryLight0.up: hmi.telemetry0
         fsParams.telemetryLight31.up: hmi.telemetry31
         fsParams.telemetryLight30.up: hmi.telemetry30
@@ -144,6 +165,64 @@ Window {
         fsParams.storageLight2.up: hmi.storage2
         fsParams.storageLight1.up: hmi.storage1
 
+        fsParams.bmsLight0.up: hmi.BMS0
+        fsParams.bmsLight31.up: hmi.BMS31
+        fsParams.bmsLight30.up: hmi.BMS30
+        fsParams.bmsLight29.up: hmi.BMS29
+        fsParams.bmsLight28.up: hmi.BMS28
+        fsParams.bmsLight27.up: hmi.BMS27
+        fsParams.bmsLight26.up: hmi.BMS26
+        fsParams.bmsLight25.up: hmi.BMS25
+        fsParams.bmsLight24.up: hmi.BMS24
+        fsParams.bmsLight23.up: hmi.BMS23
+        fsParams.bmsLight22.up: hmi.BMS22
+        fsParams.bmsLight21.up: hmi.BMS21
+        fsParams.bmsLight20.up: hmi.BMS20
+        fsParams.bmsLight19.up: hmi.BMS19
+        fsParams.bmsLight18.up: hmi.BMS18
+        fsParams.bmsLight17.up: hmi.BMS17
+        fsParams.bmsLight16.up: hmi.BMS16
+        fsParams.bmsLight15.up: hmi.BMS15
+        fsParams.bmsLight14.up: hmi.BMS14
+        fsParams.bmsLight13.up: hmi.BMS13
+        fsParams.bmsLight12.up: hmi.BMS12
+        fsParams.bmsLight11.up: hmi.BMS11
+        fsParams.bmsLight10.up: hmi.BMS10
+        fsParams.bmsLight9.up: hmi.BMS9
+        fsParams.bmsLight8.up: hmi.BMS8
+        fsParams.bmsLight7.up: hmi.BMS7
+        fsParams.bmsLight6.up: hmi.BMS6
+        fsParams.bmsLight5.up: hmi.BMS5
+        fsParams.bmsLight4.up: hmi.BMS4
+        fsParams.bmsLight3.up: hmi.BMS3
+        fsParams.bmsLight2.up: hmi.BMS2
+        fsParams.bmsLight1.up: hmi.BMS1
+
+        fsParams.motorLight0.up: hmi.motor0
+        fsParams.motorLight25.up: hmi.motor25
+        fsParams.motorLight24.up: hmi.motor24
+        fsParams.motorLight23.up: hmi.motor23
+        fsParams.motorLight22.up: hmi.motor22
+        fsParams.motorLight21.up: hmi.motor21
+        fsParams.motorLight20.up: hmi.motor20
+        fsParams.motorLight19.up: hmi.motor19
+        fsParams.motorLight18.up: hmi.motor18
+        fsParams.motorLight17.up: hmi.motor17
+        fsParams.motorLight16.up: hmi.motor16
+        fsParams.motorLight15.up: hmi.motor15
+        fsParams.motorLight14.up: hmi.motor14
+        fsParams.motorLight13.up: hmi.motor13
+        fsParams.motorLight12.up: hmi.motor12
+        fsParams.motorLight11.up: hmi.motor11
+        fsParams.motorLight10.up: hmi.motor10
+        fsParams.motorLight8.up: hmi.motor8
+        fsParams.motorLight7.up: hmi.motor7
+        fsParams.motorLight6.up: hmi.motor6
+        fsParams.motorLight5.up: hmi.motor5
+        fsParams.motorLight4.up: hmi.motor4
+        fsParams.motorLight3.up: hmi.motor3
+        fsParams.motorLight2.up: hmi.motor2
+        fsParams.motorLight1.up: hmi.motor1
 
         gsParams.txtTimeStamp: hmi.TimeStamp
 

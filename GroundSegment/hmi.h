@@ -49,6 +49,24 @@ public:
     Q_PROPERTY(int GNSSCommErrorCounter MEMBER m_GNSSCommErrorCounter NOTIFY GNSSCommErrorCounterChanged)
     Q_PROPERTY(int PLAltCommErrorCounter MEMBER m_PLAltCommErrorCounter NOTIFY PLAltCommErrorCounterChanged)
 
+
+    Q_PROPERTY(int MotorARealPosition MEMBER m_MotorARealPosition NOTIFY MotorARealPositionChanged)
+    Q_PROPERTY(int MotorADemandPosition MEMBER m_MotorADemandPosition NOTIFY MotorADemandPositionChanged)
+    Q_PROPERTY(int MotorATorque MEMBER m_MotorATorque NOTIFY MotorATorqueChanged)
+    Q_PROPERTY(int MotorATemp MEMBER m_MotorATemp NOTIFY MotorATempChanged)
+
+    Q_PROPERTY(int MotorBRealPosition MEMBER m_MotorBRealPosition NOTIFY MotorBRealPositionChanged)
+    Q_PROPERTY(int MotorBDemandPosition MEMBER m_MotorBDemandPosition NOTIFY MotorBDemandPositionChanged)
+    Q_PROPERTY(int MotorBTorque MEMBER m_MotorBTorque NOTIFY MotorBTorqueChanged)
+    Q_PROPERTY(int MotorBTemp MEMBER m_MotorBTemp NOTIFY MotorBTempChanged)
+
+    Q_PROPERTY(int BMS1Voltage MEMBER m_BMS1Voltage NOTIFY BMS1VoltageChanged)
+    Q_PROPERTY(int BMS1Absorption MEMBER m_BMS1Absorption NOTIFY BMS1AbsorptionChanged)
+    Q_PROPERTY(int BMS1Temp MEMBER m_BMS1Temp NOTIFY BMS1TempChanged)
+    Q_PROPERTY(int MotorTimestamp MEMBER m_MotorTimestamp NOTIFY MotorTimestampChanged)
+    Q_PROPERTY(int ChargeValue MEMBER m_ChargeValue NOTIFY ChargeValueChanged)
+
+
     Q_PROPERTY(bool telemetry0 MEMBER m_telemetry0 NOTIFY telemetry0Changed)
     Q_PROPERTY(bool telemetry1 MEMBER m_telemetry1 NOTIFY telemetry1Changed)
     Q_PROPERTY(bool telemetry2 MEMBER m_telemetry2 NOTIFY telemetry2Changed)
@@ -87,29 +105,84 @@ public:
     Q_PROPERTY(bool storage1 MEMBER m_storage1 NOTIFY storage1Changed)
     Q_PROPERTY(bool storage2 MEMBER m_storage2 NOTIFY storage2Changed)
     Q_PROPERTY(bool storage3 MEMBER m_storage3 NOTIFY storage3Changed)
-
     Q_PROPERTY(bool storage4 MEMBER m_storage4 NOTIFY storage4Changed)
     Q_PROPERTY(bool storage5 MEMBER m_storage5 NOTIFY storage5Changed)
     Q_PROPERTY(bool storage6 MEMBER m_storage6 NOTIFY storage6Changed)
     Q_PROPERTY(bool storage7 MEMBER m_storage7 NOTIFY storage7Changed)
     Q_PROPERTY(bool storage8 MEMBER m_storage8 NOTIFY storage8Changed)
-
     Q_PROPERTY(bool storage10 MEMBER m_storage10 NOTIFY storage10Changed)
     Q_PROPERTY(bool storage11 MEMBER m_storage11 NOTIFY storage11Changed)
     Q_PROPERTY(bool storage12 MEMBER m_storage12 NOTIFY storage12Changed)
     Q_PROPERTY(bool storage13 MEMBER m_storage13 NOTIFY storage13Changed)
-
     Q_PROPERTY(bool storage14 MEMBER m_storage14 NOTIFY storage14Changed)
     Q_PROPERTY(bool storage15 MEMBER m_storage15 NOTIFY storage15Changed)
     Q_PROPERTY(bool storage16 MEMBER m_storage16 NOTIFY storage16Changed)
     Q_PROPERTY(bool storage17 MEMBER m_storage17 NOTIFY storage17Changed)
     Q_PROPERTY(bool storage18 MEMBER m_storage18 NOTIFY storage18Changed)
-
     Q_PROPERTY(bool storage19 MEMBER m_storage19 NOTIFY storage19Changed)
     Q_PROPERTY(bool storage20 MEMBER m_storage20 NOTIFY storage20Changed)
     Q_PROPERTY(bool storage21 MEMBER m_storage21 NOTIFY storage21Changed)
     Q_PROPERTY(bool storage22 MEMBER m_storage22 NOTIFY storage22Changed)
     Q_PROPERTY(bool storage23 MEMBER m_storage23 NOTIFY storage23Changed)
+
+    Q_PROPERTY(bool motor0 MEMBER m_motor0 NOTIFY motor0Changed)
+    Q_PROPERTY(bool motor1 MEMBER m_motor1 NOTIFY motor1Changed)
+    Q_PROPERTY(bool motor2 MEMBER m_motor2 NOTIFY motor2Changed)
+    Q_PROPERTY(bool motor3 MEMBER m_motor3 NOTIFY motor3Changed)
+    Q_PROPERTY(bool motor4 MEMBER m_motor4 NOTIFY motor4Changed)
+    Q_PROPERTY(bool motor5 MEMBER m_motor5 NOTIFY motor5Changed)
+    Q_PROPERTY(bool motor6 MEMBER m_motor6 NOTIFY motor6Changed)
+    Q_PROPERTY(bool motor7 MEMBER m_motor7 NOTIFY motor7Changed)
+    Q_PROPERTY(bool motor8 MEMBER m_motor8 NOTIFY motor8Changed)
+    Q_PROPERTY(bool motor10 MEMBER m_motor10 NOTIFY motor10Changed)
+    Q_PROPERTY(bool motor11 MEMBER m_motor11 NOTIFY motor11Changed)
+    Q_PROPERTY(bool motor12 MEMBER m_motor12 NOTIFY motor12Changed)
+    Q_PROPERTY(bool motor13 MEMBER m_motor13 NOTIFY motor13Changed)
+    Q_PROPERTY(bool motor14 MEMBER m_motor14 NOTIFY motor14Changed)
+    Q_PROPERTY(bool motor15 MEMBER m_motor15 NOTIFY motor15Changed)
+    Q_PROPERTY(bool motor16 MEMBER m_motor16 NOTIFY motor16Changed)
+    Q_PROPERTY(bool motor17 MEMBER m_motor17 NOTIFY motor17Changed)
+    Q_PROPERTY(bool motor18 MEMBER m_motor18 NOTIFY motor18Changed)
+    Q_PROPERTY(bool motor19 MEMBER m_motor19 NOTIFY motor19Changed)
+    Q_PROPERTY(bool motor20 MEMBER m_motor20 NOTIFY motor20Changed)
+    Q_PROPERTY(bool motor21 MEMBER m_motor21 NOTIFY motor21Changed)
+    Q_PROPERTY(bool motor22 MEMBER m_motor22 NOTIFY motor22Changed)
+    Q_PROPERTY(bool motor23 MEMBER m_motor23 NOTIFY motor23Changed)
+    Q_PROPERTY(bool motor24 MEMBER m_motor24 NOTIFY motor24Changed)
+    Q_PROPERTY(bool motor25 MEMBER m_motor25 NOTIFY motor25Changed)
+
+    Q_PROPERTY(bool BMS0 MEMBER m_BMS0 NOTIFY BMS0Changed)
+    Q_PROPERTY(bool BMS1 MEMBER m_BMS1 NOTIFY BMS1Changed)
+    Q_PROPERTY(bool BMS2 MEMBER m_BMS2 NOTIFY BMS2Changed)
+    Q_PROPERTY(bool BMS3 MEMBER m_BMS3 NOTIFY BMS3Changed)
+    Q_PROPERTY(bool BMS4 MEMBER m_BMS4 NOTIFY BMS4Changed)
+    Q_PROPERTY(bool BMS5 MEMBER m_BMS5 NOTIFY BMS5Changed)
+    Q_PROPERTY(bool BMS6 MEMBER m_BMS6 NOTIFY BMS6Changed)
+    Q_PROPERTY(bool BMS7 MEMBER m_BMS7 NOTIFY BMS7Changed)
+    Q_PROPERTY(bool BMS8 MEMBER m_BMS8 NOTIFY BMS8Changed)
+    Q_PROPERTY(bool BMS9 MEMBER m_BMS9 NOTIFY BMS9Changed)
+    Q_PROPERTY(bool BMS10 MEMBER m_BMS10 NOTIFY BMS10Changed)
+    Q_PROPERTY(bool BMS11 MEMBER m_BMS11 NOTIFY BMS11Changed)
+    Q_PROPERTY(bool BMS12 MEMBER m_BMS12 NOTIFY BMS12Changed)
+    Q_PROPERTY(bool BMS13 MEMBER m_BMS13 NOTIFY BMS13Changed)
+    Q_PROPERTY(bool BMS14 MEMBER m_BMS14 NOTIFY BMS14Changed)
+    Q_PROPERTY(bool BMS15 MEMBER m_BMS15 NOTIFY BMS15Changed)
+    Q_PROPERTY(bool BMS16 MEMBER m_BMS16 NOTIFY BMS16Changed)
+    Q_PROPERTY(bool BMS17 MEMBER m_BMS17 NOTIFY BMS17Changed)
+    Q_PROPERTY(bool BMS18 MEMBER m_BMS18 NOTIFY BMS18Changed)
+    Q_PROPERTY(bool BMS19 MEMBER m_BMS19 NOTIFY BMS19Changed)
+    Q_PROPERTY(bool BMS20 MEMBER m_BMS20 NOTIFY BMS20Changed)
+    Q_PROPERTY(bool BMS21 MEMBER m_BMS21 NOTIFY BMS21Changed)
+    Q_PROPERTY(bool BMS22 MEMBER m_BMS22 NOTIFY BMS22Changed)
+    Q_PROPERTY(bool BMS23 MEMBER m_BMS23 NOTIFY BMS23Changed)
+    Q_PROPERTY(bool BMS24 MEMBER m_BMS24 NOTIFY BMS24Changed)
+    Q_PROPERTY(bool BMS25 MEMBER m_BMS25 NOTIFY BMS25Changed)
+    Q_PROPERTY(bool BMS26 MEMBER m_BMS26 NOTIFY BMS26Changed)
+    Q_PROPERTY(bool BMS27 MEMBER m_BMS27 NOTIFY BMS27Changed)
+    Q_PROPERTY(bool BMS28 MEMBER m_BMS28 NOTIFY BMS28Changed)
+    Q_PROPERTY(bool BMS29 MEMBER m_BMS29 NOTIFY BMS29Changed)
+    Q_PROPERTY(bool BMS30 MEMBER m_BMS30 NOTIFY BMS30Changed)
+    Q_PROPERTY(bool BMS31 MEMBER m_BMS31 NOTIFY BMS31Changed)
 
 
 public slots:
@@ -306,6 +379,146 @@ signals:
 
     void PLAltCommErrorCounterChanged();
 
+    void motor25Changed();
+
+    void motor0Changed();
+
+    void motor1Changed();
+
+    void motor2Changed();
+
+    void motor3Changed();
+
+    void motor4Changed();
+
+    void motor5Changed();
+
+    void motor6Changed();
+
+    void motor7Changed();
+
+    void motor8Changed();
+
+    void motor10Changed();
+
+    void motor11Changed();
+
+    void motor12Changed();
+
+    void motor13Changed();
+
+    void motor14Changed();
+
+    void motor15Changed();
+
+    void motor16Changed();
+
+    void motor17Changed();
+
+    void motor18Changed();
+
+    void motor19Changed();
+
+    void motor20Changed();
+
+    void motor21Changed();
+
+    void motor22Changed();
+
+    void motor23Changed();
+
+    void motor24Changed();
+
+    void MotorARealPositionChanged();
+
+    void MotorADemandPositionChanged();
+
+    void MotorATorqueChanged();
+
+    void MotorATempChanged();
+
+    void MotorBRealPositionChanged();
+
+    void MotorBDemandPositionChanged();
+
+    void MotorBTorqueChanged();
+
+    void MotorBTempChanged();
+
+    void BMS1VoltageChanged();
+
+    void BMS1AbsorptionChanged();
+
+    void BMS1TempChanged();
+
+    void MotorTimestampChanged();
+
+    void ChargeValueChanged();
+
+    void BMS0Changed();
+
+    void BMS1Changed();
+
+    void BMS2Changed();
+
+    void BMS3Changed();
+
+    void BMS4Changed();
+
+    void BMS5Changed();
+
+    void BMS6Changed();
+
+    void BMS7Changed();
+
+    void BMS8Changed();
+
+    void BMS9Changed();
+
+    void BMS10Changed();
+
+    void BMS11Changed();
+
+    void BMS12Changed();
+
+    void BMS13Changed();
+
+    void BMS14Changed();
+
+    void BMS15Changed();
+
+    void BMS16Changed();
+
+    void BMS17Changed();
+
+    void BMS18Changed();
+
+    void BMS19Changed();
+
+    void BMS20Changed();
+
+    void BMS21Changed();
+
+    void BMS22Changed();
+
+    void BMS23Changed();
+
+    void BMS24Changed();
+
+    void BMS25Changed();
+
+    void BMS26Changed();
+
+    void BMS27Changed();
+
+    void BMS28Changed();
+
+    void BMS29Changed();
+
+    void BMS30Changed();
+
+    void BMS31Changed();
+
 private:
 
     uint64_t m_TimeStamp{};
@@ -400,10 +613,84 @@ private:
     bool m_storage21;
     bool m_storage22;
     bool m_storage23;
+
     int m_AnemCommErrorCounter;
     int m_RDAltCommErrorCounter;
     int m_GNSSCommErrorCounter;
     int m_PLAltCommErrorCounter;
+
+    bool m_motor0;
+    bool m_motor1;
+    bool m_motor2;
+    bool m_motor3;
+    bool m_motor4;
+    bool m_motor5;
+    bool m_motor6;
+    bool m_motor7;
+    bool m_motor8;
+    bool m_motor10;
+    bool m_motor11;
+    bool m_motor12;
+    bool m_motor13;
+    bool m_motor14;
+    bool m_motor15;
+    bool m_motor16;
+    bool m_motor17;
+    bool m_motor18;
+    bool m_motor19;
+    bool m_motor20;
+    bool m_motor21;
+    bool m_motor22;
+    bool m_motor23;
+    bool m_motor24;
+    bool m_motor25;
+
+    int m_MotorARealPosition;
+    int m_MotorADemandPosition;
+    int m_MotorATorque;
+    int m_MotorATemp;
+    int m_MotorBRealPosition;
+    int m_MotorBDemandPosition;
+    int m_MotorBTorque;
+    int m_MotorBTemp;
+    int m_BMS1Voltage;
+    int m_BMS1Absorption;
+    int m_BMS1Temp;
+    int m_MotorTimestamp;
+    int m_ChargeValue;
+
+    bool m_BMS0;
+    bool m_BMS1;
+    bool m_BMS2;
+    bool m_BMS3;
+    bool m_BMS4;
+    bool m_BMS5;
+    bool m_BMS6;
+    bool m_BMS7;
+    bool m_BMS8;
+    bool m_BMS9;
+    bool m_BMS10;
+    bool m_BMS11;
+    bool m_BMS12;
+    bool m_BMS13;
+    bool m_BMS14;
+    bool m_BMS15;
+    bool m_BMS16;
+    bool m_BMS17;
+    bool m_BMS18;
+    bool m_BMS19;
+    bool m_BMS20;
+    bool m_BMS21;
+    bool m_BMS22;
+    bool m_BMS23;
+    bool m_BMS24;
+    bool m_BMS25;
+    bool m_BMS26;
+    bool m_BMS27;
+    bool m_BMS28;
+    bool m_BMS29;
+    bool m_BMS30;
+    bool m_BMS31;
 };
 
 #endif // HMI_H

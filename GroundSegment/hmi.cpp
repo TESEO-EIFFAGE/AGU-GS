@@ -382,6 +382,225 @@ void HMI::showDataSystemStatus(SystemStatusPack *s)
 //         m_storage23 = IntBits(s->StorageModuleStatusMask).test(23); /* BIT 23*/
 
 
+
+
+
+
+     m_MotorARealPosition = QRandomGenerator::global()->bounded(0, 99);
+     qInfo() << "MotorARealPosition = " << m_MotorARealPosition;
+     m_MotorADemandPosition = QRandomGenerator::global()->bounded(0, 99);
+     qInfo() << "MotorADemandPosition = " << m_MotorADemandPosition;
+     m_MotorATorque = QRandomGenerator::global()->bounded(0, 99);
+     qInfo() << "MotorATorque = " << m_MotorATorque;
+     m_MotorATemp = QRandomGenerator::global()->bounded(0, 99);
+     qInfo() << "MotorATemp = " << m_MotorATemp;
+
+     m_MotorBRealPosition = QRandomGenerator::global()->bounded(0, 99);
+     qInfo() << "MotorBRealPosition = " << m_MotorBRealPosition;
+     m_MotorBDemandPosition = QRandomGenerator::global()->bounded(0, 99);
+     qInfo() << "MotorBDemandPosition = " << m_MotorBDemandPosition;
+     m_MotorBTorque = QRandomGenerator::global()->bounded(0, 99);
+     qInfo() << "MotorBTorque = " << m_MotorBTorque;
+     m_MotorBTemp = QRandomGenerator::global()->bounded(0, 99);
+     qInfo() << "MotorBTemp = " << m_MotorBTemp;
+
+     m_BMS1Voltage = QRandomGenerator::global()->bounded(0, 99);
+     qInfo() << "BMS1Voltage = " << m_BMS1Voltage;
+     m_BMS1Absorption = QRandomGenerator::global()->bounded(0, 99);
+     qInfo() << "BMS1Absorption = " << m_BMS1Absorption;
+     m_BMS1Temp = QRandomGenerator::global()->bounded(0, 99);
+     qInfo() << "BMS1Temp = " << m_BMS1Temp;
+     m_MotorTimestamp = QRandomGenerator::global()->bounded(0, 99);
+     qInfo() << "MotorTimestamp = " << m_MotorTimestamp;
+     m_ChargeValue = QRandomGenerator::global()->bounded(0, 99);
+     qInfo() << "ChargeValue = " << m_ChargeValue;
+
+     //    /* Motor STATUS MASK */
+
+
+     //    m_motor0 = IntBits(t->MotorStatusMask).test(0);  /* BIT 0*/
+
+
+     //    m_motor1 = IntBits(t->MotorStatusMask).test(1);  /* BIT 1*/
+
+
+     //    m_motor2 = IntBits(t->MotorStatusMask).test(2);  /* BIT 2*/
+
+
+     //    m_motor3 = IntBits(t->MotorStatusMask).test(3);  /* BIT 3*/
+
+
+     //    m_motor4 = IntBits(t->MotorStatusMask).test(4);  /* BIT 4*/
+
+
+     //    m_motor5 = IntBits(t->MotorStatusMask).test(5);  /* BIT 5*/
+
+
+     //    m_motor6 = IntBits(t->MotorStatusMask).test(6);  /* BIT 6*/
+
+
+     //    m_motor7 = IntBits(t->MotorStatusMask).test(7);  /* BIT 7*/
+
+
+     //    m_motor8 = IntBits(t->MotorStatusMask).test(8);  /* BIT 8*/
+
+
+     //    m_motor9 = IntBits(t->MotorStatusMask).test(9);  /* BIT 9*/
+
+
+     //    m_motor10 = IntBits(t->MotorStatusMask).test(10); /* BIT 10*/
+
+
+     //    m_motor11 = IntBits(t->MotorStatusMask).test(11); /* BIT 11*/
+
+
+     //    m_motor12 = IntBits(t->MotorStatusMask).test(12); /* BIT 12*/
+
+
+     //    m_motor13 = IntBits(t->MotorStatusMask).test(13); /* BIT 13*/
+
+
+     //    m_motor14 = IntBits(t->MotorStatusMask).test(14); /* BIT 14*/
+
+
+     //    m_motor15 = IntBits(t->MotorStatusMask).test(15); /* BIT 15*/
+
+
+     //    m_motor16 = IntBits(t->MotorStatusMask).test(16); /* BIT 16*/
+
+
+     //    m_motor17 = IntBits(t->MotorStatusMask).test(17); /* BIT 17*/
+
+
+     //    m_motor18 = IntBits(t->MotorStatusMask).test(18); /* BIT 18*/
+
+
+     //    m_motor19 = IntBits(t->MotorStatusMask).test(19); /* BIT 19*/
+
+
+     //    m_motor20 = IntBits(t->MotorStatusMask).test(20); /* BIT 20*/
+
+
+     //    m_motor21 = IntBits(t->MotorStatusMask).test(21); /* BIT 21*/
+
+
+     //    m_motor22 = IntBits(t->MotorStatusMask).test(22); /* BIT 22*/
+
+
+     //    m_motor23 = IntBits(t->MotorStatusMask).test(23); /* BIT 23*/
+
+
+     //    m_motor24 = IntBits(t->MotorStatusMask).test(24); /* BIT 24*/
+
+
+     //    m_motor25 = IntBits(t->MotorStatusMask).test(25); /* BIT 25*/
+
+
+
+
+
+
+
+
+     //    /* BMS STATUS MASK */
+
+
+     //    m_BMS0 = IntBits(t->BMSStatusMask).test(0);  /* BIT 0*/
+
+
+     //    m_BMS1 = IntBits(t->BMSStatusMask).test(1);  /* BIT 1*/
+
+
+     //    m_BMS2 = IntBits(t->BMSStatusMask).test(2);  /* BIT 2*/
+
+
+     //    m_BMS3 = IntBits(t->BMSStatusMask).test(3);  /* BIT 3*/
+
+
+     //    m_BMS4 = IntBits(t->BMSStatusMask).test(4);  /* BIT 4*/
+
+
+     //    m_BMS5 = IntBits(t->BMSStatusMask).test(5);  /* BIT 5*/
+
+
+     //    m_BMS6 = IntBits(t->BMSStatusMask).test(6);  /* BIT 6*/
+
+
+     //    m_BMS7 = IntBits(t->BMSStatusMask).test(7);  /* BIT 7*/
+
+
+     //    m_BMS8 = IntBits(t->BMSStatusMask).test(8);  /* BIT 8*/
+
+
+     //    m_BMS9 = IntBits(t->BMSStatusMask).test(9);  /* BIT 9*/
+
+
+     //    m_BMS10 = IntBits(t->BMSStatusMask).test(10); /* BIT 10*/
+
+
+     //    m_BMS11 = IntBits(t->BMSStatusMask).test(11); /* BIT 11*/
+
+
+     //    m_BMS12 = IntBits(t->BMSStatusMask).test(12); /* BIT 12*/
+
+
+     //    m_BMS13 = IntBits(t->BMSStatusMask).test(13); /* BIT 13*/
+
+
+     //    m_BMS14 = IntBits(t->BMSStatusMask).test(14); /* BIT 14*/
+
+
+     //    m_BMS15 = IntBits(t->BMSStatusMask).test(15); /* BIT 15*/
+
+
+     //    m_BMS16 = IntBits(t->BMSStatusMask).test(16); /* BIT 16*/
+
+
+     //    m_BMS17 = IntBits(t->BMSStatusMask).test(17); /* BIT 17*/
+
+
+     //    m_BMS18 = IntBits(t->BMSStatusMask).test(18); /* BIT 18*/
+
+
+     //    m_BMS19 = IntBits(t->BMSStatusMask).test(19); /* BIT 19*/
+
+
+     //    m_BMS20 = IntBits(t->BMSStatusMask).test(20); /* BIT 20*/
+
+
+     //    m_BMS21 = IntBits(t->BMSStatusMask).test(21); /* BIT 21*/
+
+
+     //    m_BMS22 = IntBits(t->BMSStatusMask).test(22); /* BIT 22*/
+
+
+     //    m_BMS23 = IntBits(t->BMSStatusMask).test(23); /* BIT 23*/
+
+
+     //    m_BMS24 = IntBits(t->BMSStatusMask).test(24); /* BIT 24*/
+
+
+     //    m_BMS25 = IntBits(t->BMSStatusMask).test(25); /* BIT 25*/
+
+
+     //    m_BMS26 = IntBits(t->BMSStatusMask).test(26); /* BIT 26*/
+
+
+     //    m_BMS27 = IntBits(t->BMSStatusMask).test(27); /* BIT 27*/
+
+
+     //    m_BMS28 = IntBits(t->BMSStatusMask).test(28); /* BIT 28*/
+
+
+     //    m_BMS29 = IntBits(t->BMSStatusMask).test(29); /* BIT 29*/
+
+
+     //    m_BMS30 = IntBits(t->BMSStatusMask).test(30); /* BIT 30*/
+
+
+     //    m_BMS31 = IntBits(t->BMSStatusMask).test(31); /* BIT 31*/
+
+
      /* RADIOLINK STATUS MASK */
 
      typedef std::bitset<32> IntBitsRadioLink;
