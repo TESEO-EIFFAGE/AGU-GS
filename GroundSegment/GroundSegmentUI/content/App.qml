@@ -224,6 +224,8 @@ Window {
         fsParams.motorLight2.up: hmi.motor2
         fsParams.motorLight1.up: hmi.motor1
 
+        gsParams.gnssLight: hmi.gnssFound
+
         gsParams.txtTimeStamp: hmi.TimeStamp
 
         gsParams.txtLatitudeGPSData:  gpsData.latitude.toFixed(7)

@@ -184,6 +184,8 @@ public:
     Q_PROPERTY(bool BMS30 MEMBER m_BMS30 NOTIFY BMS30Changed)
     Q_PROPERTY(bool BMS31 MEMBER m_BMS31 NOTIFY BMS31Changed)
 
+    Q_PROPERTY(bool gnssFound MEMBER m_gnssFound NOTIFY gnssFoundChanged)
+
 
 public slots:
     void showData(/*Telemetry *t*/);
@@ -519,6 +521,8 @@ signals:
 
     void BMS31Changed();
 
+    void gnssFoundChanged();
+
 private:
 
     uint64_t m_TimeStamp{};
@@ -691,6 +695,7 @@ private:
     bool m_BMS29;
     bool m_BMS30;
     bool m_BMS31;
+    bool m_gnssFound;
 };
 
 #endif // HMI_H

@@ -43,11 +43,21 @@ Rectangle {
         height: parent.height
         anchors.left: map.right
     }
+    Image {
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.rightMargin: 24
+        anchors.topMargin: 24
+        height: sourceSize.height / 3
+        width: sourceSize.width / 3
+        source: "images/Teseo_01_colour_RGB_LR.jpg"
+        fillMode: Image.PreserveAspectFit
+    }
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}
+    D{i:0;formeditorZoom:0.75}D{i:1}D{i:2}D{i:3}D{i:4}
 }
 ##^##*/
 
