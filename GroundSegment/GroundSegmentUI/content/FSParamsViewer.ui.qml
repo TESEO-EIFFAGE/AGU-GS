@@ -53,19 +53,16 @@ Rectangle {
     property alias txtMotorATorque: txtMotorATorque.value
     property alias txtMotorATemp: txtMotorATemp.value
 
-
     property alias txtMotorBRealPosition: txtMotorBRealPosition.value
     property alias txtMotorBDemandPosition: txtMotorBDemandPosition.value
     property alias txtMotorBTorque: txtMotorBTorque.value
     property alias txtMotorBTemp: txtMotorBTemp.value
-
 
     property alias txtBMS1Voltage: txtBMS1Voltage.value
     property alias txtBMS1Absorption: txtBMS1Absorption.value
     property alias txtBMS1Temp: txtBMS1Temp.value
     property alias txtMotorTimestamp: txtMotorTimestamp.value
     property alias txtChargeValue: txtChargeValue.value
-
 
     width: Constants.width / 2 //750 //C
     height: Constants.height //667 //
@@ -127,22 +124,22 @@ Rectangle {
     property alias storageLight1: storageLight1
     property alias storageLight0: storageLight0
 
-    property alias motorLight25: motorLight23
-    property alias motorLight24: motorLight22
+    //    property alias motorLight25: motorLight25
+    //    property alias motorLight24: motorLight24
     property alias motorLight23: motorLight23
     property alias motorLight22: motorLight22
     property alias motorLight21: motorLight21
-    property alias motorLight20: motorLight20
-    property alias motorLight19: motorLight19
-    property alias motorLight18: motorLight18
-    property alias motorLight17: motorLight17
-    property alias motorLight16: motorLight16
+    //    property alias motorLight20: motorLight20
+    //    property alias motorLight19: motorLight19
+    //    property alias motorLight18: motorLight18
+    //    property alias motorLight17: motorLight17
+    //    property alias motorLight16: motorLight16
     property alias motorLight15: motorLight15
     property alias motorLight14: motorLight14
     property alias motorLight13: motorLight13
     property alias motorLight12: motorLight12
-    property alias motorLight11: motorLight11
-    property alias motorLight10: motorLight10
+    //    property alias motorLight11: motorLight11
+    //    property alias motorLight10: motorLight10
     property alias motorLight8: motorLight8
     property alias motorLight7: motorLight7
     property alias motorLight6: motorLight6
@@ -805,7 +802,7 @@ Rectangle {
                         text: "General"
                     }
                     ParamRow {
-                        id:txtMotorTimestamp
+                        id: txtMotorTimestamp
                         text: "TimeStamp"
                         span: 6
                     }
@@ -892,31 +889,31 @@ Rectangle {
                         span: 5
                     }
 
-                    StatusLight {
-                        id: motorLight10
-                        text: "MotorA breakage error"
-                    }
+                    //                    StatusLight {
+                    //                        id: motorLight10
+                    //                        text: "MotorA breakage error"
+                    //                    }
                     StatusLight {
                         id: motorLight12
-                        text: "MotorA demand pos error"
+                        text: "MotorA active INDICATION"
                     }
                     StatusLight {
                         id: motorLight14
-                        text: "MotorA over-torque error"
+                        text: "MotorA active FAULT"
                     }
-                    StatusLight {
-                        id: motorLight16
-                        text: "MotorA over-current error"
-                    }
+                    //                    StatusLight {
+                    //                        id: motorLight16
+                    //                        text: "MotorA over-current error"
+                    //                    }
 
-                    StatusLight {
-                        id: motorLight18
-                        text: "MotorA under-voltage error"
-                    }
-                    StatusLight {
-                        id: motorLight20
-                        text: "MotorA resolver err"
-                    }
+                    //                    StatusLight {
+                    //                        id: motorLight18
+                    //                        text: "MotorA under-voltage error"
+                    //                    }
+                    //                    StatusLight {
+                    //                        id: motorLight20
+                    //                        text: "MotorA resolver err"
+                    //                    }
                 }
 
                 Column {
@@ -952,32 +949,32 @@ Rectangle {
                         span: 5
                     }
 
-                    StatusLight {
-                        id: motorLight11
-                        text: "MotorB breakage error"
-                    }
+                    //                    StatusLight {
+                    //                        id: motorLight11
+                    //                        text: "MotorB breakage error"
+                    //                    }
                     StatusLight {
                         id: motorLight13
-                        text: "MotorB demand pos error"
+                        text: "MotorB active INDICATION"
                     }
 
                     StatusLight {
                         id: motorLight15
-                        text: "MotorB over-torque error"
+                        text: "MotorB active FAULT"
                     }
-                    StatusLight {
-                        id: motorLight17
-                        text: "MotorB over-current error"
-                    }
-                    StatusLight {
-                        id: motorLight19
-                        text: "MotorB under-voltage error"
-                    }
+                    //                    StatusLight {
+                    //                        id: motorLight17
+                    //                        text: "MotorB over-current error"
+                    //                    }
+                    //                    StatusLight {
+                    //                        id: motorLight19
+                    //                        text: "MotorB under-voltage error"
+                    //                    }
 
-                    StatusLight {
-                        id: motorLight21
-                        text: "MotorB resolver error"
-                    }
+                    //                    StatusLight {
+                    //                        id: motorLight21
+                    //                        text: "MotorB resolver error"
+                    //                    }
                 }
 
                 Column {
@@ -993,20 +990,21 @@ Rectangle {
                         span: 3
                     }
                     StatusLight {
-                        id: motorLight25
+                        id: motorLight23
                         text: "Battery LOW"
+                    }
+
+                    StatusLight {
+                        id: motorLight20
+                        text: "BMS active INDICATION"
+                    }
+                    StatusLight {
+                        id: motorLight21
+                        text: "BMS active FAULT"
                     }
                     StatusLight {
                         id: motorLight22
-                        text: "BMS INDICATION"
-                    }
-                    StatusLight {
-                        id: motorLight23
-                        text: "BMS FAULT"
-                    }
-                    StatusLight {
-                        id: motorLight24
-                        text: "BMS REQUEST"
+                        text: "BMS active REQUEST"
                     }
 
                     StatusLight {
@@ -1133,7 +1131,7 @@ Rectangle {
                     }
 
                     StatusLight {
-                         id: bmsLight24
+                        id: bmsLight24
                         text: "Temp line FAULT"
                     }
                     StatusLight {
@@ -1337,15 +1335,14 @@ D{i:102}D{i:103}D{i:104}D{i:105}D{i:106}D{i:107}D{i:108}D{i:109}D{i:110}D{i:111}
 D{i:113}D{i:114}D{i:115}D{i:116}D{i:117}D{i:118}D{i:119}D{i:120}D{i:81}D{i:76}D{i:121}
 D{i:124}D{i:125}D{i:123}D{i:129}D{i:130}D{i:131}D{i:132}D{i:133}D{i:134}D{i:135}D{i:136}
 D{i:137}D{i:138}D{i:139}D{i:140}D{i:141}D{i:142}D{i:128}D{i:144}D{i:145}D{i:146}D{i:147}
-D{i:148}D{i:149}D{i:150}D{i:151}D{i:152}D{i:153}D{i:154}D{i:143}D{i:156}D{i:157}D{i:158}
-D{i:159}D{i:160}D{i:161}D{i:162}D{i:163}D{i:164}D{i:165}D{i:166}D{i:155}D{i:168}D{i:169}
-D{i:170}D{i:171}D{i:172}D{i:173}D{i:174}D{i:175}D{i:176}D{i:177}D{i:178}D{i:179}D{i:180}
-D{i:181}D{i:167}D{i:183}D{i:184}D{i:185}D{i:186}D{i:187}D{i:188}D{i:189}D{i:190}D{i:191}
-D{i:192}D{i:193}D{i:194}D{i:195}D{i:196}D{i:182}D{i:198}D{i:199}D{i:200}D{i:201}D{i:202}
-D{i:203}D{i:204}D{i:205}D{i:206}D{i:207}D{i:208}D{i:209}D{i:197}D{i:127}D{i:122}D{i:210}
-D{i:213}D{i:214}D{i:212}D{i:217}D{i:218}D{i:219}D{i:220}D{i:221}D{i:222}D{i:223}D{i:224}
-D{i:225}D{i:226}D{i:227}D{i:228}D{i:229}D{i:230}D{i:231}D{i:232}D{i:233}D{i:234}D{i:235}
-D{i:236}D{i:237}D{i:238}D{i:239}D{i:216}D{i:211}D{i:240}D{i:1}
+D{i:148}D{i:149}D{i:150}D{i:143}D{i:152}D{i:153}D{i:154}D{i:155}D{i:156}D{i:157}D{i:158}
+D{i:151}D{i:160}D{i:161}D{i:162}D{i:163}D{i:164}D{i:165}D{i:166}D{i:167}D{i:168}D{i:169}
+D{i:170}D{i:171}D{i:172}D{i:173}D{i:159}D{i:175}D{i:176}D{i:177}D{i:178}D{i:179}D{i:180}
+D{i:181}D{i:182}D{i:183}D{i:184}D{i:185}D{i:186}D{i:187}D{i:188}D{i:174}D{i:190}D{i:191}
+D{i:192}D{i:193}D{i:194}D{i:195}D{i:196}D{i:197}D{i:198}D{i:199}D{i:200}D{i:201}D{i:189}
+D{i:127}D{i:122}D{i:202}D{i:205}D{i:206}D{i:204}D{i:209}D{i:210}D{i:211}D{i:212}D{i:213}
+D{i:214}D{i:215}D{i:216}D{i:217}D{i:218}D{i:219}D{i:220}D{i:221}D{i:222}D{i:223}D{i:224}
+D{i:225}D{i:226}D{i:227}D{i:228}D{i:229}D{i:230}D{i:231}D{i:208}D{i:203}D{i:232}D{i:1}
 }
 ##^##*/
 
