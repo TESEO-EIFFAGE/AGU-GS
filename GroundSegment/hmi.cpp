@@ -300,7 +300,7 @@ void HMI::showData(/*Telemetry *t*/)
 
 }
 
-void HMI::showDataSystemStatus(SystemStatusPack *s)
+void HMI::showDataSystemStatus(/*SystemStatusPack *s*/)
 {
      qInfo() << "showDataSystemStatus = CALL" ;
 
@@ -603,41 +603,41 @@ void HMI::showDataSystemStatus(SystemStatusPack *s)
 
      /* RADIOLINK STATUS MASK */
 
-     typedef std::bitset<32> IntBitsRadioLink;
-     bool is_setRadioLink0,is_setRadioLink1,is_setRadioLink2,is_setRadioLink3/*,is_setRadioLink4,is_setRadioLink5*/;
-     bool /*is_setRadioLink6,is_setRadioLink7,*/is_setRadioLink8,is_setRadioLink9, is_setRadioLink24;
+//     typedef std::bitset<32> IntBitsRadioLink;
+//     bool is_setRadioLink0,is_setRadioLink1,is_setRadioLink2,is_setRadioLink3/*,is_setRadioLink4,is_setRadioLink5*/;
+//     bool /*is_setRadioLink6,is_setRadioLink7,*/is_setRadioLink8,is_setRadioLink9, is_setRadioLink24;
 
 
-     is_setRadioLink0  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(0);  /* BIT 0*/
-     if (is_setRadioLink0)  { /*accensione LED rosso*/ }
+//     is_setRadioLink0  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(0);  /* BIT 0*/
+//     if (is_setRadioLink0)  { /*accensione LED rosso*/ }
 
-     is_setRadioLink1  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(1);  /* BIT 1*/
-     if (is_setRadioLink1)  { /*accensione LED rosso*/ }
+//     is_setRadioLink1  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(1);  /* BIT 1*/
+//     if (is_setRadioLink1)  { /*accensione LED rosso*/ }
 
-     is_setRadioLink2  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(2);  /* BIT 2*/
-     if (is_setRadioLink2)  { /*accensione LED rosso*/ }
+//     is_setRadioLink2  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(2);  /* BIT 2*/
+//     if (is_setRadioLink2)  { /*accensione LED rosso*/ }
 
-     is_setRadioLink3  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(3);  /* BIT 3*/
-     if (is_setRadioLink3)  { /*accensione LED rosso*/ }
+//     is_setRadioLink3  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(3);  /* BIT 3*/
+//     if (is_setRadioLink3)  { /*accensione LED rosso*/ }
 
-//     is_setRadioLink4  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(4);  /* BIT 4*/
-//     if (is_setRadioLink4)  { /*accensione LED rosso*/ }
+////     is_setRadioLink4  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(4);  /* BIT 4*/
+////     if (is_setRadioLink4)  { /*accensione LED rosso*/ }
 
-//     is_setRadioLink5  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(5);  /* BIT 5*/
-//     if (is_setRadioLink5)  { /*accensione LED rosso*/ }
+////     is_setRadioLink5  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(5);  /* BIT 5*/
+////     if (is_setRadioLink5)  { /*accensione LED rosso*/ }
 
-//     is_setRadioLink6  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(6);  /* BIT 6*/
-//     if (is_setRadioLink6)  { /*accensione LED rosso*/ }
+////     is_setRadioLink6  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(6);  /* BIT 6*/
+////     if (is_setRadioLink6)  { /*accensione LED rosso*/ }
 
-//     is_setRadioLink7  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(7);  /* BIT 7*/
-//     if (is_setRadioLink7)  { /*accensione LED rosso*/ }
+////     is_setRadioLink7  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(7);  /* BIT 7*/
+////     if (is_setRadioLink7)  { /*accensione LED rosso*/ }
 
-     is_setRadioLink8  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(8);  /* BIT 8*/
-     if (is_setRadioLink8)  { /*accensione LED rosso*/ }
+//     is_setRadioLink8  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(8);  /* BIT 8*/
+//     if (is_setRadioLink8)  { /*accensione LED rosso*/ }
 
-     is_setRadioLink9  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(9);  /* BIT 9*/
-     if (is_setRadioLink9)  { /*accensione LED rosso*/ }
+//     is_setRadioLink9  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(9);  /* BIT 9*/
+//     if (is_setRadioLink9)  { /*accensione LED rosso*/ }
 
-     is_setRadioLink24  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(24);  /* BIT 9*/
-     if (is_setRadioLink24)  { /*accensione LED rosso*/ }
+//     is_setRadioLink24  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(24);  /* BIT 9*/
+//     if (is_setRadioLink24)  { /*accensione LED rosso*/ }
 }

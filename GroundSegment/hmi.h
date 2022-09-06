@@ -187,7 +187,7 @@ public:
 
 public slots:
     void showData(/*Telemetry *t*/);
-    void showDataSystemStatus (SystemStatusPack *s);
+    void showDataSystemStatus (/*SystemStatusPack *s*/);
 
 signals:
     void TimeStampChanged();
