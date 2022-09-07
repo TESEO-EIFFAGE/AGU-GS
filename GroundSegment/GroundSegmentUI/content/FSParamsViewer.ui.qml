@@ -805,6 +805,8 @@ Rectangle {
                         id: txtMotorTimestamp
                         text: "TimeStamp"
                         span: 6
+                        ToolTip.text: "TimeStamp"
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         id: txtBMS1Voltage
