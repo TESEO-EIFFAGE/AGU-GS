@@ -41,7 +41,7 @@ Item{
                  value: ":/Offline_tiles/"
             }
         }
-        center: hasGps ? QtPositioning.coordinate(gpsData.longitude, gpsData.latitude) : QtPositioning.coordinate(mapviewer.longitude, mapviewer.latitude)
+        center: hasGps ? QtPositioning.coordinate(gpsData.longitude, gpsData.latitude) : QtPositioning.coordinate(customCursor.longitude, customCursor.latitude)
         zoomLevel: mapviewer.zoomLevel
 
         MapQuickItem {
