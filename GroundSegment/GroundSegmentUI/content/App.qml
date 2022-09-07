@@ -224,6 +224,9 @@ Window {
         fsParams.motorLight2.up: hmi.motor2
         fsParams.motorLight1.up: hmi.motor1
 
+        customCursor.latitude: gsParams.latitude
+        customCursor.longitude: gsParams.longitude
+
         gsParams.gnssLight.up: hmi.gnssFound
 
         gsParams.txtTimeStamp: hmi.TimeStamp

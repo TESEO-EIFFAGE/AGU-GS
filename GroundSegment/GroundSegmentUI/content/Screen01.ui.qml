@@ -20,6 +20,7 @@ Rectangle {
     border.width: 0
     property alias gsParams: gsParams
     property alias fsParams: fsParams
+    property alias customCursor: map.customCursor
     GSParamsViewer {
         id: gsParams
         width: parent.width * 3 / 12
@@ -68,7 +69,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}
+    D{i:0;formeditorZoom:0.75}D{i:1}D{i:2}D{i:3}D{i:4}D{i:5}
 }
 ##^##*/
 

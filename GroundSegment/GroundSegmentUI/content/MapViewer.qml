@@ -10,6 +10,7 @@ Item{
     id: mapviewer
     property bool hasGps: gpsData.hasFix
     property int zoomLevel: 1//0
+    property alias customCursor: customCursor
     //width: Qt.platform.os =ss= "android" ? Screen.width : 512
     //height: Qt.platform.os == "android" ? Screen.height : 512
     visible: true
@@ -131,54 +132,7 @@ Item{
 //            }
 //        }
 
-        Rectangle {
-            id: customCursorSection
-            color: "#00000000"
-            height: childrenRect.height
-            anchors.top: parent.top//gpsDataSection.bottom
-            anchors.left: parent.left; anchors.leftMargin: 5
-            anchors.right: parent.right
 
-            Text {
-                id: customCursorSectionTitle
-                text: "Custom cursor"
-                font.pointSize: 13; font.bold: true
-                anchors.top: customCursorSection.top
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            Text {
-                id: latitudeLabel
-                text: "Lat: "
-                font.pointSize: 11;
-                anchors.top: customCursorSectionTitle.bottom
-                anchors.topMargin: 4
-            }
-
-            TextField {
-                placeholderText: qsTr("Latitude  ...")
-                anchors.top: latitudeLabel.top
-                anchors.left: latitudeLabel.right
-                anchors.right: customCursorSection.right; anchors.rightMargin: 5
-                onEditingFinished: text !== "" ? customCursor.latitude = text : customCursor.latitudeIsSet = false
-            }
-
-            Text {
-                id: longitudeLabel
-                text: "Long: "
-                font.pointSize: 11;
-                anchors.top: latitudeLabel.bottom
-                anchors.topMargin: 5
-            }
-
-            TextField {
-                placeholderText: qsTr("Longitude ...")
-                anchors.top: longitudeLabel.top
-                anchors.left: longitudeLabel.right;
-                anchors.right: customCursorSection.right; anchors.rightMargin: 5
-                onEditingFinished: text !== "" ? customCursor.longitude = text : customCursor.longitudeIsSet = false
-            }
-        }
         Rectangle {
             id: legendSection
             anchors.top: customCursorSection.bottom
