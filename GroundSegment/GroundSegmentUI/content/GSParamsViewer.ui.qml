@@ -140,6 +140,7 @@ Rectangle {
                         width: 200
                     }
                     Rectangle {
+                        visible: gnssSwitch.checked
                         width: parent.width //childrenRect.width
                         height: childrenRect.height
                         Column {

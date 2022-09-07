@@ -21,6 +21,7 @@ Rectangle {
     property alias gsParams: gsParams
     property alias fsParams: fsParams
     property alias customCursor: map.customCursor
+    property alias map: map
     GSParamsViewer {
         id: gsParams
         width: parent.width * 3 / 12

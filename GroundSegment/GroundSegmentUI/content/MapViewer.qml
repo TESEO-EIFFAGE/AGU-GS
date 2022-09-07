@@ -9,6 +9,8 @@ import io.qt.examples.gps_data 1.0
 Item{
     id: mapviewer
     property bool hasGps: gpsData.hasFix
+    property int latitude
+    property int longitude
     property int zoomLevel: 1//0
     property alias customCursor: customCursor
     //width: Qt.platform.os =ss= "android" ? Screen.width : 512
@@ -24,6 +26,8 @@ Item{
     }
     CustomCursor {
        id: customCursor
+       latitude: mapviewer.latitude
+       longitude: mapviewer.longitude
     }
 
     Map {
@@ -52,7 +56,7 @@ Item{
         MapQuickItem {
             id: customCursorIcon
             sourceItem: Rectangle { width: 20; height: 20; color: "yellow"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
-            coordinate : QtPositioning.coordinate(customCursor.latitude, customCursor.longitude)
+            coordinate : QtPositioning.coordinate(latitude, longitude)
             opacity: 1.0
             anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
             visible: customCursor.latitudeIsSet && customCursor.longitudeIsSet
