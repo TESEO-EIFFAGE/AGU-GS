@@ -199,6 +199,8 @@ Rectangle {
                 text: "TimeStamp RIO"
                 span: 6
                 id: txtTimeStampRIO
+                ToolTip.text: text
+                ToolTip.visible: hovered
             }
         }
 
@@ -245,7 +247,7 @@ Rectangle {
                         id: txtLatitude
                         text: "Latitude"
                         span: 4
-                        ToolTip.text: "Latitude"
+                        ToolTip.text: text
                         ToolTip.visible: hovered
                     }
 
@@ -253,7 +255,7 @@ Rectangle {
                         text: "Longitude"
                         span: 4
                         id: txtLongitude
-                        ToolTip.text: "Longitude"
+                        ToolTip.text: text
                         ToolTip.visible: hovered
                     }
                     ParamRow {
@@ -275,14 +277,20 @@ Rectangle {
                     ParamRow {
                         text: "X"
                         id: txtECEFVectorPositionX
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         text: "Y"
                         id: txtECEFVectorPositionY
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         text: "Z"
                         id: txtECEFVectorPositionZ
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                 }
                 Column {
@@ -296,14 +304,20 @@ Rectangle {
                     ParamRow {
                         text: "X"
                         id: txtECEFVectorVelocityX
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         text: "Y"
                         id: txtECEFVectorVelocityY
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         text: "Z"
                         id: txtECEFVectorVelocityZ
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                 }
 
@@ -319,12 +333,16 @@ Rectangle {
                         text: "Horizontal"
                         span: 4
                         id: txtLinearVelocityHorizontal
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
 
                     ParamRow {
                         text: "Vertical"
                         span: 4
                         id: txtLinearVelocityVertical
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                 }
 
@@ -340,18 +358,24 @@ Rectangle {
                         text: "Position"
                         span: 7
                         id: txtPositionAccuracy
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
 
                     ParamRow {
                         text: "Speed"
                         span: 7
                         id: txtSpeedAccuracy
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
 
                     ParamRow {
                         text: "# GNSS satellites"
                         span: 7
                         id: txtNumberOfGPSSatellite
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                 }
 
@@ -366,16 +390,22 @@ Rectangle {
                         text: "Roll"
                         span: 2
                         id: txtRollAngle
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         text: "Pitch"
                         span: 2
                         id: txtPitchAngle
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         text: "Yaw"
                         span: 2
                         id: txtYawAngle
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                 }
 
@@ -391,17 +421,23 @@ Rectangle {
                         text: "Roll"
                         span: 2
                         id: txtAngularRateRoll
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         text: "Pitch"
                         span: 2
                         id: txtAngularRatePitch
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
 
                     ParamRow {
                         text: "Yaw"
                         span: 2
                         id: txtAngularRateYaw
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                 }
                 Column {
@@ -415,14 +451,20 @@ Rectangle {
                     ParamRow {
                         text: "X"
                         id: txtLinearAccelerationX
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         text: "Y"
                         id: txtLinearAccelerationY
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         text: "Z"
                         id: txtLinearAccelerationZ
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                 }
             }
@@ -457,23 +499,31 @@ Rectangle {
                         text: "Air Speed U"
                         span: 5
                         id: txtAirSpeed_UVector
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
 
                     ParamRow {
                         text: "Air Speed V"
                         span: 5
                         id: txtAirSpeed_VVector
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         text: "Air Speed W"
                         span: 5
                         id: txtAirSpeed_WVector
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
 
                     ParamRow {
                         text: "Air Temp."
                         span: 5
                         id: txtAirTemperature
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                 }
             }
@@ -507,6 +557,8 @@ Rectangle {
 
                     span: 3
                     id: txtAltitudeFromRadarAltimeter
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
                 }
             }
             Item {
@@ -539,6 +591,8 @@ Rectangle {
                     text: "Altitude"
                     span: 3
                     id: txtAltitudeFromPayloadAltimeter
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
                 }
             }
         }
@@ -746,21 +800,29 @@ Rectangle {
                     id: txtAnemCommErrorCounter
                     text: "Anemometer Comm error counter"
                     span: 12
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
                 }
                 ParamRow {
                     id: txtRDAltCommErrorCounter
                     text: "RD Altimeter Comm error counter"
                     span: 12
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
                 }
                 ParamRow {
                     id: txtGNSSCommErrorCounter
                     text: "GNSS Comm error counter"
                     span: 12
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
                 }
                 ParamRow {
                     id: txtPLAltCommErrorCounter
                     text: "PL Altimeter Comm error counter"
                     span: 12
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
                 }
             }
         }
@@ -811,25 +873,29 @@ Rectangle {
                         id: txtMotorTimestamp
                         text: "TimeStamp"
                         span: 6
-                        ToolTip.text: "TimeStamp"
+                        ToolTip.text: text
                         ToolTip.visible: hovered
                     }
                     ParamRow {
                         id: txtBMS1Voltage
                         text: "BMS1 Voltage"
                         span: 6
-                        ToolTip.text: "BMS1 Voltage"
+                        ToolTip.text: text
                         ToolTip.visible: hovered
                     }
                     ParamRow {
                         id: txtBMS1Absorption
                         text: "BMS1 Absorption"
                         span: 6
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         id: txtBMS1Temp
                         text: "BMS1 Temperature"
                         span: 6
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     StatusLight {
                         id: motorLight4
@@ -879,24 +945,32 @@ Rectangle {
                         id: txtMotorARealPosition
                         text: "MotorA RealPosition"
                         span: 8
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
 
                     ParamRow {
                         id: txtMotorADemandPosition
                         text: "MotorA DemandPosition"
                         span: 8
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         id: txtMotorATorque
 
                         text: "MotorA Torque"
                         span: 5
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         id: txtMotorATemp
 
                         text: "MotorA Temp"
                         span: 5
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
 
                     //                    StatusLight {
@@ -937,12 +1011,16 @@ Rectangle {
 
                         text: "MotorB RealPosition"
                         span: 8
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         id: txtMotorBDemandPosition
 
                         text: "MotorB DemandPosition"
                         span: 8
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
 
                     ParamRow {
@@ -950,6 +1028,8 @@ Rectangle {
 
                         text: "MotorB Torque"
                         span: 5
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
 
                     ParamRow {
@@ -957,6 +1037,8 @@ Rectangle {
 
                         text: "MotorB Temp"
                         span: 5
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
 
                     //                    StatusLight {
@@ -998,6 +1080,8 @@ Rectangle {
                         id: txtChargeValue
                         text: "Charge %"
                         span: 3
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                     StatusLight {
                         id: motorLight23
