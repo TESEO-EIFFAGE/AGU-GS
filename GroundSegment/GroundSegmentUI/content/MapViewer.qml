@@ -50,7 +50,7 @@ Item{
             coordinate : QtPositioning.coordinate(gpsData.longitude, gpsData.latitude)
             opacity: 1.0
             anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
-            visible: gpsData.hasFix
+            visible: gpsData.hasGps
         }
 
         MapQuickItem {
