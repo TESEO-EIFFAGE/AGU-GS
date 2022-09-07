@@ -96,10 +96,60 @@ QString Storage::CalculatePathName()
 
 void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 {
+    QDate d;
     QString NewPathName = CalculatePathName();
     unsigned long milliseconds_since_epoch;
 
-    milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    if (GPS.FixGPSTime == true)
+    {
+        qInfo() << "GPS ---------  " << GPS.GPSsecond << "\n";
+        qInfo() << "GPS ---------  " << GPS.GPSminute << "\n";
+        qInfo() << "GPS ---------  " << GPS.GPShour   << "\n";
+
+
+/*************************************************************************************************************************
+ *
+ *
+ * macro_command main()
+short yy, mm, dd, hh, min, ss
+unsigned short md[13] = {0,31,59,90,120,151,181,212,243,273,304,334}
+unsigned short md_leap[13] = {0,31,60,91,121,152,182,213,244,274,305,335}
+unsigned int epoch = 0
+unsigned int a,b,c,d,e,f
+
+GetData(yy, "Local HMI", LW, 100, 1)
+GetData(mm, "Local HMI", LW, 101, 1)
+GetData(dd, "Local HMI", LW, 102, 1)
+GetData(hh, "Local HMI", LW, 103, 1)
+GetData(min, "Local HMI", LW, 104, 1)
+GetData(ss, "Local HMI", LW, 105, 1)
+
+yy = yy - 1900
+mm = mm-1
+if yy%4==0 then
+    dd = md_leap[mm] + dd - 1
+else
+    dd = md[mm] + dd - 1
+end if
+
+a = (yy-70) * 31536000
+b = (yy-69) / 4 * 86400
+c = (yy-1) /100 * 86400
+d = (yy + 299) / 400 * 86400
+
+epoch = ss + min*60 + hh*3600 + dd*86400 + a + b - c + d
+SetData(epoch, "Local HMI", LW, 0, 1)
+end macro_command
+**********************************************************************************************************************/
+
+
+        QDateTime datetime(QDate(d.year(), d.month(), d.day()), QTime(GPS.GPShour, GPS.GPSminute, GPS.GPSsecond));
+        qInfo() << "Timestamp: " << datetime.toMSecsSinceEpoch();
+    }
+    else
+    {
+        milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    }
 
     NewPathName.append("_CORE_Log.csv");
 
@@ -112,7 +162,7 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
     QFile file(PathSystemStatus);
     QTextStream out(&file);
 
-    if (file.size() < 3000)
+    if (file.size() < 300000)
     {
         if (file.size() > 0)
         {
@@ -233,7 +283,7 @@ void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
     QFile file(PathMotor);
     QTextStream out(&file);
 
-    if (file.size() < 3000)
+    if (file.size() < 300000)
     {
         if (file.size() > 0)
         {
@@ -344,7 +394,7 @@ void Storage::StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r)
     QFile file(PathRadioLink);
     QTextStream out(&file);
 
-    if (file.size() < 3000)
+    if (file.size() < 300000)
     {
         if (file.size() > 0)
         {
@@ -403,7 +453,7 @@ void Storage::StoreDataInMemoryStorageStatusPack(StorageStatusPack *st)
     QFile file(PathStorageStatus);
     QTextStream out(&file);
 
-    if (file.size() < 3000)
+    if (file.size() < 300000)
     {
         if (file.size() > 0)
         {
@@ -462,7 +512,7 @@ void Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g)
     QFile file(PathGuidance);
     QTextStream out(&file);
 
-    if (file.size() < 3000)
+    if (file.size() < 300000)
     {
         if (file.size() > 0)
         {
@@ -518,7 +568,7 @@ void Storage::StoreDataInMemory(Telemetry *t)
     QFile file(PathTelemetry);
     QTextStream out(&file);
 
-    if (file.size() < 3000  )
+    if (file.size() < 300000)
     {
         if (file.size() > 0)
         {

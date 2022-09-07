@@ -15,7 +15,6 @@ GSCore::GSCore(QObject *parent)
     setHmi(new HMI(this));
     setGpsData(new GPSData(this));
 
-
     //Serial1 PORTA CHE RICEVE
     Serial1->setPortName("/dev/ttyUSB1");
     Serial1->setParity(QSerialPort::NoParity);
@@ -49,6 +48,29 @@ GSCore::GSCore(QObject *parent)
     GSCore::connect(timer, &QTimer::timeout, this, [this](){ emit work_is_down(); });
     GSCore::connect(this, SIGNAL(work_is_down()), this, SLOT(WriteHartBeat()));
     timer->start(1000);
+
+    QTimer *timerHasFix = new QTimer(this);
+    GSCore::connect(timer, &QTimer::timeout, this, [StorageData, this](){SetFixOfTime(StorageData);});
+    timerHasFix->start(1000);
+}
+
+
+void GSCore::SetFixOfTime(Storage *s)
+{
+    if (m_gpsData->hasFix() == true)
+    {
+       s->GPS.FixGPSTime = true;
+       s->GPS.GPSsecond = m_gpsData->second();
+       s->GPS.GPSminute = m_gpsData->minute();
+       s->GPS.GPShour   = m_gpsData->hour();
+    }
+    else
+    {
+       s->GPS.FixGPSTime = false;
+    }
+
+    qInfo() << "------ sono in  SetFixOfTime "  ;
+
 }
 
 GSCore::~GSCore()
