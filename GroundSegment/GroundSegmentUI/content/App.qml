@@ -43,7 +43,8 @@ Window {
         id: mainScreen
         anchors.fill:parent
 
-        fsParams.txtTimeStampRIO: hmi.TimeStampRIO
+
+        fsParams.txtTimeStampRIO: timestampToUTCDate(hmi.TimeStampRIO)
         fsParams.txtLatitude: hmi.Latitude.toFixed(7)
         fsParams.txtLongitude: hmi.Longitude.toFixed(7)
         fsParams.txtGNSSAltitude: hmi.GNSSAltitude.toFixed(3)
@@ -102,7 +103,7 @@ Window {
         fsParams.txtBMS1Voltage: hmi.BMS1Voltage
         fsParams.txtBMS1Absorption: hmi.BMS1Absorption
         fsParams.txtBMS1Temp: hmi.BMS1Temp
-        fsParams.txtMotorTimestamp: hmi.MotorTimestamp
+        fsParams.txtMotorTimestamp: timestampToUTCDate(hmi.MotorTimestamp)
         fsParams.txtChargeValue: hmi.ChargeValue
 
 
@@ -229,7 +230,7 @@ Window {
 
         //gsParams.gnssLight.up: hmi.gnssFound
 
-        gsParams.txtTimeStamp: hmi.TimeStamp
+        gsParams.txtTimeStamp: timestampToUTCDate(hmi.TimeStamp)
 
         gsParams.txtLatitudeGPSData:  gpsData.latitude.toFixed(7)
         gsParams.txtLongitudeGPSData: gpsData.longitude.toFixed(7)
@@ -240,6 +241,11 @@ Window {
         gsParams.txtsecondGPSData:    gpsData.second
 
 
+    }
+
+    function timestampToUTCDate(number){
+        var date = new Date(number);
+        return date.toISOString();
     }
 }
 
