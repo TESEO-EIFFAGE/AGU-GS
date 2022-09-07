@@ -245,17 +245,23 @@ Rectangle {
                         id: txtLatitude
                         text: "Latitude"
                         span: 4
+                        ToolTip.text: "Latitude"
+                        ToolTip.visible: hovered
                     }
 
                     ParamRow {
                         text: "Longitude"
                         span: 4
                         id: txtLongitude
+                        ToolTip.text: "Longitude"
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         text: "Altitude"
                         span: 4
                         id: txtGNSSAltitude
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
                     }
                 }
 
@@ -812,6 +818,8 @@ Rectangle {
                         id: txtBMS1Voltage
                         text: "BMS1 Voltage"
                         span: 6
+                        ToolTip.text: "BMS1 Voltage"
+                        ToolTip.visible: hovered
                     }
                     ParamRow {
                         id: txtBMS1Absorption

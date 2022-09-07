@@ -5,7 +5,7 @@ import GroundSegmentUI 1.0
 Row {
     id: row
     spacing: 8
-    property bool hovered: mouseArea.entered
+    property bool hovered: mouseArea.containsMouse
     property real span: 1
     property alias text: paramLabel.text
     property alias value: paramValue.text

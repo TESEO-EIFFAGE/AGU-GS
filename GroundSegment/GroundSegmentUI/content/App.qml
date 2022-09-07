@@ -224,7 +224,7 @@ Window {
         fsParams.motorLight2.up: hmi.motor2
         fsParams.motorLight1.up: hmi.motor1
 
-        gsParams.gnssLight: hmi.gnssFound
+        gsParams.gnssLight.up: hmi.gnssFound
 
         gsParams.txtTimeStamp: hmi.TimeStamp
 
