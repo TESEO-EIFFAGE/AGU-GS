@@ -9,7 +9,7 @@ Rectangle {
     property int latitude
     property int longitude
 
-    property alias gnssLight: gnssLight
+    property alias gnssSwitch: gnssSwitch
 
     property alias txtTimeStamp: txtTimeStamp.value
 
@@ -83,10 +83,6 @@ Rectangle {
                 }
                 Column {
                     spacing: 8
-                    StatusLight {
-                        id: gnssLight
-                        text: "GNSS found"
-                    }
 
                     ParamRow {
                         text: "Latitude"
@@ -137,40 +133,59 @@ Rectangle {
                             id: txtsecondGPSData
                         }
                     }
-
-                    Text {
-                        id: customCursorSectionTitle
-                        text: "Custom cursor"
-                        font.pointSize: 13
-                        font.bold: true
-                        anchors.top: customCursorSection.top
-                        anchors.horizontalCenter: parent.horizontalCenter
+                    Switch {
+                        id: gnssSwitch
+                        text: "Manual Coordinates"
+                        height: 24
+                        width: 200
                     }
-                    Row {
-                        Text {
-                            id: latitudeLabel
-                            text: "Lat: "
-                            font.pointSize: 11
-                        }
+                    Rectangle {
+                        width: parent.width //childrenRect.width
+                        height: childrenRect.height
+                        Column {
+                            anchors.fill: parent
+                            spacing: 4
+                            Text {
+                                id: customCursorSectionTitle
+                                text: "Manual cursor"
+                                font.pointSize: 13
+                                font.bold: true
+                                anchors.horizontalCenter: parent.horizontalCenter
+                            }
+                            Row {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                Text {
+                                    id: latitudeLabel
+                                    text: "Lat: "
+                                    font.pointSize: 11
+                                    width: 40
+                                }
 
-                        TextField {
-                            placeholderText: qsTr("Latitude  ...")
-                            onEditingFinished: text !== "" ? params.latitude
-                                                             = text : params.latitudeIsSet = false
-                        }
-                    }
-                    Row {
-                        Text {
-                            id: longitudeLabel
-                            text: "Long: "
-                            font.pointSize: 11
-                        }
+                                TextField {
+                                    height: 20
+                                    width: 100
+                                    placeholderText: qsTr("Latitude  ...")
+                                    onEditingFinished: text !== "" ? params.latitude = text : params.latitudeIsSet = false
+                                }
+                            }
+                            Row {
+                                anchors.horizontalCenter: parent.horizontalCenter
 
-                        TextField {
-                            placeholderText: qsTr("Longitude ...")
+                                Text {
+                                    id: longitudeLabel
+                                    text: "Long: "
+                                    font.pointSize: 11
+                                    width: 40
+                                }
 
-                            onEditingFinished: text !== "" ? params.longitude
-                                                             = text : params.longitudeIsSet = false
+                                TextField {
+                                    height: 20
+                                    width: 100
+                                    placeholderText: qsTr("Longitude ...")
+
+                                    onEditingFinished: text !== "" ? params.longitude = text : params.longitudeIsSet = false
+                                }
+                            }
                         }
                     }
                 }
@@ -259,12 +274,3 @@ Rectangle {
         }
     }
 }
-
-/*##^##
-Designer {
-    D{i:0;height:900;width:700}D{i:3}D{i:4}D{i:2}D{i:8}D{i:9}D{i:7}D{i:12}D{i:13}D{i:14}
-D{i:15}D{i:16}D{i:18}D{i:19}D{i:20}D{i:17}D{i:21}D{i:23}D{i:24}D{i:22}D{i:26}D{i:27}
-D{i:25}D{i:11}D{i:6}D{i:30}D{i:31}D{i:29}D{i:34}D{i:35}D{i:36}D{i:37}D{i:38}D{i:39}
-D{i:40}D{i:33}D{i:28}D{i:41}D{i:5}D{i:42}D{i:1}
-}
-##^##*/

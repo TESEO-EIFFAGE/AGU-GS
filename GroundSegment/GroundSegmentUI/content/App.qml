@@ -227,7 +227,7 @@ Window {
         customCursor.latitude: gsParams.latitude
         customCursor.longitude: gsParams.longitude
 
-        gsParams.gnssLight.up: hmi.gnssFound
+        //gsParams.gnssLight.up: hmi.gnssFound
 
         gsParams.txtTimeStamp: hmi.TimeStamp
 
