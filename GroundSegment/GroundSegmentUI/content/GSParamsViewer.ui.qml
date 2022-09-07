@@ -135,7 +135,7 @@ Rectangle {
                     }
                     Switch {
                         id: gnssSwitch
-                        checked: true
+
                         text: "Manual Coordinates"
                         height: 24
                         width: 200
@@ -144,6 +144,7 @@ Rectangle {
                         visible: gnssSwitch.checked
                         width: parent.width //childrenRect.width
                         height: 72 //childrenRect.height
+                        color: "transparent"
                         Column {
                             anchors.fill: parent
                             spacing: 4
