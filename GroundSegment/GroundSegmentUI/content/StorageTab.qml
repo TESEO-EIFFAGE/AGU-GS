@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.11
 import "controls"
 
 Rectangle {
+    color:"transparent"
     property alias storageLight23: storageLight23
     property alias storageLight22: storageLight22
     property alias storageLight21: storageLight21

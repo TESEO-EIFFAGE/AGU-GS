@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.11
 import "controls"
 
 Rectangle {
+    color:"transparent"
 
     property alias txtMotorARealPosition: txtMotorARealPosition.value
     property alias txtMotorADemandPosition: txtMotorADemandPosition.value

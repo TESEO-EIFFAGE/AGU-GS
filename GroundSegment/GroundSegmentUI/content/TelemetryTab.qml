@@ -5,6 +5,8 @@ import QtQuick.Layouts 1.11
 import "controls"
 
 Rectangle {
+    color:"transparent"
+
     property alias txtLatitude: txtLatitude.value
     property alias txtLongitude: txtLongitude.value
     property alias txtGNSSAltitude: txtGNSSAltitude.value

@@ -215,29 +215,32 @@ Rectangle {
                 Layout.fillHeight: true
                 width: 30
                 implicitWidth: 30
-                spacing: 24
+                spacing: 16 //24
                 Rectangle {
-
-                    Layout.preferredHeight: 80
+                    radius: 8
+                    border.color: "black"
+                    border.width: params.tabIndex === 0 ? 1 : 0
+                    Layout.preferredHeight: 120
                     width: 40
-                    color: params.tabIndex === 0 ? "#F5F5F5" : "white"
+                    color: "#F5F5F5"
                     Column {
 
-                        anchors.centerIn: parent
+                        anchors.fill: parent
+                        anchors.margins: 8
                         spacing: 32
                         width: 40
-                        height: 80
+                        height: 120
                         Image {
-                            x: 3
-                            y: 0
-                            source: "images/svgs/solid/satellite.svg"
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            source: "images/svgs/solid/triangle-exclamation.svg"
                             fillMode: Image.PreserveAspectFit
                             sourceSize.height: 24
                             sourceSize.width: 24
                         }
 
                         ParamGrp1Label {
-                            text: "GNSS"
+                            x: -3
+                            text: "Telemetry"
                             transform: Rotation {
                                 angle: 90
                                 origin.x: 25
@@ -257,19 +260,21 @@ Rectangle {
                     }
                 }
                 Rectangle {
-                    Layout.preferredHeight: 140
+                    radius: 8
+                    border.color: "black"
+                    border.width: params.tabIndex === 1 ? 1 : 0
+                    Layout.preferredHeight: 150
                     Layout.preferredWidth: 40
-                    color: params.tabIndex === 1 ? "#E8E8E8" : "white"
+                    color: "#E8E8E8"
 
                     Column {
-
-                        anchors.centerIn: parent
+                        anchors.fill: parent
+                        anchors.margins: 8
                         spacing: 32
                         width: 40
-                        height: 140
+                        height: 150
                         Image {
-                            x: 3
-                            y: 0
+                            anchors.horizontalCenter: parent.horizontalCenter
                             source: "images/svgs/solid/gear.svg"
                             fillMode: Image.PreserveAspectFit
                             sourceSize.height: 24
@@ -277,6 +282,7 @@ Rectangle {
                         }
 
                         ParamGrp1Label {
+                            x: -3
                             text: "Motors & BMS"
                             transform: Rotation {
                                 angle: 90
@@ -296,25 +302,29 @@ Rectangle {
                     }
                 }
                 Rectangle {
-                    color: params.tabIndex === 2 ? "#E8E8E8" : "white"
+                    radius: 8
+                    border.color: "black"
+                    border.width: params.tabIndex === 2 ? 1 : 0
+                    color: "#E8E8E8"
 
-                    Layout.preferredHeight: 100
+                    Layout.preferredHeight: 110
                     Layout.preferredWidth: 40
                     Column {
-                        anchors.centerIn: parent
+                        anchors.fill: parent
+                        anchors.margins: 8
                         spacing: 32
                         width: 40
                         height: 100
 
                         Image {
-                            x: 3
-                            y: 0
+                            anchors.horizontalCenter: parent.horizontalCenter
                             width: 24
                             source: "images/svgs/solid/database.svg"
                             fillMode: Image.PreserveAspectFit
                         }
 
                         ParamGrp1Label {
+                            x: -3
                             text: "Storage"
 
                             transform: Rotation {
@@ -336,6 +346,8 @@ Rectangle {
                 }
             }
             Rectangle {
+                color: "#f5f5f5"
+                radius: 8
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 StackLayout {
@@ -376,7 +388,9 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;height:1080;width:1600}
+    D{i:0;height:1080;width:1600}D{i:3}D{i:4}D{i:2}D{i:9}D{i:10}D{i:8}D{i:13}D{i:12}D{i:7}
+D{i:16}D{i:17}D{i:15}D{i:20}D{i:19}D{i:14}D{i:22}D{i:26}D{i:21}D{i:6}D{i:30}D{i:31}
+D{i:32}D{i:29}D{i:28}D{i:5}D{i:1}D{i:33}
 }
 ##^##*/
 
