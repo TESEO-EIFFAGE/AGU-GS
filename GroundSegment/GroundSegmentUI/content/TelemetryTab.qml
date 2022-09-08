@@ -123,7 +123,7 @@ Column{
                 text: "Latitude"
                 span: 4
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
 
             ParamRow {
@@ -131,14 +131,14 @@ Column{
                 span: 4
                 id: txtLongitude
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 text: "Altitude"
                 span: 4
                 id: txtGNSSAltitude
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
         }
 
@@ -153,19 +153,19 @@ Column{
                 text: "X"
                 id: txtECEFVectorPositionX
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 text: "Y"
                 id: txtECEFVectorPositionY
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 text: "Z"
                 id: txtECEFVectorPositionZ
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
         }
         Column {
@@ -180,19 +180,19 @@ Column{
                 text: "X"
                 id: txtECEFVectorVelocityX
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 text: "Y"
                 id: txtECEFVectorVelocityY
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 text: "Z"
                 id: txtECEFVectorVelocityZ
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
         }
 
@@ -209,7 +209,7 @@ Column{
                 span: 4
                 id: txtLinearVelocityHorizontal
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
 
             ParamRow {
@@ -217,7 +217,7 @@ Column{
                 span: 4
                 id: txtLinearVelocityVertical
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
         }
 
@@ -234,7 +234,7 @@ Column{
                 span: 7
                 id: txtPositionAccuracy
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
 
             ParamRow {
@@ -242,7 +242,7 @@ Column{
                 span: 7
                 id: txtSpeedAccuracy
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
 
             ParamRow {
@@ -250,7 +250,7 @@ Column{
                 span: 7
                 id: txtNumberOfGPSSatellite
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
         }
 
@@ -266,21 +266,21 @@ Column{
                 span: 2
                 id: txtRollAngle
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 text: "Pitch"
                 span: 2
                 id: txtPitchAngle
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 text: "Yaw"
                 span: 2
                 id: txtYawAngle
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
         }
 
@@ -297,14 +297,14 @@ Column{
                 span: 2
                 id: txtAngularRateRoll
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 text: "Pitch"
                 span: 2
                 id: txtAngularRatePitch
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
 
             ParamRow {
@@ -312,7 +312,7 @@ Column{
                 span: 2
                 id: txtAngularRateYaw
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
         }
         Column {
@@ -327,19 +327,19 @@ Column{
                 text: "X"
                 id: txtLinearAccelerationX
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 text: "Y"
                 id: txtLinearAccelerationY
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 text: "Z"
                 id: txtLinearAccelerationZ
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
         }
     }
@@ -377,7 +377,7 @@ Column{
                 span: 5
                 id: txtAirSpeed_UVector
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
 
             ParamRow {
@@ -385,14 +385,14 @@ Column{
                 span: 5
                 id: txtAirSpeed_VVector
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 text: "Air Speed W"
                 span: 5
                 id: txtAirSpeed_WVector
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
 
             ParamRow {
@@ -400,7 +400,7 @@ Column{
                 span: 5
                 id: txtAirTemperature
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
 
     }
@@ -434,7 +434,7 @@ Column{
             span: 3
             id: txtAltitudeFromRadarAltimeter
             ToolTip.text: text
-            ToolTip.visible: hovered
+            ToolTip.visible: pressed
         }
 }
 
@@ -465,7 +465,7 @@ Column{
             span: 3
             id: txtAltitudeFromPayloadAltimeter
             ToolTip.text: text
-            ToolTip.visible: hovered
+            ToolTip.visible: pressed
         }
         }
     }
@@ -669,28 +669,28 @@ Rectangle {
             text: "Anemometer Comm error counter"
             span: 12
             ToolTip.text: text
-            ToolTip.visible: hovered
+            ToolTip.visible: pressed
         }
         ParamRow {
             id: txtRDAltCommErrorCounter
             text: "RD Altimeter Comm error counter"
             span: 12
             ToolTip.text: text
-            ToolTip.visible: hovered
+            ToolTip.visible: pressed
         }
         ParamRow {
             id: txtGNSSCommErrorCounter
             text: "GNSS Comm error counter"
             span: 12
             ToolTip.text: text
-            ToolTip.visible: hovered
+            ToolTip.visible: pressed
         }
         ParamRow {
             id: txtPLAltCommErrorCounter
             text: "PL Altimeter Comm error counter"
             span: 12
             ToolTip.text: text
-            ToolTip.visible: hovered
+            ToolTip.visible: pressed
         //}
     }
 }
