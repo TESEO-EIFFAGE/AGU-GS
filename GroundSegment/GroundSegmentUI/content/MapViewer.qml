@@ -74,6 +74,8 @@ Item{
     Rectangle {
         id: gpsDataRectangle
         width: 180; height: 110
+        anchors.left:parent.left
+        anchors.leftMargin: 8
         color: "#FFD2D2D2"
         opacity: 0.75
         x: 5; y: 5
