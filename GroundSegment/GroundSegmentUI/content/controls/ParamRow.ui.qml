@@ -6,7 +6,7 @@ Row {
     id: row
     spacing: 8
     property bool hovered: mouseArea.containsMouse
-    property bool pressed: 0
+    property bool pressed: false
     property real span: 1
     property alias text: paramLabel.text
     property alias value: paramValue.text
@@ -22,10 +22,10 @@ Row {
             Connections {
                 target: mouseArea
                 function onPressed() {
-                    row.pressed = 1
+                    row.pressed = true
                 }
                 function onReleased() {
-                    row.pressed = 0
+                    row.pressed = false
                 }
             }
         }
