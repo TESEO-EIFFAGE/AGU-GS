@@ -139,7 +139,7 @@ Item{
 
         Rectangle {
             id: legendSection
-            anchors.top: customCursorSection.bottom
+            anchors.top:parent.top
             anchors.left: parent.left; anchors.leftMargin: 5
             anchors.right: parent.right
             Column{
