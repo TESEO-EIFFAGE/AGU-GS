@@ -73,7 +73,7 @@ Item{
 
     Rectangle {
         id: gpsDataRectangle
-        width: 180; height: 110
+        width: 160; height: 110
         anchors.left:parent.left
         anchors.leftMargin: 8
         color: "#FFD2D2D2"
@@ -142,7 +142,7 @@ Item{
         Rectangle {
             id: legendSection
             anchors.top:parent.top
-            anchors.left: parent.left; anchors.leftMargin: 5
+            anchors.left: parent.left; anchors.leftMargin: 10
             anchors.right: parent.right
             Column{
                 anchors.top:parent.top
