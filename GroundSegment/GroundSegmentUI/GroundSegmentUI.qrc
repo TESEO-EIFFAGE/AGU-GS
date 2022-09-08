@@ -46,5 +46,8 @@
         <file>content/images/svgs/solid/radio.svg</file>
         <file>content/images/Teseo_01_colour_RGB_LR.jpg</file>
         <file>content/images/Thales_Alenia_Space_logo.png</file>
+        <file>content/MotorsBMSTab.qml</file>
+        <file>content/StorageTab.qml</file>
+        <file>content/TelemetryTab.qml</file>
     </qresource>
 </RCC>
