@@ -59,14 +59,36 @@ void GSCore::SetFixOfTime(Storage *s)
 {
     if (m_gpsData->hasFix() == true)
     {
+       QDate d,j;
+       unsigned long milliseconds_since_epoch;
+
        s->GPS.FixGPSTime = true;
-       s->GPS.GPSsecond = m_gpsData->second();
-       s->GPS.GPSminute = m_gpsData->minute();
-       s->GPS.GPShour   = m_gpsData->hour();
+
+       d = j.currentDate();
+       int y = d.year();
+       int mm = d.month();
+       int day = d.day();
+       QDate date(y, mm, day);
+       QTime time(m_gpsData->hour(), m_gpsData->minute(), m_gpsData->second());
+       QDateTime localTime = QDateTime(date, time, Qt::UTC);
+       milliseconds_since_epoch = localTime.toUTC().toMSecsSinceEpoch();
+
+
+       if (FlagDeltaTime == false)
+       {
+           s->GPS.DeltaGPSTimefromSystemTime =   std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()
+                                               - milliseconds_since_epoch;
+
+           qInfo () << " --------- DELTA = " << s->GPS.DeltaGPSTimefromSystemTime;
+
+           FlagDeltaTime = true;
+       }
+
     }
     else
     {
        s->GPS.FixGPSTime = false;
+       FlagDeltaTime == false;
     }
 
     qInfo() << "------ sono in  SetFixOfTime "  ;

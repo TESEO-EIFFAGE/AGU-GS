@@ -19,6 +19,7 @@ public:
     QSerialPort *Serial1;
     uint64_t TimeStampToHMI;
     qint8 Counter;
+    bool FlagDeltaTime = false;
     HMI* hmi();
     void setHmi(HMI*);
     GPSData* gpsData();

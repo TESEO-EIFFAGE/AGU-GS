@@ -11,9 +11,7 @@ typedef struct
 {
    /*SYSTEM STATUS PACK DATASET*/
     bool FixGPSTime;
-    int  GPSsecond;
-    int  GPSminute;
-    int  GPShour;
+    int  DeltaGPSTimefromSystemTime;
 }GPSTimePack;
 Q_DECLARE_METATYPE(GPSTimePack);
 
@@ -41,6 +39,7 @@ public slots:
     void StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r);
     void StoreDataInMemoryStorageStatusPack(StorageStatusPack *st);
     void StoreDataInMemoryGuidance(GuidancePackDataset *g);
+    void InitFixGPSTime(void);
 };
 
 #endif // STORAGE_H
