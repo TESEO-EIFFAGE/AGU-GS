@@ -99,28 +99,28 @@ spacing: 16
                 text: "TimeStamp"
                 span: 4
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 id: txtBMS1Voltage
                 text: "BMS1 Voltage"
                 span: 6
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 id: txtBMS1Absorption
                 text: "BMS1 Absorption"
                 span: 6
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 id: txtBMS1Temp
                 text: "BMS1 Temperature"
                 span: 6
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             StatusLight {
                 id: motorLight4
@@ -171,7 +171,7 @@ spacing: 16
                 text: "MotorA RealPosition"
                 span: 8
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
 
             ParamRow {
@@ -179,7 +179,7 @@ spacing: 16
                 text: "MotorA DemandPosition"
                 span: 8
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 id: txtMotorATorque
@@ -187,7 +187,7 @@ spacing: 16
                 text: "MotorA Torque"
                 span: 5
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 id: txtMotorATemp
@@ -195,7 +195,7 @@ spacing: 16
                 text: "MotorA Temp"
                 span: 5
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
 
             //                    StatusLight {
@@ -237,7 +237,7 @@ spacing: 16
                 text: "MotorB RealPosition"
                 span: 8
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             ParamRow {
                 id: txtMotorBDemandPosition
@@ -245,7 +245,7 @@ spacing: 16
                 text: "MotorB DemandPosition"
                 span: 8
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
 
             ParamRow {
@@ -254,7 +254,7 @@ spacing: 16
                 text: "MotorB Torque"
                 span: 5
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
 
             ParamRow {
@@ -263,7 +263,7 @@ spacing: 16
                 text: "MotorB Temp"
                 span: 5
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
 
             //                    StatusLight {
@@ -306,7 +306,7 @@ spacing: 16
                 text: "Charge %"
                 span: 3
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
             StatusLight {
                 id: motorLight23

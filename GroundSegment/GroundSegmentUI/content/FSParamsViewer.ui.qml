@@ -202,7 +202,7 @@ Rectangle {
                 span: 5
                 id: txtTimeStampRIO
                 ToolTip.text: text
-                ToolTip.visible: hovered
+                ToolTip.visible: pressed
             }
         }
 

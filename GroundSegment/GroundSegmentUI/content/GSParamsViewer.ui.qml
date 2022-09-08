@@ -90,28 +90,28 @@ Rectangle {
                         span: 4
                         id: txtLatitudeGPSData
                         ToolTip.text: text
-                        ToolTip.visible: hovered
+                        ToolTip.visible: pressed
                     }
                     ParamRow {
                         text: "Longitude"
                         span: 4
                         id: txtLongitudeGPSData
                         ToolTip.text: text
-                        ToolTip.visible: hovered
+                        ToolTip.visible: pressed
                     }
                     ParamRow {
                         text: "Altitude"
                         span: 4
                         id: txtAltitudeGPSData
                         ToolTip.text: text
-                        ToolTip.visible: hovered
+                        ToolTip.visible: pressed
                     }
                     ParamRow {
                         text: "HasFix"
                         span: 4
                         id: txtHasFix
                         ToolTip.text: text
-                        ToolTip.visible: hovered
+                        ToolTip.visible: pressed
                     }
 
                     Row {
@@ -121,7 +121,7 @@ Rectangle {
                             span: 4
                             id: txtHourGPSData
                             ToolTip.text: text
-                            ToolTip.visible: hovered
+                            ToolTip.visible: pressed
                         }
                         ParamRow {
                             text: ":"
@@ -262,14 +262,14 @@ Rectangle {
                         text: "Heartbeat counter"
                         span: 6
                         ToolTip.text: text
-                        ToolTip.visible: hovered
+                        ToolTip.visible: pressed
                     }
                     ParamRow {
                         id: txtRadioLinkErrorCounter
                         text: "Error counter"
                         span: 4
                         ToolTip.text: text
-                        ToolTip.visible: hovered
+                        ToolTip.visible: pressed
                     }
                 }
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop

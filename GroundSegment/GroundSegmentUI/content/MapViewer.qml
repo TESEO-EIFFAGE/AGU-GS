@@ -165,7 +165,7 @@ Item{
             Row{
                 width: parent.width
                 spacing: 4
-                Rectangle { width: 20; height: 20; color: "red"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
+                Rectangle { width: 20; height: 20; color: "purple"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
                 Text{text: "GS (GNSS)"; anchors.verticalCenter: parent.verticalCenter}
             }
             Row{
