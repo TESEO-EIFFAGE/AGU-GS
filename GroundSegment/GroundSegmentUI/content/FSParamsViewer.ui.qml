@@ -209,6 +209,7 @@ Rectangle {
         RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
+            spacing:0
             ColumnLayout {
                 Layout.alignment: Qt.AlignTop
                 Layout.preferredWidth: 30
@@ -265,7 +266,7 @@ Rectangle {
                     border.width: params.tabIndex === 1 ? 1 : 0
                     Layout.preferredHeight: 150
                     Layout.preferredWidth: 40
-                    color: "#E8E8E8"
+                    color: "#F5F5F5"
 
                     Column {
                         anchors.fill: parent
@@ -305,7 +306,7 @@ Rectangle {
                     radius: 8
                     border.color: "black"
                     border.width: params.tabIndex === 2 ? 1 : 0
-                    color: "#E8E8E8"
+                    color: "#F5F5F5"
 
                     Layout.preferredHeight: 110
                     Layout.preferredWidth: 40
