@@ -82,7 +82,6 @@ Rectangle {
 
 Column{
     anchors.fill:parent
-    anchors.margins:24
     spacing:16
     Row {
 
