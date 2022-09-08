@@ -141,7 +141,7 @@ Rectangle {
                         width: 200
                     }
                     Rectangle {
-                        visible: true //gnssSwitch.checked
+                        visible: gnssSwitch.checked
                         width: parent.width //childrenRect.width
                         height: 72 //childrenRect.height
                         color: "transparent"
