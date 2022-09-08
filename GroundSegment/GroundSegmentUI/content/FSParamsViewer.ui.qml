@@ -1343,22 +1343,22 @@ Rectangle {
 
                 StatusLight {
                     id: storageLight10
-                    text: "PCNC initialization verification error"
+                    text: "PGNC initialization verification error"
                 }
 
                 StatusLight {
                     id: storageLight11
-                    text: "PCNC initialization storage error"
+                    text: "PGNC initialization storage error"
                 }
 
                 StatusLight {
                     id: storageLight12
-                    text: "PCNC flight path verification error"
+                    text: "PGNC flight path verification error"
                 }
 
                 StatusLight {
                     id: storageLight13
-                    text: "PCNC flight path storage error"
+                    text: "PGNC flight path storage error"
                 }
                 StatusLight {
                     id: storageLight14
