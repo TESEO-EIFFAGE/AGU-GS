@@ -50,7 +50,7 @@ Rectangle {
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.rightMargin: 16
-        anchors.topMargin: 20
+        anchors.topMargin: 24
         height: sourceSize.height / 4
         width: sourceSize.width / 4
         source: "images/Teseo_01_colour_RGB_LR.jpg"
@@ -61,8 +61,8 @@ Rectangle {
         anchors.top: parent.top
         anchors.rightMargin: 16
         anchors.topMargin: 16
-        height: sourceSize.height / 8
-        width: sourceSize.width / 8
+        height: sourceSize.height / 3
+        width: sourceSize.width / 3
         source: "images/Thales_Alenia_Space_logo.png"
         fillMode: Image.PreserveAspectFit
     }
@@ -70,7 +70,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:1}D{i:2}D{i:3}D{i:4}D{i:5}
+    D{i:0;formeditorZoom:0.75}
 }
 ##^##*/
 
