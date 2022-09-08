@@ -196,8 +196,8 @@ Rectangle {
             }
 
             ParamRow {
-                text: "TimeStamp RIO"
-                span: 6
+                text: "TimeStampRIO"
+                span: 5
                 id: txtTimeStampRIO
                 ToolTip.text: text
                 ToolTip.visible: hovered
@@ -872,7 +872,7 @@ Rectangle {
                     ParamRow {
                         id: txtMotorTimestamp
                         text: "TimeStamp"
-                        span: 6
+                        span: 4
                         ToolTip.text: text
                         ToolTip.visible: hovered
                     }

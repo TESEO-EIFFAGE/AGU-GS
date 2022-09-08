@@ -73,7 +73,7 @@ Item{
 
     Rectangle {
         id: gpsDataRectangle
-        width: 200; height: 160
+        width: 180; height: 110
         color: "#FFD2D2D2"
         opacity: 0.75
         x: 5; y: 5
@@ -165,6 +165,12 @@ Item{
                 spacing: 4
                 Rectangle { width: 20; height: 20; color: "blue"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
                 Text{text: "Flight Segment"; anchors.verticalCenter: parent.verticalCenter}
+            }
+            Row{
+                width: parent.width
+                spacing: 4
+                Rectangle { width: 20; height: 20; color: "red"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
+                Text{text: "GPS"; anchors.verticalCenter: parent.verticalCenter}
             }
             }
         }
