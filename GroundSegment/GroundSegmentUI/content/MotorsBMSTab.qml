@@ -5,6 +5,82 @@ import QtQuick.Layouts 1.11
 import "controls"
 
 Rectangle {
+
+    property alias txtMotorARealPosition: txtMotorARealPosition.value
+    property alias txtMotorADemandPosition: txtMotorADemandPosition.value
+    property alias txtMotorATorque: txtMotorATorque.value
+    property alias txtMotorATemp: txtMotorATemp.value
+
+    property alias txtMotorBRealPosition: txtMotorBRealPosition.value
+    property alias txtMotorBDemandPosition: txtMotorBDemandPosition.value
+    property alias txtMotorBTorque: txtMotorBTorque.value
+    property alias txtMotorBTemp: txtMotorBTemp.value
+
+    property alias txtBMS1Voltage: txtBMS1Voltage.value
+    property alias txtBMS1Absorption: txtBMS1Absorption.value
+    property alias txtBMS1Temp: txtBMS1Temp.value
+    property alias txtMotorTimestamp: txtMotorTimestamp.value
+    property alias txtChargeValue: txtChargeValue.value
+
+    //    property alias motorLight25: motorLight25
+    //    property alias motorLight24: motorLight24
+    property alias motorLight23: motorLight23
+    property alias motorLight22: motorLight22
+    property alias motorLight21: motorLight21
+    //    property alias motorLight20: motorLight20
+    //    property alias motorLight19: motorLight19
+    //    property alias motorLight18: motorLight18
+    //    property alias motorLight17: motorLight17
+    //    property alias motorLight16: motorLight16
+    property alias motorLight15: motorLight15
+    property alias motorLight14: motorLight14
+    property alias motorLight13: motorLight13
+    property alias motorLight12: motorLight12
+    //    property alias motorLight11: motorLight11
+    //    property alias motorLight10: motorLight10
+    property alias motorLight8: motorLight8
+    property alias motorLight7: motorLight7
+    property alias motorLight6: motorLight6
+    property alias motorLight5: motorLight5
+    property alias motorLight4: motorLight4
+    property alias motorLight3: motorLight3
+    property alias motorLight2: motorLight2
+    property alias motorLight1: motorLight1
+    property alias motorLight0: motorLight0
+
+    property alias bmsLight0: bmsLight0
+    property alias bmsLight31: bmsLight31
+    property alias bmsLight30: bmsLight30
+    property alias bmsLight29: bmsLight29
+    property alias bmsLight28: bmsLight28
+    property alias bmsLight27: bmsLight27
+    property alias bmsLight26: bmsLight26
+    property alias bmsLight25: bmsLight25
+    property alias bmsLight24: bmsLight24
+    property alias bmsLight23: bmsLight23
+    property alias bmsLight22: bmsLight22
+    property alias bmsLight21: bmsLight21
+    property alias bmsLight20: bmsLight20
+    property alias bmsLight19: bmsLight19
+    property alias bmsLight18: bmsLight18
+    property alias bmsLight17: bmsLight17
+    property alias bmsLight16: bmsLight16
+    property alias bmsLight15: bmsLight15
+    property alias bmsLight14: bmsLight14
+    property alias bmsLight13: bmsLight13
+    property alias bmsLight12: bmsLight12
+    property alias bmsLight11: bmsLight11
+    property alias bmsLight10: bmsLight10
+    property alias bmsLight9: bmsLight9
+    property alias bmsLight8: bmsLight8
+    property alias bmsLight7: bmsLight7
+    property alias bmsLight6: bmsLight6
+    property alias bmsLight5: bmsLight5
+    property alias bmsLight4: bmsLight4
+    property alias bmsLight3: bmsLight3
+    property alias bmsLight2: bmsLight2
+    property alias bmsLight1: bmsLight1
+
     RowLayout {
         anchors.fill:parent
 spacing: 16

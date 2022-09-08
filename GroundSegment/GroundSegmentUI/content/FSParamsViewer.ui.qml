@@ -10,67 +10,67 @@ Rectangle {
     property int tabIndex: 0
 
     property alias txtTimeStampRIO: txtTimeStampRIO.value
-    property alias txtLatitude: telemetryTab.txtLatitude.value
-    property alias txtLongitude: telemetryTab.txtLongitude.value
-    property alias txtGNSSAltitude: telemetryTab.txtGNSSAltitude.value
-    property alias txtAirSpeed_UVector: telemetryTab.txtAirSpeed_UVector.value
+    property alias txtLatitude: telemetryTab.txtLatitude
+    property alias txtLongitude: telemetryTab.txtLongitude
+    property alias txtGNSSAltitude: telemetryTab.txtGNSSAltitude
+    property alias txtAirSpeed_UVector: telemetryTab.txtAirSpeed_UVector
 
-    property alias txtAirSpeed_VVector: telemetryTab.txtAirSpeed_VVector.value
-    property alias txtAirSpeed_WVector: telemetryTab.txtAirSpeed_WVector.value
-    property alias txtAirTemperature: telemetryTab.txtAirTemperature.value
-    property alias txtAltitudeFromRadarAltimeter: telemetryTab.txtAltitudeFromRadarAltimeter.value
-    property alias txtAltitudeFromPayloadAltimeter: telemetryTab.txtAltitudeFromPayloadAltimeter.value
-    property alias txtLinearVelocityHorizontal: telemetryTab.txtLinearVelocityHorizontal.value
+    property alias txtAirSpeed_VVector: telemetryTab.txtAirSpeed_VVector
+    property alias txtAirSpeed_WVector: telemetryTab.txtAirSpeed_WVector
+    property alias txtAirTemperature: telemetryTab.txtAirTemperature
+    property alias txtAltitudeFromRadarAltimeter: telemetryTab.txtAltitudeFromRadarAltimeter
+    property alias txtAltitudeFromPayloadAltimeter: telemetryTab.txtAltitudeFromPayloadAltimeter
+    property alias txtLinearVelocityHorizontal: telemetryTab.txtLinearVelocityHorizontal
 
-    property alias txtLinearVelocityVertical: telemetryTab.txtLinearVelocityVertical.value
-    property alias txtPositionAccuracy: telemetryTab.txtPositionAccuracy.value
-    property alias txtSpeedAccuracy: telemetryTab.txtSpeedAccuracy.value
-    property alias txtLinearAccelerationX: telemetryTab.txtLinearAccelerationX.value
-    property alias txtLinearAccelerationY: telemetryTab.txtLinearAccelerationY.value
-    property alias txtLinearAccelerationZ: telemetryTab.txtLinearAccelerationZ.value
+    property alias txtLinearVelocityVertical: telemetryTab.txtLinearVelocityVertical
+    property alias txtPositionAccuracy: telemetryTab.txtPositionAccuracy
+    property alias txtSpeedAccuracy: telemetryTab.txtSpeedAccuracy
+    property alias txtLinearAccelerationX: telemetryTab.txtLinearAccelerationX
+    property alias txtLinearAccelerationY: telemetryTab.txtLinearAccelerationY
+    property alias txtLinearAccelerationZ: telemetryTab.txtLinearAccelerationZ
 
-    property alias txtECEFVectorPositionX: telemetryTab.txtECEFVectorPositionX.value
-    property alias txtECEFVectorPositionY: telemetryTab.txtECEFVectorPositionY.value
-    property alias txtECEFVectorPositionZ: telemetryTab.txtECEFVectorPositionZ.value
-    property alias txtECEFVectorVelocityX: telemetryTab.txtECEFVectorVelocityX.value
-    property alias txtECEFVectorVelocityY: telemetryTab.txtECEFVectorVelocityY.value
-    property alias txtECEFVectorVelocityZ: telemetryTab.txtECEFVectorVelocityZ.value
+    property alias txtECEFVectorPositionX: telemetryTab.txtECEFVectorPositionX
+    property alias txtECEFVectorPositionY: telemetryTab.txtECEFVectorPositionY
+    property alias txtECEFVectorPositionZ: telemetryTab.txtECEFVectorPositionZ
+    property alias txtECEFVectorVelocityX: telemetryTab.txtECEFVectorVelocityX
+    property alias txtECEFVectorVelocityY: telemetryTab.txtECEFVectorVelocityY
+    property alias txtECEFVectorVelocityZ: telemetryTab.txtECEFVectorVelocityZ
 
-    property alias txtRollAngle: telemetryTab.txtRollAngle.value
-    property alias txtPitchAngle: telemetryTab.txtPitchAngle.value
-    property alias txtYawAngle: telemetryTab.txtYawAngle.value
-    property alias txtAngularRateRoll: telemetryTab.txtAngularRateRoll.value
-    property alias txtAngularRatePitch: telemetryTab.txtAngularRatePitch.value
-    property alias txtAngularRateYaw: telemetryTab.txtAngularRateYaw.value
+    property alias txtRollAngle: telemetryTab.txtRollAngle
+    property alias txtPitchAngle: telemetryTab.txtPitchAngle
+    property alias txtYawAngle: telemetryTab.txtYawAngle
+    property alias txtAngularRateRoll: telemetryTab.txtAngularRateRoll
+    property alias txtAngularRatePitch: telemetryTab.txtAngularRatePitch
+    property alias txtAngularRateYaw: telemetryTab.txtAngularRateYaw
 
-    property alias txtNumberOfGPSSatellite: telemetryTab.txtNumberOfGPSSatellite.value
+    property alias txtNumberOfGPSSatellite: telemetryTab.txtNumberOfGPSSatellite
 
-    property alias txtAnemCommErrorCounter: telemetryTab.txtAnemCommErrorCounter.value
-    property alias txtRDAltCommErrorCounter: telemetryTab.txtRDAltCommErrorCounter.value
-    property alias txtGNSSCommErrorCounter: telemetryTab.txtGNSSCommErrorCounter.value
-    property alias txtPLAltCommErrorCounter: telemetryTab.txtPLAltCommErrorCounter.value
+    property alias txtAnemCommErrorCounter: telemetryTab.txtAnemCommErrorCounter
+    property alias txtRDAltCommErrorCounter: telemetryTab.txtRDAltCommErrorCounter
+    property alias txtGNSSCommErrorCounter: telemetryTab.txtGNSSCommErrorCounter
+    property alias txtPLAltCommErrorCounter: telemetryTab.txtPLAltCommErrorCounter
 
-    property alias txtMotorARealPosition: motorsBMSTab.txtMotorARealPosition.value
-    property alias txtMotorADemandPosition: motorsBMSTab.txtMotorADemandPosition.value
-    property alias txtMotorATorque: motorsBMSTab.txtMotorATorque.value
-    property alias txtMotorATemp: motorsBMSTab.txtMotorATemp.value
+    property alias txtMotorARealPosition: motorsBMSTab.txtMotorARealPosition
+    property alias txtMotorADemandPosition: motorsBMSTab.txtMotorADemandPosition
+    property alias txtMotorATorque: motorsBMSTab.txtMotorATorque
+    property alias txtMotorATemp: motorsBMSTab.txtMotorATemp
 
-    property alias txtMotorBRealPosition: motorsBMSTab.txtMotorBRealPosition.value
-    property alias txtMotorBDemandPosition: motorsBMSTab.txtMotorBDemandPosition.value
-    property alias txtMotorBTorque: motorsBMSTab.txtMotorBTorque.value
-    property alias txtMotorBTemp: motorsBMSTab.txtMotorBTemp.value
+    property alias txtMotorBRealPosition: motorsBMSTab.txtMotorBRealPosition
+    property alias txtMotorBDemandPosition: motorsBMSTab.txtMotorBDemandPosition
+    property alias txtMotorBTorque: motorsBMSTab.txtMotorBTorque
+    property alias txtMotorBTemp: motorsBMSTab.txtMotorBTemp
 
-    property alias txtBMS1Voltage: motorsBMSTab.txtBMS1Voltage.value
-    property alias txtBMS1Absorption: motorsBMSTab.txtBMS1Absorption.value
-    property alias txtBMS1Temp: motorsBMSTab.txtBMS1Temp.value
-    property alias txtMotorTimestamp: motorsBMSTab.txtMotorTimestamp.value
-    property alias txtChargeValue: motorsBMSTab.txtChargeValue.value
+    property alias txtBMS1Voltage: motorsBMSTab.txtBMS1Voltage
+    property alias txtBMS1Absorption: motorsBMSTab.txtBMS1Absorption
+    property alias txtBMS1Temp: motorsBMSTab.txtBMS1Temp
+    property alias txtMotorTimestamp: motorsBMSTab.txtMotorTimestamp
+    property alias txtChargeValue: motorsBMSTab.txtChargeValue
 
     width: Constants.width / 2 //750 //C
     height: Constants.height //667 //
     color: "#ffffff"
-    property alias telemetryLight0: telemetryTab.telemetryTab.telemetryLight0
-    property alias telemetryLight31: telemetryTab.telemetryTab.telemetryLight31
+    property alias telemetryLight0: telemetryTab.telemetryLight0
+    property alias telemetryLight31: telemetryTab.telemetryLight31
     property alias telemetryLight30: telemetryTab.telemetryLight30
     property alias telemetryLight29: telemetryTab.telemetryLight29
     property alias telemetryLight28: telemetryTab.telemetryLight28
@@ -376,9 +376,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;height:1080;width:1600}D{i:3}D{i:4}D{i:2}D{i:9}D{i:10}D{i:8}D{i:13}D{i:12}D{i:7}
-D{i:16}D{i:17}D{i:15}D{i:20}D{i:19}D{i:14}D{i:23}D{i:24}D{i:22}D{i:27}D{i:26}D{i:21}
-D{i:6}D{i:30}D{i:31}D{i:32}D{i:29}D{i:28}D{i:5}D{i:1}D{i:33}
+    D{i:0;height:1080;width:1600}
 }
 ##^##*/
 

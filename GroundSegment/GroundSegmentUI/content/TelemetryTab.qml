@@ -5,8 +5,79 @@ import QtQuick.Layouts 1.11
 import "controls"
 
 Rectangle {
-width:Constants.width
-height:Constants.height
+    property alias txtLatitude: txtLatitude.value
+    property alias txtLongitude: txtLongitude.value
+    property alias txtGNSSAltitude: txtGNSSAltitude.value
+    property alias txtAirSpeed_UVector: txtAirSpeed_UVector.value
+
+    property alias txtAirSpeed_VVector: txtAirSpeed_VVector.value
+    property alias txtAirSpeed_WVector: txtAirSpeed_WVector.value
+    property alias txtAirTemperature: txtAirTemperature.value
+    property alias txtAltitudeFromRadarAltimeter: txtAltitudeFromRadarAltimeter.value
+    property alias txtAltitudeFromPayloadAltimeter: txtAltitudeFromPayloadAltimeter.value
+    property alias txtLinearVelocityHorizontal: txtLinearVelocityHorizontal.value
+
+    property alias txtLinearVelocityVertical: txtLinearVelocityVertical.value
+    property alias txtPositionAccuracy: txtPositionAccuracy.value
+    property alias txtSpeedAccuracy: txtSpeedAccuracy.value
+    property alias txtLinearAccelerationX: txtLinearAccelerationX.value
+    property alias txtLinearAccelerationY: txtLinearAccelerationY.value
+    property alias txtLinearAccelerationZ: txtLinearAccelerationZ.value
+
+    property alias txtECEFVectorPositionX: txtECEFVectorPositionX.value
+    property alias txtECEFVectorPositionY: txtECEFVectorPositionY.value
+    property alias txtECEFVectorPositionZ: txtECEFVectorPositionZ.value
+    property alias txtECEFVectorVelocityX: txtECEFVectorVelocityX.value
+    property alias txtECEFVectorVelocityY: txtECEFVectorVelocityY.value
+    property alias txtECEFVectorVelocityZ: txtECEFVectorVelocityZ.value
+
+    property alias txtRollAngle: txtRollAngle.value
+    property alias txtPitchAngle: txtPitchAngle.value
+    property alias txtYawAngle: txtYawAngle.value
+    property alias txtAngularRateRoll: txtAngularRateRoll.value
+    property alias txtAngularRatePitch: txtAngularRatePitch.value
+    property alias txtAngularRateYaw: txtAngularRateYaw.value
+
+    property alias txtNumberOfGPSSatellite: txtNumberOfGPSSatellite.value
+
+    property alias txtAnemCommErrorCounter: txtAnemCommErrorCounter.value
+    property alias txtRDAltCommErrorCounter: txtRDAltCommErrorCounter.value
+    property alias txtGNSSCommErrorCounter: txtGNSSCommErrorCounter.value
+    property alias txtPLAltCommErrorCounter: txtPLAltCommErrorCounter.value
+
+    property alias telemetryLight0: telemetryLight0
+    property alias telemetryLight31: telemetryLight31
+    property alias telemetryLight30: telemetryLight30
+    property alias telemetryLight29: telemetryLight29
+    property alias telemetryLight28: telemetryLight28
+    property alias telemetryLight27: telemetryLight27
+    property alias telemetryLight26: telemetryLight26
+    property alias telemetryLight25: telemetryLight25
+    property alias telemetryLight24: telemetryLight24
+    property alias telemetryLight23: telemetryLight23
+    property alias telemetryLight22: telemetryLight22
+    property alias telemetryLight21: telemetryLight21
+    property alias telemetryLight20: telemetryLight20
+    property alias telemetryLight19: telemetryLight19
+    property alias telemetryLight18: telemetryLight18
+    property alias telemetryLight17: telemetryLight17
+    property alias telemetryLight16: telemetryLight16
+    property alias telemetryLight15: telemetryLight15
+    property alias telemetryLight14: telemetryLight14
+    property alias telemetryLight13: telemetryLight13
+    property alias telemetryLight12: telemetryLight12
+    property alias telemetryLight11: telemetryLight11
+    property alias telemetryLight10: telemetryLight10
+    property alias telemetryLight9: telemetryLight9
+    property alias telemetryLight8: telemetryLight8
+    property alias telemetryLight7: telemetryLight7
+    property alias telemetryLight6: telemetryLight6
+    property alias telemetryLight5: telemetryLight5
+    property alias telemetryLight4: telemetryLight4
+    property alias telemetryLight3: telemetryLight3
+    property alias telemetryLight2: telemetryLight2
+    property alias telemetryLight1: telemetryLight1
+
 Column{
     anchors.fill:parent
     anchors.margins:24
