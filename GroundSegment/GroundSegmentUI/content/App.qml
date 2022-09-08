@@ -240,7 +240,8 @@ Window {
         gsParams.txtminuteGPSData:    gpsData.minute
         gsParams.txtsecondGPSData:    gpsData.second
 
-
+        gsParams.txtRLHeartbeatCounter: hmi.RLHeartbeatCounter
+        gsParams.txtRadioLinkErrorCounter: hmi.RLErrorCounter
     }
 
     function timestampToUTCDate(number){

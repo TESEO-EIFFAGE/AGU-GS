@@ -42,7 +42,12 @@ public:
     Q_PROPERTY(double Quaternion1 MEMBER m_Quaternion1 NOTIFY Quaternion1Changed)
     Q_PROPERTY(double Quaternion2 MEMBER m_Quaternion2 NOTIFY Quaternion2Changed)
     Q_PROPERTY(double Quaternion3 MEMBER m_Quaternion3 NOTIFY Quaternion3Changed)
+
+    Q_PROPERTY(int RLErrorCounter MEMBER m_BRLErrorCounter NOTIFY RLErrorCounterChanged)
+    Q_PROPERTY(int RLHeartbeatCounter MEMBER m_RLHeartbeatCounter NOTIFY RLHeartbeatCounterChanged)
+
     Q_PROPERTY(int NumberOfGPSSatellite MEMBER m_NumberOfGPSSatellite NOTIFY NumberOfGPSSatelliteChanged)
+
 
     Q_PROPERTY(int AnemCommErrorCounter MEMBER m_AnemCommErrorCounter NOTIFY AnemCommErrorCounterChanged)
     Q_PROPERTY(int RDAltCommErrorCounter MEMBER m_RDAltCommErrorCounter NOTIFY RDAltCommErrorCounterChanged)
@@ -523,6 +528,10 @@ signals:
 
     void gnssFoundChanged();
 
+    void RLErrorCounterChanged();
+
+    void RLHeartbeatCounterChanged();
+
 private:
 
     uint64_t m_TimeStamp{};
@@ -696,6 +705,8 @@ private:
     bool m_BMS30;
     bool m_BMS31;
     bool m_gnssFound;
+    int m_RLErrorCounter;
+    int m_RLHeartbeatCounter;
 };
 
 #endif // HMI_H
