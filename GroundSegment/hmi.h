@@ -43,7 +43,7 @@ public:
     Q_PROPERTY(double Quaternion2 MEMBER m_Quaternion2 NOTIFY Quaternion2Changed)
     Q_PROPERTY(double Quaternion3 MEMBER m_Quaternion3 NOTIFY Quaternion3Changed)
 
-    Q_PROPERTY(int RLErrorCounter MEMBER m_BRLErrorCounter NOTIFY RLErrorCounterChanged)
+    Q_PROPERTY(int RLErrorCounter MEMBER m_RLErrorCounter NOTIFY RLErrorCounterChanged)
     Q_PROPERTY(int RLHeartbeatCounter MEMBER m_RLHeartbeatCounter NOTIFY RLHeartbeatCounterChanged)
 
     Q_PROPERTY(int NumberOfGPSSatellite MEMBER m_NumberOfGPSSatellite NOTIFY NumberOfGPSSatelliteChanged)
