@@ -30,6 +30,14 @@ int main(int argc, char *argv[])
     //QApplication a(argc, argv);
     //MainWindow w;
 
+    QSettings settings ("/home/AGU/QtSoftware/Agu/GroundSegment/myInit.ini", QSettings::IniFormat);
+    QStringList childKeys = settings.childKeys();
+    foreach (const QString &childKey, childKeys)
+    {
+        qInfo() << "----- VALUE ------- " << settings.value(childKey).toInt();  /*estraggo il valore numerico*/
+        qInfo() << QVariant(childKey).toString();  /*estraggo nome del parametro*/
+    }
+
     QByteArray data  = "FD77000000FFAA000011"
                        "000102030405060708090A0B0C0D0E0F"   /*  P  */
                        "000102030405060708090A0B0C0D0E0F"   /*  A  */
@@ -71,6 +79,7 @@ int main(int argc, char *argv[])
     auto gsCore = new GSCore(&app);
     auto hmi = gsCore->hmi();
     auto gpsData = gsCore->gpsData();
+
     engine.rootContext()->setContextProperty("hmi", hmi);
     engine.rootContext()->setContextProperty("gpsData", gpsData);
 
