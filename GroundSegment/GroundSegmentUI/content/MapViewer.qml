@@ -44,12 +44,12 @@ Item{
                  value: ":/Offline_tiles/"
             }
         }
-        center: hasGps ? QtPositioning.coordinate(gpsData.longitude, gpsData.latitude) : QtPositioning.coordinate(customCursor.longitude, customCursor.latitude)
+        center: hasGps ? QtPositioning.coordinate(gpsData.latitude, gpsData.longitude) : QtPositioning.coordinate(customCursor.longitude, customCursor.latitude)
         zoomLevel: mapviewer.zoomLevel
 
         MapQuickItem {
             id: gpsCursor
-            sourceItem: Rectangle { width: 20; height: 20; color: "red"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
+            sourceItem: Rectangle { width: 20; height: 20; color: "purple"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
             coordinate : QtPositioning.coordinate(gpsData.latitude, gpsData.longitude)
             opacity: 1.0
             anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
