@@ -35,8 +35,8 @@ Rectangle {
         columnSpacing: 16
         rowSpacing: 12
         flow: Grid.TopToBottom
-        columns: 6
-        rows: 4
+        columns: 4
+        rows: 6
 
         StatusLight {
             id: storageLight0
