@@ -10,14 +10,13 @@ Item{
     id: mapviewer
     property bool hasGps: gpsData.hasFix
     property int zoomLevel: 1//0
-    //width: Qt.platform.os =ss= "android" ? Screen.width : 512
-    //height: Qt.platform.os == "android" ? Screen.height : 512
+
     visible: true
 
 
-    GPSData {
-       id: gpsData
-    }
+//    GPSData {
+//       id: gpsData
+//    }
     GroundControlStation {
         id: groundControlStation
     }
@@ -42,7 +41,7 @@ Item{
         MapQuickItem {
             id: gpsCursor
             sourceItem: Rectangle { width: 20; height: 20; color: "red"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
-            coordinate : QtPositioning.coordinate(gpsData.longitude, gpsData.latitude)
+            coordinate : QtPositioning.coordinate(gpsData.latitude, gpsData.longitude)
             opacity: 1.0
             anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
             visible: gpsData.hasFix
