@@ -9,7 +9,6 @@
 
 typedef struct
 {
-   /*SYSTEM STATUS PACK DATASET*/
     bool FixGPSTime;
     int  DeltaGPSTimefromSystemTime;
 }GPSTimePack;
