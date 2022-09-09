@@ -4,6 +4,7 @@
 #include <GPSData.h>
 #include <QtSerialPort/QtSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
+#include "storage.h"
 
 //class HMI;
 
@@ -18,10 +19,12 @@ public:
     QSerialPort *Serial1;
     uint64_t TimeStampToHMI;
     qint8 Counter;
+    bool FlagDeltaTime = false;
     HMI* hmi();
     void setHmi(HMI*);
     GPSData* gpsData();
     void setGpsData(GPSData*);
+    void SetFixOfTime(Storage *s);
 
 signals:
     void DataIsRead (QByteArray data);

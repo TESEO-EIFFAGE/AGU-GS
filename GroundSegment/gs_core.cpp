@@ -15,7 +15,6 @@ GSCore::GSCore(QObject *parent)
     setHmi(new HMI(this));
     setGpsData(new GPSData(this));
 
-
     //Serial1 PORTA CHE RICEVE
     Serial1->setPortName("/dev/ttyUSB1");
     Serial1->setParity(QSerialPort::NoParity);
@@ -50,6 +49,51 @@ GSCore::GSCore(QObject *parent)
     GSCore::connect(timer, &QTimer::timeout, this, [this](){ emit work_is_down(); });
     GSCore::connect(this, SIGNAL(work_is_down()), this, SLOT(WriteHartBeat()));
     timer->start(1000);
+
+    QTimer *timerHasFix = new QTimer(this);
+    GSCore::connect(timer, &QTimer::timeout, this, [StorageData, this](){SetFixOfTime(StorageData);});
+    timerHasFix->start(1000);
+}
+
+
+void GSCore::SetFixOfTime(Storage *s)
+{
+    if (m_gpsData->hasFix() == true)
+    {
+       QDate d,j;
+       unsigned long milliseconds_since_epoch;
+
+       s->GPS.FixGPSTime = true;
+
+       d = j.currentDate();
+       int y = d.year();
+       int mm = d.month();
+       int day = d.day();
+       QDate date(y, mm, day);
+       QTime time(m_gpsData->hour(), m_gpsData->minute(), m_gpsData->second());
+       QDateTime localTime = QDateTime(date, time, Qt::UTC);
+       milliseconds_since_epoch = localTime.toUTC().toMSecsSinceEpoch();
+
+
+       if (FlagDeltaTime == false)
+       {
+           s->GPS.DeltaGPSTimefromSystemTime =   std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()
+                                               - milliseconds_since_epoch;
+
+           qInfo () << " --------- DELTA = " << s->GPS.DeltaGPSTimefromSystemTime;
+
+           FlagDeltaTime = true;
+       }
+
+    }
+    else
+    {
+       s->GPS.FixGPSTime = false;
+       FlagDeltaTime == false;
+    }
+
+    qInfo() << "------ sono in  SetFixOfTime "  ;
+
 }
 
 GSCore::~GSCore()

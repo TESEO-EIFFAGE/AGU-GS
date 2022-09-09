@@ -1,8 +1,8 @@
-#include "storage.h"
+    #include "storage.h"
 
 Storage::Storage(QObject *parent) : QObject(parent)
 {
-
+     InitFixGPSTime();
 }
 
 Storage::~Storage()
@@ -101,6 +101,11 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 
     milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
+    if (GPS.FixGPSTime == true)
+    {
+        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+    }
+
     NewPathName.append("_CORE_Log.csv");
 
     if (CountS == false)
@@ -112,7 +117,7 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
     QFile file(PathSystemStatus);
     QTextStream out(&file);
 
-    if (file.size() < 3000)
+    if (file.size() < 300000)
     {
         if (file.size() > 0)
         {
@@ -222,6 +227,11 @@ void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
 
     milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
+    if (GPS.FixGPSTime == true)
+    {
+        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+    }
+
     NewPathName.append("_MSTP_Log.csv");
 
     if (CountM == false)
@@ -233,7 +243,7 @@ void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
     QFile file(PathMotor);
     QTextStream out(&file);
 
-    if (file.size() < 3000)
+    if (file.size() < 300000)
     {
         if (file.size() > 0)
         {
@@ -333,6 +343,11 @@ void Storage::StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r)
 
     milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
+    if (GPS.FixGPSTime == true)
+    {
+        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+    }
+
     NewPathName.append("_RL_Log.csv");
 
     if (CountR == false)
@@ -344,7 +359,7 @@ void Storage::StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r)
     QFile file(PathRadioLink);
     QTextStream out(&file);
 
-    if (file.size() < 3000)
+    if (file.size() < 300000)
     {
         if (file.size() > 0)
         {
@@ -392,6 +407,11 @@ void Storage::StoreDataInMemoryStorageStatusPack(StorageStatusPack *st)
 
     milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
+    if (GPS.FixGPSTime == true)
+    {
+        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+    }
+
     NewPathName.append("_STR_Log.csv");
 
     if (CountST == false)
@@ -403,7 +423,7 @@ void Storage::StoreDataInMemoryStorageStatusPack(StorageStatusPack *st)
     QFile file(PathStorageStatus);
     QTextStream out(&file);
 
-    if (file.size() < 3000)
+    if (file.size() < 300000)
     {
         if (file.size() > 0)
         {
@@ -451,6 +471,11 @@ void Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g)
 
     milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
+    if (GPS.FixGPSTime == true)
+    {
+        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+    }
+
     NewPathName.append("_GUID_Log.csv");
 
     if (CountG == false)
@@ -462,7 +487,7 @@ void Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g)
     QFile file(PathGuidance);
     QTextStream out(&file);
 
-    if (file.size() < 3000)
+    if (file.size() < 300000)
     {
         if (file.size() > 0)
         {
@@ -499,6 +524,11 @@ void Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g)
     }
 }
 
+void Storage::InitFixGPSTime()
+{
+    GPS.FixGPSTime = false;
+}
+
 
 void Storage::StoreDataInMemory(Telemetry *t)
 {
@@ -506,6 +536,11 @@ void Storage::StoreDataInMemory(Telemetry *t)
     unsigned long milliseconds_since_epoch;
 
     milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+
+    if (GPS.FixGPSTime == true)
+    {
+        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+    }
 
     NewPathName.append("_TLM_Log.csv");
 
@@ -518,7 +553,7 @@ void Storage::StoreDataInMemory(Telemetry *t)
     QFile file(PathTelemetry);
     QTextStream out(&file);
 
-    if (file.size() < 3000  )
+    if (file.size() < 300000)
     {
         if (file.size() > 0)
         {

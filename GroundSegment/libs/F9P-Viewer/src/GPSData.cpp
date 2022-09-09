@@ -35,8 +35,8 @@ void GPSData::UpdateData() {
 
     // We use the setters because they emit a signal
     // so that the UI gets refreshed
-    setLongitude(gnss_info[0]);
-    setLatitude(gnss_info[1]);
+    setLongitude(gnss_info[1]);
+    setLatitude(gnss_info[0]);
     setAltitude(gnss_info[2]);
     setHasFix(hasFix == 1);
     setSecond(m_gnss->getTimestamp().sec);

@@ -4,6 +4,15 @@
 #include <QTextStream>
 #include <QFileInfo>
 #include "mavlinkprotocol.h"
+#include "GPSData.h"
+
+
+typedef struct
+{
+    bool FixGPSTime;
+    int  DeltaGPSTimefromSystemTime;
+}GPSTimePack;
+Q_DECLARE_METATYPE(GPSTimePack);
 
 class Storage : public QObject
 {
@@ -20,6 +29,7 @@ public:
     bool CountST = 0;
     bool CountG = 0;
     QString PathSystemStatus, PathTelemetry, PathMotor, PathRadioLink, PathStorageStatus, PathGuidance;
+    GPSTimePack GPS;
 
 public slots:
     void StoreDataInMemory(Telemetry *t);
@@ -28,6 +38,7 @@ public slots:
     void StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r);
     void StoreDataInMemoryStorageStatusPack(StorageStatusPack *st);
     void StoreDataInMemoryGuidance(GuidancePackDataset *g);
+    void InitFixGPSTime(void);
 };
 
 #endif // STORAGE_H
