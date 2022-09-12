@@ -60,11 +60,10 @@ Rectangle {
             spacing: 12
 
             //48
-            Row {
-                Layout.alignment: Qt.AlignTop
-                Column {
-                    spacing: 32
-                    width: 40
+            Column {
+                spacing: 8
+                Row {
+                    spacing: 8
                     Image {
                         x: 3
                         y: 0
@@ -76,119 +75,113 @@ Rectangle {
 
                     ParamGrp1Label {
                         text: "GNSS"
-                        transform: Rotation {
-                            angle: 90
-                            origin.x: 25
-                        }
+                        anchors.verticalCenter: parent.verticalCenter
                     }
                 }
-                Column {
-                    spacing: 8
 
+                ParamRow {
+                    text: "Latitude"
+                    span: 4
+                    id: txtLatitudeGPSData
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+                ParamRow {
+                    text: "Longitude"
+                    span: 4
+                    id: txtLongitudeGPSData
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+                ParamRow {
+                    text: "Altitude"
+                    span: 4
+                    id: txtAltitudeGPSData
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+                ParamRow {
+                    text: "HasFix"
+                    span: 4
+                    id: txtHasFix
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+
+                Row {
+                    spacing: 4
                     ParamRow {
-                        text: "Latitude"
+                        text: "Time"
                         span: 4
-                        id: txtLatitudeGPSData
+                        id: txtHourGPSData
                         ToolTip.text: text
                         ToolTip.visible: pressed
                     }
                     ParamRow {
-                        text: "Longitude"
-                        span: 4
-                        id: txtLongitudeGPSData
-                        ToolTip.text: text
-                        ToolTip.visible: pressed
+                        text: ":"
+                        span: 0.5
+                        id: txtminuteGPSData
                     }
                     ParamRow {
-                        text: "Altitude"
-                        span: 4
-                        id: txtAltitudeGPSData
-                        ToolTip.text: text
-                        ToolTip.visible: pressed
+                        text: ":"
+                        span: 0.5
+                        id: txtsecondGPSData
                     }
-                    ParamRow {
-                        text: "HasFix"
-                        span: 4
-                        id: txtHasFix
-                        ToolTip.text: text
-                        ToolTip.visible: pressed
+                }
+                Row {
+                    Text {
+                        text: "Manual coordinates"
+                        anchors.verticalCenter: parent.verticalCenter
                     }
 
-                    Row {
+                    Switch {
+                        id: gnssSwitch
+                        height: 24
+                    }
+                }
+                Rectangle {
+                    visible: gnssSwitch.checked
+                    width: parent.width //childrenRect.width
+                    height: 72 //childrenRect.height
+                    color: "transparent"
+                    Column {
+                        anchors.fill: parent
                         spacing: 4
-                        ParamRow {
-                            text: "Time"
-                            span: 4
-                            id: txtHourGPSData
-                            ToolTip.text: text
-                            ToolTip.visible: pressed
-                        }
-                        ParamRow {
-                            text: ":"
-                            span: 0.5
-                            id: txtminuteGPSData
-                        }
-                        ParamRow {
-                            text: ":"
-                            span: 0.5
-                            id: txtsecondGPSData
-                        }
-                    }
-                    Row {
-                        Text {
-                            text: "Manual coordinates"
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
 
-                        Switch {
-                            id: gnssSwitch
-                            height: 24
-                        }
-                    }
-                    Rectangle {
-                        visible: gnssSwitch.checked
-                        width: parent.width //childrenRect.width
-                        height: 72 //childrenRect.height
-                        color: "transparent"
-                        Column {
-                            anchors.fill: parent
-                            spacing: 4
-
-                            Row {
-                                //anchors.horizontalCenter: parent.horizontalCenter
-                                Text {
-                                    id: latitudeLabel
-                                    text: "Latitude: "
-                                    //font.pointSize: 11
-                                    width: 72
-                                    anchors.verticalCenter: parent.verticalCenter
-                                }
-
-                                TextField {
-                                    height: 24
-                                    width: 120
-                                    placeholderText: qsTr("Latitude  ...")
-                                    onEditingFinished: text !== "" ? params.latitude = text : params.latitudeIsSet = false
-                                }
+                        Row {
+                            //anchors.horizontalCenter: parent.horizontalCenter
+                            Text {
+                                id: latitudeLabel
+                                text: "Latitude: "
+                                //font.pointSize: 11
+                                width: 72
+                                anchors.verticalCenter: parent.verticalCenter
                             }
-                            Row {
 
-                                //anchors.horizontalCenter: parent.horizontalCenter
-                                Text {
-                                    id: longitudeLabel
-                                    text: "Longitude: "
-                                    //font.pointSize: 11
-                                    width: 72
-                                    anchors.verticalCenter: parent.verticalCenter
-                                }
+                            TextField {
+                                height: 24
+                                width: 120
+                                placeholderText: qsTr("Latitude  ...")
+                                onEditingFinished: text !== "" ? params.latitude = text : params.latitudeIsSet = false
+                            }
+                        }
+                        Row {
 
-                                TextField {
-                                    height: 24
-                                    width: 120
-                                    placeholderText: qsTr("Longitude ...")
+                            //anchors.horizontalCenter: parent.horizontalCenter
+                            Text {
+                                id: longitudeLabel
+                                text: "Longitude: "
+                                //font.pointSize: 11
+                                width: 72
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
 
-                                    onEditingFinished: text !== "" ? params.longitude = text : params.longitudeIsSet = false
-                                }
+                            TextField {
+                                height: 24
+                                width: 120
+                                placeholderText: qsTr("Longitude ...")
+
+                                onEditingFinished: text !== "" ? params.longitude = text : params.longitudeIsSet = false
                             }
                         }
                     }
@@ -203,10 +196,12 @@ Rectangle {
             //            Layout.preferredHeight: 1
             //            Layout.fillWidth: true
             //        }
-            Row {
-                Column {
+            Column {
+                spacing: 8
+                Row {
 
-                    spacing: 32
+                    spacing: 8
+
                     width: 40
                     Image {
                         x: 3
@@ -219,71 +214,61 @@ Rectangle {
 
                     ParamGrp1Label {
                         text: "Radio Link"
-                        transform: Rotation {
-                            angle: 90
-                            origin.x: 25
-                        }
+                        anchors.verticalCenter: parent.verticalCenter
                     }
                 }
-
-                Column {
-                    spacing: 8
-                    StatusLight {
-                        id: radioLinkLight0
-                        text: "RS232 HW failure"
-                    }
-
-                    StatusLight {
-                        id: radioLinkLight1
-                        text: "USB to V-COM failure"
-                    }
-
-                    StatusLight {
-                        id: radioLinkLight2
-                        text: "Radio link monitor comm error"
-                    }
-
-                    StatusLight {
-                        id: radioLinkLight3
-                        text: "RSSI value invalid"
-                    }
-
-                    StatusLight {
-                        id: radioLinkLight8
-                        text: "Heartbeat timeout error"
-                    }
-
-                    StatusLight {
-                        id: radioLinkLight9
-                        text: "Heartbeat checksum error"
-                    }
-                    ParamRow {
-                        id: txtRLHeartbeatCounter
-                        text: "Heartbeat counter"
-                        span: 6
-                        ToolTip.text: text
-                        ToolTip.visible: pressed
-                    }
-                    ParamRow {
-                        id: txtRadioLinkErrorCounter
-                        text: "Error counter"
-                        span: 4
-                        ToolTip.text: text
-                        ToolTip.visible: pressed
-                    }
+                StatusLight {
+                    id: radioLinkLight0
+                    text: "RS232 HW failure"
                 }
-                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-            }
 
-            Item {
-                Layout.fillWidth: true
+                StatusLight {
+                    id: radioLinkLight1
+                    text: "USB to V-COM failure"
+                }
+
+                StatusLight {
+                    id: radioLinkLight2
+                    text: "Monitor comm error"
+                }
+
+                StatusLight {
+                    id: radioLinkLight3
+                    text: "RSSI value invalid"
+                }
+
+                StatusLight {
+                    id: radioLinkLight8
+                    text: "Heartbeat timeout error"
+                }
+
+                StatusLight {
+                    id: radioLinkLight9
+                    text: "Heartbeat checksum error"
+                }
+                ParamRow {
+                    id: txtRLHeartbeatCounter
+                    text: "Heartbeat counter"
+                    span: 6
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+                ParamRow {
+                    id: txtRadioLinkErrorCounter
+                    text: "Error counter"
+                    span: 4
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
             }
+            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
         }
+
         Item {
-            Layout.fillHeight: true
+            Layout.fillWidth: true
         }
     }
+    Item {
+        Layout.fillHeight: true
+    }
 }
-
-
-
