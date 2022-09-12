@@ -43,6 +43,113 @@ Window {
         id: mainScreen
         anchors.fill:parent
 
+        fsParams.telemetryTab.lit: hmi.telemetry0
+                                   || hmi.telemetry31
+                                   || hmi.telemetry30
+                                   || hmi.telemetry29
+                                   || hmi.telemetry28
+                                   || hmi.telemetry27
+                                   || hmi.telemetry26
+                                   || hmi.telemetry25
+                                   || hmi.telemetry24
+                                   || hmi.telemetry23
+                                   || hmi.telemetry22
+                                   || hmi.telemetry21
+                                   || hmi.telemetry20
+                                   || hmi.telemetry19
+                                   || hmi.telemetry18
+                                   || hmi.telemetry17
+                                   || hmi.telemetry16
+                                   || hmi.telemetry15
+                                   || hmi.telemetry14
+                                   || hmi.telemetry13
+                                   || hmi.telemetry12
+                                   || hmi.telemetry11
+                                   || hmi.telemetry10
+                                   || hmi.telemetry9
+                                   || hmi.telemetry8
+                                   || hmi.telemetry7
+                                   || hmi.telemetry6
+                                   || hmi.telemetry5
+                                   || hmi.telemetry4
+                                   || hmi.telemetry3
+                                   || hmi.telemetry2
+                                   || hmi.telemetry1
+
+        fsParams.storageTab.lit: hmi.storage0
+                                 || hmi.storage23
+                                 || hmi.storage22
+                                 || hmi.storage21
+                                 || hmi.storage20
+                                 || hmi.storage19
+                                 || hmi.storage18
+                                 || hmi.storage17
+                                 || hmi.storage16
+                                 || hmi.storage15
+                                 || hmi.storage14
+                                 || hmi.storage13
+                                 || hmi.storage12
+                                 || hmi.storage11
+                                 || hmi.storage10
+                                 || hmi.storage9
+                                 || hmi.storage8
+                                 || hmi.storage7
+                                 || hmi.storage6
+                                 || hmi.storage5
+                                 || hmi.storage4
+                                 || hmi.storage3
+                                 || hmi.storage2
+                                 || hmi.storage1
+
+        fsParams.motorsBMSTab.lit: hmi.BMS0
+                                   || hmi.BMS31
+                                   || hmi.BMS30
+                                   || hmi.BMS29
+                                   || hmi.BMS28
+                                   || hmi.BMS27
+                                   || hmi.BMS26
+                                   || hmi.BMS25
+                                   || hmi.BMS24
+                                   || hmi.BMS23
+                                   || hmi.BMS22
+                                   || hmi.BMS21
+                                   || hmi.BMS20
+                                   || hmi.BMS19
+                                   || hmi.BMS18
+                                   || hmi.BMS17
+                                   || hmi.BMS16
+                                   || hmi.BMS15
+                                   || hmi.BMS14
+                                   || hmi.BMS13
+                                   || hmi.BMS12
+                                   || hmi.BMS11
+                                   || hmi.BMS10
+                                   || hmi.BMS9
+                                   || hmi.BMS8
+                                   || hmi.BMS7
+                                   || hmi.BMS6
+                                   || hmi.BMS5
+                                   || hmi.BMS4
+                                   || hmi.BMS3
+                                   || hmi.BMS2
+                                   || hmi.BMS1
+                                   || hmi.motor23
+                                   || hmi.motor22
+                                   || hmi.motor21
+                                   || hmi.motor15
+                                   || hmi.motor14
+                                   || hmi.motor13
+                                   || hmi.motor12
+                                   || hmi.motor9
+                                   || hmi.motor8
+                                   || hmi.motor7
+                                   || hmi.motor6
+                                   || hmi.motor5
+                                   || hmi.motor4
+                                   || hmi.motor3
+                                   || hmi.motor2
+                                   || hmi.motor1
+                                   || hmi.motor0
 
         fsParams.txtTimeStampRIO: timestampToUTCDate(hmi.TimeStampRIO)
         fsParams.txtLatitude: hmi.Latitude.toFixed(7)
@@ -205,17 +312,17 @@ Window {
         fsParams.motorLight23.up: hmi.motor23
         fsParams.motorLight22.up: hmi.motor22
         fsParams.motorLight21.up: hmi.motor21
-//        fsParams.motorLight20.up: hmi.motor20
-//        fsParams.motorLight19.up: hmi.motor19
-//        fsParams.motorLight18.up: hmi.motor18
-//        fsParams.motorLight17.up: hmi.motor17
-//        fsParams.motorLight16.up: hmi.motor16
+        //        fsParams.motorLight20.up: hmi.motor20
+        //        fsParams.motorLight19.up: hmi.motor19
+        //        fsParams.motorLight18.up: hmi.motor18
+        //        fsParams.motorLight17.up: hmi.motor17
+        //        fsParams.motorLight16.up: hmi.motor16
         fsParams.motorLight15.up: hmi.motor15
         fsParams.motorLight14.up: hmi.motor14
         fsParams.motorLight13.up: hmi.motor13
         fsParams.motorLight12.up: hmi.motor12
-//        fsParams.motorLight11.up: hmi.motor11
-//        fsParams.motorLight10.up: hmi.motor10
+        //        fsParams.motorLight11.up: hmi.motor11
+        //        fsParams.motorLight10.up: hmi.motor10
         fsParams.motorLight8.up: hmi.motor8
         fsParams.motorLight7.up: hmi.motor7
         fsParams.motorLight6.up: hmi.motor6

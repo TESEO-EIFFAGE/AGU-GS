@@ -9,6 +9,10 @@ Rectangle {
 
     property int tabIndex: 0
 
+    property alias telemetryTab: telemetryTab
+    property alias storageTab: storageTab
+    property alias motorsBMSTab: motorsBMSTab
+
     property alias txtTimeStampRIO: txtTimeStampRIO.value
     property alias txtLatitude: telemetryTab.txtLatitude
     property alias txtLongitude: telemetryTab.txtLongitude
