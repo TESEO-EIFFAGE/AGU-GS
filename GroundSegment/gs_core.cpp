@@ -103,6 +103,7 @@ void GSCore::SetFixOfTime(Storage *s)
 
 int GSCore::SetInitParameter(QString str)
 {
+     int defaultValue = 50000;
      QSettings settings ("/home/AGU/QtSoftware/Agu/GroundSegment/myInit.ini", QSettings::IniFormat);
      QStringList childKeys = settings.childKeys();
      foreach (const QString &childKey, childKeys)
@@ -111,6 +112,8 @@ int GSCore::SetInitParameter(QString str)
          //qInfo() << QVariant(childKey).toString();  /*estraggo nome del parametro*/
          if (str.compare(QVariant(childKey).toString()) != 0) return settings.value(childKey).toInt();
      }
+
+     return defaultValue;
 }
 
 GSCore::~GSCore()
