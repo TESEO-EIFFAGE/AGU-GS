@@ -7,6 +7,8 @@ import "controls"
 Rectangle {
     color:"transparent"
 
+    property bool lit
+
     property alias txtLatitude: txtLatitude.value
     property alias txtLongitude: txtLongitude.value
     property alias txtGNSSAltitude: txtGNSSAltitude.value

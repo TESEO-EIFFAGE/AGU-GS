@@ -6,6 +6,9 @@ import "controls"
 
 Rectangle {
     color:"transparent"
+
+    property bool lit
+
     property alias storageLight23: storageLight23
     property alias storageLight22: storageLight22
     property alias storageLight21: storageLight21

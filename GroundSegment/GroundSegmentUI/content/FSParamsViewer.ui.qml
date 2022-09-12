@@ -69,6 +69,7 @@ Rectangle {
     width: Constants.width / 2 //750 //C
     height: Constants.height //667 //
     color: "#ffffff"
+    border.color: "#ffffff"
     property alias telemetryLight0: telemetryTab.telemetryLight0
     property alias telemetryLight31: telemetryTab.telemetryLight31
     property alias telemetryLight30: telemetryTab.telemetryLight30
@@ -220,7 +221,7 @@ Rectangle {
                 spacing: 16 //24
                 Rectangle {
                     radius: 8
-                    Layout.preferredHeight: 120
+                    Layout.preferredHeight: 140
                     Layout.preferredWidth: 60 //40
 
                     border.width: 0
@@ -232,7 +233,7 @@ Rectangle {
                         anchors.margins: 8
                         spacing: 32
                         width: 40
-                        height: 120
+                        height: 140
                         Image {
                             //anchors.horizontalCenter: parent.horizontalCenter
                             source: "images/svgs/solid/triangle-exclamation.svg"
@@ -249,6 +250,14 @@ Rectangle {
                                 origin.x: 25
                             }
                         }
+                        Rectangle {
+                            anchors.left: parent.left
+                            anchors.leftMargin: 3
+                            width: 16
+                            height: 16
+                            color: telemetryTab.lit ? "#ff0000" : "#b1b1b1"
+                            radius: 8
+                        }
                     }
                     MouseArea {
                         id: mouseAreaGNSS
@@ -264,7 +273,7 @@ Rectangle {
                 }
                 Rectangle {
                     radius: 8
-                    Layout.preferredHeight: 150
+                    Layout.preferredHeight: 170
                     Layout.preferredWidth: 60 //40
                     color: params.tabIndex === 1 ? "#F5F5F5" : "#E0E0E0"
                     border.width: 0
@@ -275,7 +284,7 @@ Rectangle {
                         anchors.margins: 8
                         spacing: 32
                         width: 40
-                        height: 150
+                        height: 170
                         Image {
                             //anchors.horizontalCenter: parent.horizontalCenter
                             source: "images/svgs/solid/gear.svg"
@@ -286,11 +295,22 @@ Rectangle {
 
                         ParamGrp1Label {
                             x: -3
+
                             text: "Motors & BMS"
                             transform: Rotation {
                                 angle: 90
                                 origin.x: 25
                             }
+                        }
+
+                        Rectangle {
+                            anchors.left: parent.left
+                            anchors.leftMargin: 3
+                            y: 20
+                            width: 16
+                            height: 16
+                            color: motorsBMSTab.lit ? "#ff0000" : "#b1b1b1"
+                            radius: 8
                         }
                     }
                     MouseArea {
@@ -334,6 +354,14 @@ Rectangle {
                                 angle: 90
                                 origin.x: 25
                             }
+                        }
+                        Rectangle {
+                            anchors.left: parent.left
+                            anchors.leftMargin: 3
+                            width: 16
+                            height: 16
+                            color: storageTab.lit ? "#ff0000" : "#b1b1b1"
+                            radius: 8
                         }
                     }
                     MouseArea {
@@ -396,7 +424,9 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;height:1080;width:1600}
+    D{i:0;height:1080;width:1600}D{i:3}D{i:4}D{i:2}D{i:9}D{i:10}D{i:12}D{i:8}D{i:14}D{i:13}
+D{i:7}D{i:17}D{i:18}D{i:20}D{i:16}D{i:22}D{i:21}D{i:15}D{i:25}D{i:26}D{i:28}D{i:24}
+D{i:30}D{i:29}D{i:23}D{i:6}D{i:33}D{i:34}D{i:35}D{i:32}D{i:31}D{i:5}D{i:1}D{i:36}
 }
 ##^##*/
 

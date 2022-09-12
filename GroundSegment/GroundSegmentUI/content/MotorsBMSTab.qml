@@ -7,6 +7,8 @@ import "controls"
 Rectangle {
     color:"transparent"
 
+    property bool lit
+
     property alias txtMotorARealPosition: txtMotorARealPosition.value
     property alias txtMotorADemandPosition: txtMotorADemandPosition.value
     property alias txtMotorATorque: txtMotorATorque.value
