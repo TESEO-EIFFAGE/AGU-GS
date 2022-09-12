@@ -209,10 +209,10 @@ Rectangle {
         RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            spacing: 0
+            spacing: -20
             ColumnLayout {
-                //x: 12
-                Layout.alignment: Qt.AlignTop
+
+                Layout.alignment: Qt.AlignTop | Qt.AlignLeft
                 Layout.preferredWidth: 10
                 Layout.fillHeight: true
                 //width: 30
@@ -349,8 +349,11 @@ Rectangle {
                 }
             }
             Rectangle {
+                x: -10
+                Layout.alignment: Qt.AlignTop | Qt.AlignLeft
+
                 color: "#f5f5f5"
-                x: 40
+                //x: 40
                 //z:-1
                 radius: 8
                 Layout.fillWidth: true
@@ -393,8 +396,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;height:1080;width:1600}D{i:3}D{i:4}D{i:2}D{i:7}D{i:14}D{i:21}D{i:6}D{i:30}D{i:31}
-D{i:32}D{i:29}D{i:28}D{i:5}D{i:1}D{i:33}
+    D{i:0;height:1080;width:1600}
 }
 ##^##*/
 
