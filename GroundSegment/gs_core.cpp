@@ -108,9 +108,10 @@ int GSCore::SetInitParameter(QString str)
      QStringList childKeys = settings.childKeys();
      foreach (const QString &childKey, childKeys)
      {
-         //qInfo() << "----- VALUE ------- " << settings.value(childKey).toInt();  /*estraggo il valore numerico*/
-         //qInfo() << QVariant(childKey).toString();  /*estraggo nome del parametro*/
-         if (str.compare(QVariant(childKey).toString()) != 0) return settings.value(childKey).toInt();
+         qInfo() << str;
+         qInfo() << "----- VALUE ------- " << settings.value(childKey).toInt();  /*estraggo il valore numerico*/
+         qInfo() << QVariant(childKey).toString();  /*estraggo nome del parametro*/
+         if (str.compare(QVariant(childKey).toString()) == 0) return settings.value(childKey).toInt();
      }
 
      return defaultValue;
