@@ -3,8 +3,7 @@
 
 QMAKE_CFLAGS += -std=gnu11
 
-INCLUDEPATH += $$PWD/include/mavlink/v2.0 \
-               $$PWD/include/mavlink/v2.0/common
+INCLUDEPATH += $$PWD/include/mavlink/v2.0/AGU/AGU_MAVLINK
 
 SOURCES += simulate_flying_vehicle.c
 
