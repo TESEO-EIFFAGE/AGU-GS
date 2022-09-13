@@ -36,7 +36,7 @@ Rectangle {
 
     ColumnLayout {
         anchors.fill: parent
-        spacing: 20
+        spacing: 24 //20
         anchors.margins: 32
 
         //anchors.leftMargin: 48
@@ -61,6 +61,7 @@ Rectangle {
 
             //48
             Column {
+                Layout.alignment: Qt.AlignTop
                 spacing: 8
                 Row {
                     spacing: 8
@@ -198,6 +199,8 @@ Rectangle {
             //        }
             Column {
                 spacing: 8
+                Layout.alignment: Qt.AlignTop
+
                 Row {
 
                     spacing: 8

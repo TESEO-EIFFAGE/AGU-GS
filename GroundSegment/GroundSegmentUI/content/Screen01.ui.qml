@@ -24,8 +24,8 @@ Rectangle {
     property alias map: map
     GSParamsViewer {
         id: gsParams
-        width: parent.width * 3.3 / 12
-        height: parent.height * 10 / 30
+        width: parent.width * 4 / 12
+        height: parent.height * 11 / 30
         color: "#e9f2de"
         anchors.left: parent.left
         anchors.top: parent.top
@@ -33,15 +33,15 @@ Rectangle {
     MapViewer {
         id: map
         //color: "lightblue"
-        width: parent.width * 3.3 / 12
-        height: parent.height * 20 / 30
+        width: parent.width * 4 / 12
+        height: parent.height * 19 / 30
         anchors.top: gsParams.bottom
         anchors.left: parent.left
     }
 
     FSParamsViewer {
         id: fsParams
-        width: parent.width * 8.7 / 12
+        width: parent.width * 8 / 12
         height: parent.height
         anchors.left: map.right
     }
