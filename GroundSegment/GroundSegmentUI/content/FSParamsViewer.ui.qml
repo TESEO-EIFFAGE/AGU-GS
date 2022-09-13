@@ -350,6 +350,8 @@ Rectangle {
                             width: 24
                             source: "images/svgs/solid/database.svg"
                             fillMode: Image.PreserveAspectFit
+                            sourceSize.height: 24
+                            sourceSize.width: 24
                         }
 
                         ParamGrp1Label {
