@@ -13,7 +13,6 @@ SOURCES += \
     $$PWD/src/CustomCursor.cpp \
     $$PWD/src/GPSData.cpp \
     $$PWD/src/GroundControlStation.cpp \
-    #src/main.cpp\
     $$PWD/src/gps_driver/GPSFix.cpp \
     $$PWD/src/gps_driver/GPSService.cpp \
     $$PWD/src/gps_driver/NMEACommand.cpp \
@@ -38,7 +37,8 @@ HEADERS += \
     $$PWD/headers/mavlink/v2.0/msgmap.hpp \
     $$PWD/headers/mavlink/v2.0/protocol.h\
     $$PWD/headers/mavlink/v2.0/common/* \
-    $$PWD/headers/mavlink/v2.0/minimal/*
+    $$PWD/headers/mavlink/v2.0/minimal/*\
+    $$PWD/headers/mavlink/v2.0/AGU/AGU_MAVLINK/*
 
 
 CONFIG += qmltypes

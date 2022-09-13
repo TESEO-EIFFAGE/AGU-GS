@@ -25,7 +25,7 @@ class PyHALDrotekF9P {
 		try {
 			hal_gps = new SiriusF9P_Rover(port, 9600, READ_GNS | READ_GST);
 			connected = hal_gps->isPortOpen();
-                return connected;
+			return connected;
 		} catch(exception& e) {
 			std::cout << "Exception: " << e.what() << std::endl;
 			return false;
