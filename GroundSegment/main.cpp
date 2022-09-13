@@ -71,6 +71,7 @@ int main(int argc, char *argv[])
     auto gsCore = new GSCore(&app);
     auto hmi = gsCore->hmi();
     auto gpsData = gsCore->gpsData();
+
     engine.rootContext()->setContextProperty("hmi", hmi);
     engine.rootContext()->setContextProperty("gpsData", gpsData);
 

@@ -4,7 +4,6 @@
 #include <QTimer>
 #include <QObject>
 
-
 GSCore::GSCore(QObject *parent)
     : QObject(parent)
 {       
@@ -14,6 +13,13 @@ GSCore::GSCore(QObject *parent)
     Storage *StorageData = new Storage(this);
     setHmi(new HMI(this));
     setGpsData(new GPSData(this));
+
+    StorageData->LenSystemStatus  = SetInitParameter("LenSystemStatus");
+    StorageData->LenStorageStatus = SetInitParameter("LenStorageStatus");
+    StorageData->LenGuidance      = SetInitParameter("LenGuidance");
+    StorageData->LenMotor         = SetInitParameter("LenMotor");
+    StorageData->LenRadioLink     = SetInitParameter("LenRadioLink");
+    StorageData->LenTelemetry     = SetInitParameter("LenTelemetry");
 
     //Serial1 PORTA CHE RICEVE
     Serial1->setPortName("/dev/ttyUSB1");
@@ -25,7 +31,6 @@ GSCore::GSCore(QObject *parent)
     Serial1->open(QIODevice::ReadWrite);
 
     m_hmi->showData();
-    m_hmi->showDataSystemStatus();
 
     GSCore::connect(Serial1, SIGNAL(readyRead()), this, SLOT(ReadData()));                                   /*segnale emesso dalla porta seriale*/
     GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataTelemetry(QByteArray)));          /*segnale emesso da MainWindow::ReadData()*/
@@ -89,11 +94,27 @@ void GSCore::SetFixOfTime(Storage *s)
     else
     {
        s->GPS.FixGPSTime = false;
-       FlagDeltaTime == false;
+       FlagDeltaTime = false;
     }
 
     qInfo() << "------ sono in  SetFixOfTime "  ;
 
+}
+
+int GSCore::SetInitParameter(QString str)
+{
+     int defaultValue = 50000;
+     QSettings settings ("/home/AGU/QtSoftware/Agu/GroundSegment/myInit.ini", QSettings::IniFormat);
+     QStringList childKeys = settings.childKeys();
+     foreach (const QString &childKey, childKeys)
+     {
+         qInfo() << str;
+         qInfo() << "----- VALUE ------- " << settings.value(childKey).toInt();  /*estraggo il valore numerico*/
+         qInfo() << QVariant(childKey).toString();  /*estraggo nome del parametro*/
+         if (str.compare(QVariant(childKey).toString()) == 0) return settings.value(childKey).toInt();
+     }
+
+     return defaultValue;
 }
 
 GSCore::~GSCore()

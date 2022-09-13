@@ -1,4 +1,5 @@
-    #include "storage.h"
+#include "storage.h"
+
 
 Storage::Storage(QObject *parent) : QObject(parent)
 {
@@ -117,7 +118,7 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
     QFile file(PathSystemStatus);
     QTextStream out(&file);
 
-    if (file.size() < 300000)
+    if (file.size() < LenSystemStatus)
     {
         if (file.size() > 0)
         {
@@ -243,7 +244,7 @@ void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
     QFile file(PathMotor);
     QTextStream out(&file);
 
-    if (file.size() < 300000)
+    if (file.size() < LenMotor)
     {
         if (file.size() > 0)
         {
@@ -359,7 +360,7 @@ void Storage::StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r)
     QFile file(PathRadioLink);
     QTextStream out(&file);
 
-    if (file.size() < 300000)
+    if (file.size() < LenRadioLink)
     {
         if (file.size() > 0)
         {
@@ -423,7 +424,7 @@ void Storage::StoreDataInMemoryStorageStatusPack(StorageStatusPack *st)
     QFile file(PathStorageStatus);
     QTextStream out(&file);
 
-    if (file.size() < 300000)
+    if (file.size() < LenStorageStatus)
     {
         if (file.size() > 0)
         {
@@ -487,7 +488,7 @@ void Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g)
     QFile file(PathGuidance);
     QTextStream out(&file);
 
-    if (file.size() < 300000)
+    if (file.size() < LenGuidance)
     {
         if (file.size() > 0)
         {
@@ -553,7 +554,7 @@ void Storage::StoreDataInMemory(Telemetry *t)
     QFile file(PathTelemetry);
     QTextStream out(&file);
 
-    if (file.size() < 300000)
+    if (file.size() < LenTelemetry)
     {
         if (file.size() > 0)
         {

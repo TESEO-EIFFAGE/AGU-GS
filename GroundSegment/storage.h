@@ -6,7 +6,6 @@
 #include "mavlinkprotocol.h"
 #include "GPSData.h"
 
-
 typedef struct
 {
     bool FixGPSTime;
@@ -28,6 +27,7 @@ public:
     bool CountR = 0;
     bool CountST = 0;
     bool CountG = 0;
+    int LenSystemStatus, LenTelemetry, LenMotor, LenRadioLink, LenStorageStatus, LenGuidance;
     QString PathSystemStatus, PathTelemetry, PathMotor, PathRadioLink, PathStorageStatus, PathGuidance;
     GPSTimePack GPS;
 
