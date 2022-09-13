@@ -6,6 +6,7 @@ Row {
     id: row
     spacing: 8
     property bool hovered: mouseArea.containsMouse
+    property bool pressed: false
     property real span: 1
     property alias text: paramLabel.text
     property alias value: paramValue.text
@@ -17,6 +18,16 @@ Row {
             id: mouseArea
             hoverEnabled: true
             anchors.fill: parent
+
+            Connections {
+                target: mouseArea
+                function onPressed() {
+                    row.pressed = true
+                }
+                function onReleased() {
+                    row.pressed = false
+                }
+            }
         }
     }
     ParamValue {
@@ -27,7 +38,7 @@ Row {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:2}D{i:1}D{i:3}
+    D{i:0;autoSize:true;height:480;width:640}D{i:3}D{i:2}D{i:1}D{i:4}
 }
 ##^##*/
 

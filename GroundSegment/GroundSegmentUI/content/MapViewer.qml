@@ -51,6 +51,7 @@ Item{
             id: gpsCursor
             sourceItem: Rectangle { width: 20; height: 20; color: "purple"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
             coordinate : QtPositioning.coordinate(gpsData.latitude, gpsData.longitude)
+
             opacity: 1.0
             anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
             visible: gpsData.hasFix
@@ -168,7 +169,7 @@ Item{
             Row{
                 width: parent.width
                 spacing: 4
-                Rectangle { width: 20; height: 20; color: "red"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
+                Rectangle { width: 20; height: 20; color: "purple"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
                 Text{text: "GS (GNSS)"; anchors.verticalCenter: parent.verticalCenter}
             }
             Row{
