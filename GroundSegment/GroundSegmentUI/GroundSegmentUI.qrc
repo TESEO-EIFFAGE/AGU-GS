@@ -49,5 +49,10 @@
         <file>content/MotorsBMSTab.qml</file>
         <file>content/StorageTab.qml</file>
         <file>content/TelemetryTab.qml</file>
+        <file>content/RadioLinkTab.qml</file>
+        <file>content/GuidanceTab.qml</file>
+        <file>content/CoreTab.qml</file>
+        <file>content/HomeTab.qml</file>
+        <file>content/images/svgs/solid/house.svg</file>
     </qresource>
 </RCC>

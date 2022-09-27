@@ -43,7 +43,9 @@ public:
     Q_PROPERTY(double Quaternion2 MEMBER m_Quaternion2 NOTIFY Quaternion2Changed)
     Q_PROPERTY(double Quaternion3 MEMBER m_Quaternion3 NOTIFY Quaternion3Changed)
 
-    Q_PROPERTY(int RLErrorCounter MEMBER m_RLErrorCounter NOTIFY RLErrorCounterChanged)
+    Q_PROPERTY(int GSRLErrorCounter MEMBER m_GSRLErrorCounter NOTIFY GSRLErrorCounterChanged)
+    Q_PROPERTY(int FSRLErrorCounter MEMBER m_FSRLErrorCounter NOTIFY FSRLErrorCounterChanged)
+
     Q_PROPERTY(int RLHeartbeatCounter MEMBER m_RLHeartbeatCounter NOTIFY RLHeartbeatCounterChanged)
 
     Q_PROPERTY(int NumberOfGPSSatellite MEMBER m_NumberOfGPSSatellite NOTIFY NumberOfGPSSatelliteChanged)
@@ -188,6 +190,19 @@ public:
     Q_PROPERTY(bool BMS29 MEMBER m_BMS29 NOTIFY BMS29Changed)
     Q_PROPERTY(bool BMS30 MEMBER m_BMS30 NOTIFY BMS30Changed)
     Q_PROPERTY(bool BMS31 MEMBER m_BMS31 NOTIFY BMS31Changed)
+
+    Q_PROPERTY(bool core0 MEMBER m_core0 NOTIFY core0Changed)
+    Q_PROPERTY(bool core1 MEMBER m_core1 NOTIFY core1Changed)
+    Q_PROPERTY(bool core2 MEMBER m_core2 NOTIFY core2Changed)
+    Q_PROPERTY(bool core3 MEMBER m_core3 NOTIFY core3Changed)
+    Q_PROPERTY(bool core4 MEMBER m_core4 NOTIFY core4Changed)
+
+    Q_PROPERTY(bool radiolink0 MEMBER m_radiolink0 NOTIFY radiolink0Changed)
+    Q_PROPERTY(bool radiolink1 MEMBER m_radiolink1 NOTIFY radiolink1Changed)
+    Q_PROPERTY(bool radiolink2 MEMBER m_radiolink2 NOTIFY radiolink2Changed)
+    Q_PROPERTY(bool radiolink3 MEMBER m_radiolink3 NOTIFY radiolink3Changed)
+    Q_PROPERTY(bool radiolink8 MEMBER m_radiolink8 NOTIFY radiolink8Changed)
+    Q_PROPERTY(bool radiolink9 MEMBER m_radiolink9 NOTIFY radiolink9Changed)
 
     Q_PROPERTY(bool gnssFound MEMBER m_gnssFound NOTIFY gnssFoundChanged)
 
@@ -528,9 +543,33 @@ signals:
 
     void gnssFoundChanged();
 
-    void RLErrorCounterChanged();
+    void GSRLErrorCounterChanged();
 
     void RLHeartbeatCounterChanged();
+
+    void FSRLErrorCounterChanged();
+
+    void core0Changed();
+
+    void core1Changed();
+
+    void core2Changed();
+
+    void core3Changed();
+
+    void core4Changed();
+
+    void radiolink0Changed();
+
+    void radiolink1Changed();
+
+    void radiolink2Changed();
+
+    void radiolink3Changed();
+
+    void radiolink8Changed();
+
+    void radiolink9Changed();
 
 private:
 
@@ -705,8 +744,20 @@ private:
     bool m_BMS30;
     bool m_BMS31;
     bool m_gnssFound;
-    int m_RLErrorCounter;
+    int m_GSRLErrorCounter;
     int m_RLHeartbeatCounter;
+    int m_FSRLErrorCounter;
+    bool m_core0;
+    bool m_core1;
+    bool m_core2;
+    bool m_core3;
+    bool m_core4;
+    bool m_radiolink0;
+    bool m_radiolink1;
+    bool m_radiolink2;
+    bool m_radiolink3;
+    bool m_radiolink8;
+    bool m_radiolink9;
 };
 
 #endif // HMI_H

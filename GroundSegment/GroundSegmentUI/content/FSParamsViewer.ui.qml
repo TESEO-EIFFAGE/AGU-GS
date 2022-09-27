@@ -12,6 +12,10 @@ Rectangle {
     property alias telemetryTab: telemetryTab
     property alias storageTab: storageTab
     property alias motorsBMSTab: motorsBMSTab
+    property alias homeTab: homeTab
+    property alias coreTab: coreTab
+    property alias radioLinkTab: radioLinkTab
+    property alias guidanceTab: guidanceTab
 
     property alias txtTimeStampRIO: txtTimeStampRIO.value
     property alias txtLatitude: telemetryTab.txtLatitude
@@ -222,7 +226,64 @@ Rectangle {
                 Layout.fillHeight: true
                 //width: 30
                 //implicitWidth: 30
-                spacing: 16 //24
+                spacing: 8 //24
+                Rectangle {
+                    radius: 8
+                    Layout.preferredHeight: 115
+                    Layout.preferredWidth: 60 //40
+
+                    border.width: 0
+                    width: 40
+                    color: params.tabIndex === 0 ? "#F5F5F5" : "#E0E0E0"
+                    Column {
+                        anchors.top: parent.top
+                        anchors.left: parent.left
+                        anchors.topMargin: 8
+                        anchors.leftMargin: 8
+                        
+                        spacing: 32
+                        width: 40
+                        height: 115
+                        Image {
+                            //anchors.horizontalCenter: parent.horizontalCenter
+                            source: "images/svgs/solid/house.svg"
+                            fillMode: Image.PreserveAspectFit
+                            sourceSize.height: 24
+                            sourceSize.width: 24
+                        }
+
+                        ParamGrp1Label {
+                            x: -3
+                            text: "Home"
+                            transform: Rotation {
+                                angle: 90
+                                origin.x: 25
+                            }
+                        }
+                    }
+                    Rectangle {
+                        anchors.left: parent.left
+                        anchors.leftMargin: 12
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 8
+                        width: 16
+                        height: 16
+                        color: homeTab.lit ? "#ff0000" : "#b1b1b1"
+                        radius: 8
+                    }
+                    MouseArea {
+                        id: mouseAreaHome
+
+                        anchors.fill: parent
+                        Connections {
+                            target: mouseAreaHome
+                            onClicked: {
+                                params.tabIndex = 0
+                            }
+                        }
+                    }
+                }
+
                 Rectangle {
                     radius: 8
                     Layout.preferredHeight: 140
@@ -230,7 +291,7 @@ Rectangle {
 
                     border.width: 0
                     width: 40
-                    color: params.tabIndex === 0 ? "#F5F5F5" : "#E0E0E0"
+                    color: params.tabIndex === 1 ? "#F5F5F5" : "#E0E0E0"
                     Column {
                         anchors.top: parent.top
                         anchors.left: parent.left
@@ -272,7 +333,7 @@ Rectangle {
                         Connections {
                             target: mouseAreaGNSS
                             onClicked: {
-                                params.tabIndex = 0
+                                params.tabIndex = 1
                             }
                         }
                     }
@@ -281,7 +342,7 @@ Rectangle {
                     radius: 8
                     Layout.preferredHeight: 174
                     Layout.preferredWidth: 60 //40
-                    color: params.tabIndex === 1 ? "#F5F5F5" : "#E0E0E0"
+                    color: params.tabIndex === 2 ? "#F5F5F5" : "#E0E0E0"
                     border.width: 0
 
                     Column {
@@ -325,14 +386,14 @@ Rectangle {
                         Connections {
                             target: mouseAreaMotorsBMS
                             onClicked: {
-                                params.tabIndex = 1
+                                params.tabIndex = 2
                             }
                         }
                     }
                 }
                 Rectangle {
                     radius: 8
-                    color: params.tabIndex === 2 ? "#F5F5F5" : "#E0E0E0"
+                    color: params.tabIndex === 3 ? "#F5F5F5" : "#E0E0E0"
                     border.width: 0
 
                     Layout.preferredHeight: 128
@@ -380,7 +441,167 @@ Rectangle {
                         Connections {
                             target: mouseAreaStorage
                             onClicked: {
-                                params.tabIndex = 2
+                                params.tabIndex = 3
+                            }
+                        }
+                    }
+                }
+                Rectangle {
+                    radius: 8
+                    Layout.preferredHeight: 145
+                    Layout.preferredWidth: 60 //40
+                    color: params.tabIndex === 4 ? "#F5F5F5" : "#E0E0E0"
+                    border.width: 0
+
+                    Column {
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.margins: 8
+                        spacing: 32
+                        width: 40
+                        height: 145
+                        Image {
+                            //anchors.horizontalCenter: parent.horizontalCenter
+                            source: "images/svgs/solid/gear.svg"
+                            fillMode: Image.PreserveAspectFit
+                            sourceSize.height: 24
+                            sourceSize.width: 24
+                        }
+
+                        ParamGrp1Label {
+                            x: -3
+
+                            text: "Radio Link"
+                            transform: Rotation {
+                                angle: 90
+                                origin.x: 25
+                            }
+                        }
+                    }
+                    Rectangle {
+                        anchors.left: parent.left
+                        anchors.leftMargin: 12
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 8
+                        width: 16
+                        height: 16
+                        color: radioLinkTab.lit ? "#ff0000" : "#b1b1b1"
+                        radius: 8
+                    }
+                    MouseArea {
+                        id: mouseAreaRadioLink
+                        anchors.fill: parent
+                        Connections {
+                            target: mouseAreaRadioLink
+                            onClicked: {
+                                params.tabIndex = 4
+                            }
+                        }
+                    }
+                }
+                Rectangle {
+                    radius: 8
+                    Layout.preferredHeight: 140
+                    Layout.preferredWidth: 60 //40
+                    color: params.tabIndex === 5 ? "#F5F5F5" : "#E0E0E0"
+                    border.width: 0
+
+                    Column {
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.margins: 8
+                        spacing: 32
+                        width: 40
+                        height: 140
+                        Image {
+                            //anchors.horizontalCenter: parent.horizontalCenter
+                            source: "images/svgs/solid/gear.svg"
+                            fillMode: Image.PreserveAspectFit
+                            sourceSize.height: 24
+                            sourceSize.width: 24
+                        }
+
+                        ParamGrp1Label {
+                            x: -3
+
+                            text: "Guidance"
+                            transform: Rotation {
+                                angle: 90
+                                origin.x: 25
+                            }
+                        }
+                    }
+                    Rectangle {
+                        anchors.left: parent.left
+                        anchors.leftMargin: 12
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 8
+                        width: 16
+                        height: 16
+                        color: guidanceTab.lit ? "#ff0000" : "#b1b1b1"
+                        radius: 8
+                    }
+                    MouseArea {
+                        id: mouseAreaGuidance
+                        anchors.fill: parent
+                        Connections {
+                            target: mouseAreaGuidance
+                            onClicked: {
+                                params.tabIndex = 5
+                            }
+                        }
+                    }
+                }
+
+                Rectangle {
+                    radius: 8
+                    Layout.preferredHeight: 105
+                    Layout.preferredWidth: 60 //40
+                    color: params.tabIndex === 6 ? "#F5F5F5" : "#E0E0E0"
+                    border.width: 0
+
+                    Column {
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.margins: 8
+                        spacing: 32
+                        width: 40
+                        height: 105
+                        Image {
+                            //anchors.horizontalCenter: parent.horizontalCenter
+                            source: "images/svgs/solid/gear.svg"
+                            fillMode: Image.PreserveAspectFit
+                            sourceSize.height: 24
+                            sourceSize.width: 24
+                        }
+
+                        ParamGrp1Label {
+                            x: -3
+
+                            text: "Core"
+                            transform: Rotation {
+                                angle: 90
+                                origin.x: 25
+                            }
+                        }
+                    }
+                    Rectangle {
+                        anchors.left: parent.left
+                        anchors.leftMargin: 12
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 8
+                        width: 16
+                        height: 16
+                        color: coreTab.lit ? "#ff0000" : "#b1b1b1"
+                        radius: 8
+                    }
+                    MouseArea {
+                        id: mouseAreaCore
+                        anchors.fill: parent
+                        Connections {
+                            target: mouseAreaCore
+                            onClicked: {
+                                params.tabIndex = 6
                             }
                         }
                     }
@@ -400,6 +621,12 @@ Rectangle {
                     currentIndex: params.tabIndex
                     anchors.fill: parent
                     anchors.margins: 24
+                    HomeTab {
+                        id: homeTab
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+                    }
+
                     TelemetryTab {
                         id: telemetryTab
                         Layout.fillHeight: true
@@ -412,6 +639,21 @@ Rectangle {
                     }
                     StorageTab {
                         id: storageTab
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+                    }
+                    RadioLinkTab {
+                        id: radioLinkTab
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+                    }
+                    GuidanceTab {
+                        id: guidanceTab
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+                    }
+                    CoreTab {
+                        id: coreTab
                         Layout.fillHeight: true
                         Layout.fillWidth: true
                     }
@@ -436,7 +678,10 @@ Rectangle {
 Designer {
     D{i:0;height:1080;width:1600}D{i:3}D{i:4}D{i:2}D{i:9}D{i:10}D{i:8}D{i:12}D{i:14}D{i:13}
 D{i:7}D{i:17}D{i:18}D{i:16}D{i:20}D{i:22}D{i:21}D{i:15}D{i:25}D{i:26}D{i:24}D{i:28}
-D{i:30}D{i:29}D{i:23}D{i:6}D{i:33}D{i:34}D{i:35}D{i:32}D{i:31}D{i:5}D{i:1}D{i:36}
+D{i:30}D{i:29}D{i:23}D{i:33}D{i:34}D{i:32}D{i:36}D{i:38}D{i:37}D{i:31}D{i:41}D{i:42}
+D{i:40}D{i:44}D{i:46}D{i:45}D{i:39}D{i:49}D{i:50}D{i:48}D{i:52}D{i:54}D{i:53}D{i:47}
+D{i:57}D{i:58}D{i:56}D{i:60}D{i:62}D{i:61}D{i:55}D{i:6}D{i:65}D{i:66}D{i:67}D{i:68}
+D{i:69}D{i:70}D{i:71}D{i:64}D{i:63}D{i:5}D{i:1}D{i:72}
 }
 ##^##*/
 

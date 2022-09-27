@@ -150,15 +150,37 @@ Window {
                                    || hmi.motor2
                                    || hmi.motor1
                                    || hmi.motor0
+        fsParams.coreTab.lit: hmi.core0
+                              || hmi.core1
+                              || hmi.core2
+                              || hmi.core3
+                              || hmi.core4
+        fsParams.radioLinkTab.lit: hmi.radiolink0
+                                   || hmi.radiolink1
+                                   || hmi.radiolink2
+                                   || hmi.radiolink3
+                                   || hmi.radiolink8
+                                   || hmi.radiolink9
+
+        fsParams.radioLinkTab.txtRadioLinkErrorCounter: hmi.FSRLErrorCounter
 
         fsParams.txtTimeStampRIO: timestampToUTCDate(hmi.TimeStampRIO)
         fsParams.txtLatitude: hmi.Latitude.toFixed(7)
         fsParams.txtLongitude: hmi.Longitude.toFixed(7)
         fsParams.txtGNSSAltitude: hmi.GNSSAltitude.toFixed(3)
 
+        fsParams.homeTab.txtLatitude: hmi.Latitude.toFixed(7)
+        fsParams.homeTab.txtLongitude: hmi.Longitude.toFixed(7)
+        fsParams.homeTab.txtGNSSAltitude: hmi.GNSSAltitude.toFixed(3)
+
         fsParams.txtAirSpeed_UVector: hmi.AirSpeed_UVector.toFixed(2)
         fsParams.txtAirSpeed_VVector: hmi.AirSpeed_VVector.toFixed(2)
         fsParams.txtAirSpeed_WVector: hmi.AirSpeed_WVector.toFixed(2)
+
+        fsParams.homeTab.txtAirSpeed_UVector: hmi.AirSpeed_UVector.toFixed(2)
+        fsParams.homeTab.txtAirSpeed_VVector: hmi.AirSpeed_VVector.toFixed(2)
+        fsParams.homeTab.txtAirSpeed_WVector: hmi.AirSpeed_WVector.toFixed(2)
+
         fsParams.txtAirTemperature: hmi.AirTemperature.toFixed(2)
 
         fsParams.txtAltitudeFromRadarAltimeter: hmi.AltitudeFromRadarAltimeter.toFixed(2)
@@ -166,6 +188,9 @@ Window {
 
         fsParams.txtLinearVelocityHorizontal: hmi.LinearVelocityHorizontal.toFixed(2)
         fsParams.txtLinearVelocityVertical: hmi.LinearVelocityVertical.toFixed(2)
+
+        fsParams.homeTab.txtLinearVelocityHorizontal: hmi.LinearVelocityHorizontal.toFixed(2)
+        fsParams.homeTab.txtLinearVelocityVertical: hmi.LinearVelocityVertical.toFixed(2)
 
         fsParams.txtPositionAccuracy: hmi.PositionAccuracy.toFixed(2)
         fsParams.txtSpeedAccuracy:hmi.SpeedAccuracy.toFixed(2)
@@ -184,6 +209,11 @@ Window {
         fsParams.txtRollAngle: hmi.RollAngle.toFixed(2)
         fsParams.txtPitchAngle: hmi.PitchAngle.toFixed(2)
         fsParams.txtYawAngle: hmi.YawAngle.toFixed(2)
+
+        fsParams.homeTab.txtRollAngle: hmi.RollAngle.toFixed(2)
+        fsParams.homeTab.txtPitchAngle: hmi.PitchAngle.toFixed(2)
+        fsParams.homeTab.txtYawAngle: hmi.YawAngle.toFixed(2)
+
         fsParams.txtAngularRateRoll: hmi.AngularRateRoll.toFixed(2)
         fsParams.txtAngularRatePitch: hmi.AngularRatePitch.toFixed(2)
         fsParams.txtAngularRateYaw: hmi.AngularRateYaw.toFixed(2)
@@ -348,7 +378,9 @@ Window {
         gsParams.txtsecondGPSData:    gpsData.second
 
         gsParams.txtRLHeartbeatCounter: hmi.RLHeartbeatCounter
-        gsParams.txtRadioLinkErrorCounter: hmi.RLErrorCounter
+        gsParams.txtRadioLinkErrorCounter: hmi.GSRLErrorCounter
+
+
     }
 
     function timestampToUTCDate(number){
