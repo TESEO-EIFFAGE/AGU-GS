@@ -6,7 +6,6 @@ import "controls"
 
 Rectangle {
     color:"transparent"
-    border.color: "#ffffff"
 
     property bool lit
 
@@ -26,7 +25,7 @@ Rectangle {
         columnSpacing: 16
         rowSpacing: 12
 
-        columns: 4
+        columns: 8
         rows: 6
 
             StatusLight {

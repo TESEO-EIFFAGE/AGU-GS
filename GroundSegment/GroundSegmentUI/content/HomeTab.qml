@@ -75,21 +75,21 @@ Rectangle {
         ParamRow {
             id: txtLatitude
             text: "Latitude (°)"
-            span: 4
+            span: 5
             ToolTip.text: text
             ToolTip.visible: pressed
         }
 
         ParamRow {
             text: "Longitude (°)"
-            span: 4
+            span: 5
             id: txtLongitude
             ToolTip.text: text
             ToolTip.visible: pressed
         }
         ParamRow {
             text: "Altitude (m)"
-            span: 4
+            span: 5
             id: txtGNSSAltitude
             ToolTip.text: text
             ToolTip.visible: pressed
@@ -105,21 +105,21 @@ Rectangle {
             }
         ParamRow {
             text: "Roll"
-            span: 2
+            span: 3
             id: txtRollAngle
             ToolTip.text: text
             ToolTip.visible: pressed
         }
         ParamRow {
             text: "Pitch"
-            span: 2
+            span: 3
             id: txtPitchAngle
             ToolTip.text: text
             ToolTip.visible: pressed
         }
         ParamRow {
             text: "Yaw"
-            span: 2
+            span: 3
             id: txtYawAngle
             ToolTip.text: text
             ToolTip.visible: pressed
@@ -135,7 +135,7 @@ Rectangle {
             }
         ParamRow {
             text: "Horizontal Velocity"
-            span: 4
+            span: 7
             id: txtLinearVelocityHorizontal
             ToolTip.text: text
             ToolTip.visible: pressed
@@ -143,7 +143,7 @@ Rectangle {
 
         ParamRow {
             text: "Vertical Velocity"
-            span: 4
+            span: 7
             id: txtLinearVelocityVertical
             ToolTip.text: text
             ToolTip.visible: pressed
