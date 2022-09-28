@@ -24,6 +24,8 @@ Rectangle {
     property alias txtLinearVelocityVertical: txtLinearVelocityVertical.value
     property alias txtPositionAccuracy: txtPositionAccuracy.value
     property alias txtSpeedAccuracy: txtSpeedAccuracy.value
+
+    property alias linearAccDrawer: linearAccDrawer
 //    property alias txtLinearAccelerationX: txtLinearAccelerationX.value
 //    property alias txtLinearAccelerationY: txtLinearAccelerationY.value
 //    property alias txtLinearAccelerationZ: txtLinearAccelerationZ.value
@@ -31,9 +33,11 @@ Rectangle {
     property alias txtECEFVectorPositionX: txtECEFVectorPositionX.value
     property alias txtECEFVectorPositionY: txtECEFVectorPositionY.value
     property alias txtECEFVectorPositionZ: txtECEFVectorPositionZ.value
-    property alias txtECEFVectorVelocityX: txtECEFVectorVelocityX.value
-    property alias txtECEFVectorVelocityY: txtECEFVectorVelocityY.value
-    property alias txtECEFVectorVelocityZ: txtECEFVectorVelocityZ.value
+
+    property alias ecefVelocityDrawer: ecefVelocityDrawer
+//    property alias txtECEFVectorVelocityX: txtECEFVectorVelocityX.value
+//    property alias txtECEFVectorVelocityY: txtECEFVectorVelocityY.value
+//    property alias txtECEFVectorVelocityZ: txtECEFVectorVelocityZ.value
 
     property alias txtRollAngle: txtRollAngle.value
     property alias txtPitchAngle: txtPitchAngle.value
@@ -170,33 +174,18 @@ Column{
                 ToolTip.visible: pressed
             }
         }
-        Column {
-            spacing: 8
+        ParamsDrawer{
+            id:ecefVelocityDrawer
+            columnTitle.text: "ECEF Velocity (m/s)"
+            width: 180
+            height: open ? 90 : 24
             Layout.alignment: Qt.AlignTop
+            param1.text: "X"
 
-            ParamGrp2Label {
+            param2.text: "Y"
 
-                text: "ECEF Velocity (m/s)"
-            }
+            param3.text: "Z"
 
-            ParamRow {
-                text: "X"
-                id: txtECEFVectorVelocityX
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
-            ParamRow {
-                text: "Y"
-                id: txtECEFVectorVelocityY
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
-            ParamRow {
-                text: "Z"
-                id: txtECEFVectorVelocityZ
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
         }
 
         Column {
@@ -696,14 +685,13 @@ Rectangle {
 /*##^##
 Designer {
     D{i:0;autoSize:true;height:480;width:640}D{i:3}D{i:4}D{i:2}D{i:7}D{i:8}D{i:9}D{i:10}
-D{i:6}D{i:12}D{i:13}D{i:14}D{i:15}D{i:11}D{i:17}D{i:18}D{i:19}D{i:20}D{i:16}D{i:22}
-D{i:23}D{i:24}D{i:21}D{i:25}D{i:27}D{i:28}D{i:29}D{i:30}D{i:26}D{i:32}D{i:33}D{i:34}
-D{i:35}D{i:31}D{i:37}D{i:38}D{i:39}D{i:40}D{i:36}D{i:5}D{i:41}D{i:45}D{i:46}D{i:44}
-D{i:47}D{i:48}D{i:49}D{i:50}D{i:43}D{i:53}D{i:54}D{i:52}D{i:55}D{i:51}D{i:58}D{i:59}
-D{i:57}D{i:60}D{i:56}D{i:42}D{i:61}D{i:63}D{i:64}D{i:62}D{i:66}D{i:67}D{i:68}D{i:69}
+D{i:6}D{i:12}D{i:13}D{i:14}D{i:15}D{i:11}D{i:16}D{i:18}D{i:19}D{i:20}D{i:17}D{i:22}
+D{i:23}D{i:24}D{i:25}D{i:21}D{i:27}D{i:28}D{i:29}D{i:30}D{i:26}D{i:32}D{i:33}D{i:34}
+D{i:35}D{i:31}D{i:36}D{i:5}D{i:37}D{i:41}D{i:42}D{i:40}D{i:43}D{i:44}D{i:45}D{i:46}
+D{i:39}D{i:49}D{i:50}D{i:48}D{i:51}D{i:47}D{i:54}D{i:55}D{i:53}D{i:56}D{i:52}D{i:38}
+D{i:57}D{i:59}D{i:60}D{i:58}D{i:62}D{i:63}D{i:64}D{i:65}D{i:66}D{i:67}D{i:68}D{i:69}
 D{i:70}D{i:71}D{i:72}D{i:73}D{i:74}D{i:75}D{i:76}D{i:77}D{i:78}D{i:79}D{i:80}D{i:81}
 D{i:82}D{i:83}D{i:84}D{i:85}D{i:86}D{i:87}D{i:88}D{i:89}D{i:90}D{i:91}D{i:92}D{i:93}
-D{i:94}D{i:95}D{i:96}D{i:97}D{i:98}D{i:99}D{i:100}D{i:101}D{i:102}D{i:103}D{i:104}
-D{i:65}D{i:1}
+D{i:94}D{i:95}D{i:96}D{i:97}D{i:98}D{i:99}D{i:100}D{i:61}D{i:1}
 }
 ##^##*/

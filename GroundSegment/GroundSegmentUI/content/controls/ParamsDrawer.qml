@@ -11,7 +11,7 @@ Rectangle {
     property alias param2: param2
     property alias param3: param3
 
-    //color: Constants.colorWhite
+    color: "transparent"
     radius: 8
     height: contentColumn.height
     width: 180
