@@ -81,6 +81,7 @@ Rectangle {
             }
 
             radius: 8
+
             ParamGrp2Label {
                 id: columnTitle
                 anchors.top: parent.top
@@ -89,6 +90,19 @@ Rectangle {
                 //anchors.topMargin: 8
                 //anchors.leftMargin: 16
                 text: "[title]"
+            }
+            Image {
+
+                anchors.right: parent.right
+                anchors.rightMargin: 8
+                anchors.verticalCenter: parent.verticalCenter
+                source: "../images/svgs/solid/chevron-down.svg"
+                fillMode: Image.PreserveAspectFit
+                height:16
+                width: 16
+                sourceSize.height: 16
+                sourceSize.width: 16
+                z:1
             }
         }
         Rectangle {
