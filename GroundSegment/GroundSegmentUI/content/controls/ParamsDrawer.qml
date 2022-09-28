@@ -11,7 +11,7 @@ Rectangle {
     property alias param2: param2
     property alias param3: param3
 
-    color: Constants.colorWhite
+    //color: Constants.colorWhite
     radius: 8
     height: contentColumn.height
     width: 180
@@ -24,7 +24,7 @@ Rectangle {
                 target: advancedSectionBody
                 opacity: 1
                 visible: true
-                height: 90 //advancedSectionBody.childrenRect.height
+                height: 80 //advancedSectionBody.childrenRect.height
             }
         }
     ]
@@ -42,7 +42,7 @@ Rectangle {
                 NumberAnimation {
                     target: advancedSectionBody
                     properties: "height, opacity"
-                    duration: 90 //contentColumn.implicitHeight / 2
+                    duration: 80 //contentColumn.implicitHeight / 2
                 }
             }
         }
@@ -60,6 +60,7 @@ Rectangle {
         anchors.top: parent.top
         Rectangle {
             id: overviewBox
+            color: "transparent"
             height: 16
             width: parent.width
             anchors.top: parent.top
@@ -78,7 +79,7 @@ Rectangle {
                     }
                 }
             }
-            color: Constants.colorPrimaryDark
+
             radius: 8
             ParamGrp2Label {
                 id: columnTitle
@@ -92,11 +93,12 @@ Rectangle {
         }
         Rectangle {
             id: advancedSectionBody
+            color: "transparent"
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: overviewBox.bottom
             clip: true
-            height: root.open ? 90 : 0
+            height: root.open ? 80 : 0
 
             Column {
                 id: valuesColumn

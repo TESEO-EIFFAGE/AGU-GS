@@ -192,12 +192,12 @@ Window {
         fsParams.homeTab.txtLinearVelocityHorizontal: hmi.LinearVelocityHorizontal.toFixed(2)
         fsParams.homeTab.txtLinearVelocityVertical: hmi.LinearVelocityVertical.toFixed(2)
 
-        //fsParams.txtPositionAccuracy: hmi.PositionAccuracy.toFixed(2)
-        //fsParams.txtSpeedAccuracy:hmi.SpeedAccuracy.toFixed(2)
+        fsParams.txtPositionAccuracy: hmi.PositionAccuracy.toFixed(2)
+        fsParams.txtSpeedAccuracy:hmi.SpeedAccuracy.toFixed(2)
 
-        fsParams.txtLinearAccelerationX: hmi.LinearAccelerationX.toFixed(2)
-        fsParams.txtLinearAccelerationY: hmi.LinearAccelerationY.toFixed(2)
-        fsParams.txtLinearAccelerationZ: hmi.LinearAccelerationZ.toFixed(2)
+//        fsParams.txtLinearAccelerationX: hmi.LinearAccelerationX.toFixed(2)
+//        fsParams.txtLinearAccelerationY: hmi.LinearAccelerationY.toFixed(2)
+//        fsParams.txtLinearAccelerationZ: hmi.LinearAccelerationZ.toFixed(2)
 
         fsParams.txtECEFVectorPositionX: hmi.ECEFVectorPositionX.toFixed(2)
         fsParams.txtECEFVectorPositionY: hmi.ECEFVectorPositionY.toFixed(2)
@@ -218,7 +218,7 @@ Window {
         fsParams.txtAngularRatePitch: hmi.AngularRatePitch.toFixed(2)
         fsParams.txtAngularRateYaw: hmi.AngularRateYaw.toFixed(2)
 
-        //fsParams.txtNumberOfGPSSatellite: hmi.NumberOfGPSSatellite
+        fsParams.txtNumberOfGPSSatellite: hmi.NumberOfGPSSatellite
 
         fsParams.txtAnemCommErrorCounter: hmi.AnemCommErrorCounter
         fsParams.txtRDAltCommErrorCounter: hmi.RDAltCommErrorCounter

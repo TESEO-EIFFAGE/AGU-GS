@@ -22,11 +22,11 @@ Rectangle {
     property alias txtLinearVelocityHorizontal: txtLinearVelocityHorizontal.value
 
     property alias txtLinearVelocityVertical: txtLinearVelocityVertical.value
-    //property alias txtPositionAccuracy: txtPositionAccuracy.value
-    //property alias txtSpeedAccuracy: txtSpeedAccuracy.value
-    property alias txtLinearAccelerationX: txtLinearAccelerationX.value
-    property alias txtLinearAccelerationY: txtLinearAccelerationY.value
-    property alias txtLinearAccelerationZ: txtLinearAccelerationZ.value
+    property alias txtPositionAccuracy: txtPositionAccuracy.value
+    property alias txtSpeedAccuracy: txtSpeedAccuracy.value
+//    property alias txtLinearAccelerationX: txtLinearAccelerationX.value
+//    property alias txtLinearAccelerationY: txtLinearAccelerationY.value
+//    property alias txtLinearAccelerationZ: txtLinearAccelerationZ.value
 
     property alias txtECEFVectorPositionX: txtECEFVectorPositionX.value
     property alias txtECEFVectorPositionY: txtECEFVectorPositionY.value
@@ -42,7 +42,7 @@ Rectangle {
     property alias txtAngularRatePitch: txtAngularRatePitch.value
     property alias txtAngularRateYaw: txtAngularRateYaw.value
 
-    //property alias txtNumberOfGPSSatellite: txtNumberOfGPSSatellite.value
+    property alias txtNumberOfGPSSatellite: txtNumberOfGPSSatellite.value
 
     property alias txtAnemCommErrorCounter: txtAnemCommErrorCounter.value
     property alias txtRDAltCommErrorCounter: txtRDAltCommErrorCounter.value
@@ -323,17 +323,14 @@ Column{
             id:linearAccDrawer
             columnTitle.text: "Linear Acceleration (m/s²)"
             width: 180
-            height: open ? 96 : 24
+            height: open ? 90 : 24
             Layout.alignment: Qt.AlignTop
             param1.text: "X"
-            param1.ToolTip.text: text
-            param1.ToolTip.visible: pressed
+
             param2.text: "Y"
-            param2.ToolTip.text: text
-            param2.ToolTip.visible: pressed
+
             param3.text: "Z"
-            param3.ToolTip.text: text
-            param3.ToolTip.visible: pressed
+
         }
 
 
