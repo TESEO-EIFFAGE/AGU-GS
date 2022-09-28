@@ -71,7 +71,8 @@ Window {
             id:timer
             property int counter : 0
             running:true
-            interval:1000
+            repeat: true
+            interval:1200
             onTriggered: {
                 counter += 1;
                 if(counter==10){
