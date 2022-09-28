@@ -195,9 +195,9 @@ Window {
         fsParams.txtPositionAccuracy: hmi.PositionAccuracy.toFixed(2)
         fsParams.txtSpeedAccuracy:hmi.SpeedAccuracy.toFixed(2)
 
-        fsParams.linearAccDrawer.param1.text: hmi.LinearAccelerationX.toFixed(2)
-        fsParams.linearAccDrawer.param2.text: hmi.LinearAccelerationY.toFixed(2)
-        fsParams.linearAccDrawer.param3.text: hmi.LinearAccelerationZ.toFixed(2)
+        fsParams.linearAccDrawer.param1.value: hmi.LinearAccelerationX.toFixed(2)
+        fsParams.linearAccDrawer.param2.value: hmi.LinearAccelerationY.toFixed(2)
+        fsParams.linearAccDrawer.param3.value: hmi.LinearAccelerationZ.toFixed(2)
         //        fsParams.txtLinearAccelerationX: hmi.LinearAccelerationX.toFixed(2)
         //        fsParams.txtLinearAccelerationY: hmi.LinearAccelerationY.toFixed(2)
         //        fsParams.txtLinearAccelerationZ: hmi.LinearAccelerationZ.toFixed(2)
@@ -206,9 +206,9 @@ Window {
         fsParams.txtECEFVectorPositionY: hmi.ECEFVectorPositionY.toFixed(2)
         fsParams.txtECEFVectorPositionZ: hmi.ECEFVectorPositionZ.toFixed(2)
 
-        fsParams.ecefVelocityDrawer.param1.text: hmi.ECEFVectorVelocityX.toFixed(2)
-        fsParams.ecefVelocityDrawer.param2.text: hmi.ECEFVectorVelocityY.toFixed(2)
-        fsParams.ecefVelocityDrawer.param3.text: hmi.ECEFVectorVelocityZ.toFixed(2)
+        fsParams.ecefVelocityDrawer.param1.value: hmi.ECEFVectorVelocityX.toFixed(2)
+        fsParams.ecefVelocityDrawer.param2.value: hmi.ECEFVectorVelocityY.toFixed(2)
+        fsParams.ecefVelocityDrawer.param3.value: hmi.ECEFVectorVelocityZ.toFixed(2)
 
 //        fsParams.txtECEFVectorVelocityX: hmi.ECEFVectorVelocityX.toFixed(2)
 //        fsParams.txtECEFVectorVelocityY: hmi.ECEFVectorVelocityY.toFixed(2)
