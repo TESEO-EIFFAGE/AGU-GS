@@ -39,10 +39,50 @@ Window {
     visible: true
     title: "GroundSegmentUI"
 
+
     Screen01 {
         id: mainScreen
+        fsParams.onTelemetryTabClicked: {
+            timer.counter=0
+            timer.restart()
+        }
+        fsParams.onMotorsBMSTabClicked: {
+            timer.counter=0
+            timer.restart()
+        }
+        fsParams.onStorageTabClicked:{
+            timer.counter=0
+            timer.restart()
+        }
+        fsParams.onGuidanceTabClicked: {
+            timer.counter=0
+            timer.restart()
+        }
+        fsParams.onCoreTabClicked: {
+            timer.counter=0
+            timer.restart()
+        }
+        fsParams.onRadioLinkTabClicked: {
+            timer.counter=0
+            timer.restart()
+        }
         anchors.fill:parent
+        Timer{
+            id:timer
+            property int counter : 0
+            running:true
+            interval:1000
+            onTriggered: {
+                counter += 1;
+                if(counter==10){
+                    mainScreen.tabIndex=0;
+                    counter=0;
 
+                }
+                
+            }
+
+        }
         fsParams.telemetryTab.lit: hmi.telemetry0
                                    || hmi.telemetry31
                                    || hmi.telemetry30

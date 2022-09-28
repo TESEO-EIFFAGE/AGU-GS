@@ -9,6 +9,14 @@ Rectangle {
 
     property int tabIndex: 0
 
+    signal telemetryTabClicked
+    signal motorsBMSTabClicked
+    signal storageTabClicked
+    signal guidanceTabClicked
+    signal coreTabClicked
+    signal radioLinkTabClicked
+
+
     property alias telemetryTab: telemetryTab
     property alias storageTab: storageTab
     property alias motorsBMSTab: motorsBMSTab
@@ -77,7 +85,7 @@ Rectangle {
     width: Constants.width / 2 //750 //C
     height: Constants.height //667 //
     color: "#ffffff"
-    border.color: "#ffffff"
+    
     property alias telemetryLight0: telemetryTab.telemetryLight0
     property alias telemetryLight31: telemetryTab.telemetryLight31
     property alias telemetryLight30: telemetryTab.telemetryLight30
@@ -194,6 +202,8 @@ Rectangle {
     property alias bmsLight2: motorsBMSTab.bmsLight2
     property alias bmsLight1: motorsBMSTab.bmsLight1
 
+
+    
     ColumnLayout {
         anchors.fill: parent
         spacing: 20 //24
@@ -325,6 +335,7 @@ Rectangle {
                             target: mouseAreaGNSS
                             onClicked: {
                                 params.tabIndex = 1
+                                params.telemetryTabClicked()
                             }
                         }
                     }
@@ -378,6 +389,7 @@ Rectangle {
                             target: mouseAreaMotorsBMS
                             onClicked: {
                                 params.tabIndex = 2
+                                params.motorBMSTabClicked()
                             }
                         }
                     }
@@ -433,6 +445,7 @@ Rectangle {
                             target: mouseAreaStorage
                             onClicked: {
                                 params.tabIndex = 3
+                                params.storageTabClicked()
                             }
                         }
                     }
@@ -486,6 +499,7 @@ Rectangle {
                             target: mouseAreaRadioLink
                             onClicked: {
                                 params.tabIndex = 4
+                                params.radioLinkTabClicked()
                             }
                         }
                     }
@@ -539,6 +553,7 @@ Rectangle {
                             target: mouseAreaGuidance
                             onClicked: {
                                 params.tabIndex = 5
+                                params.guidanceTabClicked()
                             }
                         }
                     }
@@ -593,6 +608,7 @@ Rectangle {
                             target: mouseAreaCore
                             onClicked: {
                                 params.tabIndex = 6
+                                params.coreTabClicked()
                             }
                         }
                     }

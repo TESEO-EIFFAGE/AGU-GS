@@ -20,6 +20,14 @@ Rectangle {
     border.width: 0
     property alias gsParams: gsParams
     property alias fsParams: fsParams
+    property alias tabIndex: fsParams.tabIndex
+    property alias telemetryTab: fsParams.telemetryTab
+    property alias motorsBMSTab: fsParams.motorsBMSTab
+    property alias storageTab: fsParams.storageTab
+    property alias radioLinkTab: fsParams.radioLinkTab
+    property alias guidanceTab: fsParams.guidanceTab
+    property alias coreTab: fsParams.coreTab
+
     property alias customCursor: map.customCursor
     property alias map: map
     GSParamsViewer {
