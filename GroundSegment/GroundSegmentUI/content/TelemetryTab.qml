@@ -223,47 +223,40 @@ Column{
                 ToolTip.visible: pressed
             }
         }
-ParamsDrawer{
-    columnTitle.text: "Accuracy"
-    width: 180
-    height: open ? 96 : 24
-    Layout.alignment: Qt.AlignTop
 
-    //open:true
-}
 
-//        Column {
-//            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-//            spacing: 8
+        Column {
+            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+            spacing: 8
 
-//            ParamGrp2Label {
-//                text: "Accuracy"
-//            }
+            ParamGrp2Label {
+                text: "Accuracy"
+            }
 
-//            ParamRow {
-//                text: "Position"
-//                span: 7
-//                id: txtPositionAccuracy
-//                ToolTip.text: text
-//                ToolTip.visible: pressed
-//            }
+            ParamRow {
+                text: "Position"
+                span: 7
+                id: txtPositionAccuracy
+                ToolTip.text: text
+                ToolTip.visible: pressed
+            }
 
-//            ParamRow {
-//                text: "Speed"
-//                span: 7
-//                id: txtSpeedAccuracy
-//                ToolTip.text: text
-//                ToolTip.visible: pressed
-//            }
+            ParamRow {
+                text: "Speed"
+                span: 7
+                id: txtSpeedAccuracy
+                ToolTip.text: text
+                ToolTip.visible: pressed
+            }
 
-//            ParamRow {
-//                text: "# GNSS satellites"
-//                span: 7
-//                id: txtNumberOfGPSSatellite
-//                ToolTip.text: text
-//                ToolTip.visible: pressed
-//            }
-//        }
+            ParamRow {
+                text: "# GNSS satellites"
+                span: 7
+                id: txtNumberOfGPSSatellite
+                ToolTip.text: text
+                ToolTip.visible: pressed
+            }
+        }
 
         Column {
             spacing: 8
@@ -326,33 +319,25 @@ ParamsDrawer{
                 ToolTip.visible: pressed
             }
         }
-        Column {
-            spacing: 8
+        ParamsDrawer{
+            id:linearAccDrawer
+            columnTitle.text: "Linear Acceleration (m/s²)"
+            width: 180
+            height: open ? 96 : 24
             Layout.alignment: Qt.AlignTop
-
-            ParamGrp2Label {
-                text: "Linear Acceleration (m/s²)"
-            }
-
-            ParamRow {
-                text: "X"
-                id: txtLinearAccelerationX
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
-            ParamRow {
-                text: "Y"
-                id: txtLinearAccelerationY
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
-            ParamRow {
-                text: "Z"
-                id: txtLinearAccelerationZ
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
+            param1.text: "X"
+            param1.ToolTip.text: text
+            param1.ToolTip.visible: pressed
+            param2.text: "Y"
+            param2.ToolTip.text: text
+            param2.ToolTip.visible: pressed
+            param3.text: "Z"
+            param3.ToolTip.text: text
+            param3.ToolTip.visible: pressed
         }
+
+
+
     }
 
 //    Row {

@@ -7,6 +7,9 @@ import GroundSegmentUI 1.0
 Rectangle {
     id: root
     property alias columnTitle: columnTitle
+    property alias param1: param1
+    property alias param2: param2
+    property alias param3: param3
 
     color: Constants.colorWhite
     radius: 8
@@ -105,25 +108,26 @@ Rectangle {
                 spacing: 8 //64
 
                 ParamRow {
-                    text: "Position"
+
+                    text: "[param1]"
                     span: 7
-                    id: txtPositionAccuracy
+                    id: param1
                     ToolTip.text: text
                     ToolTip.visible: pressed
                 }
 
                 ParamRow {
-                    text: "Speed"
+                    text: "[param2]"
                     span: 7
-                    id: txtSpeedAccuracy
+                    id: param2
                     ToolTip.text: text
                     ToolTip.visible: pressed
                 }
 
                 ParamRow {
-                    text: "# GNSS satellites"
+                    text: "[param3]"
                     span: 7
-                    id: txtNumberOfGPSSatellite
+                    id: param3
                     ToolTip.text: text
                     ToolTip.visible: pressed
                 }
