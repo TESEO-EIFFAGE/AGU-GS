@@ -311,7 +311,7 @@ Column{
         ParamsDrawer{
             id:linearAccDrawer
             columnTitle.text: "Linear Acceleration (m/s²)"
-            width: 180
+            width: 200
             height: open ? 90 : 24
             Layout.alignment: Qt.AlignTop
             param1.text: "X"
