@@ -126,7 +126,6 @@ Rectangle {
                 ParamRow {
 
                     text: "[param1]"
-                    span: 7
                     id: param1
                     ToolTip.text: text
                     ToolTip.visible: pressed
@@ -134,7 +133,6 @@ Rectangle {
 
                 ParamRow {
                     text: "[param2]"
-                    span: 7
                     id: param2
                     ToolTip.text: text
                     ToolTip.visible: pressed
@@ -142,7 +140,6 @@ Rectangle {
 
                 ParamRow {
                     text: "[param3]"
-                    span: 7
                     id: param3
                     ToolTip.text: text
                     ToolTip.visible: pressed
