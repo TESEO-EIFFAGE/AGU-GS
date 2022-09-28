@@ -11,6 +11,7 @@ Rectangle {
     color: Constants.colorWhite
     radius: 8
     height: contentColumn.height
+    width: 180
 
     states: [
         State {
@@ -50,7 +51,7 @@ Rectangle {
         id: contentColumn
 
         height: childrenRect.height
-        width: valuesColumn.width //parent.width
+        width: parent.width
 
         spacing: 8 //0
         anchors.top: parent.top
@@ -80,9 +81,9 @@ Rectangle {
                 id: columnTitle
                 anchors.top: parent.top
                 anchors.left: parent.left
-                //anchors.topMargin: 8
-                anchors.leftMargin: 16
 
+                //anchors.topMargin: 8
+                //anchors.leftMargin: 16
                 text: "[title]"
             }
         }
@@ -91,7 +92,7 @@ Rectangle {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: overviewBox.bottom
-
+            clip: true
             height: root.open ? 90 : 0
 
             Column {
@@ -99,7 +100,7 @@ Rectangle {
                 anchors.fill: parent
                 anchors.topMargin: 8
                 anchors.rightMargin: 16
-                anchors.leftMargin: 16
+                //anchors.leftMargin: 16
                 anchors.bottomMargin: 16
                 spacing: 8 //64
 
