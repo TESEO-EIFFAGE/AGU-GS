@@ -54,5 +54,6 @@
         <file>content/CoreTab.qml</file>
         <file>content/HomeTab.qml</file>
         <file>content/images/svgs/solid/house.svg</file>
+        <file>content/controls/ParamsDrawer.ui.qml</file>
     </qresource>
 </RCC>
