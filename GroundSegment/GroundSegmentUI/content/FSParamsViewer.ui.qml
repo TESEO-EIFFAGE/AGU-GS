@@ -31,8 +31,8 @@ Rectangle {
     property alias txtLinearVelocityHorizontal: telemetryTab.txtLinearVelocityHorizontal
 
     property alias txtLinearVelocityVertical: telemetryTab.txtLinearVelocityVertical
-    property alias txtPositionAccuracy: telemetryTab.txtPositionAccuracy
-    property alias txtSpeedAccuracy: telemetryTab.txtSpeedAccuracy
+//    property alias txtPositionAccuracy: telemetryTab.txtPositionAccuracy
+//    property alias txtSpeedAccuracy: telemetryTab.txtSpeedAccuracy
     property alias txtLinearAccelerationX: telemetryTab.txtLinearAccelerationX
     property alias txtLinearAccelerationY: telemetryTab.txtLinearAccelerationY
     property alias txtLinearAccelerationZ: telemetryTab.txtLinearAccelerationZ
@@ -51,7 +51,7 @@ Rectangle {
     property alias txtAngularRatePitch: telemetryTab.txtAngularRatePitch
     property alias txtAngularRateYaw: telemetryTab.txtAngularRateYaw
 
-    property alias txtNumberOfGPSSatellite: telemetryTab.txtNumberOfGPSSatellite
+   // property alias txtNumberOfGPSSatellite: telemetryTab.txtNumberOfGPSSatellite
 
     property alias txtAnemCommErrorCounter: telemetryTab.txtAnemCommErrorCounter
     property alias txtRDAltCommErrorCounter: telemetryTab.txtRDAltCommErrorCounter

@@ -22,8 +22,8 @@ Rectangle {
     property alias txtLinearVelocityHorizontal: txtLinearVelocityHorizontal.value
 
     property alias txtLinearVelocityVertical: txtLinearVelocityVertical.value
-    property alias txtPositionAccuracy: txtPositionAccuracy.value
-    property alias txtSpeedAccuracy: txtSpeedAccuracy.value
+    //property alias txtPositionAccuracy: txtPositionAccuracy.value
+    //property alias txtSpeedAccuracy: txtSpeedAccuracy.value
     property alias txtLinearAccelerationX: txtLinearAccelerationX.value
     property alias txtLinearAccelerationY: txtLinearAccelerationY.value
     property alias txtLinearAccelerationZ: txtLinearAccelerationZ.value
@@ -42,7 +42,7 @@ Rectangle {
     property alias txtAngularRatePitch: txtAngularRatePitch.value
     property alias txtAngularRateYaw: txtAngularRateYaw.value
 
-    property alias txtNumberOfGPSSatellite: txtNumberOfGPSSatellite.value
+    //property alias txtNumberOfGPSSatellite: txtNumberOfGPSSatellite.value
 
     property alias txtAnemCommErrorCounter: txtAnemCommErrorCounter.value
     property alias txtRDAltCommErrorCounter: txtRDAltCommErrorCounter.value
@@ -224,12 +224,12 @@ Column{
             }
         }
 ParamsDrawer{
-    columnTitle: "Accuracy"
+    columnTitle.text: "Accuracy"
     width: 180
     height: open ? 96 : 24
     Layout.alignment: Qt.AlignTop
 
-    open:true
+    //open:true
 }
 
 //        Column {
