@@ -8,6 +8,9 @@ Rectangle {
     id: root
     property alias columnTitle: columnTitle
 
+    property alias gridColumns: valuesGrid.columns
+    property alias gridRows: valuesGrid.rows
+
     property alias light31: light31
     property alias light30: light30
     property alias light29: light29

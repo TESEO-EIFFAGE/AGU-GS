@@ -255,34 +255,34 @@ Window {
 
 
         fsParams.telemetryLight0.up: hmi.telemetry0
-//        fsParams.telemetryLight31.up: hmi.telemetry31
-//        fsParams.telemetryLight30.up: hmi.telemetry30
-//        fsParams.telemetryLight29.up: hmi.telemetry29
-//        fsParams.telemetryLight28.up: hmi.telemetry28
-//        fsParams.telemetryLight27.up: hmi.telemetry27
-//        fsParams.telemetryLight26.up: hmi.telemetry26
-//        fsParams.telemetryLight25.up: hmi.telemetry25
-//        fsParams.telemetryLight24.up: hmi.telemetry24
-//        fsParams.telemetryLight23.up: hmi.telemetry23
-//        fsParams.telemetryLight22.up: hmi.telemetry22
-//        fsParams.telemetryLight21.up: hmi.telemetry21
-//        fsParams.telemetryLight20.up: hmi.telemetry20
-//        fsParams.telemetryLight19.up: hmi.telemetry19
-//        fsParams.telemetryLight18.up: hmi.telemetry18
-//        fsParams.telemetryLight17.up: hmi.telemetry17
-//        fsParams.telemetryLight16.up: hmi.telemetry16
-//        fsParams.telemetryLight15.up: hmi.telemetry15
-//        fsParams.telemetryLight14.up: hmi.telemetry14
-//        fsParams.telemetryLight13.up: hmi.telemetry13
-//        fsParams.telemetryLight12.up: hmi.telemetry12
-//        fsParams.telemetryLight11.up: hmi.telemetry11
-//        fsParams.telemetryLight10.up: hmi.telemetry10
-//        fsParams.telemetryLight9.up: hmi.telemetry9
-//        fsParams.telemetryLight8.up: hmi.telemetry8
-//        fsParams.telemetryLight7.up: hmi.telemetry7
-//        fsParams.telemetryLight6.up: hmi.telemetry6
-//        fsParams.telemetryLight5.up: hmi.telemetry5
-//        fsParams.telemetryLight4.up: hmi.telemetry4
+        fsParams.telemetryStatusDrawer.light27.up: hmi.telemetry31
+        fsParams.telemetryStatusDrawer.light26.up: hmi.telemetry30
+        fsParams.telemetryStatusDrawer.light25.up: hmi.telemetry29
+        fsParams.telemetryStatusDrawer.light24.up: hmi.telemetry28
+        fsParams.telemetryStatusDrawer.light23.up: hmi.telemetry27
+        fsParams.telemetryStatusDrawer.light22.up: hmi.telemetry26
+        fsParams.telemetryStatusDrawer.light21.up: hmi.telemetry25
+        fsParams.telemetryStatusDrawer.light20.up: hmi.telemetry24
+        fsParams.telemetryStatusDrawer.light19.up: hmi.telemetry23
+        fsParams.telemetryStatusDrawer.light18.up: hmi.telemetry22
+        fsParams.telemetryStatusDrawer.light17.up: hmi.telemetry21
+        fsParams.telemetryStatusDrawer.light16.up: hmi.telemetry20
+        fsParams.telemetryStatusDrawer.light15.up: hmi.telemetry19
+        fsParams.telemetryStatusDrawer.light14.up: hmi.telemetry18
+        fsParams.telemetryStatusDrawer.light13.up: hmi.telemetry17
+        fsParams.telemetryStatusDrawer.light12.up: hmi.telemetry16
+        fsParams.telemetryStatusDrawer.light11.up: hmi.telemetry15
+        fsParams.telemetryStatusDrawer.light10.up: hmi.telemetry14
+        fsParams.telemetryStatusDrawer.light9.up: hmi.telemetry13
+        fsParams.telemetryStatusDrawer.light8.up: hmi.telemetry12
+        fsParams.telemetryStatusDrawer.light7.up: hmi.telemetry11
+        fsParams.telemetryStatusDrawer.light6.up: hmi.telemetry10
+        fsParams.telemetryStatusDrawer.light5.up: hmi.telemetry9
+        fsParams.telemetryStatusDrawer.light4.up: hmi.telemetry8
+        fsParams.telemetryStatusDrawer.light3.up: hmi.telemetry7
+        fsParams.telemetryStatusDrawer.light2.up: hmi.telemetry6
+        fsParams.telemetryStatusDrawer.light1.up: hmi.telemetry5
+        fsParams.telemetryStatusDrawer.light0.up: hmi.telemetry4
         fsParams.telemetryLight3.up: hmi.telemetry3
         fsParams.telemetryLight2.up: hmi.telemetry2
         fsParams.telemetryLight1.up: hmi.telemetry1

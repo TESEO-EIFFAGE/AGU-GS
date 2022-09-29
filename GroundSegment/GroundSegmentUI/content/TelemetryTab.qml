@@ -55,6 +55,7 @@ Rectangle {
     property alias txtPLAltCommErrorCounter: txtPLAltCommErrorCounter.value
 
     property alias telemetryLight0: telemetryLight0
+    property alias telemetryStatusDrawer:telemetryStatusDrawer
 //    property alias telemetryLight31: telemetryLight31
 //    property alias telemetryLight30: telemetryLight30
 //    property alias telemetryLight29: telemetryLight29
@@ -527,6 +528,69 @@ Rectangle {
         }
         }
         LightsDrawer{
+            id:telemetryStatusDrawer
+            open:true
+            gridColumns: 4
+            gridRows:7
+
+
+            light28.visible: false
+            light29.visible: false
+            light30.visible: false
+            light31.visible: false
+
+                        light0.text: "Anemom TO"
+
+                        light1.text: "Anemom CS"
+                        light2.text: "RD Altimeter TO"
+
+                        light3.text: "RD Altimeter CS"
+                        light4.text: "GNSS pack1 TO"
+
+                        light5.text: "GNSS pack1 CS"
+                        light6.text: "GNSS pack2 TO"
+
+                        light7.text: "GNSS pack2 CS"
+
+                        light8.text: "GNSS pack3 TO"
+
+                        light9.text: "GNSS pack3 CS"
+
+                        light10.text: "PL Altimeter TO"
+
+                        light11.text: "RS232 HW failure"
+
+                        light12.text: "RS422 HW failure"
+
+                        light13.text: "CAN HW failure"
+
+                        light14.text: "GNSS_time NOT valid"
+
+                        light15.text: "GNSS_pos NOT valid"
+
+                        light16.text: "Anem_speed NOT valid"
+
+                        light17.text: "Anem_temp NOT valid"
+
+                        light18.text: "RD_altitude NOT valid"
+
+                        light19.text: "PL_altitude NOT valid"
+
+                        light20.text: "GNSS_vel NOT valid"
+
+                        light21.text: "GNSS_acc NOT valid"
+
+                        light22.text: "GNSS_ECEFpos NOT valid"
+
+                        light23.text: "GNSS_ECEFvel NOT valid"
+
+                        light24.text: "GNSS_angle NOT valid"
+
+                        light25.text: "GNSS_angRate NOT valid"
+
+                        light26.text: "GNSS_quat NOT valid"
+
+                        light27.text: "GNSS_fix done"
 
         }
 
