@@ -7,6 +7,7 @@ import "controls"
 Rectangle {
     color:"transparent"
 
+
     property bool lit
 
     property alias txtLatitude: txtLatitude.value
@@ -54,34 +55,34 @@ Rectangle {
     property alias txtPLAltCommErrorCounter: txtPLAltCommErrorCounter.value
 
     property alias telemetryLight0: telemetryLight0
-    property alias telemetryLight31: telemetryLight31
-    property alias telemetryLight30: telemetryLight30
-    property alias telemetryLight29: telemetryLight29
-    property alias telemetryLight28: telemetryLight28
-    property alias telemetryLight27: telemetryLight27
-    property alias telemetryLight26: telemetryLight26
-    property alias telemetryLight25: telemetryLight25
-    property alias telemetryLight24: telemetryLight24
-    property alias telemetryLight23: telemetryLight23
-    property alias telemetryLight22: telemetryLight22
-    property alias telemetryLight21: telemetryLight21
-    property alias telemetryLight20: telemetryLight20
-    property alias telemetryLight19: telemetryLight19
-    property alias telemetryLight18: telemetryLight18
-    property alias telemetryLight17: telemetryLight17
-    property alias telemetryLight16: telemetryLight16
-    property alias telemetryLight15: telemetryLight15
-    property alias telemetryLight14: telemetryLight14
-    property alias telemetryLight13: telemetryLight13
-    property alias telemetryLight12: telemetryLight12
-    property alias telemetryLight11: telemetryLight11
-    property alias telemetryLight10: telemetryLight10
-    property alias telemetryLight9: telemetryLight9
-    property alias telemetryLight8: telemetryLight8
-    property alias telemetryLight7: telemetryLight7
-    property alias telemetryLight6: telemetryLight6
-    property alias telemetryLight5: telemetryLight5
-    property alias telemetryLight4: telemetryLight4
+//    property alias telemetryLight31: telemetryLight31
+//    property alias telemetryLight30: telemetryLight30
+//    property alias telemetryLight29: telemetryLight29
+//    property alias telemetryLight28: telemetryLight28
+//    property alias telemetryLight27: telemetryLight27
+//    property alias telemetryLight26: telemetryLight26
+//    property alias telemetryLight25: telemetryLight25
+//    property alias telemetryLight24: telemetryLight24
+//    property alias telemetryLight23: telemetryLight23
+//    property alias telemetryLight22: telemetryLight22
+//    property alias telemetryLight21: telemetryLight21
+//    property alias telemetryLight20: telemetryLight20
+//    property alias telemetryLight19: telemetryLight19
+//    property alias telemetryLight18: telemetryLight18
+//    property alias telemetryLight17: telemetryLight17
+//    property alias telemetryLight16: telemetryLight16
+//    property alias telemetryLight15: telemetryLight15
+//    property alias telemetryLight14: telemetryLight14
+//    property alias telemetryLight13: telemetryLight13
+//    property alias telemetryLight12: telemetryLight12
+//    property alias telemetryLight11: telemetryLight11
+//    property alias telemetryLight10: telemetryLight10
+//    property alias telemetryLight9: telemetryLight9
+//    property alias telemetryLight8: telemetryLight8
+//    property alias telemetryLight7: telemetryLight7
+//    property alias telemetryLight6: telemetryLight6
+//    property alias telemetryLight5: telemetryLight5
+//    property alias telemetryLight4: telemetryLight4
     property alias telemetryLight3: telemetryLight3
     property alias telemetryLight2: telemetryLight2
     property alias telemetryLight1: telemetryLight1
@@ -404,6 +405,8 @@ Column{
                 sourceSize.height: 24
                 sourceSize.width: 24
             }
+
+
             ParamGrp1Label {
                 text: "Radar"
 
@@ -435,20 +438,20 @@ Column{
                 sourceSize.width: 24
             }
 
-            ParamGrp1Label {
-                text: "Payload"
-
+            ParamsDrawer{
+                id:payloadDrawer
+                columnTitle.text: "Payload"
+                width: 120
+                height: open ? 40 : 24
+                Layout.alignment: Qt.AlignTop
+                param1.text: "Altitude"
+                param1.span:3
+                param2.visible: false
+                param3.visible: false
             }
             }
 
 
-        ParamRow {
-            text: "Altitude"
-            span: 3
-            id: txtAltitudeFromPayloadAltimeter
-            ToolTip.text: text
-            ToolTip.visible: pressed
-        }
         }
     }
     //}
@@ -485,9 +488,12 @@ Rectangle {
         id: grid
         columnSpacing: 16
         rowSpacing: 12
-        flow: Grid.TopToBottom
-        columns: 6
+        //flow: Grid.TopToBottom
+        columns: 3//6
         rows: 7
+        Column{
+            spacing:8
+
         StatusLight {
             id: telemetryLight0
             text: "Anemom NOT present"
@@ -507,147 +513,155 @@ Rectangle {
             id: telemetryLight3
             text: "PL Altimeter NOT present"
         }
-        StatusLight {
-            id: telemetryLight4
-            text: "Anemom TO"
+        Item{
+            height:1
+            width:1
+        }
+        Item{
+            height:1
+            width:1
+        }
+        Item{
+            height:1
+            width:1
+        }
+        }
+        LightsDrawer{
+
         }
 
-        StatusLight {
-            id: telemetryLight5
-            text: "Anemom CS"
-        }
-        StatusLight {
-            id: telemetryLight6
-            text: "RD Altimeter TO"
-        }
+//        StatusLight {
+//            id: telemetryLight4
+//            text: "Anemom TO"
+//        }
 
-        StatusLight {
-            id: telemetryLight7
-            text: "RD Altimeter CS"
-        }
-        StatusLight {
-            id: telemetryLight8
-            text: "GNSS pack1 TO"
-        }
+//        StatusLight {
+//            id: telemetryLight5
+//            text: "Anemom CS"
+//        }
+//        StatusLight {
+//            id: telemetryLight6
+//            text: "RD Altimeter TO"
+//        }
 
-        StatusLight {
-            id: telemetryLight9
-            text: "GNSS pack1 CS"
-        }
-        StatusLight {
-            id: telemetryLight10
-            text: "GNSS pack2 TO"
-        }
+//        StatusLight {
+//            id: telemetryLight7
+//            text: "RD Altimeter CS"
+//        }
+//        StatusLight {
+//            id: telemetryLight8
+//            text: "GNSS pack1 TO"
+//        }
 
-        StatusLight {
-            id: telemetryLight11
-            text: "GNSS pack2 CS"
-        }
+//        StatusLight {
+//            id: telemetryLight9
+//            text: "GNSS pack1 CS"
+//        }
+//        StatusLight {
+//            id: telemetryLight10
+//            text: "GNSS pack2 TO"
+//        }
 
-        StatusLight {
-            id: telemetryLight12
-            text: "GNSS pack3 TO"
-        }
+//        StatusLight {
+//            id: telemetryLight11
+//            text: "GNSS pack2 CS"
+//        }
 
-        StatusLight {
-            id: telemetryLight13
-            text: "GNSS pack3 CS"
-        }
-        StatusLight {
-            id: telemetryLight14
-            text: "PL Altimeter TO"
-        }
+//        StatusLight {
+//            id: telemetryLight12
+//            text: "GNSS pack3 TO"
+//        }
 
-        StatusLight {
-            id: telemetryLight15
-            text: "RS232 HW failure"
-        }
-        StatusLight {
-            id: telemetryLight16
-            text: "RS422 HW failure"
-        }
+//        StatusLight {
+//            id: telemetryLight13
+//            text: "GNSS pack3 CS"
+//        }
+//        StatusLight {
+//            id: telemetryLight14
+//            text: "PL Altimeter TO"
+//        }
 
-        StatusLight {
-            id: telemetryLight17
-            text: "CAN HW failure"
-        }
-        StatusLight {
-            id: telemetryLight18
-            text: "GNSS_time NOT valid"
-        }
+//        StatusLight {
+//            id: telemetryLight15
+//            text: "RS232 HW failure"
+//        }
+//        StatusLight {
+//            id: telemetryLight16
+//            text: "RS422 HW failure"
+//        }
 
-        StatusLight {
-            id: telemetryLight19
-            text: "GNSS_pos NOT valid"
-        }
-        StatusLight {
-            id: telemetryLight20
-            text: "Anem_speed NOT valid"
-        }
+//        StatusLight {
+//            id: telemetryLight17
+//            text: "CAN HW failure"
+//        }
+//        StatusLight {
+//            id: telemetryLight18
+//            text: "GNSS_time NOT valid"
+//        }
 
-        StatusLight {
-            id: telemetryLight21
-            text: "Anem_temp NOT valid"
-        }
+//        StatusLight {
+//            id: telemetryLight19
+//            text: "GNSS_pos NOT valid"
+//        }
+//        StatusLight {
+//            id: telemetryLight20
+//            text: "Anem_speed NOT valid"
+//        }
 
-        StatusLight {
-            id: telemetryLight22
-            text: "RD_altitude NOT valid"
-        }
+//        StatusLight {
+//            id: telemetryLight21
+//            text: "Anem_temp NOT valid"
+//        }
 
-        StatusLight {
-            id: telemetryLight23
-            text: "PL_altitude NOT valid"
-        }
-        StatusLight {
-            id: telemetryLight24
-            text: "GNSS_vel NOT valid"
-        }
+//        StatusLight {
+//            id: telemetryLight22
+//            text: "RD_altitude NOT valid"
+//        }
 
-        StatusLight {
-            id: telemetryLight25
-            text: "GNSS_acc NOT valid"
-        }
-        StatusLight {
-            id: telemetryLight26
-            text: "GNSS_ECEFpos NOT valid"
-        }
+//        StatusLight {
+//            id: telemetryLight23
+//            text: "PL_altitude NOT valid"
+//        }
+//        StatusLight {
+//            id: telemetryLight24
+//            text: "GNSS_vel NOT valid"
+//        }
 
-        StatusLight {
-            id: telemetryLight27
-            text: "GNSS_ECEFvel NOT valid"
-        }
-        StatusLight {
-            id: telemetryLight28
-            text: "GNSS_angle NOT valid"
-        }
+//        StatusLight {
+//            id: telemetryLight25
+//            text: "GNSS_acc NOT valid"
+//        }
+//        StatusLight {
+//            id: telemetryLight26
+//            text: "GNSS_ECEFpos NOT valid"
+//        }
 
-        StatusLight {
-            id: telemetryLight29
-            text: "GNSS_angRate NOT valid"
-        }
-        StatusLight {
-            id: telemetryLight30
-            text: "GNSS_quat NOT valid"
-        }
+//        StatusLight {
+//            id: telemetryLight27
+//            text: "GNSS_ECEFvel NOT valid"
+//        }
+//        StatusLight {
+//            id: telemetryLight28
+//            text: "GNSS_angle NOT valid"
+//        }
 
-        StatusLight {
-            id: telemetryLight31
-            text: "GNSS_fix done"
-        }
-        Item {
-            height: 1
-            width: 1
-        }
-        Item {
-            height: 1
-            width: 1
-        }
-        Item {
-            height: 1
-            width: 1
-        }
+//        StatusLight {
+//            id: telemetryLight29
+//            text: "GNSS_angRate NOT valid"
+//        }
+//        StatusLight {
+//            id: telemetryLight30
+//            text: "GNSS_quat NOT valid"
+//        }
 
+//        StatusLight {
+//            id: telemetryLight31
+//            text: "GNSS_fix done"
+//        }
+
+Column{
+    spacing:8
+    visible:false
         ParamRow {
             id: txtAnemCommErrorCounter
             text: "Anemometer Comm error counter"
@@ -680,6 +694,7 @@ Rectangle {
 }
 }
 }
+}
 
 
 /*##^##
@@ -688,10 +703,8 @@ Designer {
 D{i:6}D{i:12}D{i:13}D{i:14}D{i:15}D{i:11}D{i:16}D{i:18}D{i:19}D{i:20}D{i:17}D{i:22}
 D{i:23}D{i:24}D{i:25}D{i:21}D{i:27}D{i:28}D{i:29}D{i:30}D{i:26}D{i:32}D{i:33}D{i:34}
 D{i:35}D{i:31}D{i:36}D{i:5}D{i:37}D{i:41}D{i:42}D{i:40}D{i:43}D{i:44}D{i:45}D{i:46}
-D{i:39}D{i:49}D{i:50}D{i:48}D{i:51}D{i:47}D{i:54}D{i:55}D{i:53}D{i:56}D{i:52}D{i:38}
-D{i:57}D{i:59}D{i:60}D{i:58}D{i:62}D{i:63}D{i:64}D{i:65}D{i:66}D{i:67}D{i:68}D{i:69}
-D{i:70}D{i:71}D{i:72}D{i:73}D{i:74}D{i:75}D{i:76}D{i:77}D{i:78}D{i:79}D{i:80}D{i:81}
-D{i:82}D{i:83}D{i:84}D{i:85}D{i:86}D{i:87}D{i:88}D{i:89}D{i:90}D{i:91}D{i:92}D{i:93}
-D{i:94}D{i:95}D{i:96}D{i:97}D{i:98}D{i:99}D{i:100}D{i:61}D{i:1}
+D{i:39}D{i:49}D{i:50}D{i:48}D{i:51}D{i:47}D{i:54}D{i:55}D{i:53}D{i:52}D{i:38}D{i:56}
+D{i:58}D{i:59}D{i:57}D{i:62}D{i:63}D{i:64}D{i:65}D{i:66}D{i:67}D{i:68}D{i:61}D{i:69}
+D{i:71}D{i:72}D{i:73}D{i:74}D{i:70}D{i:60}D{i:1}
 }
 ##^##*/

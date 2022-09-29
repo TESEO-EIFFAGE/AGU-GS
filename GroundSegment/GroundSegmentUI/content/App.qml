@@ -255,34 +255,34 @@ Window {
 
 
         fsParams.telemetryLight0.up: hmi.telemetry0
-        fsParams.telemetryLight31.up: hmi.telemetry31
-        fsParams.telemetryLight30.up: hmi.telemetry30
-        fsParams.telemetryLight29.up: hmi.telemetry29
-        fsParams.telemetryLight28.up: hmi.telemetry28
-        fsParams.telemetryLight27.up: hmi.telemetry27
-        fsParams.telemetryLight26.up: hmi.telemetry26
-        fsParams.telemetryLight25.up: hmi.telemetry25
-        fsParams.telemetryLight24.up: hmi.telemetry24
-        fsParams.telemetryLight23.up: hmi.telemetry23
-        fsParams.telemetryLight22.up: hmi.telemetry22
-        fsParams.telemetryLight21.up: hmi.telemetry21
-        fsParams.telemetryLight20.up: hmi.telemetry20
-        fsParams.telemetryLight19.up: hmi.telemetry19
-        fsParams.telemetryLight18.up: hmi.telemetry18
-        fsParams.telemetryLight17.up: hmi.telemetry17
-        fsParams.telemetryLight16.up: hmi.telemetry16
-        fsParams.telemetryLight15.up: hmi.telemetry15
-        fsParams.telemetryLight14.up: hmi.telemetry14
-        fsParams.telemetryLight13.up: hmi.telemetry13
-        fsParams.telemetryLight12.up: hmi.telemetry12
-        fsParams.telemetryLight11.up: hmi.telemetry11
-        fsParams.telemetryLight10.up: hmi.telemetry10
-        fsParams.telemetryLight9.up: hmi.telemetry9
-        fsParams.telemetryLight8.up: hmi.telemetry8
-        fsParams.telemetryLight7.up: hmi.telemetry7
-        fsParams.telemetryLight6.up: hmi.telemetry6
-        fsParams.telemetryLight5.up: hmi.telemetry5
-        fsParams.telemetryLight4.up: hmi.telemetry4
+//        fsParams.telemetryLight31.up: hmi.telemetry31
+//        fsParams.telemetryLight30.up: hmi.telemetry30
+//        fsParams.telemetryLight29.up: hmi.telemetry29
+//        fsParams.telemetryLight28.up: hmi.telemetry28
+//        fsParams.telemetryLight27.up: hmi.telemetry27
+//        fsParams.telemetryLight26.up: hmi.telemetry26
+//        fsParams.telemetryLight25.up: hmi.telemetry25
+//        fsParams.telemetryLight24.up: hmi.telemetry24
+//        fsParams.telemetryLight23.up: hmi.telemetry23
+//        fsParams.telemetryLight22.up: hmi.telemetry22
+//        fsParams.telemetryLight21.up: hmi.telemetry21
+//        fsParams.telemetryLight20.up: hmi.telemetry20
+//        fsParams.telemetryLight19.up: hmi.telemetry19
+//        fsParams.telemetryLight18.up: hmi.telemetry18
+//        fsParams.telemetryLight17.up: hmi.telemetry17
+//        fsParams.telemetryLight16.up: hmi.telemetry16
+//        fsParams.telemetryLight15.up: hmi.telemetry15
+//        fsParams.telemetryLight14.up: hmi.telemetry14
+//        fsParams.telemetryLight13.up: hmi.telemetry13
+//        fsParams.telemetryLight12.up: hmi.telemetry12
+//        fsParams.telemetryLight11.up: hmi.telemetry11
+//        fsParams.telemetryLight10.up: hmi.telemetry10
+//        fsParams.telemetryLight9.up: hmi.telemetry9
+//        fsParams.telemetryLight8.up: hmi.telemetry8
+//        fsParams.telemetryLight7.up: hmi.telemetry7
+//        fsParams.telemetryLight6.up: hmi.telemetry6
+//        fsParams.telemetryLight5.up: hmi.telemetry5
+//        fsParams.telemetryLight4.up: hmi.telemetry4
         fsParams.telemetryLight3.up: hmi.telemetry3
         fsParams.telemetryLight2.up: hmi.telemetry2
         fsParams.telemetryLight1.up: hmi.telemetry1

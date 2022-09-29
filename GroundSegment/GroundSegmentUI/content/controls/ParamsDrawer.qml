@@ -55,7 +55,7 @@ Rectangle {
 
         height: childrenRect.height
         width: parent.width
-
+clip: true
         spacing: 8 //0
         anchors.top: parent.top
         Rectangle {

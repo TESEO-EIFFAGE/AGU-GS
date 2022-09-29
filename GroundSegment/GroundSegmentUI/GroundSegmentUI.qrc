@@ -56,5 +56,6 @@
         <file>content/images/svgs/solid/house.svg</file>
         <file>content/controls/ParamsDrawer.qml</file>
         <file>content/images/svgs/solid/chevron-down.svg</file>
+        <file>content/controls/LightsDrawer.qml</file>
     </qresource>
 </RCC>
