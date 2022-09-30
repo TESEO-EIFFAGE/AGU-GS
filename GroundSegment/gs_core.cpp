@@ -1,6 +1,9 @@
 #include "gs_core.h"
 #include "storage.h"
 #include "hmi.h"
+#include "hmi.h"
+#include "GPSData.h"
+#include "src/radio_link/receiver/radio_link.h"
 #include <QTimer>
 #include <QObject>
 
@@ -13,6 +16,7 @@ GSCore::GSCore(QObject *parent)
     Storage *StorageData = new Storage(this);
     setHmi(new HMI(this));
     setGpsData(new GPSData(this));
+    setRadioLink(new RadioLink(this));
 
     StorageData->LenSystemStatus  = SetInitParameter("LenSystemStatus");
     StorageData->LenStorageStatus = SetInitParameter("LenStorageStatus");
@@ -117,11 +121,21 @@ int GSCore::SetInitParameter(QString str)
      return defaultValue;
 }
 
+void GSCore::setRadioLink(RadioLink *radioLink)
+{
+    m_radioLink = radioLink;
+}
+
+RadioLink *GSCore::radioLink() const
+{
+    return m_radioLink;
+}
+
 GSCore::~GSCore()
 {
 }
 
-HMI *GSCore::hmi()
+HMI *GSCore::hmi() const
 {
     return m_hmi;
 }
@@ -131,7 +145,7 @@ void GSCore::setHmi(HMI* hmi)
     m_hmi = hmi;
 }
 
-GPSData *GSCore::gpsData()
+GPSData *GSCore::gpsData() const
 {
     return m_gpsData;
 }
