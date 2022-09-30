@@ -30,8 +30,7 @@ Rectangle {
     //    property alias motorLight25: motorLight25
     //    property alias motorLight24: motorLight24
     property alias motorLight23: motorLight23
-    property alias motorLight22: motorLight22
-    property alias motorLight21: motorLight21
+
     //    property alias motorLight20: motorLight20
     //    property alias motorLight19: motorLight19
     //    property alias motorLight18: motorLight18
@@ -43,17 +42,21 @@ Rectangle {
     property alias motorLight12: motorLight12
     //    property alias motorLight11: motorLight11
     //    property alias motorLight10: motorLight10
-//    property alias motorLight8: motorLight8
-//    property alias motorLight7: motorLight7
-//    property alias motorLight6: motorLight6
+    //    property alias motorLight8: motorLight8
+    //    property alias motorLight7: motorLight7
+    //    property alias motorLight6: motorLight6
     property alias motorLight5: motorLight5
     property alias motorLight4: motorLight4
-//    property alias motorLight3: motorLight3
-//    property alias motorLight2: motorLight2
-//    property alias motorLight1: motorLight1
-//    property alias motorLight0: motorLight0
+    //    property alias motorLight3: motorLight3
+    //    property alias motorLight2: motorLight2
+    //    property alias motorLight1: motorLight1
+    //    property alias motorLight0: motorLight0
 
+    property alias bmsDrawer: bmsDrawer
     property alias bmsLight0: bmsLight0
+
+    property alias motorLight22: motorLight22
+    property alias motorLight21: motorLight21
     property alias bmsLight31: bmsLight31
     property alias bmsLight30: bmsLight30
     property alias bmsLight29: bmsLight29
@@ -85,474 +88,493 @@ Rectangle {
     property alias bmsLight3: bmsLight3
     property alias bmsLight2: bmsLight2
     property alias bmsLight1: bmsLight1
-Column{
-    //anchors.fill:parent
-    width:parent.width
-    spacing:24
-    RowLayout {
+    Column{
+        //anchors.fill:parent
         width:parent.width
-        height: childrenRect.height
-        spacing: 16
+        spacing:24
+        RowLayout {
+            width:parent.width
+            height: childrenRect.height
+            spacing: 16
 
-        Column {
-            Layout.alignment: Qt.AlignTop
+            Column {
+                Layout.alignment: Qt.AlignTop
 
-            spacing: 8
-            Layout.preferredWidth: 300
-            ParamGrp2Label {
-                text: "General"
+                spacing: 8
+                Layout.preferredWidth: 300
+                ParamGrp2Label {
+                    text: "General"
+                }
+                ParamRow {
+                    id: txtMotorTimestamp
+                    text: "TimeStamp"
+                    span: 4
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+                ParamRow {
+                    id: txtBMS1Voltage
+                    text: "BMS1 Voltage"
+                    span: 6
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+                ParamRow {
+                    id: txtBMS1Absorption
+                    text: "BMS1 Absorption"
+                    span: 6
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+                ParamRow {
+                    id: txtBMS1Temp
+                    text: "BMS1 Temperature"
+                    span: 6
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+                StatusLight {
+                    id: motorLight4
+                    text: "MotorControllerA comm error"
+                }
+                StatusLight {
+                    id: motorLight5
+                    text: "MotorControllerB comm error"
+                }
+                LightsDrawer
+                {
+                    id:generalMotorDrawer
+                    width:180
+                    columnTitle.text: "General Motor Status"
+                    //open:true
+                    gridColumns: 1
+                    gridRows:7
+                    light4.visible: false
+                    light5.visible: false
+                    light9.visible: false
+                    light10.visible: false
+                    light11.visible: false
+                    light12.visible: false
+                    light13.visible: false
+                    light14.visible: false
+                    light15.visible: false
+                    light16.visible: false
+                    light17.visible: false
+                    light18.visible: false
+                    light19.visible: false
+                    light20.visible: false
+                    light21.visible: false
+                    light22.visible: false
+                    light23.visible: false
+                    light24.visible: false
+                    light25.visible: false
+                    light26.visible: false
+                    light27.visible: false
+                    light28.visible: false
+                    light29.visible: false
+                    light30.visible: false
+                    light31.visible: false
+
+                    light0.text: "RS232 HW failure"
+                    light1.text: "CAN HW failure"
+
+                    light2.text: "PT100 HW failure"
+
+                    light3.text: "GPIO HW failure"
+
+                    light6.text: "PT100 A sensor breakage"
+
+                    light7.text: "PT100 B sensor breakage"
+
+                    light8.text: "BMS comm error"
+
+                }
+
+                //            StatusLight {
+                //                id: motorLight0
+                //                text: "RS232 HW failure"
+                //            }
+                //            StatusLight {
+                //                id: motorLight1
+                //                text: "CAN HW failure"
+                //            }
+                //            StatusLight {
+                //                id: motorLight2
+                //                text: "PT100 HW failure"
+                //            }
+                //            StatusLight {
+                //                id: motorLight3
+                //                text: "GPIO HW failure"
+                //            }
+                //            StatusLight {
+                //                id: motorLight6
+                //                text: "PT100 A sensor breakage"
+                //            }
+                //            StatusLight {
+                //                id: motorLight7
+                //                text: "PT100 B sensor breakage"
+                //            }
+
+                //            StatusLight {
+                //                id: motorLight8
+                //                text: "BMS comm error"
+                //            }
             }
-            ParamRow {
-                id: txtMotorTimestamp
-                text: "TimeStamp"
-                span: 4
-                ToolTip.text: text
-                ToolTip.visible: pressed
+            Column {
+                spacing: 8
+                Layout.alignment: Qt.AlignTop
+                Layout.preferredWidth: 240
+                ParamGrp2Label {
+                    text: "Motor A"
+                }
+                ParamRow {
+                    id: txtMotorARealPosition
+                    text: "MotorA RealPosition"
+                    span: 8
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+
+                ParamRow {
+                    id: txtMotorADemandPosition
+                    text: "MotorA DemandPosition"
+                    span: 8
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+                ParamRow {
+                    id: txtMotorATorque
+
+                    text: "MotorA Torque"
+                    span: 5
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+                ParamRow {
+                    id: txtMotorATemp
+
+                    text: "MotorA Temp"
+                    span: 5
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+
+                //                    StatusLight {
+                //                        id: motorLight10
+                //                        text: "MotorA breakage error"
+                //                    }
+                StatusLight {
+                    id: motorLight12
+                    text: "MotorA active INDICATION"
+                }
+                StatusLight {
+                    id: motorLight14
+                    text: "MotorA active FAULT"
+                }
+                //                    StatusLight {
+                //                        id: motorLight16
+                //                        text: "MotorA over-current error"
+                //                    }
+
+                //                    StatusLight {
+                //                        id: motorLight18
+                //                        text: "MotorA under-voltage error"
+                //                    }
+                //                    StatusLight {
+                //                        id: motorLight20
+                //                        text: "MotorA resolver err"
+                //                    }
             }
-            ParamRow {
-                id: txtBMS1Voltage
-                text: "BMS1 Voltage"
-                span: 6
-                ToolTip.text: text
-                ToolTip.visible: pressed
+
+            Column {
+                spacing: 8
+                Layout.alignment: Qt.AlignTop
+                ParamGrp2Label {
+                    text: "Motor B"
+                }
+                ParamRow {
+                    id: txtMotorBRealPosition
+
+                    text: "MotorB RealPosition"
+                    span: 8
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+                ParamRow {
+                    id: txtMotorBDemandPosition
+
+                    text: "MotorB DemandPosition"
+                    span: 8
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+
+                ParamRow {
+                    id: txtMotorBTorque
+
+                    text: "MotorB Torque"
+                    span: 5
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+
+                ParamRow {
+                    id: txtMotorBTemp
+
+                    text: "MotorB Temp"
+                    span: 5
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+
+                //                    StatusLight {
+                //                        id: motorLight11
+                //                        text: "MotorB breakage error"
+                //                    }
+                StatusLight {
+                    id: motorLight13
+                    text: "MotorB active INDICATION"
+                }
+
+                StatusLight {
+                    id: motorLight15
+                    text: "MotorB active FAULT"
+                }
+                //                    StatusLight {
+                //                        id: motorLight17
+                //                        text: "MotorB over-current error"
+                //                    }
+                //                    StatusLight {
+                //                        id: motorLight19
+                //                        text: "MotorB under-voltage error"
+                //                    }
+
+                //                    StatusLight {
+                //                        id: motorLight21
+                //                        text: "MotorB resolver error"
+                //                    }
             }
-            ParamRow {
-                id: txtBMS1Absorption
-                text: "BMS1 Absorption"
-                span: 6
-                ToolTip.text: text
-                ToolTip.visible: pressed
+            Item{
+                Layout.fillWidth: true
             }
-            ParamRow {
-                id: txtBMS1Temp
-                text: "BMS1 Temperature"
-                span: 6
-                ToolTip.text: text
-                ToolTip.visible: pressed
+        }
+        RowLayout{
+            width:parent.width
+            height: childrenRect.height
+            spacing: 16
+            Column {
+                spacing: 8
+                Layout.alignment: Qt.AlignTop
+                Layout.preferredWidth: 300
+                ParamGrp2Label {
+                    text: "BMS"
+                }
+
+                ParamRow {
+                    id: txtChargeValue
+                    text: "Charge %"
+                    span: 3
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
+                StatusLight {
+                    id: motorLight23
+                    text: "Battery LOW"
+                }
+
+
+
+                StatusLight {
+                    id: bmsLight0
+                    text: "Battery OVERVOLTAGE INDICATION"
+                }
+                StatusLight {
+                    id: bmsLight1
+                    text: "Battery OVERVOLTAGE FAULT"
+                }
+                StatusLight {
+                    id: bmsLight2
+                    text: "Battery UNDERVOLTAGE INDICATION"
+                }
+
+                StatusLight {
+                    id: bmsLight3
+                    text: "Battery UNDERVOLTAGE FAULT"
+                }
+
+                StatusLight {
+                    id: bmsLight10
+                    text: "Cell UNDERVOLTAGE INDICATION"
+                }
+                StatusLight {
+                    id: bmsLight11
+                    text: "Cell UNDERVOLTAGE FAULT"
+                }
+
+                StatusLight {
+                    id: bmsLight12
+                    text: "Cell OVERVOLTAGE INDICATION"
+                }
+                StatusLight {
+                    id: bmsLight13
+                    text: "Cell OVERVOLTAGE FAULT"
+                }
+
             }
-            StatusLight {
-                id: motorLight4
-                text: "MotorControllerA comm error"
-            }
-            StatusLight {
-                id: motorLight5
-                text: "MotorControllerB comm error"
-            }
-            LightsDrawer
-            {
-                id:generalMotorDrawer
+            LightsDrawer{
+                id:bmsDrawer
                 width:180
-                columnTitle.text: "General Motor Status"
+                columnTitle.text: "BMS Status"
                 //open:true
-                gridColumns: 1
-                gridRows:7
-                light4.visible: false
-                light5.visible: false
-                light9.visible: false
-                light10.visible: false
-                light11.visible: false
-                light12.visible: false
-                light13.visible: false
-                light14.visible: false
-                light15.visible: false
-                light16.visible: false
-                light17.visible: false
-                light18.visible: false
-                light19.visible: false
-                light20.visible: false
-                light21.visible: false
-                light22.visible: false
-                light23.visible: false
-                light24.visible: false
-                light25.visible: false
-                light26.visible: false
+                gridColumns: 3
+                gridRows:9
+
                 light27.visible: false
                 light28.visible: false
                 light29.visible: false
                 light30.visible: false
                 light31.visible: false
 
-                                light0.text: "RS232 HW failure"
-                                light1.text: "CAN HW failure"
 
-                                light2.text: "PT100 HW failure"
-
-                                light3.text: "GPIO HW failure"
-
-                                light6.text: "PT100 A sensor breakage"
-
-                                light7.text: "PT100 B sensor breakage"
-
-                                light8.text: "BMS comm error"
 
             }
+            //        Column {
+            //            spacing: 8
+            //            Layout.preferredWidth: 240
+            //            Layout.alignment: Qt.AlignTop
 
-//            StatusLight {
-//                id: motorLight0
-//                text: "RS232 HW failure"
-//            }
-//            StatusLight {
-//                id: motorLight1
-//                text: "CAN HW failure"
-//            }
-//            StatusLight {
-//                id: motorLight2
-//                text: "PT100 HW failure"
-//            }
-//            StatusLight {
-//                id: motorLight3
-//                text: "GPIO HW failure"
-//            }
-//            StatusLight {
-//                id: motorLight6
-//                text: "PT100 A sensor breakage"
-//            }
-//            StatusLight {
-//                id: motorLight7
-//                text: "PT100 B sensor breakage"
-//            }
+            //            Item {
+            //                height: 16
+            //                width: 1
+            //            }
+            //            StatusLight {
+            //                id: motorLight20
+            //                text: "BMS active INDICATION"
+            //            }
+            //            StatusLight {
+            //                id: motorLight21
+            //                text: "BMS active FAULT"
+            //            }
+            //            StatusLight {
+            //                id: motorLight22
+            //                text: "BMS active REQUEST"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight4
+            //                text: "Battery EXCESSIVE INDICATION"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight5
+            //                text: "Battery EXCESSIVE FAULT"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight6
+            //                text: "Battery temp HIGH INDICATION"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight7
+            //                text: "Battery temp HIGH FAULT"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight8
+            //                text: "Battery temp LOW INDICATION"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight9
+            //                text: "Battery temp LOW FAULT"
+            //            }
 
-//            StatusLight {
-//                id: motorLight8
-//                text: "BMS comm error"
-//            }
-        }
-        Column {
-            spacing: 8
-            Layout.alignment: Qt.AlignTop
-            Layout.preferredWidth: 240
-            ParamGrp2Label {
-                text: "Motor A"
-            }
-            ParamRow {
-                id: txtMotorARealPosition
-                text: "MotorA RealPosition"
-                span: 8
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
+            //            StatusLight {
+            //                id: bmsLight14
+            //                text: "Cell voltage difference INDICATION"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight15
+            //                text: "Cell voltage difference FAULT"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight16
+            //                text: "Cell temp difference INDICATION"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight17
+            //                text: "Cell temp difference FAULT"
+            //            }
 
-            ParamRow {
-                id: txtMotorADemandPosition
-                text: "MotorA DemandPosition"
-                span: 8
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
-            ParamRow {
-                id: txtMotorATorque
+            //            StatusLight {
+            //                id: bmsLight18
+            //                text: "Cell temp sensor FAULT"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight19
+            //                text: "Generic HW FAULT"
+            //            }
 
-                text: "MotorA Torque"
-                span: 5
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
-            ParamRow {
-                id: txtMotorATemp
+            //            StatusLight {
+            //                id: bmsLight20
+            //                text: "Charge switch FAULT"
+            //            }
+            //        }
 
-                text: "MotorA Temp"
-                span: 5
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
+            //        Column {
+            //            spacing: 8
+            //            Layout.alignment: Qt.AlignTop
+            //            Item {
+            //                height: 16
+            //                width: 1
+            //            }
 
-            //                    StatusLight {
-            //                        id: motorLight10
-            //                        text: "MotorA breakage error"
-            //                    }
-            StatusLight {
-                id: motorLight12
-                text: "MotorA active INDICATION"
-            }
-            StatusLight {
-                id: motorLight14
-                text: "MotorA active FAULT"
-            }
-            //                    StatusLight {
-            //                        id: motorLight16
-            //                        text: "MotorA over-current error"
-            //                    }
+            //            StatusLight {
+            //                id: bmsLight21
+            //                text: "Discharge switch FAULT"
+            //            }
 
-            //                    StatusLight {
-            //                        id: motorLight18
-            //                        text: "MotorA under-voltage error"
-            //                    }
-            //                    StatusLight {
-            //                        id: motorLight20
-            //                        text: "MotorA resolver err"
-            //                    }
-        }
+            //            StatusLight {
+            //                id: bmsLight22
+            //                text: "Self-test FAULT"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight23
+            //                text: "Collection line FAULT"
+            //            }
 
-        Column {
-            spacing: 8
-            Layout.alignment: Qt.AlignTop
-            ParamGrp2Label {
-                text: "Motor B"
-            }
-            ParamRow {
-                id: txtMotorBRealPosition
-
-                text: "MotorB RealPosition"
-                span: 8
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
-            ParamRow {
-                id: txtMotorBDemandPosition
-
-                text: "MotorB DemandPosition"
-                span: 8
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
-
-            ParamRow {
-                id: txtMotorBTorque
-
-                text: "MotorB Torque"
-                span: 5
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
-
-            ParamRow {
-                id: txtMotorBTemp
-
-                text: "MotorB Temp"
-                span: 5
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
-
-            //                    StatusLight {
-            //                        id: motorLight11
-            //                        text: "MotorB breakage error"
-            //                    }
-            StatusLight {
-                id: motorLight13
-                text: "MotorB active INDICATION"
-            }
-
-            StatusLight {
-                id: motorLight15
-                text: "MotorB active FAULT"
-            }
-            //                    StatusLight {
-            //                        id: motorLight17
-            //                        text: "MotorB over-current error"
-            //                    }
-            //                    StatusLight {
-            //                        id: motorLight19
-            //                        text: "MotorB under-voltage error"
-            //                    }
-
-            //                    StatusLight {
-            //                        id: motorLight21
-            //                        text: "MotorB resolver error"
-            //                    }
-        }
-        Item{
-            Layout.fillWidth: true
-        }
-}
-    RowLayout{
-        width:parent.width
-        height: childrenRect.height
-                spacing: 16
-        Column {
-            spacing: 8
-            Layout.alignment: Qt.AlignTop
-            Layout.preferredWidth: 300
-            ParamGrp2Label {
-                text: "BMS"
-            }
-
-            ParamRow {
-                id: txtChargeValue
-                text: "Charge %"
-                span: 3
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
-            StatusLight {
-                id: motorLight23
-                text: "Battery LOW"
-            }
-
-            StatusLight {
-                id: motorLight20
-                text: "BMS active INDICATION"
-            }
-            StatusLight {
-                id: motorLight21
-                text: "BMS active FAULT"
-            }
-            StatusLight {
-                id: motorLight22
-                text: "BMS active REQUEST"
-            }
-
-            StatusLight {
-                id: bmsLight0
-                text: "Battery OVERVOLTAGE INDICATION"
-            }
-            StatusLight {
-                id: bmsLight1
-                text: "Battery OVERVOLTAGE FAULT"
-            }
-            StatusLight {
-                id: bmsLight2
-                text: "Battery UNDERVOLTAGE INDICATION"
-            }
-            StatusLight {
-                id: bmsLight3
-                text: "Battery UNDERVOLTAGE FAULT"
-            }
-            StatusLight {
-                id: bmsLight4
-                text: "Battery EXCESSIVE INDICATION"
-            }
-            StatusLight {
-                id: bmsLight5
-                text: "Battery EXCESSIVE FAULT"
-            }
-            StatusLight {
-                id: bmsLight6
-                text: "Battery temp HIGH INDICATION"
-            }
-            StatusLight {
-                id: bmsLight7
-                text: "Battery temp HIGH FAULT"
+            //            StatusLight {
+            //                id: bmsLight24
+            //                text: "Temp line FAULT"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight25
+            //                text: "BMS alarm FAULT"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight26
+            //                text: "Activity limit request"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight27
+            //                text: "Discharge current limit request"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight28
+            //                text: "Consumption STOP request"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight29
+            //                text: "Charging temp low FAULT"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight30
+            //                text: "Charging temp high FAULT"
+            //            }
+            //            StatusLight {
+            //                id: bmsLight31
+            //                text: "Excessive charging current FAULT"
+            //            }
+            //        }
+            Item{
+                Layout.fillWidth: true
             }
         }
-
-        Column {
-            spacing: 8
-            Layout.preferredWidth: 240
-            Layout.alignment: Qt.AlignTop
-
-            Item {
-                height: 16
-                width: 1
-            }
-
-            StatusLight {
-                id: bmsLight8
-                text: "Battery temp LOW INDICATION"
-            }
-            StatusLight {
-                id: bmsLight9
-                text: "Battery temp LOW FAULT"
-            }
-
-            StatusLight {
-                id: bmsLight10
-                text: "Cell UNDERVOLTAGE INDICATION"
-            }
-            StatusLight {
-                id: bmsLight11
-                text: "Cell UNDERVOLTAGE FAULT"
-            }
-
-            StatusLight {
-                id: bmsLight12
-                text: "Cell OVERVOLTAGE INDICATION"
-            }
-            StatusLight {
-                id: bmsLight13
-                text: "Cell OVERVOLTAGE FAULT"
-            }
-            StatusLight {
-                id: bmsLight14
-                text: "Cell voltage difference INDICATION"
-            }
-            StatusLight {
-                id: bmsLight15
-                text: "Cell voltage difference FAULT"
-            }
-            StatusLight {
-                id: bmsLight16
-                text: "Cell temp difference INDICATION"
-            }
-            StatusLight {
-                id: bmsLight17
-                text: "Cell temp difference FAULT"
-            }
-
-            StatusLight {
-                id: bmsLight18
-                text: "Cell temp sensor FAULT"
-            }
-            StatusLight {
-                id: bmsLight19
-                text: "Generic HW FAULT"
-            }
-
-            StatusLight {
-                id: bmsLight20
-                text: "Charge switch FAULT"
-            }
-        }
-
-        Column {
-            spacing: 8
-            Layout.alignment: Qt.AlignTop
-            Item {
-                height: 16
-                width: 1
-            }
-
-            StatusLight {
-                id: bmsLight21
-                text: "Discharge switch FAULT"
-            }
-
-            StatusLight {
-                id: bmsLight22
-                text: "Self-test FAULT"
-            }
-            StatusLight {
-                id: bmsLight23
-                text: "Collection line FAULT"
-            }
-
-            StatusLight {
-                id: bmsLight24
-                text: "Temp line FAULT"
-            }
-            StatusLight {
-                id: bmsLight25
-                text: "BMS alarm FAULT"
-            }
-            StatusLight {
-                id: bmsLight26
-                text: "Activity limit request"
-            }
-            StatusLight {
-                id: bmsLight27
-                text: "Discharge current limit request"
-            }
-            StatusLight {
-                id: bmsLight28
-                text: "Consumption STOP request"
-            }
-            StatusLight {
-                id: bmsLight29
-                text: "Charging temp low FAULT"
-            }
-            StatusLight {
-                id: bmsLight30
-                text: "Charging temp high FAULT"
-            }
-            StatusLight {
-                id: bmsLight31
-                text: "Excessive charging current FAULT"
-            }
-        }
-        Item{
-            Layout.fillWidth: true
-        }
-    }
     }
 }
 

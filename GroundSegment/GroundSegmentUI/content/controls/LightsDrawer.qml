@@ -114,11 +114,14 @@ Rectangle {
             }
 
             radius: 8
-
+Row{
+    anchors.fill: parent
+    spacing:24
+    anchors.top: parent.top
+    anchors.left: parent.left
             ParamGrp2Label {
                 id: columnTitle
-                anchors.top: parent.top
-                anchors.left: parent.left
+
 
                 //anchors.topMargin: 8
                 //anchors.leftMargin: 16
@@ -126,7 +129,7 @@ Rectangle {
             }
             Image {
 
-                anchors.right: parent.right
+
                 anchors.rightMargin: 8
                 anchors.verticalCenter: parent.verticalCenter
                 source: "../images/svgs/solid/chevron-down.svg"
@@ -137,6 +140,7 @@ Rectangle {
                 sourceSize.width: 16
                 z:1
             }
+}
         }
         Rectangle {
             id: advancedSectionBody

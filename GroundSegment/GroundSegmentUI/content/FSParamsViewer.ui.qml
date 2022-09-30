@@ -166,35 +166,37 @@ Rectangle {
     //    property alias motorLight2: motorsBMSTab.motorLight2
     //    property alias motorLight1: motorsBMSTab.motorLight1
     //    property alias motorLight0: motorsBMSTab.motorLight0
+    property alias bmsDrawer: motorsBMSTab.bmsDrawer
+
     property alias bmsLight0: motorsBMSTab.bmsLight0
-    property alias bmsLight31: motorsBMSTab.bmsLight31
-    property alias bmsLight30: motorsBMSTab.bmsLight30
-    property alias bmsLight29: motorsBMSTab.bmsLight29
-    property alias bmsLight28: motorsBMSTab.bmsLight28
-    property alias bmsLight27: motorsBMSTab.bmsLight27
-    property alias bmsLight26: motorsBMSTab.bmsLight26
-    property alias bmsLight25: motorsBMSTab.bmsLight25
-    property alias bmsLight24: motorsBMSTab.bmsLight24
-    property alias bmsLight23: motorsBMSTab.bmsLight23
-    property alias bmsLight22: motorsBMSTab.bmsLight22
-    property alias bmsLight21: motorsBMSTab.bmsLight21
-    property alias bmsLight20: motorsBMSTab.bmsLight20
-    property alias bmsLight19: motorsBMSTab.bmsLight19
-    property alias bmsLight18: motorsBMSTab.bmsLight18
-    property alias bmsLight17: motorsBMSTab.bmsLight17
-    property alias bmsLight16: motorsBMSTab.bmsLight16
-    property alias bmsLight15: motorsBMSTab.bmsLight15
-    property alias bmsLight14: motorsBMSTab.bmsLight14
+//    property alias bmsLight31: motorsBMSTab.bmsLight31
+//    property alias bmsLight30: motorsBMSTab.bmsLight30
+//    property alias bmsLight29: motorsBMSTab.bmsLight29
+//    property alias bmsLight28: motorsBMSTab.bmsLight28
+//    property alias bmsLight27: motorsBMSTab.bmsLight27
+//    property alias bmsLight26: motorsBMSTab.bmsLight26
+//    property alias bmsLight25: motorsBMSTab.bmsLight25
+//    property alias bmsLight24: motorsBMSTab.bmsLight24
+//    property alias bmsLight23: motorsBMSTab.bmsLight23
+//    property alias bmsLight22: motorsBMSTab.bmsLight22
+//    property alias bmsLight21: motorsBMSTab.bmsLight21
+//    property alias bmsLight20: motorsBMSTab.bmsLight20
+//    property alias bmsLight19: motorsBMSTab.bmsLight19
+//    property alias bmsLight18: motorsBMSTab.bmsLight18
+//    property alias bmsLight17: motorsBMSTab.bmsLight17
+//    property alias bmsLight16: motorsBMSTab.bmsLight16
+//    property alias bmsLight15: motorsBMSTab.bmsLight15
+//    property alias bmsLight14: motorsBMSTab.bmsLight14
     property alias bmsLight13: motorsBMSTab.bmsLight13
     property alias bmsLight12: motorsBMSTab.bmsLight12
     property alias bmsLight11: motorsBMSTab.bmsLight11
     property alias bmsLight10: motorsBMSTab.bmsLight10
-    property alias bmsLight9: motorsBMSTab.bmsLight9
-    property alias bmsLight8: motorsBMSTab.bmsLight8
-    property alias bmsLight7: motorsBMSTab.bmsLight7
-    property alias bmsLight6: motorsBMSTab.bmsLight6
-    property alias bmsLight5: motorsBMSTab.bmsLight5
-    property alias bmsLight4: motorsBMSTab.bmsLight4
+//    property alias bmsLight9: motorsBMSTab.bmsLight9
+//    property alias bmsLight8: motorsBMSTab.bmsLight8
+//    property alias bmsLight7: motorsBMSTab.bmsLight7
+//    property alias bmsLight6: motorsBMSTab.bmsLight6
+//    property alias bmsLight5: motorsBMSTab.bmsLight5
+//    property alias bmsLight4: motorsBMSTab.bmsLight4
     property alias bmsLight3: motorsBMSTab.bmsLight3
     property alias bmsLight2: motorsBMSTab.bmsLight2
     property alias bmsLight1: motorsBMSTab.bmsLight1
