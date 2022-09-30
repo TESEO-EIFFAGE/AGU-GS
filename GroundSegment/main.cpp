@@ -67,8 +67,6 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     auto gsCore = new GSCore(&app);
-    auto radioLink = new RadioLink(&app);
-    gsCore->setRadioLink(radioLink);
     auto hmi = gsCore->hmi();
     auto gpsData = gsCore->gpsData();
 

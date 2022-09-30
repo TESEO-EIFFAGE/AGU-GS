@@ -14,7 +14,7 @@ GSCore::GSCore(QObject *parent)
     Serial1 = new QSerialPort(this);
     MavlinkProtocol *Mavlink = new MavlinkProtocol(this);
     Storage *StorageData = new Storage(this);
-    //setRadioLink(new RadioLink(this));
+    setRadioLink(new RadioLink(this));
     setHmi(new HMI(this));
     setGpsData(new GPSData(this));
 
