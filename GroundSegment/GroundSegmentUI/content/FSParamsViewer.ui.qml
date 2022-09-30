@@ -27,7 +27,8 @@ Rectangle {
     property alias txtAirSpeed_WVector: telemetryTab.txtAirSpeed_WVector
     property alias txtAirTemperature: telemetryTab.txtAirTemperature
     property alias txtAltitudeFromRadarAltimeter: telemetryTab.txtAltitudeFromRadarAltimeter
-    property alias txtAltitudeFromPayloadAltimeter: telemetryTab.txtAltitudeFromPayloadAltimeter
+    //property alias txtAltitudeFromPayloadAltimeter: telemetryTab.txtAltitudeFromPayloadAltimeter
+    property alias payloadDrawer: telemetryTab.payloadDrawer
     property alias txtLinearVelocityHorizontal: telemetryTab.txtLinearVelocityHorizontal
 
     property alias txtLinearVelocityVertical: telemetryTab.txtLinearVelocityVertical
@@ -85,61 +86,63 @@ Rectangle {
 
     property alias telemetryStatusDrawer: telemetryTab.telemetryStatusDrawer
     property alias telemetryLight0: telemetryTab.telemetryLight0
-//        property alias telemetryLight31: telemetryTab.telemetryLight31
-//        property alias telemetryLight30: telemetryTab.telemetryLight30
-//        property alias telemetryLight29: telemetryTab.telemetryLight29
-//        property alias telemetryLight28: telemetryTab.telemetryLight28
-//        property alias telemetryLight27: telemetryTab.telemetryLight27
-//        property alias telemetryLight26: telemetryTab.telemetryLight26
-//        property alias telemetryLight25: telemetryTab.telemetryLight25
-//        property alias telemetryLight24: telemetryTab.telemetryLight24
-//        property alias telemetryLight23: telemetryTab.telemetryLight23
-//        property alias telemetryLight22: telemetryTab.telemetryLight22
-//        property alias telemetryLight21: telemetryTab.telemetryLight21
-//        property alias telemetryLight20: telemetryTab.telemetryLight20
-//        property alias telemetryLight19: telemetryTab.telemetryLight19
-//        property alias telemetryLight18: telemetryTab.telemetryLight18
-//        property alias telemetryLight17: telemetryTab.telemetryLight17
-//        property alias telemetryLight16: telemetryTab.telemetryLight16
-//        property alias telemetryLight15: telemetryTab.telemetryLight15
-//        property alias telemetryLight14: telemetryTab.telemetryLight14
-//        property alias telemetryLight13: telemetryTab.telemetryLight13
-//        property alias telemetryLight12: telemetryTab.telemetryLight12
-//        property alias telemetryLight11: telemetryTab.telemetryLight11
-//        property alias telemetryLight10: telemetryTab.telemetryLight10
-//        property alias telemetryLight9: telemetryTab.telemetryLight9
-//        property alias telemetryLight8: telemetryTab.telemetryLight8
-//        property alias telemetryLight7: telemetryTab.telemetryLight7
-//        property alias telemetryLight6: telemetryTab.telemetryLight6
-//        property alias telemetryLight5: telemetryTab.telemetryLight5
-//        property alias telemetryLight4: telemetryTab.telemetryLight4
+    //        property alias telemetryLight31: telemetryTab.telemetryLight31
+    //        property alias telemetryLight30: telemetryTab.telemetryLight30
+    //        property alias telemetryLight29: telemetryTab.telemetryLight29
+    //        property alias telemetryLight28: telemetryTab.telemetryLight28
+    //        property alias telemetryLight27: telemetryTab.telemetryLight27
+    //        property alias telemetryLight26: telemetryTab.telemetryLight26
+    //        property alias telemetryLight25: telemetryTab.telemetryLight25
+    //        property alias telemetryLight24: telemetryTab.telemetryLight24
+    //        property alias telemetryLight23: telemetryTab.telemetryLight23
+    //        property alias telemetryLight22: telemetryTab.telemetryLight22
+    //        property alias telemetryLight21: telemetryTab.telemetryLight21
+    //        property alias telemetryLight20: telemetryTab.telemetryLight20
+    //        property alias telemetryLight19: telemetryTab.telemetryLight19
+    //        property alias telemetryLight18: telemetryTab.telemetryLight18
+    //        property alias telemetryLight17: telemetryTab.telemetryLight17
+    //        property alias telemetryLight16: telemetryTab.telemetryLight16
+    //        property alias telemetryLight15: telemetryTab.telemetryLight15
+    //        property alias telemetryLight14: telemetryTab.telemetryLight14
+    //        property alias telemetryLight13: telemetryTab.telemetryLight13
+    //        property alias telemetryLight12: telemetryTab.telemetryLight12
+    //        property alias telemetryLight11: telemetryTab.telemetryLight11
+    //        property alias telemetryLight10: telemetryTab.telemetryLight10
+    //        property alias telemetryLight9: telemetryTab.telemetryLight9
+    //        property alias telemetryLight8: telemetryTab.telemetryLight8
+    //        property alias telemetryLight7: telemetryTab.telemetryLight7
+    //        property alias telemetryLight6: telemetryTab.telemetryLight6
+    //        property alias telemetryLight5: telemetryTab.telemetryLight5
+    //        property alias telemetryLight4: telemetryTab.telemetryLight4
     property alias telemetryLight3: telemetryTab.telemetryLight3
     property alias telemetryLight2: telemetryTab.telemetryLight2
     property alias telemetryLight1: telemetryTab.telemetryLight1
 
-    property alias storageLight23: storageTab.storageLight23
-    property alias storageLight22: storageTab.storageLight22
-    property alias storageLight21: storageTab.storageLight21
-    property alias storageLight20: storageTab.storageLight20
-    property alias storageLight19: storageTab.storageLight19
-    property alias storageLight18: storageTab.storageLight18
-    property alias storageLight17: storageTab.storageLight17
-    property alias storageLight16: storageTab.storageLight16
-    property alias storageLight15: storageTab.storageLight15
-    property alias storageLight14: storageTab.storageLight14
-    property alias storageLight13: storageTab.storageLight13
-    property alias storageLight12: storageTab.storageLight12
-    property alias storageLight11: storageTab.storageLight11
-    property alias storageLight10: storageTab.storageLight10
-    property alias storageLight8: storageTab.storageLight8
-    property alias storageLight7: storageTab.storageLight7
-    property alias storageLight6: storageTab.storageLight6
-    property alias storageLight5: storageTab.storageLight5
-    property alias storageLight4: storageTab.storageLight4
-    property alias storageLight3: storageTab.storageLight3
-    property alias storageLight2: storageTab.storageLight2
-    property alias storageLight1: storageTab.storageLight1
-    property alias storageLight0: storageTab.storageLight0
+    property alias storageDrawer: storageTab.storageDrawer
+
+    //    property alias storageLight23: storageTab.storageLight23
+    //    property alias storageLight22: storageTab.storageLight22
+    //    property alias storageLight21: storageTab.storageLight21
+    //    property alias storageLight20: storageTab.storageLight20
+    //    property alias storageLight19: storageTab.storageLight19
+    //    property alias storageLight18: storageTab.storageLight18
+    //    property alias storageLight17: storageTab.storageLight17
+    //    property alias storageLight16: storageTab.storageLight16
+    //    property alias storageLight15: storageTab.storageLight15
+    //    property alias storageLight14: storageTab.storageLight14
+    //    property alias storageLight13: storageTab.storageLight13
+    //    property alias storageLight12: storageTab.storageLight12
+    //    property alias storageLight11: storageTab.storageLight11
+    //    property alias storageLight10: storageTab.storageLight10
+    //    property alias storageLight8: storageTab.storageLight8
+    //    property alias storageLight7: storageTab.storageLight7
+    //    property alias storageLight6: storageTab.storageLight6
+    //    property alias storageLight5: storageTab.storageLight5
+    //    property alias storageLight4: storageTab.storageLight4
+    //    property alias storageLight3: storageTab.storageLight3
+    //    property alias storageLight2: storageTab.storageLight2
+    //    property alias storageLight1: storageTab.storageLight1
+    //    property alias storageLight0: storageTab.storageLight0
 
     //    property alias motorLight25: motorLight25
     //    property alias motorLight24: motorLight24

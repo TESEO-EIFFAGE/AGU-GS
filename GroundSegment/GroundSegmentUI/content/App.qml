@@ -184,7 +184,8 @@ Window {
         fsParams.txtAirTemperature: hmi.AirTemperature.toFixed(2)
 
         fsParams.txtAltitudeFromRadarAltimeter: hmi.AltitudeFromRadarAltimeter.toFixed(2)
-        fsParams.txtAltitudeFromPayloadAltimeter: hmi.AltitudeFromPayloadAltimeter.toFixed(2)
+        fsParams.payloadDrawer.param1.value:hmi.AltitudeFromPayloadAltimeter.toFixed(2)
+        //fsParams.txtAltitudeFromPayloadAltimeter: hmi.AltitudeFromPayloadAltimeter.toFixed(2)
 
         fsParams.txtLinearVelocityHorizontal: hmi.LinearVelocityHorizontal.toFixed(2)
         fsParams.txtLinearVelocityVertical: hmi.LinearVelocityVertical.toFixed(2)
@@ -287,29 +288,30 @@ Window {
         fsParams.telemetryLight2.up: hmi.telemetry2
         fsParams.telemetryLight1.up: hmi.telemetry1
 
-        fsParams.storageLight0.up: hmi.storage0
-        fsParams.storageLight23.up: hmi.storage23
-        fsParams.storageLight22.up: hmi.storage22
-        fsParams.storageLight21.up: hmi.storage21
-        fsParams.storageLight20.up: hmi.storage20
-        fsParams.storageLight19.up: hmi.storage19
-        fsParams.storageLight18.up: hmi.storage18
-        fsParams.storageLight17.up: hmi.storage17
-        fsParams.storageLight16.up: hmi.storage16
-        fsParams.storageLight15.up: hmi.storage15
-        fsParams.storageLight14.up: hmi.storage14
-        fsParams.storageLight13.up: hmi.storage13
-        fsParams.storageLight12.up: hmi.storage12
-        fsParams.storageLight11.up: hmi.storage11
-        fsParams.storageLight10.up: hmi.storage10
-        fsParams.storageLight8.up: hmi.storage8
-        fsParams.storageLight7.up: hmi.storage7
-        fsParams.storageLight6.up: hmi.storage6
-        fsParams.storageLight5.up: hmi.storage5
-        fsParams.storageLight4.up: hmi.storage4
-        fsParams.storageLight3.up: hmi.storage3
-        fsParams.storageLight2.up: hmi.storage2
-        fsParams.storageLight1.up: hmi.storage1
+        fsParams.storageDrawer.light0.up: hmi.storage0
+        fsParams.storageDrawer.light23.up: hmi.storage23
+        fsParams.storageDrawer.light22.up: hmi.storage22
+        fsParams.storageDrawer.light21.up: hmi.storage21
+        fsParams.storageDrawer.light20.up: hmi.storage20
+        fsParams.storageDrawer.light19.up: hmi.storage19
+        fsParams.storageDrawer.light18.up: hmi.storage18
+        fsParams.storageDrawer.light17.up: hmi.storage17
+        fsParams.storageDrawer.light16.up: hmi.storage16
+        fsParams.storageDrawer.light15.up: hmi.storage15
+        fsParams.storageDrawer.light14.up: hmi.storage14
+        fsParams.storageDrawer.light13.up: hmi.storage13
+        fsParams.storageDrawer.light12.up: hmi.storage12
+        fsParams.storageDrawer.light11.up: hmi.storage11
+        fsParams.storageDrawer.light10.up: hmi.storage10
+
+        fsParams.storageDrawer.light8.up: hmi.storage8
+        fsParams.storageDrawer.light7.up: hmi.storage7
+        fsParams.storageDrawer.light6.up: hmi.storage6
+        fsParams.storageDrawer.light5.up: hmi.storage5
+        fsParams.storageDrawer.light4.up: hmi.storage4
+        fsParams.storageDrawer.light3.up: hmi.storage3
+        fsParams.storageDrawer.light2.up: hmi.storage2
+        fsParams.storageDrawer.light1.up: hmi.storage1
 
         fsParams.bmsLight0.up: hmi.BMS0
         fsParams.bmsLight31.up: hmi.BMS31
