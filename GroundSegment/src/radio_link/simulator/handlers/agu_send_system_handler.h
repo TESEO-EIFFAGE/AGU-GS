@@ -1,16 +1,16 @@
-#ifndef SEND_SYSTEM_STATUS_HANDLER_H
-#define SEND_SYSTEM_STATUS_HANDLER_H
+#ifndef AGU_SEND_SYSTEM_HANDLER_H
+#define AGU_SEND_SYSTEM_HANDLER_H
 
 #include "../common/handlers/abstract_handler.h"
 
-namespace domain
+namespace radiolink
 {
     class UavModel;
 
-    class SendSystemStatusHandler: public AbstractHandler
+    class AGUSendSystemHandler: public AbstractHandler
     {
     public:
-        SendSystemStatusHandler(MavLinkCommunicator* communicator,
+        AGUSendSystemHandler(MavLinkCommunicator* communicator,
                                 UavModel* model);
 
     public slots:
@@ -24,4 +24,4 @@ namespace domain
     };
 }
 
-#endif // SEND_SYSTEM_STATUS_HANDLER_H
+#endif // AGU_SEND_SYSTEM_HANDLER_H

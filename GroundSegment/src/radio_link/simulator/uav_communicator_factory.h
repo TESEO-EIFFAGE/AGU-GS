@@ -3,19 +3,19 @@
 
 #include "../common/abstract_communicator_factory.h"
 
-namespace domain
+namespace radiolink
 {
     class UavModel;
 
     class UavCommunicatorFactory: public AbstractCommunicatorFactory
     {
     public:
-        UavCommunicatorFactory(domain::UavModel* model);
+        UavCommunicatorFactory(radiolink::UavModel* model);
 
         MavLinkCommunicator* create() override;
 
     private:
-        domain::UavModel* m_model;
+        radiolink::UavModel* m_model;
     };
 }
 

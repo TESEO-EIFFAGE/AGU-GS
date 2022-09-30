@@ -1,7 +1,7 @@
 #include "receiver_communicator_factory.h"
 
 // MAVLink
-#include "../3dparty/mavlink_v2/AGU_MAVLINK/mavlink.h"
+#include <AGU_MAVLINK/mavlink.h>
 
 // Internal
 #include "../common/mavlink_communicator.h"

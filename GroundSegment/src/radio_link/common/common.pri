@@ -1,10 +1,11 @@
 QT += serialport positioning network
 
-HEADERS += \
-    $$PWD \
-    $$PWD/links/endpoint.h
+INCLUDEPATH += \
+    $$PWD/../3dparty/mavlink_v2 \
+    $$PWD/../3dparty/mavlink_v2/AGU_MAVLINK
 
 HEADERS += \
+    $$PWD/links/endpoint.h \
     $$PWD/abstract_communicator_factory.h \
     $$PWD/mavlink_communicator.h \
     $$PWD/mavlink_protocol_helpers.h \

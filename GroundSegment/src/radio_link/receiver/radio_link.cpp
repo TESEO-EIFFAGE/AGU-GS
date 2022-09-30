@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-//#include "../common/links/udp_link.h"
+#include "../common/links/udp_link.h"
 #include "../common/links/serial_link.h"
-//#include "../common/links/endpoint.h"
+#include "../common/links/endpoint.h"
 
 #include "receiver_communicator_factory.h"
 #include "../common/mavlink_communicator.h"
@@ -14,10 +14,12 @@ RadioLink::RadioLink(QObject *parent) : QObject(parent)
     radiolink::ReceiverCommunicatorFactory factory;
     m_communicator = factory.create();
     m_communicator->setParent(this);
-    //domain::UdpLink link(14550); link.addEndpoint(domain::Endpoint(QHostAddress::LocalHost, 14551));
 
-    m_link = new radiolink::SerialLink("/dev/ttyUSB0", 57600, this);
-    //domain::SerialLink link("/dev/tty.usbserial-AH05K5MC", 57600);
+    m_link = new radiolink::UdpLink(14550);
+    m_link->addEndpoint(radiolink::Endpoint(QHostAddress::LocalHost, 14551));
+
+    //m_link = new radiolink::SerialLink("/dev/ttyUSB0", 57600, this);
+    //m_link = new radiolink::SerialLink("/dev/tty.usbserial-AH05K5MC", 57600);
 
     m_communicator->addLink(m_link, MAVLINK_COMM_0);
     this->start();

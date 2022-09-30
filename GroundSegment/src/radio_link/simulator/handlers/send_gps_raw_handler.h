@@ -3,7 +3,7 @@
 
 #include "../common/handlers/abstract_handler.h"
 
-namespace domain
+namespace radiolink
 {
     class UavModel;
 

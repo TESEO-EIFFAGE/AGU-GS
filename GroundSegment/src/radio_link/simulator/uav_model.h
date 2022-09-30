@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QGeoCoordinate>
 
-namespace domain
+namespace radiolink
 {
     class UavModel : public QObject
     {

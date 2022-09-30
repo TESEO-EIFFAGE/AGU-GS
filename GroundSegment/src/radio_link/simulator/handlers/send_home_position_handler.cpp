@@ -12,7 +12,7 @@
 
 #include "../common/mavlink_protocol_helpers.h"
 
-using namespace domain;
+using namespace radiolink;
 
 SendHomePositionHandler::SendHomePositionHandler(MavLinkCommunicator* communicator,
                                                  UavModel* model):

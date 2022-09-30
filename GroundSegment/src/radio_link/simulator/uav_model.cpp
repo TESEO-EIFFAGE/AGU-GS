@@ -26,7 +26,7 @@ namespace
     }
 }
 
-using namespace domain;
+using namespace radiolink;
 
 UavModel::UavModel(QObject* parent):
     QObject(parent),

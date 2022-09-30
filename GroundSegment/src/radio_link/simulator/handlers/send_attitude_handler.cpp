@@ -1,7 +1,7 @@
 #include "send_attitude_handler.h"
 
 // MAVLink
-#include "../3dparty/mavlink_v2/ardupilotmega/mavlink.h"
+#include <AGU_MAVLINK/mavlink.h>
 
 // Qt
 #include <QtMath>
@@ -11,7 +11,7 @@
 #include "uav_model.h"
 #include "../common/mavlink_communicator.h"
 
-using namespace domain;
+using namespace radiolink;
 
 SendAttitudeHandler::SendAttitudeHandler(MavLinkCommunicator* communicator,
                                          UavModel* model):

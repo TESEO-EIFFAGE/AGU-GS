@@ -1,13 +1,13 @@
 #include "send_vfr_hud_handler.h"
 
 // MAVLink
-#include "../3dparty/mavlink_v2/ardupilotmega/mavlink.h"
+#include <AGU_MAVLINK/mavlink.h>
 
 // Internal
 #include "uav_model.h"
 #include "../common/mavlink_communicator.h"
 
-using namespace domain;
+using namespace radiolink;
 
 SendVfrHudHandler::SendVfrHudHandler(MavLinkCommunicator* communicator,
                                      UavModel* model):

@@ -1,25 +1,23 @@
 TEMPLATE = app
 
+DEFINES += QT_DEPRECATED_WARNINGS
+
 CONFIG += sdk_no_version_check
+CONFIG += c++11
 
 include(../common/common.pri)
 
 HEADERS += \
-    uav_model.h \
-    handlers/send_attitude_handler.h \
-    handlers/send_gps_raw_handler.h \
-    handlers/send_home_position_handler.h \
-    handlers/send_position_handler.h \
-    handlers/send_system_status_handler.h \
-    handlers/send_vfr_hud_handler.h
+    handlers/agu_send_system_handler.h \
+    uav_communicator_factory.h \
+    uav_model.h
 
 SOURCES += \
-    uav_model.cpp \
-    main.cpp \
+    handlers/agu_send_system_handler.cpp \
     uav_communicator_factory.cpp \
-    handlers/send_attitude_handler.cpp \
-    handlers/send_gps_raw_handler.cpp \
-    handlers/send_home_position_handler.cpp \
-    handlers/send_position_handler.cpp \
-    handlers/send_system_status_handler.cpp \
-    handlers/send_vfr_hud_handler.cpp
+    uav_model.cpp \
+    main.cpp
+
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target

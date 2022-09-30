@@ -1,6 +1,6 @@
 // Qt
 #include <QCoreApplication>
-#include <QTimer>
+#include <iostream>
 
 // Internal
 #include "../common/links/udp_link.h"
@@ -15,17 +15,19 @@ int main(int argc, char* argv[])
 {
     QCoreApplication app(argc, argv);
 
-    domain::UavModel model;
-    domain::UavCommunicatorFactory factory(&model);
-    domain::MavLinkCommunicator* communicator = factory.create();
+    radiolink::UavModel model;
+    radiolink::UavCommunicatorFactory factory(&model);
+    radiolink::MavLinkCommunicator* communicator = factory.create();
     communicator->setParent(&app);
 
-    domain::SerialLink link("/dev/tty.usbserial-AL01O3PL", 57600);
-    //domain::UdpLink link(14551);
-    //link.addEndpoint(domain::Endpoint(QHostAddress::LocalHost, 14550));
+    radiolink::UdpLink link(14551);
+
+    //radiolink::SerialLink link("/dev/tty.usbserial-AL01O3PL", 57600);
+    //link.addEndpoint(radiolink::Endpoint(QHostAddress::LocalHost, 14550));
 
     communicator->addLink(&link, MAVLINK_COMM_0);
     link.connectLink();
+    std::cout << "simulator link is " << link.isConnected() << std::endl;
 
     return app.exec();
 }
