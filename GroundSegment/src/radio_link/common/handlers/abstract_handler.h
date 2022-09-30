@@ -2,12 +2,12 @@
 #define ABSTRACT_HANDLER_H
 
 // MAVLink
-#include "../3dparty/mavlink_v2/mavlink_types.h"
+#include "../../3dparty/mavlink_v2/mavlink_types.h"
 
 // Qt
 #include <QObject>
 
-namespace domain
+namespace radiolink
 {
     class MavLinkCommunicator;
 

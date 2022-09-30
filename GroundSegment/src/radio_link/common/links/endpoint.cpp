@@ -1,6 +1,6 @@
 #include "endpoint.h"
 
-using namespace domain;
+using namespace radiolink;
 
 Endpoint::Endpoint(const QHostAddress& address, quint16 port):
     m_address(address),

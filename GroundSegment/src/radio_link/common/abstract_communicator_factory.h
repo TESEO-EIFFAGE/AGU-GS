@@ -1,7 +1,7 @@
 #ifndef ABSTRACT_COMMUNICATOR_FACTORY_H
 #define ABSTRACT_COMMUNICATOR_FACTORY_H
 
-namespace domain
+namespace radiolink
 {
     class MavLinkCommunicator;
 

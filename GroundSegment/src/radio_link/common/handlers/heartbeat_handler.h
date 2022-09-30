@@ -3,7 +3,7 @@
 
 #include "abstract_handler.h"
 
-namespace domain
+namespace radiolink
 {
     class HeartbeatHandler: public AbstractHandler
     {

@@ -4,7 +4,7 @@
 #include <QAbstractSocket>
 #include <QDebug>
 
-using namespace domain;
+using namespace radiolink;
 
 AbstractLink::AbstractLink(QObject* parent):
     QObject(parent)

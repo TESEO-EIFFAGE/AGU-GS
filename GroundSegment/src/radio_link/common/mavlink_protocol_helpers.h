@@ -3,7 +3,7 @@
 
 #include <cstdint>
 
-namespace domain
+namespace radiolink
 {
     inline int32_t encodeLatLon(double value)
     {

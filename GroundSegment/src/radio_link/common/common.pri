@@ -2,8 +2,7 @@ QT += serialport positioning network
 
 HEADERS += \
     $$PWD \
-    $$PWD/links/endpoint.h \
-    3rdparty/mavlink_v2/*
+    $$PWD/links/endpoint.h
 
 HEADERS += \
     $$PWD/abstract_communicator_factory.h \

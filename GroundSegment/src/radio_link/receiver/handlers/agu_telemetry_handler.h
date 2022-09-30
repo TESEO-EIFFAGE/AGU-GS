@@ -1,9 +1,9 @@
 #ifndef AGU_TELEMETRY_HANDLER_H
 #define AGU_TELEMETRY_HANDLER_H
 
-#include "../common/handlers/abstract_handler.h"
+#include "../../common/handlers/abstract_handler.h"
 
-namespace domain
+namespace radiolink
 {
     class AGUTelemetryHandler: public AbstractHandler
     {

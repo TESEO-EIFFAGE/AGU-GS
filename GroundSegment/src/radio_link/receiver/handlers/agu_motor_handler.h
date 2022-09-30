@@ -1,9 +1,9 @@
 #ifndef AGU_MOTOR_HANDLER_H
 #define AGU_MOTOR_HANDLER_H
 
-#include "../common/handlers/abstract_handler.h"
+#include "../../common/handlers/abstract_handler.h"
 
-namespace domain
+namespace radiolink
 {
     class AGUMotorHandler: public AbstractHandler
     {

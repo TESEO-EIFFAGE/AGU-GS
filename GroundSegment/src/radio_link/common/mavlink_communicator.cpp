@@ -6,7 +6,7 @@
 // Internal
 #include "links/abstract_link.h"
 
-using namespace domain;
+using namespace radiolink;
 
 MavLinkCommunicator::MavLinkCommunicator(uint8_t systemId, uint8_t componentId,
                                          QObject* parent):
@@ -63,7 +63,8 @@ void MavLinkCommunicator::setComponentId(uint8_t componentId)
 
 void MavLinkCommunicator::sendMessage(mavlink_message_t& message, AbstractLink* link)
 {
-    if (!link || !link->isConnected()) return;
+    if (!link ||
+            !link->isConnected()) return;
 
     uint8_t buffer[MAVLINK_MAX_PACKET_LEN];
     int lenght = mavlink_msg_to_send_buffer(buffer, &message);

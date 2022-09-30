@@ -1,6 +1,6 @@
 #include "abstract_communicator_factory.h"
 
-using namespace domain;
+using namespace radiolink;
 
 AbstractCommunicatorFactory::AbstractCommunicatorFactory()
 {}

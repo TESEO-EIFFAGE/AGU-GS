@@ -3,12 +3,12 @@
 
 #include "../common/abstract_communicator_factory.h"
 
-namespace domain
+namespace radiolink
 {
-    class GcsCommunicatorFactory: public AbstractCommunicatorFactory
+    class ReceiverCommunicatorFactory: public AbstractCommunicatorFactory
     {
     public:
-        GcsCommunicatorFactory();
+        ReceiverCommunicatorFactory();
 
         MavLinkCommunicator* create() override;
     };

@@ -7,7 +7,7 @@
 
 class QUdpSocket;
 
-namespace domain
+namespace radiolink
 {
     class UdpLink: public AbstractLink
     {

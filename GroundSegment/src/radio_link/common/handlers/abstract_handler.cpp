@@ -1,9 +1,9 @@
 #include "abstract_handler.h"
 
 // Internal
-#include "../common/mavlink_communicator.h"
+#include "../mavlink_communicator.h"
 
-using namespace domain;
+using namespace radiolink;
 
 AbstractHandler::AbstractHandler(MavLinkCommunicator* communicator):
     QObject(communicator),

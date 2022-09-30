@@ -1,9 +1,9 @@
 #ifndef AGU_SYSTEM_HANDLER_H
 #define AGU_SYSTEM_HANDLER_H
 
-#include "../common/handlers/abstract_handler.h"
+#include "../../common/handlers/abstract_handler.h"
 
-namespace domain
+namespace radiolink
 {
     class AGUSystemHandler: public AbstractHandler
     {

@@ -5,7 +5,7 @@
 
 class QSerialPort;
 
-namespace domain
+namespace radiolink
 {
     class SerialLink: public AbstractLink
     {

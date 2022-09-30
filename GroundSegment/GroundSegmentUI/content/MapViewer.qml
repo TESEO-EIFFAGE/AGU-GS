@@ -24,9 +24,9 @@ Item{
 //    GPSData {
 //       id: gpsData
 //    }
-    GroundControlStation {
-        id: groundControlStation
-    }
+//    GroundControlStation {
+//        id: groundControlStation
+//    }
     CustomCursor {
        id: customCursor
        latitude: mapviewer.latitude

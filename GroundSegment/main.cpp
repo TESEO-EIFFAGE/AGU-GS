@@ -1,6 +1,3 @@
-//#include "mainwindow.h"
-//#include "topdialog.h"
-#include "gs_core.h"
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
@@ -8,11 +5,12 @@
 #include <QtSerialPort/QSerialPortInfo>
 #include <QDebug>
 #include <QObject>
-//#include "mavlinkprotocol.h"
-//#include "storage.h"
-#include <thread>
 #include <QFontDatabase>
 
+#include "gs_core.h"
+#include "storage.h"
+#include "hmi.h"
+#include "src/radio_link/receiver/radio_link.h"
 
 int main(int argc, char *argv[])
 {
@@ -43,25 +41,25 @@ int main(int argc, char *argv[])
 
 //    QByteArray data  = "FD010000000101010101010D3D";
 
-    QSerialPort *Serial0 = new QSerialPort();
+//    QSerialPort *Serial0 = new QSerialPort();
 
     // Serial0 PORTA CHE TRASMETTE
 
-    Serial0->setPortName("/dev/ttyUSB0");
-    Serial0->setParity(QSerialPort::NoParity);
-    Serial0->setBaudRate(QSerialPort::Baud115200);
-    Serial0->setStopBits(QSerialPort::OneStop);
-    Serial0->setFlowControl(QSerialPort::NoFlowControl);
-    Serial0->open(QIODevice::ReadWrite);
+//    Serial0->setPortName("/dev/ttyUSB0");
+//    Serial0->setParity(QSerialPort::NoParity);
+//    Serial0->setBaudRate(QSerialPort::Baud115200);
+//    Serial0->setStopBits(QSerialPort::OneStop);
+//    Serial0->setFlowControl(QSerialPort::NoFlowControl);
+//    Serial0->open(QIODevice::ReadWrite);
 
 
-    QProcess flight_segment_simulator;
-    flight_segment_simulator.setProgram("libs/F9P-Viewer/simulate_flying_vehicle/simulate_flying_vehicle");
-    flight_segment_simulator.start();
+//    QProcess flight_segment_simulator;
+//    flight_segment_simulator.setProgram("libs/F9P-Viewer/simulate_flying_vehicle/simulate_flying_vehicle");
+//    flight_segment_simulator.start();
 
-    QTimer timer;
-    QObject::connect(&timer, &QTimer::timeout, [Serial0]() { Serial0->write("000000010100101001"); });
-    timer.start(500);
+//    QTimer timer;
+//    QObject::connect(&timer, &QTimer::timeout, [Serial0]() { Serial0->write("000000010100101001"); });
+//    timer.start(500);
     /* PROVA */
     //Serial0->write(data);
 
@@ -69,6 +67,8 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     auto gsCore = new GSCore(&app);
+    auto radioLink = new RadioLink(&app);
+    gsCore->setRadioLink(radioLink);
     auto hmi = gsCore->hmi();
     auto gpsData = gsCore->gpsData();
 

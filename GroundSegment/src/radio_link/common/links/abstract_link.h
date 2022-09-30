@@ -4,7 +4,7 @@
 // Qt
 #include <QObject>
 
-namespace domain
+namespace radiolink
 {
     class AbstractLink: public QObject
     {

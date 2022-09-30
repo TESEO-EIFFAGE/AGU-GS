@@ -5,7 +5,7 @@
 #include <QObject>
 #include <QHostAddress>
 
-namespace domain
+namespace radiolink
 {
     class Endpoint
     {

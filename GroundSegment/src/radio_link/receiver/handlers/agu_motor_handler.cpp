@@ -1,12 +1,12 @@
 #include "agu_motor_handler.h"
 
 // MAVLink
-#include "../3dparty/mavlink_v2/AGU_MAVLINK/mavlink.h"
+#include <AGU_MAVLINK/mavlink.h>
 
 // Qt
 #include <iostream>
 
-using namespace domain;
+using namespace radiolink;
 
 AGUMotorHandler::AGUMotorHandler(MavLinkCommunicator* communicator):
     AbstractHandler(communicator)

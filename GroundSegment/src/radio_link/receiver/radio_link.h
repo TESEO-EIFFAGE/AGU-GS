@@ -3,6 +3,7 @@
 #include <QObject>
 
 class RadioLink : public QObject {
+    Q_OBJECT
 public:
     explicit RadioLink(QObject *parent = nullptr);
 

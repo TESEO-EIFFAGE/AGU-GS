@@ -3,7 +3,7 @@
 // Qt
 #include <QUdpSocket>
 
-using namespace domain;
+using namespace radiolink;
 
 UdpLink::UdpLink(quint16 port, QObject* parent):
     AbstractLink(parent),

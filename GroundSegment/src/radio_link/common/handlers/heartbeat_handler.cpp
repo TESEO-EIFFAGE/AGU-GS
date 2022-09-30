@@ -1,15 +1,15 @@
 #include "heartbeat_handler.h"
 
 // MAVLink
-#include "../3dparty/mavlink_v2/AGU_MAVLINK/mavlink.h"
+#include "../../3dparty/mavlink_v2/AGU_MAVLINK/mavlink.h"
 
 // Qt
 #include <iostream>
 
 // Internal
-#include "../common/mavlink_communicator.h"
+#include "../mavlink_communicator.h"
 
-using namespace domain;
+using namespace radiolink;
 
 HeartbeatHandler::HeartbeatHandler(uint8_t type, MavLinkCommunicator* communicator):
     AbstractHandler(communicator),
