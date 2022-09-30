@@ -14,9 +14,10 @@ public:
     ~RadioLink();
     void start();
     void stop();
+    radiolink::MavLinkCommunicator* communicator() const;
 private:
-    radiolink::MavLinkCommunicator* m_communicator;
-    radiolink::AbstractLink* m_link;
+    radiolink::MavLinkCommunicator* m_communicator{};
+    radiolink::AbstractLink* m_link{};
 };
 
 #endif // RADIO_LINK_H

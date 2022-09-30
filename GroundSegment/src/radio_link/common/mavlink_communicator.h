@@ -7,6 +7,7 @@
 // Qt
 #include <QObject>
 #include <QMap>
+#include <QVariant>
 
 namespace radiolink
 {
@@ -38,6 +39,7 @@ namespace radiolink
 
     signals:
         void messageReceived(const mavlink_message_t& message);
+        void dispatchReceivedMessage(QVariant);
 
     protected slots:
         void onDataReceived(const QByteArray& data);

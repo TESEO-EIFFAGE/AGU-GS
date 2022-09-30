@@ -4,6 +4,7 @@
 #include "hmi.h"
 #include "GPSData.h"
 #include "src/radio_link/receiver/radio_link.h"
+#include "src/radio_link/common/mavlink_communicator.h"
 #include <QTimer>
 #include <QObject>
 
@@ -35,32 +36,33 @@ GSCore::GSCore(QObject *parent)
 //    Serial1->open(QIODevice::ReadWrite);
 
     //m_hmi->showData();
+    QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
+                     m_hmi, &HMI::showDataSystemStatus);
+    //QObject::connect(Serial1, SIGNAL(readyRead()), this, SLOT(ReadData()));                                   /*segnale emesso dalla porta seriale*/
+//    QObject::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataTelemetry(QByteArray)));          /*segnale emesso da MainWindow::ReadData()*/
+//    QObject::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataSystemStatus(QByteArray)));       /*segnale emesso da MainWindow::ReadData()*/
+//    QObject::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseMotorStatusPack(QByteArray)));    /*segnale emesso da MainWindow::ReadData()*/
+//    QObject::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseRadioLink(QByteArray)));    /*segnale emesso da MainWindow::ReadData()*/
+//    QObject::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseStorageStatusPack(QByteArray)));
+//    QObject::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseGuidance(QByteArray)));
+//    QObject::connect(Mavlink, SIGNAL(toStorage(Telemetry *)), StorageData, SLOT(StoreDataInMemory(Telemetry *)));
+    QObject::connect(Mavlink, SIGNAL(toStorageSystemStatus(SystemStatusPack *)), StorageData, SLOT(StoreDataInMemorySystemStatus(SystemStatusPack *)));
+    QObject::connect(Mavlink, SIGNAL(toStorageMotorStatusPack(MotorStatusPackDataset *)), StorageData, SLOT(StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *)));
+    QObject::connect(Mavlink, SIGNAL(toStorageRadioLink(RadioLinkPackDataset *)), StorageData, SLOT(StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *)));
+    QObject::connect(Mavlink, SIGNAL(toStorageStorageStatusPack(StorageStatusPack *)), StorageData, SLOT(StoreDataInMemoryStorageStatusPack(StorageStatusPack *)));
+    QObject::connect(Mavlink, SIGNAL(toStorageGuidance(GuidancePackDataset *)), StorageData, SLOT(StoreDataInMemoryGuidance(GuidancePackDataset *)));
 
-    //GSCore::connect(Serial1, SIGNAL(readyRead()), this, SLOT(ReadData()));                                   /*segnale emesso dalla porta seriale*/
-//    GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataTelemetry(QByteArray)));          /*segnale emesso da MainWindow::ReadData()*/
-//    GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataSystemStatus(QByteArray)));       /*segnale emesso da MainWindow::ReadData()*/
-//    GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseMotorStatusPack(QByteArray)));    /*segnale emesso da MainWindow::ReadData()*/
-//    GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseRadioLink(QByteArray)));    /*segnale emesso da MainWindow::ReadData()*/
-//    GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseStorageStatusPack(QByteArray)));
-//    GSCore::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseGuidance(QByteArray)));
-//    GSCore::connect(Mavlink, SIGNAL(toStorage(Telemetry *)), StorageData, SLOT(StoreDataInMemory(Telemetry *)));
-    GSCore::connect(Mavlink, SIGNAL(toStorageSystemStatus(SystemStatusPack *)), StorageData, SLOT(StoreDataInMemorySystemStatus(SystemStatusPack *)));
-    GSCore::connect(Mavlink, SIGNAL(toStorageMotorStatusPack(MotorStatusPackDataset *)), StorageData, SLOT(StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *)));
-    GSCore::connect(Mavlink, SIGNAL(toStorageRadioLink(RadioLinkPackDataset *)), StorageData, SLOT(StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *)));
-    GSCore::connect(Mavlink, SIGNAL(toStorageStorageStatusPack(StorageStatusPack *)), StorageData, SLOT(StoreDataInMemoryStorageStatusPack(StorageStatusPack *)));
-    GSCore::connect(Mavlink, SIGNAL(toStorageGuidance(GuidancePackDataset *)), StorageData, SLOT(StoreDataInMemoryGuidance(GuidancePackDataset *)));
-
-    GSCore::connect(Mavlink, SIGNAL(toHMI(Telemetry *)), m_hmi, SLOT(showData(Telemetry *)));
-    GSCore::connect(Mavlink, SIGNAL(toHMISystemStatus(SystemStatusPack *)), m_hmi, SLOT(showDataSystemStatus(SystemStatusPack *)));
+    QObject::connect(Mavlink, SIGNAL(toHMI(Telemetry *)), m_hmi, SLOT(showData(Telemetry *)));
+    QObject::connect(Mavlink, SIGNAL(toHMISystemStatus(SystemStatusPack *)), m_hmi, SLOT(showDataSystemStatus(SystemStatusPack *)));
     //HMIController::connect(this, SIGNAL(updateTopDiagLog()), TopDialogWindow, SLOT(UpdateWindow()));  /* Spostare l'UpdateWindow signal dal pushbutton*/
 
     QTimer *timer = new QTimer(this);
-    //GSCore::connect(timer, &QTimer::timeout, this, [this](){ emit work_is_down(); });
-    //GSCore::connect(this, SIGNAL(work_is_down()), this, SLOT(WriteHartBeat()));
+    //QObject::connect(timer, &QTimer::timeout, this, [this](){ emit work_is_down(); });
+    //QObject::connect(this, SIGNAL(work_is_down()), this, SLOT(WriteHartBeat()));
     //timer->start(1000);
 
     QTimer *timerHasFix = new QTimer(this);
-    GSCore::connect(timer, &QTimer::timeout, this, [StorageData, this](){SetFixOfTime(StorageData);});
+    QObject::connect(timer, &QTimer::timeout, this, [StorageData, this](){SetFixOfTime(StorageData);});
     //timerHasFix->start(1000);
 }
 

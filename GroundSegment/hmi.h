@@ -209,7 +209,7 @@ public:
 
 public slots:
     void showData(/*Telemetry *t*/);
-    void showDataSystemStatus (/*SystemStatusPack *s*/);
+    void showDataSystemStatus (QVariant status);
 
 signals:
     void TimeStampChanged();

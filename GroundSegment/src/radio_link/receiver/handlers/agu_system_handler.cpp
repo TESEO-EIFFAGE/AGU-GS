@@ -5,8 +5,14 @@
 
 // Qt
 #include <iostream>
+#include <QVariant>
+
+#include "../../common/mavlink_communicator.h"
 
 using namespace radiolink;
+
+
+Q_DECLARE_METATYPE(mavlink_system_status_pack_t);
 
 AGUSystemHandler::AGUSystemHandler(MavLinkCommunicator* communicator):
     AbstractHandler(communicator)
@@ -21,4 +27,7 @@ void AGUSystemHandler::processMessage(const mavlink_message_t& message)
     mavlink_msg_system_status_pack_decode(&message, &system_status);
 
     std::cout << "SYS " << system_status.Log_Timestamp << std::endl;
+    QVariant processedMessage;
+    processedMessage.setValue(system_status);
+    m_communicator->dispatchReceivedMessage(processedMessage);
 }

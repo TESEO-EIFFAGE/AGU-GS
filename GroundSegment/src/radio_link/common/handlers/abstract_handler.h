@@ -6,6 +6,7 @@
 
 // Qt
 #include <QObject>
+#include <QVariant>
 
 namespace radiolink
 {
