@@ -346,32 +346,24 @@ Window {
         fsParams.bmsLight2.up: hmi.BMS2
         fsParams.bmsLight1.up: hmi.BMS1
 
-        fsParams.motorLight0.up: hmi.motor0
-        //fsParams.motorLight25.up: hmi.motor25
-        //fsParams.motorLight24.up: hmi.motor24
+
         fsParams.motorLight23.up: hmi.motor23
         fsParams.motorLight22.up: hmi.motor22
         fsParams.motorLight21.up: hmi.motor21
-        //        fsParams.motorLight20.up: hmi.motor20
-        //        fsParams.motorLight19.up: hmi.motor19
-        //        fsParams.motorLight18.up: hmi.motor18
-        //        fsParams.motorLight17.up: hmi.motor17
-        //        fsParams.motorLight16.up: hmi.motor16
+
         fsParams.motorLight15.up: hmi.motor15
         fsParams.motorLight14.up: hmi.motor14
         fsParams.motorLight13.up: hmi.motor13
         fsParams.motorLight12.up: hmi.motor12
-        //        fsParams.motorLight11.up: hmi.motor11
-        //        fsParams.motorLight10.up: hmi.motor10
-        fsParams.motorLight8.up: hmi.motor8
-        fsParams.motorLight7.up: hmi.motor7
-        fsParams.motorLight6.up: hmi.motor6
+        fsParams.generalMotorDrawer.light8.up: hmi.motor8
+        fsParams.generalMotorDrawer.light7.up: hmi.motor7
+        fsParams.generalMotorDrawer.light6.up: hmi.motor6
         fsParams.motorLight5.up: hmi.motor5
         fsParams.motorLight4.up: hmi.motor4
-        fsParams.motorLight3.up: hmi.motor3
-        fsParams.motorLight2.up: hmi.motor2
-        fsParams.motorLight1.up: hmi.motor1
-
+        fsParams.generalMotorDrawer.light3.up: hmi.motor3
+        fsParams.generalMotorDrawer.light2.up: hmi.motor2
+        fsParams.generalMotorDrawer.light1.up: hmi.motor1
+        fsParams.generalMotorDrawer.light0.up: hmi.motor0
         map.latitude: gsParams.latitude
         map.longitude: gsParams.longitude
 

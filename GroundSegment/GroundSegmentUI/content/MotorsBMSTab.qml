@@ -26,6 +26,7 @@ Rectangle {
     property alias txtMotorTimestamp: txtMotorTimestamp.value
     property alias txtChargeValue: txtChargeValue.value
 
+    property alias generalMotorDrawer: generalMotorDrawer
     //    property alias motorLight25: motorLight25
     //    property alias motorLight24: motorLight24
     property alias motorLight23: motorLight23
@@ -42,15 +43,15 @@ Rectangle {
     property alias motorLight12: motorLight12
     //    property alias motorLight11: motorLight11
     //    property alias motorLight10: motorLight10
-    property alias motorLight8: motorLight8
-    property alias motorLight7: motorLight7
-    property alias motorLight6: motorLight6
+//    property alias motorLight8: motorLight8
+//    property alias motorLight7: motorLight7
+//    property alias motorLight6: motorLight6
     property alias motorLight5: motorLight5
     property alias motorLight4: motorLight4
-    property alias motorLight3: motorLight3
-    property alias motorLight2: motorLight2
-    property alias motorLight1: motorLight1
-    property alias motorLight0: motorLight0
+//    property alias motorLight3: motorLight3
+//    property alias motorLight2: motorLight2
+//    property alias motorLight1: motorLight1
+//    property alias motorLight0: motorLight0
 
     property alias bmsLight0: bmsLight0
     property alias bmsLight31: bmsLight31
@@ -97,7 +98,7 @@ Column{
             Layout.alignment: Qt.AlignTop
 
             spacing: 8
-Layout.preferredWidth: 300
+            Layout.preferredWidth: 300
             ParamGrp2Label {
                 text: "General"
             }
@@ -137,35 +138,84 @@ Layout.preferredWidth: 300
                 id: motorLight5
                 text: "MotorControllerB comm error"
             }
-            StatusLight {
-                id: motorLight0
-                text: "RS232 HW failure"
-            }
-            StatusLight {
-                id: motorLight1
-                text: "CAN HW failure"
-            }
-            StatusLight {
-                id: motorLight2
-                text: "PT100 HW failure"
-            }
-            StatusLight {
-                id: motorLight3
-                text: "GPIO HW failure"
-            }
-            StatusLight {
-                id: motorLight6
-                text: "PT100 A sensor breakage"
-            }
-            StatusLight {
-                id: motorLight7
-                text: "PT100 B sensor breakage"
+            LightsDrawer
+            {
+                id:generalMotorDrawer
+                width:180
+                columnTitle.text: "General Motor Status"
+                //open:true
+                gridColumns: 1
+                gridRows:7
+                light4.visible: false
+                light5.visible: false
+                light9.visible: false
+                light10.visible: false
+                light11.visible: false
+                light12.visible: false
+                light13.visible: false
+                light14.visible: false
+                light15.visible: false
+                light16.visible: false
+                light17.visible: false
+                light18.visible: false
+                light19.visible: false
+                light20.visible: false
+                light21.visible: false
+                light22.visible: false
+                light23.visible: false
+                light24.visible: false
+                light25.visible: false
+                light26.visible: false
+                light27.visible: false
+                light28.visible: false
+                light29.visible: false
+                light30.visible: false
+                light31.visible: false
+
+                                light0.text: "RS232 HW failure"
+                                light1.text: "CAN HW failure"
+
+                                light2.text: "PT100 HW failure"
+
+                                light3.text: "GPIO HW failure"
+
+                                light6.text: "PT100 A sensor breakage"
+
+                                light7.text: "PT100 B sensor breakage"
+
+                                light8.text: "BMS comm error"
+
             }
 
-            StatusLight {
-                id: motorLight8
-                text: "BMS comm error"
-            }
+//            StatusLight {
+//                id: motorLight0
+//                text: "RS232 HW failure"
+//            }
+//            StatusLight {
+//                id: motorLight1
+//                text: "CAN HW failure"
+//            }
+//            StatusLight {
+//                id: motorLight2
+//                text: "PT100 HW failure"
+//            }
+//            StatusLight {
+//                id: motorLight3
+//                text: "GPIO HW failure"
+//            }
+//            StatusLight {
+//                id: motorLight6
+//                text: "PT100 A sensor breakage"
+//            }
+//            StatusLight {
+//                id: motorLight7
+//                text: "PT100 B sensor breakage"
+//            }
+
+//            StatusLight {
+//                id: motorLight8
+//                text: "BMS comm error"
+//            }
         }
         Column {
             spacing: 8
@@ -509,11 +559,11 @@ Layout.preferredWidth: 300
 /*##^##
 Designer {
     D{i:0;autoSize:true;height:1080;width:1299}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}
-D{i:11}D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:3}D{i:19}D{i:20}D{i:21}D{i:22}
-D{i:23}D{i:24}D{i:25}D{i:18}D{i:27}D{i:28}D{i:29}D{i:30}D{i:31}D{i:32}D{i:33}D{i:26}
-D{i:34}D{i:2}D{i:37}D{i:38}D{i:39}D{i:40}D{i:41}D{i:42}D{i:43}D{i:44}D{i:45}D{i:46}
-D{i:47}D{i:48}D{i:49}D{i:50}D{i:36}D{i:52}D{i:53}D{i:54}D{i:55}D{i:56}D{i:57}D{i:58}
-D{i:59}D{i:60}D{i:61}D{i:62}D{i:63}D{i:64}D{i:65}D{i:51}D{i:67}D{i:68}D{i:69}D{i:70}
-D{i:71}D{i:72}D{i:73}D{i:74}D{i:75}D{i:76}D{i:77}D{i:78}D{i:66}D{i:79}D{i:35}D{i:1}
+D{i:11}D{i:3}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:12}D{i:21}D{i:22}
+D{i:23}D{i:24}D{i:25}D{i:26}D{i:27}D{i:20}D{i:28}D{i:2}D{i:31}D{i:32}D{i:33}D{i:34}
+D{i:35}D{i:36}D{i:37}D{i:38}D{i:39}D{i:40}D{i:41}D{i:42}D{i:43}D{i:44}D{i:30}D{i:46}
+D{i:47}D{i:48}D{i:49}D{i:50}D{i:51}D{i:52}D{i:53}D{i:54}D{i:55}D{i:56}D{i:57}D{i:58}
+D{i:59}D{i:45}D{i:61}D{i:62}D{i:63}D{i:64}D{i:65}D{i:66}D{i:67}D{i:68}D{i:69}D{i:70}
+D{i:71}D{i:72}D{i:60}D{i:73}D{i:29}D{i:1}
 }
 ##^##*/

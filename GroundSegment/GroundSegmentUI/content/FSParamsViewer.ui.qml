@@ -149,27 +149,23 @@ Rectangle {
     property alias motorLight23: motorsBMSTab.motorLight23
     property alias motorLight22: motorsBMSTab.motorLight22
     property alias motorLight21: motorsBMSTab.motorLight21
-    //    property alias motorLight20: motorLight20
-    //    property alias motorLight19: motorLight19
-    //    property alias motorLight18: motorLight18
-    //    property alias motorLight17: motorLight17
-    //    property alias motorLight16: motorLight16
+
     property alias motorLight15: motorsBMSTab.motorLight15
     property alias motorLight14: motorsBMSTab.motorLight14
     property alias motorLight13: motorsBMSTab.motorLight13
     property alias motorLight12: motorsBMSTab.motorLight12
-    //    property alias motorLight11: motorLight11
-    //    property alias motorLight10: motorLight10
-    property alias motorLight8: motorsBMSTab.motorLight8
-    property alias motorLight7: motorsBMSTab.motorLight7
-    property alias motorLight6: motorsBMSTab.motorLight6
+
+    property alias generalMotorDrawer: motorsBMSTab.generalMotorDrawer
+    //    property alias motorLight8: motorsBMSTab.motorLight8
+    //    property alias motorLight7: motorsBMSTab.motorLight7
+    //    property alias motorLight6: motorsBMSTab.motorLight6
     property alias motorLight5: motorsBMSTab.motorLight5
     property alias motorLight4: motorsBMSTab.motorLight4
-    property alias motorLight3: motorsBMSTab.motorLight3
-    property alias motorLight2: motorsBMSTab.motorLight2
-    property alias motorLight1: motorsBMSTab.motorLight1
-    property alias motorLight0: motorsBMSTab.motorLight0
 
+    //    property alias motorLight3: motorsBMSTab.motorLight3
+    //    property alias motorLight2: motorsBMSTab.motorLight2
+    //    property alias motorLight1: motorsBMSTab.motorLight1
+    //    property alias motorLight0: motorsBMSTab.motorLight0
     property alias bmsLight0: motorsBMSTab.bmsLight0
     property alias bmsLight31: motorsBMSTab.bmsLight31
     property alias bmsLight30: motorsBMSTab.bmsLight30
