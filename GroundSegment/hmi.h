@@ -73,6 +73,16 @@ public:
     Q_PROPERTY(int MotorTimestamp MEMBER m_MotorTimestamp NOTIFY MotorTimestampChanged)
     Q_PROPERTY(int ChargeValue MEMBER m_ChargeValue NOTIFY ChargeValueChanged)
 
+    Q_PROPERTY(int FlightMode MEMBER m_FlightMode NOTIFY FlightModeChanged)
+    Q_PROPERTY(int FlightPhase MEMBER m_FlightPhase NOTIFY FlightPhaseChanged)
+    Q_PROPERTY(int FlightPhaseExecutionTime MEMBER m_FlightPhaseExecutionTime NOTIFY FlightPhaseExecutionTimeChanged)
+    Q_PROPERTY(int CoreModuleStatusMask MEMBER m_CoreModuleStatusMask NOTIFY CoreModuleStatusMaskChanged)
+    Q_PROPERTY(int TelemetryModuleStatusMask MEMBER m_TelemetryModuleStatusMask NOTIFY TelemetryModuleStatusMaskChanged)
+    Q_PROPERTY(int GuidanceModuleStatusMask MEMBER m_GuidanceModuleStatusMask NOTIFY GuidanceModuleStatusMaskChanged)
+    Q_PROPERTY(int StorageModuleStatusMask MEMBER m_StorageModuleStatusMask NOTIFY StorageModuleStatusMaskChanged)
+    Q_PROPERTY(int RadioLinkModuleStatusMask MEMBER m_RadioLinkModuleStatusMask NOTIFY RadioLinkModuleStatusMaskChanged)
+
+
 
     Q_PROPERTY(bool telemetry0 MEMBER m_telemetry0 NOTIFY telemetry0Changed)
     Q_PROPERTY(bool telemetry1 MEMBER m_telemetry1 NOTIFY telemetry1Changed)
@@ -208,8 +218,12 @@ public:
 
 
 public slots:
-    void showData(/*Telemetry *t*/);
+    void showData(QVariant telemetry);
     void showDataSystemStatus (QVariant status);
+    void showDataMotorStatus (QVariant status);
+    void showDataRLStatus (QVariant status);
+    void showDataStorageStatus (QVariant status);
+    void showDataGuidance (QVariant guidance);
 
 signals:
     void TimeStampChanged();
@@ -571,6 +585,26 @@ signals:
 
     void radiolink9Changed();
 
+    void StatusFlightModeChanged();
+
+    void StatusFlightPhaseChanged();
+
+    void RadioLinkModuleStatusMaskChanged();
+
+    void StorageModuleStatusMaskChanged();
+
+    void GuidanceModuleStatusMaskChanged();
+
+    void TelemetryModuleStatusMaskChanged();
+
+    void CoreModuleStatusMaskChanged();
+
+    void FlightPhaseExecutionTimeChanged();
+
+    void FlightPhaseChanged();
+
+    void FlightModeChanged();
+
 private:
 
     uint64_t m_TimeStamp{};
@@ -758,6 +792,16 @@ private:
     bool m_radiolink3;
     bool m_radiolink8;
     bool m_radiolink9;
+    int m_StatusFlightMode;
+    int m_StatusFlightPhase;
+    int m_RadioLinkModuleStatusMask;
+    int m_StorageModuleStatusMask;
+    int m_GuidanceModuleStatusMask;
+    int m_TelemetryModuleStatusMask;
+    int m_CoreModuleStatusMask;
+    int m_FlightPhaseExecutionTime;
+    int m_FlightPhase;
+    int m_FlightMode;
 };
 
 #endif // HMI_H
