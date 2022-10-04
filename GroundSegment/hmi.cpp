@@ -58,7 +58,41 @@ void HMI::showData(QVariant telemetry)
     m_Quaternion2= msg_telemetry.Quaternion_2;
     m_Quaternion3= msg_telemetry.Quaternion_3;
     //QString s;
+
+    emit TimeStampChanged();
+    emit LatitudeChanged();
+    emit LongitudeChanged();
+    emit GNSSAltitudeChanged();
+    emit AirSpeed_UVectorChanged();
+    emit AirSpeed_VVectorChanged();
+    emit AirSpeed_WVectorChanged();
+    emit AirTemperatureChanged();
+    emit AltitudeFromPayloadAltimeterChanged();
+    emit AltitudeFromRadarAltimeterChanged();
+    emit LinearVelocityHorizontalChanged();
+    emit LinearVelocityVerticalChanged();
+    emit PositionAccuracyChanged();
+    emit SpeedAccuracyChanged();
+    emit LinearAccelerationXChanged();
+    emit LinearAccelerationYChanged();
+    emit LinearAccelerationZChanged();
+    emit ECEFVectorPositionXChanged();
+    emit ECEFVectorPositionYChanged();
+    emit ECEFVectorPositionZChanged();
+    emit ECEFVectorVelocityXChanged();
+    emit ECEFVectorVelocityYChanged();
+    emit ECEFVectorVelocityZChanged();
     emit RollAngleChanged();
+    emit PitchAngleChanged();
+    emit YawAngleChanged();
+    emit AngularRatePitchChanged();
+    emit AngularRateRollChanged();
+    emit AngularRateYawChanged();
+    emit Quaternion0Changed();
+    emit Quaternion1Changed();
+    emit Quaternion2Changed();
+    emit Quaternion3Changed();
+    emit NumberOfGPSSatelliteChanged();
 
     printf("TELEMETRY UPDATED \n");
     printf("ROLL ANGLE %d \n",m_RollAngle);
@@ -367,6 +401,14 @@ void HMI::showDataSystemStatus(QVariant status)
     m_CoreModuleStatusMask= msg_status.Core_Module_Status_Mask;
     m_RadioLinkModuleStatusMask= msg_status.Radio_Link_Module_Status_Mask;
 
+    emit FlightModeChanged();
+    emit FlightPhaseChanged();
+    emit FlightPhaseExecutionTimeChanged();
+    emit CoreModuleStatusMaskChanged();
+    emit TelemetryModuleStatusMaskChanged();
+    emit GuidanceModuleStatusMaskChanged();
+    emit StorageModuleStatusMaskChanged();
+    emit RadioLinkModuleStatusMaskChanged();
     printf("SYS STATUS UPDATED \n");
     printf("FLIGHT MODE %d \n",m_FlightMode);
     printf("FLIGHT PHASE %d \n",m_FlightPhase);

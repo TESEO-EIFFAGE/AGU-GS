@@ -206,9 +206,9 @@ Window {
         fsParams.txtECEFVectorVelocityY: hmi.ECEFVectorVelocityY.toFixed(2)
         fsParams.txtECEFVectorVelocityZ: hmi.ECEFVectorVelocityZ.toFixed(2)
 
-        fsParams.txtRollAngle: hmi.RollAngle//.toFixed(2)
-        fsParams.txtPitchAngle: hmi.PitchAngle//.toFixed(2)
-        fsParams.txtYawAngle: hmi.YawAngle//.toFixed(2)
+        fsParams.txtRollAngle: hmi.RollAngle.toFixed(2)
+        fsParams.txtPitchAngle: hmi.PitchAngle.toFixed(2)
+        fsParams.txtYawAngle: hmi.YawAngle.toFixed(2)
 
         fsParams.homeTab.txtRollAngle: hmi.RollAngle.toFixed(2)
         fsParams.homeTab.txtPitchAngle: hmi.PitchAngle.toFixed(2)

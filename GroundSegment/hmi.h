@@ -8,24 +8,24 @@ class HMI : public QObject
     Q_OBJECT
 public:
     explicit HMI(QObject *parent = nullptr);
-    Q_PROPERTY(uint64_t TimeStamp MEMBER m_TimeStamp NOTIFY TimeStampChanged)
-    Q_PROPERTY(uint64_t TimeStampRIO MEMBER m_TimeStampRIO NOTIFY TimeStampRIOChanged)
-    Q_PROPERTY(int32_t Latitude MEMBER m_Latitude NOTIFY LatitudeChanged)
-    Q_PROPERTY(int32_t Longitude MEMBER m_Longitude NOTIFY LongitudeChanged)
-    Q_PROPERTY(uint32_t GNSSAltitude MEMBER m_GNSSAltitude NOTIFY GNSSAltitudeChanged)
-    Q_PROPERTY(int16_t AirSpeed_UVector MEMBER m_AirSpeed_UVector NOTIFY AirSpeed_UVectorChanged)
-    Q_PROPERTY(int16_t AirSpeed_VVector MEMBER m_AirSpeed_VVector NOTIFY AirSpeed_VVectorChanged)
-    Q_PROPERTY(int16_t AirSpeed_WVector MEMBER m_AirSpeed_WVector NOTIFY AirSpeed_WVectorChanged)
-    Q_PROPERTY(int16_t AirTemperature MEMBER m_AirTemperature NOTIFY AirTemperatureChanged)
-    Q_PROPERTY(int32_t AltitudeFromRadarAltimeter MEMBER m_AltitudeFromRadarAltimeter NOTIFY AltitudeFromRadarAltimeterChanged)
-    Q_PROPERTY(int32_t AltitudeFromPayloadAltimeter MEMBER m_AltitudeFromPayloadAltimeter NOTIFY AltitudeFromPayloadAltimeterChanged)
-    Q_PROPERTY(uint16_t LinearVelocityHorizontal MEMBER m_LinearVelocityHorizontal NOTIFY LinearVelocityHorizontalChanged)
-    Q_PROPERTY(int16_t LinearVelocityVertical MEMBER m_LinearVelocityVertical NOTIFY LinearVelocityVerticalChanged)
-    Q_PROPERTY(int16_t PositionAccuracy MEMBER m_PositionAccuracy NOTIFY PositionAccuracyChanged)
-    Q_PROPERTY(int16_t SpeedAccuracy MEMBER m_SpeedAccuracy NOTIFY SpeedAccuracyChanged)
-    Q_PROPERTY(int16_t LinearAccelerationX MEMBER m_LinearAccelerationX NOTIFY LinearAccelerationXChanged)
-    Q_PROPERTY(int16_t LinearAccelerationY MEMBER m_LinearAccelerationY NOTIFY LinearAccelerationYChanged)
-    Q_PROPERTY(int16_t LinearAccelerationZ MEMBER m_LinearAccelerationZ NOTIFY LinearAccelerationZChanged)
+    Q_PROPERTY(qint64 TimeStamp MEMBER m_TimeStamp NOTIFY TimeStampChanged)
+    Q_PROPERTY(qint64 TimeStampRIO MEMBER m_TimeStampRIO NOTIFY TimeStampRIOChanged)
+    Q_PROPERTY(qint32 Latitude MEMBER m_Latitude NOTIFY LatitudeChanged)
+    Q_PROPERTY(qint32 Longitude MEMBER m_Longitude NOTIFY LongitudeChanged)
+    Q_PROPERTY(qint32 GNSSAltitude MEMBER m_GNSSAltitude NOTIFY GNSSAltitudeChanged)
+    Q_PROPERTY(qint16 AirSpeed_UVector MEMBER m_AirSpeed_UVector NOTIFY AirSpeed_UVectorChanged)
+    Q_PROPERTY(qint16 AirSpeed_VVector MEMBER m_AirSpeed_VVector NOTIFY AirSpeed_VVectorChanged)
+    Q_PROPERTY(qint16 AirSpeed_WVector MEMBER m_AirSpeed_WVector NOTIFY AirSpeed_WVectorChanged)
+    Q_PROPERTY(qint16 AirTemperature MEMBER m_AirTemperature NOTIFY AirTemperatureChanged)
+    Q_PROPERTY(qint32 AltitudeFromRadarAltimeter MEMBER m_AltitudeFromRadarAltimeter NOTIFY AltitudeFromRadarAltimeterChanged)
+    Q_PROPERTY(qint32 AltitudeFromPayloadAltimeter MEMBER m_AltitudeFromPayloadAltimeter NOTIFY AltitudeFromPayloadAltimeterChanged)
+    Q_PROPERTY(qint16 LinearVelocityHorizontal MEMBER m_LinearVelocityHorizontal NOTIFY LinearVelocityHorizontalChanged)
+    Q_PROPERTY(qint16 LinearVelocityVertical MEMBER m_LinearVelocityVertical NOTIFY LinearVelocityVerticalChanged)
+    Q_PROPERTY(qint16 PositionAccuracy MEMBER m_PositionAccuracy NOTIFY PositionAccuracyChanged)
+    Q_PROPERTY(qint16 SpeedAccuracy MEMBER m_SpeedAccuracy NOTIFY SpeedAccuracyChanged)
+    Q_PROPERTY(qint16 LinearAccelerationX MEMBER m_LinearAccelerationX NOTIFY LinearAccelerationXChanged)
+    Q_PROPERTY(qint16 LinearAccelerationY MEMBER m_LinearAccelerationY NOTIFY LinearAccelerationYChanged)
+    Q_PROPERTY(qint16 LinearAccelerationZ MEMBER m_LinearAccelerationZ NOTIFY LinearAccelerationZChanged)
     Q_PROPERTY(float ECEFVectorPositionX MEMBER m_ECEFVectorPositionX NOTIFY ECEFVectorPositionXChanged)
     Q_PROPERTY(float ECEFVectorPositionY MEMBER m_ECEFVectorPositionY NOTIFY ECEFVectorPositionYChanged)
     Q_PROPERTY(float ECEFVectorPositionZ MEMBER m_ECEFVectorPositionZ NOTIFY ECEFVectorPositionZChanged)
@@ -33,11 +33,11 @@ public:
     Q_PROPERTY(float ECEFVectorVelocityY MEMBER m_ECEFVectorVelocityY NOTIFY ECEFVectorVelocityYChanged)
     Q_PROPERTY(float ECEFVectorVelocityZ MEMBER m_ECEFVectorVelocityZ NOTIFY ECEFVectorVelocityZChanged)
     Q_PROPERTY(int RollAngle MEMBER m_RollAngle NOTIFY RollAngleChanged)
-    Q_PROPERTY(int16_t PitchAngle MEMBER m_PitchAngle NOTIFY PitchAngleChanged)
-    Q_PROPERTY(int16_t YawAngle MEMBER m_YawAngle NOTIFY YawAngleChanged)
-    Q_PROPERTY(int16_t AngularRateRoll MEMBER m_AngularRateRoll NOTIFY AngularRateRollChanged)
-    Q_PROPERTY(int16_t AngularRatePitch MEMBER m_AngularRatePitch NOTIFY AngularRatePitchChanged)
-    Q_PROPERTY(int16_t AngularRateYaw MEMBER m_AngularRateYaw NOTIFY AngularRateYawChanged)
+    Q_PROPERTY(qint16 PitchAngle MEMBER m_PitchAngle NOTIFY PitchAngleChanged)
+    Q_PROPERTY(qint16 YawAngle MEMBER m_YawAngle NOTIFY YawAngleChanged)
+    Q_PROPERTY(qint16 AngularRateRoll MEMBER m_AngularRateRoll NOTIFY AngularRateRollChanged)
+    Q_PROPERTY(qint16 AngularRatePitch MEMBER m_AngularRatePitch NOTIFY AngularRatePitchChanged)
+    Q_PROPERTY(qint16 AngularRateYaw MEMBER m_AngularRateYaw NOTIFY AngularRateYawChanged)
     Q_PROPERTY(double Quaternion0 MEMBER m_Quaternion0 NOTIFY Quaternion0Changed)
     Q_PROPERTY(double Quaternion1 MEMBER m_Quaternion1 NOTIFY Quaternion1Changed)
     Q_PROPERTY(double Quaternion2 MEMBER m_Quaternion2 NOTIFY Quaternion2Changed)
@@ -48,7 +48,7 @@ public:
 
     Q_PROPERTY(int RLHeartbeatCounter MEMBER m_RLHeartbeatCounter NOTIFY RLHeartbeatCounterChanged)
 
-    Q_PROPERTY(uint8_t NumberOfGPSSatellite MEMBER m_NumberOfGPSSatellite NOTIFY NumberOfGPSSatelliteChanged)
+    Q_PROPERTY(qint8 NumberOfGPSSatellite MEMBER m_NumberOfGPSSatellite NOTIFY NumberOfGPSSatelliteChanged)
 
 
     Q_PROPERTY(int AnemCommErrorCounter MEMBER m_AnemCommErrorCounter NOTIFY AnemCommErrorCounterChanged)
@@ -607,41 +607,41 @@ signals:
 
 private:
 
-    uint64_t m_TimeStamp{};
-    uint64_t m_TimeStampRIO{};
-    uint32_t m_Latitude{};
-    uint32_t m_Longitude{};
-    uint32_t m_GNSSAltitude{};
-    uint16_t m_AirSpeed_UVector{};
-    uint16_t m_AirSpeed_VVector{};
-    uint16_t m_AirSpeed_WVector{};
-    uint16_t m_AirTemperature{};
-    uint32_t m_AltitudeFromRadarAltimeter{};
-    uint32_t m_AltitudeFromPayloadAltimeter{};
-    uint16_t m_LinearVelocityHorizontal{};
-    uint16_t m_LinearVelocityVertical{};
-    uint16_t m_PositionAccuracy{};
-    uint16_t m_SpeedAccuracy{};
-    uint16_t m_LinearAccelerationX{};
-    uint16_t m_LinearAccelerationY{};
-    uint16_t m_LinearAccelerationZ{};
+    qint64 m_TimeStamp{};
+    qint64 m_TimeStampRIO{};
+    qint32 m_Latitude{};
+    qint32 m_Longitude{};
+    qint32 m_GNSSAltitude{};
+    qint16 m_AirSpeed_UVector{};
+    qint16 m_AirSpeed_VVector{};
+    qint16 m_AirSpeed_WVector{};
+    qint16 m_AirTemperature{};
+    qint32 m_AltitudeFromRadarAltimeter{};
+    qint32 m_AltitudeFromPayloadAltimeter{};
+    qint16 m_LinearVelocityHorizontal{};
+    qint16 m_LinearVelocityVertical{};
+    qint16 m_PositionAccuracy{};
+    qint16 m_SpeedAccuracy{};
+    qint16 m_LinearAccelerationX{};
+    qint16 m_LinearAccelerationY{};
+    qint16 m_LinearAccelerationZ{};
     float m_ECEFVectorPositionX{};
     float m_ECEFVectorPositionY{};
     float m_ECEFVectorPositionZ{};
     float m_ECEFVectorVelocityX{};
     float m_ECEFVectorVelocityY{};
     float m_ECEFVectorVelocityZ{};
-    uint16_t m_RollAngle{};
-    uint16_t m_PitchAngle{};
-    uint16_t m_YawAngle{};
-    uint16_t m_AngularRateRoll{};
-    uint16_t m_AngularRatePitch{};
-    uint16_t m_AngularRateYaw{};
+    qint16 m_RollAngle{};
+    qint16 m_PitchAngle{};
+    qint16 m_YawAngle{};
+    qint16 m_AngularRateRoll{};
+    qint16 m_AngularRatePitch{};
+    qint16 m_AngularRateYaw{};
     double m_Quaternion0{};
     double m_Quaternion1{};
     double m_Quaternion2{};
     double m_Quaternion3{};
-    uint8_t m_NumberOfGPSSatellite{};
+    qint8 m_NumberOfGPSSatellite{};
 
     bool m_telemetry0;
     bool m_telemetry1;
