@@ -5,8 +5,12 @@
 
 // Qt
 #include <iostream>
+#include <QVariant>
 
+#include "../../common/mavlink_communicator.h"
 using namespace radiolink;
+
+Q_DECLARE_METATYPE(mavlink_telemetry_data_pack_t);
 
 AGUTelemetryHandler::AGUTelemetryHandler(MavLinkCommunicator* communicator):
     AbstractHandler(communicator)
@@ -21,4 +25,7 @@ void AGUTelemetryHandler::processMessage(const mavlink_message_t& message)
     mavlink_msg_telemetry_data_pack_decode(&message, &telemetry_status);
 
     std::cout << "TEL " << telemetry_status.Log_Timestamp << std::endl;
+    QVariant processedMessage;
+    processedMessage.setValue(telemetry_status);
+    m_communicator->dispatchReceivedMessage(processedMessage);
 }
