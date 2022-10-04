@@ -57,6 +57,7 @@ void HMI::showData(QVariant telemetry)
     m_Quaternion1= msg_telemetry.Quaternion_1;
     m_Quaternion2= msg_telemetry.Quaternion_2;
     m_Quaternion3= msg_telemetry.Quaternion_3;
+    m_NumberOfGPSSatellite= msg_telemetry.Satellite_Num;
     //QString s;
 
     emit TimeStampChanged();

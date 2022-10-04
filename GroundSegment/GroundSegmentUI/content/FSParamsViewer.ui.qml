@@ -314,7 +314,7 @@ Rectangle {
                         anchors.bottomMargin: 8
                         width: 16
                         height: 16
-                        color: telemetryTab.lit ? "#ff0000" : "green"
+                        color: "#ff0000"//telemetryTab.lit ? "#ff0000" : "green"
                         radius: 8
                     }
                     MouseArea {
@@ -368,7 +368,7 @@ Rectangle {
                         anchors.bottomMargin: 8
                         width: 16
                         height: 16
-                        color: motorsBMSTab.lit ? "#ff0000" : "green"
+                        color: "#ff0000"//motorsBMSTab.lit ? "#ff0000" : "green"
                         radius: 8
                     }
                     MouseArea {
@@ -423,7 +423,7 @@ Rectangle {
                         anchors.bottomMargin: 8
                         width: 16
                         height: 16
-                        color: storageTab.lit ? "#ff0000" : "green"
+                        color: "#ff0000"//storageTab.lit ? "#ff0000" : "green"
                         radius: 8
                     }
                     MouseArea {
@@ -476,7 +476,7 @@ Rectangle {
                         anchors.bottomMargin: 8
                         width: 16
                         height: 16
-                        color: radioLinkTab.lit ? "#ff0000" : "green"
+                        color: "#ff0000"//radioLinkTab.lit ? "#ff0000" : "green"
                         radius: 8
                     }
                     MouseArea {
@@ -583,7 +583,7 @@ Rectangle {
                         anchors.bottomMargin: 8
                         width: 16
                         height: 16
-                        color: coreTab.lit ? "#ff0000" : "green"
+                        color: "#ff0000"//coreTab.lit ? "#ff0000" : "green"
                         radius: 8
                     }
                     MouseArea {
