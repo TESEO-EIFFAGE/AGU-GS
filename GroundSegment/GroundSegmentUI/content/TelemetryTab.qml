@@ -250,6 +250,7 @@ Column{
             ParamRow {
                 text: "# GNSS satellites"
                 span: 7
+                visible: false
                 id: txtNumberOfGPSSatellite
                 ToolTip.text: text
                 ToolTip.visible: pressed
