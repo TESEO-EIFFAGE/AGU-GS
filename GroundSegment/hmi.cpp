@@ -7,6 +7,7 @@
 
 Q_DECLARE_METATYPE(mavlink_system_status_pack_t);
 Q_DECLARE_METATYPE(mavlink_telemetry_data_pack_t);
+Q_DECLARE_METATYPE(mavlink_motor_status_pack_t);
 
 HMI::HMI(QObject *parent)
     : QObject{parent}
