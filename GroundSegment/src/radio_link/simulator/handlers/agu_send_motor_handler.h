@@ -1,11 +1,27 @@
 #ifndef AGU_SEND_MOTOR_HANDLER_H
 #define AGU_SEND_MOTOR_HANDLER_H
 
+#include "../common/handlers/abstract_handler.h"
 
-class agu_send_motor_handler
+namespace radiolink
 {
-public:
-    agu_send_motor_handler();
-};
+    class UavModel;
 
-#endif // AGU_SEND_MOTOR_HANDLER_H
+    class AGUSendMotorHandler: public AbstractHandler
+    {
+    public:
+        AGUSendMotorHandler(MavLinkCommunicator* communicator,
+                                UavModel* model);
+
+    public slots:
+        void processMessage(const mavlink_message_t& message) override;
+
+    protected:
+        void timerEvent(QTimerEvent* event) override;
+
+    private:
+        UavModel* m_model;
+    };
+}
+
+#endif

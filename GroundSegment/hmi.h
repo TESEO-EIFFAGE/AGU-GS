@@ -57,25 +57,31 @@ public:
     Q_PROPERTY(int PLAltCommErrorCounter MEMBER m_PLAltCommErrorCounter NOTIFY PLAltCommErrorCounterChanged)
 
 
-    Q_PROPERTY(int MotorARealPosition MEMBER m_MotorARealPosition NOTIFY MotorARealPositionChanged)
-    Q_PROPERTY(int MotorADemandPosition MEMBER m_MotorADemandPosition NOTIFY MotorADemandPositionChanged)
-    Q_PROPERTY(int MotorATorque MEMBER m_MotorATorque NOTIFY MotorATorqueChanged)
-    Q_PROPERTY(int MotorATemp MEMBER m_MotorATemp NOTIFY MotorATempChanged)
+    Q_PROPERTY(qint32 MotorARealPosition MEMBER m_MotorARealPosition NOTIFY MotorARealPositionChanged)
+    Q_PROPERTY(qint32 MotorADemandPosition MEMBER m_MotorADemandPosition NOTIFY MotorADemandPositionChanged)
+    Q_PROPERTY(qint32 MotorATorque MEMBER m_MotorATorque NOTIFY MotorATorqueChanged)
+    Q_PROPERTY(qint16 MotorATemp MEMBER m_MotorATemp NOTIFY MotorATempChanged)
 
-    Q_PROPERTY(int MotorBRealPosition MEMBER m_MotorBRealPosition NOTIFY MotorBRealPositionChanged)
-    Q_PROPERTY(int MotorBDemandPosition MEMBER m_MotorBDemandPosition NOTIFY MotorBDemandPositionChanged)
-    Q_PROPERTY(int MotorBTorque MEMBER m_MotorBTorque NOTIFY MotorBTorqueChanged)
-    Q_PROPERTY(int MotorBTemp MEMBER m_MotorBTemp NOTIFY MotorBTempChanged)
+    Q_PROPERTY(qint32 MotorBRealPosition MEMBER m_MotorBRealPosition NOTIFY MotorBRealPositionChanged)
+    Q_PROPERTY(qint32 MotorBDemandPosition MEMBER m_MotorBDemandPosition NOTIFY MotorBDemandPositionChanged)
+    Q_PROPERTY(qint32 MotorBTorque MEMBER m_MotorBTorque NOTIFY MotorBTorqueChanged)
+    Q_PROPERTY(qint16 MotorBTemp MEMBER m_MotorBTemp NOTIFY MotorBTempChanged)
 
-    Q_PROPERTY(int BMS1Voltage MEMBER m_BMS1Voltage NOTIFY BMS1VoltageChanged)
-    Q_PROPERTY(int BMS1Absorption MEMBER m_BMS1Absorption NOTIFY BMS1AbsorptionChanged)
-    Q_PROPERTY(int BMS1Temp MEMBER m_BMS1Temp NOTIFY BMS1TempChanged)
+    Q_PROPERTY(qint16 BMSVoltage MEMBER m_BMSVoltage NOTIFY BMSVoltageChanged)
+    Q_PROPERTY(qint16 BMSAbsorption MEMBER m_BMSAbsorption NOTIFY BMSAbsorptionChanged)
+    Q_PROPERTY(qint16 BMSTemp MEMBER m_BMSTemp NOTIFY BMSTempChanged)
+
+    Q_PROPERTY(int MotorControlStatusMask MEMBER m_MotorControlStatusMask NOTIFY MotorControlStatusMaskChanged)
+    Q_PROPERTY(int MotorAFaultsMask MEMBER m_MotorAFaultsMask NOTIFY MotorAFaultsMaskChanged)
+    Q_PROPERTY(int MotorBFaultsMask MEMBER m_MotorBFaultsMask NOTIFY MotorBFaultsMaskChanged)
+    Q_PROPERTY(int BMSFaultsMask MEMBER m_BMSFaultsMask NOTIFY BMSFaultsMaskChanged)
+
     Q_PROPERTY(int MotorTimestamp MEMBER m_MotorTimestamp NOTIFY MotorTimestampChanged)
     Q_PROPERTY(int ChargeValue MEMBER m_ChargeValue NOTIFY ChargeValueChanged)
 
     Q_PROPERTY(int FlightMode MEMBER m_FlightMode NOTIFY FlightModeChanged)
     Q_PROPERTY(int FlightPhase MEMBER m_FlightPhase NOTIFY FlightPhaseChanged)
-    Q_PROPERTY(int FlightPhaseExecutionTime MEMBER m_FlightPhaseExecutionTime NOTIFY FlightPhaseExecutionTimeChanged)
+    Q_PROPERTY(qint32 FlightPhaseExecutionTime MEMBER m_FlightPhaseExecutionTime NOTIFY FlightPhaseExecutionTimeChanged)
     Q_PROPERTY(int CoreModuleStatusMask MEMBER m_CoreModuleStatusMask NOTIFY CoreModuleStatusMaskChanged)
     Q_PROPERTY(int TelemetryModuleStatusMask MEMBER m_TelemetryModuleStatusMask NOTIFY TelemetryModuleStatusMaskChanged)
     Q_PROPERTY(int GuidanceModuleStatusMask MEMBER m_GuidanceModuleStatusMask NOTIFY GuidanceModuleStatusMaskChanged)
@@ -481,11 +487,11 @@ signals:
 
     void MotorBTempChanged();
 
-    void BMS1VoltageChanged();
+    void BMSVoltageChanged();
 
-    void BMS1AbsorptionChanged();
+    void BMSAbsorptionChanged();
 
-    void BMS1TempChanged();
+    void BMSTempChanged();
 
     void MotorTimestampChanged();
 
@@ -604,6 +610,14 @@ signals:
     void FlightPhaseChanged();
 
     void FlightModeChanged();
+
+    void MotorControlStatusMaskChanged();
+
+    void MotorAFaultsMaskChanged();
+
+    void MotorBFaultsMaskChanged();
+
+    void BMSFaultsMaskChanged();
 
 private:
 
@@ -731,17 +745,17 @@ private:
     bool m_motor24;
     bool m_motor25;
 
-    int m_MotorARealPosition;
-    int m_MotorADemandPosition;
-    int m_MotorATorque;
-    int m_MotorATemp;
-    int m_MotorBRealPosition;
-    int m_MotorBDemandPosition;
-    int m_MotorBTorque;
-    int m_MotorBTemp;
-    int m_BMS1Voltage;
-    int m_BMS1Absorption;
-    int m_BMS1Temp;
+    qint32 m_MotorARealPosition;
+    qint32 m_MotorADemandPosition;
+    qint32 m_MotorATorque;
+    qint16 m_MotorATemp;
+    qint32 m_MotorBRealPosition;
+    qint32 m_MotorBDemandPosition;
+    qint32 m_MotorBTorque;
+    qint16 m_MotorBTemp;
+    qint16 m_BMSVoltage;
+    qint16 m_BMSAbsorption;
+    qint16 m_BMSTemp;
     int m_MotorTimestamp;
     int m_ChargeValue;
 
@@ -799,9 +813,13 @@ private:
     int m_GuidanceModuleStatusMask;
     int m_TelemetryModuleStatusMask;
     int m_CoreModuleStatusMask;
-    int m_FlightPhaseExecutionTime;
+    qint32 m_FlightPhaseExecutionTime;
     int m_FlightPhase;
     int m_FlightMode;
+    int m_MotorControlStatusMask;
+    int m_MotorAFaultsMask;
+    int m_MotorBFaultsMask;
+    int m_BMSFaultsMask;
 };
 
 #endif // HMI_H

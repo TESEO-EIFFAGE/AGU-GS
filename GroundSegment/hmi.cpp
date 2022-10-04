@@ -749,7 +749,53 @@ void HMI::showDataSystemStatus(QVariant status)
 
 void HMI::showDataMotorStatus(QVariant status)
 {
+    if (status.canConvert<mavlink_motor_status_pack_t>()) {
 
+    auto msg_status = status.value<mavlink_motor_status_pack_t>();
+    m_MotorARealPosition = msg_status.Motor_A_Real_Position;
+    m_MotorADemandPosition= msg_status.Motor_A_Demand_Position;
+    m_MotorATemp=msg_status.Motor_A_Temperature;
+    m_MotorATorque= msg_status.Motor_A_Torque;
+    m_MotorAFaultsMask=msg_status.Motor_A_Faults_Mask;
+
+    m_MotorBRealPosition = msg_status.Motor_B_Real_Position;
+    m_MotorBDemandPosition= msg_status.Motor_B_Demand_Position;
+    m_MotorBTemp=msg_status.Motor_B_Temperature;
+    m_MotorBTorque= msg_status.Motor_B_Torque;
+    m_MotorBFaultsMask=msg_status.Motor_B_Faults_Mask;
+
+    m_BMSVoltage= msg_status.BMS_Voltage;
+    m_BMSAbsorption=msg_status.BMS_Absorption;
+    m_BMSVoltage= msg_status.BMS_Voltage;
+    m_BMSFaultsMask= msg_status.BMS_Faults_Mask;
+
+    m_MotorControlStatusMask= msg_status.Motor_Control_Status_Mask;
+
+
+    emit MotorADemandPositionChanged();
+    emit MotorAFaultsMaskChanged();
+    emit MotorARealPositionChanged();
+    emit MotorATempChanged();
+    emit MotorATorqueChanged();
+
+    emit MotorBDemandPositionChanged();
+    emit MotorBFaultsMaskChanged();
+    emit MotorBRealPositionChanged();
+    emit MotorBTempChanged();
+    emit MotorBTorqueChanged();
+
+    emit BMSVoltageChanged();
+    emit BMSAbsorptionChanged();
+    emit BMSTempChanged();
+    emit BMSFaultsMaskChanged();
+
+    emit MotorControlStatusMaskChanged();
+
+    printf("MOTOR STATUS UPDATED \n");
+    printf("BMS VOLTAGE %d \n",m_BMSVoltage);
+
+
+}
 }
 
 void HMI::showDataRLStatus(QVariant status)

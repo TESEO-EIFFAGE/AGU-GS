@@ -9,6 +9,7 @@
 #include "../common/handlers/heartbeat_handler.h"
 #include "handlers/agu_send_system_handler.h"
 #include "handlers/agu_send_telemetry_handler.h"
+#include "handlers/agu_send_motor_handler.h"
 using namespace radiolink;
 
 UavCommunicatorFactory::UavCommunicatorFactory(radiolink::UavModel* model):
@@ -22,6 +23,8 @@ MavLinkCommunicator* UavCommunicatorFactory::create()
     new radiolink::HeartbeatHandler(MAV_TYPE_HELICOPTER, communicator);
     new radiolink::AGUSendSystemHandler(communicator, m_model);
     new radiolink::AGUSendTelemetryHandler(communicator, m_model);
+    new radiolink::AGUSendMotorHandler(communicator, m_model);
+
 
     /* add handler instances here */
 
