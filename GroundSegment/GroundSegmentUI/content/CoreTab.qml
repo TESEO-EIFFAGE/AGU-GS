@@ -31,6 +31,7 @@ Rectangle {
         StatusLight {
             id: coreLight1
             text: "Guidance module status"
+            up: false
         }
         StatusLight {
             id: coreLight2
@@ -39,6 +40,7 @@ Rectangle {
         StatusLight {
             id: coreLight3
             text: "Radio Link module status"
+
         }
         StatusLight {
             id: coreLight4

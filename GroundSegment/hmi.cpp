@@ -12,8 +12,7 @@ Q_DECLARE_METATYPE(mavlink_motor_status_pack_t);
 HMI::HMI(QObject *parent)
     : QObject{parent}
 {
-    m_RollAngle=0;
-    emit RollAngleChanged();
+
 }
 
 void HMI::showData(QVariant telemetry)
@@ -767,7 +766,7 @@ void HMI::showDataMotorStatus(QVariant status)
 
     m_BMSVoltage= msg_status.BMS_Voltage;
     m_BMSAbsorption=msg_status.BMS_Absorption;
-    m_BMSVoltage= msg_status.BMS_Voltage;
+    m_BMSTemp= msg_status.BMS_Temperature;
     m_BMSFaultsMask= msg_status.BMS_Faults_Mask;
 
     m_MotorControlStatusMask= msg_status.Motor_Control_Status_Mask;

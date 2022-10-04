@@ -237,9 +237,9 @@ Window {
         fsParams.txtMotorBTemp: hmi.MotorBTemp.toFixed(2)
 
 
-        fsParams.txtBMS1Voltage: hmi.BMS1Voltage.toFixed(2)
-        fsParams.txtBMS1Absorption: hmi.BMS1Absorption.toFixed(2)
-        fsParams.txtBMS1Temp: hmi.BMS1Temp.toFixed(2)
+        fsParams.txtBMS1Voltage: hmi.BMSVoltage.toFixed(2)
+        fsParams.txtBMS1Absorption: hmi.BMSAbsorption.toFixed(2)
+        fsParams.txtBMS1Temp: hmi.BMSTemp.toFixed(2)
         fsParams.txtMotorTimestamp: timestampToUTCDate(hmi.MotorTimestamp)
         fsParams.txtChargeValue: hmi.ChargeValue
 
