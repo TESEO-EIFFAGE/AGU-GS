@@ -10,7 +10,7 @@
 #include "../../common/mavlink_communicator.h"
 using namespace radiolink;
 
-Q_DECLARE_METATYPE(mavlink_telemetry_data_pack_t);
+Q_DECLARE_METATYPE(mavlink_motor_status_pack_t);
 
 AGUMotorHandler::AGUMotorHandler(MavLinkCommunicator* communicator):
     AbstractHandler(communicator)
