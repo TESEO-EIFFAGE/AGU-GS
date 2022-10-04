@@ -32,7 +32,7 @@ public:
     Q_PROPERTY(float ECEFVectorVelocityX MEMBER m_ECEFVectorVelocityX NOTIFY ECEFVectorVelocityXChanged)
     Q_PROPERTY(float ECEFVectorVelocityY MEMBER m_ECEFVectorVelocityY NOTIFY ECEFVectorVelocityYChanged)
     Q_PROPERTY(float ECEFVectorVelocityZ MEMBER m_ECEFVectorVelocityZ NOTIFY ECEFVectorVelocityZChanged)
-    Q_PROPERTY(int16_t RollAngle MEMBER m_RollAngle NOTIFY RollAngleChanged)
+    Q_PROPERTY(int RollAngle MEMBER m_RollAngle NOTIFY RollAngleChanged)
     Q_PROPERTY(int16_t PitchAngle MEMBER m_PitchAngle NOTIFY PitchAngleChanged)
     Q_PROPERTY(int16_t YawAngle MEMBER m_YawAngle NOTIFY YawAngleChanged)
     Q_PROPERTY(int16_t AngularRateRoll MEMBER m_AngularRateRoll NOTIFY AngularRateRollChanged)

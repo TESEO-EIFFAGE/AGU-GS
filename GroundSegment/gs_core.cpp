@@ -36,18 +36,18 @@ GSCore::GSCore(QObject *parent)
 //    Serial1->open(QIODevice::ReadWrite);
 
     //m_hmi->showData();
-    QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
-                     m_hmi, &HMI::showDataSystemStatus);
-    QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
-                     m_hmi, &HMI::showData);
-    QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
-                     m_hmi, &HMI::showDataGuidance);
-    QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
-                     m_hmi, &HMI::showDataMotorStatus);
-    QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
-                     m_hmi, &HMI::showDataStorageStatus);
-    QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
-                     m_hmi, &HMI::showDataRLStatus);
+        QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
+                         m_hmi, &HMI::showDataSystemStatus);
+        QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
+                         m_hmi, &HMI::showData);
+        QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
+                         m_hmi, &HMI::showDataGuidance);
+        QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
+                         m_hmi, &HMI::showDataMotorStatus);
+        QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
+                         m_hmi, &HMI::showDataStorageStatus);
+        QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
+                         m_hmi, &HMI::showDataRLStatus);
     //QObject::connect(Serial1, SIGNAL(readyRead()), this, SLOT(ReadData()));                                   /*segnale emesso dalla porta seriale*/
 //    QObject::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataTelemetry(QByteArray)));          /*segnale emesso da MainWindow::ReadData()*/
 //    QObject::connect(this, SIGNAL(DataIsRead(QByteArray)), Mavlink, SLOT(parseDataSystemStatus(QByteArray)));       /*segnale emesso da MainWindow::ReadData()*/
@@ -62,13 +62,13 @@ GSCore::GSCore(QObject *parent)
     QObject::connect(Mavlink, SIGNAL(toStorageStorageStatusPack(StorageStatusPack *)), StorageData, SLOT(StoreDataInMemoryStorageStatusPack(StorageStatusPack *)));
     QObject::connect(Mavlink, SIGNAL(toStorageGuidance(GuidancePackDataset *)), StorageData, SLOT(StoreDataInMemoryGuidance(GuidancePackDataset *)));
 
-    QObject::connect(Mavlink, SIGNAL(toHMI(Telemetry *)), m_hmi, SLOT(showData(Telemetry *)));
-    QObject::connect(Mavlink, SIGNAL(toHMISystemStatus(SystemStatusPack *)), m_hmi, SLOT(showDataSystemStatus(SystemStatusPack *)));
+//    QObject::connect(Mavlink, SIGNAL(toHMI(Telemetry *)), m_hmi, SLOT(showData(Telemetry *)));
+//    QObject::connect(Mavlink, SIGNAL(toHMISystemStatus(SystemStatusPack *)), m_hmi, SLOT(showDataSystemStatus(SystemStatusPack *)));
 
-    QObject::connect(Mavlink, SIGNAL(toHMIMotorStatusPack(MotorStatusPackDataset *)), m_hmi, SLOT(showDataMotorStatus(MotorStatusPackDataset *)));
-    QObject::connect(Mavlink, SIGNAL(toHMIRadioLink(RadioLinkPackDataset *)), m_hmi, SLOT(showDataRLStatus(RadioLinkPackDataset *)));
-    QObject::connect(Mavlink, SIGNAL(toHMIStorageStatusPack(StorageStatusPack *)), m_hmi, SLOT(showDataStorageStatus(SystemStatusPack *)));
-    QObject::connect(Mavlink, SIGNAL(toHMIGuidance(GuidancePackDataset *)), m_hmi, SLOT(showDataGuidance(GuidancePackDataset *)));
+//    QObject::connect(Mavlink, SIGNAL(toHMIMotorStatusPack(MotorStatusPackDataset *)), m_hmi, SLOT(showDataMotorStatus(MotorStatusPackDataset *)));
+//    QObject::connect(Mavlink, SIGNAL(toHMIRadioLink(RadioLinkPackDataset *)), m_hmi, SLOT(showDataRLStatus(RadioLinkPackDataset *)));
+//    QObject::connect(Mavlink, SIGNAL(toHMIStorageStatusPack(StorageStatusPack *)), m_hmi, SLOT(showDataStorageStatus(SystemStatusPack *)));
+//    QObject::connect(Mavlink, SIGNAL(toHMIGuidance(GuidancePackDataset *)), m_hmi, SLOT(showDataGuidance(GuidancePackDataset *)));
 
     //HMIController::connect(this, SIGNAL(updateTopDiagLog()), TopDialogWindow, SLOT(UpdateWindow()));  /* Spostare l'UpdateWindow signal dal pushbutton*/
 

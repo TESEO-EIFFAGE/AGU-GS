@@ -11,7 +11,8 @@ Q_DECLARE_METATYPE(mavlink_telemetry_data_pack_t);
 HMI::HMI(QObject *parent)
     : QObject{parent}
 {
-
+    m_RollAngle=0;
+    emit RollAngleChanged();
 }
 
 void HMI::showData(QVariant telemetry)
@@ -57,6 +58,8 @@ void HMI::showData(QVariant telemetry)
     m_Quaternion2= msg_telemetry.Quaternion_2;
     m_Quaternion3= msg_telemetry.Quaternion_3;
     //QString s;
+    emit RollAngleChanged();
+
     printf("TELEMETRY UPDATED \n");
     printf("ROLL ANGLE %d \n",m_RollAngle);
     printf("AIR TEMP %d \n",m_AirTemperature);
