@@ -51,6 +51,8 @@ void HMI::showData(QVariant telemetry)
     m_Quaternion2= msg_telemetry.Quaternion_2;
     m_Quaternion3= msg_telemetry.Quaternion_3;
     //QString s;
+    printf("TELEMETRY UPDATED");
+    printf("%d",m_RollAngle);
 
     //typedef std::bitset<64> IntBits;
     //    bool is_set0,is_set1,is_set2,is_set3,is_set4,is_set5,is_set6,is_set7,is_set8,is_set9;

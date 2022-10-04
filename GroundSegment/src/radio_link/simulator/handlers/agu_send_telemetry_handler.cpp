@@ -71,6 +71,8 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
     int16_t angular_Rate_Yaw= (rand() % 100) + 1;
     uint8_t satellite_Num= (rand() % 100) + 1;
 
+    printf("ROLL ANGLE %d",roll_Angle);
+
     telemetry.Telemetry_Status_Mask=telemetry_Status_Mask;
     telemetry.Latitude=latitude;
     telemetry.Longitude=longitude;
