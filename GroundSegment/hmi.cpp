@@ -16,6 +16,10 @@ HMI::HMI(QObject *parent)
 
 void HMI::showData(QVariant telemetry)
 {
+
+    QString qs = telemetry.toString();
+    printf("TELEMETRY QVARIANT \n")
+    printf(qs);
     auto msg_telemetry = telemetry.value<mavlink_telemetry_data_pack_t>();
     m_TimeStamp= msg_telemetry.GNSS_Timestamp;
     m_Latitude= msg_telemetry.Latitude;
@@ -51,7 +55,7 @@ void HMI::showData(QVariant telemetry)
     m_Quaternion2= msg_telemetry.Quaternion_2;
     m_Quaternion3= msg_telemetry.Quaternion_3;
     //QString s;
-    printf("TELEMETRY UPDATED");
+    printf("TELEMETRY UPDATED \n");
     printf("%d",m_RollAngle);
 
     //typedef std::bitset<64> IntBits;
