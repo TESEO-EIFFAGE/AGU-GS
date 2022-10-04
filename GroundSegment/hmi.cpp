@@ -16,6 +16,8 @@ HMI::HMI(QObject *parent)
 
 void HMI::showData(QVariant telemetry)
 {
+    if (telemetry.canConvert<mavlink_telemetry_data_pack_t>()) {
+
 
     printf("TELEMETRY QVARIANT \n");
     //printf(telemetry.toString());
@@ -56,8 +58,9 @@ void HMI::showData(QVariant telemetry)
     m_Quaternion3= msg_telemetry.Quaternion_3;
     //QString s;
     printf("TELEMETRY UPDATED \n");
-    printf("%d \n",m_RollAngle);
-    printf("%d \n",m_AirTemperature);
+    printf("ROLL ANGLE %d \n",m_RollAngle);
+    printf("AIR TEMP %d \n",m_AirTemperature);
+    }
     //typedef std::bitset<64> IntBits;
     //    bool is_set0,is_set1,is_set2,is_set3,is_set4,is_set5,is_set6,is_set7,is_set8,is_set9;
     //    bool is_set10,is_set11,is_set12,is_set13,is_set14,is_set15,is_set16,is_set17,is_set18,is_set19;
@@ -349,6 +352,24 @@ void HMI::showDataSystemStatus(QVariant status)
 {
     qInfo() << "showDataSystemStatus = CALL" ;
 
+    if (status.canConvert<mavlink_system_status_pack_t>()) {
+
+    auto msg_status = status.value<mavlink_system_status_pack_t>();
+    m_FlightMode = msg_status.Flight_Mode;
+    m_FlightPhase= msg_status.Flight_Phase;
+    m_FlightPhaseExecutionTime= msg_status.Flight_Phase_Time;
+    m_TelemetryModuleStatusMask= msg_status.Telemetry_Module_Status_Mask;
+    m_StorageModuleStatusMask= msg_status.Storage_Module_Status_Mask;
+    m_GuidanceModuleStatusMask= msg_status.Guidance_Module_Status_Mask;
+    m_CoreModuleStatusMask= msg_status.Core_Module_Status_Mask;
+    m_RadioLinkModuleStatusMask= msg_status.Radio_Link_Module_Status_Mask;
+
+    printf("SYS STATUS UPDATED \n");
+    printf("FLIGHT MODE %d \n",m_FlightMode);
+    printf("FLIGHT PHASE %d \n",m_FlightPhase);
+
+}
+
     /* STORAGE STATUS MASK */    /* STORAGE STATUS MASK */
 
 
@@ -425,47 +446,34 @@ void HMI::showDataSystemStatus(QVariant status)
     //typedef std::bitset<32> IntBitsStorage;
 
 
+//    m_MotorARealPosition = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorARealPosition = " << m_MotorARealPosition;
+//    m_MotorADemandPosition = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorADemandPosition = " << m_MotorADemandPosition;
+//    m_MotorATorque = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorATorque = " << m_MotorATorque;
+//    m_MotorATemp = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorATemp = " << m_MotorATemp;
 
-    auto msg_status = status.value<mavlink_system_status_pack_t>();
-    m_FlightMode = msg_status.Flight_Mode;
-    m_FlightPhase= msg_status.Flight_Phase;
-    m_FlightPhaseExecutionTime= msg_status.Flight_Phase_Time;
-    m_TelemetryModuleStatusMask= msg_status.Telemetry_Module_Status_Mask;
-    m_StorageModuleStatusMask= msg_status.Storage_Module_Status_Mask;
-    m_GuidanceModuleStatusMask= msg_status.Guidance_Module_Status_Mask;
-    m_CoreModuleStatusMask= msg_status.Core_Module_Status_Mask;
-    m_RadioLinkModuleStatusMask= msg_status.Radio_Link_Module_Status_Mask;
+//    m_MotorBRealPosition = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorBRealPosition = " << m_MotorBRealPosition;
+//    m_MotorBDemandPosition = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorBDemandPosition = " << m_MotorBDemandPosition;
+//    m_MotorBTorque = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorBTorque = " << m_MotorBTorque;
+//    m_MotorBTemp = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorBTemp = " << m_MotorBTemp;
 
-
-
-    m_MotorARealPosition = QRandomGenerator::global()->bounded(0, 99);
-    qInfo() << "MotorARealPosition = " << m_MotorARealPosition;
-    m_MotorADemandPosition = QRandomGenerator::global()->bounded(0, 99);
-    qInfo() << "MotorADemandPosition = " << m_MotorADemandPosition;
-    m_MotorATorque = QRandomGenerator::global()->bounded(0, 99);
-    qInfo() << "MotorATorque = " << m_MotorATorque;
-    m_MotorATemp = QRandomGenerator::global()->bounded(0, 99);
-    qInfo() << "MotorATemp = " << m_MotorATemp;
-
-    m_MotorBRealPosition = QRandomGenerator::global()->bounded(0, 99);
-    qInfo() << "MotorBRealPosition = " << m_MotorBRealPosition;
-    m_MotorBDemandPosition = QRandomGenerator::global()->bounded(0, 99);
-    qInfo() << "MotorBDemandPosition = " << m_MotorBDemandPosition;
-    m_MotorBTorque = QRandomGenerator::global()->bounded(0, 99);
-    qInfo() << "MotorBTorque = " << m_MotorBTorque;
-    m_MotorBTemp = QRandomGenerator::global()->bounded(0, 99);
-    qInfo() << "MotorBTemp = " << m_MotorBTemp;
-
-    m_BMS1Voltage = QRandomGenerator::global()->bounded(0, 99);
-    qInfo() << "BMS1Voltage = " << m_BMS1Voltage;
-    m_BMS1Absorption = QRandomGenerator::global()->bounded(0, 99);
-    qInfo() << "BMS1Absorption = " << m_BMS1Absorption;
-    m_BMS1Temp = QRandomGenerator::global()->bounded(0, 99);
-    qInfo() << "BMS1Temp = " << m_BMS1Temp;
-    m_MotorTimestamp = QRandomGenerator::global()->bounded(0, 99);
-    qInfo() << "MotorTimestamp = " << m_MotorTimestamp;
-    m_ChargeValue = QRandomGenerator::global()->bounded(0, 99);
-    qInfo() << "ChargeValue = " << m_ChargeValue;
+//    m_BMS1Voltage = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "BMS1Voltage = " << m_BMS1Voltage;
+//    m_BMS1Absorption = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "BMS1Absorption = " << m_BMS1Absorption;
+//    m_BMS1Temp = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "BMS1Temp = " << m_BMS1Temp;
+//    m_MotorTimestamp = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorTimestamp = " << m_MotorTimestamp;
+//    m_ChargeValue = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "ChargeValue = " << m_ChargeValue;
 
     //    /* Motor STATUS MASK */
 
