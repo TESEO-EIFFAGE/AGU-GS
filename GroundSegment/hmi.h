@@ -630,7 +630,7 @@ private:
     float m_ECEFVectorPositionZ{};
     float m_ECEFVectorVelocityX{};
     float m_ECEFVectorVelocityY{};
-    v m_ECEFVectorVelocityZ{};
+    float m_ECEFVectorVelocityZ{};
     uint16_t m_RollAngle{};
     uint16_t m_PitchAngle{};
     uint16_t m_YawAngle{};
