@@ -6,7 +6,7 @@
 // Qt
 #include <QDebug>
 #include<QBitArray>
-
+#include<QDataStream>
 #include "QtCore/qdatetime.h"
 #include <random>
 
@@ -114,20 +114,36 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
 
 
     QBitArray telemetryba(32);
-    for(int i=0;i++;i<32){
-        telemetryba.setBit(i,false);
-    }
+    telemetryba.fill(true);
+//    for(int i=0;i++;i<32){
+//        int r = (rand() % 100) + 1;
+//        if(r>50){
+//        telemetryba.setBit(i,true);
+//        }
+//        else{
+//            telemetryba.setBit(i,false);
+//        }
+//    }
+    int numTest = 15;
+QByteArray testFormato;
+testFormato.setNum(numTest);
     //int telemetryMask = telemetryba
     QByteArray telemetrybytes;
-    telemetrybytes.resize(telemetryba.count()/8+1);
-    telemetrybytes.fill(0);
-    for(int b=0; b<telemetryba.count(); ++b)
-        telemetrybytes[b/8] = ( telemetrybytes.at(b/8) | ((telemetryba[b]?1:0)<<(b%8)));
+//    telemetrybytes.resize(telemetryba.count()/8+1);
+//    telemetrybytes.fill(0);
+//    for(int b=0; b<telemetryba.count(); ++b)
+//        telemetrybytes[b/8] = ( telemetrybytes.at(b/8) | ((telemetryba[b]?1:0)<<(b%8)));
+
+telemetrybytes.fill(7);
+    //QDataStream stream(&telemetrybytes, QIODevice::WriteOnly);
+    //stream << telemetryba;
+
+
 
     bool telemetryconvcheck;
-    telemetry.Telemetry_Status_Mask=telemetrybytes.toInt(&telemetryconvcheck);
+    telemetry.Telemetry_Status_Mask=7901428111563063317;//telemetrybytes.toInt(&telemetryconvcheck);
 
-    printf("Conversion Telemetry %d", telemetryconvcheck);
+    printf("Conversion Telemetry handl %d \n" , telemetryconvcheck);
 
 
     mavlink_msg_telemetry_data_pack_encode(m_communicator->systemId(),

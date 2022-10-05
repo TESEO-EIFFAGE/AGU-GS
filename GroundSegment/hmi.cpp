@@ -60,11 +60,10 @@ void HMI::showData(QVariant telemetry)
     //m_NumberOfGPSSatellite= msg_telemetry.Satellite_Num;
     //QString s;
 
-
+ typedef std::bitset<64> IntBits;
     m_telemetry0 = IntBits(msg_telemetry.Telemetry_Status_Mask).test(0);  /* BIT 0*/
-
-
-
+printf("TEL 0 -> %d",m_telemetry0);
+emit telemetry0Changed();
 
     emit TimeStampChanged();
     emit LatitudeChanged();
@@ -105,7 +104,7 @@ void HMI::showData(QVariant telemetry)
     printf("ROLL ANGLE %d \n",m_RollAngle);
     printf("AIR TEMP %d \n",m_AirTemperature);
     }
-    typedef std::bitset<64> IntBits;
+
         bool is_set0,is_set1,is_set2,is_set3,is_set4,is_set5,is_set6,is_set7,is_set8,is_set9;
         bool is_set10,is_set11,is_set12,is_set13,is_set14,is_set15,is_set16,is_set17,is_set18,is_set19;
         bool is_set20,is_set21,is_set22,is_set23,is_set24,is_set25,is_set26,is_set27,is_set28,is_set29;
