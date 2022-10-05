@@ -57,7 +57,7 @@ void HMI::showData(QVariant telemetry)
     m_Quaternion1= msg_telemetry.Quaternion_1;
     m_Quaternion2= msg_telemetry.Quaternion_2;
     m_Quaternion3= msg_telemetry.Quaternion_3;
-    m_NumberOfGPSSatellite= msg_telemetry.Satellite_Num;
+    //m_NumberOfGPSSatellite= msg_telemetry.Satellite_Num;
     //QString s;
 
 
@@ -99,7 +99,7 @@ void HMI::showData(QVariant telemetry)
     emit Quaternion1Changed();
     emit Quaternion2Changed();
     emit Quaternion3Changed();
-    emit NumberOfGPSSatelliteChanged();
+    //emit NumberOfGPSSatelliteChanged();
 
     printf("TELEMETRY UPDATED \n");
     printf("ROLL ANGLE %d \n",m_RollAngle);
