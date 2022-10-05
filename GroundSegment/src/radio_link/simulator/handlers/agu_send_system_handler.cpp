@@ -60,9 +60,9 @@ void AGUSendSystemHandler::timerEvent(QTimerEvent* event)
         telemetrybytes[b/8] = ( telemetrybytes.at(b/8) | ((telemetryba[b]?1:0)<<(b%8)));
 
     bool telemetryconvcheck;
-    status.Telemetry_Module_Status_Mask=telemetrybytes.toInt(&telemetryconvcheck);
+    status.Telemetry_Module_Status_Mask=7901428111563063317;//telemetrybytes.toInt(&telemetryconvcheck);
 
-    printf("Conversion Telemetry %d", telemetryconvcheck);
+    //printf("Conversion Telemetry %d", telemetryconvcheck);
 
 
     QBitArray motorba(32);

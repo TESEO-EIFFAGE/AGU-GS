@@ -20,95 +20,111 @@ void HMI::showData(QVariant telemetry)
     if (telemetry.canConvert<mavlink_telemetry_data_pack_t>()) {
 
 
-    printf("TELEMETRY QVARIANT \n");
-    //printf(telemetry.toString());
+        printf("TELEMETRY QVARIANT \n");
+        //printf(telemetry.toString());
 
-    auto msg_telemetry = telemetry.value<mavlink_telemetry_data_pack_t>();
-    m_TimeStamp= msg_telemetry.GNSS_Timestamp;
-    m_Latitude= msg_telemetry.Latitude;
-    m_Longitude=msg_telemetry.Longitude;
-    m_GNSSAltitude= msg_telemetry.GNSS_Altitude;
-    m_AirSpeed_UVector= msg_telemetry.Air_Speed_U;
-    m_AirSpeed_VVector= msg_telemetry.Air_Speed_V;
-    m_AirSpeed_WVector= msg_telemetry.Air_Speed_W;
-    m_AirTemperature=msg_telemetry.Air_Temperature;
-    m_AltitudeFromPayloadAltimeter= msg_telemetry.Altitude_Payload_Altimeter;
-    m_AltitudeFromRadarAltimeter=msg_telemetry.Altitude_Main_Altimeter;
-    m_LinearVelocityHorizontal= msg_telemetry.Velocity_Horizontal;
-    m_LinearVelocityVertical= msg_telemetry.Velocity_Vertical;
-    m_PositionAccuracy= msg_telemetry.Position_Accuracy;
-    m_SpeedAccuracy= msg_telemetry.Speed_Accuracy;
-    m_LinearAccelerationX= msg_telemetry.Acceleration_X;
-    m_LinearAccelerationY=msg_telemetry.Acceleration_Y;
-    m_LinearAccelerationZ=msg_telemetry.Acceleration_Z;
-    m_ECEFVectorPositionX=msg_telemetry.ECEF_Position_X;
-    m_ECEFVectorPositionY=msg_telemetry.ECEF_Position_Y;
-    m_ECEFVectorPositionZ=msg_telemetry.ECEF_Position_Z;
-    m_ECEFVectorVelocityX=msg_telemetry.ECEF_Velocity_X;
-    m_ECEFVectorVelocityY=msg_telemetry.ECEF_Velocity_Y;
-    m_ECEFVectorVelocityZ=msg_telemetry.ECEF_Velocity_Z;
-    m_RollAngle=msg_telemetry.Roll_Angle;
-    m_YawAngle=msg_telemetry.Yaw_Angle;
-    m_PitchAngle=msg_telemetry.Pitch_Angle;
-    m_AngularRatePitch=msg_telemetry.Angular_Rate_Pitch;
-    m_AngularRateRoll=msg_telemetry.Angular_Rate_Roll;
-    m_AngularRateYaw=msg_telemetry.Angular_Rate_Yaw;
-    m_Quaternion0= msg_telemetry.Quaternion_0;
-    m_Quaternion1= msg_telemetry.Quaternion_1;
-    m_Quaternion2= msg_telemetry.Quaternion_2;
-    m_Quaternion3= msg_telemetry.Quaternion_3;
-    //m_NumberOfGPSSatellite= msg_telemetry.Satellite_Num;
-    //QString s;
+        auto msg_telemetry = telemetry.value<mavlink_telemetry_data_pack_t>();
+        m_TimeStamp= msg_telemetry.GNSS_Timestamp;
+        m_Latitude= msg_telemetry.Latitude;
+        m_Longitude=msg_telemetry.Longitude;
+        m_GNSSAltitude= msg_telemetry.GNSS_Altitude;
+        m_AirSpeed_UVector= msg_telemetry.Air_Speed_U;
+        m_AirSpeed_VVector= msg_telemetry.Air_Speed_V;
+        m_AirSpeed_WVector= msg_telemetry.Air_Speed_W;
+        m_AirTemperature=msg_telemetry.Air_Temperature;
+        m_AltitudeFromPayloadAltimeter= msg_telemetry.Altitude_Payload_Altimeter;
+        m_AltitudeFromRadarAltimeter=msg_telemetry.Altitude_Main_Altimeter;
+        m_LinearVelocityHorizontal= msg_telemetry.Velocity_Horizontal;
+        m_LinearVelocityVertical= msg_telemetry.Velocity_Vertical;
+        m_PositionAccuracy= msg_telemetry.Position_Accuracy;
+        m_SpeedAccuracy= msg_telemetry.Speed_Accuracy;
+        m_LinearAccelerationX= msg_telemetry.Acceleration_X;
+        m_LinearAccelerationY=msg_telemetry.Acceleration_Y;
+        m_LinearAccelerationZ=msg_telemetry.Acceleration_Z;
+        m_ECEFVectorPositionX=msg_telemetry.ECEF_Position_X;
+        m_ECEFVectorPositionY=msg_telemetry.ECEF_Position_Y;
+        m_ECEFVectorPositionZ=msg_telemetry.ECEF_Position_Z;
+        m_ECEFVectorVelocityX=msg_telemetry.ECEF_Velocity_X;
+        m_ECEFVectorVelocityY=msg_telemetry.ECEF_Velocity_Y;
+        m_ECEFVectorVelocityZ=msg_telemetry.ECEF_Velocity_Z;
+        m_RollAngle=msg_telemetry.Roll_Angle;
+        m_YawAngle=msg_telemetry.Yaw_Angle;
+        m_PitchAngle=msg_telemetry.Pitch_Angle;
+        m_AngularRatePitch=msg_telemetry.Angular_Rate_Pitch;
+        m_AngularRateRoll=msg_telemetry.Angular_Rate_Roll;
+        m_AngularRateYaw=msg_telemetry.Angular_Rate_Yaw;
+        m_Quaternion0= msg_telemetry.Quaternion_0;
+        m_Quaternion1= msg_telemetry.Quaternion_1;
+        m_Quaternion2= msg_telemetry.Quaternion_2;
+        m_Quaternion3= msg_telemetry.Quaternion_3;
+        //m_NumberOfGPSSatellite= msg_telemetry.Satellite_Num;
+        //QString s;
 
- typedef std::bitset<64> IntBits;
-    m_telemetry0 = IntBits(msg_telemetry.Telemetry_Status_Mask).test(0);  /* BIT 0*/
-printf("TEL 0 -> %d",m_telemetry0);
-emit telemetry0Changed();
+        typedef std::bitset<64> IntBits;
+        m_telemetry0 = IntBits(msg_telemetry.Telemetry_Status_Mask).test(0);  /* BIT 0*/
+        m_telemetry1 = IntBits(msg_telemetry.Telemetry_Status_Mask).test(1);  /* BIT 1*/
+        m_telemetry2 = IntBits(msg_telemetry.Telemetry_Status_Mask).test(2);  /* BIT 2*/
+        m_telemetry3 = IntBits(msg_telemetry.Telemetry_Status_Mask).test(3);  /* BIT 3*/
+        m_telemetry4 = IntBits(msg_telemetry.Telemetry_Status_Mask).test(4);  /* BIT 4*/
+        m_telemetry5 = IntBits(msg_telemetry.Telemetry_Status_Mask).test(5);  /* BIT 5*/
+        m_telemetry6 = IntBits(msg_telemetry.Telemetry_Status_Mask).test(6);  /* BIT 6*/
+        m_telemetry7 = IntBits(msg_telemetry.Telemetry_Status_Mask).test(7);  /* BIT 7*/
+        m_telemetry8 = IntBits(msg_telemetry.Telemetry_Status_Mask).test(8);  /* BIT 8*/
+        m_telemetry9 = IntBits(msg_telemetry.Telemetry_Status_Mask).test(9);  /* BIT 9*/
+        m_telemetry10 = IntBits(msg_telemetry.Telemetry_Status_Mask).test(10); /* BIT 10*/
+        printf("TEL 0 -> %d",m_telemetry0);
+        printf("TEL 1 -> %d",m_telemetry1);
+        printf("TEL 2 -> %d",m_telemetry2);
+        printf("TEL 3 -> %d",m_telemetry3);
+        emit telemetry0Changed();
+        emit telemetry1Changed();
+        emit telemetry2Changed();
+        emit telemetry3Changed();
 
-    emit TimeStampChanged();
-    emit LatitudeChanged();
-    emit LongitudeChanged();
-    emit GNSSAltitudeChanged();
-    emit AirSpeed_UVectorChanged();
-    emit AirSpeed_VVectorChanged();
-    emit AirSpeed_WVectorChanged();
-    emit AirTemperatureChanged();
-    emit AltitudeFromPayloadAltimeterChanged();
-    emit AltitudeFromRadarAltimeterChanged();
-    emit LinearVelocityHorizontalChanged();
-    emit LinearVelocityVerticalChanged();
-    emit PositionAccuracyChanged();
-    emit SpeedAccuracyChanged();
-    emit LinearAccelerationXChanged();
-    emit LinearAccelerationYChanged();
-    emit LinearAccelerationZChanged();
-    emit ECEFVectorPositionXChanged();
-    emit ECEFVectorPositionYChanged();
-    emit ECEFVectorPositionZChanged();
-    emit ECEFVectorVelocityXChanged();
-    emit ECEFVectorVelocityYChanged();
-    emit ECEFVectorVelocityZChanged();
-    emit RollAngleChanged();
-    emit PitchAngleChanged();
-    emit YawAngleChanged();
-    emit AngularRatePitchChanged();
-    emit AngularRateRollChanged();
-    emit AngularRateYawChanged();
-    emit Quaternion0Changed();
-    emit Quaternion1Changed();
-    emit Quaternion2Changed();
-    emit Quaternion3Changed();
-    //emit NumberOfGPSSatelliteChanged();
+        emit TimeStampChanged();
+        emit LatitudeChanged();
+        emit LongitudeChanged();
+        emit GNSSAltitudeChanged();
+        emit AirSpeed_UVectorChanged();
+        emit AirSpeed_VVectorChanged();
+        emit AirSpeed_WVectorChanged();
+        emit AirTemperatureChanged();
+        emit AltitudeFromPayloadAltimeterChanged();
+        emit AltitudeFromRadarAltimeterChanged();
+        emit LinearVelocityHorizontalChanged();
+        emit LinearVelocityVerticalChanged();
+        emit PositionAccuracyChanged();
+        emit SpeedAccuracyChanged();
+        emit LinearAccelerationXChanged();
+        emit LinearAccelerationYChanged();
+        emit LinearAccelerationZChanged();
+        emit ECEFVectorPositionXChanged();
+        emit ECEFVectorPositionYChanged();
+        emit ECEFVectorPositionZChanged();
+        emit ECEFVectorVelocityXChanged();
+        emit ECEFVectorVelocityYChanged();
+        emit ECEFVectorVelocityZChanged();
+        emit RollAngleChanged();
+        emit PitchAngleChanged();
+        emit YawAngleChanged();
+        emit AngularRatePitchChanged();
+        emit AngularRateRollChanged();
+        emit AngularRateYawChanged();
+        emit Quaternion0Changed();
+        emit Quaternion1Changed();
+        emit Quaternion2Changed();
+        emit Quaternion3Changed();
+        //emit NumberOfGPSSatelliteChanged();
 
-    printf("TELEMETRY UPDATED \n");
-    printf("ROLL ANGLE %d \n",m_RollAngle);
-    printf("AIR TEMP %d \n",m_AirTemperature);
+        printf("TELEMETRY UPDATED \n");
+        printf("ROLL ANGLE %d \n",m_RollAngle);
+        printf("AIR TEMP %d \n",m_AirTemperature);
     }
 
-        bool is_set0,is_set1,is_set2,is_set3,is_set4,is_set5,is_set6,is_set7,is_set8,is_set9;
-        bool is_set10,is_set11,is_set12,is_set13,is_set14,is_set15,is_set16,is_set17,is_set18,is_set19;
-        bool is_set20,is_set21,is_set22,is_set23,is_set24,is_set25,is_set26,is_set27,is_set28,is_set29;
-        bool is_set30,is_set31;
+    bool is_set0,is_set1,is_set2,is_set3,is_set4,is_set5,is_set6,is_set7,is_set8,is_set9;
+    bool is_set10,is_set11,is_set12,is_set13,is_set14,is_set15,is_set16,is_set17,is_set18,is_set19;
+    bool is_set20,is_set21,is_set22,is_set23,is_set24,is_set25,is_set26,is_set27,is_set28,is_set29;
+    bool is_set30,is_set31;
 
     //int id=0;
     //uint8_t DataByte32, DataByte40, DataByte48, DataByte56;
@@ -126,34 +142,7 @@ emit telemetry0Changed();
 
 
 
-    //    m_telemetry1 = IntBits(t->TelemetryStatusMask).test(1);  /* BIT 1*/
 
-
-    //    m_telemetry2 = IntBits(t->TelemetryStatusMask).test(2);  /* BIT 2*/
-
-
-    //    m_telemetry3 = IntBits(t->TelemetryStatusMask).test(3);  /* BIT 3*/
-
-
-    //    m_telemetry4 = IntBits(t->TelemetryStatusMask).test(4);  /* BIT 4*/
-
-
-    //    m_telemetry5 = IntBits(t->TelemetryStatusMask).test(5);  /* BIT 5*/
-
-
-    //    m_telemetry6 = IntBits(t->TelemetryStatusMask).test(6);  /* BIT 6*/
-
-
-    //    m_telemetry7 = IntBits(t->TelemetryStatusMask).test(7);  /* BIT 7*/
-
-
-    //    m_telemetry8 = IntBits(t->TelemetryStatusMask).test(8);  /* BIT 8*/
-
-
-    //    m_telemetry9 = IntBits(t->TelemetryStatusMask).test(9);  /* BIT 9*/
-
-
-    //    m_telemetry10 = IntBits(t->TelemetryStatusMask).test(10); /* BIT 10*/
 
 
     //    m_telemetry11 = IntBits(t->TelemetryStatusMask).test(11); /* BIT 11*/
@@ -283,29 +272,29 @@ void HMI::showDataSystemStatus(QVariant status)
 
     if (status.canConvert<mavlink_system_status_pack_t>()) {
 
-    auto msg_status = status.value<mavlink_system_status_pack_t>();
-    m_FlightMode = msg_status.Flight_Mode;
-    m_FlightPhase= msg_status.Flight_Phase;
-    m_FlightPhaseExecutionTime= msg_status.Flight_Phase_Time;
-    m_TelemetryModuleStatusMask= msg_status.Telemetry_Module_Status_Mask;
-    m_StorageModuleStatusMask= msg_status.Storage_Module_Status_Mask;
-    m_GuidanceModuleStatusMask= msg_status.Guidance_Module_Status_Mask;
-    m_CoreModuleStatusMask= msg_status.Core_Module_Status_Mask;
-    m_RadioLinkModuleStatusMask= msg_status.Radio_Link_Module_Status_Mask;
+        auto msg_status = status.value<mavlink_system_status_pack_t>();
+        m_FlightMode = msg_status.Flight_Mode;
+        m_FlightPhase= msg_status.Flight_Phase;
+        m_FlightPhaseExecutionTime= msg_status.Flight_Phase_Time;
+        m_TelemetryModuleStatusMask= msg_status.Telemetry_Module_Status_Mask;
+        m_StorageModuleStatusMask= msg_status.Storage_Module_Status_Mask;
+        m_GuidanceModuleStatusMask= msg_status.Guidance_Module_Status_Mask;
+        m_CoreModuleStatusMask= msg_status.Core_Module_Status_Mask;
+        m_RadioLinkModuleStatusMask= msg_status.Radio_Link_Module_Status_Mask;
 
-    emit FlightModeChanged();
-    emit FlightPhaseChanged();
-    emit FlightPhaseExecutionTimeChanged();
-    emit CoreModuleStatusMaskChanged();
-    emit TelemetryModuleStatusMaskChanged();
-    emit GuidanceModuleStatusMaskChanged();
-    emit StorageModuleStatusMaskChanged();
-    emit RadioLinkModuleStatusMaskChanged();
-    printf("SYS STATUS UPDATED \n");
-    printf("FLIGHT MODE %d \n",m_FlightMode);
-    printf("FLIGHT PHASE %d \n",m_FlightPhase);
+        emit FlightModeChanged();
+        emit FlightPhaseChanged();
+        emit FlightPhaseExecutionTimeChanged();
+        emit CoreModuleStatusMaskChanged();
+        emit TelemetryModuleStatusMaskChanged();
+        emit GuidanceModuleStatusMaskChanged();
+        emit StorageModuleStatusMaskChanged();
+        emit RadioLinkModuleStatusMaskChanged();
+        printf("SYS STATUS UPDATED \n");
+        printf("FLIGHT MODE %d \n",m_FlightMode);
+        printf("FLIGHT PHASE %d \n",m_FlightPhase);
 
-}
+    }
 
     /* STORAGE STATUS MASK */    /* STORAGE STATUS MASK */
 
@@ -383,34 +372,34 @@ void HMI::showDataSystemStatus(QVariant status)
     //typedef std::bitset<32> IntBitsStorage;
 
 
-//    m_MotorARealPosition = QRandomGenerator::global()->bounded(0, 99);
-//    qInfo() << "MotorARealPosition = " << m_MotorARealPosition;
-//    m_MotorADemandPosition = QRandomGenerator::global()->bounded(0, 99);
-//    qInfo() << "MotorADemandPosition = " << m_MotorADemandPosition;
-//    m_MotorATorque = QRandomGenerator::global()->bounded(0, 99);
-//    qInfo() << "MotorATorque = " << m_MotorATorque;
-//    m_MotorATemp = QRandomGenerator::global()->bounded(0, 99);
-//    qInfo() << "MotorATemp = " << m_MotorATemp;
+    //    m_MotorARealPosition = QRandomGenerator::global()->bounded(0, 99);
+    //    qInfo() << "MotorARealPosition = " << m_MotorARealPosition;
+    //    m_MotorADemandPosition = QRandomGenerator::global()->bounded(0, 99);
+    //    qInfo() << "MotorADemandPosition = " << m_MotorADemandPosition;
+    //    m_MotorATorque = QRandomGenerator::global()->bounded(0, 99);
+    //    qInfo() << "MotorATorque = " << m_MotorATorque;
+    //    m_MotorATemp = QRandomGenerator::global()->bounded(0, 99);
+    //    qInfo() << "MotorATemp = " << m_MotorATemp;
 
-//    m_MotorBRealPosition = QRandomGenerator::global()->bounded(0, 99);
-//    qInfo() << "MotorBRealPosition = " << m_MotorBRealPosition;
-//    m_MotorBDemandPosition = QRandomGenerator::global()->bounded(0, 99);
-//    qInfo() << "MotorBDemandPosition = " << m_MotorBDemandPosition;
-//    m_MotorBTorque = QRandomGenerator::global()->bounded(0, 99);
-//    qInfo() << "MotorBTorque = " << m_MotorBTorque;
-//    m_MotorBTemp = QRandomGenerator::global()->bounded(0, 99);
-//    qInfo() << "MotorBTemp = " << m_MotorBTemp;
+    //    m_MotorBRealPosition = QRandomGenerator::global()->bounded(0, 99);
+    //    qInfo() << "MotorBRealPosition = " << m_MotorBRealPosition;
+    //    m_MotorBDemandPosition = QRandomGenerator::global()->bounded(0, 99);
+    //    qInfo() << "MotorBDemandPosition = " << m_MotorBDemandPosition;
+    //    m_MotorBTorque = QRandomGenerator::global()->bounded(0, 99);
+    //    qInfo() << "MotorBTorque = " << m_MotorBTorque;
+    //    m_MotorBTemp = QRandomGenerator::global()->bounded(0, 99);
+    //    qInfo() << "MotorBTemp = " << m_MotorBTemp;
 
-//    m_BMS1Voltage = QRandomGenerator::global()->bounded(0, 99);
-//    qInfo() << "BMS1Voltage = " << m_BMS1Voltage;
-//    m_BMS1Absorption = QRandomGenerator::global()->bounded(0, 99);
-//    qInfo() << "BMS1Absorption = " << m_BMS1Absorption;
-//    m_BMS1Temp = QRandomGenerator::global()->bounded(0, 99);
-//    qInfo() << "BMS1Temp = " << m_BMS1Temp;
-//    m_MotorTimestamp = QRandomGenerator::global()->bounded(0, 99);
-//    qInfo() << "MotorTimestamp = " << m_MotorTimestamp;
-//    m_ChargeValue = QRandomGenerator::global()->bounded(0, 99);
-//    qInfo() << "ChargeValue = " << m_ChargeValue;
+    //    m_BMS1Voltage = QRandomGenerator::global()->bounded(0, 99);
+    //    qInfo() << "BMS1Voltage = " << m_BMS1Voltage;
+    //    m_BMS1Absorption = QRandomGenerator::global()->bounded(0, 99);
+    //    qInfo() << "BMS1Absorption = " << m_BMS1Absorption;
+    //    m_BMS1Temp = QRandomGenerator::global()->bounded(0, 99);
+    //    qInfo() << "BMS1Temp = " << m_BMS1Temp;
+    //    m_MotorTimestamp = QRandomGenerator::global()->bounded(0, 99);
+    //    qInfo() << "MotorTimestamp = " << m_MotorTimestamp;
+    //    m_ChargeValue = QRandomGenerator::global()->bounded(0, 99);
+    //    qInfo() << "ChargeValue = " << m_ChargeValue;
 
     //    /* Motor STATUS MASK */
 
@@ -643,51 +632,51 @@ void HMI::showDataMotorStatus(QVariant status)
 {
     if (status.canConvert<mavlink_motor_status_pack_t>()) {
 
-    auto msg_status = status.value<mavlink_motor_status_pack_t>();
-    m_MotorARealPosition = msg_status.Motor_A_Real_Position;
-    m_MotorADemandPosition= msg_status.Motor_A_Demand_Position;
-    m_MotorATemp=msg_status.Motor_A_Temperature;
-    m_MotorATorque= msg_status.Motor_A_Torque;
-    m_MotorAFaultsMask=msg_status.Motor_A_Faults_Mask;
+        auto msg_status = status.value<mavlink_motor_status_pack_t>();
+        m_MotorARealPosition = msg_status.Motor_A_Real_Position;
+        m_MotorADemandPosition= msg_status.Motor_A_Demand_Position;
+        m_MotorATemp=msg_status.Motor_A_Temperature;
+        m_MotorATorque= msg_status.Motor_A_Torque;
+        m_MotorAFaultsMask=msg_status.Motor_A_Faults_Mask;
 
-    m_MotorBRealPosition = msg_status.Motor_B_Real_Position;
-    m_MotorBDemandPosition= msg_status.Motor_B_Demand_Position;
-    m_MotorBTemp=msg_status.Motor_B_Temperature;
-    m_MotorBTorque= msg_status.Motor_B_Torque;
-    m_MotorBFaultsMask=msg_status.Motor_B_Faults_Mask;
+        m_MotorBRealPosition = msg_status.Motor_B_Real_Position;
+        m_MotorBDemandPosition= msg_status.Motor_B_Demand_Position;
+        m_MotorBTemp=msg_status.Motor_B_Temperature;
+        m_MotorBTorque= msg_status.Motor_B_Torque;
+        m_MotorBFaultsMask=msg_status.Motor_B_Faults_Mask;
 
-    m_BMSVoltage= msg_status.BMS_Voltage;
-    m_BMSAbsorption=msg_status.BMS_Absorption;
-    m_BMSTemp= msg_status.BMS_Temperature;
-    m_BMSFaultsMask= msg_status.BMS_Faults_Mask;
+        m_BMSVoltage= msg_status.BMS_Voltage;
+        m_BMSAbsorption=msg_status.BMS_Absorption;
+        m_BMSTemp= msg_status.BMS_Temperature;
+        m_BMSFaultsMask= msg_status.BMS_Faults_Mask;
 
-    m_MotorControlStatusMask= msg_status.Motor_Control_Status_Mask;
-
-
-    emit MotorADemandPositionChanged();
-    emit MotorAFaultsMaskChanged();
-    emit MotorARealPositionChanged();
-    emit MotorATempChanged();
-    emit MotorATorqueChanged();
-
-    emit MotorBDemandPositionChanged();
-    emit MotorBFaultsMaskChanged();
-    emit MotorBRealPositionChanged();
-    emit MotorBTempChanged();
-    emit MotorBTorqueChanged();
-
-    emit BMSVoltageChanged();
-    emit BMSAbsorptionChanged();
-    emit BMSTempChanged();
-    emit BMSFaultsMaskChanged();
-
-    emit MotorControlStatusMaskChanged();
-
-    printf("MOTOR STATUS UPDATED \n");
-    printf("BMS VOLTAGE %d \n",m_BMSVoltage);
+        m_MotorControlStatusMask= msg_status.Motor_Control_Status_Mask;
 
 
-}
+        emit MotorADemandPositionChanged();
+        emit MotorAFaultsMaskChanged();
+        emit MotorARealPositionChanged();
+        emit MotorATempChanged();
+        emit MotorATorqueChanged();
+
+        emit MotorBDemandPositionChanged();
+        emit MotorBFaultsMaskChanged();
+        emit MotorBRealPositionChanged();
+        emit MotorBTempChanged();
+        emit MotorBTorqueChanged();
+
+        emit BMSVoltageChanged();
+        emit BMSAbsorptionChanged();
+        emit BMSTempChanged();
+        emit BMSFaultsMaskChanged();
+
+        emit MotorControlStatusMaskChanged();
+
+        printf("MOTOR STATUS UPDATED \n");
+        printf("BMS VOLTAGE %d \n",m_BMSVoltage);
+
+
+    }
 }
 
 void HMI::showDataRLStatus(QVariant status)

@@ -143,7 +143,7 @@ telemetrybytes.fill(7);
     bool telemetryconvcheck;
     telemetry.Telemetry_Status_Mask=7901428111563063317;//telemetrybytes.toInt(&telemetryconvcheck);
 
-    printf("Conversion Telemetry handl %d \n" , telemetryconvcheck);
+    //printf("Conversion Telemetry handl %d \n" , telemetryconvcheck);
 
 
     mavlink_msg_telemetry_data_pack_encode(m_communicator->systemId(),
