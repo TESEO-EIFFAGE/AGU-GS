@@ -142,7 +142,16 @@ telemetrybytes.fill(7);
 
     bool telemetryconvcheck;
     telemetry.Telemetry_Status_Mask=7901428111563063317;//telemetrybytes.toInt(&telemetryconvcheck);
+    typedef std::bitset<64> IntBits;
+    bool tele0 = IntBits(telemetry.Telemetry_Status_Mask).test(0);  /* BIT 0*/
+    bool tele1 = IntBits(telemetry.Telemetry_Status_Mask).test(1);  /* BIT 1*/
+    bool tele2 = IntBits(telemetry.Telemetry_Status_Mask).test(2);  /* BIT 2*/
+    bool tele3 = IntBits(telemetry.Telemetry_Status_Mask).test(3);  /* BIT 3*/
 
+    printf("TEL 0 -> %d",tele0);
+    printf("TEL 1 -> %d",tele1);
+    printf("TEL 2 -> %d",tele2);
+    printf("TEL 3 -> %d",tele3);
     //printf("Conversion Telemetry handl %d \n" , telemetryconvcheck);
 
 
