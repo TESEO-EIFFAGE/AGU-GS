@@ -31,37 +31,27 @@ uint64_t AGUSendTelemetryHandler::generateMask()
 {
     auto handler = "TEL";
     std::bitset<64> statusMask;
-    typedef std::size_t length_t, position_t, val_t;
-
-//    constexpr std::bitset<64> bit60{ 255'000'000'000'00000 };
-//    constexpr std::bitset<64> bit56{ 0x00FF000000000000 };
-//    constexpr std::bitset<64> bit40{ 0x0000FF0000000000 };
-//    constexpr std::bitset<64> bit32{ 0x000000FF00000000 };
-
-//    constexpr std::bitset<64> bit60; { 42, position_t(60) };
-//    constexpr std::bitset<64> bit56;{ 37, position_t(56) };
-//    constexpr std::bitset<64> bit40;{ 84, position_t(40) };
-//    constexpr std::bitset<64> bit32; { 254, position_t(32) };
+    typedef std::size_t length_t, position_t;
 
     for (position_t i=0; i < length_t(32); ++i) {
         bool randBool = m_communicator->randomBool();
         statusMask.set(i, randBool);
     }
 
-    std::string bs56 = std::bitset<8>(255).to_string()+"00000000""00000000""00000000""00000000""00000000""00000000""00000000";
+    std::string bs56 = std::bitset<8>(m_communicator->random255()).to_string()+"00000000""00000000""00000000""00000000""00000000""00000000""00000000";
     std::cout << bs56 << std::endl;
-    std::string bs48 = "00000000"+std::bitset<8>(35).to_string()+"00000000""00000000""00000000""00000000""00000000""00000000";
+    std::string bs48 = "00000000"+std::bitset<8>(m_communicator->random255()).to_string()+"00000000""00000000""00000000""00000000""00000000""00000000";
     std::cout << bs48 << std::endl;
-    std::string bs40 = "00000000""00000000"+std::bitset<8>(44).to_string()+"00000000""00000000""00000000""00000000""00000000";
+    std::string bs40 = "00000000""00000000"+std::bitset<8>(m_communicator->random255()).to_string()+"00000000""00000000""00000000""00000000""00000000";
     std::cout << bs40 << std::endl;
-    std::string bs32 = "00000000""00000000""00000000"+std::bitset<8>(128).to_string()+"00000000""00000000""00000000""00000000";
+    std::string bs32 = "00000000""00000000""00000000"+std::bitset<8>(m_communicator->random255()).to_string()+"00000000""00000000""00000000""00000000";
     std::cout << bs32 << std::endl;
 
-    auto statusInt = statusMask.to_ulong();
     statusMask = std::bitset<64>{bs56} | statusMask;
     statusMask = std::bitset<64>{bs48} | statusMask;
     statusMask = std::bitset<64>{bs40} | statusMask;
     statusMask = std::bitset<64>{bs32} | statusMask;
+    auto statusInt = statusMask.to_ulong();
     std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
     std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
     std::stringstream hexMask;

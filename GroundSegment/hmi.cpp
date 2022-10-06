@@ -62,105 +62,56 @@ void HMI::showDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry) {
     //m_NumberOfGPSSatellite= msg_telemetry.Satellite_Num; emit NumberOfGPSSatelliteChanged();
 
     /* TELEMETRY STATUS MASK */
-    std::bitset<64> telemetryBitset(msg_telemetry.Telemetry_Status_Mask);
-    m_telemetry0 = telemetryBitset.test(0); emit telemetry0Changed();
-    m_telemetry1 = telemetryBitset.test(1); emit telemetry1Changed();
-    m_telemetry2 = telemetryBitset.test(2); emit telemetry2Changed();
-    m_telemetry3 = telemetryBitset.test(3); emit telemetry3Changed();
-    m_telemetry4 = telemetryBitset.test(4); emit telemetry4Changed();
-    m_telemetry5 = telemetryBitset.test(5); emit telemetry5Changed();
-    m_telemetry6 = telemetryBitset.test(6); emit telemetry6Changed();
-    m_telemetry7 = telemetryBitset.test(7); emit telemetry7Changed();
-    m_telemetry8 = telemetryBitset.test(8); emit telemetry8Changed();
-    m_telemetry9 = telemetryBitset.test(9); emit telemetry9Changed();
-    m_telemetry10 = telemetryBitset.test(10); emit telemetry10Changed();
-    m_telemetry11 = telemetryBitset.test(11); emit telemetry11Changed();
-    m_telemetry12 = telemetryBitset.test(12); emit telemetry12Changed();
-    m_telemetry13 = telemetryBitset.test(13); emit telemetry13Changed();
-    m_telemetry14 = telemetryBitset.test(14); emit telemetry14Changed();
-    m_telemetry15 = telemetryBitset.test(15); emit telemetry15Changed();
-    m_telemetry16 = telemetryBitset.test(16); emit telemetry16Changed();
-    m_telemetry17 = telemetryBitset.test(17); emit telemetry17Changed();
-    m_telemetry18 = telemetryBitset.test(18); emit telemetry18Changed();
-    m_telemetry19 = telemetryBitset.test(19); emit telemetry19Changed();
-    m_telemetry20 = telemetryBitset.test(20); emit telemetry20Changed();
-    m_telemetry21 = telemetryBitset.test(21); emit telemetry21Changed();
-    m_telemetry22 = telemetryBitset.test(22); emit telemetry22Changed();
-    m_telemetry23 = telemetryBitset.test(23); emit telemetry23Changed();
-    m_telemetry24 = telemetryBitset.test(24); emit telemetry24Changed();
-    m_telemetry25 = telemetryBitset.test(25); emit telemetry25Changed();
-    m_telemetry26 = telemetryBitset.test(26); emit telemetry26Changed();
-    m_telemetry27 = telemetryBitset.test(27); emit telemetry27Changed();
-    m_telemetry28 = telemetryBitset.test(28); emit telemetry28Changed();
-    m_telemetry29 = telemetryBitset.test(29); emit telemetry29Changed();
-    m_telemetry30 = telemetryBitset.test(30); emit telemetry30Changed();
-    m_telemetry31 = telemetryBitset.test(31); emit telemetry31Changed();
+    std::bitset<64> bitSet(msg_telemetry.Telemetry_Status_Mask);
+    m_telemetry0 = bitSet.test(0); emit telemetry0Changed();
+    m_telemetry1 = bitSet.test(1); emit telemetry1Changed();
+    m_telemetry2 = bitSet.test(2); emit telemetry2Changed();
+    m_telemetry3 = bitSet.test(3); emit telemetry3Changed();
+    m_telemetry4 = bitSet.test(4); emit telemetry4Changed();
+    m_telemetry5 = bitSet.test(5); emit telemetry5Changed();
+    m_telemetry6 = bitSet.test(6); emit telemetry6Changed();
+    m_telemetry7 = bitSet.test(7); emit telemetry7Changed();
+    m_telemetry8 = bitSet.test(8); emit telemetry8Changed();
+    m_telemetry9 = bitSet.test(9); emit telemetry9Changed();
+    m_telemetry10 = bitSet.test(10); emit telemetry10Changed();
+    m_telemetry11 = bitSet.test(11); emit telemetry11Changed();
+    m_telemetry12 = bitSet.test(12); emit telemetry12Changed();
+    m_telemetry13 = bitSet.test(13); emit telemetry13Changed();
+    m_telemetry14 = bitSet.test(14); emit telemetry14Changed();
+    m_telemetry15 = bitSet.test(15); emit telemetry15Changed();
+    m_telemetry16 = bitSet.test(16); emit telemetry16Changed();
+    m_telemetry17 = bitSet.test(17); emit telemetry17Changed();
+    m_telemetry18 = bitSet.test(18); emit telemetry18Changed();
+    m_telemetry19 = bitSet.test(19); emit telemetry19Changed();
+    m_telemetry20 = bitSet.test(20); emit telemetry20Changed();
+    m_telemetry21 = bitSet.test(21); emit telemetry21Changed();
+    m_telemetry22 = bitSet.test(22); emit telemetry22Changed();
+    m_telemetry23 = bitSet.test(23); emit telemetry23Changed();
+    m_telemetry24 = bitSet.test(24); emit telemetry24Changed();
+    m_telemetry25 = bitSet.test(25); emit telemetry25Changed();
+    m_telemetry26 = bitSet.test(26); emit telemetry26Changed();
+    m_telemetry27 = bitSet.test(27); emit telemetry27Changed();
+    m_telemetry28 = bitSet.test(28); emit telemetry28Changed();
+    m_telemetry29 = bitSet.test(29); emit telemetry29Changed();
+    m_telemetry30 = bitSet.test(30); emit telemetry30Changed();
+    m_telemetry31 = bitSet.test(31); emit telemetry31Changed();
+
+    m_AnemCommErrorCounter = extractBits64(bitSet,32,40); emit AnemCommErrorCounterChanged();
+    m_RDAltCommErrorCounter = extractBits64(bitSet,40,48); emit RDAltCommErrorCounterChanged();
+    m_GNSSCommErrorCounter = extractBits64(bitSet,48,56); emit GNSSCommErrorCounterChanged();
+    m_PLAltCommErrorCounter = extractBits64(bitSet,56,64); emit PLAltCommErrorCounterChanged();
 }
 
-//int id=0;
-//uint8_t DataByte32, DataByte40, DataByte48, DataByte56;
-/*
-
-
-
-
-    //    id=0;
-    //    DataByte32=0;
-    //    do
-    //    {
-    //        if (IntBits(t->TelemetryStatusMask).test(32 + id))
-    //        {
-    //            qInfo() << "id = " << id;
-    //            DataByte32 += pow(2,id);
-    //        }
-    //        id++;
-    //    }
-    //    while (id < 8);
-    //    qInfo() << "DataByte32 = " << DataByte32;  // Da visualizzare su Interfaccia
-
-    //    id=0;
-    //    DataByte40=0;
-    //    do
-    //    {
-    //        if (IntBits(t->TelemetryStatusMask).test(40 + id))
-    //        {
-    //            qInfo() << "id = " << id;
-    //            DataByte40 += pow(2,id);
-    //        }
-    //        id++;
-    //    }
-    //    while (id < 8);
-    //    qInfo() << "DataByte40 = " << DataByte40;   // Da visualizzare su Interfaccia
-
-    //    id=0;
-    //    DataByte48=0;
-    //    do
-    //    {
-    //        if (IntBits(t->TelemetryStatusMask).test(48 + id))
-    //        {
-    //            qInfo() << "id = " << id;
-    //            DataByte48 += pow(2,id);
-    //        }
-    //        id++;
-    //    }
-    //    while (id < 8);
-    //    qInfo() << "DataByte48 = " << DataByte48;   // Da visualizzare su Interfaccia
-
-    //    id=0;
-    //    DataByte56=0;
-    //    do
-    //    {
-    //        if (IntBits(t->TelemetryStatusMask).test(56 + id))
-    //        {
-    //            qInfo() << "id = " << id;
-    //            DataByte56 += pow(2,id);
-    //        }
-    //        id++;
-    //    }
-    //    while (id < 8);
-    //    qInfo() << "DataByte56 = " << DataByte56;   // Da visualizzare su Interfaccia
-
-}*/
+uint8_t HMI::extractBits64(const std::bitset<64> the_bitset, size_t start_bit, size_t end_bit) {
+    unsigned long mask = 1;
+    unsigned long result = 0;
+    for (size_t i = start_bit; i < end_bit; ++ i) {
+        if (the_bitset.test(i))
+           result |= mask;
+        mask <<= 1;
+    }
+    return result;
+}
 
 void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 {
@@ -180,80 +131,7 @@ void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
     printf("FLIGHT PHASE %d \n",m_FlightPhase);
 }
 
-/* STORAGE STATUS MASK */    /* STORAGE STATUS MASK */
 
-
-//         m_storage0 = IntBits(s->StorageModuleStatusMask).test(0);  /* BIT 0*/
-
-
-//         m_storage1 = IntBits(s->StorageModuleStatusMask).test(1);  /* BIT 1*/
-
-
-//         m_storage2 = IntBits(s->StorageModuleStatusMask).test(2);  /* BIT 2*/
-
-
-//         m_storage3 = IntBits(s->StorageModuleStatusMask).test(3);  /* BIT 3*/
-
-
-//         m_storage4 = IntBits(s->StorageModuleStatusMask).test(4);  /* BIT 4*/
-
-
-//         m_storage5 = IntBits(s->StorageModuleStatusMask).test(5);  /* BIT 5*/
-
-
-//         m_storage6 = IntBits(s->StorageModuleStatusMask).test(6);  /* BIT 6*/
-
-
-//         m_storage7 = IntBits(s->StorageModuleStatusMask).test(7);  /* BIT 7*/
-
-
-//         m_storage8 = IntBits(s->StorageModuleStatusMask).test(8);  /* BIT 8*/
-
-
-
-
-//         m_storage10 = IntBits(s->StorageModuleStatusMask).test(10); /* BIT 10*/
-
-
-//         m_storage11 = IntBits(s->StorageModuleStatusMask).test(11); /* BIT 11*/
-
-
-//         m_storage12 = IntBits(s->StorageModuleStatusMask).test(12); /* BIT 12*/
-
-
-//         m_storage13 = IntBits(s->StorageModuleStatusMask).test(13); /* BIT 13*/
-
-
-//         m_storage14 = IntBits(s->StorageModuleStatusMask).test(14); /* BIT 14*/
-
-
-//         m_storage15 = IntBits(s->StorageModuleStatusMask).test(15); /* BIT 15*/
-
-
-//         m_storage16 = IntBits(s->StorageModuleStatusMask).test(16); /* BIT 16*/
-
-
-//         m_storage17 = IntBits(s->StorageModuleStatusMask).test(17); /* BIT 17*/
-
-
-//         m_storage18 = IntBits(s->StorageModuleStatusMask).test(18); /* BIT 18*/
-
-
-//         m_storage19 = IntBits(s->StorageModuleStatusMask).test(19); /* BIT 19*/
-
-
-//         m_storage20 = IntBits(s->StorageModuleStatusMask).test(20); /* BIT 20*/
-
-
-//         m_storage21 = IntBits(s->StorageModuleStatusMask).test(21); /* BIT 21*/
-
-
-//         m_storage22 = IntBits(s->StorageModuleStatusMask).test(22); /* BIT 22*/
-
-
-//         m_storage23 = IntBits(s->StorageModuleStatusMask).test(23); /* BIT 23*/
-
-//typedef std::bitset<32> IntBitsStorage;
 
 
 //    m_MotorARealPosition = QRandomGenerator::global()->bounded(0, 99);

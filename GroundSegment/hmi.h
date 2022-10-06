@@ -3,6 +3,7 @@
 #include "mavlinkprotocol.h"
 #include <QObject>
 #include <AGU_MAVLINK/mavlink.h>
+#include <bitset>
 
 class HMI : public QObject
 {
@@ -50,24 +51,24 @@ public:
 
     Q_PROPERTY(int RLHeartbeatCounter MEMBER m_RLHeartbeatCounter NOTIFY RLHeartbeatCounterChanged)
 
-    Q_PROPERTY(int AnemCommErrorCounter MEMBER m_AnemCommErrorCounter NOTIFY AnemCommErrorCounterChanged)
-    Q_PROPERTY(int RDAltCommErrorCounter MEMBER m_RDAltCommErrorCounter NOTIFY RDAltCommErrorCounterChanged)
-    Q_PROPERTY(int GNSSCommErrorCounter MEMBER m_GNSSCommErrorCounter NOTIFY GNSSCommErrorCounterChanged)
-    Q_PROPERTY(int PLAltCommErrorCounter MEMBER m_PLAltCommErrorCounter NOTIFY PLAltCommErrorCounterChanged)
+    Q_PROPERTY(quint8 AnemCommErrorCounter MEMBER m_AnemCommErrorCounter NOTIFY AnemCommErrorCounterChanged)
+    Q_PROPERTY(quint8 RDAltCommErrorCounter MEMBER m_RDAltCommErrorCounter NOTIFY RDAltCommErrorCounterChanged)
+    Q_PROPERTY(quint8 GNSSCommErrorCounter MEMBER m_GNSSCommErrorCounter NOTIFY GNSSCommErrorCounterChanged)
+    Q_PROPERTY(quint8 PLAltCommErrorCounter MEMBER m_PLAltCommErrorCounter NOTIFY PLAltCommErrorCounterChanged)
 
-    Q_PROPERTY(qint32 MotorARealPosition MEMBER m_MotorARealPosition NOTIFY MotorARealPositionChanged)
-    Q_PROPERTY(qint32 MotorADemandPosition MEMBER m_MotorADemandPosition NOTIFY MotorADemandPositionChanged)
-    Q_PROPERTY(qint32 MotorATorque MEMBER m_MotorATorque NOTIFY MotorATorqueChanged)
-    Q_PROPERTY(qint16 MotorATemp MEMBER m_MotorATemp NOTIFY MotorATempChanged)
+    Q_PROPERTY(quint32 MotorARealPosition MEMBER m_MotorARealPosition NOTIFY MotorARealPositionChanged)
+    Q_PROPERTY(quint32 MotorADemandPosition MEMBER m_MotorADemandPosition NOTIFY MotorADemandPositionChanged)
+    Q_PROPERTY(quint32 MotorATorque MEMBER m_MotorATorque NOTIFY MotorATorqueChanged)
+    Q_PROPERTY(quint16 MotorATemp MEMBER m_MotorATemp NOTIFY MotorATempChanged)
 
-    Q_PROPERTY(qint32 MotorBRealPosition MEMBER m_MotorBRealPosition NOTIFY MotorBRealPositionChanged)
-    Q_PROPERTY(qint32 MotorBDemandPosition MEMBER m_MotorBDemandPosition NOTIFY MotorBDemandPositionChanged)
-    Q_PROPERTY(qint32 MotorBTorque MEMBER m_MotorBTorque NOTIFY MotorBTorqueChanged)
-    Q_PROPERTY(qint16 MotorBTemp MEMBER m_MotorBTemp NOTIFY MotorBTempChanged)
+    Q_PROPERTY(quint32 MotorBRealPosition MEMBER m_MotorBRealPosition NOTIFY MotorBRealPositionChanged)
+    Q_PROPERTY(quint32 MotorBDemandPosition MEMBER m_MotorBDemandPosition NOTIFY MotorBDemandPositionChanged)
+    Q_PROPERTY(quint32 MotorBTorque MEMBER m_MotorBTorque NOTIFY MotorBTorqueChanged)
+    Q_PROPERTY(quint16 MotorBTemp MEMBER m_MotorBTemp NOTIFY MotorBTempChanged)
 
-    Q_PROPERTY(qint16 BMSVoltage MEMBER m_BMSVoltage NOTIFY BMSVoltageChanged)
-    Q_PROPERTY(qint16 BMSAbsorption MEMBER m_BMSAbsorption NOTIFY BMSAbsorptionChanged)
-    Q_PROPERTY(qint16 BMSTemp MEMBER m_BMSTemp NOTIFY BMSTempChanged)
+    Q_PROPERTY(quint16 BMSVoltage MEMBER m_BMSVoltage NOTIFY BMSVoltageChanged)
+    Q_PROPERTY(quint16 BMSAbsorption MEMBER m_BMSAbsorption NOTIFY BMSAbsorptionChanged)
+    Q_PROPERTY(quint16 BMSTemp MEMBER m_BMSTemp NOTIFY BMSTempChanged)
 
     Q_PROPERTY(int MotorControlStatusMask MEMBER m_MotorControlStatusMask NOTIFY MotorControlStatusMaskChanged)
     Q_PROPERTY(int MotorAFaultsMask MEMBER m_MotorAFaultsMask NOTIFY MotorAFaultsMaskChanged)
@@ -454,6 +455,7 @@ signals:
     void BMSFaultsMaskChanged();
 
 private:
+    uint8_t extractBits64(const std::bitset<64> the_bitset, size_t start_bit, size_t end_bit);
     void showDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry);
     void showDataSystemStatus(const mavlink_system_status_pack_t msg_system_status);
     void showDataMotorStatus(const mavlink_motor_status_pack_t msg_motor_status);
