@@ -21,9 +21,9 @@ int main(int argc, char* argv[])
     communicator->setParent(&app);
 
     radiolink::UdpLink link(14551);
+    link.addEndpoint(radiolink::Endpoint(QHostAddress::LocalHost, 14550));
 
     //radiolink::SerialLink link("/dev/tty.usbserial-AL01O3PL", 57600);
-    //link.addEndpoint(radiolink::Endpoint(QHostAddress::LocalHost, 14550));
 
     communicator->addLink(&link, MAVLINK_COMM_0);
     link.connectLink();

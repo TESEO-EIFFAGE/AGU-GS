@@ -32,11 +32,7 @@ public:
 signals:
     void DataIsRead (QByteArray data);
     void work_is_down(void);
-    //void updateTopDiagLog(void);
 
-public slots:
-    void ReadData(void);
-    void WriteHartBeat();
 private:
     HMI* m_hmi;
     GPSData* m_gpsData;

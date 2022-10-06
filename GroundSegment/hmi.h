@@ -2,6 +2,7 @@
 #define HMI_H
 #include "mavlinkprotocol.h"
 #include <QObject>
+#include <AGU_MAVLINK/mavlink.h>
 
 class HMI : public QObject
 {
@@ -42,20 +43,17 @@ public:
     Q_PROPERTY(double Quaternion1 MEMBER m_Quaternion1 NOTIFY Quaternion1Changed)
     Q_PROPERTY(double Quaternion2 MEMBER m_Quaternion2 NOTIFY Quaternion2Changed)
     Q_PROPERTY(double Quaternion3 MEMBER m_Quaternion3 NOTIFY Quaternion3Changed)
+    Q_PROPERTY(qint8 NumberOfGPSSatellite MEMBER m_NumberOfGPSSatellite NOTIFY NumberOfGPSSatelliteChanged)
 
     Q_PROPERTY(int GSRLErrorCounter MEMBER m_GSRLErrorCounter NOTIFY GSRLErrorCounterChanged)
     Q_PROPERTY(int FSRLErrorCounter MEMBER m_FSRLErrorCounter NOTIFY FSRLErrorCounterChanged)
 
     Q_PROPERTY(int RLHeartbeatCounter MEMBER m_RLHeartbeatCounter NOTIFY RLHeartbeatCounterChanged)
 
-    Q_PROPERTY(qint8 NumberOfGPSSatellite MEMBER m_NumberOfGPSSatellite NOTIFY NumberOfGPSSatelliteChanged)
-
-
     Q_PROPERTY(int AnemCommErrorCounter MEMBER m_AnemCommErrorCounter NOTIFY AnemCommErrorCounterChanged)
     Q_PROPERTY(int RDAltCommErrorCounter MEMBER m_RDAltCommErrorCounter NOTIFY RDAltCommErrorCounterChanged)
     Q_PROPERTY(int GNSSCommErrorCounter MEMBER m_GNSSCommErrorCounter NOTIFY GNSSCommErrorCounterChanged)
     Q_PROPERTY(int PLAltCommErrorCounter MEMBER m_PLAltCommErrorCounter NOTIFY PLAltCommErrorCounterChanged)
-
 
     Q_PROPERTY(qint32 MotorARealPosition MEMBER m_MotorARealPosition NOTIFY MotorARealPositionChanged)
     Q_PROPERTY(qint32 MotorADemandPosition MEMBER m_MotorADemandPosition NOTIFY MotorADemandPositionChanged)
@@ -87,8 +85,6 @@ public:
     Q_PROPERTY(int GuidanceModuleStatusMask MEMBER m_GuidanceModuleStatusMask NOTIFY GuidanceModuleStatusMaskChanged)
     Q_PROPERTY(int StorageModuleStatusMask MEMBER m_StorageModuleStatusMask NOTIFY StorageModuleStatusMaskChanged)
     Q_PROPERTY(int RadioLinkModuleStatusMask MEMBER m_RadioLinkModuleStatusMask NOTIFY RadioLinkModuleStatusMaskChanged)
-
-
 
     Q_PROPERTY(bool telemetry0 MEMBER m_telemetry0 NOTIFY telemetry0Changed)
     Q_PROPERTY(bool telemetry1 MEMBER m_telemetry1 NOTIFY telemetry1Changed)
@@ -122,7 +118,6 @@ public:
     Q_PROPERTY(bool telemetry29 MEMBER m_telemetry29 NOTIFY telemetry29Changed)
     Q_PROPERTY(bool telemetry30 MEMBER m_telemetry30 NOTIFY telemetry30Changed)
     Q_PROPERTY(bool telemetry31 MEMBER m_telemetry31 NOTIFY telemetry31Changed)
-
 
     Q_PROPERTY(bool storage0 MEMBER m_storage0 NOTIFY storage0Changed)
     Q_PROPERTY(bool storage1 MEMBER m_storage1 NOTIFY storage1Changed)
@@ -222,254 +217,133 @@ public:
 
     Q_PROPERTY(bool gnssFound MEMBER m_gnssFound NOTIFY gnssFoundChanged)
 
-
-public slots:
-    void showData(QVariant telemetry);
-    void showDataSystemStatus (QVariant status);
-    void showDataMotorStatus (QVariant status);
-    void showDataRLStatus (QVariant status);
-    void showDataStorageStatus (QVariant status);
-    void showDataGuidance (QVariant guidance);
+public:
+    void showData(QVariant data);
 
 signals:
     void TimeStampChanged();
-
     void TimeStampRIOChanged();
-
     void LatitudeChanged();
-
     void LongitudeChanged();
-
     void GNSSAltitudeChanged();
-
     void AirSpeed_UVectorChanged();
-
     void AirSpeed_VVectorChanged();
-
     void AirSpeed_WVectorChanged();
-
     void AirTemperatureChanged();
-
     void AltitudeFromRadarAltimeterChanged();
-
     void AltitudeFromPayloadAltimeterChanged();
-
     void LinearVelocityHorizontalChanged();
-
     void LinearVelocityVerticalChanged();
-
     void PositionAccuracyChanged();
-
     void SpeedAccuracyChanged();
-
     void LinearAccelerationXChanged();
-
     void LinearAccelerationYChanged();
-
     void LinearAccelerationZChanged();
-
     void ECEFVectorPositionXChanged();
-
     void ECEFVectorPositionYChanged();
-
     void ECEFVectorPositionZChanged();
-
     void ECEFVectorVelocityXChanged();
-
     void ECEFVectorVelocityYChanged();
-
     void ECEFVectorVelocityZChanged();
-
     void RollAngleChanged();
-
     void PitchAngleChanged();
-
     void YawAngleChanged();
-
     void AngularRateRollChanged();
-
     void AngularRatePitchChanged();
-
     void AngularRateYawChanged();
-
     void Quaternion0Changed();
-
     void Quaternion1Changed();
-
     void Quaternion2Changed();
-
     void Quaternion3Changed();
-
     void NumberOfGPSSatelliteChanged();
 
     void telemetry0Changed();
-
     void telemetry1Changed();
-
     void telemetry2Changed();
-
     void telemetry3Changed();
-
     void telemetry4Changed();
-
     void telemetry5Changed();
-
     void telemetry6Changed();
-
     void telemetry7Changed();
-
     void telemetry8Changed();
-
     void telemetry9Changed();
-
     void telemetry10Changed();
-
     void telemetry11Changed();
-
     void telemetry12Changed();
-
     void telemetry13Changed();
-
     void telemetry14Changed();
-
     void telemetry15Changed();
-
     void telemetry16Changed();
-
     void telemetry17Changed();
-
     void telemetry18Changed();
-
     void telemetry19Changed();
-
     void telemetry20Changed();
-
     void telemetry21Changed();
-
     void telemetry22Changed();
-
     void telemetry23Changed();
-
     void telemetry24Changed();
-
     void telemetry25Changed();
-
     void telemetry26Changed();
-
     void telemetry27Changed();
-
     void telemetry28Changed();
-
     void telemetry29Changed();
-
     void telemetry30Changed();
-
     void telemetry31Changed();
 
-    void storage0Changed();
-
-    void storage1Changed();
-
-    void storage2Changed();
-
-    void storage3Changed();
-
-    void storage4Changed();
-
-    void storage5Changed();
-
-    void storage6Changed();
-
-    void storage7Changed();
-
-    void storage8Changed();
-
-
-    void storage10Changed();
-
-    void storage11Changed();
-
-    void storage12Changed();
-
-    void storage13Changed();
-
-    void storage14Changed();
-
-    void storage15Changed();
-
-    void storage16Changed();
-
-    void storage17Changed();
-
-    void storage18Changed();
-
-    void storage19Changed();
-
-    void storage20Changed();
-
-    void storage21Changed();
-
-    void storage22Changed();
-
-    void storage23Changed();
-
     void AnemCommErrorCounterChanged();
-
     void RDAltCommErrorCounterChanged();
-
     void GNSSCommErrorCounterChanged();
-
     void PLAltCommErrorCounterChanged();
 
-    void motor25Changed();
+    void storage0Changed();
+    void storage1Changed();
+    void storage2Changed();
+    void storage3Changed();
+    void storage4Changed();
+    void storage5Changed();
+    void storage6Changed();
+    void storage7Changed();
+    void storage8Changed();
+    void storage10Changed();
+    void storage11Changed();
+    void storage12Changed();
+    void storage13Changed();
+    void storage14Changed();
+    void storage15Changed();
+    void storage16Changed();
+    void storage17Changed();
+    void storage18Changed();
+    void storage19Changed();
+    void storage20Changed();
+    void storage21Changed();
+    void storage22Changed();
+    void storage23Changed();
 
     void motor0Changed();
-
     void motor1Changed();
-
     void motor2Changed();
-
     void motor3Changed();
-
     void motor4Changed();
-
     void motor5Changed();
-
     void motor6Changed();
-
     void motor7Changed();
-
     void motor8Changed();
-
     void motor10Changed();
-
     void motor11Changed();
-
     void motor12Changed();
-
     void motor13Changed();
-
     void motor14Changed();
-
     void motor15Changed();
-
     void motor16Changed();
-
     void motor17Changed();
-
     void motor18Changed();
-
     void motor19Changed();
-
     void motor20Changed();
-
     void motor21Changed();
-
     void motor22Changed();
-
     void motor23Changed();
-
     void motor24Changed();
+    void motor25Changed();
 
     void MotorARealPositionChanged();
 
@@ -498,67 +372,36 @@ signals:
     void ChargeValueChanged();
 
     void BMS0Changed();
-
     void BMS1Changed();
-
     void BMS2Changed();
-
     void BMS3Changed();
-
     void BMS4Changed();
-
     void BMS5Changed();
-
     void BMS6Changed();
-
     void BMS7Changed();
-
     void BMS8Changed();
-
     void BMS9Changed();
-
     void BMS10Changed();
-
     void BMS11Changed();
-
     void BMS12Changed();
-
     void BMS13Changed();
-
     void BMS14Changed();
-
     void BMS15Changed();
-
     void BMS16Changed();
-
     void BMS17Changed();
-
     void BMS18Changed();
-
     void BMS19Changed();
-
     void BMS20Changed();
-
     void BMS21Changed();
-
     void BMS22Changed();
-
     void BMS23Changed();
-
     void BMS24Changed();
-
     void BMS25Changed();
-
     void BMS26Changed();
-
     void BMS27Changed();
-
     void BMS28Changed();
-
     void BMS29Changed();
-
     void BMS30Changed();
-
     void BMS31Changed();
 
     void gnssFoundChanged();
@@ -570,25 +413,16 @@ signals:
     void FSRLErrorCounterChanged();
 
     void core0Changed();
-
     void core1Changed();
-
     void core2Changed();
-
     void core3Changed();
-
     void core4Changed();
 
     void radiolink0Changed();
-
     void radiolink1Changed();
-
     void radiolink2Changed();
-
     void radiolink3Changed();
-
     void radiolink8Changed();
-
     void radiolink9Changed();
 
     void StatusFlightModeChanged();
@@ -620,6 +454,11 @@ signals:
     void BMSFaultsMaskChanged();
 
 private:
+    void showDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry);
+    void showDataSystemStatus(const mavlink_system_status_pack_t msg_system_status);
+    void showDataMotorStatus(const mavlink_motor_status_pack_t msg_motor_status);
+    void showDataRLStatus(const mavlink_radio_status_t /*msg_radio_status*/){};
+    void showDataStorageStatus(const mavlink_storage_information_t /*msg_storage_info*/){};
 
     qint64 m_TimeStamp{};
     qint64 m_TimeStampRIO{};
