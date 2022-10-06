@@ -33,6 +33,16 @@ uint8_t MavLinkCommunicator::componentId() const
     return m_componentId;
 }
 
+bool MavLinkCommunicator::randomBool() {
+    static auto gen = std::bind(std::uniform_int_distribution<>(0,1),std::default_random_engine());
+    return gen();
+}
+
+uint8_t MavLinkCommunicator::random255() {
+    static auto gen = std::bind(std::uniform_int_distribution<>(0,255),std::default_random_engine());
+    return gen();
+}
+
 void MavLinkCommunicator::addLink(AbstractLink* link, uint8_t channel)
 {
     if (m_linkChannels.contains(link)) return;
