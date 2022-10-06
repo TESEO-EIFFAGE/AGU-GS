@@ -32,14 +32,12 @@ Rectangle {
     property alias storageLight2: storageLight2
     property alias storageLight1: storageLight1
     property alias storageLight0: storageLight0
-    Grid {
-        anchors.fill:parent
+    Flow {
+        width:parent.width
+        height: childrenRect.height
         id: gridStorage
-        columnSpacing: 16
-        rowSpacing: 12
-        flow: Grid.TopToBottom
-        columns: 4
-        rows: 6
+
+spacing: 16
 
         StatusLight {
             id: storageLight0
