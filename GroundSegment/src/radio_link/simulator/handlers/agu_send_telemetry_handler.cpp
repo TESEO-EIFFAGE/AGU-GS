@@ -4,9 +4,12 @@
 #include <AGU_MAVLINK/mavlink.h>
 
 // Qt
-#include <QDebug>
-#include "QtCore/qdatetime.h"
+//#include<QBitArray>
+//#include<QDataStream>
+#include <QDateTime>
+#include <bitset>
 #include <random>
+#include <iostream>
 
 // Internal
 #include "uav_model.h"
@@ -14,6 +17,11 @@
 
 using namespace radiolink;
 
+
+bool randomBool() {
+    static auto gen = std::bind(std::uniform_int_distribution<>(0,1),std::default_random_engine());
+    return gen();
+}
 
 AGUSendTelemetryHandler::AGUSendTelemetryHandler(MavLinkCommunicator* communicator,
                                                  UavModel* model):
@@ -109,6 +117,68 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
     telemetry.Satellite_Num=satellite_Num;
     telemetry.Log_Timestamp = QDateTime::currentDateTimeUtc().toMSecsSinceEpoch();
     telemetry.GNSS_Timestamp= QDateTime::currentDateTimeUtc().toMSecsSinceEpoch();
+
+    std::bitset<64> telemetryStatusMask;
+    typedef std::size_t length_t, position_t;
+
+    for (position_t i=0;i<length_t(32);++i) {
+        bool randBool = randomBool();
+        std::cout << randBool << " ";
+        telemetryStatusMask.set(i, randBool);
+    }
+    std::cout << std::endl;
+    telemetry.Telemetry_Status_Mask = telemetryStatusMask.to_ulong();
+
+//    QBitArray telemetryba(32);
+//    telemetryba.fill(true);
+//    for(int i=0;i++;i<32){
+//        int r = (rand() % 100) + 1;
+//        if(r>50){
+//        telemetryba.setBit(i,true);
+//        }
+//        else{
+//            telemetryba.setBit(i,false);
+//        }
+//    }
+
+    //int telemetryMask = telemetryba
+    //QByteArray telemetrybytes;
+//    telemetrybytes.resize(telemetryba.count()/8+1);
+//    telemetrybytes.fill(0);
+//    for(int b=0; b<telemetryba.count(); ++b)
+//        telemetrybytes[b/8] = ( telemetrybytes.at(b/8) | ((telemetryba[b]?1:0)<<(b%8)));
+
+//telemetrybytes.fill(7);
+    //QDataStream stream(&telemetrybytes, QIODevice::WriteOnly);
+    //stream << telemetryba;
+
+
+
+    //bool telemetryconvcheck;
+//int numFinale=7901428111563063317;
+//QByteArray testScompatt;
+//testScompatt.setNum(numFinale);
+//QBitArray testScompattBits;
+//testScompattBits.resize(testScompatt.length()*8);
+//for(int i = 0; i < testScompatt.count(); ++i) {
+//  for(int b = 0; b < 8; b++) {
+//    testScompattBits.setBit( i * 8 + b, testScompatt.at(i) & (1 << (7 - b)) );
+//}
+//}
+//    telemetry.Telemetry_Status_Mask=7901428111563063317;//telemetrybytes.toInt(&telemetryconvcheck);
+//    typedef std::bitset<64> IntBits;
+//    bool tele0 = IntBits(telemetry.Telemetry_Status_Mask).test(0);  /* BIT 0*/
+//    bool tele1 = IntBits(telemetry.Telemetry_Status_Mask).test(1);  /* BIT 1*/
+//    bool tele2 = IntBits(telemetry.Telemetry_Status_Mask).test(2);  /* BIT 2*/
+//    bool tele3 = IntBits(telemetry.Telemetry_Status_Mask).test(3);  /* BIT 3*/
+
+//    printf("TEL 0 -> %d",tele0);
+//    printf("TEL 1 -> %d",tele1);
+//    printf("TEL 2 -> %d",tele2);
+//    printf("TEL 3 -> %d",tele3);
+//    //printf("Conversion Telemetry handl %d \n" , telemetryconvcheck);
+
+
     mavlink_msg_telemetry_data_pack_encode(m_communicator->systemId(),
                                            m_communicator->componentId(),
                                            &message, &telemetry);

@@ -1,8 +1,7 @@
 #include "hmi.h"
 #include <bitset>
 #include <QString>
-#include <cmath>
-#include<stdlib.h>
+#include <iostream>
 
 Q_DECLARE_METATYPE(mavlink_system_status_pack_t);
 Q_DECLARE_METATYPE(mavlink_telemetry_data_pack_t);
@@ -64,41 +63,38 @@ void HMI::showDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry) {
 
     /* TELEMETRY STATUS MASK */
     std::bitset<64> telemetryBitset(msg_telemetry.Telemetry_Status_Mask);
-    m_telemetry0 = telemetryBitset.test(0);
-    m_telemetry1 = telemetryBitset.test(1);
-    m_telemetry2 = telemetryBitset.test(2);
-    m_telemetry3 = telemetryBitset.test(3);
-    m_telemetry4 = telemetryBitset.test(4);
-    m_telemetry5 = telemetryBitset.test(5);
-    m_telemetry6 = telemetryBitset.test(6);
-    m_telemetry7 = telemetryBitset.test(7);
-    m_telemetry8 = telemetryBitset.test(8);
-    m_telemetry9 = telemetryBitset.test(9);
-    m_telemetry10 = telemetryBitset.test(10);
-    m_telemetry11 = telemetryBitset.test(11);
-    m_telemetry12 = telemetryBitset.test(12);
-    m_telemetry13 = telemetryBitset.test(13);
-    m_telemetry14 = telemetryBitset.test(14);
-    m_telemetry15 = telemetryBitset.test(15);
-    m_telemetry16 = telemetryBitset.test(16);
-    m_telemetry17 = telemetryBitset.test(17);
-    m_telemetry18 = telemetryBitset.test(18);
-    m_telemetry19 = telemetryBitset.test(19);
-    m_telemetry20 = telemetryBitset.test(20);
-    m_telemetry21 = telemetryBitset.test(21);
-    m_telemetry22 = telemetryBitset.test(22);
-    m_telemetry23 = telemetryBitset.test(23);
-    m_telemetry24 = telemetryBitset.test(24);
-    m_telemetry25 = telemetryBitset.test(25);
-    m_telemetry26 = telemetryBitset.test(26);
-    m_telemetry27 = telemetryBitset.test(27);
-    m_telemetry28 = telemetryBitset.test(28);
-    m_telemetry29 = telemetryBitset.test(29);
-    m_telemetry30 = telemetryBitset.test(30);
-    m_telemetry31 = telemetryBitset.test(31);
-
-    printf("TELEMETRY UPDATED \n");
-    printf("ROLL ANGLE %d \n",m_RollAngle);
+    m_telemetry0 = telemetryBitset.test(0); emit telemetry0Changed();
+    m_telemetry1 = telemetryBitset.test(1); emit telemetry1Changed();
+    m_telemetry2 = telemetryBitset.test(2); emit telemetry2Changed();
+    m_telemetry3 = telemetryBitset.test(3); emit telemetry3Changed();
+    m_telemetry4 = telemetryBitset.test(4); emit telemetry4Changed();
+    m_telemetry5 = telemetryBitset.test(5); emit telemetry5Changed();
+    m_telemetry6 = telemetryBitset.test(6); emit telemetry6Changed();
+    m_telemetry7 = telemetryBitset.test(7); emit telemetry7Changed();
+    m_telemetry8 = telemetryBitset.test(8); emit telemetry8Changed();
+    m_telemetry9 = telemetryBitset.test(9); emit telemetry9Changed();
+    m_telemetry10 = telemetryBitset.test(10); emit telemetry10Changed();
+    m_telemetry11 = telemetryBitset.test(11); emit telemetry11Changed();
+    m_telemetry12 = telemetryBitset.test(12); emit telemetry12Changed();
+    m_telemetry13 = telemetryBitset.test(13); emit telemetry13Changed();
+    m_telemetry14 = telemetryBitset.test(14); emit telemetry14Changed();
+    m_telemetry15 = telemetryBitset.test(15); emit telemetry15Changed();
+    m_telemetry16 = telemetryBitset.test(16); emit telemetry16Changed();
+    m_telemetry17 = telemetryBitset.test(17); emit telemetry17Changed();
+    m_telemetry18 = telemetryBitset.test(18); emit telemetry18Changed();
+    m_telemetry19 = telemetryBitset.test(19); emit telemetry19Changed();
+    m_telemetry20 = telemetryBitset.test(20); emit telemetry20Changed();
+    m_telemetry21 = telemetryBitset.test(21); emit telemetry21Changed();
+    m_telemetry22 = telemetryBitset.test(22); emit telemetry22Changed();
+    m_telemetry23 = telemetryBitset.test(23); emit telemetry23Changed();
+    m_telemetry24 = telemetryBitset.test(24); emit telemetry24Changed();
+    m_telemetry25 = telemetryBitset.test(25); emit telemetry25Changed();
+    m_telemetry26 = telemetryBitset.test(26); emit telemetry26Changed();
+    m_telemetry27 = telemetryBitset.test(27); emit telemetry27Changed();
+    m_telemetry28 = telemetryBitset.test(28); emit telemetry28Changed();
+    m_telemetry29 = telemetryBitset.test(29); emit telemetry29Changed();
+    m_telemetry30 = telemetryBitset.test(30); emit telemetry30Changed();
+    m_telemetry31 = telemetryBitset.test(31); emit telemetry31Changed();
 }
 
 //int id=0;
@@ -182,7 +178,6 @@ void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
     printf("SYS STATUS UPDATED \n");
     printf("FLIGHT MODE %d \n",m_FlightMode);
     printf("FLIGHT PHASE %d \n",m_FlightPhase);
-
 }
 
 /* STORAGE STATUS MASK */    /* STORAGE STATUS MASK */
