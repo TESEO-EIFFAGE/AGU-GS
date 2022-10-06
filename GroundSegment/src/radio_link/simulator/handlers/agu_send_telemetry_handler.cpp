@@ -4,36 +4,55 @@
 #include <AGU_MAVLINK/mavlink.h>
 
 // Qt
-//#include<QBitArray>
-//#include<QDataStream>
 #include <QDateTime>
 #include <bitset>
-#include <random>
 #include <iostream>
+#include <sstream>
 
 // Internal
-#include "uav_model.h"
 #include "../common/mavlink_communicator.h"
 
 using namespace radiolink;
-
-
-bool randomBool() {
-    static auto gen = std::bind(std::uniform_int_distribution<>(0,1),std::default_random_engine());
-    return gen();
-}
 
 AGUSendTelemetryHandler::AGUSendTelemetryHandler(MavLinkCommunicator* communicator,
                                                  UavModel* model):
     AbstractHandler(communicator),
     m_model(model)
 {
-    this->startTimer(150);
+    this->startTimer(200);
 }
 
 void AGUSendTelemetryHandler::processMessage(const mavlink_message_t& message)
 {
     Q_UNUSED(message)
+}
+
+uint64_t AGUSendTelemetryHandler::generateMask()
+{
+    auto handler = "TEL";
+    std::bitset<64> statusMask;
+    typedef std::size_t length_t, position_t;
+
+    constexpr std::bitset<64> bit60{ 0xFF00000000000000 };
+    constexpr std::bitset<64> bit56{ 0x00FF000000000000 };
+    constexpr std::bitset<64> bit40{ 0x0000FF0000000000 };
+    constexpr std::bitset<64> bit32{ 0x000000FF00000000 };
+
+    for (position_t i=0; i < length_t(32); ++i) {
+        bool randBool = m_communicator->randomBool();
+        statusMask.set(i, randBool);
+    }
+    auto statusInt = statusMask.to_ulong();
+    statusMask = statusMask | bit60;
+    statusMask = statusMask | bit56;
+    statusMask = statusMask | bit40;
+    statusMask = statusMask | bit32;
+    std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
+    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
+    std::stringstream hexMask;
+    hexMask << std::hex << std::uppercase << statusInt;
+    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
+    return statusInt;
 }
 
 void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
@@ -42,7 +61,6 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
 
     mavlink_message_t message;
     mavlink_telemetry_data_pack_t telemetry;
-
 
     uint64_t telemetry_Status_Mask = (rand() % 1000) + 1;
     int32_t latitude= (rand() % 10000000) + 1;
@@ -118,66 +136,7 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
     telemetry.Log_Timestamp = QDateTime::currentDateTimeUtc().toMSecsSinceEpoch();
     telemetry.GNSS_Timestamp= QDateTime::currentDateTimeUtc().toMSecsSinceEpoch();
 
-    std::bitset<64> telemetryStatusMask;
-    typedef std::size_t length_t, position_t;
-
-    for (position_t i=0;i<length_t(32);++i) {
-        bool randBool = randomBool();
-        std::cout << randBool << " ";
-        telemetryStatusMask.set(i, randBool);
-    }
-    std::cout << std::endl;
-    telemetry.Telemetry_Status_Mask = telemetryStatusMask.to_ulong();
-
-//    QBitArray telemetryba(32);
-//    telemetryba.fill(true);
-//    for(int i=0;i++;i<32){
-//        int r = (rand() % 100) + 1;
-//        if(r>50){
-//        telemetryba.setBit(i,true);
-//        }
-//        else{
-//            telemetryba.setBit(i,false);
-//        }
-//    }
-
-    //int telemetryMask = telemetryba
-    //QByteArray telemetrybytes;
-//    telemetrybytes.resize(telemetryba.count()/8+1);
-//    telemetrybytes.fill(0);
-//    for(int b=0; b<telemetryba.count(); ++b)
-//        telemetrybytes[b/8] = ( telemetrybytes.at(b/8) | ((telemetryba[b]?1:0)<<(b%8)));
-
-//telemetrybytes.fill(7);
-    //QDataStream stream(&telemetrybytes, QIODevice::WriteOnly);
-    //stream << telemetryba;
-
-
-
-    //bool telemetryconvcheck;
-//int numFinale=7901428111563063317;
-//QByteArray testScompatt;
-//testScompatt.setNum(numFinale);
-//QBitArray testScompattBits;
-//testScompattBits.resize(testScompatt.length()*8);
-//for(int i = 0; i < testScompatt.count(); ++i) {
-//  for(int b = 0; b < 8; b++) {
-//    testScompattBits.setBit( i * 8 + b, testScompatt.at(i) & (1 << (7 - b)) );
-//}
-//}
-//    telemetry.Telemetry_Status_Mask=7901428111563063317;//telemetrybytes.toInt(&telemetryconvcheck);
-//    typedef std::bitset<64> IntBits;
-//    bool tele0 = IntBits(telemetry.Telemetry_Status_Mask).test(0);  /* BIT 0*/
-//    bool tele1 = IntBits(telemetry.Telemetry_Status_Mask).test(1);  /* BIT 1*/
-//    bool tele2 = IntBits(telemetry.Telemetry_Status_Mask).test(2);  /* BIT 2*/
-//    bool tele3 = IntBits(telemetry.Telemetry_Status_Mask).test(3);  /* BIT 3*/
-
-//    printf("TEL 0 -> %d",tele0);
-//    printf("TEL 1 -> %d",tele1);
-//    printf("TEL 2 -> %d",tele2);
-//    printf("TEL 3 -> %d",tele3);
-//    //printf("Conversion Telemetry handl %d \n" , telemetryconvcheck);
-
+    telemetry.Telemetry_Status_Mask = this->generateMask();
 
     mavlink_msg_telemetry_data_pack_encode(m_communicator->systemId(),
                                            m_communicator->componentId(),

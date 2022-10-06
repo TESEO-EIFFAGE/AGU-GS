@@ -8,6 +8,7 @@
 #include <QObject>
 #include <QMap>
 #include <QVariant>
+#include <random>
 
 namespace radiolink
 {
@@ -25,6 +26,10 @@ namespace radiolink
 
         uint8_t systemId() const;
         uint8_t componentId() const;
+	bool randomBool() {
+	    static auto gen = std::bind(std::uniform_int_distribution<>(0,1),std::default_random_engine());
+	    return gen();
+	}
 
     public slots:
         void addLink(radiolink::AbstractLink* link, uint8_t channel);
