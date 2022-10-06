@@ -201,10 +201,11 @@ Rectangle {
     property alias bmsLight2: motorsBMSTab.bmsLight2
     property alias bmsLight1: motorsBMSTab.bmsLight1
     ScrollView {
-        anchors.fill: parent
+        anchors.fill:parent
         contentHeight: col.height
-        contentWidth: col.width
+        //contentWidth: col.width
         anchors.margins: 32
+        clip:true
         ColumnLayout {
             //anchors.fill: parent
             id: col
@@ -228,6 +229,7 @@ Rectangle {
             }
 
             RowLayout {
+                //Layout.preferredWidth: parent.width
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 spacing: -20
@@ -685,7 +687,7 @@ Rectangle {
 }
 /*##^##
 Designer {
-    D{i:0;height:1080;width:1600}D{i:3}D{i:6}D{i:2}D{i:72}D{i:1}
+    D{i:0;height:1080;width:1600}
 }
 ##^##*/
 
