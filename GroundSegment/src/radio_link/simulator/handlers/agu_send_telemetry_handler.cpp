@@ -1,5 +1,6 @@
 #include "agu_send_telemetry_handler.h"
-
+#include<stdlib.h>
+#include <bitset>
 // MAVLink
 #include <AGU_MAVLINK/mavlink.h>
 
@@ -124,23 +125,31 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
 //            telemetryba.setBit(i,false);
 //        }
 //    }
-    int numTest = 15;
-QByteArray testFormato;
-testFormato.setNum(numTest);
+
     //int telemetryMask = telemetryba
-    QByteArray telemetrybytes;
+    //QByteArray telemetrybytes;
 //    telemetrybytes.resize(telemetryba.count()/8+1);
 //    telemetrybytes.fill(0);
 //    for(int b=0; b<telemetryba.count(); ++b)
 //        telemetrybytes[b/8] = ( telemetrybytes.at(b/8) | ((telemetryba[b]?1:0)<<(b%8)));
 
-telemetrybytes.fill(7);
+//telemetrybytes.fill(7);
     //QDataStream stream(&telemetrybytes, QIODevice::WriteOnly);
     //stream << telemetryba;
 
 
 
-    bool telemetryconvcheck;
+    //bool telemetryconvcheck;
+int numFinale=7901428111563063317;
+QByteArray testScompatt;
+testScompatt.setNum(numFinale);
+QBitArray testScompattBits;
+testScompattBits.resize(testScompatt.length()*8);
+for(int i = 0; i < testScompatt.count(); ++i) {
+  for(int b = 0; b < 8; b++) {
+    testScompattBits.setBit( i * 8 + b, testScompatt.at(i) & (1 << (7 - b)) );
+}
+}
     telemetry.Telemetry_Status_Mask=7901428111563063317;//telemetrybytes.toInt(&telemetryconvcheck);
     typedef std::bitset<64> IntBits;
     bool tele0 = IntBits(telemetry.Telemetry_Status_Mask).test(0);  /* BIT 0*/
