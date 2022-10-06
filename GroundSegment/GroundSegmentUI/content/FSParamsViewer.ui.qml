@@ -230,7 +230,7 @@ Rectangle {
             Layout.fillWidth: true
             contentHeight: rowTabs.height
             contentWidth: parent.width
-            //clip: true
+            clip: true
             RowLayout {
 
                 id: rowTabs

@@ -118,14 +118,28 @@ Rectangle {
                         ToolTip.text: text
                         ToolTip.visible: pressed
                     }
-                    ParamRow {
+                    Label {
+
                         text: ":"
-                        span: 0.5
+                    }
+                    Label {
+                        font.pixelSize: 12
+                        font.family: "Roboto Mono"
+                        horizontalAlignment: Text.AlignRight
+                        styleColor: "#ffffff"
+                        text: "[val]"
                         id: txtminuteGPSData
                     }
-                    ParamRow {
+                    Label {
+
                         text: ":"
-                        span: 0.5
+                    }
+                    Label {
+                        font.pixelSize: 12
+                        font.family: "Roboto Mono"
+                        horizontalAlignment: Text.AlignRight
+                        styleColor: "#ffffff"
+                        text: "[val]"
                         id: txtsecondGPSData
                     }
                 }
@@ -259,7 +273,7 @@ Rectangle {
                 ParamRow {
                     id: txtRadioLinkErrorCounter
                     text: "Error counter"
-                    span: 4
+                    span: 6
                     ToolTip.text: text
                     ToolTip.visible: pressed
                 }
