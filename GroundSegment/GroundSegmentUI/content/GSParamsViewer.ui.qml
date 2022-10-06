@@ -17,7 +17,7 @@ Rectangle {
     property alias txtLongitudeGPSData: txtLongitudeGPSData.value
     property alias txtAltitudeGPSData: txtAltitudeGPSData.value
     property alias txtHasFix: txtHasFix.value
-    property alias txtHourGPSData: txtHourGPSData.value
+    property alias txtHourGPSData: txtHourGPSData.text
     property alias txtminuteGPSData: txtminuteGPSData.text
     property alias txtsecondGPSData: txtsecondGPSData.text
 
@@ -108,39 +108,59 @@ Rectangle {
                     ToolTip.text: text
                     ToolTip.visible: pressed
                 }
-
-                Row {
-                    spacing: 4.1
-                    ParamRow {
+                Item {
+                    height: childrenRect.height
+                    width: parent.width
+                    Label {
                         text: "Time"
-                        span: 1
-                        id: txtHourGPSData
+                        font.pixelSize: 12
+                        color: "#000000"
+
+                        font.styleName: "Regular"
+                        font.family: "Roboto"
+                        horizontalAlignment: Text.AlignRight
+
+                        anchors.left: parent.left
                         ToolTip.text: text
                         ToolTip.visible: pressed
                     }
-                    Label {
+                    Row {
+                        spacing: 2
+                        anchors.right: parent.right
+                        anchors.rightMargin: 12
+                        Label {
+                            text: "[val]"
+                            font.pixelSize: 12
+                            font.family: "Roboto Mono"
+                            horizontalAlignment: Text.AlignRight
+                            styleColor: "#ffffff"
+                            id: txtHourGPSData
 
-                        text: ":"
-                    }
-                    Label {
-                        font.pixelSize: 12
-                        font.family: "Roboto Mono"
-                        horizontalAlignment: Text.AlignRight
-                        styleColor: "#ffffff"
-                        text: "[val]"
-                        id: txtminuteGPSData
-                    }
-                    Label {
+                        }
+                        Label {
 
-                        text: ":"
-                    }
-                    Label {
-                        font.pixelSize: 12
-                        font.family: "Roboto Mono"
-                        horizontalAlignment: Text.AlignRight
-                        styleColor: "#ffffff"
-                        text: "[val]"
-                        id: txtsecondGPSData
+                            text: ":"
+                        }
+                        Label {
+                            font.pixelSize: 12
+                            font.family: "Roboto Mono"
+                            horizontalAlignment: Text.AlignRight
+                            styleColor: "#ffffff"
+                            text: "[val]"
+                            id: txtminuteGPSData
+                        }
+                        Label {
+
+                            text: ":"
+                        }
+                        Label {
+                            font.pixelSize: 12
+                            font.family: "Roboto Mono"
+                            horizontalAlignment: Text.AlignRight
+                            styleColor: "#ffffff"
+                            text: "[val]"
+                            id: txtsecondGPSData
+                        }
                     }
                 }
                 Row {
