@@ -207,7 +207,9 @@ Rectangle {
         spacing: 20 //24
         //anchors.margins: 32
         anchors.fill: parent
-        anchors.margins: 32
+        anchors.topMargin: 32
+        anchors.leftMargin: 32
+        anchors.rightMargin: 32
         Column {
             spacing: 0
 
