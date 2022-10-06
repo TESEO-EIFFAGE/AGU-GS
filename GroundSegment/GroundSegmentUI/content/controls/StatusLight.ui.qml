@@ -6,6 +6,7 @@ Row {
     property bool up: false
     property alias text: text1.text
     spacing: 8
+    width: 200
 
     Rectangle {
         id: light
@@ -27,7 +28,7 @@ Row {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:0;width:0}D{i:1}D{i:2}
+    D{i:0;autoSize:true;height:0;width:0}
 }
 ##^##*/
 

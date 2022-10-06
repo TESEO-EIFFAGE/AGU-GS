@@ -27,6 +27,7 @@ Rectangle {
 
 spacing: 16
 width:parent.width
+height: childrenRect.height
         //columns: 8
         //rows: 6
 

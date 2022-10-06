@@ -34,13 +34,13 @@ Rectangle {
     property alias storageLight0: storageLight0
     Flow {
         //anchors.fill:parent
-        height: 300
+        height: childrenRect.height
         width:parent.width
         id: gridStorage
         spacing:16
         //columnSpacing: 16
         //rowSpacing: 12
-        flow: Grid.TopToBottom
+        //flow: Grid.TopToBottom
         //columns: 4
         //rows: 6
 
@@ -51,7 +51,7 @@ Rectangle {
 
         StatusLight {
             id: storageLight1
-            text: "uSD not present error"
+            text: "uSD not present err"
         }
 
         StatusLight {
@@ -61,95 +61,95 @@ Rectangle {
 
         StatusLight {
             id: storageLight3
-            text: "System Status log write error"
+            text: "System Status log write err"
         }
         StatusLight {
             id: storageLight4
-            text: "Telemetry module log write error"
+            text: "TLM module log write err"
         }
 
         StatusLight {
             id: storageLight5
-            text: "Storage module log write error"
+            text: "Storage module log write err"
         }
         StatusLight {
             id: storageLight6
-            text: "Radio link module log write error"
+            text: "RL module log write err"
         }
 
         StatusLight {
             id: storageLight7
-            text: "Motor control log write error"
+            text: "Motor control log write err"
         }
         StatusLight {
             id: storageLight8
-            text: "Guidance module log write error"
+            text: "Guidance module log write err"
         }
 
         StatusLight {
             id: storageLight10
-            text: "PGNC initialization verification error"
+            text: "PGNC init verif err"
         }
 
         StatusLight {
             id: storageLight11
-            text: "PGNC initialization storage error"
+            text: "PGNC init storage err"
         }
 
         StatusLight {
             id: storageLight12
-            text: "PGNC flight path verification error"
+            text: "PGNC flight path verif err"
         }
 
         StatusLight {
             id: storageLight13
-            text: "PGNC flight path storage error"
+            text: "PGNC flight path storage err"
         }
         StatusLight {
             id: storageLight14
-            text: "Trim script verification error"
+            text: "Trim script verif err"
         }
 
         StatusLight {
             id: storageLight15
-            text: "Trim script storage error"
+            text: "Trim script storage err"
         }
         StatusLight {
             id: storageLight16
-            text: "Open-Loop script verification error"
+            text: "Open-Loop script verif err"
         }
 
         StatusLight {
             id: storageLight17
-            text: "Open-Loop script storage error"
+            text: "Open-Loop script storage err"
         }
         StatusLight {
             id: storageLight18
-            text: "Recovery-A script verification error"
+            text: "Recovery-A script verif err"
         }
 
         StatusLight {
             id: storageLight19
-            text: "Recovery-A script storage error"
+            text: "Recovery-A script storage err"
         }
         StatusLight {
             id: storageLight20
-            text: "Recovery-B script verification error"
+            text: "Recovery-B script verif err"
         }
 
         StatusLight {
             id: storageLight21
-            text: "Recovery-B script storage error"
+            text: "Recovery-B script storage err"
         }
 
         StatusLight {
             id: storageLight22
-            text: "Flare script verification error"
+            text: "Flare script verif err"
         }
 
         StatusLight {
             id: storageLight23
-            text: "Flare script storage error"
+            text: "Flare script storage err"
         }
     }
 }
