@@ -19,14 +19,16 @@ Rectangle {
     property alias radioLinkLight0: radioLinkLight0
     property alias txtRadioLinkErrorCounter: txtRadioLinkErrorCounter.value
 
-    Grid {
-        anchors.fill:parent
+    Flow {
+        //anchors.fill:parent
         id: gridRL
-        columnSpacing: 16
-        rowSpacing: 12
+        //columnSpacing: 16
+        //rowSpacing: 12
 
-        columns: 8
-        rows: 6
+spacing: 16
+width:parent.width
+        //columns: 8
+        //rows: 6
 
             StatusLight {
                 id: radioLinkLight0
