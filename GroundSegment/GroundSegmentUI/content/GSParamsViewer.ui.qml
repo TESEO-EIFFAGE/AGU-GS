@@ -18,8 +18,8 @@ Rectangle {
     property alias txtAltitudeGPSData: txtAltitudeGPSData.value
     property alias txtHasFix: txtHasFix.value
     property alias txtHourGPSData: txtHourGPSData.value
-    property alias txtminuteGPSData: txtminuteGPSData.value
-    property alias txtsecondGPSData: txtsecondGPSData.value
+    property alias txtminuteGPSData: txtminuteGPSData.text
+    property alias txtsecondGPSData: txtsecondGPSData.text
 
     width: Constants.width / 2 //750 //C
     height: Constants.height * 1 / 3 //667 //
