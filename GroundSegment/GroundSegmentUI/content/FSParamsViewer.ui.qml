@@ -229,10 +229,11 @@ Rectangle {
             contentHeight: rowTabs.height
             contentWidth: parent.width
             RowLayout {
+
                 id: rowTabs
                 width: parent.width
                 height: childrenRect.height
-                Layout.fillHeight: true
+
                 spacing: -20
                 ColumnLayout {
 
