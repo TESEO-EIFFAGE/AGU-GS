@@ -16,7 +16,6 @@ Rectangle {
     signal coreTabClicked
     signal radioLinkTabClicked
 
-
     property alias telemetryTab: telemetryTab
     property alias storageTab: storageTab
     property alias motorsBMSTab: motorsBMSTab
@@ -85,7 +84,7 @@ Rectangle {
     width: Constants.width / 2 //750 //C
     height: Constants.height //667 //
     color: "#ffffff"
-    
+
     property alias telemetryLight0: telemetryTab.telemetryLight0
     property alias telemetryLight31: telemetryTab.telemetryLight31
     property alias telemetryLight30: telemetryTab.telemetryLight30
@@ -202,8 +201,6 @@ Rectangle {
     property alias bmsLight2: motorsBMSTab.bmsLight2
     property alias bmsLight1: motorsBMSTab.bmsLight1
 
-
-    
     ColumnLayout {
         anchors.fill: parent
         spacing: 20 //24
@@ -299,7 +296,7 @@ Rectangle {
                         anchors.margins: 8
                         spacing: 32
                         width: 40
-                        height: 140
+                        height: parent.height - 16
                         Image {
                             //anchors.horizontalCenter: parent.horizontalCenter
                             source: "images/svgs/solid/triangle-exclamation.svg"
@@ -353,7 +350,7 @@ Rectangle {
                         anchors.margins: 8
                         spacing: 32
                         width: 40
-                        height: 174
+                        height: parent.height - 16
                         Image {
                             //anchors.horizontalCenter: parent.horizontalCenter
                             source: "images/svgs/solid/gear.svg"
@@ -407,7 +404,7 @@ Rectangle {
                         anchors.margins: 8
                         spacing: 32
                         width: 40
-                        height: 130
+                        height: parent.height - 16
 
                         Image {
                             //anchors.horizontalCenter: parent.horizontalCenter
@@ -463,7 +460,7 @@ Rectangle {
                         anchors.margins: 8
                         spacing: 32
                         width: 40
-                        height: 145
+                        height: parent.height - 16
                         Image {
                             //anchors.horizontalCenter: parent.horizontalCenter
                             source: "images/svgs/solid/radio.svg"
@@ -517,7 +514,7 @@ Rectangle {
                         anchors.margins: 8
                         spacing: 32
                         width: 40
-                        height: 140
+                        height: parent.height - 16
                         Image {
                             //anchors.horizontalCenter: parent.horizontalCenter
                             source: "images/svgs/solid/gear.svg"
@@ -572,7 +569,7 @@ Rectangle {
                         anchors.margins: 8
                         spacing: 32
                         width: 40
-                        height: 105
+                        height: parent.height - 16
                         Image {
                             //anchors.horizontalCenter: parent.horizontalCenter
                             source: "images/svgs/solid/gear.svg"

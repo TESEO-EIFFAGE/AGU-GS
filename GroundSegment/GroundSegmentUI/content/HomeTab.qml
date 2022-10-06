@@ -30,7 +30,7 @@ Rectangle {
     Grid {
         anchors.fill:parent
         id: gridStorage
-        columnSpacing: 16
+        columnSpacing: 24
         rowSpacing: 12
 
         columns: 6
@@ -75,21 +75,21 @@ Rectangle {
         ParamRow {
             id: txtLatitude
             text: "Latitude (°)"
-            span: 5
+            span: 6
             ToolTip.text: text
             ToolTip.visible: pressed
         }
 
         ParamRow {
             text: "Longitude (°)"
-            span: 5
+            span: 6
             id: txtLongitude
             ToolTip.text: text
             ToolTip.visible: pressed
         }
         ParamRow {
             text: "Altitude (m)"
-            span: 5
+            span: 6
             id: txtGNSSAltitude
             ToolTip.text: text
             ToolTip.visible: pressed
