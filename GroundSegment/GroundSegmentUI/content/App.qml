@@ -206,12 +206,12 @@ Window {
         fsParams.radioLinkTab.txtRadioLinkErrorCounter: hmi.FSRLErrorCounter
 
         fsParams.txtTimeStampRIO: timestampToUTCDate(hmi.TimeStampRIO)
-        fsParams.txtLatitude: hmi.Latitude.toFixed(7)
-        fsParams.txtLongitude: hmi.Longitude.toFixed(7)
+        fsParams.txtLatitude: hmi.Latitude.toFixed(2)
+        fsParams.txtLongitude: hmi.Longitude.toFixed(2)
         fsParams.txtGNSSAltitude: hmi.GNSSAltitude.toFixed(3)
 
-        fsParams.homeTab.txtLatitude: hmi.Latitude.toFixed(7)
-        fsParams.homeTab.txtLongitude: hmi.Longitude.toFixed(7)
+        fsParams.homeTab.txtLatitude: hmi.Latitude.toFixed(2)
+        fsParams.homeTab.txtLongitude: hmi.Longitude.toFixed(2)
         fsParams.homeTab.txtGNSSAltitude: hmi.GNSSAltitude.toFixed(3)
 
         fsParams.txtAirSpeed_UVector: hmi.AirSpeed_UVector.toFixed(2)
