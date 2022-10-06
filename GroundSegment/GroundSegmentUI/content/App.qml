@@ -410,8 +410,8 @@ Window {
 
         gsParams.txtTimeStamp: timestampToUTCDate(hmi.TimeStamp)
 
-        gsParams.txtLatitudeGPSData:  gpsData.latitude.toFixed(7)
-        gsParams.txtLongitudeGPSData: gpsData.longitude.toFixed(7)
+        gsParams.txtLatitudeGPSData:  gpsData.latitude.toFixed(2)
+        gsParams.txtLongitudeGPSData: gpsData.longitude.toFixed(2)
         gsParams.txtAltitudeGPSData:  gpsData.altitude.toFixed(3)
         gsParams.txtHasFix:           gpsData.hasFix
         gsParams.txtHourGPSData:      gpsData.hour

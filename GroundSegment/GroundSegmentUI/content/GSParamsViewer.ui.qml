@@ -82,38 +82,38 @@ Rectangle {
 
                 ParamRow {
                     text: "Latitude"
-                    span: 4
+                    span: 7
                     id: txtLatitudeGPSData
                     ToolTip.text: text
                     ToolTip.visible: pressed
                 }
                 ParamRow {
                     text: "Longitude"
-                    span: 4
+                    span: 7
                     id: txtLongitudeGPSData
                     ToolTip.text: text
                     ToolTip.visible: pressed
                 }
                 ParamRow {
                     text: "Altitude"
-                    span: 4
+                    span: 7
                     id: txtAltitudeGPSData
                     ToolTip.text: text
                     ToolTip.visible: pressed
                 }
                 ParamRow {
                     text: "HasFix"
-                    span: 4
+                    span: 7
                     id: txtHasFix
                     ToolTip.text: text
                     ToolTip.visible: pressed
                 }
 
                 Row {
-                    spacing: 4
+                    spacing: 4.1
                     ParamRow {
                         text: "Time"
-                        span: 4
+                        span: 1
                         id: txtHourGPSData
                         ToolTip.text: text
                         ToolTip.visible: pressed
