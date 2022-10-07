@@ -67,7 +67,7 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
     mavlink_message_t message;
     mavlink_telemetry_data_pack_t telemetry;
 
-    uint64_t telemetry_Status_Mask = (rand() % 1000) + 1;
+    //uint64_t telemetry_Status_Mask = (rand() % 1000) + 1;
     int32_t latitude= (rand() % 10000000) + 1;
     int32_t longitude= (rand() % 10000000) + 1;
     uint32_t gnss_Altitude= (rand() % 1000) + 1;
@@ -104,7 +104,7 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
 
     printf("ROLL ANGLE %d \n",roll_Angle);
 
-    telemetry.Telemetry_Status_Mask=telemetry_Status_Mask;
+    //telemetry.Telemetry_Status_Mask=telemetry_Status_Mask;
     telemetry.Latitude=latitude;
     telemetry.Longitude=longitude;
     telemetry.GNSS_Altitude=gnss_Altitude;
