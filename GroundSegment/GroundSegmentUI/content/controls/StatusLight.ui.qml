@@ -11,7 +11,7 @@ Row {
         id: light
         width: 16
         height: 16
-        color: root.up ? "#ff0000" : "green" //#b1b1b1"
+        color: root.up ? "green" : "#ff0000" //#b1b1b1"
         radius: 8
         anchors.verticalCenter: parent.verticalCenter
     }
@@ -27,7 +27,7 @@ Row {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:0;width:0}D{i:1}D{i:2}
+    D{i:0;autoSize:true;height:0;width:0}
 }
 ##^##*/
 

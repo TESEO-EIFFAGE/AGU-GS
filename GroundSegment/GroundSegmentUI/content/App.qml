@@ -266,26 +266,21 @@ Window {
         fsParams.txtGNSSCommErrorCounter: hmi.GNSSCommErrorCounter
         fsParams.txtPLAltCommErrorCounter: hmi.PLAltCommErrorCounter
 
-        fsParams.txtMotorARealPosition: hmi.MotorARealPosition
-        fsParams.txtMotorADemandPosition: hmi.MotorADemandPosition
-        fsParams.txtMotorATorque: hmi.MotorATorque
-        fsParams.txtMotorATemp: hmi.MotorATemp
+        fsParams.txtMotorARealPosition: hmi.MotorARealPosition.toFixed(3)
+        fsParams.txtMotorADemandPosition: hmi.MotorADemandPosition.toFixed(3)
+        fsParams.txtMotorATorque: hmi.MotorATorque.toFixed(2)
+        fsParams.txtMotorATemp: hmi.MotorATemp.toFixed(2)
 
+        fsParams.txtMotorBRealPosition: hmi.MotorBRealPosition.toFixed(3)
+        fsParams.txtMotorBDemandPosition: hmi.MotorBDemandPosition.toFixed(3)
+        fsParams.txtMotorBTorque: hmi.MotorBTorque.toFixed(2)
+        fsParams.txtMotorBTemp: hmi.MotorBTemp.toFixed(2)
 
-        fsParams.txtMotorBRealPosition: hmi.MotorBRealPosition
-        fsParams.txtMotorBDemandPosition: hmi.MotorBDemandPosition
-        fsParams.txtMotorBTorque: hmi.MotorBTorque
-        fsParams.txtMotorBTemp: hmi.MotorBTemp
-
-
-        fsParams.txtBMS1Voltage: hmi.BMS1Voltage
-        fsParams.txtBMS1Absorption: hmi.BMS1Absorption
-        fsParams.txtBMS1Temp: hmi.BMS1Temp
+        fsParams.txtBMS1Voltage: hmi.BMSVoltage.toFixed(2)
+        fsParams.txtBMS1Absorption: hmi.BMSAbsorption.toFixed(2)
+        fsParams.txtBMS1Temp: hmi.BMSTemp.toFixed(2)
         fsParams.txtMotorTimestamp: timestampToUTCDate(hmi.MotorTimestamp)
         fsParams.txtChargeValue: hmi.ChargeValue
-
-
-
 
         fsParams.telemetryLight0.up: hmi.telemetry0
         fsParams.telemetryLight31.up: hmi.telemetry31

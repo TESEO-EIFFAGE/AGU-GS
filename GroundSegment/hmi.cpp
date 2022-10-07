@@ -1,8 +1,11 @@
 #include "hmi.h"
 #include <bitset>
 #include <QString>
-#include <cmath>
-#include<stdlib.h>
+#include <iostream>
+
+Q_DECLARE_METATYPE(mavlink_system_status_pack_t);
+Q_DECLARE_METATYPE(mavlink_telemetry_data_pack_t);
+Q_DECLARE_METATYPE(mavlink_motor_status_pack_t);
 
 HMI::HMI(QObject *parent)
     : QObject{parent}
@@ -10,598 +13,343 @@ HMI::HMI(QObject *parent)
 
 }
 
-void HMI::showData(/*Telemetry *t*/)
-{
-    QString s;
-
-    typedef std::bitset<64> IntBits;
-//    bool is_set0,is_set1,is_set2,is_set3,is_set4,is_set5,is_set6,is_set7,is_set8,is_set9;
-//    bool is_set10,is_set11,is_set12,is_set13,is_set14,is_set15,is_set16,is_set17,is_set18,is_set19;
-//    bool is_set20,is_set21,is_set22,is_set23,is_set24,is_set25,is_set26,is_set27,is_set28,is_set29;
-//    bool is_set30,is_set31;
-
-    int id=0;
-    uint8_t DataByte32, DataByte40, DataByte48, DataByte56;
-/*
-    m_TimeStamp = t->TimeStamp;
-    qInfo() << "TimeStamp = " << s;
-
-*/
-    m_TimeStampRIO =  QDateTime::currentDateTime().toSecsSinceEpoch();//QRandomGenerator::global()->bounded(999999999, 10000000000);//t->TimeStampRIO;
-    qInfo() << "TimeStampRIO = " << m_TimeStampRIO;
-
-    m_Latitude = QRandomGenerator::global()->bounded(-90, 90);//t->Latitude;
-    qInfo() << "Latitude = " << m_Latitude;
-
-    m_Longitude =  QRandomGenerator::global()->bounded(-180, 180);//t->Longitude;
-    qInfo() << "Longitude = " << m_Longitude;
-
-    m_GNSSAltitude = QRandomGenerator::global()->bounded(999999, 9999999);// t->GNSSAltitude;
-    qInfo() << "GNSSAltitude = " << m_GNSSAltitude;
-
-    m_AirSpeed_UVector = QRandomGenerator::global()->bounded(9, 100);// t->AirSpeed_UVector;
-    qInfo() << "AirSpeed_UVector = " << m_AirSpeed_UVector;
-
-    m_AirSpeed_VVector = QRandomGenerator::global()->bounded(9, 100);// t->AirSpeed_VVector;
-    qInfo() << "AirSpeed_VVector = " << m_AirSpeed_VVector;
-
-    m_AirSpeed_WVector = QRandomGenerator::global()->bounded(9, 100);// t->AirSpeed_WVector;
-    qInfo() << "AirSpeed_WVector = " << m_AirSpeed_WVector;
-
-    m_AirTemperature = QRandomGenerator::global()->bounded(-30, 50);// t->AirTemperature;
-    qInfo() << "AirTemperature = " << m_AirTemperature;
-
-    m_AltitudeFromRadarAltimeter= QRandomGenerator::global()->bounded(999999, 9999999);// t->AltitudeFromRadarAltimeter;
-    qInfo() << "AltitudeFromRadarAltimeter = " << m_AltitudeFromRadarAltimeter;
-
-    m_AltitudeFromPayloadAltimeter = QRandomGenerator::global()->bounded(999999, 9999999);//t->AltitudeFromPayloadAltimeter;
-    qInfo() << "AltitudeFromPayloadAltimeter = " << m_AltitudeFromPayloadAltimeter;
-
-    m_LinearVelocityHorizontal = QRandomGenerator::global()->bounded(9, 100);// t->LinearVelocityHorizontal;
-    qInfo() << "LinearVelocityHorizontal = " << m_LinearVelocityHorizontal;
-
-    m_LinearVelocityVertical = QRandomGenerator::global()->bounded(9, 100);// t->LinearVelocityVertical;
-    qInfo() << "LinearVelocityVertical = " << m_LinearVelocityVertical;
-
-    m_PositionAccuracy = QRandomGenerator::global()->bounded(0, 9999);// t->PositionAccuracy;
-    qInfo() << "PositionAccuracy = " << m_PositionAccuracy;
-
-    m_SpeedAccuracy = QRandomGenerator::global()->bounded(0, 9999);// t->SpeedAccuracy;
-    qInfo() << "SpeedAccuracy   = " << m_SpeedAccuracy;
-
-    m_LinearAccelerationX = QRandomGenerator::global()->bounded(9, 100);// t->LinearAccelerationX;
-    qInfo() << "LinearAccelerationX = " << m_LinearAccelerationX;
-
-    m_LinearAccelerationY = QRandomGenerator::global()->bounded(9, 100);// t->LinearAccelerationY;
-    qInfo() << "LinearAccelerationY = " << m_LinearAccelerationY;
-
-    m_LinearAccelerationZ = QRandomGenerator::global()->bounded(9, 100);// t->LinearAccelerationZ;
-    qInfo() << "LinearAccelerationZ = " << m_LinearAccelerationZ;
-
-    m_ECEFVectorPositionX = QRandomGenerator::global()->bounded(999999, 9999999);// t->ECEFVectorPositionX;
-    qInfo() << "PositionAccuracy = " << m_ECEFVectorPositionX;
-
-    m_ECEFVectorPositionY = QRandomGenerator::global()->bounded(999999, 9999999);// t->ECEFVectorPositionY;
-    qInfo() << "PositionAccuracy = " << m_ECEFVectorPositionY;
-
-    m_ECEFVectorPositionZ = QRandomGenerator::global()->bounded(999999, 9999999);// t->ECEFVectorPositionZ;
-    qInfo() << "PositionAccuracy = " << m_ECEFVectorPositionZ;
-
-    m_ECEFVectorVelocityX = QRandomGenerator::global()->bounded(9, 100);// t->ECEFVectorVelocityX;
-    qInfo() << "PositionAccuracy = " << m_ECEFVectorVelocityX;
-
-    m_ECEFVectorVelocityY = QRandomGenerator::global()->bounded(9, 100);// t->ECEFVectorVelocityY;
-    qInfo() << "PositionAccuracy = " << m_ECEFVectorVelocityY;
-
-    m_ECEFVectorVelocityZ = QRandomGenerator::global()->bounded(9, 100);// t->ECEFVectorVelocityZ;
-    qInfo() << "PositionAccuracy = " << m_ECEFVectorVelocityZ;
-
-    m_RollAngle = QRandomGenerator::global()->bounded(0, 360);//t->RollAngle;
-    qInfo() << "RollAngle = " << m_RollAngle;
-
-    m_PitchAngle = QRandomGenerator::global()->bounded(0, 360);// t->PitchAngle;
-    qInfo() << "PitchAngle = " << m_PitchAngle;
-
-    m_YawAngle = QRandomGenerator::global()->bounded(0, 360);// t->YawAngle;
-    qInfo() << "YawAngle = " << m_YawAngle;
-
-    m_AngularRateRoll = QRandomGenerator::global()->bounded(99, 999);// t->AngularRateRoll;
-    qInfo() << "AngularRateRoll = " << m_AngularRateRoll;
-
-    m_AngularRatePitch = QRandomGenerator::global()->bounded(99, 999);// t->AngularRatePitch;
-    qInfo() << "AngularRatePitch = " << m_AngularRatePitch;
-
-    m_AngularRateYaw = QRandomGenerator::global()->bounded(99, 999);// t->AngularRateYaw;
-    qInfo() << "AngularRateYaw = " << m_AngularRateYaw;
-
-    m_Quaternion0 = QRandomGenerator::global()->bounded(999999, 9999999);//  t->Quaternion0;
-    qInfo() << "Quaternion0 = " << m_Quaternion0;
-
-    m_Quaternion1 = QRandomGenerator::global()->bounded(999999, 9999999);//  t->Quaternion1;
-    qInfo() << "Quaternion1 = " << m_Quaternion1;
-
-    m_Quaternion2 = QRandomGenerator::global()->bounded(999999, 9999999);//  t->Quaternion2;
-    qInfo() << "Quaternion2 = " << m_Quaternion2;
-
-    m_Quaternion3 = QRandomGenerator::global()->bounded(999999, 9999999);//  t->Quaternion3;
-    qInfo() << "Quaternion3 = " << m_Quaternion3;
-
-    m_NumberOfGPSSatellite = QRandomGenerator::global()->bounded(0, 99);// t->NumberOfGPSSatellite;
-    qInfo() << "NumberOfGPSSatellite = " << m_NumberOfGPSSatellite;
-
-
-    m_AnemCommErrorCounter = QRandomGenerator::global()->bounded(0, 100);//  t->AnemCommErrorCounter;
-    qInfo() << "Anemometer Communication error counter = " << m_AnemCommErrorCounter;
-
-    m_RDAltCommErrorCounter = QRandomGenerator::global()->bounded(0, 100);//  t->RDAltCommErrorCounter;
-    qInfo() << "Radar Altimeter Communication error counter = " << m_RDAltCommErrorCounter;
-
-    m_GNSSCommErrorCounter = QRandomGenerator::global()->bounded(0, 100);//  t->GNSSCommErrorCounter;
-    qInfo() << "GNSS Communication error counter = " << m_GNSSCommErrorCounter;
-
-    m_PLAltCommErrorCounter = QRandomGenerator::global()->bounded(0, 100);//  t->PLAltCommErrorCounter;
-    qInfo() << "Payload Altimeter Communication error counter = " << m_PLAltCommErrorCounter;
-
-
-//    /* TELEMETRY STATUS MASK */
-
-
-//    m_telemetry0 = IntBits(t->TelemetryStatusMask).test(0);  /* BIT 0*/
-
-
-//    m_telemetry1 = IntBits(t->TelemetryStatusMask).test(1);  /* BIT 1*/
-
-
-//    m_telemetry2 = IntBits(t->TelemetryStatusMask).test(2);  /* BIT 2*/
-
-
-//    m_telemetry3 = IntBits(t->TelemetryStatusMask).test(3);  /* BIT 3*/
-
-
-//    m_telemetry4 = IntBits(t->TelemetryStatusMask).test(4);  /* BIT 4*/
-
-
-//    m_telemetry5 = IntBits(t->TelemetryStatusMask).test(5);  /* BIT 5*/
-
-
-//    m_telemetry6 = IntBits(t->TelemetryStatusMask).test(6);  /* BIT 6*/
-
-
-//    m_telemetry7 = IntBits(t->TelemetryStatusMask).test(7);  /* BIT 7*/
-
-
-//    m_telemetry8 = IntBits(t->TelemetryStatusMask).test(8);  /* BIT 8*/
-
-
-//    m_telemetry9 = IntBits(t->TelemetryStatusMask).test(9);  /* BIT 9*/
-
-
-//    m_telemetry10 = IntBits(t->TelemetryStatusMask).test(10); /* BIT 10*/
-
-
-//    m_telemetry11 = IntBits(t->TelemetryStatusMask).test(11); /* BIT 11*/
-
-
-//    m_telemetry12 = IntBits(t->TelemetryStatusMask).test(12); /* BIT 12*/
-
-
-//    m_telemetry13 = IntBits(t->TelemetryStatusMask).test(13); /* BIT 13*/
-
-
-//    m_telemetry14 = IntBits(t->TelemetryStatusMask).test(14); /* BIT 14*/
-
-
-//    m_telemetry15 = IntBits(t->TelemetryStatusMask).test(15); /* BIT 15*/
-
-
-//    m_telemetry16 = IntBits(t->TelemetryStatusMask).test(16); /* BIT 16*/
-
-
-//    m_telemetry17 = IntBits(t->TelemetryStatusMask).test(17); /* BIT 17*/
-
-
-//    m_telemetry18 = IntBits(t->TelemetryStatusMask).test(18); /* BIT 18*/
-
-
-//    m_telemetry19 = IntBits(t->TelemetryStatusMask).test(19); /* BIT 19*/
-
-
-//    m_telemetry20 = IntBits(t->TelemetryStatusMask).test(20); /* BIT 20*/
-
-
-//    m_telemetry21 = IntBits(t->TelemetryStatusMask).test(21); /* BIT 21*/
-
-
-//    m_telemetry22 = IntBits(t->TelemetryStatusMask).test(22); /* BIT 22*/
-
-
-//    m_telemetry23 = IntBits(t->TelemetryStatusMask).test(23); /* BIT 23*/
-
-
-//    m_telemetry24 = IntBits(t->TelemetryStatusMask).test(24); /* BIT 24*/
-
-
-//    m_telemetry25 = IntBits(t->TelemetryStatusMask).test(25); /* BIT 25*/
-
-
-//    m_telemetry26 = IntBits(t->TelemetryStatusMask).test(26); /* BIT 26*/
-
-
-//    m_telemetry27 = IntBits(t->TelemetryStatusMask).test(27); /* BIT 27*/
-
-
-//    m_telemetry28 = IntBits(t->TelemetryStatusMask).test(28); /* BIT 28*/
-
-
-//    m_telemetry29 = IntBits(t->TelemetryStatusMask).test(29); /* BIT 29*/
-
-
-//    m_telemetry30 = IntBits(t->TelemetryStatusMask).test(30); /* BIT 30*/
-
-
-//    m_telemetry31 = IntBits(t->TelemetryStatusMask).test(31); /* BIT 31*/
-
-
-//    id=0;
-//    DataByte32=0;
-//    do
-//    {
-//        if (IntBits(t->TelemetryStatusMask).test(32 + id))
-//        {
-//            qInfo() << "id = " << id;
-//            DataByte32 += pow(2,id);
-//        }
-//        id++;
-//    }
-//    while (id < 8);
-//    qInfo() << "DataByte32 = " << DataByte32;  // Da visualizzare su Interfaccia
-
-//    id=0;
-//    DataByte40=0;
-//    do
-//    {
-//        if (IntBits(t->TelemetryStatusMask).test(40 + id))
-//        {
-//            qInfo() << "id = " << id;
-//            DataByte40 += pow(2,id);
-//        }
-//        id++;
-//    }
-//    while (id < 8);
-//    qInfo() << "DataByte40 = " << DataByte40;   // Da visualizzare su Interfaccia
-
-//    id=0;
-//    DataByte48=0;
-//    do
-//    {
-//        if (IntBits(t->TelemetryStatusMask).test(48 + id))
-//        {
-//            qInfo() << "id = " << id;
-//            DataByte48 += pow(2,id);
-//        }
-//        id++;
-//    }
-//    while (id < 8);
-//    qInfo() << "DataByte48 = " << DataByte48;   // Da visualizzare su Interfaccia
-
-//    id=0;
-//    DataByte56=0;
-//    do
-//    {
-//        if (IntBits(t->TelemetryStatusMask).test(56 + id))
-//        {
-//            qInfo() << "id = " << id;
-//            DataByte56 += pow(2,id);
-//        }
-//        id++;
-//    }
-//    while (id < 8);
-//    qInfo() << "DataByte56 = " << DataByte56;   // Da visualizzare su Interfaccia
-
+void HMI::showData(QVariant msg) {
+    if (msg.canConvert<mavlink_telemetry_data_pack_t>()) {
+        showDataTelemetry(msg.value<mavlink_telemetry_data_pack_t>());
+    }
+    else if (msg.canConvert<mavlink_system_status_pack_t>()) {
+        showDataSystemStatus(msg.value<mavlink_system_status_pack_t>());
+    }
+    else if (msg.canConvert<mavlink_motor_status_pack_t>()) {
+        showDataMotorStatus(msg.value<mavlink_motor_status_pack_t>());
+    }
 }
 
-void HMI::showDataSystemStatus(/*SystemStatusPack *s*/)
+void HMI::showDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry) {
+    m_TimeStamp= msg_telemetry.GNSS_Timestamp; emit TimeStampChanged();
+    m_Latitude= msg_telemetry.Latitude; emit LatitudeChanged();
+    m_Longitude=msg_telemetry.Longitude; emit LongitudeChanged();
+    m_GNSSAltitude= msg_telemetry.GNSS_Altitude; emit GNSSAltitudeChanged();
+    m_AirSpeed_UVector= msg_telemetry.Air_Speed_U; emit AirSpeed_UVectorChanged();
+    m_AirSpeed_VVector= msg_telemetry.Air_Speed_V; emit AirSpeed_VVectorChanged();
+    m_AirSpeed_WVector= msg_telemetry.Air_Speed_W; emit AirSpeed_WVectorChanged();
+    m_AirTemperature=msg_telemetry.Air_Temperature; emit AirTemperatureChanged();
+    m_AltitudeFromPayloadAltimeter= msg_telemetry.Altitude_Payload_Altimeter; emit AltitudeFromPayloadAltimeterChanged();
+    m_AltitudeFromRadarAltimeter=msg_telemetry.Altitude_Main_Altimeter; emit AltitudeFromRadarAltimeterChanged();
+    m_LinearVelocityHorizontal= msg_telemetry.Velocity_Horizontal; emit LinearVelocityHorizontalChanged();
+    m_LinearVelocityVertical= msg_telemetry.Velocity_Vertical; emit LinearVelocityVerticalChanged();
+    m_PositionAccuracy= msg_telemetry.Position_Accuracy; emit PositionAccuracyChanged();
+    m_SpeedAccuracy= msg_telemetry.Speed_Accuracy; emit SpeedAccuracyChanged();
+    m_LinearAccelerationX= msg_telemetry.Acceleration_X; emit LinearAccelerationXChanged();
+    m_LinearAccelerationY=msg_telemetry.Acceleration_Y; emit LinearAccelerationYChanged();
+    m_LinearAccelerationZ=msg_telemetry.Acceleration_Z; emit LinearAccelerationZChanged();
+    m_ECEFVectorPositionX=msg_telemetry.ECEF_Position_X; emit ECEFVectorPositionXChanged();
+    m_ECEFVectorPositionY=msg_telemetry.ECEF_Position_Y; emit ECEFVectorPositionYChanged();
+    m_ECEFVectorPositionZ=msg_telemetry.ECEF_Position_Z; emit ECEFVectorPositionZChanged();
+    m_ECEFVectorVelocityX=msg_telemetry.ECEF_Velocity_X; emit ECEFVectorVelocityXChanged();
+    m_ECEFVectorVelocityY=msg_telemetry.ECEF_Velocity_Y; emit ECEFVectorVelocityYChanged();
+    m_ECEFVectorVelocityZ=msg_telemetry.ECEF_Velocity_Z; emit ECEFVectorVelocityZChanged();
+    m_RollAngle=msg_telemetry.Roll_Angle; emit RollAngleChanged();
+    m_YawAngle=msg_telemetry.Yaw_Angle; emit PitchAngleChanged();
+    m_PitchAngle=msg_telemetry.Pitch_Angle; emit YawAngleChanged();
+    m_AngularRatePitch=msg_telemetry.Angular_Rate_Pitch; emit AngularRatePitchChanged();
+    m_AngularRateRoll=msg_telemetry.Angular_Rate_Roll; emit AngularRateRollChanged();
+    m_AngularRateYaw=msg_telemetry.Angular_Rate_Yaw; emit AngularRateYawChanged();
+    //m_Quaternion0= msg_telemetry.Quaternion_0; emit Quaternion0Changed();
+    //m_Quaternion1= msg_telemetry.Quaternion_1; emit Quaternion1Changed();
+    //m_Quaternion2= msg_telemetry.Quaternion_2; emit Quaternion2Changed();
+    //m_Quaternion3= msg_telemetry.Quaternion_3; emit Quaternion3Changed();
+    m_NumberOfGPSSatellite= msg_telemetry.Satellite_Num; emit NumberOfGPSSatelliteChanged();
+
+    /* TELEMETRY STATUS MASK */
+    std::bitset<64> bitSet(msg_telemetry.Telemetry_Status_Mask);
+    m_telemetry0 = bitSet.test(0); emit telemetry0Changed();
+    m_telemetry1 = bitSet.test(1); emit telemetry1Changed();
+    m_telemetry2 = bitSet.test(2); emit telemetry2Changed();
+    m_telemetry3 = bitSet.test(3); emit telemetry3Changed();
+    m_telemetry4 = bitSet.test(4); emit telemetry4Changed();
+    m_telemetry5 = bitSet.test(5); emit telemetry5Changed();
+    m_telemetry6 = bitSet.test(6); emit telemetry6Changed();
+    m_telemetry7 = bitSet.test(7); emit telemetry7Changed();
+    m_telemetry8 = bitSet.test(8); emit telemetry8Changed();
+    m_telemetry9 = bitSet.test(9); emit telemetry9Changed();
+    m_telemetry10 = bitSet.test(10); emit telemetry10Changed();
+    m_telemetry11 = bitSet.test(11); emit telemetry11Changed();
+    m_telemetry12 = bitSet.test(12); emit telemetry12Changed();
+    m_telemetry13 = bitSet.test(13); emit telemetry13Changed();
+    m_telemetry14 = bitSet.test(14); emit telemetry14Changed();
+    m_telemetry15 = bitSet.test(15); emit telemetry15Changed();
+    m_telemetry16 = bitSet.test(16); emit telemetry16Changed();
+    m_telemetry17 = bitSet.test(17); emit telemetry17Changed();
+    m_telemetry18 = bitSet.test(18); emit telemetry18Changed();
+    m_telemetry19 = bitSet.test(19); emit telemetry19Changed();
+    m_telemetry20 = bitSet.test(20); emit telemetry20Changed();
+    m_telemetry21 = bitSet.test(21); emit telemetry21Changed();
+    m_telemetry22 = bitSet.test(22); emit telemetry22Changed();
+    m_telemetry23 = bitSet.test(23); emit telemetry23Changed();
+    m_telemetry24 = bitSet.test(24); emit telemetry24Changed();
+    m_telemetry25 = bitSet.test(25); emit telemetry25Changed();
+    m_telemetry26 = bitSet.test(26); emit telemetry26Changed();
+    m_telemetry27 = bitSet.test(27); emit telemetry27Changed();
+    m_telemetry28 = bitSet.test(28); emit telemetry28Changed();
+    m_telemetry29 = bitSet.test(29); emit telemetry29Changed();
+    m_telemetry30 = bitSet.test(30); emit telemetry30Changed();
+    m_telemetry31 = bitSet.test(31); emit telemetry31Changed();
+
+    m_AnemCommErrorCounter = extractBits64(bitSet,32,40); emit AnemCommErrorCounterChanged();
+    m_RDAltCommErrorCounter = extractBits64(bitSet,40,48); emit RDAltCommErrorCounterChanged();
+    m_GNSSCommErrorCounter = extractBits64(bitSet,48,56); emit GNSSCommErrorCounterChanged();
+    m_PLAltCommErrorCounter = extractBits64(bitSet,56,64); emit PLAltCommErrorCounterChanged();
+}
+
+uint8_t HMI::extractBits64(const std::bitset<64> the_bitset, size_t start_bit, size_t end_bit) {
+    unsigned long mask = 1;
+    unsigned long result = 0;
+    for (size_t i = start_bit; i < end_bit; ++ i) {
+        if (the_bitset.test(i))
+           result |= mask;
+        mask <<= 1;
+    }
+    return result;
+}
+
+void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 {
-     qInfo() << "showDataSystemStatus = CALL" ;
+    qInfo() << "showDataSystemStatus = CALL" ;
 
-     /* STORAGE STATUS MASK */
+    m_FlightMode = msg_status.Flight_Mode; emit FlightModeChanged();
+    m_FlightPhase= msg_status.Flight_Phase; emit FlightPhaseChanged();
+    m_FlightPhaseExecutionTime= msg_status.Flight_Phase_Time; emit FlightPhaseExecutionTimeChanged();
+    m_TelemetryModuleStatusMask= msg_status.Telemetry_Module_Status_Mask; emit CoreModuleStatusMaskChanged();
+    m_StorageModuleStatusMask= msg_status.Storage_Module_Status_Mask; emit TelemetryModuleStatusMaskChanged();
+    m_GuidanceModuleStatusMask= msg_status.Guidance_Module_Status_Mask; emit GuidanceModuleStatusMaskChanged();
+    m_CoreModuleStatusMask= msg_status.Core_Module_Status_Mask; emit StorageModuleStatusMaskChanged();
+    m_RadioLinkModuleStatusMask= msg_status.Radio_Link_Module_Status_Mask; emit RadioLinkModuleStatusMaskChanged();
 
-     typedef std::bitset<32> IntBitsStorage;
+    printf("SYS STATUS UPDATED \n");
+    printf("FLIGHT MODE %d \n",m_FlightMode);
+    printf("FLIGHT PHASE %d \n",m_FlightPhase);
+}
 
-         /* STORAGE STATUS MASK */
 
 
-//         m_storage0 = IntBits(s->StorageModuleStatusMask).test(0);  /* BIT 0*/
 
+//    m_MotorARealPosition = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorARealPosition = " << m_MotorARealPosition;
+//    m_MotorADemandPosition = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorADemandPosition = " << m_MotorADemandPosition;
+//    m_MotorATorque = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorATorque = " << m_MotorATorque;
+//    m_MotorATemp = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorATemp = " << m_MotorATemp;
 
-//         m_storage1 = IntBits(s->StorageModuleStatusMask).test(1);  /* BIT 1*/
+//    m_MotorBRealPosition = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorBRealPosition = " << m_MotorBRealPosition;
+//    m_MotorBDemandPosition = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorBDemandPosition = " << m_MotorBDemandPosition;
+//    m_MotorBTorque = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorBTorque = " << m_MotorBTorque;
+//    m_MotorBTemp = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorBTemp = " << m_MotorBTemp;
 
+//    m_BMS1Voltage = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "BMS1Voltage = " << m_BMS1Voltage;
+//    m_BMS1Absorption = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "BMS1Absorption = " << m_BMS1Absorption;
+//    m_BMS1Temp = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "BMS1Temp = " << m_BMS1Temp;
+//    m_MotorTimestamp = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "MotorTimestamp = " << m_MotorTimestamp;
+//    m_ChargeValue = QRandomGenerator::global()->bounded(0, 99);
+//    qInfo() << "ChargeValue = " << m_ChargeValue;
 
-//         m_storage2 = IntBits(s->StorageModuleStatusMask).test(2);  /* BIT 2*/
+//    /* Motor STATUS MASK */
 
 
-//         m_storage3 = IntBits(s->StorageModuleStatusMask).test(3);  /* BIT 3*/
+//    m_motor0 = IntBits(t->MotorStatusMask).test(0);  /* BIT 0*/
 
 
-//         m_storage4 = IntBits(s->StorageModuleStatusMask).test(4);  /* BIT 4*/
+//    m_motor1 = IntBits(t->MotorStatusMask).test(1);  /* BIT 1*/
 
 
-//         m_storage5 = IntBits(s->StorageModuleStatusMask).test(5);  /* BIT 5*/
+//    m_motor2 = IntBits(t->MotorStatusMask).test(2);  /* BIT 2*/
 
 
-//         m_storage6 = IntBits(s->StorageModuleStatusMask).test(6);  /* BIT 6*/
+//    m_motor3 = IntBits(t->MotorStatusMask).test(3);  /* BIT 3*/
 
 
-//         m_storage7 = IntBits(s->StorageModuleStatusMask).test(7);  /* BIT 7*/
+//    m_motor4 = IntBits(t->MotorStatusMask).test(4);  /* BIT 4*/
 
 
-//         m_storage8 = IntBits(s->StorageModuleStatusMask).test(8);  /* BIT 8*/
+//    m_motor5 = IntBits(t->MotorStatusMask).test(5);  /* BIT 5*/
 
 
+//    m_motor6 = IntBits(t->MotorStatusMask).test(6);  /* BIT 6*/
 
 
-//         m_storage10 = IntBits(s->StorageModuleStatusMask).test(10); /* BIT 10*/
+//    m_motor7 = IntBits(t->MotorStatusMask).test(7);  /* BIT 7*/
 
 
-//         m_storage11 = IntBits(s->StorageModuleStatusMask).test(11); /* BIT 11*/
+//    m_motor8 = IntBits(t->MotorStatusMask).test(8);  /* BIT 8*/
 
 
-//         m_storage12 = IntBits(s->StorageModuleStatusMask).test(12); /* BIT 12*/
+//    m_motor9 = IntBits(t->MotorStatusMask).test(9);  /* BIT 9*/
 
 
-//         m_storage13 = IntBits(s->StorageModuleStatusMask).test(13); /* BIT 13*/
+//    m_motor10 = IntBits(t->MotorStatusMask).test(10); /* BIT 10*/
 
 
-//         m_storage14 = IntBits(s->StorageModuleStatusMask).test(14); /* BIT 14*/
+//    m_motor11 = IntBits(t->MotorStatusMask).test(11); /* BIT 11*/
 
 
-//         m_storage15 = IntBits(s->StorageModuleStatusMask).test(15); /* BIT 15*/
+//    m_motor12 = IntBits(t->MotorStatusMask).test(12); /* BIT 12*/
 
 
-//         m_storage16 = IntBits(s->StorageModuleStatusMask).test(16); /* BIT 16*/
+//    m_motor13 = IntBits(t->MotorStatusMask).test(13); /* BIT 13*/
 
 
-//         m_storage17 = IntBits(s->StorageModuleStatusMask).test(17); /* BIT 17*/
+//    m_motor14 = IntBits(t->MotorStatusMask).test(14); /* BIT 14*/
 
 
-//         m_storage18 = IntBits(s->StorageModuleStatusMask).test(18); /* BIT 18*/
+//    m_motor15 = IntBits(t->MotorStatusMask).test(15); /* BIT 15*/
 
 
-//         m_storage19 = IntBits(s->StorageModuleStatusMask).test(19); /* BIT 19*/
+//    m_motor16 = IntBits(t->MotorStatusMask).test(16); /* BIT 16*/
 
 
-//         m_storage20 = IntBits(s->StorageModuleStatusMask).test(20); /* BIT 20*/
+//    m_motor17 = IntBits(t->MotorStatusMask).test(17); /* BIT 17*/
 
 
-//         m_storage21 = IntBits(s->StorageModuleStatusMask).test(21); /* BIT 21*/
+//    m_motor18 = IntBits(t->MotorStatusMask).test(18); /* BIT 18*/
 
 
-//         m_storage22 = IntBits(s->StorageModuleStatusMask).test(22); /* BIT 22*/
+//    m_motor19 = IntBits(t->MotorStatusMask).test(19); /* BIT 19*/
 
 
-//         m_storage23 = IntBits(s->StorageModuleStatusMask).test(23); /* BIT 23*/
+//    m_motor20 = IntBits(t->MotorStatusMask).test(20); /* BIT 20*/
 
 
+//    m_motor21 = IntBits(t->MotorStatusMask).test(21); /* BIT 21*/
 
 
+//    m_motor22 = IntBits(t->MotorStatusMask).test(22); /* BIT 22*/
 
 
-     m_MotorARealPosition = QRandomGenerator::global()->bounded(0, 99);
-     qInfo() << "MotorARealPosition = " << m_MotorARealPosition;
-     m_MotorADemandPosition = QRandomGenerator::global()->bounded(0, 99);
-     qInfo() << "MotorADemandPosition = " << m_MotorADemandPosition;
-     m_MotorATorque = QRandomGenerator::global()->bounded(0, 99);
-     qInfo() << "MotorATorque = " << m_MotorATorque;
-     m_MotorATemp = QRandomGenerator::global()->bounded(0, 99);
-     qInfo() << "MotorATemp = " << m_MotorATemp;
+//    m_motor23 = IntBits(t->MotorStatusMask).test(23); /* BIT 23*/
 
-     m_MotorBRealPosition = QRandomGenerator::global()->bounded(0, 99);
-     qInfo() << "MotorBRealPosition = " << m_MotorBRealPosition;
-     m_MotorBDemandPosition = QRandomGenerator::global()->bounded(0, 99);
-     qInfo() << "MotorBDemandPosition = " << m_MotorBDemandPosition;
-     m_MotorBTorque = QRandomGenerator::global()->bounded(0, 99);
-     qInfo() << "MotorBTorque = " << m_MotorBTorque;
-     m_MotorBTemp = QRandomGenerator::global()->bounded(0, 99);
-     qInfo() << "MotorBTemp = " << m_MotorBTemp;
 
-     m_BMS1Voltage = QRandomGenerator::global()->bounded(0, 99);
-     qInfo() << "BMS1Voltage = " << m_BMS1Voltage;
-     m_BMS1Absorption = QRandomGenerator::global()->bounded(0, 99);
-     qInfo() << "BMS1Absorption = " << m_BMS1Absorption;
-     m_BMS1Temp = QRandomGenerator::global()->bounded(0, 99);
-     qInfo() << "BMS1Temp = " << m_BMS1Temp;
-     m_MotorTimestamp = QRandomGenerator::global()->bounded(0, 99);
-     qInfo() << "MotorTimestamp = " << m_MotorTimestamp;
-     m_ChargeValue = QRandomGenerator::global()->bounded(0, 99);
-     qInfo() << "ChargeValue = " << m_ChargeValue;
+//    m_motor24 = IntBits(t->MotorStatusMask).test(24); /* BIT 24*/
 
-     //    /* Motor STATUS MASK */
 
+//    m_motor25 = IntBits(t->MotorStatusMask).test(25); /* BIT 25*/
 
-     //    m_motor0 = IntBits(t->MotorStatusMask).test(0);  /* BIT 0*/
 
 
-     //    m_motor1 = IntBits(t->MotorStatusMask).test(1);  /* BIT 1*/
 
 
-     //    m_motor2 = IntBits(t->MotorStatusMask).test(2);  /* BIT 2*/
 
 
-     //    m_motor3 = IntBits(t->MotorStatusMask).test(3);  /* BIT 3*/
 
+//    /* BMS STATUS MASK */
 
-     //    m_motor4 = IntBits(t->MotorStatusMask).test(4);  /* BIT 4*/
 
+//    m_BMS0 = IntBits(t->BMSStatusMask).test(0);  /* BIT 0*/
 
-     //    m_motor5 = IntBits(t->MotorStatusMask).test(5);  /* BIT 5*/
 
+//    m_BMS1 = IntBits(t->BMSStatusMask).test(1);  /* BIT 1*/
 
-     //    m_motor6 = IntBits(t->MotorStatusMask).test(6);  /* BIT 6*/
 
+//    m_BMS2 = IntBits(t->BMSStatusMask).test(2);  /* BIT 2*/
 
-     //    m_motor7 = IntBits(t->MotorStatusMask).test(7);  /* BIT 7*/
 
+//    m_BMS3 = IntBits(t->BMSStatusMask).test(3);  /* BIT 3*/
 
-     //    m_motor8 = IntBits(t->MotorStatusMask).test(8);  /* BIT 8*/
 
+//    m_BMS4 = IntBits(t->BMSStatusMask).test(4);  /* BIT 4*/
 
-     //    m_motor9 = IntBits(t->MotorStatusMask).test(9);  /* BIT 9*/
 
+//    m_BMS5 = IntBits(t->BMSStatusMask).test(5);  /* BIT 5*/
 
-     //    m_motor10 = IntBits(t->MotorStatusMask).test(10); /* BIT 10*/
 
+//    m_BMS6 = IntBits(t->BMSStatusMask).test(6);  /* BIT 6*/
 
-     //    m_motor11 = IntBits(t->MotorStatusMask).test(11); /* BIT 11*/
 
+//    m_BMS7 = IntBits(t->BMSStatusMask).test(7);  /* BIT 7*/
 
-     //    m_motor12 = IntBits(t->MotorStatusMask).test(12); /* BIT 12*/
 
+//    m_BMS8 = IntBits(t->BMSStatusMask).test(8);  /* BIT 8*/
 
-     //    m_motor13 = IntBits(t->MotorStatusMask).test(13); /* BIT 13*/
 
+//    m_BMS9 = IntBits(t->BMSStatusMask).test(9);  /* BIT 9*/
 
-     //    m_motor14 = IntBits(t->MotorStatusMask).test(14); /* BIT 14*/
 
+//    m_BMS10 = IntBits(t->BMSStatusMask).test(10); /* BIT 10*/
 
-     //    m_motor15 = IntBits(t->MotorStatusMask).test(15); /* BIT 15*/
 
+//    m_BMS11 = IntBits(t->BMSStatusMask).test(11); /* BIT 11*/
 
-     //    m_motor16 = IntBits(t->MotorStatusMask).test(16); /* BIT 16*/
 
+//    m_BMS12 = IntBits(t->BMSStatusMask).test(12); /* BIT 12*/
 
-     //    m_motor17 = IntBits(t->MotorStatusMask).test(17); /* BIT 17*/
 
+//    m_BMS13 = IntBits(t->BMSStatusMask).test(13); /* BIT 13*/
 
-     //    m_motor18 = IntBits(t->MotorStatusMask).test(18); /* BIT 18*/
 
+//    m_BMS14 = IntBits(t->BMSStatusMask).test(14); /* BIT 14*/
 
-     //    m_motor19 = IntBits(t->MotorStatusMask).test(19); /* BIT 19*/
 
+//    m_BMS15 = IntBits(t->BMSStatusMask).test(15); /* BIT 15*/
 
-     //    m_motor20 = IntBits(t->MotorStatusMask).test(20); /* BIT 20*/
 
+//    m_BMS16 = IntBits(t->BMSStatusMask).test(16); /* BIT 16*/
 
-     //    m_motor21 = IntBits(t->MotorStatusMask).test(21); /* BIT 21*/
 
+//    m_BMS17 = IntBits(t->BMSStatusMask).test(17); /* BIT 17*/
 
-     //    m_motor22 = IntBits(t->MotorStatusMask).test(22); /* BIT 22*/
 
+//    m_BMS18 = IntBits(t->BMSStatusMask).test(18); /* BIT 18*/
 
-     //    m_motor23 = IntBits(t->MotorStatusMask).test(23); /* BIT 23*/
 
+//    m_BMS19 = IntBits(t->BMSStatusMask).test(19); /* BIT 19*/
 
-     //    m_motor24 = IntBits(t->MotorStatusMask).test(24); /* BIT 24*/
 
+//    m_BMS20 = IntBits(t->BMSStatusMask).test(20); /* BIT 20*/
 
-     //    m_motor25 = IntBits(t->MotorStatusMask).test(25); /* BIT 25*/
 
+//    m_BMS21 = IntBits(t->BMSStatusMask).test(21); /* BIT 21*/
 
 
+//    m_BMS22 = IntBits(t->BMSStatusMask).test(22); /* BIT 22*/
 
 
+//    m_BMS23 = IntBits(t->BMSStatusMask).test(23); /* BIT 23*/
 
 
+//    m_BMS24 = IntBits(t->BMSStatusMask).test(24); /* BIT 24*/
 
-     //    /* BMS STATUS MASK */
 
+//    m_BMS25 = IntBits(t->BMSStatusMask).test(25); /* BIT 25*/
 
-     //    m_BMS0 = IntBits(t->BMSStatusMask).test(0);  /* BIT 0*/
 
+//    m_BMS26 = IntBits(t->BMSStatusMask).test(26); /* BIT 26*/
 
-     //    m_BMS1 = IntBits(t->BMSStatusMask).test(1);  /* BIT 1*/
 
+//    m_BMS27 = IntBits(t->BMSStatusMask).test(27); /* BIT 27*/
 
-     //    m_BMS2 = IntBits(t->BMSStatusMask).test(2);  /* BIT 2*/
 
+//    m_BMS28 = IntBits(t->BMSStatusMask).test(28); /* BIT 28*/
 
-     //    m_BMS3 = IntBits(t->BMSStatusMask).test(3);  /* BIT 3*/
 
+//    m_BMS29 = IntBits(t->BMSStatusMask).test(29); /* BIT 29*/
 
-     //    m_BMS4 = IntBits(t->BMSStatusMask).test(4);  /* BIT 4*/
 
+//    m_BMS30 = IntBits(t->BMSStatusMask).test(30); /* BIT 30*/
 
-     //    m_BMS5 = IntBits(t->BMSStatusMask).test(5);  /* BIT 5*/
 
+//    m_BMS31 = IntBits(t->BMSStatusMask).test(31); /* BIT 31*/
 
-     //    m_BMS6 = IntBits(t->BMSStatusMask).test(6);  /* BIT 6*/
 
-
-     //    m_BMS7 = IntBits(t->BMSStatusMask).test(7);  /* BIT 7*/
-
-
-     //    m_BMS8 = IntBits(t->BMSStatusMask).test(8);  /* BIT 8*/
-
-
-     //    m_BMS9 = IntBits(t->BMSStatusMask).test(9);  /* BIT 9*/
-
-
-     //    m_BMS10 = IntBits(t->BMSStatusMask).test(10); /* BIT 10*/
-
-
-     //    m_BMS11 = IntBits(t->BMSStatusMask).test(11); /* BIT 11*/
-
-
-     //    m_BMS12 = IntBits(t->BMSStatusMask).test(12); /* BIT 12*/
-
-
-     //    m_BMS13 = IntBits(t->BMSStatusMask).test(13); /* BIT 13*/
-
-
-     //    m_BMS14 = IntBits(t->BMSStatusMask).test(14); /* BIT 14*/
-
-
-     //    m_BMS15 = IntBits(t->BMSStatusMask).test(15); /* BIT 15*/
-
-
-     //    m_BMS16 = IntBits(t->BMSStatusMask).test(16); /* BIT 16*/
-
-
-     //    m_BMS17 = IntBits(t->BMSStatusMask).test(17); /* BIT 17*/
-
-
-     //    m_BMS18 = IntBits(t->BMSStatusMask).test(18); /* BIT 18*/
-
-
-     //    m_BMS19 = IntBits(t->BMSStatusMask).test(19); /* BIT 19*/
-
-
-     //    m_BMS20 = IntBits(t->BMSStatusMask).test(20); /* BIT 20*/
-
-
-     //    m_BMS21 = IntBits(t->BMSStatusMask).test(21); /* BIT 21*/
-
-
-     //    m_BMS22 = IntBits(t->BMSStatusMask).test(22); /* BIT 22*/
-
-
-     //    m_BMS23 = IntBits(t->BMSStatusMask).test(23); /* BIT 23*/
-
-
-     //    m_BMS24 = IntBits(t->BMSStatusMask).test(24); /* BIT 24*/
-
-
-     //    m_BMS25 = IntBits(t->BMSStatusMask).test(25); /* BIT 25*/
-
-
-     //    m_BMS26 = IntBits(t->BMSStatusMask).test(26); /* BIT 26*/
-
-
-     //    m_BMS27 = IntBits(t->BMSStatusMask).test(27); /* BIT 27*/
-
-
-     //    m_BMS28 = IntBits(t->BMSStatusMask).test(28); /* BIT 28*/
-
-
-     //    m_BMS29 = IntBits(t->BMSStatusMask).test(29); /* BIT 29*/
-
-
-     //    m_BMS30 = IntBits(t->BMSStatusMask).test(30); /* BIT 30*/
-
-
-     //    m_BMS31 = IntBits(t->BMSStatusMask).test(31); /* BIT 31*/
-
-
-     /* RADIOLINK STATUS MASK */
+/* RADIOLINK STATUS MASK */
 
 //     typedef std::bitset<32> IntBitsRadioLink;
 //     bool is_setRadioLink0,is_setRadioLink1,is_setRadioLink2,is_setRadioLink3/*,is_setRadioLink4,is_setRadioLink5*/;
@@ -640,4 +388,29 @@ void HMI::showDataSystemStatus(/*SystemStatusPack *s*/)
 
 //     is_setRadioLink24  = IntBitsRadioLink(s->RadioLinkModuleStatusMask).test(24);  /* BIT 9*/
 //     if (is_setRadioLink24)  { /*accensione LED rosso*/ }
+//}
+
+void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
+{
+    m_MotorARealPosition = msg_status.Motor_A_Real_Position;emit MotorADemandPositionChanged();
+    m_MotorADemandPosition= msg_status.Motor_A_Demand_Position;emit MotorAFaultsMaskChanged();
+    m_MotorATemp=msg_status.Motor_A_Temperature;emit MotorARealPositionChanged();
+    m_MotorATorque= msg_status.Motor_A_Torque;emit MotorATempChanged();
+    m_MotorAFaultsMask=msg_status.Motor_A_Faults_Mask;emit MotorATorqueChanged();
+
+    m_MotorBRealPosition = msg_status.Motor_B_Real_Position;emit MotorBDemandPositionChanged();
+    m_MotorBDemandPosition= msg_status.Motor_B_Demand_Position;emit MotorBFaultsMaskChanged();
+    m_MotorBTemp=msg_status.Motor_B_Temperature;emit MotorBRealPositionChanged();
+    m_MotorBTorque= msg_status.Motor_B_Torque;emit MotorBTempChanged();
+    m_MotorBFaultsMask=msg_status.Motor_B_Faults_Mask;emit MotorBTorqueChanged();
+
+    m_BMSVoltage= msg_status.BMS_Voltage;emit BMSVoltageChanged();
+    m_BMSAbsorption=msg_status.BMS_Absorption;emit BMSAbsorptionChanged();
+    m_BMSTemp= msg_status.BMS_Temperature;emit BMSTempChanged();
+    m_BMSFaultsMask= msg_status.BMS_Faults_Mask;emit BMSFaultsMaskChanged();
+
+    m_MotorControlStatusMask= msg_status.Motor_Control_Status_Mask;emit MotorControlStatusMaskChanged();
+
+    printf("MOTOR STATUS UPDATED \n");
+    printf("BMS VOLTAGE %d \n",m_BMSVoltage);
 }
