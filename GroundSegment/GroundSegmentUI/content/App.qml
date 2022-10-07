@@ -230,21 +230,16 @@ Window {
         fsParams.txtMotorATorque: hmi.MotorATorque.toFixed(2)
         fsParams.txtMotorATemp: hmi.MotorATemp.toFixed(2)
 
-
         fsParams.txtMotorBRealPosition: hmi.MotorBRealPosition.toFixed(3)
         fsParams.txtMotorBDemandPosition: hmi.MotorBDemandPosition.toFixed(3)
         fsParams.txtMotorBTorque: hmi.MotorBTorque.toFixed(2)
         fsParams.txtMotorBTemp: hmi.MotorBTemp.toFixed(2)
-
 
         fsParams.txtBMS1Voltage: hmi.BMSVoltage.toFixed(2)
         fsParams.txtBMS1Absorption: hmi.BMSAbsorption.toFixed(2)
         fsParams.txtBMS1Temp: hmi.BMSTemp.toFixed(2)
         fsParams.txtMotorTimestamp: timestampToUTCDate(hmi.MotorTimestamp)
         fsParams.txtChargeValue: hmi.ChargeValue
-
-
-
 
         fsParams.telemetryLight0.up: hmi.telemetry0
         fsParams.telemetryLight31.up: hmi.telemetry31
