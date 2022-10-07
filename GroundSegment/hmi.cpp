@@ -55,10 +55,10 @@ void HMI::showDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry) {
     m_AngularRatePitch=msg_telemetry.Angular_Rate_Pitch; emit AngularRatePitchChanged();
     m_AngularRateRoll=msg_telemetry.Angular_Rate_Roll; emit AngularRateRollChanged();
     m_AngularRateYaw=msg_telemetry.Angular_Rate_Yaw; emit AngularRateYawChanged();
-    m_Quaternion0= msg_telemetry.Quaternion_0; emit Quaternion0Changed();
-    m_Quaternion1= msg_telemetry.Quaternion_1; emit Quaternion1Changed();
-    m_Quaternion2= msg_telemetry.Quaternion_2; emit Quaternion2Changed();
-    m_Quaternion3= msg_telemetry.Quaternion_3; emit Quaternion3Changed();
+    //m_Quaternion0= msg_telemetry.Quaternion_0; emit Quaternion0Changed();
+    //m_Quaternion1= msg_telemetry.Quaternion_1; emit Quaternion1Changed();
+    //m_Quaternion2= msg_telemetry.Quaternion_2; emit Quaternion2Changed();
+    //m_Quaternion3= msg_telemetry.Quaternion_3; emit Quaternion3Changed();
     //m_NumberOfGPSSatellite= msg_telemetry.Satellite_Num; emit NumberOfGPSSatelliteChanged();
 
     /* TELEMETRY STATUS MASK */

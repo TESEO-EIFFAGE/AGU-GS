@@ -259,10 +259,10 @@ signals:
     void AngularRateRollChanged();
     void AngularRatePitchChanged();
     void AngularRateYawChanged();
-    void Quaternion0Changed();
-    void Quaternion1Changed();
-    void Quaternion2Changed();
-    void Quaternion3Changed();
+//    void Quaternion0Changed();
+//    void Quaternion1Changed();
+//    void Quaternion2Changed();
+//    void Quaternion3Changed();
     void NumberOfGPSSatelliteChanged();
 
     void telemetry0Changed();
