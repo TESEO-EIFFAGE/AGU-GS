@@ -78,6 +78,7 @@ Rectangle {
         anchors.topMargin: 24
         height: sourceSize.height / 4
         width: sourceSize.width / 4
+        visible: parent.width < 1100 ? false : true
         source: "images/Teseo_01_colour_RGB_LR.jpg"
         fillMode: Image.PreserveAspectFit
     }
@@ -88,6 +89,7 @@ Rectangle {
         anchors.topMargin: 16
         height: sourceSize.height / 3
         width: sourceSize.width / 3
+        visible: parent.width < 1200 ? false : true
         source: "images/Thales_Alenia_Space_logo.png"
         fillMode: Image.PreserveAspectFit
     }
