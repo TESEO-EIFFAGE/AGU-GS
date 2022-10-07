@@ -59,7 +59,7 @@ void HMI::showDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry) {
     //m_Quaternion1= msg_telemetry.Quaternion_1; emit Quaternion1Changed();
     //m_Quaternion2= msg_telemetry.Quaternion_2; emit Quaternion2Changed();
     //m_Quaternion3= msg_telemetry.Quaternion_3; emit Quaternion3Changed();
-    //m_NumberOfGPSSatellite= msg_telemetry.Satellite_Num; emit NumberOfGPSSatelliteChanged();
+    m_NumberOfGPSSatellite= msg_telemetry.Satellite_Num; emit NumberOfGPSSatelliteChanged();
 
     /* TELEMETRY STATUS MASK */
     std::bitset<64> bitSet(msg_telemetry.Telemetry_Status_Mask);
