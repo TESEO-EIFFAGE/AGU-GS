@@ -24,3 +24,6 @@ SOURCES += \
     $$PWD/links/abstract_link.cpp \
     $$PWD/links/serial_link.cpp \
     $$PWD/links/udp_link.cpp
+
+OTHER_FILES += \
+    $$PWD/../3dparty/mavlink_v2/message_definitions/AGU_MAVLINK.xml
