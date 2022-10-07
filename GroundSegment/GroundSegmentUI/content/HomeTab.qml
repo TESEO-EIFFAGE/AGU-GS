@@ -27,14 +27,17 @@ Rectangle {
     property alias coreLight1: coreLight1
     property alias coreLight0: coreLight0
 
-    Grid {
-        anchors.fill:parent
+    Flow {
+        width:parent.width
+        height: childrenRect.height
+        //anchors.fill:parent
         id: gridStorage
-        columnSpacing: 16
-        rowSpacing: 12
+        spacing: 32
+        //columnSpacing: 24
+        //rowSpacing: 12
 
-        columns: 6
-        rows: 1
+        //columns: 6
+        //rows: 1
         Column {
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             //Layout.alignment: Qt.AlignRight
@@ -75,21 +78,21 @@ Rectangle {
         ParamRow {
             id: txtLatitude
             text: "Latitude (°)"
-            span: 5
+            span: 7
             ToolTip.text: text
             ToolTip.visible: pressed
         }
 
         ParamRow {
             text: "Longitude (°)"
-            span: 5
+            span: 7
             id: txtLongitude
             ToolTip.text: text
             ToolTip.visible: pressed
         }
         ParamRow {
             text: "Altitude (m)"
-            span: 5
+            span: 7
             id: txtGNSSAltitude
             ToolTip.text: text
             ToolTip.visible: pressed

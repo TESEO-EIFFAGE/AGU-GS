@@ -33,6 +33,7 @@ Row {
     ParamValue {
         id: paramValue
         anchors.verticalCenter: parent.verticalCenter
+        width: 60
     }
 }
 

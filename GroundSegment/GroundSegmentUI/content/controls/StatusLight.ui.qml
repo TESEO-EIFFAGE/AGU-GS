@@ -6,6 +6,7 @@ Row {
     property bool up: false
     property alias text: text1.text
     spacing: 8
+    width: 200
 
     Rectangle {
         id: light

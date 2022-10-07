@@ -30,28 +30,45 @@ Rectangle {
 
     property alias customCursor: map.customCursor
     property alias map: map
-    GSParamsViewer {
-        id: gsParams
-        width: parent.width * 3.6 / 12
-        height: parent.height * 12 / 30
-        color: "#e9f2de"
-        anchors.left: parent.left
-        anchors.top: parent.top
-    }
-    MapViewer {
-        id: map
-        //color: "lightblue"
-        width: parent.width * 3.6 / 12
-        height: parent.height * 18 / 30
-        anchors.top: gsParams.bottom
-        anchors.left: parent.left
-    }
+    RowLayout {
+        anchors.fill: parent
+        spacing: 0
+        ColumnLayout {
+            Layout.preferredWidth: 550
+            Layout.minimumWidth: 550
+            Layout.maximumWidth: 550
+            Layout.fillHeight: true
+            spacing: 0
+            GSParamsViewer {
+                id: gsParams
+                Layout.minimumHeight: 350 //parent.height * 12 / 30
 
-    FSParamsViewer {
-        id: fsParams
-        width: parent.width * 8.4 / 12
-        height: parent.height
-        anchors.left: map.right
+                //Layout.minimumHeight: parent.height * 12 / 30
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                color: "#e9f2de"
+            }
+            MapViewer {
+                id: map
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.maximumHeight: 550 //parent.height * 18 / 30
+                Layout.preferredHeight: 550 //(parent.height * 18 / 30) - 1
+                //width: 550 //parent.width * 3.6 / 12
+                //height: parent.height * 18 / 30
+                //        anchors.top: gsParams.bottom
+                //        anchors.left: parent.left
+            }
+        }
+
+        FSParamsViewer {
+            id: fsParams
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            //width: parent.width -map.width//* 8.4 / 12
+            //height: parent.height
+            //anchors.left: parent.right
+        }
     }
     Image {
         id: teseoLogo
@@ -61,6 +78,7 @@ Rectangle {
         anchors.topMargin: 24
         height: sourceSize.height / 4
         width: sourceSize.width / 4
+        visible: parent.width < 1100 ? false : true
         source: "images/Teseo_01_colour_RGB_LR.jpg"
         fillMode: Image.PreserveAspectFit
     }
@@ -71,6 +89,7 @@ Rectangle {
         anchors.topMargin: 16
         height: sourceSize.height / 3
         width: sourceSize.width / 3
+        visible: parent.width < 1200 ? false : true
         source: "images/Thales_Alenia_Space_logo.png"
         fillMode: Image.PreserveAspectFit
     }

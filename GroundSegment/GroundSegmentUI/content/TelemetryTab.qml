@@ -101,15 +101,15 @@ Column{
 
             }
         }
-    GridLayout {
+    Flow {
         //anchors.fill:parent
         width:parent.width
         height: childrenRect.height
 
-        rowSpacing: 24 //32
-        columnSpacing: 40 //48
-        columns: 4
-        rows: 2
+spacing: 24
+//        columnSpacing: 24 //48
+//        columns: 4
+//        rows: 2
         //48
         Column {
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
@@ -123,21 +123,21 @@ Column{
             ParamRow {
                 id: txtLatitude
                 text: "Latitude"
-                span: 4
+                span: 6
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }
 
             ParamRow {
                 text: "Longitude"
-                span: 4
+                span: 6
                 id: txtLongitude
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }
             ParamRow {
                 text: "Altitude"
-                span: 4
+                span: 6
                 id: txtGNSSAltitude
                 ToolTip.text: text
                 ToolTip.visible: pressed
@@ -353,12 +353,14 @@ Column{
         color: "#d9d9d9"
 
     }
-    RowLayout{
+    Flow{
         spacing: 32
+        width: parent.width
+        height: childrenRect.height
     Column {
         spacing: 8
         height: childrenRect.height
-        width: parent.width
+        width: childrenRect.width
         Row {
             spacing: 8
             Image {
@@ -501,13 +503,16 @@ Rectangle {
 
         }
     }
-    Grid {
+    Flow {
         id: grid
-        columnSpacing: 16
-        rowSpacing: 12
-        flow: Grid.TopToBottom
-        columns: 6
-        rows: 7
+        width:parent.width
+        height:childrenRect.height
+        spacing:16
+        //columnSpacing: 16
+        //rowSpacing: 12
+        //flow: Grid.TopToBottom
+        //columns: 6
+        //rows: 7
         StatusLight {
             id: telemetryLight0
             text: "Anemom NOT present"
@@ -655,18 +660,7 @@ Rectangle {
             id: telemetryLight31
             text: "GNSS_fix done"
         }
-        Item {
-            height: 1
-            width: 1
-        }
-        Item {
-            height: 1
-            width: 1
-        }
-        Item {
-            height: 1
-            width: 1
-        }
+
 
         ParamRow {
             id: txtAnemCommErrorCounter
@@ -720,6 +714,6 @@ D{i:59}D{i:55}D{i:62}D{i:63}D{i:61}D{i:64}D{i:60}D{i:46}D{i:65}D{i:67}D{i:68}D{i
 D{i:70}D{i:71}D{i:72}D{i:73}D{i:74}D{i:75}D{i:76}D{i:77}D{i:78}D{i:79}D{i:80}D{i:81}
 D{i:82}D{i:83}D{i:84}D{i:85}D{i:86}D{i:87}D{i:88}D{i:89}D{i:90}D{i:91}D{i:92}D{i:93}
 D{i:94}D{i:95}D{i:96}D{i:97}D{i:98}D{i:99}D{i:100}D{i:101}D{i:102}D{i:103}D{i:104}
-D{i:105}D{i:106}D{i:107}D{i:108}D{i:69}D{i:1}
+D{i:105}D{i:69}D{i:1}
 }
 ##^##*/

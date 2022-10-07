@@ -7,6 +7,7 @@ Label {
     text: "[val]"
     font.pixelSize: 12
     font.family: "Roboto Mono"
+    horizontalAlignment: Text.AlignRight
     //font.family: "JetBrains Mono"
     styleColor: "#ffffff"
 }

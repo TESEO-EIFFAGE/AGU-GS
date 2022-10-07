@@ -17,9 +17,9 @@ Rectangle {
     property alias txtLongitudeGPSData: txtLongitudeGPSData.value
     property alias txtAltitudeGPSData: txtAltitudeGPSData.value
     property alias txtHasFix: txtHasFix.value
-    property alias txtHourGPSData: txtHourGPSData.value
-    property alias txtminuteGPSData: txtminuteGPSData.value
-    property alias txtsecondGPSData: txtsecondGPSData.value
+    property alias txtHourGPSData: txtHourGPSData.text
+    property alias txtminuteGPSData: txtminuteGPSData.text
+    property alias txtsecondGPSData: txtsecondGPSData.text
 
     width: Constants.width / 2 //750 //C
     height: Constants.height * 1 / 3 //667 //
@@ -50,7 +50,7 @@ Rectangle {
 
             ParamRow {
                 text: "TimeStamp"
-                span: 4
+                span: 14
                 id: txtTimeStamp
             }
         }
@@ -82,51 +82,85 @@ Rectangle {
 
                 ParamRow {
                     text: "Latitude"
-                    span: 4
+                    span: 7
                     id: txtLatitudeGPSData
                     ToolTip.text: text
                     ToolTip.visible: pressed
                 }
                 ParamRow {
                     text: "Longitude"
-                    span: 4
+                    span: 7
                     id: txtLongitudeGPSData
                     ToolTip.text: text
                     ToolTip.visible: pressed
                 }
                 ParamRow {
                     text: "Altitude"
-                    span: 4
+                    span: 7
                     id: txtAltitudeGPSData
                     ToolTip.text: text
                     ToolTip.visible: pressed
                 }
                 ParamRow {
                     text: "HasFix"
-                    span: 4
+                    span: 7
                     id: txtHasFix
                     ToolTip.text: text
                     ToolTip.visible: pressed
                 }
-
-                Row {
-                    spacing: 4
-                    ParamRow {
+                Item {
+                    height: childrenRect.height
+                    width: parent.width
+                    Label {
                         text: "Time"
-                        span: 4
-                        id: txtHourGPSData
+                        font.pixelSize: 12
+                        color: "#000000"
+
+                        font.styleName: "Regular"
+                        font.family: "Roboto"
+                        horizontalAlignment: Text.AlignRight
+
+                        anchors.left: parent.left
                         ToolTip.text: text
                         ToolTip.visible: pressed
                     }
-                    ParamRow {
-                        text: ":"
-                        span: 0.5
-                        id: txtminuteGPSData
-                    }
-                    ParamRow {
-                        text: ":"
-                        span: 0.5
-                        id: txtsecondGPSData
+                    Row {
+                        spacing: 2
+                        anchors.right: parent.right
+                        anchors.rightMargin: 12
+                        Label {
+                            text: "[val]"
+                            font.pixelSize: 12
+                            font.family: "Roboto Mono"
+                            horizontalAlignment: Text.AlignRight
+                            styleColor: "#ffffff"
+                            id: txtHourGPSData
+
+                        }
+                        Label {
+
+                            text: ":"
+                        }
+                        Label {
+                            font.pixelSize: 12
+                            font.family: "Roboto Mono"
+                            horizontalAlignment: Text.AlignRight
+                            styleColor: "#ffffff"
+                            text: "[val]"
+                            id: txtminuteGPSData
+                        }
+                        Label {
+
+                            text: ":"
+                        }
+                        Label {
+                            font.pixelSize: 12
+                            font.family: "Roboto Mono"
+                            horizontalAlignment: Text.AlignRight
+                            styleColor: "#ffffff"
+                            text: "[val]"
+                            id: txtsecondGPSData
+                        }
                     }
                 }
                 Row {
@@ -259,7 +293,7 @@ Rectangle {
                 ParamRow {
                     id: txtRadioLinkErrorCounter
                     text: "Error counter"
-                    span: 4
+                    span: 6
                     ToolTip.text: text
                     ToolTip.visible: pressed
                 }

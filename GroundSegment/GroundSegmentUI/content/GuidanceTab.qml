@@ -9,14 +9,35 @@ Rectangle {
 
     property bool lit
 
-    Grid {
-        anchors.fill:parent
-        id: gridStorage
-        columnSpacing: 16
-        rowSpacing: 12
-        flow: Grid.TopToBottom
-        columns: 4
-        rows: 6
+
+    property alias storageLight23: storageLight23
+    property alias storageLight22: storageLight22
+    property alias storageLight21: storageLight21
+    property alias storageLight20: storageLight20
+    property alias storageLight19: storageLight19
+    property alias storageLight18: storageLight18
+    property alias storageLight17: storageLight17
+    property alias storageLight16: storageLight16
+    property alias storageLight15: storageLight15
+    property alias storageLight14: storageLight14
+    property alias storageLight13: storageLight13
+    property alias storageLight12: storageLight12
+    property alias storageLight11: storageLight11
+    property alias storageLight10: storageLight10
+    property alias storageLight8: storageLight8
+    property alias storageLight7: storageLight7
+    property alias storageLight6: storageLight6
+    property alias storageLight5: storageLight5
+    property alias storageLight4: storageLight4
+    property alias storageLight3: storageLight3
+    property alias storageLight2: storageLight2
+    property alias storageLight1: storageLight1
+    property alias storageLight0: storageLight0
+    Flow {
+        width:parent.width
+        height: childrenRect.height
+        id: gridGuidance
+spacing: 16
 
 
     }
