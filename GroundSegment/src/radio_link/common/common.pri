@@ -13,7 +13,9 @@ HEADERS += \
     $$PWD/handlers/abstract_handler.h \
     $$PWD/links/abstract_link.h \
     $$PWD/links/serial_link.h \
-    $$PWD/links/udp_link.h
+    $$PWD/links/udp_link.h \
+    $$PWD/../3dparty/mavlink_v2/*.h \
+    $$PWD/../3dparty/mavlink_v2/AGU_MAVLINK/*.h
 
 SOURCES += \
     $$PWD/abstract_communicator_factory.cpp \
