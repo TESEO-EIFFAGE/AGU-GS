@@ -10,6 +10,9 @@ class HMI : public QObject
     Q_OBJECT
 public:
     explicit HMI(QObject *parent = nullptr);
+
+    /* TELEMETRY */
+
     Q_PROPERTY(quint64 TimeStamp MEMBER m_TimeStamp NOTIFY TimeStampChanged)
     Q_PROPERTY(quint64 TimeStampRIO MEMBER m_TimeStampRIO NOTIFY TimeStampRIOChanged)
     Q_PROPERTY(qint32 Latitude MEMBER m_Latitude NOTIFY LatitudeChanged)
@@ -40,53 +43,15 @@ public:
     Q_PROPERTY(qint16 AngularRateRoll MEMBER m_AngularRateRoll NOTIFY AngularRateRollChanged)
     Q_PROPERTY(qint16 AngularRatePitch MEMBER m_AngularRatePitch NOTIFY AngularRatePitchChanged)
     Q_PROPERTY(qint16 AngularRateYaw MEMBER m_AngularRateYaw NOTIFY AngularRateYawChanged)
-    Q_PROPERTY(double Quaternion0 MEMBER m_Quaternion0 NOTIFY Quaternion0Changed)
-    Q_PROPERTY(double Quaternion1 MEMBER m_Quaternion1 NOTIFY Quaternion1Changed)
-    Q_PROPERTY(double Quaternion2 MEMBER m_Quaternion2 NOTIFY Quaternion2Changed)
-    Q_PROPERTY(double Quaternion3 MEMBER m_Quaternion3 NOTIFY Quaternion3Changed)
-    Q_PROPERTY(qint8 NumberOfGPSSatellite MEMBER m_NumberOfGPSSatellite NOTIFY NumberOfGPSSatelliteChanged)
-
-    Q_PROPERTY(int GSRLErrorCounter MEMBER m_GSRLErrorCounter NOTIFY GSRLErrorCounterChanged)
-    Q_PROPERTY(int FSRLErrorCounter MEMBER m_FSRLErrorCounter NOTIFY FSRLErrorCounterChanged)
-
-    Q_PROPERTY(int RLHeartbeatCounter MEMBER m_RLHeartbeatCounter NOTIFY RLHeartbeatCounterChanged)
-
+    //    Q_PROPERTY(double Quaternion0 MEMBER m_Quaternion0 NOTIFY Quaternion0Changed)
+    //    Q_PROPERTY(double Quaternion1 MEMBER m_Quaternion1 NOTIFY Quaternion1Changed)
+    //    Q_PROPERTY(double Quaternion2 MEMBER m_Quaternion2 NOTIFY Quaternion2Changed)
+    //    Q_PROPERTY(double Quaternion3 MEMBER m_Quaternion3 NOTIFY Quaternion3Changed)
+    Q_PROPERTY(quint8 NumberOfGPSSatellite MEMBER m_NumberOfGPSSatellite NOTIFY NumberOfGPSSatelliteChanged)
     Q_PROPERTY(quint8 AnemCommErrorCounter MEMBER m_AnemCommErrorCounter NOTIFY AnemCommErrorCounterChanged)
     Q_PROPERTY(quint8 RDAltCommErrorCounter MEMBER m_RDAltCommErrorCounter NOTIFY RDAltCommErrorCounterChanged)
     Q_PROPERTY(quint8 GNSSCommErrorCounter MEMBER m_GNSSCommErrorCounter NOTIFY GNSSCommErrorCounterChanged)
     Q_PROPERTY(quint8 PLAltCommErrorCounter MEMBER m_PLAltCommErrorCounter NOTIFY PLAltCommErrorCounterChanged)
-
-    Q_PROPERTY(quint32 MotorARealPosition MEMBER m_MotorARealPosition NOTIFY MotorARealPositionChanged)
-    Q_PROPERTY(quint32 MotorADemandPosition MEMBER m_MotorADemandPosition NOTIFY MotorADemandPositionChanged)
-    Q_PROPERTY(quint32 MotorATorque MEMBER m_MotorATorque NOTIFY MotorATorqueChanged)
-    Q_PROPERTY(quint16 MotorATemp MEMBER m_MotorATemp NOTIFY MotorATempChanged)
-
-    Q_PROPERTY(quint32 MotorBRealPosition MEMBER m_MotorBRealPosition NOTIFY MotorBRealPositionChanged)
-    Q_PROPERTY(quint32 MotorBDemandPosition MEMBER m_MotorBDemandPosition NOTIFY MotorBDemandPositionChanged)
-    Q_PROPERTY(quint32 MotorBTorque MEMBER m_MotorBTorque NOTIFY MotorBTorqueChanged)
-    Q_PROPERTY(quint16 MotorBTemp MEMBER m_MotorBTemp NOTIFY MotorBTempChanged)
-
-    Q_PROPERTY(quint16 BMSVoltage MEMBER m_BMSVoltage NOTIFY BMSVoltageChanged)
-    Q_PROPERTY(quint16 BMSAbsorption MEMBER m_BMSAbsorption NOTIFY BMSAbsorptionChanged)
-    Q_PROPERTY(quint16 BMSTemp MEMBER m_BMSTemp NOTIFY BMSTempChanged)
-
-    Q_PROPERTY(int MotorControlStatusMask MEMBER m_MotorControlStatusMask NOTIFY MotorControlStatusMaskChanged)
-    Q_PROPERTY(int MotorAFaultsMask MEMBER m_MotorAFaultsMask NOTIFY MotorAFaultsMaskChanged)
-    Q_PROPERTY(int MotorBFaultsMask MEMBER m_MotorBFaultsMask NOTIFY MotorBFaultsMaskChanged)
-    Q_PROPERTY(int BMSFaultsMask MEMBER m_BMSFaultsMask NOTIFY BMSFaultsMaskChanged)
-
-    Q_PROPERTY(int MotorTimestamp MEMBER m_MotorTimestamp NOTIFY MotorTimestampChanged)
-    Q_PROPERTY(int ChargeValue MEMBER m_ChargeValue NOTIFY ChargeValueChanged)
-
-    Q_PROPERTY(int FlightMode MEMBER m_FlightMode NOTIFY FlightModeChanged)
-    Q_PROPERTY(int FlightPhase MEMBER m_FlightPhase NOTIFY FlightPhaseChanged)
-    Q_PROPERTY(qint32 FlightPhaseExecutionTime MEMBER m_FlightPhaseExecutionTime NOTIFY FlightPhaseExecutionTimeChanged)
-    Q_PROPERTY(int CoreModuleStatusMask MEMBER m_CoreModuleStatusMask NOTIFY CoreModuleStatusMaskChanged)
-    Q_PROPERTY(int TelemetryModuleStatusMask MEMBER m_TelemetryModuleStatusMask NOTIFY TelemetryModuleStatusMaskChanged)
-    Q_PROPERTY(int GuidanceModuleStatusMask MEMBER m_GuidanceModuleStatusMask NOTIFY GuidanceModuleStatusMaskChanged)
-    Q_PROPERTY(int StorageModuleStatusMask MEMBER m_StorageModuleStatusMask NOTIFY StorageModuleStatusMaskChanged)
-    Q_PROPERTY(int RadioLinkModuleStatusMask MEMBER m_RadioLinkModuleStatusMask NOTIFY RadioLinkModuleStatusMaskChanged)
-
     Q_PROPERTY(bool telemetry0 MEMBER m_telemetry0 NOTIFY telemetry0Changed)
     Q_PROPERTY(bool telemetry1 MEMBER m_telemetry1 NOTIFY telemetry1Changed)
     Q_PROPERTY(bool telemetry2 MEMBER m_telemetry2 NOTIFY telemetry2Changed)
@@ -120,29 +85,27 @@ public:
     Q_PROPERTY(bool telemetry30 MEMBER m_telemetry30 NOTIFY telemetry30Changed)
     Q_PROPERTY(bool telemetry31 MEMBER m_telemetry31 NOTIFY telemetry31Changed)
 
-    Q_PROPERTY(bool storage0 MEMBER m_storage0 NOTIFY storage0Changed)
-    Q_PROPERTY(bool storage1 MEMBER m_storage1 NOTIFY storage1Changed)
-    Q_PROPERTY(bool storage2 MEMBER m_storage2 NOTIFY storage2Changed)
-    Q_PROPERTY(bool storage3 MEMBER m_storage3 NOTIFY storage3Changed)
-    Q_PROPERTY(bool storage4 MEMBER m_storage4 NOTIFY storage4Changed)
-    Q_PROPERTY(bool storage5 MEMBER m_storage5 NOTIFY storage5Changed)
-    Q_PROPERTY(bool storage6 MEMBER m_storage6 NOTIFY storage6Changed)
-    Q_PROPERTY(bool storage7 MEMBER m_storage7 NOTIFY storage7Changed)
-    Q_PROPERTY(bool storage8 MEMBER m_storage8 NOTIFY storage8Changed)
-    Q_PROPERTY(bool storage10 MEMBER m_storage10 NOTIFY storage10Changed)
-    Q_PROPERTY(bool storage11 MEMBER m_storage11 NOTIFY storage11Changed)
-    Q_PROPERTY(bool storage12 MEMBER m_storage12 NOTIFY storage12Changed)
-    Q_PROPERTY(bool storage13 MEMBER m_storage13 NOTIFY storage13Changed)
-    Q_PROPERTY(bool storage14 MEMBER m_storage14 NOTIFY storage14Changed)
-    Q_PROPERTY(bool storage15 MEMBER m_storage15 NOTIFY storage15Changed)
-    Q_PROPERTY(bool storage16 MEMBER m_storage16 NOTIFY storage16Changed)
-    Q_PROPERTY(bool storage17 MEMBER m_storage17 NOTIFY storage17Changed)
-    Q_PROPERTY(bool storage18 MEMBER m_storage18 NOTIFY storage18Changed)
-    Q_PROPERTY(bool storage19 MEMBER m_storage19 NOTIFY storage19Changed)
-    Q_PROPERTY(bool storage20 MEMBER m_storage20 NOTIFY storage20Changed)
-    Q_PROPERTY(bool storage21 MEMBER m_storage21 NOTIFY storage21Changed)
-    Q_PROPERTY(bool storage22 MEMBER m_storage22 NOTIFY storage22Changed)
-    Q_PROPERTY(bool storage23 MEMBER m_storage23 NOTIFY storage23Changed)
+    /* MOTOR */
+
+    Q_PROPERTY(quint64 MotorTimestamp MEMBER m_MotorTimestamp NOTIFY MotorTimestampChanged)
+
+    Q_PROPERTY(qint32 MotorARealPosition MEMBER m_MotorARealPosition NOTIFY MotorARealPositionChanged)
+    Q_PROPERTY(qint32 MotorADemandPosition MEMBER m_MotorADemandPosition NOTIFY MotorADemandPositionChanged)
+    Q_PROPERTY(qint32 MotorATorque MEMBER m_MotorATorque NOTIFY MotorATorqueChanged)
+    Q_PROPERTY(qint16 MotorATemp MEMBER m_MotorATemp NOTIFY MotorATempChanged)
+
+    Q_PROPERTY(qint32 MotorBRealPosition MEMBER m_MotorBRealPosition NOTIFY MotorBRealPositionChanged)
+    Q_PROPERTY(qint32 MotorBDemandPosition MEMBER m_MotorBDemandPosition NOTIFY MotorBDemandPositionChanged)
+    Q_PROPERTY(qint32 MotorBTorque MEMBER m_MotorBTorque NOTIFY MotorBTorqueChanged)
+    Q_PROPERTY(qint16 MotorBTemp MEMBER m_MotorBTemp NOTIFY MotorBTempChanged)
+
+    Q_PROPERTY(quint16 BMSVoltage MEMBER m_BMSVoltage NOTIFY BMSVoltageChanged)
+    Q_PROPERTY(qint16 BMSAbsorption MEMBER m_BMSAbsorption NOTIFY BMSAbsorptionChanged)
+    Q_PROPERTY(qint16 BMSTemp MEMBER m_BMSTemp NOTIFY BMSTempChanged)
+
+    Q_PROPERTY(quint32 MotorAFaultsMask MEMBER m_MotorAFaultsMask NOTIFY MotorAFaultsMaskChanged)
+    Q_PROPERTY(quint32 MotorBFaultsMask MEMBER m_MotorBFaultsMask NOTIFY MotorBFaultsMaskChanged)
+    Q_PROPERTY(quint32 BMSFaultsMask MEMBER m_BMSFaultsMask NOTIFY BMSFaultsMaskChanged)
 
     Q_PROPERTY(bool motor0 MEMBER m_motor0 NOTIFY motor0Changed)
     Q_PROPERTY(bool motor1 MEMBER m_motor1 NOTIFY motor1Changed)
@@ -203,6 +166,48 @@ public:
     Q_PROPERTY(bool BMS30 MEMBER m_BMS30 NOTIFY BMS30Changed)
     Q_PROPERTY(bool BMS31 MEMBER m_BMS31 NOTIFY BMS31Changed)
 
+    /* SYSTEM */
+
+    Q_PROPERTY(quint8 FlightMode MEMBER m_FlightMode NOTIFY FlightModeChanged)
+    Q_PROPERTY(quint8 FlightPhase MEMBER m_FlightPhase NOTIFY FlightPhaseChanged)
+    Q_PROPERTY(quint32 FlightPhaseExecutionTime MEMBER m_FlightPhaseExecutionTime NOTIFY FlightPhaseExecutionTimeChanged)
+    Q_PROPERTY(quint32 CoreModuleStatusMask MEMBER m_CoreModuleStatusMask NOTIFY CoreModuleStatusMaskChanged)
+    Q_PROPERTY(quint64 TelemetryModuleStatusMask MEMBER m_TelemetryModuleStatusMask NOTIFY TelemetryModuleStatusMaskChanged)
+    Q_PROPERTY(quint32 GuidanceModuleStatusMask MEMBER m_GuidanceModuleStatusMask NOTIFY GuidanceModuleStatusMaskChanged)
+    Q_PROPERTY(quint32 StorageModuleStatusMask MEMBER m_StorageModuleStatusMask NOTIFY StorageModuleStatusMaskChanged)
+    Q_PROPERTY(quint32 RadioLinkModuleStatusMask MEMBER m_RadioLinkModuleStatusMask NOTIFY RadioLinkModuleStatusMaskChanged)
+    Q_PROPERTY(quint32 MotorControlStatusMask MEMBER m_MotorControlStatusMask NOTIFY MotorControlStatusMaskChanged)
+
+    /* TBD */
+
+    Q_PROPERTY(quint8 GSRLErrorCounter MEMBER m_GSRLErrorCounter NOTIFY GSRLErrorCounterChanged)
+    Q_PROPERTY(quint8 FSRLErrorCounter MEMBER m_FSRLErrorCounter NOTIFY FSRLErrorCounterChanged)
+    Q_PROPERTY(quint8 RLHeartbeatCounter MEMBER m_RLHeartbeatCounter NOTIFY RLHeartbeatCounterChanged)
+
+    Q_PROPERTY(bool storage0 MEMBER m_storage0 NOTIFY storage0Changed)
+    Q_PROPERTY(bool storage1 MEMBER m_storage1 NOTIFY storage1Changed)
+    Q_PROPERTY(bool storage2 MEMBER m_storage2 NOTIFY storage2Changed)
+    Q_PROPERTY(bool storage3 MEMBER m_storage3 NOTIFY storage3Changed)
+    Q_PROPERTY(bool storage4 MEMBER m_storage4 NOTIFY storage4Changed)
+    Q_PROPERTY(bool storage5 MEMBER m_storage5 NOTIFY storage5Changed)
+    Q_PROPERTY(bool storage6 MEMBER m_storage6 NOTIFY storage6Changed)
+    Q_PROPERTY(bool storage7 MEMBER m_storage7 NOTIFY storage7Changed)
+    Q_PROPERTY(bool storage8 MEMBER m_storage8 NOTIFY storage8Changed)
+    Q_PROPERTY(bool storage10 MEMBER m_storage10 NOTIFY storage10Changed)
+    Q_PROPERTY(bool storage11 MEMBER m_storage11 NOTIFY storage11Changed)
+    Q_PROPERTY(bool storage12 MEMBER m_storage12 NOTIFY storage12Changed)
+    Q_PROPERTY(bool storage13 MEMBER m_storage13 NOTIFY storage13Changed)
+    Q_PROPERTY(bool storage14 MEMBER m_storage14 NOTIFY storage14Changed)
+    Q_PROPERTY(bool storage15 MEMBER m_storage15 NOTIFY storage15Changed)
+    Q_PROPERTY(bool storage16 MEMBER m_storage16 NOTIFY storage16Changed)
+    Q_PROPERTY(bool storage17 MEMBER m_storage17 NOTIFY storage17Changed)
+    Q_PROPERTY(bool storage18 MEMBER m_storage18 NOTIFY storage18Changed)
+    Q_PROPERTY(bool storage19 MEMBER m_storage19 NOTIFY storage19Changed)
+    Q_PROPERTY(bool storage20 MEMBER m_storage20 NOTIFY storage20Changed)
+    Q_PROPERTY(bool storage21 MEMBER m_storage21 NOTIFY storage21Changed)
+    Q_PROPERTY(bool storage22 MEMBER m_storage22 NOTIFY storage22Changed)
+    Q_PROPERTY(bool storage23 MEMBER m_storage23 NOTIFY storage23Changed)
+
     Q_PROPERTY(bool core0 MEMBER m_core0 NOTIFY core0Changed)
     Q_PROPERTY(bool core1 MEMBER m_core1 NOTIFY core1Changed)
     Q_PROPERTY(bool core2 MEMBER m_core2 NOTIFY core2Changed)
@@ -222,6 +227,8 @@ public:
     void showData(QVariant data);
 
 signals:
+    /* TELEMETRY */
+
     void TimeStampChanged();
     void TimeStampRIOChanged();
     void LatitudeChanged();
@@ -296,29 +303,30 @@ signals:
     void GNSSCommErrorCounterChanged();
     void PLAltCommErrorCounterChanged();
 
-    void storage0Changed();
-    void storage1Changed();
-    void storage2Changed();
-    void storage3Changed();
-    void storage4Changed();
-    void storage5Changed();
-    void storage6Changed();
-    void storage7Changed();
-    void storage8Changed();
-    void storage10Changed();
-    void storage11Changed();
-    void storage12Changed();
-    void storage13Changed();
-    void storage14Changed();
-    void storage15Changed();
-    void storage16Changed();
-    void storage17Changed();
-    void storage18Changed();
-    void storage19Changed();
-    void storage20Changed();
-    void storage21Changed();
-    void storage22Changed();
-    void storage23Changed();
+    /* MOTOR */
+
+    void MotorARealPositionChanged();
+    void MotorADemandPositionChanged();
+    void MotorATorqueChanged();
+    void MotorATempChanged();
+
+    void MotorBRealPositionChanged();
+    void MotorBDemandPositionChanged();
+    void MotorBTorqueChanged();
+    void MotorBTempChanged();
+
+    void BMSVoltageChanged();
+    void BMSAbsorptionChanged();
+    void BMSTempChanged();
+
+    void MotorControlStatusMaskChanged();
+    void MotorAFaultsMaskChanged();
+    void MotorBFaultsMaskChanged();
+    void BMSFaultsMaskChanged();
+
+    void MotorTimestampChanged();
+
+    void ChargeValueChanged();
 
     void motor0Changed();
     void motor1Changed();
@@ -345,32 +353,6 @@ signals:
     void motor23Changed();
     void motor24Changed();
     void motor25Changed();
-
-    void MotorARealPositionChanged();
-
-    void MotorADemandPositionChanged();
-
-    void MotorATorqueChanged();
-
-    void MotorATempChanged();
-
-    void MotorBRealPositionChanged();
-
-    void MotorBDemandPositionChanged();
-
-    void MotorBTorqueChanged();
-
-    void MotorBTempChanged();
-
-    void BMSVoltageChanged();
-
-    void BMSAbsorptionChanged();
-
-    void BMSTempChanged();
-
-    void MotorTimestampChanged();
-
-    void ChargeValueChanged();
 
     void BMS0Changed();
     void BMS1Changed();
@@ -405,12 +387,23 @@ signals:
     void BMS30Changed();
     void BMS31Changed();
 
+    /* STATUS */
+
+    void StatusFlightPhaseChanged();
+    void RadioLinkModuleStatusMaskChanged();
+    void StorageModuleStatusMaskChanged();
+    void GuidanceModuleStatusMaskChanged();
+    void TelemetryModuleStatusMaskChanged();
+    void CoreModuleStatusMaskChanged();
+    void FlightPhaseExecutionTimeChanged();
+    void FlightPhaseChanged();
+    void FlightModeChanged();
+
+    /* ETC */
+
     void gnssFoundChanged();
-
     void GSRLErrorCounterChanged();
-
     void RLHeartbeatCounterChanged();
-
     void FSRLErrorCounterChanged();
 
     void core0Changed();
@@ -426,33 +419,29 @@ signals:
     void radiolink8Changed();
     void radiolink9Changed();
 
-    void StatusFlightModeChanged();
-
-    void StatusFlightPhaseChanged();
-
-    void RadioLinkModuleStatusMaskChanged();
-
-    void StorageModuleStatusMaskChanged();
-
-    void GuidanceModuleStatusMaskChanged();
-
-    void TelemetryModuleStatusMaskChanged();
-
-    void CoreModuleStatusMaskChanged();
-
-    void FlightPhaseExecutionTimeChanged();
-
-    void FlightPhaseChanged();
-
-    void FlightModeChanged();
-
-    void MotorControlStatusMaskChanged();
-
-    void MotorAFaultsMaskChanged();
-
-    void MotorBFaultsMaskChanged();
-
-    void BMSFaultsMaskChanged();
+    void storage0Changed();
+    void storage1Changed();
+    void storage2Changed();
+    void storage3Changed();
+    void storage4Changed();
+    void storage5Changed();
+    void storage6Changed();
+    void storage7Changed();
+    void storage8Changed();
+    void storage10Changed();
+    void storage11Changed();
+    void storage12Changed();
+    void storage13Changed();
+    void storage14Changed();
+    void storage15Changed();
+    void storage16Changed();
+    void storage17Changed();
+    void storage18Changed();
+    void storage19Changed();
+    void storage20Changed();
+    void storage21Changed();
+    void storage22Changed();
+    void storage23Changed();
 
 private:
     uint8_t extractBits64(const std::bitset<64> the_bitset, size_t start_bit, size_t end_bit);
@@ -462,21 +451,21 @@ private:
     void showDataRLStatus(const mavlink_radio_status_t /*msg_radio_status*/){};
     void showDataStorageStatus(const mavlink_storage_information_t /*msg_storage_info*/){};
 
-    qint64 m_TimeStamp{};
-    qint64 m_TimeStampRIO{};
+    quint64 m_TimeStamp{};
+    quint64 m_TimeStampRIO{};
     qint32 m_Latitude{};
     qint32 m_Longitude{};
-    qint32 m_GNSSAltitude{};
+    quint32 m_GNSSAltitude{};
     qint16 m_AirSpeed_UVector{};
     qint16 m_AirSpeed_VVector{};
     qint16 m_AirSpeed_WVector{};
     qint16 m_AirTemperature{};
     qint32 m_AltitudeFromRadarAltimeter{};
     qint32 m_AltitudeFromPayloadAltimeter{};
-    qint16 m_LinearVelocityHorizontal{};
+    quint16 m_LinearVelocityHorizontal{};
     qint16 m_LinearVelocityVertical{};
-    qint16 m_PositionAccuracy{};
-    qint16 m_SpeedAccuracy{};
+    quint16 m_PositionAccuracy{};
+    quint16 m_SpeedAccuracy{};
     qint16 m_LinearAccelerationX{};
     qint16 m_LinearAccelerationY{};
     qint16 m_LinearAccelerationZ{};
@@ -492,11 +481,15 @@ private:
     qint16 m_AngularRateRoll{};
     qint16 m_AngularRatePitch{};
     qint16 m_AngularRateYaw{};
-    double m_Quaternion0{};
-    double m_Quaternion1{};
-    double m_Quaternion2{};
-    double m_Quaternion3{};
-    qint8 m_NumberOfGPSSatellite{};
+//    double m_Quaternion0{};
+//    double m_Quaternion1{};
+//    double m_Quaternion2{};
+//    double m_Quaternion3{};
+    quint8 m_NumberOfGPSSatellite{};
+    quint8 m_AnemCommErrorCounter;
+    quint8 m_RDAltCommErrorCounter;
+    quint8 m_GNSSCommErrorCounter;
+    quint8 m_PLAltCommErrorCounter;
 
     bool m_telemetry0;
     bool m_telemetry1;
@@ -555,11 +548,6 @@ private:
     bool m_storage22;
     bool m_storage23;
 
-    int m_AnemCommErrorCounter;
-    int m_RDAltCommErrorCounter;
-    int m_GNSSCommErrorCounter;
-    int m_PLAltCommErrorCounter;
-
     bool m_motor0;
     bool m_motor1;
     bool m_motor2;
@@ -586,19 +574,27 @@ private:
     bool m_motor24;
     bool m_motor25;
 
+    quint64 m_MotorTimestamp;
+
     qint32 m_MotorARealPosition;
     qint32 m_MotorADemandPosition;
     qint32 m_MotorATorque;
     qint16 m_MotorATemp;
+
     qint32 m_MotorBRealPosition;
     qint32 m_MotorBDemandPosition;
     qint32 m_MotorBTorque;
     qint16 m_MotorBTemp;
-    qint16 m_BMSVoltage;
+
+    quint16 m_BMSVoltage;
     qint16 m_BMSAbsorption;
     qint16 m_BMSTemp;
-    int m_MotorTimestamp;
+
     int m_ChargeValue;
+
+    quint32 m_MotorAFaultsMask;
+    quint32 m_MotorBFaultsMask;
+    quint32 m_BMSFaultsMask;
 
     bool m_BMS0;
     bool m_BMS1;
@@ -647,20 +643,15 @@ private:
     bool m_radiolink3;
     bool m_radiolink8;
     bool m_radiolink9;
-    int m_StatusFlightMode;
-    int m_StatusFlightPhase;
-    int m_RadioLinkModuleStatusMask;
-    int m_StorageModuleStatusMask;
-    int m_GuidanceModuleStatusMask;
-    int m_TelemetryModuleStatusMask;
-    int m_CoreModuleStatusMask;
+    quint32 m_RadioLinkModuleStatusMask;
+    quint32 m_StorageModuleStatusMask;
+    quint32 m_GuidanceModuleStatusMask;
+    quint64 m_TelemetryModuleStatusMask;
+    quint32 m_CoreModuleStatusMask;
     qint32 m_FlightPhaseExecutionTime;
-    int m_FlightPhase;
-    int m_FlightMode;
-    int m_MotorControlStatusMask;
-    int m_MotorAFaultsMask;
-    int m_MotorBFaultsMask;
-    int m_BMSFaultsMask;
+    quint8 m_FlightPhase;
+    quint8 m_FlightMode;
+    quint32 m_MotorControlStatusMask;
 };
 
 #endif // HMI_H
