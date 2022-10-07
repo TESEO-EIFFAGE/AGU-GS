@@ -30,29 +30,42 @@ Rectangle {
 
     property alias customCursor: map.customCursor
     property alias map: map
+    RowLayout{
+        anchors.fill: parent
+    ColumnLayout{
+        Layout.preferredWidth: 550
+        Layout.fillHeight: true
+        //anchors.left: parent.left
     GSParamsViewer {
         id: gsParams
-        width: 550 //parent.width * 3.6 / 12
-        height: parent.height * 12 / 30
+        //width: 550 //parent.width * 3.6 / 12
+        //height: parent.height * 12 / 30
+        Layout.minimumHeight: parent.height * 12 / 30
+        Layout.fillHeight: true
+        Layout.fillWidth: true
         color: "#e9f2de"
-        anchors.left: parent.left
-        anchors.top: parent.top
+//        anchors.left: parent.left
+//        anchors.top: parent.top
     }
     MapViewer {
         id: map
         //color: "lightblue"
-        width: 550 //parent.width * 3.6 / 12
-        height: parent.height * 18 / 30
-        anchors.top: gsParams.bottom
-        anchors.left: parent.left
-    }
+        Layout.fillWidth: true
+        Layout.maximumHeight: parent.height * 18 / 30
+        //width: 550 //parent.width * 3.6 / 12
+        //height: parent.height * 18 / 30
+//        anchors.top: gsParams.bottom
+//        anchors.left: parent.left
+    }}
 
     FSParamsViewer {
         id: fsParams
-        width: parent.width -map.width//* 8.4 / 12
-        height: parent.height
-        anchors.left: map.right
-    }
+        Layout.fillHeight: true
+        Layout.fillWidth: true
+        //width: parent.width -map.width//* 8.4 / 12
+        //height: parent.height
+        //anchors.left: parent.right
+    }}
     Image {
         id: teseoLogo
         anchors.right: parent.right
