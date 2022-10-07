@@ -30,42 +30,46 @@ Rectangle {
 
     property alias customCursor: map.customCursor
     property alias map: map
-    RowLayout{
+    RowLayout {
         anchors.fill: parent
-    ColumnLayout{
-        Layout.preferredWidth: 550
-        Layout.fillHeight: true
-        //anchors.left: parent.left
-    GSParamsViewer {
-        id: gsParams
-        //width: 550 //parent.width * 3.6 / 12
-        //height: parent.height * 12 / 30
-        Layout.minimumHeight: parent.height * 12 / 30
-        Layout.fillHeight: true
-        Layout.fillWidth: true
-        color: "#e9f2de"
-//        anchors.left: parent.left
-//        anchors.top: parent.top
-    }
-    MapViewer {
-        id: map
-        //color: "lightblue"
-        Layout.fillWidth: true
-        Layout.maximumHeight: parent.height * 18 / 30
-        //width: 550 //parent.width * 3.6 / 12
-        //height: parent.height * 18 / 30
-//        anchors.top: gsParams.bottom
-//        anchors.left: parent.left
-    }}
+        spacing: 0
+        ColumnLayout {
+            Layout.preferredWidth: 550
+            Layout.minimumWidth: 550
+            Layout.maximumWidth: 550
+            Layout.fillHeight: true
+            spacing: 0
+            GSParamsViewer {
+                id: gsParams
+                Layout.minimumHeight: 350 //parent.height * 12 / 30
 
-    FSParamsViewer {
-        id: fsParams
-        Layout.fillHeight: true
-        Layout.fillWidth: true
-        //width: parent.width -map.width//* 8.4 / 12
-        //height: parent.height
-        //anchors.left: parent.right
-    }}
+                //Layout.minimumHeight: parent.height * 12 / 30
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                color: "#e9f2de"
+            }
+            MapViewer {
+                id: map
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.maximumHeight: 550 //parent.height * 18 / 30
+                Layout.preferredHeight: 550 //(parent.height * 18 / 30) - 1
+                //width: 550 //parent.width * 3.6 / 12
+                //height: parent.height * 18 / 30
+                //        anchors.top: gsParams.bottom
+                //        anchors.left: parent.left
+            }
+        }
+
+        FSParamsViewer {
+            id: fsParams
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            //width: parent.width -map.width//* 8.4 / 12
+            //height: parent.height
+            //anchors.left: parent.right
+        }
+    }
     Image {
         id: teseoLogo
         anchors.right: parent.right
