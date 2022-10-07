@@ -398,8 +398,8 @@ Window {
         fsParams.motorLight2.up: hmi.motor2
         fsParams.motorLight1.up: hmi.motor1
 
-        map.latitude: gsParams.latitude
-        map.longitude: gsParams.longitude
+        map.latitude: hmi.Latitude
+        map.longitude: hmi.Longitude
 
         //gsParams.gnssLight.up: hmi.gnssFound
 
