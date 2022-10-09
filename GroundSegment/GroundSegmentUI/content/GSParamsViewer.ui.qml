@@ -112,6 +112,7 @@ Rectangle {
                     height: childrenRect.height
                     width: parent.width
                     Label {
+
                         text: "Time"
                         font.pixelSize: 12
                         color: "#000000"
@@ -121,12 +122,11 @@ Rectangle {
                         horizontalAlignment: Text.AlignRight
 
                         anchors.left: parent.left
-                        ToolTip.text: text
-                        ToolTip.visible: pressed
+
                     }
                     Row {
                         spacing: 2
-                        anchors.right: parent.right
+                        anchors.right: parent.rights
                         anchors.rightMargin: 12
                         Label {
                             text: "[val]"

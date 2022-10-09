@@ -177,7 +177,7 @@ Layout.preferredWidth: 300
             ParamRow {
                 id: txtMotorARealPosition
                 text: "MotorA RealPosition"
-                span: 8
+                span: 10
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }
@@ -185,7 +185,7 @@ Layout.preferredWidth: 300
             ParamRow {
                 id: txtMotorADemandPosition
                 text: "MotorA DemandPosition"
-                span: 8
+                span: 10
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }
@@ -193,7 +193,7 @@ Layout.preferredWidth: 300
                 id: txtMotorATorque
 
                 text: "MotorA Torque"
-                span: 8
+                span: 10
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }
@@ -201,7 +201,7 @@ Layout.preferredWidth: 300
                 id: txtMotorATemp
 
                 text: "MotorA Temp"
-                span: 8
+                span: 10
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }
@@ -243,7 +243,7 @@ Layout.preferredWidth: 300
                 id: txtMotorBRealPosition
 
                 text: "MotorB RealPosition"
-                span: 8
+                span: 10
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }
@@ -251,7 +251,7 @@ Layout.preferredWidth: 300
                 id: txtMotorBDemandPosition
 
                 text: "MotorB DemandPosition"
-                span: 8
+                span: 10
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }
@@ -260,7 +260,7 @@ Layout.preferredWidth: 300
                 id: txtMotorBTorque
 
                 text: "MotorB Torque"
-                span: 5
+                span: 10
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }
@@ -269,7 +269,7 @@ Layout.preferredWidth: 300
                 id: txtMotorBTemp
 
                 text: "MotorB Temp"
-                span: 5
+                span: 10
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }
