@@ -147,7 +147,7 @@ Item{
             id: legendSection
             anchors.top:parent.top
             anchors.left: parent.left; anchors.leftMargin: 10
-            anchors.right: parent.right
+           // anchors.right: parent.right
             Column{
                 anchors.top:parent.top
                 height: childrenRect.height+14
