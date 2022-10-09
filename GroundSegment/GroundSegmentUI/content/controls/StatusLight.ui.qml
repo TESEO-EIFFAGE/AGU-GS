@@ -12,7 +12,7 @@ Row {
         id: light
         width: 16
         height: 16
-        color: root.up ? "green" : "#ff0000" //#b1b1b1"
+        color: root.up ? "#ff0000" : "#b1b1b1"
         radius: 8
         anchors.verticalCenter: parent.verticalCenter
     }
