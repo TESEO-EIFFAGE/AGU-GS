@@ -241,13 +241,6 @@ void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 //    m_motor24 = IntBits(t->MotorStatusMask).test(24); /* BIT 24*/
 
 
-//    m_motor25 = IntBits(t->MotorStatusMask).test(25); /* BIT 25*/
-
-
-
-
-
-
 
 
 //    /* BMS STATUS MASK */
@@ -407,7 +400,74 @@ void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
     m_BMSVoltage= msg_status.BMS_Voltage;emit BMSVoltageChanged();
     m_BMSAbsorption=msg_status.BMS_Absorption;emit BMSAbsorptionChanged();
     m_BMSTemp= msg_status.BMS_Temperature;emit BMSTempChanged();
-    m_BMSFaultsMask= msg_status.BMS_Faults_Mask;emit BMSFaultsMaskChanged();
+
+
+
+
+
+    std::bitset<32> bitSet(msg_status.BMS_Faults_Mask);
+    m_BMS0 = bitSet.test(0); emit BMS0Changed();
+    m_BMS1 = bitSet.test(1); emit BMS1Changed();
+    m_BMS2 = bitSet.test(2); emit BMS2Changed();
+    m_BMS3 = bitSet.test(3); emit BMS3Changed();
+    m_BMS4 = bitSet.test(4); emit BMS4Changed();
+    m_BMS5 = bitSet.test(5); emit BMS5Changed();
+    m_BMS6 = bitSet.test(6); emit BMS6Changed();
+    m_BMS7 = bitSet.test(7); emit BMS7Changed();
+    m_BMS8 = bitSet.test(8); emit BMS8Changed();
+    m_BMS9 = bitSet.test(9); emit BMS9Changed();
+    m_BMS10 = bitSet.test(10); emit BMS10Changed();
+    m_BMS11 = bitSet.test(11); emit BMS11Changed();
+    m_BMS12 = bitSet.test(12); emit BMS12Changed();
+    m_BMS13 = bitSet.test(13); emit BMS13Changed();
+    m_BMS14 = bitSet.test(14); emit BMS14Changed();
+    m_BMS15 = bitSet.test(15); emit BMS15Changed();
+    m_BMS16 = bitSet.test(16); emit BMS16Changed();
+    m_BMS17 = bitSet.test(17); emit BMS17Changed();
+    m_BMS18 = bitSet.test(18); emit BMS18Changed();
+    m_BMS19 = bitSet.test(19); emit BMS19Changed();
+    m_BMS20 = bitSet.test(20); emit BMS20Changed();
+    m_BMS21 = bitSet.test(21); emit BMS21Changed();
+    m_BMS22 = bitSet.test(22); emit BMS22Changed();
+    m_BMS23 = bitSet.test(23); emit BMS23Changed();
+    m_BMS24 = bitSet.test(24); emit BMS24Changed();
+    m_BMS25 = bitSet.test(25); emit BMS25Changed();
+    m_BMS26 = bitSet.test(26); emit BMS26Changed();
+    m_BMS27 = bitSet.test(27); emit BMS27Changed();
+    m_BMS28 = bitSet.test(28); emit BMS28Changed();
+    m_BMS29 = bitSet.test(29); emit BMS29Changed();
+    m_BMS30 = bitSet.test(30); emit BMS30Changed();
+    m_BMS31 = bitSet.test(31); emit BMS31Changed();
+
+
+    std::bitset<32> motorBitSet(msg_status.Motor_Control_Status_Mask);
+    m_motor0 = motorBitSet.test(0); emit motor0Changed();
+    m_motor1 = motorBitSet.test(1); emit motor1Changed();
+    m_motor2 = motorBitSet.test(2); emit motor2Changed();
+    m_motor3 = motorBitSet.test(3); emit motor3Changed();
+    m_motor4 = motorBitSet.test(4); emit motor4Changed();
+    m_motor5 = motorBitSet.test(5); emit motor5Changed();
+    m_motor6 = motorBitSet.test(6); emit motor6Changed();
+    m_motor7 = motorBitSet.test(7); emit motor7Changed();
+    m_motor8 = motorBitSet.test(8); emit motor8Changed();
+    m_motor10 = motorBitSet.test(10); emit motor10Changed();
+    m_motor11 = motorBitSet.test(11); emit motor11Changed();
+    m_motor12 = motorBitSet.test(12); emit motor12Changed();
+    m_motor13 = motorBitSet.test(13); emit motor13Changed();
+    m_motor14 = motorBitSet.test(14); emit motor14Changed();
+    m_motor15 = motorBitSet.test(15); emit motor15Changed();
+    m_motor16 = motorBitSet.test(16); emit motor16Changed();
+    m_motor17 = motorBitSet.test(17); emit motor17Changed();
+    m_motor18 = motorBitSet.test(18); emit motor18Changed();
+    m_motor19 = motorBitSet.test(19); emit motor19Changed();
+    m_motor20 = motorBitSet.test(20); emit motor20Changed();
+    m_motor21 = motorBitSet.test(21); emit motor21Changed();
+    m_motor22 = motorBitSet.test(22); emit motor22Changed();
+    m_motor23 = motorBitSet.test(23); emit motor23Changed();
+    m_motor24 = motorBitSet.test(24); emit motor24Changed();
+
+
+    m_ChargeValue = extractBits64(motorBitSet,25,31); emit ChargeValueChanged();
 
     m_MotorControlStatusMask= msg_status.Motor_Control_Status_Mask;emit MotorControlStatusMaskChanged();
 

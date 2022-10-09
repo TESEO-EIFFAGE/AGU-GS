@@ -4,9 +4,10 @@
 #include <AGU_MAVLINK/mavlink.h>
 
 // Qt
-#include <QDebug>
-#include "QtCore/qdatetime.h"
-#include <random>
+#include <QDateTime>
+#include <bitset>
+#include <iostream>
+#include <sstream>
 
 // Internal
 #include "uav_model.h"
@@ -28,6 +29,94 @@ void AGUSendMotorHandler::processMessage(const mavlink_message_t& message)
     Q_UNUSED(message)
 }
 
+
+
+
+uint32_t AGUSendMotorHandler::generateBMSMask()
+{
+    auto handler = "BMS";
+    std::bitset<32> statusMask;
+    typedef std::size_t length_t, position_t;
+
+    for (position_t i=0; i < length_t(32); ++i) {
+        bool randBool = m_communicator->randomBool();
+        statusMask.set(i, randBool);
+    }
+
+    auto statusInt = statusMask.to_ulong();
+    std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
+    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
+    std::stringstream hexMask;
+    hexMask << std::hex << std::uppercase << statusInt;
+    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
+    return statusInt;
+}
+
+uint32_t AGUSendMotorHandler::generateMotorAFaultsMask()
+{
+    auto handler = "MOTOR A";
+    std::bitset<32> statusMask;
+    typedef std::size_t length_t, position_t;
+
+    for (position_t i=0; i < length_t(32); ++i) {
+        bool randBool = m_communicator->randomBool();
+        statusMask.set(i, randBool);
+    }
+
+    auto statusInt = statusMask.to_ulong();
+    std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
+    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
+    std::stringstream hexMask;
+    hexMask << std::hex << std::uppercase << statusInt;
+    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
+    return statusInt;
+}
+uint32_t AGUSendMotorHandler::generateMotorBFaultsMask()
+{
+    auto handler = "MOTOR B";
+    std::bitset<32> statusMask;
+    typedef std::size_t length_t, position_t;
+
+    for (position_t i=0; i < length_t(32); ++i) {
+        bool randBool = m_communicator->randomBool();
+        statusMask.set(i, randBool);
+    }
+
+    auto statusInt = statusMask.to_ulong();
+    std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
+    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
+    std::stringstream hexMask;
+    hexMask << std::hex << std::uppercase << statusInt;
+    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
+    return statusInt;
+}
+
+uint32_t AGUSendMotorHandler::generateMotorControlStatusMask()
+{
+    auto handler = "MOTOR CONTROL";
+    std::bitset<32> statusMask;
+    typedef std::size_t length_t, position_t;
+
+    for (position_t i=0; i < length_t(25); ++i) {
+        bool randBool = m_communicator->randomBool();
+        statusMask.set(i, randBool);
+    }
+    std::string bs25 = "00000000""00000000""00000000""0"+std::bitset<7>(m_communicator->random255()).to_string();
+    std::cout << bs25 << std::endl;
+
+    statusMask = std::bitset<32>{bs25} | statusMask;
+
+    auto statusInt = statusMask.to_ulong();
+    std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
+    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
+    std::stringstream hexMask;
+    hexMask << std::hex << std::uppercase << statusInt;
+    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
+    return statusInt;
+}
+
+
+
 void AGUSendMotorHandler::timerEvent(QTimerEvent* event)
 {
     Q_UNUSED(event)
@@ -42,10 +131,7 @@ void AGUSendMotorHandler::timerEvent(QTimerEvent* event)
     int32_t Motor_B_Demand_Position=(rand() % 1000) + 1;
     int32_t Motor_A_Torque=(rand() % 100) + 1;
     int32_t Motor_B_Torque=(rand() % 100) + 1;
-    uint32_t Motor_Control_Status_Mask=(rand() % 100) + 1;
-    uint32_t Motor_A_Faults_Mask=(rand() % 100) + 1;
-    uint32_t Motor_B_Faults_Mask=(rand() % 100) + 1;
-    uint32_t BMS_Faults_Mask=(rand() % 100) + 1;
+
     int16_t Motor_A_Temperature=(rand() % 100) + 1;
     int16_t Motor_B_Temperature=(rand() % 100) + 1;
     uint16_t BMS_Voltage=(rand() % 100) + 1;
@@ -68,10 +154,11 @@ void AGUSendMotorHandler::timerEvent(QTimerEvent* event)
     motor.BMS_Voltage=BMS_Voltage;
     motor.BMS_Absorption=BMS_Absorption;
     motor.BMS_Temperature=BMS_Temperature;
-    motor.Motor_Control_Status_Mask=Motor_Control_Status_Mask;
-    motor.Motor_A_Faults_Mask=Motor_A_Faults_Mask;
-    motor.Motor_B_Faults_Mask=Motor_B_Faults_Mask;
-    motor.BMS_Faults_Mask=BMS_Faults_Mask;
+    motor.Motor_Control_Status_Mask=this->generateMotorControlStatusMask();
+    motor.Motor_A_Faults_Mask=this->generateMotorAFaultsMask();
+    motor.Motor_B_Faults_Mask=this->generateMotorBFaultsMask();
+    motor.BMS_Faults_Mask=this->generateBMSMask();
+
     mavlink_msg_motor_status_pack_encode(m_communicator->systemId(),
                                          m_communicator->componentId(),
                                          &message, &motor);

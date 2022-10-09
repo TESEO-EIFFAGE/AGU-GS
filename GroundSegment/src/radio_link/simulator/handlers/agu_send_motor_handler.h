@@ -21,6 +21,10 @@ namespace radiolink
 
     private:
         UavModel* m_model;
+        uint32_t generateBMSMask();
+        uint32_t generateMotorAFaultsMask();
+        uint32_t generateMotorBFaultsMask();
+        uint32_t generateMotorControlStatusMask();
     };
 }
 

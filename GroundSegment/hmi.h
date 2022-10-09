@@ -131,7 +131,6 @@ public:
     Q_PROPERTY(bool motor22 MEMBER m_motor22 NOTIFY motor22Changed)
     Q_PROPERTY(bool motor23 MEMBER m_motor23 NOTIFY motor23Changed)
     Q_PROPERTY(bool motor24 MEMBER m_motor24 NOTIFY motor24Changed)
-    Q_PROPERTY(bool motor25 MEMBER m_motor25 NOTIFY motor25Changed)
 
     Q_PROPERTY(bool BMS0 MEMBER m_BMS0 NOTIFY BMS0Changed)
     Q_PROPERTY(bool BMS1 MEMBER m_BMS1 NOTIFY BMS1Changed)
@@ -352,7 +351,6 @@ signals:
     void motor22Changed();
     void motor23Changed();
     void motor24Changed();
-    void motor25Changed();
 
     void BMS0Changed();
     void BMS1Changed();
@@ -572,7 +570,6 @@ private:
     bool m_motor22;
     bool m_motor23;
     bool m_motor24;
-    bool m_motor25;
 
     quint64 m_MotorTimestamp;
 

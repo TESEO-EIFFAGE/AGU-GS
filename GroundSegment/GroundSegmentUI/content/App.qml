@@ -373,7 +373,6 @@ Window {
         fsParams.bmsLight1.up: hmi.BMS1
 
         fsParams.motorLight0.up: hmi.motor0
-        //fsParams.motorLight25.up: hmi.motor25
         //fsParams.motorLight24.up: hmi.motor24
         fsParams.motorLight23.up: hmi.motor23
         fsParams.motorLight22.up: hmi.motor22
