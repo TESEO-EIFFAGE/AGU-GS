@@ -111,21 +111,21 @@ Layout.preferredWidth: 300
             ParamRow {
                 id: txtBMS1Voltage
                 text: "BMS1 Voltage"
-                span: 6
+                span: 12
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }
             ParamRow {
                 id: txtBMS1Absorption
                 text: "BMS1 Absorption"
-                span: 6
+                span: 12
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }
             ParamRow {
                 id: txtBMS1Temp
                 text: "BMS1 Temperature"
-                span: 6
+                span: 12
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }
@@ -193,7 +193,7 @@ Layout.preferredWidth: 300
                 id: txtMotorATorque
 
                 text: "MotorA Torque"
-                span: 5
+                span: 8
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }
@@ -201,7 +201,7 @@ Layout.preferredWidth: 300
                 id: txtMotorATemp
 
                 text: "MotorA Temp"
-                span: 5
+                span: 8
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }

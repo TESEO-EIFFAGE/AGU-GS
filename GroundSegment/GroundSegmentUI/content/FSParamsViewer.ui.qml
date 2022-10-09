@@ -389,7 +389,7 @@ Rectangle {
                                 target: mouseAreaMotorsBMS
                                 onClicked: {
                                     params.tabIndex = 2
-                                    params.motorBMSTabClicked()
+                                    params.motorsBMSTabClicked()
                                 }
 
                             }
