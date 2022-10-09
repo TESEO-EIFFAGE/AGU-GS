@@ -112,6 +112,16 @@ uint8_t HMI::extractBits64(const std::bitset<64> the_bitset, size_t start_bit, s
     }
     return result;
 }
+uint8_t HMI::extractBits32(const std::bitset<32> the_bitset, size_t start_bit, size_t end_bit) {
+    unsigned long mask = 1;
+    unsigned long result = 0;
+    for (size_t i = start_bit; i < end_bit; ++ i) {
+        if (the_bitset.test(i))
+           result |= mask;
+        mask <<= 1;
+    }
+    return result;
+}
 
 void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 {
@@ -467,7 +477,7 @@ void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
     m_motor24 = motorBitSet.test(24); emit motor24Changed();
 
 
-    m_ChargeValue = extractBits64(motorBitSet,25,31); emit ChargeValueChanged();
+    m_ChargeValue = extractBits32(motorBitSet,25,31); emit ChargeValueChanged();
 
     m_MotorControlStatusMask= msg_status.Motor_Control_Status_Mask;emit MotorControlStatusMaskChanged();
 

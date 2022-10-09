@@ -443,6 +443,8 @@ signals:
 
 private:
     uint8_t extractBits64(const std::bitset<64> the_bitset, size_t start_bit, size_t end_bit);
+    uint8_t extractBits32(const std::bitset<32> the_bitset, size_t start_bit, size_t end_bit);
+
     void showDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry);
     void showDataSystemStatus(const mavlink_system_status_pack_t msg_system_status);
     void showDataMotorStatus(const mavlink_motor_status_pack_t msg_motor_status);
