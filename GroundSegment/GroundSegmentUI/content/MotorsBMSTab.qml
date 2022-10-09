@@ -104,7 +104,7 @@ Layout.preferredWidth: 300
             ParamRow {
                 id: txtMotorTimestamp
                 text: "TimeStamp"
-                span: 4
+                span: 12
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }
