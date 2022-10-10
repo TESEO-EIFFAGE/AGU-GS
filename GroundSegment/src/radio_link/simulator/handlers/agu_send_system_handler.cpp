@@ -4,10 +4,10 @@
 #include <AGU_MAVLINK/mavlink.h>
 
 // Qt
-#include <QDebug>
-#include<QBitArray>
-#include "QtCore/qdatetime.h"
-#include <random>
+#include <QDateTime>
+#include <bitset>
+#include <iostream>
+#include <sstream>
 
 // Internal
 #include "uav_model.h"
