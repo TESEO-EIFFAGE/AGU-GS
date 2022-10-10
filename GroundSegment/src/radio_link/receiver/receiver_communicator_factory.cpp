@@ -10,6 +10,9 @@
 #include "handlers/agu_system_handler.h"
 #include "handlers/agu_motor_handler.h"
 #include "handlers/agu_telemetry_handler.h"
+#include "handlers/agu_storage_handler.h"
+#include "handlers/agu_guidance_handler.h"
+#include "handlers/agu_radiolink_handler.h"
 
 using namespace radiolink;
 
@@ -24,6 +27,9 @@ MavLinkCommunicator* ReceiverCommunicatorFactory::create()
     new radiolink::AGUSystemHandler(communicator);
     new radiolink::AGUMotorHandler(communicator);
     new radiolink::AGUTelemetryHandler(communicator);
+    new radiolink::AGUGuidanceHandler(communicator);
+    new radiolink::AGUStorageHandler(communicator);
+    new radiolink::AGURadioLinkHandler(communicator);
 
     return communicator;
 }

@@ -8,7 +8,9 @@
 Q_DECLARE_METATYPE(mavlink_system_status_pack_t);
 Q_DECLARE_METATYPE(mavlink_telemetry_data_pack_t);
 Q_DECLARE_METATYPE(mavlink_motor_status_pack_t);
-
+Q_DECLARE_METATYPE(mavlink_storage_status_pack_t);
+Q_DECLARE_METATYPE(mavlink_guidance_status_pack_t);
+Q_DECLARE_METATYPE(mavlink_radio_link_status_pack_t);
 HMI::HMI(QObject *parent)
     : QObject{parent}
 {
@@ -24,6 +26,16 @@ void HMI::showData(QVariant msg) {
     }
     else if (msg.canConvert<mavlink_motor_status_pack_t>()) {
         showDataMotorStatus(msg.value<mavlink_motor_status_pack_t>());
+    }
+
+    else if (msg.canConvert<mavlink_guidance_status_pack_t>()) {
+        showDataGuidanceStatus(msg.value<mavlink_guidance_status_pack_t>());
+    }
+    else if (msg.canConvert<mavlink_storage_status_pack_t>()) {
+        showDataStorageStatus(msg.value<mavlink_storage_status_pack_t>());
+    }
+    else if (msg.canConvert<mavlink_radio_link_status_pack_t>()) {
+        showDataRLStatus(msg.value<mavlink_radio_link_status_pack_t>());
     }
 }
 

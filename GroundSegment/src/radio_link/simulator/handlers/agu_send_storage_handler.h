@@ -2,10 +2,32 @@
 #define AGU_SEND_STORAGE_HANDLER_H
 
 
-class agu_send_storage_handler
+#include "../common/handlers/abstract_handler.h"
+
+namespace radiolink
 {
-public:
-    agu_send_storage_handler();
-};
+    class UavModel;
+
+    class AGUSendStorageHandler: public AbstractHandler
+    {
+    public:
+        AGUSendStorageHandler(MavLinkCommunicator* communicator,
+                                UavModel* model);
+
+    public slots:
+        void processMessage(const mavlink_message_t& message) override;
+
+    protected:
+        void timerEvent(QTimerEvent* event) override;
+
+    private:
+        UavModel* m_model;
+
+        uint32_t generateStorageMask();
+
+    };
+}
+
+
 
 #endif // AGU_SEND_STORAGE_HANDLER_H

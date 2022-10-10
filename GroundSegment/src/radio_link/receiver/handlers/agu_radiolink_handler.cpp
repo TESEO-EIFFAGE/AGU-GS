@@ -1,4 +1,4 @@
-#include "agu_motor_handler.h"
+#include "agu_radiolink_handler.h"
 
 // MAVLink
 #include <AGU_MAVLINK/mavlink.h>
@@ -10,23 +10,25 @@
 #include "../../common/mavlink_communicator.h"
 using namespace radiolink;
 
-Q_DECLARE_METATYPE(mavlink_motor_status_pack_t);
+Q_DECLARE_METATYPE(mavlink_radio_link_status_pack_t);
 
-AGUMotorHandler::AGUMotorHandler(MavLinkCommunicator* communicator):
+AGURadioLinkHandler::AGURadioLinkHandler(MavLinkCommunicator* communicator):
     AbstractHandler(communicator)
 {}
 
-void AGUMotorHandler::processMessage(const mavlink_message_t& message)
+void AGURadioLinkHandler::processMessage(const mavlink_message_t& message)
 {
-    if (message.msgid != MAVLINK_MSG_ID_MOTOR_STATUS_PACK ||
+    if (message.msgid != MAVLINK_MSG_ID_RADIO_LINK_STATUS_PACK ||
         message.sysid == 0) return;
 
-    mavlink_motor_status_pack_t motor_status;
-    mavlink_msg_motor_status_pack_decode(&message, &motor_status);
+    mavlink_radio_link_status_pack_t status;
+    mavlink_msg_radio_link_status_pack_decode(&message, &status);
 
-    std::cout << "MOT " << motor_status.Log_Timestamp << std::endl;
+    std::cout << "System_Timestamp " << status.System_Timestamp << std::endl;
+    std::cout << "RSSI " << status.RSSI << std::endl;
+    std::cout << "Radio_Link_Module_Status_Mask " << status.Radio_Link_Module_Status_Mask << std::endl;
 
     QVariant processedMessage;
-    processedMessage.setValue(motor_status);
+    processedMessage.setValue(status);
     m_communicator->dispatchReceivedMessage(processedMessage);
 }

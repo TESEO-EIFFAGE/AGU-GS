@@ -2,10 +2,30 @@
 #define AGU_SEND_GUIDANCE_HANDLER_H
 
 
-class agu_send_guidance_handler
+#include "../common/handlers/abstract_handler.h"
+
+namespace radiolink
 {
-public:
-    agu_send_guidance_handler();
-};
+    class UavModel;
+
+    class AGUSendGuidanceHandler: public AbstractHandler
+    {
+    public:
+        AGUSendGuidanceHandler(MavLinkCommunicator* communicator,
+                                UavModel* model);
+
+    public slots:
+        void processMessage(const mavlink_message_t& message) override;
+
+    protected:
+        void timerEvent(QTimerEvent* event) override;
+
+    private:
+        UavModel* m_model;
+
+        uint32_t generateGuidanceMask();
+
+    };
+}
 
 #endif // AGU_SEND_GUIDANCE_HANDLER_H

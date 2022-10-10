@@ -2,10 +2,31 @@
 #define AGU_SEND_RADIOLINK_HANDLER_H
 
 
-class agu_send_radiolink_handler
+
+#include "../common/handlers/abstract_handler.h"
+
+namespace radiolink
 {
-public:
-    agu_send_radiolink_handler();
-};
+    class UavModel;
+
+    class AGUSendRadioLinkHandler: public AbstractHandler
+    {
+    public:
+        AGUSendRadioLinkHandler(MavLinkCommunicator* communicator,
+                                UavModel* model);
+
+    public slots:
+        void processMessage(const mavlink_message_t& message) override;
+
+    protected:
+        void timerEvent(QTimerEvent* event) override;
+
+    private:
+        UavModel* m_model;
+
+        uint32_t generateRLMask();
+
+    };
+}
 
 #endif // AGU_SEND_RADIOLINK_HANDLER_H
