@@ -1,5 +1,5 @@
-#ifndef GPSDATA_H
-#define GPSDATA_H
+#ifndef GNSS_H
+#define GNSS_H
 
 #include <QTimer>
 #include <QObject>
@@ -10,7 +10,7 @@
 
 class PyHALDrotekF9P;
 
-class GPSData : public QObject
+class GNSS : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(double latitude READ latitude WRITE setLatitude NOTIFY latitudeChanged)
@@ -23,7 +23,7 @@ class GPSData : public QObject
     QML_ELEMENT
 
 public:
-    explicit GPSData(QObject *parent = nullptr);
+    explicit GNSS(QObject *parent = nullptr);
 
     double latitude() const;
     double longitude() const;
@@ -67,4 +67,4 @@ private:
     PyHALDrotekF9P *m_gnss;
 };
 
-#endif // GPSDATA_H
+#endif // GNSS_H

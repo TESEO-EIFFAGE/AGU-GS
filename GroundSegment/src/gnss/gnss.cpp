@@ -3,7 +3,7 @@
 #include <gnss.h>
 #include "gps_driver/drotek_f9p_rover.cpp"
 
-GPSData::GPSData(QObject *parent) :
+GNSS::GNSS(QObject *parent) :
     QObject(parent)
 {
     m_latitude = 0.0;
@@ -18,7 +18,7 @@ GPSData::GPSData(QObject *parent) :
 
     if (m_gnss->init("/dev/ttyACM0")) {
         m_timer = new QTimer(this);
-        connect(m_timer, &QTimer::timeout, this, &GPSData::UpdateData);
+        connect(m_timer, &QTimer::timeout, this, &GNSS::UpdateData);
         m_timer->start(250);
 
         std::cout << m_gnss->get_gnss_name() << std::endl;
@@ -28,7 +28,7 @@ GPSData::GPSData(QObject *parent) :
     }
 }
 
-void GPSData::UpdateData() {
+void GNSS::UpdateData() {
     double hasFix;
 
     double *gnss_info = new double[6];
@@ -49,37 +49,37 @@ void GPSData::UpdateData() {
 }
 
 
-double GPSData::latitude() const
+double GNSS::latitude() const
 {
     return m_latitude;
 }
 
-double GPSData::longitude() const
+double GNSS::longitude() const
 {
     return m_longitude;
 }
-double GPSData::altitude() const
+double GNSS::altitude() const
 {
     return m_altitude;
 }
-bool GPSData::hasFix() const
+bool GNSS::hasFix() const
 {
     return m_hasFix;
 }
-int GPSData::hour() const
+int GNSS::hour() const
 {
     return m_hour;
 }
-int GPSData::minute() const
+int GNSS::minute() const
 {
     return m_minute;
 }
-double GPSData::second() const
+double GNSS::second() const
 {
     return m_second;
 }
 
-void GPSData::setLatitude(const double latitude)
+void GNSS::setLatitude(const double latitude)
 {
     if (latitude == m_latitude)
         return;
@@ -88,7 +88,7 @@ void GPSData::setLatitude(const double latitude)
     emit latitudeChanged();
 }
 
-void GPSData::setLongitude(const double longitude)
+void GNSS::setLongitude(const double longitude)
 {
     if (longitude == m_longitude)
         return;
@@ -97,7 +97,7 @@ void GPSData::setLongitude(const double longitude)
     emit longitudeChanged();
 }
 
-void GPSData::setAltitude(const double altitude)
+void GNSS::setAltitude(const double altitude)
 {
     if (altitude == m_altitude)
         return;
@@ -106,7 +106,7 @@ void GPSData::setAltitude(const double altitude)
     emit altitudeChanged();
 }
 
-void GPSData::setHasFix(const bool hasFix)
+void GNSS::setHasFix(const bool hasFix)
 {
     if (hasFix == m_hasFix)
         return;
@@ -115,7 +115,7 @@ void GPSData::setHasFix(const bool hasFix)
     emit hasFixChanged();
 }
 
-void GPSData::setHour(const int hour)
+void GNSS::setHour(const int hour)
 {
     if (hour == m_hour)
         return;
@@ -124,7 +124,7 @@ void GPSData::setHour(const int hour)
     emit hourChanged();
 }
 
-void GPSData::setMinute(const int minute)
+void GNSS::setMinute(const int minute)
 {
     if (minute == m_minute)
         return;
@@ -133,7 +133,7 @@ void GPSData::setMinute(const int minute)
     emit minuteChanged();
 }
 
-void GPSData::setSecond(const double second)
+void GNSS::setSecond(const double second)
 {
     if (second == m_second)
         return;

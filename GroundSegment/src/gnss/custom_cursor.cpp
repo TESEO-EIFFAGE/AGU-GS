@@ -1,7 +1,7 @@
 #include <QDate>
 #include <iostream>
 
-#include <CustomCursor.h>
+#include <custom_cursor.h>
 
 using namespace std;
 

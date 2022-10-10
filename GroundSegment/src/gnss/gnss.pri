@@ -11,7 +11,7 @@ LIBS += -lblas -llapack -ltbb -lserial
 INCLUDEPATH += $$PWD
 
 SOURCES += \
-    $$PWD/CustomCursor.cpp \
+    $$PWD/custom_cursor.cpp \
     $$PWD/gnss.cpp \
     $$PWD/gps_driver/GPSFix.cpp \
     $$PWD/gps_driver/GPSService.cpp \
@@ -22,7 +22,7 @@ SOURCES += \
     $$PWD/gps_driver/HAL_Sirius_F9P_Rover.cc
 
 HEADERS += \
-    $$PWD/CustomCursor.h \
+    $$PWD/custom_cursor.h \
     $$PWD/gnss.h \
     $$PWD/gps_driver/nmeaparse/*
 

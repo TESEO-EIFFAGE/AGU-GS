@@ -16,7 +16,7 @@ GSCore::GSCore(QObject *parent)
     Storage *StorageData = new Storage(this);
     setRadioLink(new RadioLink(this));
     setHmi(new HMI(this));
-    setGpsData(new GPSData(this));
+    setGpsData(new GNSS(this));
 
     StorageData->LenSystemStatus  = SetInitParameter("LenSystemStatus");
     StorageData->LenStorageStatus = SetInitParameter("LenStorageStatus");
@@ -124,12 +124,12 @@ void GSCore::setHmi(HMI* hmi)
     m_hmi = hmi;
 }
 
-GPSData *GSCore::gpsData() const
+GNSS *GSCore::gpsData() const
 {
     return m_gpsData;
 }
 
-void GSCore::setGpsData(GPSData* gpsData)
+void GSCore::setGpsData(GNSS* gpsData)
 {
     m_gpsData = gpsData;
 }
