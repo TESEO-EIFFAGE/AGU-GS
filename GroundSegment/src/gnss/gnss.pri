@@ -3,7 +3,8 @@
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-
+QMAKE_CXXFLAGS += -Wall -Wextra -Wno-narrowing -std=c++11 -shared -fPIC -O3 -mtune=native -march=native -DNDEBUG -fopenmp -ltbb
+QMAKE_LFLAGS += -DHAVE_CBLAS=1
 
 LIBS += -lblas -llapack -ltbb -lserial
 
@@ -26,11 +27,5 @@ HEADERS += \
     $$PWD/gps_driver/nmeaparse/*
 
 CONFIG += qmltypes
-QML_IMPORT_NAME = io.qt.examples.gps_data
+QML_IMPORT_NAME = agu.gnss
 QML_IMPORT_MAJOR_VERSION = 1
-
-#DISTFILES += \
-#    readme.md \
-#    presentation_image.png \
-#    import_tiles.sh \
-#    .gitignore

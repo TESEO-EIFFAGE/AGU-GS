@@ -1,12 +1,9 @@
 #include "mavlinkprotocol.h"
-//#include "mainwindow.h"
-//#include "ui_mainwindow.h"
 #include <QDebug>
 #include <QString>
 #include <string>
 #include <iostream>
 #include <stdio.h>
-
 
 MavlinkProtocol::MavlinkProtocol(QObject *parent) : QObject(parent)
 {
