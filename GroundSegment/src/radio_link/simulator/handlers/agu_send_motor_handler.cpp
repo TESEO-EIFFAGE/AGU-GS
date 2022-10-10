@@ -43,6 +43,11 @@ uint32_t AGUSendMotorHandler::generateBMSMask()
         statusMask.set(i, randBool);
     }
 
+    statusMask.set(0,1);
+    statusMask.set(1,1);
+    statusMask.set(2,1);
+    statusMask.set(3,1);
+    statusMask.set(4,1);
     auto statusInt = statusMask.to_ulong();
     std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
     std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
