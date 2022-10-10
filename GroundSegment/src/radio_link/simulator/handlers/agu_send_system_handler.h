@@ -21,6 +21,16 @@ namespace radiolink
 
     private:
         UavModel* m_model;
+        uint32_t generateCoreMask();
+        uint64_t generateTelMask();
+        uint32_t generateStorageMask();
+        uint32_t generateRLMask();
+        uint32_t generateMotorMask();
+        uint32_t generateGuidanceMask();
+
+        uint16_t generateEmergencyBoardMask();
+        uint16_t generatePSUMask();
+        uint8_t generateEmergencyRLMask();
     };
 }
 

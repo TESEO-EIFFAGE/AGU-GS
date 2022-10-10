@@ -19,7 +19,12 @@
       <field type="uint32_t" name="Guidance_Module_Status_Mask">Guidance module status mask</field>
       <field type="uint8_t" name="Flight_Phase">Flight phase id</field>
       <field type="uint8_t" name="Flight_Mode">Flight mode id</field>
-      <field type="uint32_t" name="Flight_Phase_Time" units="ms">Flight phase execution time</field> 
+      <field type="uint32_t" name="Flight_Phase_Time" units="ms">Flight phase execution time</field>
+      <field type="uint16_t" name="Emergency_Board_Status">Emergency Board Status</field>
+      <field type="uint16_t" name="PSU_Status">PSU Status</field>
+      <field type="uint8_t" name="Emergency_Radio_Link_Status">Emergency Radio Link Status</field>
+      <field type="int16_t" name="Channel_4_PWM">Channel 4 PWM</field>
+      <field type="int16_t" name="Channel_5_PWM">Channel 5 PWM</field>
     </message>	
     <message id="13001" name="TELEMETRY_DATA_PACK">
       <description>Telemetry data message.</description>
@@ -78,6 +83,28 @@
       <field type="uint32_t" name="Motor_A_Faults_Mask">Motor A faults mask</field>
       <field type="uint32_t" name="Motor_B_Faults_Mask">Motor B faults mask</field>
       <field type="uint32_t" name="BMS_Faults_Mask">Battery management system faults mask</field>
-    </message>	
+    </message>
+    
+    <message id="13003" name="STORAGE_STATUS_PACK">
+      <description>Storage module status message.</description>
+      <field type="uint64_t" name="System_Timestamp" units="ms">Log timestamp since 1.1.1970 UTC.</field>
+      <field type="uint32_t" name="Storage_Free_Data_Size">Storage Free Data Size</field>
+      <field type="uint32_t" name="Storage_Module_Status_Mask">Storage Module Status Mask</field>
+    </message>
+    
+    
+    <message id="13004" name="RADIO_LINK_STATUS_PACK">
+      <description>Radio Link module status message.</description>
+      <field type="uint64_t" name="System_Timestamp" units="ms">Log timestamp since 1.1.1970 UTC.</field>
+      <field type="int16_t" name="RSSI" units="dB">RSSI</field>
+      <field type="uint32_t" name="Radio_Link_Module_Status_Mask">Radio Link Module Status Mask</field>
+    </message>
+    
+    <message id="13005" name="GUIDANCE_STATUS_PACK">
+      <description>Guidance module status message.</description>
+      <field type="uint64_t" name="System_Timestamp" units="ms">Log timestamp since 1.1.1970 UTC.</field>
+      <field type="uint32_t" name="Guidance_Module_Status_Mask">Guidance Module Status Mask</field>
+    </message>
+    
   </messages>
 </mavlink>

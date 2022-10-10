@@ -23,6 +23,199 @@ AGUSendSystemHandler::AGUSendSystemHandler(MavLinkCommunicator* communicator,
     this->startTimer(150);
 }
 
+uint64_t AGUSendSystemHandler::generateTelMask()
+{
+    auto handler = "TEL";
+    std::bitset<64> statusMask;
+    typedef std::size_t length_t, position_t;
+
+    for (position_t i=0; i < length_t(32); ++i) {
+        bool randBool = m_communicator->randomBool();
+        statusMask.set(i, randBool);
+    }
+
+    std::string bs56 = std::bitset<8>(m_communicator->random255()).to_string()+"00000000""00000000""00000000""00000000""00000000""00000000""00000000";
+    std::cout << bs56 << std::endl;
+    std::string bs48 = "00000000"+std::bitset<8>(m_communicator->random255()).to_string()+"00000000""00000000""00000000""00000000""00000000""00000000";
+    std::cout << bs48 << std::endl;
+    std::string bs40 = "00000000""00000000"+std::bitset<8>(m_communicator->random255()).to_string()+"00000000""00000000""00000000""00000000""00000000";
+    std::cout << bs40 << std::endl;
+    std::string bs32 = "00000000""00000000""00000000"+std::bitset<8>(m_communicator->random255()).to_string()+"00000000""00000000""00000000""00000000";
+    std::cout << bs32 << std::endl;
+
+    statusMask = std::bitset<64>{bs56} | statusMask;
+    statusMask = std::bitset<64>{bs48} | statusMask;
+    statusMask = std::bitset<64>{bs40} | statusMask;
+    statusMask = std::bitset<64>{bs32} | statusMask;
+    auto statusInt = statusMask.to_ulong();
+    std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
+    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
+    std::stringstream hexMask;
+    hexMask << std::hex << std::uppercase << statusInt;
+    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
+    return statusInt;
+}
+
+uint32_t AGUSendSystemHandler::generateCoreMask()
+{
+    auto handler = "CORE";
+    std::bitset<32> statusMask;
+    typedef std::size_t length_t, position_t;
+
+    for (position_t i=0; i < length_t(32); ++i) {
+        bool randBool = m_communicator->randomBool();
+        statusMask.set(i, randBool);
+    }
+
+    auto statusInt = statusMask.to_ulong();
+    std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
+    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
+    std::stringstream hexMask;
+    hexMask << std::hex << std::uppercase << statusInt;
+    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
+    return statusInt;
+}
+
+uint32_t AGUSendSystemHandler::generateStorageMask()
+{
+    auto handler = "STORAGE";
+    std::bitset<32> statusMask;
+    typedef std::size_t length_t, position_t;
+
+    for (position_t i=0; i < length_t(32); ++i) {
+        bool randBool = m_communicator->randomBool();
+        statusMask.set(i, randBool);
+    }
+
+    auto statusInt = statusMask.to_ulong();
+    std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
+    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
+    std::stringstream hexMask;
+    hexMask << std::hex << std::uppercase << statusInt;
+    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
+    return statusInt;
+}
+
+uint32_t AGUSendSystemHandler::generateRLMask()
+{
+    auto handler = "RADIOLINK";
+    std::bitset<32> statusMask;
+    typedef std::size_t length_t, position_t;
+
+    for (position_t i=0; i < length_t(32); ++i) {
+        bool randBool = m_communicator->randomBool();
+        statusMask.set(i, randBool);
+    }
+
+    auto statusInt = statusMask.to_ulong();
+    std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
+    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
+    std::stringstream hexMask;
+    hexMask << std::hex << std::uppercase << statusInt;
+    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
+    return statusInt;
+}
+
+uint32_t AGUSendSystemHandler::generateMotorMask()
+{
+    auto handler = "MOTOR";
+    std::bitset<32> statusMask;
+    typedef std::size_t length_t, position_t;
+
+    for (position_t i=0; i < length_t(32); ++i) {
+        bool randBool = m_communicator->randomBool();
+        statusMask.set(i, randBool);
+    }
+
+    auto statusInt = statusMask.to_ulong();
+    std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
+    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
+    std::stringstream hexMask;
+    hexMask << std::hex << std::uppercase << statusInt;
+    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
+    return statusInt;
+}
+
+uint32_t AGUSendSystemHandler::generateGuidanceMask()
+{
+    auto handler = "GUIDANCE";
+    std::bitset<32> statusMask;
+    typedef std::size_t length_t, position_t;
+
+    for (position_t i=0; i < length_t(32); ++i) {
+        bool randBool = m_communicator->randomBool();
+        statusMask.set(i, randBool);
+    }
+
+    auto statusInt = statusMask.to_ulong();
+    std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
+    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
+    std::stringstream hexMask;
+    hexMask << std::hex << std::uppercase << statusInt;
+    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
+    return statusInt;
+}
+
+uint16_t AGUSendSystemHandler::generateEmergencyBoardMask()
+{
+    auto handler = "EMERGENCY BOARD";
+    std::bitset<16> statusMask;
+    typedef std::size_t length_t, position_t;
+
+    for (position_t i=0; i < length_t(16); ++i) {
+        bool randBool = m_communicator->randomBool();
+        statusMask.set(i, randBool);
+    }
+
+    auto statusInt = statusMask.to_ulong();
+    std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
+    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
+    std::stringstream hexMask;
+    hexMask << std::hex << std::uppercase << statusInt;
+    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
+    return statusInt;
+}
+
+uint16_t AGUSendSystemHandler::generatePSUMask()
+{
+    auto handler = "PSU";
+    std::bitset<16> statusMask;
+    typedef std::size_t length_t, position_t;
+
+    for (position_t i=0; i < length_t(16); ++i) {
+        bool randBool = m_communicator->randomBool();
+        statusMask.set(i, randBool);
+    }
+
+    auto statusInt = statusMask.to_ulong();
+    std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
+    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
+    std::stringstream hexMask;
+    hexMask << std::hex << std::uppercase << statusInt;
+    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
+    return statusInt;
+}
+
+uint8_t AGUSendSystemHandler::generateEmergencyRLMask()
+{
+    auto handler = "EMERGENCY RL";
+    std::bitset<8> statusMask;
+    typedef std::size_t length_t, position_t;
+
+    for (position_t i=0; i < length_t(8); ++i) {
+        bool randBool = m_communicator->randomBool();
+        statusMask.set(i, randBool);
+    }
+
+    auto statusInt = statusMask.to_ulong();
+    std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
+    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
+    std::stringstream hexMask;
+    hexMask << std::hex << std::uppercase << statusInt;
+    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
+    return statusInt;
+}
+
 void AGUSendSystemHandler::processMessage(const mavlink_message_t& message)
 {
     Q_UNUSED(message)
@@ -41,77 +234,14 @@ void AGUSendSystemHandler::timerEvent(QTimerEvent* event)
 
     int flightPhase = (rand() % 10) + 1;
     int flightPhaseTime = (rand() % 1000) + 1;
-    int guidanceMask = (rand() % 1000) + 1;
-    int motorMask = (rand() % 1000) + 1;
-    int radioMask = (rand() % 1000) + 1;
-    int storageMask = (rand() % 1000) + 1;
-    //int telemetryMask = (rand() % 1000) + 1;
-    int coreMask = (rand() % 1000) + 1;
-
-    QBitArray telemetryba(32);
-    for(int i=0;i++;i<32){
-        telemetryba.setBit(i,false);
-    }
-    //int telemetryMask = telemetryba
-    QByteArray telemetrybytes;
-    telemetrybytes.resize(telemetryba.count()/8+1);
-    telemetrybytes.fill(0);
-    for(int b=0; b<telemetryba.count(); ++b)
-        telemetrybytes[b/8] = ( telemetrybytes.at(b/8) | ((telemetryba[b]?1:0)<<(b%8)));
-
-    bool telemetryconvcheck;
-    status.Telemetry_Module_Status_Mask=7901428111563063317;//telemetrybytes.toInt(&telemetryconvcheck);
-
-    //printf("Conversion Telemetry %d", telemetryconvcheck);
 
 
-    QBitArray motorba(32);
-    for(int i=0;i++;i<32){
-        motorba.setBit(i,false);
-    }
-    QByteArray motorbytes;
-    motorbytes.resize(motorba.count()/8+1);
-    motorbytes.fill(0);
-    for(int b=0; b<motorba.count(); ++b)
-        motorbytes[b/8] = ( motorbytes.at(b/8) | ((motorba[b]?1:0)<<(b%8)));
-
-    bool motorconvcheck;
-    status.Motor_Control_Module_Status_Mask=motorbytes.toInt(&motorconvcheck);
-    printf("Conversion Motor %d", motorconvcheck);
-
-
-    QBitArray radioba(32);
-    for(int i=0;i++;i<32){
-        radioba.setBit(i,false);
-    }
-    QByteArray radiobytes;
-    radiobytes.resize(radioba.count()/8+1);
-    radiobytes.fill(0);
-    for(int b=0; b<radioba.count(); ++b)
-        radiobytes[b/8] = ( radiobytes.at(b/8) | ((radioba[b]?1:0)<<(b%8)));
-
-    bool radioconvcheck;
-    status.Radio_Link_Module_Status_Mask=radiobytes.toInt(&radioconvcheck);
-    printf("Conversion Radio %d", radioconvcheck);
-
-
-    QBitArray storageba(32);
-    for(int i=0;i++;i<32){
-        storageba.setBit(i,false);
-    }
-    QByteArray storagebytes;
-    storagebytes.resize(storageba.count()/8+1);
-    storagebytes.fill(0);
-    for(int b=0; b<storageba.count(); ++b)
-        storagebytes[b/8] = ( storagebytes.at(b/8) | ((storageba[b]?1:0)<<(b%8)));
-
-    bool storageconvcheck;
-    status.Storage_Module_Status_Mask=storagebytes.toInt(&storageconvcheck);
-    printf("Conversion Storage %d", radioconvcheck);
-
-
-    status.Guidance_Module_Status_Mask=guidanceMask;
-    status.Core_Module_Status_Mask=coreMask;
+    status.Telemetry_Module_Status_Mask=this->generateTelMask();//telemetrybytes.toInt(&telemetryconvcheck);
+    status.Motor_Control_Module_Status_Mask=this->generateMotorMask();
+    status.Radio_Link_Module_Status_Mask=this->generateRLMask();
+    status.Storage_Module_Status_Mask=this->generateStorageMask();
+    status.Guidance_Module_Status_Mask=this->generateGuidanceMask();
+    status.Core_Module_Status_Mask=this->generateCoreMask();
     status.Flight_Mode = flightMode;
     status.Flight_Phase = flightPhase;
     status.Flight_Phase_Time = flightPhaseTime;
