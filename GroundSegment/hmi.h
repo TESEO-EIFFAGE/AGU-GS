@@ -1,6 +1,6 @@
 #ifndef HMI_H
 #define HMI_H
-#include "mavlinkprotocol.h"
+//#include "mavlinkprotocol.h"
 #include <QObject>
 #include <AGU_MAVLINK/mavlink.h>
 #include <bitset>

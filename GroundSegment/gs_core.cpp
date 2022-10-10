@@ -1,10 +1,9 @@
 #include "gs_core.h"
 #include "storage.h"
 #include "hmi.h"
-#include "hmi.h"
-#include "GPSData.h"
-#include "src/radio_link/receiver/radio_link.h"
-#include "src/radio_link/common/mavlink_communicator.h"
+#include <gnss.h>
+#include <radio_link.h>
+#include <mavlink_communicator.h>
 #include <QTimer>
 #include <QObject>
 
@@ -17,7 +16,7 @@ GSCore::GSCore(QObject *parent)
     Storage *StorageData = new Storage(this);
     setRadioLink(new RadioLink(this));
     setHmi(new HMI(this));
-    setGpsData(new GPSData(this));
+    setGpsData(new GNSS(this));
 
     StorageData->LenSystemStatus  = SetInitParameter("LenSystemStatus");
     StorageData->LenStorageStatus = SetInitParameter("LenStorageStatus");
@@ -125,12 +124,12 @@ void GSCore::setHmi(HMI* hmi)
     m_hmi = hmi;
 }
 
-GPSData *GSCore::gpsData() const
+GNSS *GSCore::gpsData() const
 {
     return m_gpsData;
 }
 
-void GSCore::setGpsData(GPSData* gpsData)
+void GSCore::setGpsData(GNSS* gpsData)
 {
     m_gpsData = gpsData;
 }

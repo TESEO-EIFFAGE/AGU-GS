@@ -3,8 +3,7 @@ import QtQuick.Window 2.14
 import QtQuick.Controls 1.4
 import QtLocation 5.15
 import QtPositioning 5.6
-import io.qt.examples.gps_data 1.0
-
+import agu.gnss 1.0
 
 Item{
     id: mapviewer
@@ -68,7 +67,7 @@ Item{
         MapQuickItem {
             id: flyingObjectCursor
             sourceItem: Rectangle { width: 20; height: 20; color: "blue"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
-            coordinate : QtPositioning.coordinate(groundControlStation.flyingObjectLatitude, groundControlStation.flyingObjectLongitude)
+            coordinate : QtPositioning.coordinate(hmi.Latitude, hmi.Longitude)
             opacity: 1.0
             anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
             visible: true

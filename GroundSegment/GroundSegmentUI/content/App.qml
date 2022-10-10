@@ -280,7 +280,7 @@ Window {
         fsParams.txtBMS1Absorption: hmi.BMSAbsorption.toFixed(2)
         fsParams.txtBMS1Temp: hmi.BMSTemp.toFixed(2)
         fsParams.txtMotorTimestamp: timestampToUTCDate(hmi.MotorTimestamp)
-        fsParams.txtChargeValue: hmi.ChargeValue
+        //fsParams.txtChargeValue: hmi.ChargeValue
 
         fsParams.telemetryLight0.up: hmi.telemetry0
         fsParams.telemetryLight31.up: hmi.telemetry31

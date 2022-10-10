@@ -5,7 +5,7 @@
 
 class HMI;
 class RadioLink;
-class GPSData;
+class GNSS;
 class Storage;
 
 class GSCore : public QObject
@@ -22,8 +22,8 @@ public:
     bool FlagDeltaTime = false;
     HMI* hmi() const;
     void setHmi(HMI*);
-    GPSData* gpsData() const;
-    void setGpsData(GPSData*);
+    GNSS* gpsData() const;
+    void setGpsData(GNSS*);
     void SetFixOfTime(Storage *s);
     int SetInitParameter(QString str);
     void setRadioLink(RadioLink* radioLink);
@@ -35,7 +35,7 @@ signals:
 
 private:
     HMI* m_hmi;
-    GPSData* m_gpsData;
+    GNSS* m_gpsData;
     RadioLink* m_radioLink;
 };
 #endif // GS_CORE
