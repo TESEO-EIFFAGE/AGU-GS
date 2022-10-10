@@ -1,6 +1,7 @@
 QT += serialport positioning network
-
+s
 INCLUDEPATH += \
+$$PWD \
     $$PWD/../3dparty/mavlink_v2 \
     $$PWD/../3dparty/mavlink_v2/AGU_MAVLINK
 

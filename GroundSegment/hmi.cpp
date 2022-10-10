@@ -1,6 +1,8 @@
 #include "hmi.h"
 #include <bitset>
 #include <QString>
+#include <QVariant>
+#include <QDebug>
 #include <iostream>
 
 Q_DECLARE_METATYPE(mavlink_system_status_pack_t);

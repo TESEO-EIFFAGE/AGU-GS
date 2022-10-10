@@ -1,10 +1,9 @@
 #include "gs_core.h"
 #include "storage.h"
 #include "hmi.h"
-#include "hmi.h"
-#include "GPSData.h"
-#include "src/radio_link/receiver/radio_link.h"
-#include "src/radio_link/common/mavlink_communicator.h"
+#include <gnss.h>
+#include <radio_link.h>
+#include <mavlink_communicator.h>
 #include <QTimer>
 #include <QObject>
 

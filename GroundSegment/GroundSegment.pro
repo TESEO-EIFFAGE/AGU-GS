@@ -5,7 +5,7 @@ CONFIG += c++17
 QMAKE_CXXFLAGS += -Wall -Wextra -Wno-narrowing -std=c++11 -shared -fPIC -O3 -mtune=native -march=native -DNDEBUG -fopenmp -ltbb
 QMAKE_LFLAGS += -DHAVE_CBLAS=1
 
-include($$PWD/libs/F9P-Viewer/F9P_Coordinates_Viewer.pri)
+include($$PWD/src/gnss/gnss.pri)
 include($$PWD/src/radio_link/receiver/radio_link.pri)
 
 SOURCES += \

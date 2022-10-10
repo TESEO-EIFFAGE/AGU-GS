@@ -4,7 +4,7 @@
 #include <QTextStream>
 #include <QFileInfo>
 #include "mavlinkprotocol.h"
-#include "GPSData.h"
+#include <gnss.h>
 
 typedef struct
 {
