@@ -28,8 +28,8 @@ void AGUSystemHandler::processMessage(const mavlink_message_t& message)
 
 
     std::cout << "Core_Module_Status_Mask " << system_status.Core_Module_Status_Mask << std::endl;
-    printf("Flight_Mode %d \n",system_status.Flight_Mode);
-    printf( "Flight_Phase %d \n",system_status.Flight_Phase);
+    std::cout << "Flight_Mode " << +system_status.Flight_Mode << std::endl;
+    std::cout << "Flight_Phase "<< +system_status.Flight_Phase<< std::endl;
     std::cout << "Flight_Phase_Time " << system_status.Flight_Phase_Time << std::endl;
     std::cout << "Guidance_Module_Status_Mask " << system_status.Guidance_Module_Status_Mask << std::endl;
     std::cout << "Log_Timestamp " << system_status.Log_Timestamp << std::endl;

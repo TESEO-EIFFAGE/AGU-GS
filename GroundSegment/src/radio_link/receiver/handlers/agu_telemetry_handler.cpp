@@ -59,7 +59,7 @@ void AGUTelemetryHandler::processMessage(const mavlink_message_t& message)
     std::cout << "Angular_Rate_Roll " << telemetry_status.Angular_Rate_Roll << std::endl;
     std::cout << "Angular_Rate_Pitch " << telemetry_status.Angular_Rate_Pitch << std::endl;
     std::cout << "Angular_Rate_Yaw " << telemetry_status.Angular_Rate_Yaw << std::endl;
-    printf( "Satellite_Num %d \n" ,telemetry_status.Satellite_Num);
+    std::cout << "Satellite_Num " <<+telemetry_status.Satellite_Num << std::endl;
     QVariant processedMessage;
     processedMessage.setValue(telemetry_status);
     m_communicator->dispatchReceivedMessage(processedMessage);
