@@ -470,6 +470,57 @@ Rectangle {
                     }
                     Rectangle {
                         radius: 8
+                        Layout.preferredHeight: 105
+                        Layout.preferredWidth: 60 //40
+                        color: params.tabIndex === 6 ? "#F5F5F5" : "#E0E0E0"
+                        border.width: 0
+
+                        Image {
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.margins: 8
+                            //anchors.horizontalCenter: parent.horizontalCenter
+                            source: "images/svgs/solid/gear.svg"
+                            fillMode: Image.PreserveAspectFit
+                            sourceSize.height: 24
+                            sourceSize.width: 24
+                        }
+
+                        ParamGrp1Label {
+                            x: 5
+                            y: 64
+
+                            text: "Core"
+                            transform: Rotation {
+                                angle: 90
+                                origin.x: 25
+                            }
+                        }
+
+                        Rectangle {
+                            anchors.left: parent.left
+                            anchors.leftMargin: 12
+                            anchors.bottom: parent.bottom
+                            anchors.bottomMargin: 8
+                            width: 16
+                            height: 16
+                            color: coreTab.lit ? "#ff0000" : "green"
+                            radius: 8
+                        }
+                        MouseArea {
+                            id: mouseAreaCore
+                            anchors.fill: parent
+                            Connections {
+                                target: mouseAreaCore
+                                onClicked: {
+                                    params.tabIndex = 6
+                                    params.coreTabClicked()
+                                }
+                            }
+                        }
+                    }
+                    Rectangle {
+                        radius: 8
                         Layout.preferredHeight: 145
                         Layout.preferredWidth: 60 //40
                         color: params.tabIndex === 4 ? "#F5F5F5" : "#E0E0E0"
@@ -571,57 +622,7 @@ Rectangle {
                         }
                     }
 
-                    Rectangle {
-                        radius: 8
-                        Layout.preferredHeight: 105
-                        Layout.preferredWidth: 60 //40
-                        color: params.tabIndex === 6 ? "#F5F5F5" : "#E0E0E0"
-                        border.width: 0
 
-                        Image {
-                            anchors.left: parent.left
-                            anchors.top: parent.top
-                            anchors.margins: 8
-                            //anchors.horizontalCenter: parent.horizontalCenter
-                            source: "images/svgs/solid/gear.svg"
-                            fillMode: Image.PreserveAspectFit
-                            sourceSize.height: 24
-                            sourceSize.width: 24
-                        }
-
-                        ParamGrp1Label {
-                            x: 5
-                            y: 64
-
-                            text: "Core"
-                            transform: Rotation {
-                                angle: 90
-                                origin.x: 25
-                            }
-                        }
-
-                        Rectangle {
-                            anchors.left: parent.left
-                            anchors.leftMargin: 12
-                            anchors.bottom: parent.bottom
-                            anchors.bottomMargin: 8
-                            width: 16
-                            height: 16
-                            color: coreTab.lit ? "#ff0000" : "green"
-                            radius: 8
-                        }
-                        MouseArea {
-                            id: mouseAreaCore
-                            anchors.fill: parent
-                            Connections {
-                                target: mouseAreaCore
-                                onClicked: {
-                                    params.tabIndex = 6
-                                    params.coreTabClicked()
-                                }
-                            }
-                        }
-                    }
                 }
                 Rectangle {
                     x: -10
