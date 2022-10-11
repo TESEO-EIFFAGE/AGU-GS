@@ -170,6 +170,26 @@ void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
     m_CoreModuleStatusMask= msg_status.Core_Module_Status_Mask; emit StorageModuleStatusMaskChanged();
     m_RadioLinkModuleStatusMask= msg_status.Radio_Link_Module_Status_Mask; emit RadioLinkModuleStatusMaskChanged();
 
+    std::bitset<32> bitSet(msg_status.Core_Module_Status_Mask);
+    m_systemCoreMask0 = bitSet.test(0); emit systemCoreMask0Changed();
+    m_systemCoreMask1 = bitSet.test(1); emit systemCoreMask1Changed();
+    m_systemCoreMask2 = bitSet.test(2); emit systemCoreMask2Changed();
+    m_systemCoreMask3 = bitSet.test(3); emit systemCoreMask3Changed();
+    m_systemCoreMask4 = bitSet.test(4); emit systemCoreMask4Changed();
+    m_systemCoreMask5 = bitSet.test(5); emit systemCoreMask5Changed();
+    m_systemCoreMask6 = bitSet.test(6); emit systemCoreMask6Changed();
+    m_systemCoreMask7 = bitSet.test(7); emit systemCoreMask7Changed();
+    m_systemCoreMask8 = bitSet.test(8); emit systemCoreMask8Changed();
+    m_systemCoreMask9 = bitSet.test(9); emit systemCoreMask9Changed();
+    m_systemCoreMask10 = bitSet.test(10); emit systemCoreMask10Changed();
+    m_systemCoreMask11 = bitSet.test(11); emit systemCoreMask11Changed();
+    m_systemCoreMask12 = bitSet.test(12); emit systemCoreMask12Changed();
+    m_systemCoreMask13 = bitSet.test(13); emit systemCoreMask13Changed();
+    m_systemCoreMask14 = bitSet.test(14); emit systemCoreMask14Changed();
+    m_systemCoreMask15 = bitSet.test(15); emit systemCoreMask15Changed();
+
+    update_communicationErrorCounter(extractBits32(bitSet,16,24)); emit communicationErrorCounterChanged();
+
     printf("SYS STATUS UPDATED \n");
     printf("FLIGHT MODE %d \n",m_FlightMode);
     printf("FLIGHT PHASE %d \n",m_FlightPhase);
@@ -276,6 +296,33 @@ void HMI::showDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio_stat
 
 void HMI::showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_status)
 {
+    m_storageFreeDataSize=msg_storage_status.Storage_Free_Data_Size; emit storageFreeDataSizeChanged();
+
+    std::bitset<64> bitSet(msg_storage_status.Storage_Module_Status_Mask);
+    m_storage0 = bitSet.test(0); emit storage0Changed();
+    m_storage1 = bitSet.test(1); emit storage1Changed();
+    m_storage2 = bitSet.test(2); emit storage2Changed();
+    m_storage3 = bitSet.test(3); emit storage3Changed();
+    m_storage4 = bitSet.test(4); emit storage4Changed();
+    m_storage5 = bitSet.test(5); emit storage5Changed();
+    m_storage6 = bitSet.test(6); emit storage6Changed();
+    m_storage7 = bitSet.test(7); emit storage7Changed();
+    m_storage8 = bitSet.test(8); emit storage8Changed();
+    m_storage9 = bitSet.test(9); emit storage9Changed();
+    m_storage10 = bitSet.test(10); emit storage10Changed();
+    m_storage11 = bitSet.test(11); emit storage11Changed();
+    m_storage12 = bitSet.test(12); emit storage12Changed();
+    m_storage13 = bitSet.test(13); emit storage13Changed();
+    m_storage14 = bitSet.test(14); emit storage14Changed();
+    m_storage15 = bitSet.test(15); emit storage15Changed();
+    m_storage16 = bitSet.test(16); emit storage16Changed();
+    m_storage17 = bitSet.test(17); emit storage17Changed();
+    m_storage18 = bitSet.test(18); emit storage18Changed();
+    m_storage19 = bitSet.test(19); emit storage19Changed();
+    m_storage20 = bitSet.test(20); emit storage20Changed();
+    m_storage21 = bitSet.test(21); emit storage21Changed();
+    m_storage22 = bitSet.test(22); emit storage22Changed();
+    m_storage23 = bitSet.test(23); emit storage23Changed();
 
 }
 
