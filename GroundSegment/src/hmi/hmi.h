@@ -4,12 +4,14 @@
 #include <QObject>
 #include <AGU_MAVLINK/mavlink.h>
 #include <bitset>
+#include "QQmlAutoPropertyHelpers.h"
 
 class HMI : public QObject
 {
     Q_OBJECT
 public:
     explicit HMI(QObject *parent = nullptr);
+
 
     /* TELEMETRY */
 
@@ -132,6 +134,72 @@ public:
     Q_PROPERTY(bool motor23 MEMBER m_motor23 NOTIFY motor23Changed)
     Q_PROPERTY(bool motor24 MEMBER m_motor24 NOTIFY motor24Changed)
 
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask0);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask1);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask2);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask3);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask4);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask5);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask6);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask7);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask8);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask9);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask10);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask11);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask12);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask13);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask14);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask15);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask16);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask17);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask18);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask19);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask20);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask21);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask22);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask23);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask24);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask25);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask26);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask27);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask28);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask29);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask30);
+    QML_READONLY_AUTO_PROPERTY(bool,motorAMask31);
+
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask0);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask1);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask2);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask3);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask4);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask5);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask6);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask7);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask8);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask9);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask10);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask11);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask12);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask13);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask14);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask15);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask16);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask17);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask18);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask19);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask20);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask21);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask22);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask23);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask24);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask25);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask26);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask27);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask28);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask29);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask30);
+    QML_READONLY_AUTO_PROPERTY(bool,motorBMask31);
+
     Q_PROPERTY(bool BMS0 MEMBER m_BMS0 NOTIFY BMS0Changed)
     Q_PROPERTY(bool BMS1 MEMBER m_BMS1 NOTIFY BMS1Changed)
     Q_PROPERTY(bool BMS2 MEMBER m_BMS2 NOTIFY BMS2Changed)
@@ -177,12 +245,354 @@ public:
     Q_PROPERTY(quint32 RadioLinkModuleStatusMask MEMBER m_RadioLinkModuleStatusMask NOTIFY RadioLinkModuleStatusMaskChanged)
     Q_PROPERTY(quint32 MotorControlStatusMask MEMBER m_MotorControlStatusMask NOTIFY MotorControlStatusMaskChanged)
 
-    /* TBD */
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask0);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask1);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask2);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask3);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask4);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask5);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask6);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask7);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask8);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask9);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask10);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask11);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask12);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask13);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask14);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask15);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask16);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask17);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask18);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask19);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask20);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask21);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask22);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask23);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask24);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask25);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask26);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask27);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask28);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask29);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask30);
+    QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask31);
 
-    Q_PROPERTY(quint8 GSRLErrorCounter MEMBER m_GSRLErrorCounter NOTIFY GSRLErrorCounterChanged)
-    Q_PROPERTY(quint8 FSRLErrorCounter MEMBER m_FSRLErrorCounter NOTIFY FSRLErrorCounterChanged)
-    Q_PROPERTY(quint8 RLHeartbeatCounter MEMBER m_RLHeartbeatCounter NOTIFY RLHeartbeatCounterChanged)
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask0);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask1);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask2);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask3);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask4);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask5);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask6);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask7);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask8);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask9);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask10);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask11);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask12);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask13);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask14);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask15);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask16);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask17);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask18);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask19);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask20);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask21);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask22);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask23);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask24);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask25);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask26);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask27);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask28);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask29);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask30);
+    QML_READONLY_AUTO_PROPERTY(bool,systemStorageMask31);
 
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask0);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask1);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask2);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask3);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask4);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask5);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask6);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask7);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask8);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask9);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask10);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask11);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask12);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask13);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask14);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask15);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask16);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask17);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask18);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask19);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask20);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask21);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask22);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask23);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask24);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask25);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask26);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask27);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask28);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask29);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask30);
+    QML_READONLY_AUTO_PROPERTY(bool,systemGuidanceMask31);
+
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask0);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask1);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask2);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask3);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask4);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask5);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask6);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask7);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask8);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask9);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask10);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask11);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask12);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask13);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask14);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask15);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask16);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask17);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask18);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask19);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask20);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask21);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask22);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask23);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask24);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask25);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask26);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask27);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask28);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask29);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask30);
+    QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask31);
+
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask0);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask1);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask2);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask3);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask4);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask5);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask6);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask7);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask8);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask9);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask10);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask11);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask12);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask13);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask14);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask15);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask16);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask17);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask18);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask19);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask20);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask21);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask22);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask23);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask24);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask25);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask26);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask27);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask28);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask29);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask30);
+    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask31);
+
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask0);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask1);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask2);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask3);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask4);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask5);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask6);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask7);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask8);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask9);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask10);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask11);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask12);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask13);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask14);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask15);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask16);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask17);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask18);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask19);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask20);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask21);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask22);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask23);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask24);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask25);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask26);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask27);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask28);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask29);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask30);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask31);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask32);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask33);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask34);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask35);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask36);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask37);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask38);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask39);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask40);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask41);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask42);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask43);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask44);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask45);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask46);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask47);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask48);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask49);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask50);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask51);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask52);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask53);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask54);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask55);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask56);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask57);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask58);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask59);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask60);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask61);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask62);
+    QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask63);
+
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus0);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus1);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus2);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus3);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus4);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus5);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus6);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus7);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus8);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus9);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus10);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus11);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus12);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus13);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus14);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyBoardStatus15);
+
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus0);
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus1);
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus2);
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus3);
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus4);
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus5);
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus6);
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus7);
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus8);
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus9);
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus10);
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus11);
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus12);
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus13);
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus14);
+    QML_READONLY_AUTO_PROPERTY(bool,PSUStatus15);
+
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyRadioLinkStatus0);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyRadioLinkStatus1);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyRadioLinkStatus2);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyRadioLinkStatus3);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyRadioLinkStatus4);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyRadioLinkStatus5);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyRadioLinkStatus6);
+    QML_READONLY_AUTO_PROPERTY(bool,emergencyRadioLinkStatus7);
+
+    /* RADIOLINK */
+
+    QML_READONLY_AUTO_PROPERTY(quint16,RSSI);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask0);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask1);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask2);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask3);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask4);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask5);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask6);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask7);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask8);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask9);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask10);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask11);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask12);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask13);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask14);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask15);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask16);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask17);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask18);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask19);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask20);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask21);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask22);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask23);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask24);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask25);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask26);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask27);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask28);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask29);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask30);
+    QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask31);
+
+
+    /* GUIDANCE */
+
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask0);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask1);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask2);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask3);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask4);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask5);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask6);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask7);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask8);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask9);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask10);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask11);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask12);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask13);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask14);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask15);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask16);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask17);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask18);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask19);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask20);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask21);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask22);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask23);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask24);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask25);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask26);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask27);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask28);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask29);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask30);
+    QML_READONLY_AUTO_PROPERTY(bool,guidanceMask31);
+
+    /* STORAGE */
+
+    QML_READONLY_AUTO_PROPERTY(quint32,storageFreeDataSize);
     Q_PROPERTY(bool storage0 MEMBER m_storage0 NOTIFY storage0Changed)
     Q_PROPERTY(bool storage1 MEMBER m_storage1 NOTIFY storage1Changed)
     Q_PROPERTY(bool storage2 MEMBER m_storage2 NOTIFY storage2Changed)
@@ -206,19 +616,26 @@ public:
     Q_PROPERTY(bool storage21 MEMBER m_storage21 NOTIFY storage21Changed)
     Q_PROPERTY(bool storage22 MEMBER m_storage22 NOTIFY storage22Changed)
     Q_PROPERTY(bool storage23 MEMBER m_storage23 NOTIFY storage23Changed)
+    Q_PROPERTY(bool storage24 MEMBER m_storage24 NOTIFY storage24Changed)
+    Q_PROPERTY(bool storage25 MEMBER m_storage25 NOTIFY storage25Changed)
+    Q_PROPERTY(bool storage26 MEMBER m_storage26 NOTIFY storage26Changed)
+    Q_PROPERTY(bool storage27 MEMBER m_storage27 NOTIFY storage27Changed)
+    Q_PROPERTY(bool storage28 MEMBER m_storage28 NOTIFY storage28Changed)
+    Q_PROPERTY(bool storage29 MEMBER m_storage29 NOTIFY storage29Changed)
+    Q_PROPERTY(bool storage30 MEMBER m_storage30 NOTIFY storage30Changed)
+    Q_PROPERTY(bool storage31 MEMBER m_storage31 NOTIFY storage31Changed)
 
-    Q_PROPERTY(bool core0 MEMBER m_core0 NOTIFY core0Changed)
-    Q_PROPERTY(bool core1 MEMBER m_core1 NOTIFY core1Changed)
-    Q_PROPERTY(bool core2 MEMBER m_core2 NOTIFY core2Changed)
-    Q_PROPERTY(bool core3 MEMBER m_core3 NOTIFY core3Changed)
-    Q_PROPERTY(bool core4 MEMBER m_core4 NOTIFY core4Changed)
+    /* TBD */
 
-    Q_PROPERTY(bool radiolink0 MEMBER m_radiolink0 NOTIFY radiolink0Changed)
-    Q_PROPERTY(bool radiolink1 MEMBER m_radiolink1 NOTIFY radiolink1Changed)
-    Q_PROPERTY(bool radiolink2 MEMBER m_radiolink2 NOTIFY radiolink2Changed)
-    Q_PROPERTY(bool radiolink3 MEMBER m_radiolink3 NOTIFY radiolink3Changed)
-    Q_PROPERTY(bool radiolink8 MEMBER m_radiolink8 NOTIFY radiolink8Changed)
-    Q_PROPERTY(bool radiolink9 MEMBER m_radiolink9 NOTIFY radiolink9Changed)
+    Q_PROPERTY(quint8 GSRLErrorCounter MEMBER m_GSRLErrorCounter NOTIFY GSRLErrorCounterChanged)
+    Q_PROPERTY(quint8 FSRLErrorCounter MEMBER m_FSRLErrorCounter NOTIFY FSRLErrorCounterChanged)
+    Q_PROPERTY(quint8 RLHeartbeatCounter MEMBER m_RLHeartbeatCounter NOTIFY RLHeartbeatCounterChanged)
+
+
+
+
+
+
 
     Q_PROPERTY(bool gnssFound MEMBER m_gnssFound NOTIFY gnssFoundChanged)
 
@@ -258,10 +675,10 @@ signals:
     void AngularRateRollChanged();
     void AngularRatePitchChanged();
     void AngularRateYawChanged();
-//    void Quaternion0Changed();
-//    void Quaternion1Changed();
-//    void Quaternion2Changed();
-//    void Quaternion3Changed();
+    //    void Quaternion0Changed();
+    //    void Quaternion1Changed();
+    //    void Quaternion2Changed();
+    //    void Quaternion3Changed();
     void NumberOfGPSSatelliteChanged();
 
     void telemetry0Changed();
@@ -404,18 +821,9 @@ signals:
     void RLHeartbeatCounterChanged();
     void FSRLErrorCounterChanged();
 
-    void core0Changed();
-    void core1Changed();
-    void core2Changed();
-    void core3Changed();
-    void core4Changed();
 
-    void radiolink0Changed();
-    void radiolink1Changed();
-    void radiolink2Changed();
-    void radiolink3Changed();
-    void radiolink8Changed();
-    void radiolink9Changed();
+
+
 
     void storage0Changed();
     void storage1Changed();
@@ -440,6 +848,22 @@ signals:
     void storage21Changed();
     void storage22Changed();
     void storage23Changed();
+
+    void storage31Changed();
+
+    void storage30Changed();
+
+    void storage29Changed();
+
+    void storage28Changed();
+
+    void storage27Changed();
+
+    void storage26Changed();
+
+    void storage25Changed();
+
+    void storage24Changed();
 
 private:
     uint8_t extractBits64(const std::bitset<64> the_bitset, size_t start_bit, size_t end_bit);
@@ -484,10 +908,10 @@ private:
     qint16 m_AngularRateRoll{};
     qint16 m_AngularRatePitch{};
     qint16 m_AngularRateYaw{};
-//    double m_Quaternion0{};
-//    double m_Quaternion1{};
-//    double m_Quaternion2{};
-//    double m_Quaternion3{};
+    //    double m_Quaternion0{};
+    //    double m_Quaternion1{};
+    //    double m_Quaternion2{};
+    //    double m_Quaternion3{};
     quint8 m_NumberOfGPSSatellite{};
     quint8 m_AnemCommErrorCounter;
     quint8 m_RDAltCommErrorCounter;
@@ -550,6 +974,14 @@ private:
     bool m_storage21;
     bool m_storage22;
     bool m_storage23;
+    bool m_storage31;
+    bool m_storage30;
+    bool m_storage29;
+    bool m_storage28;
+    bool m_storage27;
+    bool m_storage26;
+    bool m_storage25;
+    bool m_storage24;
 
     bool m_motor0;
     bool m_motor1;
@@ -634,17 +1066,8 @@ private:
     int m_GSRLErrorCounter;
     int m_RLHeartbeatCounter;
     int m_FSRLErrorCounter;
-    bool m_core0;
-    bool m_core1;
-    bool m_core2;
-    bool m_core3;
-    bool m_core4;
-    bool m_radiolink0;
-    bool m_radiolink1;
-    bool m_radiolink2;
-    bool m_radiolink3;
-    bool m_radiolink8;
-    bool m_radiolink9;
+
+
     quint32 m_RadioLinkModuleStatusMask;
     quint32 m_StorageModuleStatusMask;
     quint32 m_GuidanceModuleStatusMask;
@@ -654,6 +1077,7 @@ private:
     quint8 m_FlightPhase;
     quint8 m_FlightMode;
     quint32 m_MotorControlStatusMask;
+
 };
 
 #endif // HMI_H
