@@ -13,6 +13,20 @@ typedef struct
 }GPSTimePack;
 Q_DECLARE_METATYPE(GPSTimePack);
 
+
+/*!
+        \class Storage
+
+        \brief The Storage class is the class used to create lof file
+
+        \reentrant
+
+        The Storage class is composed by 7 slot and one function.
+        The task of the Storage class is to create log files when mavlink
+        messages are received. Different funcions are created for manage
+        diferent kind of log files.
+
+*/
 class Storage : public QObject
 {
     Q_OBJECT
