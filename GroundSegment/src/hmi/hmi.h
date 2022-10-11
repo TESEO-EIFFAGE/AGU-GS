@@ -452,7 +452,7 @@ private:
     void showDataMotorStatus(const mavlink_motor_status_pack_t msg_motor_status);
     void showDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio_status);
     void showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_status);
-    void showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_storage_status);
+    void showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status);
 
     quint64 m_TimeStamp{};
     quint64 m_TimeStampRIO{};

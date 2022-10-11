@@ -227,13 +227,11 @@ void AGUSendSystemHandler::timerEvent(QTimerEvent* event)
 
     mavlink_message_t message;
     mavlink_system_status_pack_t status;
+    uint8_t flightPhase = (rand() % 10) + 1;
+    uint8_t flightMode = (rand() % 10) + 1;
+    uint32_t flightPhaseTime = (rand() % 1000) + 1;
 
-    static int flightMode = std::rand();
 
-    flightMode = flightMode > 1 ? flightMode - 1: 100;
-
-    int flightPhase = (rand() % 10) + 1;
-    int flightPhaseTime = (rand() % 1000) + 1;
 
 
     status.Telemetry_Module_Status_Mask=this->generateTelMask();//telemetrybytes.toInt(&telemetryconvcheck);

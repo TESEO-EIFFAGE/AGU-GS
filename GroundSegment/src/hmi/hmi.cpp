@@ -268,3 +268,18 @@ void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
     printf("MOTOR STATUS UPDATED \n");
     printf("BMS VOLTAGE %d \n",m_BMSVoltage);
 }
+
+void HMI::showDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio_status)
+{
+
+}
+
+void HMI::showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_status)
+{
+
+}
+
+void HMI::showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status)
+{
+
+}
