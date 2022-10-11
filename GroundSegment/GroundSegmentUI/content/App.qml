@@ -191,17 +191,17 @@ Window {
                                    || hmi.motor2
                                    || hmi.motor1
                                    || hmi.motor0
-        fsParams.coreTab.lit: hmi.core0
-                              || hmi.core1
-                              || hmi.core2
-                              || hmi.core3
-                              || hmi.core4
-        fsParams.radioLinkTab.lit: hmi.radiolink0
-                                   || hmi.radiolink1
-                                   || hmi.radiolink2
-                                   || hmi.radiolink3
-                                   || hmi.radiolink8
-                                   || hmi.radiolink9
+//        fsParams.coreTab.lit: hmi.core0
+//                              || hmi.core1
+//                              || hmi.core2
+//                              || hmi.core3
+//                              || hmi.core4
+//        fsParams.radioLinkTab.lit: hmi.radiolink0
+//                                   || hmi.radiolink1
+//                                   || hmi.radiolink2
+//                                   || hmi.radiolink3
+//                                   || hmi.radiolink8
+//                                   || hmi.radiolink9
 
         fsParams.radioLinkTab.txtRadioLinkErrorCounter: hmi.FSRLErrorCounter
 
