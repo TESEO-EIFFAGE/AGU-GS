@@ -17,6 +17,7 @@ Rectangle {
     property alias coreLight12: coreLight12
     property alias coreLight11: coreLight11
     property alias coreLight10: coreLight10
+    property alias coreLight9: coreLight9
     property alias coreLight8: coreLight8
     property alias coreLight7: coreLight7
     property alias coreLight6: coreLight6
