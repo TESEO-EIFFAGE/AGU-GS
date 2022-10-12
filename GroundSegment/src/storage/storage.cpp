@@ -1,20 +1,22 @@
 #include "storage.h"
 
 /*!
-    \fn Storage::Storage(QObject *parent) : QObject(parent)
+        \class Storage
 
-    Constructor for Storage object who invoke a function for initialize  FixGPSTime
+        \brief The Storage class is the class used to create lof file
+
+        \reentrant
+
+        Storage class is composed by 7 slot and one function.
+        It create log files when mavlink messages are received.
+        Different funcions are created for manage diferent kind of log files.
+
 */
 Storage::Storage(QObject *parent) : QObject(parent)
 {
      InitFixGPSTime();
 }
 
-/*!
-    \fn Storage::~Storage()
-
-    Destructor for Storage
-*/
 Storage::~Storage()
 {
 
@@ -113,11 +115,9 @@ QString Storage::CalculatePathName()
 /*!
     \fn Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 
-    Function that receive as argument a struct with the data of System Status Pack Message.
-    This function set the second part of the path name (_CORE_Log.csv) for the log file
-    and print all data in the struct. The first raw of the log file is the System Time.
+    It set the second part of the path name (_CORE_Log.csv) for the log file and
+    according to SystemStatusPack struct fill the file with mavlink data.
     When there is the fix of the GPS the System Time must be the GPS Time.
-    This is calculated using the variable DeltaGPSTimefromSystemTime.
 */
 void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 {
@@ -248,11 +248,9 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 /*!
     \fn Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
 
-    Function that receive as argument a struct with the data of System Motor Status Pack Message.
-    This function set the second part of the path name (_MSTP_Log.csv) for the log file
-    and print all data in the struct. The first raw of the log file is the System Time.
+    It set the second part of the path name (_MSTP_Log.csv) for the log file and
+    according to MotorStatusPackDataset struct fill the file with mavlink data.
     When there is the fix of the GPS the System Time must be the GPS Time.
-    This is calculated using the variable DeltaGPSTimefromSystemTime.
 */
 void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
 {
@@ -373,11 +371,9 @@ void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
 /*!
     \fn StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r)
 
-    Function that receive as argument a struct with the data of Radio Link Status Pack Message.
-    This function set the second part of the path name (_RL_Log.csv) for the log file
-    and print all data in the struct. The first raw of the log file is the System Time.
+    It set the second part of the path name (_RL_Log.csv) for the log file and
+    according to RadioLinkPackDataset struct fill the file with mavlink data.
     When there is the fix of the GPS the System Time must be the GPS Time.
-    This is calculated using the variable DeltaGPSTimefromSystemTime.
 */
 void Storage::StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r)
 {
@@ -446,11 +442,9 @@ void Storage::StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r)
 /*!
     \fn Storage::StoreDataInMemoryStorageStatusPack(StorageStatusPack *st)
 
-    Function that receive as argument a struct with the data of Storage Status Pack Message.
-    This function set the second part of the path name (_STR_Log.csv) for the log file
-    and print all data in the struct. The first raw of the log file is the System Time.
+    It set the second part of the path name (_STR_Log.csv) for the log file and
+    according to StorageStatusPack struct fill the file with mavlink data.
     When there is the fix of the GPS the System Time must be the GPS Time.
-    This is calculated using the variable DeltaGPSTimefromSystemTime.
 */
 void Storage::StoreDataInMemoryStorageStatusPack(StorageStatusPack *st)
 {
@@ -517,13 +511,11 @@ void Storage::StoreDataInMemoryStorageStatusPack(StorageStatusPack *st)
 }
 
 /*!
-    \fn Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g)
+    \fn Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g) 
 
-    Function that receive as argument a struct with the data of Guidance Status Pack Message.
-    This function set the second part of the path name (_GUID_Log.csv) for the log file
-    and print all data in the struct. The first raw of the log file is the System Time.
+    It set the second part of the path name (_GUID_Log.csv) for the log file and
+    according to GuidancePackDataset struct fill the file with mavlink data.
     When there is the fix of the GPS the System Time must be the GPS Time.
-    This is calculated using the variable DeltaGPSTimefromSystemTime.
 */
 void Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g)
 {
@@ -588,7 +580,7 @@ void Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g)
     \fn Storage::InitFixGPSTime()
 
     Function that initialize the variable FixGPSTime.
-    FixGPSTime is set TRUE when GPS is fixed
+    FixGPSTime is set TRUE when GPS is fixed.
 
 */
 void Storage::InitFixGPSTime()
@@ -599,11 +591,9 @@ void Storage::InitFixGPSTime()
 /*!
     \fn Storage::StoreDataInMemory(Telemetry *t)
 
-    Function that receive as argument a struct with the data of Telemetry Pack Message.
-    This function set the second part of the path name (_TLM_Log.csv) for the log file
-    and print all data in the struct. The first raw of the log file is the System Time.
+    It set the second part of the path name (_TLM_Log.csv) for the log file and
+    according to GuidancePackDataset struct fill the file with mavlink data.
     When there is the fix of the GPS the System Time must be the GPS Time.
-    This is calculated using the variable DeltaGPSTimefromSystemTime.
 */
 void Storage::StoreDataInMemory(Telemetry *t)
 {
