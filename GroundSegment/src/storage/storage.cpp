@@ -1,7 +1,7 @@
 #include "storage.h"
 
 /*!
-        \class Storage
+        \class          Storage
 
         \brief The Storage class is the class used to create lof file
 
