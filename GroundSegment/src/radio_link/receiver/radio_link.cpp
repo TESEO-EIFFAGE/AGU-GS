@@ -48,6 +48,11 @@ void RadioLink::stop()
     std::cout << "link is " << (m_link->isConnected() ? "up" : "down") << std::endl;
 }
 
+/*!
+    \fn radiolink::MavLinkCommunicator *RadioLink::communicator() const
+
+    It returns the communicator object
+*/
 radiolink::MavLinkCommunicator *RadioLink::communicator() const
 {
     return m_communicator;
