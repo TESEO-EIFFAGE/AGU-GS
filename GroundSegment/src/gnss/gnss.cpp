@@ -6,7 +6,7 @@
 /*!
         \class GNSS
 
-        \brief The GNSS class define the gnss object and its communication
+        \brief The GNSS class defines the GNSS object and its lines of communication
 */
 GNSS::GNSS(QObject *parent) :
     QObject(parent)
@@ -35,7 +35,7 @@ GNSS::GNSS(QObject *parent) :
 /*!
     \fn void GNSS::UpdateData()
 
-    It update gnss position and time
+    It updates the GNSS object's position and time
 */
 void GNSS::UpdateData() {
     double hasFix;
@@ -60,7 +60,7 @@ void GNSS::UpdateData() {
 /*!
     \fn double GNSS::latitude() const
 
-    It return latitude value
+    It returns the latitude value
 */
 double GNSS::latitude() const
 {
@@ -69,7 +69,7 @@ double GNSS::latitude() const
 /*!
     \fn double GNSS::longitude() const
 
-    It return longitude value
+    It returns the longitude value
 */
 double GNSS::longitude() const
 {
@@ -78,7 +78,7 @@ double GNSS::longitude() const
 /*!
     \fn double GNSS::altitude() const
 
-    It return altitude value
+    It returns the altitude value
 */
 double GNSS::altitude() const
 {
@@ -87,7 +87,7 @@ double GNSS::altitude() const
 /*!
     \fn bool GNSS::hasFix() const
 
-    It return hasFix value
+    It returns the hasFix value
 */
 bool GNSS::hasFix() const
 {
@@ -96,7 +96,7 @@ bool GNSS::hasFix() const
 /*!
     \fn int GNSS::hour() const
 
-    It return hour value
+    It returns the hour value
 */
 int GNSS::hour() const
 {
@@ -105,7 +105,7 @@ int GNSS::hour() const
 /*!
     \fn int GNSS::minute() const
  hasFix
-    It return minute value
+    It returns the minute value
 */
 int GNSS::minute() const
 {
@@ -114,7 +114,7 @@ int GNSS::minute() const
 /*!
     \fn double GNSS::second() const
 
-    It return second value
+    It returns the second value
 */
 double GNSS::second() const
 {
@@ -124,7 +124,7 @@ double GNSS::second() const
 /*!
     \fn void GNSS::setLatitude(const double latitude)
 
-    It set new value for latitude
+    It sets a new value to latitude
 */
 void GNSS::setLatitude(const double latitude)
 {
@@ -137,7 +137,7 @@ void GNSS::setLatitude(const double latitude)
 /*!
     \fn void GNSS::setLongitude(const double longitude)
 
-    It set new value for longitude
+    It sets a new value to longitude
 */
 void GNSS::setLongitude(const double longitude)
 {
@@ -150,7 +150,7 @@ void GNSS::setLongitude(const double longitude)
 /*!
     \fn void GNSS::setAltitude(const double altitude)
 
-    It set new value for altitude
+    It sets a new value to altitude
 */
 void GNSS::setAltitude(const double altitude)
 {
@@ -163,7 +163,7 @@ void GNSS::setAltitude(const double altitude)
 /*!
     \fn void GNSS::setHasFix(const bool hasFix)
 
-    It set new value for hasFix
+    It sets a new value to hasFix
 */
 void GNSS::setHasFix(const bool hasFix)
 {
@@ -176,7 +176,7 @@ void GNSS::setHasFix(const bool hasFix)
 /*!
     \fn void GNSS::setHour(const int hour)
 
-    It set new value for hour
+    It sets a new value to hour
 */
 void GNSS::setHour(const int hour)
 {
@@ -189,7 +189,7 @@ void GNSS::setHour(const int hour)
 /*!
     \fn void GNSS::setMinute(const int minute)
 
-    It set new value for minute
+    It sets a new value to minute
 */
 void GNSS::setMinute(const int minute)
 {
@@ -202,7 +202,7 @@ void GNSS::setMinute(const int minute)
 /*!
     \fn void GNSS::setSecond(const double second)
 
-    It set new value for second
+    It sets a new value to second
 */
 void GNSS::setSecond(const double second)
 {

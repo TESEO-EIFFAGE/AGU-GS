@@ -18,8 +18,8 @@ Storage::~Storage()
 /*!
     \fn QString Storage::CalculatePathName()
 
-    It calculate the first part of the path name of the log file.
-    In the first part of the path name must be present the creation time and date.
+    It calculates the first part of the log file's path name.
+    In the first part of the path name there must be the creation time and date.
 */
 QString Storage::CalculatePathName()
 {
@@ -108,9 +108,9 @@ QString Storage::CalculatePathName()
 /*!
     \fn void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 
-    It set the second part of the path name (_CORE_Log.csv) for the log file and
-    according to SystemStatusPack struct fill the file with mavlink data.
-    When there is the fix of the GPS the System Time must be the GPS Time.
+    It sets the second part of the log file's path name (_CORE_Log.csv) and
+    according to SystemStatusPack's struct it fills the file with mavlink data.
+    When there is the fix of the GPS the System Time must be aligned to the GPS Time.
 */
 void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 {
@@ -241,9 +241,9 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 /*!
     \fn void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
 
-    It set the second part of the path name (_MSTP_Log.csv) for the log file and
-    according to MotorStatusPackDataset struct fill the file with mavlink data.
-    When there is the fix of the GPS the System Time must be the GPS Time.
+    It sets the second part for the log file's path name (_MSTP_Log.csv) and
+    according to MotorStatusPackDataset's struct it fills the file with mavlink data.
+    When there is the fix of the GPS the System Time must be aligned to the GPS Time.
 */
 void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
 {
@@ -364,9 +364,9 @@ void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
 /*!
     \fn void Storage::StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r)
 
-    It set the second part of the path name (_RL_Log.csv) for the log file and
-    according to RadioLinkPackDataset struct fill the file with mavlink data.
-    When there is the fix of the GPS the System Time must be the GPS Time.
+    It sets the second part for the log file's path name (_RL_Log.csv) and
+    according to RadioLinkPackDataset's struct it fills the file with mavlink data.
+    When there is the fix of the GPS the System Time must be aligned to the GPS Time.
 */
 void Storage::StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r)
 {
@@ -435,9 +435,9 @@ void Storage::StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r)
 /*!
     \fn void Storage::StoreDataInMemoryStorageStatusPack(StorageStatusPack *st)
 
-    It set the second part of the path name (_STR_Log.csv) for the log file and
-    according to StorageStatusPack struct fill the file with mavlink data.
-    When there is the fix of the GPS the System Time must be the GPS Time.
+    It sets the second part for the log file's path name (_STR_Log.csv) and
+    according to StorageStatusPack's struct it fills the file with mavlink data.
+    When there is the fix of the GPS the System Time must be aligned to the GPS Time.
 */
 void Storage::StoreDataInMemoryStorageStatusPack(StorageStatusPack *st)
 {
@@ -506,9 +506,9 @@ void Storage::StoreDataInMemoryStorageStatusPack(StorageStatusPack *st)
 /*!
     \fn void Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g)
 
-    It set the second part of the path name (_GUID_Log.csv) for the log file and
-    according to GuidancePackDataset struct fill the file with mavlink data.
-    When there is the fix of the GPS the System Time must be the GPS Time.
+    It sets the second part for the log file's path name (_GUID_Log.csv) and
+    according to GuidancePackDataset's struct it fills the file with mavlink data.
+    When there is the fix of the GPS the System Time must be aligned to the GPS Time.
 */
 void Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g)
 {
@@ -584,9 +584,9 @@ void Storage::InitFixGPSTime()
 /*!
     \fn void Storage::StoreDataInMemory(Telemetry *t)
 
-    It set the second part of the path name (_TLM_Log.csv) for the log file and
-    according to GuidancePackDataset struct fill the file with mavlink data.
-    When there is the fix of the GPS the System Time must be the GPS Time.
+    It sets the second part for the log file's path name (_TLM_Log.csv) and
+    according to GuidancePackDataset's struct it fills the file with mavlink data.
+    When there is the fix of the GPS the System Time must be aligned to the GPS Time.
 */
 void Storage::StoreDataInMemory(Telemetry *t)
 {

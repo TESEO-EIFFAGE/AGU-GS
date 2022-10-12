@@ -8,7 +8,7 @@
 /*!
         \class MavlinkProtocol
 
-        \brief The MavlinkProtocol class link data from mavlink protocol to local structs
+        \brief The MavlinkProtocol class links data received through the mavlink protocol to local structs
 */
 MavlinkProtocol::MavlinkProtocol(QObject *parent) : QObject(parent)
 {
@@ -23,7 +23,7 @@ MavlinkProtocol::~MavlinkProtocol()
 /*!
     \fn void MavlinkProtocol::parseDataTelemetry(QByteArray data)
 
-    It link data received from protocol and save in the local struct
+    It links data received from the protocol and saves it in the local struct
 */
 void MavlinkProtocol::parseDataTelemetry(QByteArray data)
 {
@@ -95,7 +95,7 @@ void MavlinkProtocol::parseDataTelemetry(QByteArray data)
 /*!
     \fn void MavlinkProtocol::parseDataSystemStatus(QByteArray data)
 
-    It link data received from protocol and save in the local struct
+    It links data received from the protocol and saves it in the local struct
 */
 void MavlinkProtocol::parseDataSystemStatus(QByteArray data)
 {
@@ -134,7 +134,7 @@ void MavlinkProtocol::parseDataSystemStatus(QByteArray data)
 /*!
     \fn void MavlinkProtocol::parseMotorStatusPack(QByteArray data)
 
-    It link data received from protocol and save in the local struct
+    It links data received from the protocol and saves it in the local struct
 */
 void MavlinkProtocol::parseMotorStatusPack(QByteArray data)
 {
@@ -183,7 +183,7 @@ void MavlinkProtocol::parseMotorStatusPack(QByteArray data)
 /*!
     \fn void MavlinkProtocol::parseRadioLink(QByteArray data)
 
-    It link data received from protocol and save in the local struct
+    It links data received from the protocol and saves it in the local struct
 */
 void MavlinkProtocol::parseRadioLink(QByteArray data)
 {
@@ -206,7 +206,7 @@ void MavlinkProtocol::parseRadioLink(QByteArray data)
 /*!
     \fn void MavlinkProtocol::parseStorageStatusPack(QByteArray data)
 
-    It link data received from protocol and save in the local struct
+    It links data received from the protocol and saves it in the local struct
 */
 void MavlinkProtocol::parseStorageStatusPack(QByteArray data)
 {
@@ -229,7 +229,7 @@ void MavlinkProtocol::parseStorageStatusPack(QByteArray data)
 /*!
     \fn void MavlinkProtocol::parseGuidance(QByteArray data)
 
-    It link data received from protocol and save in the local struct
+    It links data received from the protocol and saves it in the local struct
 */
 void MavlinkProtocol::parseGuidance(QByteArray data)
 {
