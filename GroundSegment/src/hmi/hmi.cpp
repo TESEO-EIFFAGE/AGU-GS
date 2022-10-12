@@ -278,10 +278,10 @@ void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
     m_motor21 = motorBitSet.test(21); emit motor21Changed();
     m_motor22 = motorBitSet.test(22); emit motor22Changed();
     m_motor23 = motorBitSet.test(23); emit motor23Changed();
-    m_motor24 = motorBitSet.test(24); emit motor24Changed();
 
 
-    m_ChargeValue = extractBits32(motorBitSet,25,31); emit ChargeValueChanged();
+
+    m_ChargeValue = extractBits32(motorBitSet,24,31); emit ChargeValueChanged();
 
     m_MotorControlStatusMask= msg_status.Motor_Control_Status_Mask;emit MotorControlStatusMaskChanged();
 

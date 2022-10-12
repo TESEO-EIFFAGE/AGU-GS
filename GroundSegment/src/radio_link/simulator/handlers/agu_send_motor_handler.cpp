@@ -102,11 +102,11 @@ uint32_t AGUSendMotorHandler::generateMotorControlStatusMask()
     std::bitset<32> statusMask;
     typedef std::size_t length_t, position_t;
 
-    for (position_t i=0; i < length_t(25); ++i) {
+    for (position_t i=0; i < length_t(24); ++i) {
         bool randBool = m_communicator->randomBool();
         statusMask.set(i, randBool);
     }
-    std::string bs25 = "00000000""00000000""00000000""0"+std::bitset<7>(m_communicator->random255()).to_string();
+    std::string bs25 = std::bitset<8>(m_communicator->random255()).to_string()+"00000000""00000000""00000000";
     std::cout << bs25 << std::endl;
 
     statusMask = std::bitset<32>{bs25} | statusMask;

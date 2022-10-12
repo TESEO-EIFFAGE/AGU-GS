@@ -109,6 +109,8 @@ public:
     Q_PROPERTY(quint32 MotorBFaultsMask MEMBER m_MotorBFaultsMask NOTIFY MotorBFaultsMaskChanged)
     Q_PROPERTY(quint32 BMSFaultsMask MEMBER m_BMSFaultsMask NOTIFY BMSFaultsMaskChanged)
 
+    Q_PROPERTY(quint8 ChargeValue MEMBER m_ChargeValue NOTIFY ChargeValueChanged)
+
     Q_PROPERTY(bool motor0 MEMBER m_motor0 NOTIFY motor0Changed)
     Q_PROPERTY(bool motor1 MEMBER m_motor1 NOTIFY motor1Changed)
     Q_PROPERTY(bool motor2 MEMBER m_motor2 NOTIFY motor2Changed)
