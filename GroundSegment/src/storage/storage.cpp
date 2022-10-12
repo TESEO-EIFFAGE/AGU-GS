@@ -4,13 +4,6 @@
         \class Storage
 
         \brief The Storage class is the class used to create lof file
-
-        \reentrant
-
-        Storage class is composed by 7 slot and one function.
-        It create log files when mavlink messages are received.
-        Different funcions are created for manage diferent kind of log files.
-
 */
 Storage::Storage(QObject *parent) : QObject(parent)
 {
@@ -23,9 +16,9 @@ Storage::~Storage()
 }
 
 /*!
-    \fn Storage::CalculatePathName()
+    \fn QString Storage::CalculatePathName()
 
-    Function that calculate the first part of the path name of the log file.
+    It calculate the first part of the path name of the log file.
     In the first part of the path name must be present the creation time and date.
 */
 QString Storage::CalculatePathName()
@@ -113,7 +106,7 @@ QString Storage::CalculatePathName()
 }
 
 /*!
-    \fn Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
+    \fn void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 
     It set the second part of the path name (_CORE_Log.csv) for the log file and
     according to SystemStatusPack struct fill the file with mavlink data.
@@ -246,7 +239,7 @@ void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 }
 
 /*!
-    \fn Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
+    \fn void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
 
     It set the second part of the path name (_MSTP_Log.csv) for the log file and
     according to MotorStatusPackDataset struct fill the file with mavlink data.
@@ -369,7 +362,7 @@ void Storage::StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m)
 }
 
 /*!
-    \fn StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r)
+    \fn void Storage::StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r)
 
     It set the second part of the path name (_RL_Log.csv) for the log file and
     according to RadioLinkPackDataset struct fill the file with mavlink data.
@@ -440,7 +433,7 @@ void Storage::StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r)
 }
 
 /*!
-    \fn Storage::StoreDataInMemoryStorageStatusPack(StorageStatusPack *st)
+    \fn void Storage::StoreDataInMemoryStorageStatusPack(StorageStatusPack *st)
 
     It set the second part of the path name (_STR_Log.csv) for the log file and
     according to StorageStatusPack struct fill the file with mavlink data.
@@ -511,7 +504,7 @@ void Storage::StoreDataInMemoryStorageStatusPack(StorageStatusPack *st)
 }
 
 /*!
-    \fn Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g) 
+    \fn void Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g)
 
     It set the second part of the path name (_GUID_Log.csv) for the log file and
     according to GuidancePackDataset struct fill the file with mavlink data.
@@ -577,7 +570,7 @@ void Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g)
     }
 }
 /*!
-    \fn Storage::InitFixGPSTime()
+    \fn void Storage::InitFixGPSTime()
 
     Function that initialize the variable FixGPSTime.
     FixGPSTime is set TRUE when GPS is fixed.
@@ -589,7 +582,7 @@ void Storage::InitFixGPSTime()
 }
 
 /*!
-    \fn Storage::StoreDataInMemory(Telemetry *t)
+    \fn void Storage::StoreDataInMemory(Telemetry *t)
 
     It set the second part of the path name (_TLM_Log.csv) for the log file and
     according to GuidancePackDataset struct fill the file with mavlink data.

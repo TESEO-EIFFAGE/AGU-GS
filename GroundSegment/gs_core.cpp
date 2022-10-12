@@ -7,6 +7,12 @@
 #include <QTimer>
 #include <QObject>
 
+/*!
+        \class GSCore
+
+        \brief The GSCore class is the logic core of the project.
+               It define the objects and their communication.
+*/
 GSCore::GSCore(QObject *parent)
     : QObject(parent)
 {       
@@ -44,6 +50,12 @@ GSCore::GSCore(QObject *parent)
     //timerHasFix->start(1000);
 }
 
+/*!
+    \fn void GSCore::SetFixOfTime(Storage *s)
+
+    It calculate the the delta time between System Time e GPS Time.
+    The data DeltaGPSTimefromSystemTime is store in Storage class.
+*/
 void GSCore::SetFixOfTime(Storage *s)
 {
     if (m_gpsData->hasFix() == true)
@@ -84,6 +96,12 @@ void GSCore::SetFixOfTime(Storage *s)
 
 }
 
+/*!
+    \fn int GSCore::SetInitParameter(QString str)
+
+    It extract from .ini file the initialization length of the file.
+    For each file return the lenght.
+*/
 int GSCore::SetInitParameter(QString str)
 {
     int defaultValue = 50000;
@@ -100,11 +118,20 @@ int GSCore::SetInitParameter(QString str)
     return defaultValue;
 }
 
+/*!
+    \fn void GSCore::setRadioLink(RadioLink *radioLink)
+
+    It set the radioLink object.
+*/
 void GSCore::setRadioLink(RadioLink *radioLink)
 {
     m_radioLink = radioLink;
 }
+/*!
+    \fn RadioLink *GSCore::radioLink() const
 
+    It return the radioLink object.
+*/
 RadioLink *GSCore::radioLink() const
 {
     return m_radioLink;
@@ -114,21 +141,40 @@ GSCore::~GSCore()
 {
 }
 
+/*!
+    \fn HMI *GSCore::hmi() const
+
+    It return the hmi object.
+*/
 HMI *GSCore::hmi() const
 {
     return m_hmi;
 }
 
+/*!
+    \fn void GSCore::setHmi(HMI* hmi)
+
+    It set the hmi object.
+*/
 void GSCore::setHmi(HMI* hmi)
 {
     m_hmi = hmi;
 }
+/*!
+    \fn GNSS *GSCore::gpsData() const
 
+    It return the gpsData object.
+*/
 GNSS *GSCore::gpsData() const
 {
     return m_gpsData;
 }
 
+/*!
+    \fn void GSCore::setGpsData(GNSS* gpsData)
+
+    It set the gpsData object.
+*/
 void GSCore::setGpsData(GNSS* gpsData)
 {
     m_gpsData = gpsData;
