@@ -3,7 +3,7 @@
 /*!
         \class Storage
 
-        \brief The Storage class is the class used to create lof file
+        \brief The Storage class is the class used to create log file
 */
 Storage::Storage(QObject *parent) : QObject(parent)
 {
