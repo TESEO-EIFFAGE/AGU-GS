@@ -39,7 +39,7 @@ RadioLink::~RadioLink()
 /*!
     \fn void RadioLink::start()
 
-    It connect the RadioLink
+    It connects the RadioLink
 */
 void RadioLink::start()
 {
@@ -50,7 +50,7 @@ void RadioLink::start()
 /*!
     \fn void RadioLink::stop()
 
-    It disconnect the RadioLink
+    It disconnects the RadioLink
 */
 void RadioLink::stop()
 {
