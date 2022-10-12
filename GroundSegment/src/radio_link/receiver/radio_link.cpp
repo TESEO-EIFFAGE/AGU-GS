@@ -9,6 +9,11 @@
 #include "receiver_communicator_factory.h"
 #include "../common/mavlink_communicator.h"
 
+/*!
+        \class RadioLink
+
+        \brief The RadioLink class used to setup RadioLink
+*/
 RadioLink::RadioLink(QObject *parent) : QObject(parent)
 {
     radiolink::ReceiverCommunicatorFactory factory;
