@@ -36,12 +36,22 @@ RadioLink::~RadioLink()
     this->stop();
 }
 
+/*!
+    \fn void RadioLink::start()
+
+    It connect the RadioLink
+*/
 void RadioLink::start()
 {
     m_link->connectLink();
     std::cout << "link is " << (m_link->isConnected() ? "up" : "down") << std::endl;
 }
 
+/*!
+    \fn void RadioLink::stop()
+
+    It disconnect the RadioLink
+*/
 void RadioLink::stop()
 {
     m_link->disconnectLink();
