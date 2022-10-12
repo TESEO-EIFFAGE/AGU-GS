@@ -16,7 +16,7 @@ Q_DECLARE_METATYPE(mavlink_radio_link_status_pack_t);
 /*!
         \class HMI
 
-        \brief The HMI class is the class used to show the data in GUI
+        \brief The HMI class is the class used to show data in the GUI
 */
 HMI::HMI(QObject *parent)
     : QObject{parent}
@@ -27,7 +27,7 @@ HMI::HMI(QObject *parent)
 /*!
     \fn void HMI::showData(QVariant msg)
 
-    It call the function for show the data in the GUI
+    It calls the function to show the data in the GUI
 */
 void HMI::showData(QVariant msg) {
     if (msg.canConvert<mavlink_telemetry_data_pack_t>()) {
@@ -54,7 +54,7 @@ void HMI::showData(QVariant msg) {
 /*!
     \fn void HMI::showDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry)
 
-    It show in the GUI the data related telemetry
+    It shows in the GUI the telemetry related data
 */
 void HMI::showDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry) {
     m_TimeStamp= msg_telemetry.GNSS_Timestamp; emit TimeStampChanged();
@@ -177,7 +177,7 @@ uint8_t HMI::extractBits8(const std::bitset<8> the_bitset, size_t start_bit, siz
 /*!
     \fn void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 
-    It show in the GUI the data related system status
+    It shows in the GUI the system status related data
 */
 void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 {
@@ -220,7 +220,7 @@ void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 /*!
     \fn void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
 
-    It show in the GUI the data related motor status
+    It shows in the GUI the motor status related data
 */
 void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
 {
@@ -317,7 +317,7 @@ void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
 /*!
     \fn void HMI::showDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio_status)
 
-    It show in the GUI the data related radio link
+    It show in the GUI the radio link related data
 */
 void HMI::showDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio_status)
 {
@@ -327,7 +327,7 @@ void HMI::showDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio_stat
 /*!
     \fn void HMI::showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_status)
 
-    It show in the GUI the data related storage
+    It shows in the GUI the storage related data
 */
 void HMI::showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_status)
 {
@@ -364,7 +364,7 @@ void HMI::showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_
 /*!
     \fn void HMI::showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status)
 
-    It show in the GUI the data related guidance
+    It shows in the GUI the guidance related data
 */
 void HMI::showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status)
 {
