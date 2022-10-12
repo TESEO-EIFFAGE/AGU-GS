@@ -346,8 +346,8 @@ Window {
         fsParams.coreLight12.up: hmi.systemCoreMask12
         fsParams.coreLight11.up: hmi.systemCoreMask11
         fsParams.coreLight10.up: hmi.systemCoreMask10
-        fsParams.coreLight8.up: hmi.systemCoreMask9
-        fsParams.coreLight9.up: hmi.systemCoreMask8
+        fsParams.coreLight8.up: hmi.systemCoreMask8
+        fsParams.coreLight9.up: hmi.systemCoreMask9
         fsParams.coreLight7.up: hmi.systemCoreMask7
         fsParams.coreLight6.up: hmi.systemCoreMask6
         fsParams.coreLight5.up: hmi.systemCoreMask5
