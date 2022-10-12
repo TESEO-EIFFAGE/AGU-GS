@@ -11,7 +11,7 @@
         \class GSCore
 
         \brief The GSCore class is the logic core of the project.
-               It define the objects and their communication.
+               It defines the objects and their lines of communication.
 */
 GSCore::GSCore(QObject *parent)
     : QObject(parent)
@@ -53,8 +53,8 @@ GSCore::GSCore(QObject *parent)
 /*!
     \fn void GSCore::SetFixOfTime(Storage *s)
 
-    It calculate the the delta time between System Time e GPS Time.
-    The data DeltaGPSTimefromSystemTime is store in Storage class.
+    It calculates the delta between System Time and GPS Time.
+    The value DeltaGPSTimefromSystemTime is stored in the Storage class.
 */
 void GSCore::SetFixOfTime(Storage *s)
 {
@@ -99,8 +99,8 @@ void GSCore::SetFixOfTime(Storage *s)
 /*!
     \fn int GSCore::SetInitParameter(QString str)
 
-    It extract from .ini file the initialization length of the file.
-    For each file return the lenght.
+    It extracts from the .ini configuration file the initialization length of the file.
+    For each file this returns the length.
 */
 int GSCore::SetInitParameter(QString str)
 {
@@ -121,7 +121,7 @@ int GSCore::SetInitParameter(QString str)
 /*!
     \fn void GSCore::setRadioLink(RadioLink *radioLink)
 
-    It set the radioLink object.
+    It sets the radioLink object.
 */
 void GSCore::setRadioLink(RadioLink *radioLink)
 {
@@ -130,7 +130,7 @@ void GSCore::setRadioLink(RadioLink *radioLink)
 /*!
     \fn RadioLink *GSCore::radioLink() const
 
-    It return the radioLink object.
+    It returns the radioLink object.
 */
 RadioLink *GSCore::radioLink() const
 {
@@ -144,7 +144,7 @@ GSCore::~GSCore()
 /*!
     \fn HMI *GSCore::hmi() const
 
-    It return the hmi object.
+    It returns the hmi object.
 */
 HMI *GSCore::hmi() const
 {
@@ -154,7 +154,7 @@ HMI *GSCore::hmi() const
 /*!
     \fn void GSCore::setHmi(HMI* hmi)
 
-    It set the hmi object.
+    It sets the hmi object.
 */
 void GSCore::setHmi(HMI* hmi)
 {
@@ -163,7 +163,7 @@ void GSCore::setHmi(HMI* hmi)
 /*!
     \fn GNSS *GSCore::gpsData() const
 
-    It return the gpsData object.
+    It returns the gpsData object.
 */
 GNSS *GSCore::gpsData() const
 {
@@ -173,7 +173,7 @@ GNSS *GSCore::gpsData() const
 /*!
     \fn void GSCore::setGpsData(GNSS* gpsData)
 
-    It set the gpsData object.
+    It sets the gpsData object.
 */
 void GSCore::setGpsData(GNSS* gpsData)
 {
