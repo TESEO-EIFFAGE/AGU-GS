@@ -31,7 +31,7 @@ Rectangle {
     property alias motorLight23: motorLight23
     property alias motorLight22: motorLight22
     property alias motorLight21: motorLight21
-    //    property alias motorLight20: motorLight20
+    property alias motorLight20: motorLight20
     //    property alias motorLight19: motorLight19
     //    property alias motorLight18: motorLight18
     //    property alias motorLight17: motorLight17

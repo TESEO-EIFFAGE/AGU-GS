@@ -9,6 +9,7 @@ Rectangle {
 
     property bool lit
 
+
     property alias storageLight23: storageLight23
     property alias storageLight22: storageLight22
     property alias storageLight21: storageLight21
@@ -23,6 +24,7 @@ Rectangle {
     property alias storageLight12: storageLight12
     property alias storageLight11: storageLight11
     property alias storageLight10: storageLight10
+    property alias storageLight9: storageLight9
     property alias storageLight8: storageLight8
     property alias storageLight7: storageLight7
     property alias storageLight6: storageLight6
@@ -85,25 +87,28 @@ Rectangle {
             id: storageLight8
             text: "Guidance module log write err"
         }
-
+        StatusLight {
+            id: storageLight9
+            text: "Config file NOT loaded"
+        }
         StatusLight {
             id: storageLight10
-            text: "PGNC init verif err"
+            text: "PCNC init verif err"
         }
 
         StatusLight {
             id: storageLight11
-            text: "PGNC init storage err"
+            text: "PCNC init storage err"
         }
 
         StatusLight {
             id: storageLight12
-            text: "PGNC flight path verif err"
+            text: "PCNC flight path verif err"
         }
 
         StatusLight {
             id: storageLight13
-            text: "PGNC flight path storage err"
+            text: "PCNC flight path storage err"
         }
         StatusLight {
             id: storageLight14

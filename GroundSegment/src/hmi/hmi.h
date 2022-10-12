@@ -245,6 +245,7 @@ public:
     Q_PROPERTY(quint32 RadioLinkModuleStatusMask MEMBER m_RadioLinkModuleStatusMask NOTIFY RadioLinkModuleStatusMaskChanged)
     Q_PROPERTY(quint32 MotorControlStatusMask MEMBER m_MotorControlStatusMask NOTIFY MotorControlStatusMaskChanged)
 
+    QML_READONLY_AUTO_PROPERTY(quint8,communicationErrorCounter);
     QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask0);
     QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask1);
     QML_READONLY_AUTO_PROPERTY(bool,systemCoreMask2);
@@ -602,6 +603,7 @@ public:
     Q_PROPERTY(bool storage6 MEMBER m_storage6 NOTIFY storage6Changed)
     Q_PROPERTY(bool storage7 MEMBER m_storage7 NOTIFY storage7Changed)
     Q_PROPERTY(bool storage8 MEMBER m_storage8 NOTIFY storage8Changed)
+    Q_PROPERTY(bool storage9 MEMBER m_storage9 NOTIFY storage9Changed)
     Q_PROPERTY(bool storage10 MEMBER m_storage10 NOTIFY storage10Changed)
     Q_PROPERTY(bool storage11 MEMBER m_storage11 NOTIFY storage11Changed)
     Q_PROPERTY(bool storage12 MEMBER m_storage12 NOTIFY storage12Changed)
@@ -865,6 +867,8 @@ signals:
 
     void storage24Changed();
 
+    void storage9Changed();
+
 private:
     uint8_t extractBits64(const std::bitset<64> the_bitset, size_t start_bit, size_t end_bit);
     uint8_t extractBits32(const std::bitset<32> the_bitset, size_t start_bit, size_t end_bit);
@@ -1078,6 +1082,7 @@ private:
     quint8 m_FlightMode;
     quint32 m_MotorControlStatusMask;
 
+    bool m_storage9;
 };
 
 #endif // HMI_H

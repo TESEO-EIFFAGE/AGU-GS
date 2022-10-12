@@ -6,48 +6,113 @@ import "controls"
 
 Rectangle {
     color:"transparent"
+    border.color: "#ffffff"
 
     property bool lit
 
+    property alias txtCommErrorCounter: txtCommErrorCounter.value
+    property alias coreLight15: coreLight15
+    property alias coreLight14: coreLight14
+    property alias coreLight13: coreLight13
+    property alias coreLight12: coreLight12
+    property alias coreLight11: coreLight11
+    property alias coreLight10: coreLight10
+    property alias coreLight9: coreLight9
+    property alias coreLight8: coreLight8
+    property alias coreLight7: coreLight7
+    property alias coreLight6: coreLight6
+    property alias coreLight5: coreLight5
     property alias coreLight4: coreLight4
     property alias coreLight3: coreLight3
     property alias coreLight2: coreLight2
     property alias coreLight1: coreLight1
     property alias coreLight0: coreLight0
 
-    Grid {
-        anchors.fill:parent
+    Flow {
         id: gridCore
-        columnSpacing: 16
-        rowSpacing: 12
-        flow: Grid.TopToBottom
-        columns: 4
-        rows: 6
-
+        spacing: 16
+        width:parent.width
+        height: childrenRect.height
         StatusLight {
             id: coreLight0
-            text: "Telemetry module status"
+            text: "EMERGENCY"
         }
+
         StatusLight {
             id: coreLight1
-            text: "Guidance module status"
-            up: false
+            text: "SAFETY CHAIN STATUS"
         }
+
         StatusLight {
             id: coreLight2
-            text: "Motor Control module status"
+            text: "PARAFOIL DEP. STATUS"
         }
+
         StatusLight {
             id: coreLight3
-            text: "Radio Link module status"
-
+            text: "EMERGENCY BOARD FAILURE"
         }
         StatusLight {
             id: coreLight4
-            text: "Storage module status"
+            text: "POWER FAILURE"
         }
 
+        StatusLight {
+            id: coreLight5
+            text: "STOA"
+        }
+        StatusLight {
+            id: coreLight6
+            text: "STOB"
+        }
 
+        StatusLight {
+            id: coreLight7
+            text: "TELEMETRY STATUS"
+        }
+        StatusLight {
+            id: coreLight8
+            text: "MOTOR CONTROL"
+        }
+        StatusLight {
+            id: coreLight9
+            text: "LOG"
+        }
+        StatusLight {
+            id: coreLight10
+            text: "RADIO LINK"
+        }
+
+        StatusLight {
+            id: coreLight11
+            text: "GUIDANCE"
+        }
+
+        StatusLight {
+            id: coreLight12
+            text: "CORE"
+        }
+
+        StatusLight {
+            id: coreLight13
+            text: "Emergency BOARD NOT Present"
+        }
+        StatusLight {
+            id: coreLight14
+            text: "Communication Time Out"
+        }
+
+        StatusLight {
+            id: coreLight15
+            text: "Communication CRC Error"
+        }
+        ParamRow {
+            id: txtCommErrorCounter
+            text: "Comm Error counter"
+            span: 6
+            ToolTip.text: text
+            ToolTip.visible: pressed
+        }
     }
 }
 

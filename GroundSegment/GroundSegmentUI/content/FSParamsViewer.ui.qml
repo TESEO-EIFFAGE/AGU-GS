@@ -132,6 +132,7 @@ Rectangle {
     property alias storageLight12: storageTab.storageLight12
     property alias storageLight11: storageTab.storageLight11
     property alias storageLight10: storageTab.storageLight10
+    property alias storageLight9: storageTab.storageLight9
     property alias storageLight8: storageTab.storageLight8
     property alias storageLight7: storageTab.storageLight7
     property alias storageLight6: storageTab.storageLight6
@@ -147,7 +148,7 @@ Rectangle {
     property alias motorLight23: motorsBMSTab.motorLight23
     property alias motorLight22: motorsBMSTab.motorLight22
     property alias motorLight21: motorsBMSTab.motorLight21
-    //    property alias motorLight20: motorLight20
+    property alias motorLight20: motorsBMSTab.motorLight20
     //    property alias motorLight19: motorLight19
     //    property alias motorLight18: motorLight18
     //    property alias motorLight17: motorLight17
@@ -200,6 +201,23 @@ Rectangle {
     property alias bmsLight3: motorsBMSTab.bmsLight3
     property alias bmsLight2: motorsBMSTab.bmsLight2
     property alias bmsLight1: motorsBMSTab.bmsLight1
+
+    property alias coreLight15: coreTab.coreLight15
+    property alias coreLight14: coreTab.coreLight14
+    property alias coreLight13: coreTab.coreLight13
+    property alias coreLight12: coreTab.coreLight12
+    property alias coreLight11: coreTab.coreLight11
+    property alias coreLight10: coreTab.coreLight10
+    property alias coreLight9: coreTab.coreLight9
+    property alias coreLight8: coreTab.coreLight8
+    property alias coreLight7: coreTab.coreLight7
+    property alias coreLight6: coreTab.coreLight6
+    property alias coreLight5: coreTab.coreLight5
+    property alias coreLight4: coreTab.coreLight4
+    property alias coreLight3: coreTab.coreLight3
+    property alias coreLight2: coreTab.coreLight2
+    property alias coreLight1: coreTab.coreLight1
+    property alias coreLight0: coreTab.coreLight0
 
     ColumnLayout {
         //anchors.fill: parent
@@ -452,6 +470,57 @@ Rectangle {
                     }
                     Rectangle {
                         radius: 8
+                        Layout.preferredHeight: 105
+                        Layout.preferredWidth: 60 //40
+                        color: params.tabIndex === 6 ? "#F5F5F5" : "#E0E0E0"
+                        border.width: 0
+
+                        Image {
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.margins: 8
+                            //anchors.horizontalCenter: parent.horizontalCenter
+                            source: "images/svgs/solid/gear.svg"
+                            fillMode: Image.PreserveAspectFit
+                            sourceSize.height: 24
+                            sourceSize.width: 24
+                        }
+
+                        ParamGrp1Label {
+                            x: 5
+                            y: 64
+
+                            text: "Core"
+                            transform: Rotation {
+                                angle: 90
+                                origin.x: 25
+                            }
+                        }
+
+                        Rectangle {
+                            anchors.left: parent.left
+                            anchors.leftMargin: 12
+                            anchors.bottom: parent.bottom
+                            anchors.bottomMargin: 8
+                            width: 16
+                            height: 16
+                            color: coreTab.lit ? "#ff0000" : "green"
+                            radius: 8
+                        }
+                        MouseArea {
+                            id: mouseAreaCore
+                            anchors.fill: parent
+                            Connections {
+                                target: mouseAreaCore
+                                onClicked: {
+                                    params.tabIndex = 6
+                                    params.coreTabClicked()
+                                }
+                            }
+                        }
+                    }
+                    Rectangle {
+                        radius: 8
                         Layout.preferredHeight: 145
                         Layout.preferredWidth: 60 //40
                         color: params.tabIndex === 4 ? "#F5F5F5" : "#E0E0E0"
@@ -553,57 +622,7 @@ Rectangle {
                         }
                     }
 
-                    Rectangle {
-                        radius: 8
-                        Layout.preferredHeight: 105
-                        Layout.preferredWidth: 60 //40
-                        color: params.tabIndex === 6 ? "#F5F5F5" : "#E0E0E0"
-                        border.width: 0
 
-                        Image {
-                            anchors.left: parent.left
-                            anchors.top: parent.top
-                            anchors.margins: 8
-                            //anchors.horizontalCenter: parent.horizontalCenter
-                            source: "images/svgs/solid/gear.svg"
-                            fillMode: Image.PreserveAspectFit
-                            sourceSize.height: 24
-                            sourceSize.width: 24
-                        }
-
-                        ParamGrp1Label {
-                            x: 5
-                            y: 64
-
-                            text: "Core"
-                            transform: Rotation {
-                                angle: 90
-                                origin.x: 25
-                            }
-                        }
-
-                        Rectangle {
-                            anchors.left: parent.left
-                            anchors.leftMargin: 12
-                            anchors.bottom: parent.bottom
-                            anchors.bottomMargin: 8
-                            width: 16
-                            height: 16
-                            color: coreTab.lit ? "#ff0000" : "green"
-                            radius: 8
-                        }
-                        MouseArea {
-                            id: mouseAreaCore
-                            anchors.fill: parent
-                            Connections {
-                                target: mouseAreaCore
-                                onClicked: {
-                                    params.tabIndex = 6
-                                    params.coreTabClicked()
-                                }
-                            }
-                        }
-                    }
                 }
                 Rectangle {
                     x: -10
