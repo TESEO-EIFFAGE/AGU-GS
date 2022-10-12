@@ -1,9 +1,16 @@
 #include "storage.h"
 
 /*!
-    \fn Storage::Storage(QObject *parent) : QObject(parent)
+        \class Storage
 
-    Constructor for Storage object who invoke a function for initialize  FixGPSTime
+        \brief The Storage class is the class used to create lof file
+
+        \reentrant
+
+        Storage class is composed by 7 slot and one function.
+        It create log files when mavlink messages are received.
+        Different funcions are created for manage diferent kind of log files.
+
 */
 Storage::Storage(QObject *parent) : QObject(parent)
 {
