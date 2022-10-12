@@ -11,12 +11,24 @@ Q_DECLARE_METATYPE(mavlink_motor_status_pack_t);
 Q_DECLARE_METATYPE(mavlink_storage_status_pack_t);
 Q_DECLARE_METATYPE(mavlink_guidance_status_pack_t);
 Q_DECLARE_METATYPE(mavlink_radio_link_status_pack_t);
+
+
+/*!
+        \class HMI
+
+        \brief The HMI class is the class used to show the data in GUI
+*/
 HMI::HMI(QObject *parent)
     : QObject{parent}
 {
 
 }
 
+/*!
+    \fn void HMI::showData(QVariant msg)
+
+    It call the function for show the data in the GUI
+*/
 void HMI::showData(QVariant msg) {
     if (msg.canConvert<mavlink_telemetry_data_pack_t>()) {
         showDataTelemetry(msg.value<mavlink_telemetry_data_pack_t>());
@@ -39,6 +51,11 @@ void HMI::showData(QVariant msg) {
     }
 }
 
+/*!
+    \fn void HMI::showDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry)
+
+    It show in the GUI the data related telemetry
+*/
 void HMI::showDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry) {
     m_TimeStamp= msg_telemetry.GNSS_Timestamp; emit TimeStampChanged();
     m_Latitude= msg_telemetry.Latitude; emit LatitudeChanged();
@@ -157,6 +174,11 @@ uint8_t HMI::extractBits8(const std::bitset<8> the_bitset, size_t start_bit, siz
     return result;
 }
 
+/*!
+    \fn void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
+
+    It show in the GUI the data related system status
+*/
 void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 {
     qInfo() << "showDataSystemStatus = CALL" ;
@@ -195,8 +217,11 @@ void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
     printf("FLIGHT PHASE %d \n",m_FlightPhase);
 }
 
+/*!
+    \fn void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
 
-
+    It show in the GUI the data related motor status
+*/
 void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
 {
     m_MotorARealPosition = msg_status.Motor_A_Real_Position;emit MotorADemandPositionChanged();
@@ -289,11 +314,21 @@ void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
     printf("BMS VOLTAGE %d \n",m_BMSVoltage);
 }
 
+/*!
+    \fn void HMI::showDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio_status)
+
+    It show in the GUI the data related radio link
+*/
 void HMI::showDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio_status)
 {
 
 }
 
+/*!
+    \fn void HMI::showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_status)
+
+    It show in the GUI the data related storage
+*/
 void HMI::showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_status)
 {
     m_storageFreeDataSize=msg_storage_status.Storage_Free_Data_Size; emit storageFreeDataSizeChanged();
@@ -326,6 +361,11 @@ void HMI::showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_
 
 }
 
+/*!
+    \fn void HMI::showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status)
+
+    It show in the GUI the data related guidance
+*/
 void HMI::showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status)
 {
 

@@ -5,6 +5,11 @@
 #include <iostream>
 #include <stdio.h>
 
+/*!
+        \class MavlinkProtocol
+
+        \brief The MavlinkProtocol class link data from mavlink protocol to local structs
+*/
 MavlinkProtocol::MavlinkProtocol(QObject *parent) : QObject(parent)
 {
 
@@ -15,6 +20,11 @@ MavlinkProtocol::~MavlinkProtocol()
 
 }
 
+/*!
+    \fn void MavlinkProtocol::parseDataTelemetry(QByteArray data)
+
+    It link data received from protocol and save in the local struct
+*/
 void MavlinkProtocol::parseDataTelemetry(QByteArray data)
 {
     // Eseguire un test sul header di "data" per essere sicuri che sia un frame di telemetria
@@ -82,7 +92,11 @@ void MavlinkProtocol::parseDataTelemetry(QByteArray data)
     emit toHMI(&t);
 }
 
+/*!
+    \fn void MavlinkProtocol::parseDataSystemStatus(QByteArray data)
 
+    It link data received from protocol and save in the local struct
+*/
 void MavlinkProtocol::parseDataSystemStatus(QByteArray data)
 {
     // Eseguire un test sul header di "data" per essere sicuri che sia SystemStatus
@@ -117,6 +131,11 @@ void MavlinkProtocol::parseDataSystemStatus(QByteArray data)
     emit toHMISystemStatus(&s);
 }
 
+/*!
+    \fn void MavlinkProtocol::parseMotorStatusPack(QByteArray data)
+
+    It link data received from protocol and save in the local struct
+*/
 void MavlinkProtocol::parseMotorStatusPack(QByteArray data)
 {
     // Eseguire un test sul header di "data" per essere sicuri che sia MotorStatusPack
@@ -161,7 +180,11 @@ void MavlinkProtocol::parseMotorStatusPack(QByteArray data)
     emit toStorageMotorStatusPack(&m);
     emit toHMIMotorStatusPack(&m);
 }
+/*!
+    \fn void MavlinkProtocol::parseRadioLink(QByteArray data)
 
+    It link data received from protocol and save in the local struct
+*/
 void MavlinkProtocol::parseRadioLink(QByteArray data)
 {
     // Eseguire un test sul header di "data" per essere sicuri che sia RadioLinkPackDataset
@@ -180,6 +203,11 @@ void MavlinkProtocol::parseRadioLink(QByteArray data)
     emit toHMIRadioLink(&r);
 }
 
+/*!
+    \fn void MavlinkProtocol::parseStorageStatusPack(QByteArray data)
+
+    It link data received from protocol and save in the local struct
+*/
 void MavlinkProtocol::parseStorageStatusPack(QByteArray data)
 {
     // Eseguire un test sul header di "data" per essere sicuri che sia StorageStatusPack
@@ -198,6 +226,11 @@ void MavlinkProtocol::parseStorageStatusPack(QByteArray data)
     emit toHMIStorageStatusPack(&st);
 }
 
+/*!
+    \fn void MavlinkProtocol::parseGuidance(QByteArray data)
+
+    It link data received from protocol and save in the local struct
+*/
 void MavlinkProtocol::parseGuidance(QByteArray data)
 {
     // Eseguire un test sul header di "data" per essere sicuri che sia StorageStatusPack
