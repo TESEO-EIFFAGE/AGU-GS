@@ -4,6 +4,9 @@
 #include <QTextStream>
 #include <QFileInfo>
 #include "mavlinkprotocol.h"
+#include <AGU_MAVLINK/mavlink.h>
+#include <bitset>
+#include "QQmlAutoPropertyHelpers.h"
 #include <gnss.h>
 
 typedef struct
@@ -31,6 +34,8 @@ public:
     QString PathSystemStatus, PathTelemetry, PathMotor, PathRadioLink, PathStorageStatus, PathGuidance;
     GPSTimePack GPS;
 
+    void storeData(QVariant data);
+
 public slots:
     void StoreDataInMemory(Telemetry *t);
     void StoreDataInMemorySystemStatus(SystemStatusPack *s);
@@ -39,6 +44,15 @@ public slots:
     void StoreDataInMemoryStorageStatusPack(StorageStatusPack *st);
     void StoreDataInMemoryGuidance(GuidancePackDataset *g);
     void InitFixGPSTime(void);
+
+private:
+    void storeDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry);
+    void storeDataSystemStatus(const mavlink_system_status_pack_t msg_system_status);
+    void storeDataMotorStatus(const mavlink_motor_status_pack_t msg_motor_status);
+    void storeDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio_status);
+    void storeDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_status);
+    void storeDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status);
+
 };
 
 #endif // STORAGE_H

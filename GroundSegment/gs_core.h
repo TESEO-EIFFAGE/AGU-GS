@@ -22,6 +22,7 @@ public:
     bool FlagDeltaTime = false;
     HMI* hmi() const;
     void setHmi(HMI*);
+    void setStorage(Storage*);
     GNSS* gpsData() const;
     void setGpsData(GNSS*);
     void SetFixOfTime(Storage *s);
@@ -34,6 +35,7 @@ signals:
     void work_is_down(void);
 
 private:
+    Storage* m_storage;
     HMI* m_hmi;
     GNSS* m_gpsData;
     RadioLink* m_radioLink;

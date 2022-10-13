@@ -19,7 +19,8 @@ GSCore::GSCore(QObject *parent)
     Counter = 0;
     Serial1 = new QSerialPort(this);
     MavlinkProtocol *Mavlink = new MavlinkProtocol(this);
-    Storage *StorageData = new Storage(this);
+    //Storage *StorageData = new Storage(this);
+
     setRadioLink(new RadioLink(this));
     setHmi(new HMI(this));
     setGpsData(new GNSS(this));
@@ -33,12 +34,14 @@ GSCore::GSCore(QObject *parent)
 
     QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
                      m_hmi, &HMI::showData);
+    QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
+                     m_storage, &Storage::storeData);
     //    QObject::connect(Mavlink, SIGNAL(toStorage(Telemetry *)), StorageData, SLOT(StoreDataInMemory(Telemetry *)));
-    QObject::connect(Mavlink, SIGNAL(toStorageSystemStatus(SystemStatusPack *)), StorageData, SLOT(StoreDataInMemorySystemStatus(SystemStatusPack *)));
-    QObject::connect(Mavlink, SIGNAL(toStorageMotorStatusPack(MotorStatusPackDataset *)), StorageData, SLOT(StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *)));
-    QObject::connect(Mavlink, SIGNAL(toStorageRadioLink(RadioLinkPackDataset *)), StorageData, SLOT(StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *)));
-    QObject::connect(Mavlink, SIGNAL(toStorageStorageStatusPack(StorageStatusPack *)), StorageData, SLOT(StoreDataInMemoryStorageStatusPack(StorageStatusPack *)));
-    QObject::connect(Mavlink, SIGNAL(toStorageGuidance(GuidancePackDataset *)), StorageData, SLOT(StoreDataInMemoryGuidance(GuidancePackDataset *)));
+//    QObject::connect(Mavlink, SIGNAL(toStorageSystemStatus(SystemStatusPack *)), StorageData, SLOT(StoreDataInMemorySystemStatus(SystemStatusPack *)));
+//    QObject::connect(Mavlink, SIGNAL(toStorageMotorStatusPack(MotorStatusPackDataset *)), StorageData, SLOT(StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *)));
+//    QObject::connect(Mavlink, SIGNAL(toStorageRadioLink(RadioLinkPackDataset *)), StorageData, SLOT(StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *)));
+//    QObject::connect(Mavlink, SIGNAL(toStorageStorageStatusPack(StorageStatusPack *)), StorageData, SLOT(StoreDataInMemoryStorageStatusPack(StorageStatusPack *)));
+//    QObject::connect(Mavlink, SIGNAL(toStorageGuidance(GuidancePackDataset *)), StorageData, SLOT(StoreDataInMemoryGuidance(GuidancePackDataset *)));
 
     QTimer *timer = new QTimer(this);
     //QObject::connect(timer, &QTimer::timeout, this, [this](){ emit work_is_down(); });
@@ -46,7 +49,7 @@ GSCore::GSCore(QObject *parent)
     //timer->start(1000);
 
     QTimer *timerHasFix = new QTimer(this);
-    QObject::connect(timer, &QTimer::timeout, this, [StorageData, this](){SetFixOfTime(StorageData);});
+    QObject::connect(timer, &QTimer::timeout, m_storage,SetFixOfTime(m_storage));
     //timerHasFix->start(1000);
 }
 
@@ -160,6 +163,17 @@ void GSCore::setHmi(HMI* hmi)
 {
     m_hmi = hmi;
 }
+
+/*!
+    \fn void GSCore::setStorage(Storage* storage)
+
+    It sets the storage object.
+*/
+void GSCore::setStorage(Storage* storage)
+{
+    m_storage = storage;
+}
+
 /*!
     \fn GNSS *GSCore::gpsData() const
 

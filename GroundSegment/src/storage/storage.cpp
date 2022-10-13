@@ -105,6 +105,29 @@ QString Storage::CalculatePathName()
     return PathName;
 }
 
+void Storage::storeData(QVariant data)
+{
+    if (data.canConvert<mavlink_telemetry_data_pack_t>()) {
+        storeDataTelemetry(data.value<mavlink_telemetry_data_pack_t>());
+    }
+    else if (data.canConvert<mavlink_system_status_pack_t>()) {
+        storeDataSystemStatus(data.value<mavlink_system_status_pack_t>());
+    }
+    else if (data.canConvert<mavlink_motor_status_pack_t>()) {
+        storeDataMotorStatus(data.value<mavlink_motor_status_pack_t>());
+    }
+
+    else if (data.canConvert<mavlink_guidance_status_pack_t>()) {
+        storeDataGuidanceStatus(data.value<mavlink_guidance_status_pack_t>());
+    }
+    else if (data.canConvert<mavlink_storage_status_pack_t>()) {
+        storeDataStorageStatus(data.value<mavlink_storage_status_pack_t>());
+    }
+    else if (data.canConvert<mavlink_radio_link_status_pack_t>()) {
+        storeDataRLStatus(data.value<mavlink_radio_link_status_pack_t>());
+    }
+}
+
 /*!
     \fn void Storage::StoreDataInMemorySystemStatus(SystemStatusPack *s)
 
@@ -579,6 +602,636 @@ void Storage::StoreDataInMemoryGuidance(GuidancePackDataset *g)
 void Storage::InitFixGPSTime()
 {
     GPS.FixGPSTime = false;
+}
+
+void Storage::storeDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry)
+{
+    QString NewPathName = CalculatePathName();
+    unsigned long milliseconds_since_epoch;
+
+    milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+
+    if (GPS.FixGPSTime == true)
+    {
+        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+    }
+
+    NewPathName.append("_TLM_Log.csv");
+
+    if (CountT == false)
+    {
+        PathTelemetry = NewPathName.mid(0);  /*esegue la copia*/
+        CountT = true;
+    }
+
+    QFile file(PathTelemetry);
+    QTextStream out(&file);
+
+    if (file.size() < LenTelemetry)
+    {
+        if (file.size() > 0)
+        {
+            if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+            {
+                 out << milliseconds_since_epoch << ";";
+                 out << msg_telemetry.GNSS_Timestamp << ";";
+                 out << msg_telemetry.Log_Timestamp << ";";
+                 out << msg_telemetry.Latitude << ";";
+                 out << msg_telemetry.Longitude << ";";
+                 out << msg_telemetry.GNSS_Altitude << ";";
+                 out << msg_telemetry.Velocity_Horizontal << ";";
+                 out << msg_telemetry.Velocity_Vertical << ";";
+                 out << msg_telemetry.Position_Accuracy  << ";";
+                 out << msg_telemetry.Speed_Accuracy << ";";
+                 out << msg_telemetry.Acceleration_X << ";";
+                 out << msg_telemetry.Acceleration_Y << ";";
+                 out << msg_telemetry.Acceleration_Z << ";";
+                 out << msg_telemetry.ECEF_Position_X << ";";
+                 out << msg_telemetry.ECEF_Position_Y << ";";
+                 out << msg_telemetry.ECEF_Position_Z << ";";
+                 out << msg_telemetry.ECEF_Velocity_X << ";";
+                 out << msg_telemetry.ECEF_Velocity_Y << ";";
+                 out << msg_telemetry.ECEF_Velocity_Z << ";";
+                 out << msg_telemetry.Roll_Angle << ";";
+                 out << msg_telemetry.Pitch_Angle << ";";
+                 out << msg_telemetry.Yaw_Angle << ";";
+                 out << msg_telemetry.Angular_Rate_Roll << ";";
+                 out << msg_telemetry.Angular_Rate_Pitch << ";";
+                 out << msg_telemetry.Angular_Rate_Yaw << ";";
+                 out << msg_telemetry.Quaternion_0 << ";";
+                 out << msg_telemetry.Quaternion_1 << ";";
+                 out << msg_telemetry.Quaternion_2 << ";";
+                 out << msg_telemetry.Quaternion_3 << ";";
+                 out << msg_telemetry.Altitude_Main_Altimeter << ";";
+                 out << msg_telemetry.Altitude_Payload_Altimeter << ";";
+                 out << msg_telemetry.Air_Speed_U  << ";";
+                 out << msg_telemetry.Air_Speed_V << ";";
+                 out << msg_telemetry.Air_Speed_W << ";";
+                 out << msg_telemetry.Air_Temperature << ";";
+                 out << msg_telemetry.Telemetry_Status_Mask << ";";
+                 out << msg_telemetry.Satellite_Num << "\r\n";
+             }
+          }
+          else
+          {
+              if (file.open(QIODevice::WriteOnly))
+              {
+                 out << "SystemTime;";
+                 out << "TimeStamp;";
+                 out << "GNSS_TimeStamp;";
+                 out << "GNSS_Latitude;";
+                 out << "GNSS_Longitude;";
+                 out << "GNSS_Altitude;";
+                 out << "GNSS_LinVelH;";
+                 out << "GNSS_LinVelV;";
+                 out << "GNSS_PosAcc;";
+                 out << "GNSS_SpeedAcc;";
+                 out << "GNSS_LinAccX;";
+                 out << "GNSS_LinAccY;";
+                 out << "GNSS_LinAccZ;";
+                 out << "GNSS_VecPosX;";
+                 out << "GNSS_VecPosY;";
+                 out << "GNSS_VecPosZ;";
+                 out << "GNSS_VecVelX;";
+                 out << "GNSS_VecVelY;";
+                 out << "GNSS_VecVelZ;";
+                 out << "GNSS_RollAng;";
+                 out << "GNSS_PitchAng;";
+                 out << "GNSS_YawAng;";
+                 out << "GNSS_RollAngRate;";
+                 out << "GNSS_PitchAngRate;";
+                 out << "GNSS_YawAngRate;";
+                 out << "GNSS_Quat0;";
+                 out << "GNSS_Quat1;";
+                 out << "GNSS_Quat2;";
+                 out << "GNSS_Quat3;";
+                 out << "RDaltitude;";
+                 out << "PLaltitude;";
+                 out << "Anem_U;";
+                 out << "Anem_V;";
+                 out << "Anem_W;";
+                 out << "Anem_Temp;";
+                 out << "StatusMask;";
+                 out << "GPSnum;" << "\r\n";
+                 out << milliseconds_since_epoch << ";";
+                 out << msg_telemetry.GNSS_Timestamp << ";";
+                 out << msg_telemetry.Log_Timestamp << ";";
+                 out << msg_telemetry.Latitude << ";";
+                 out << msg_telemetry.Longitude << ";";
+                 out << msg_telemetry.GNSS_Altitude << ";";
+                 out << msg_telemetry.Velocity_Horizontal << ";";
+                 out << msg_telemetry.Velocity_Vertical << ";";
+                 out << msg_telemetry.Position_Accuracy  << ";";
+                 out << msg_telemetry.Speed_Accuracy << ";";
+                 out << msg_telemetry.Acceleration_X << ";";
+                 out << msg_telemetry.Acceleration_Y << ";";
+                 out << msg_telemetry.Acceleration_Z << ";";
+                 out << msg_telemetry.ECEF_Position_X << ";";
+                 out << msg_telemetry.ECEF_Position_Y << ";";
+                 out << msg_telemetry.ECEF_Position_Z << ";";
+                 out << msg_telemetry.ECEF_Velocity_X << ";";
+                 out << msg_telemetry.ECEF_Velocity_Y << ";";
+                 out << msg_telemetry.ECEF_Velocity_Z << ";";
+                 out << msg_telemetry.Roll_Angle << ";";
+                 out << msg_telemetry.Pitch_Angle << ";";
+                 out << msg_telemetry.Yaw_Angle << ";";
+                 out << msg_telemetry.Angular_Rate_Roll << ";";
+                 out << msg_telemetry.Angular_Rate_Pitch << ";";
+                 out << msg_telemetry.Angular_Rate_Yaw << ";";
+                 out << msg_telemetry.Quaternion_0 << ";";
+                 out << msg_telemetry.Quaternion_1 << ";";
+                 out << msg_telemetry.Quaternion_2 << ";";
+                 out << msg_telemetry.Quaternion_3 << ";";
+                 out << msg_telemetry.Altitude_Main_Altimeter << ";";
+                 out << msg_telemetry.Altitude_Payload_Altimeter << ";";
+                 out << msg_telemetry.Air_Speed_U  << ";";
+                 out << msg_telemetry.Air_Speed_V << ";";
+                 out << msg_telemetry.Air_Speed_W << ";";
+                 out << msg_telemetry.Air_Temperature << ";";
+                 out << msg_telemetry.Telemetry_Status_Mask << ";";
+                 out << msg_telemetry.Satellite_Num << "\r\n";
+              }
+
+          }
+
+     }
+
+     else
+
+     {
+         if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+         {
+             out << milliseconds_since_epoch << ";";
+             out << msg_telemetry.GNSS_Timestamp << ";";
+             out << msg_telemetry.Log_Timestamp << ";";
+             out << msg_telemetry.Latitude << ";";
+             out << msg_telemetry.Longitude << ";";
+             out << msg_telemetry.GNSS_Altitude << ";";
+             out << msg_telemetry.Velocity_Horizontal << ";";
+             out << msg_telemetry.Velocity_Vertical << ";";
+             out << msg_telemetry.Position_Accuracy  << ";";
+             out << msg_telemetry.Speed_Accuracy << ";";
+             out << msg_telemetry.Acceleration_X << ";";
+             out << msg_telemetry.Acceleration_Y << ";";
+             out << msg_telemetry.Acceleration_Z << ";";
+             out << msg_telemetry.ECEF_Position_X << ";";
+             out << msg_telemetry.ECEF_Position_Y << ";";
+             out << msg_telemetry.ECEF_Position_Z << ";";
+             out << msg_telemetry.ECEF_Velocity_X << ";";
+             out << msg_telemetry.ECEF_Velocity_Y << ";";
+             out << msg_telemetry.ECEF_Velocity_Z << ";";
+             out << msg_telemetry.Roll_Angle << ";";
+             out << msg_telemetry.Pitch_Angle << ";";
+             out << msg_telemetry.Yaw_Angle << ";";
+             out << msg_telemetry.Angular_Rate_Roll << ";";
+             out << msg_telemetry.Angular_Rate_Pitch << ";";
+             out << msg_telemetry.Angular_Rate_Yaw << ";";
+             out << msg_telemetry.Quaternion_0 << ";";
+             out << msg_telemetry.Quaternion_1 << ";";
+             out << msg_telemetry.Quaternion_2 << ";";
+             out << msg_telemetry.Quaternion_3 << ";";
+             out << msg_telemetry.Altitude_Main_Altimeter << ";";
+             out << msg_telemetry.Altitude_Payload_Altimeter << ";";
+             out << msg_telemetry.Air_Speed_U  << ";";
+             out << msg_telemetry.Air_Speed_V << ";";
+             out << msg_telemetry.Air_Speed_W << ";";
+             out << msg_telemetry.Air_Temperature << ";";
+             out << msg_telemetry.Telemetry_Status_Mask << ";";
+             out << msg_telemetry.Satellite_Num << "\r\n";
+         }
+
+         CountT = false;
+     }
+
+}
+
+void Storage::storeDataSystemStatus(const mavlink_system_status_pack_t msg_system_status)
+{
+    QString NewPathName = CalculatePathName();
+    unsigned long milliseconds_since_epoch;
+
+    milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+
+    if (GPS.FixGPSTime == true)
+    {
+        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+    }
+
+    NewPathName.append("_CORE_Log.csv");
+
+    if (CountS == false)
+    {
+        PathSystemStatus = NewPathName.mid(0);  /*esegue la copia*/
+        CountS = true;
+    }
+
+    QFile file(PathSystemStatus);
+    QTextStream out(&file);
+
+    if (file.size() < LenSystemStatus)
+    {
+        if (file.size() > 0)
+        {
+             if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+             {
+                 out << milliseconds_since_epoch << ";";
+                 out << msg_system_status.Log_Timestamp << ";";
+                 out << msg_system_status.Core_Module_Status_Mask << ";";
+                 out << msg_system_status.Telemetry_Module_Status_Mask << ";";
+                 out << msg_system_status.Storage_Module_Status_Mask << ";";
+                 out << msg_system_status.Radio_Link_Module_Status_Mask << ";";
+                 out << msg_system_status.Motor_Control_Module_Status_Mask  << ";";
+                 out << msg_system_status.Guidance_Module_Status_Mask << ";";
+
+                 if (msg_system_status.Flight_Phase == int(FlightPhase::Initialization))   out << "0;";
+                 else if (msg_system_status.Flight_Phase == int(FlightPhase::Trim))        out << "1;";
+                 else if (msg_system_status.Flight_Phase == int(FlightPhase::Guidance))    out << "2;";
+                 else if (msg_system_status.Flight_Phase == int(FlightPhase::Flare))       out << "3;";
+                 else if (msg_system_status.Flight_Phase == int(FlightPhase::Finalization))out << "4;";
+
+                 if (msg_system_status.Flight_Mode == int(FlightMode::EmergencyMode))     out << "0;";
+                 else if (msg_system_status.Flight_Mode ==int( FlightMode::RecoveryMode)) out << "1;";
+                 else if (msg_system_status.Flight_Mode == int(FlightMode::ManualMode))   out << "2;";
+                 else if (msg_system_status.Flight_Mode == int(FlightMode::OpenLoop))     out << "3;";
+                 else if (msg_system_status.Flight_Mode == int(FlightMode::ClosedLoop))   out << "4;";
+
+                 out << msg_system_status.Flight_Phase_Time << ";\r\n";
+              }
+         }
+         else
+         {
+              if (file.open(QIODevice::WriteOnly))
+              {
+                 out << "SystemTime;";
+                 out << "Timestamp;";
+                 out << "AguCORE_SM;";
+                 out << "TLM_SM;";
+                 out << "Storage_SM;";
+                 out << "RadioL_SM;";
+                 out << "MotorCtrl_SM;";
+                 out << "Guid_SM;";
+                 out << "FlightPhase;";
+                 out << "FlightMode;";
+                 out << "ExecTime;" << "\r\n";
+                 out << milliseconds_since_epoch << ";";
+                 out << msg_system_status.Log_Timestamp << ";";
+                 out << msg_system_status.Core_Module_Status_Mask << ";";
+                 out << msg_system_status.Telemetry_Module_Status_Mask << ";";
+                 out << msg_system_status.Storage_Module_Status_Mask << ";";
+                 out << msg_system_status.Radio_Link_Module_Status_Mask << ";";
+                 out << msg_system_status.Motor_Control_Module_Status_Mask  << ";";
+                 out << msg_system_status.Guidance_Module_Status_Mask << ";";
+
+                 if (msg_system_status.Flight_Phase == int(FlightPhase::Initialization))   out << "0;";
+                 else if (msg_system_status.Flight_Phase == int(FlightPhase::Trim))        out << "1;";
+                 else if (msg_system_status.Flight_Phase == int(FlightPhase::Guidance))    out << "2;";
+                 else if (msg_system_status.Flight_Phase == int(FlightPhase::Flare))       out << "3;";
+                 else if (msg_system_status.Flight_Phase == int(FlightPhase::Finalization))out << "4;";
+
+                 if (msg_system_status.Flight_Mode == int(FlightMode::EmergencyMode))     out << "0;";
+                 else if (msg_system_status.Flight_Mode ==int( FlightMode::RecoveryMode)) out << "1;";
+                 else if (msg_system_status.Flight_Mode == int(FlightMode::ManualMode))   out << "2;";
+                 else if (msg_system_status.Flight_Mode == int(FlightMode::OpenLoop))     out << "3;";
+                 else if (msg_system_status.Flight_Mode == int(FlightMode::ClosedLoop))   out << "4;";
+
+                 out << msg_system_status.Flight_Phase_Time << ";\r\n";
+              }
+          }
+     }
+     else
+     {
+        if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+        {
+             out << milliseconds_since_epoch << ";";   /*stampa ultima riga del file*/
+             out << msg_system_status.Log_Timestamp << ";";
+             out << msg_system_status.Core_Module_Status_Mask << ";";
+             out << msg_system_status.Telemetry_Module_Status_Mask << ";";
+             out << msg_system_status.Storage_Module_Status_Mask << ";";
+             out << msg_system_status.Radio_Link_Module_Status_Mask << ";";
+             out << msg_system_status.Motor_Control_Module_Status_Mask  << ";";
+             out << msg_system_status.Guidance_Module_Status_Mask << ";";
+
+             if (msg_system_status.Flight_Phase == int(FlightPhase::Initialization))   out << "0;";
+             else if (msg_system_status.Flight_Phase == int(FlightPhase::Trim))        out << "1;";
+             else if (msg_system_status.Flight_Phase == int(FlightPhase::Guidance))    out << "2;";
+             else if (msg_system_status.Flight_Phase == int(FlightPhase::Flare))       out << "3;";
+             else if (msg_system_status.Flight_Phase == int(FlightPhase::Finalization))out << "4;";
+
+             if (msg_system_status.Flight_Mode == int(FlightMode::EmergencyMode))     out << "0;";
+             else if (msg_system_status.Flight_Mode ==int( FlightMode::RecoveryMode)) out << "1;";
+             else if (msg_system_status.Flight_Mode == int(FlightMode::ManualMode))   out << "2;";
+             else if (msg_system_status.Flight_Mode == int(FlightMode::OpenLoop))     out << "3;";
+             else if (msg_system_status.Flight_Mode == int(FlightMode::ClosedLoop))   out << "4;";
+
+             out << msg_system_status.Flight_Phase_Time << ";\r\n";
+         }
+
+         CountS = false;
+     }
+}
+
+void Storage::storeDataMotorStatus(const mavlink_motor_status_pack_t msg_motor_status)
+{
+    QString NewPathName = CalculatePathName();
+    unsigned long milliseconds_since_epoch;
+
+    milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+
+    if (GPS.FixGPSTime == true)
+    {
+        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+    }
+
+    NewPathName.append("_MSTP_Log.csv");
+
+    if (CountM == false)
+    {
+        PathMotor = NewPathName.mid(0);  /*esegue la copia*/
+        CountM = true;
+    }
+
+    QFile file(PathMotor);
+    QTextStream out(&file);
+
+    if (file.size() < LenMotor)
+    {
+        if (file.size() > 0)
+        {
+            if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+            {
+                out << milliseconds_since_epoch << ";";
+                out << msg_motor_status.Log_Timestamp << ";";
+                out << msg_motor_status.Motor_A_Real_Position << ";";
+                out << msg_motor_status.Motor_B_Real_Position << ";";
+                out << msg_motor_status.Motor_A_Demand_Position << ";";
+                out << msg_motor_status.Motor_B_Demand_Position << ";";
+                out << msg_motor_status.Motor_A_Torque << ";";
+                out << msg_motor_status.Motor_B_Torque << ";";
+                out << msg_motor_status.Motor_A_Temperature << ";";
+                out << msg_motor_status.Motor_B_Temperature << ";";
+                out << msg_motor_status.BMS_Voltage << ";";
+                out << msg_motor_status.BMS_Absorption << ";";
+                out << msg_motor_status.BMS_Temperature << ";";
+                out << msg_motor_status.Motor_Control_Status_Mask << ";";
+                out << msg_motor_status.Motor_A_Faults_Mask << ";";
+                out << msg_motor_status.Motor_B_Faults_Mask << ";";
+                out << msg_motor_status.BMS_Faults_Mask << ";\r\n";
+             }
+          }
+          else
+          {
+              if (file.open(QIODevice::WriteOnly))
+              {
+                 out << "SystemTime;";
+                 out << "Timestamp;";
+                 out << "MotA_RealPos;";
+                 out << "MotB_RealPos;";
+                 out << "MotA_DemPos;";
+                 out << "MotB_DemPos;";
+                 out << "MotA_Torque;";
+                 out << "MotB_Torque;";
+                 out << "MotA_Temp;";
+                 out << "MotB_Temp;";
+                 out << "BMS_Volt;";
+                 out << "BMS_Current;";
+                 out << "BMS_Temp;";
+                 out << "MotControl_SM;";
+                 out << "MotA_faultSM;";
+                 out << "MotB_faultSM;"      ;
+                 out << "BMS_faultSM;" << "\r\n";
+                 out << milliseconds_since_epoch << ";";
+                 out << msg_motor_status.Log_Timestamp << ";";
+                 out << msg_motor_status.Motor_A_Real_Position << ";";
+                 out << msg_motor_status.Motor_B_Real_Position << ";";
+                 out << msg_motor_status.Motor_A_Demand_Position << ";";
+                 out << msg_motor_status.Motor_B_Demand_Position << ";";
+                 out << msg_motor_status.Motor_A_Torque << ";";
+                 out << msg_motor_status.Motor_B_Torque << ";";
+                 out << msg_motor_status.Motor_A_Temperature << ";";
+                 out << msg_motor_status.Motor_B_Temperature << ";";
+                 out << msg_motor_status.BMS_Voltage << ";";
+                 out << msg_motor_status.BMS_Absorption << ";";
+                 out << msg_motor_status.BMS_Temperature << ";";
+                 out << msg_motor_status.Motor_Control_Status_Mask << ";";
+                 out << msg_motor_status.Motor_A_Faults_Mask << ";";
+                 out << msg_motor_status.Motor_B_Faults_Mask << ";";
+                 out << msg_motor_status.BMS_Faults_Mask << ";\r\n";
+              }
+          }
+     }
+     else
+     {
+        if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+        {
+             out << milliseconds_since_epoch << ";";  /*Stampo ultima riga del file*/
+             out << msg_motor_status.Log_Timestamp << ";";
+             out << msg_motor_status.Motor_A_Real_Position << ";";
+             out << msg_motor_status.Motor_B_Real_Position << ";";
+             out << msg_motor_status.Motor_A_Demand_Position << ";";
+             out << msg_motor_status.Motor_B_Demand_Position << ";";
+             out << msg_motor_status.Motor_A_Torque << ";";
+             out << msg_motor_status.Motor_B_Torque << ";";
+             out << msg_motor_status.Motor_A_Temperature << ";";
+             out << msg_motor_status.Motor_B_Temperature << ";";
+             out << msg_motor_status.BMS_Voltage << ";";
+             out << msg_motor_status.BMS_Absorption << ";";
+             out << msg_motor_status.BMS_Temperature << ";";
+             out << msg_motor_status.Motor_Control_Status_Mask << ";";
+             out << msg_motor_status.Motor_A_Faults_Mask << ";";
+             out << msg_motor_status.Motor_B_Faults_Mask << ";";
+             out << msg_motor_status.BMS_Faults_Mask << ";\r\n";
+        }
+
+        CountM = false;
+    }
+}
+
+void Storage::storeDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio_status)
+{
+    QString NewPathName = CalculatePathName();
+    unsigned long milliseconds_since_epoch;
+
+    milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+
+    if (GPS.FixGPSTime == true)
+    {
+        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+    }
+
+    NewPathName.append("_RL_Log.csv");
+
+    if (CountR == false)
+    {
+        PathRadioLink = NewPathName.mid(0);  /*esegue la copia*/
+        CountR = true;
+    }
+
+    QFile file(PathRadioLink);
+    QTextStream out(&file);
+
+    if (file.size() < LenRadioLink)
+    {
+        if (file.size() > 0)
+        {
+             if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+             {
+                 out << milliseconds_since_epoch << ";";
+                 out << msg_radio_status.System_Timestamp << ";";
+                 out << msg_radio_status.RSSI << ";";
+                 out << msg_radio_status.Radio_Link_Module_Status_Mask << ";\r\n";;
+              }
+         }
+         else
+         {
+              if (file.open(QIODevice::WriteOnly))
+              {
+                 out << "SystemTime;";
+                 out << "Timestamp;";
+                 out << "RSSI;";
+                 out << "RL_SM;"<< "\r\n";
+                 out << milliseconds_since_epoch << ";";
+                 out << msg_radio_status.System_Timestamp << ";";
+                 out << msg_radio_status.RSSI << ";";
+                 out << msg_radio_status.Radio_Link_Module_Status_Mask << ";\r\n";
+              }
+          }
+     }
+     else
+     {
+        if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+        {
+             out << milliseconds_since_epoch << ";";   /*Stampo ultima riga del file*/
+             out << msg_radio_status.System_Timestamp << ";";
+             out << msg_radio_status.RSSI << ";";
+             out << msg_radio_status.Radio_Link_Module_Status_Mask << ";\r\n";
+        }
+
+        CountR = false;
+    }
+}
+
+void Storage::storeDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_status)
+{
+    QString NewPathName = CalculatePathName();
+    unsigned long milliseconds_since_epoch;
+
+    milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+
+    if (GPS.FixGPSTime == true)
+    {
+        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+    }
+
+    NewPathName.append("_STR_Log.csv");
+
+    if (CountST == false)
+    {
+        PathStorageStatus = NewPathName.mid(0);  /*esegue la copia*/
+        CountST = true;
+    }
+
+    QFile file(PathStorageStatus);
+    QTextStream out(&file);
+
+    if (file.size() < LenStorageStatus)
+    {
+        if (file.size() > 0)
+        {
+             if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+             {
+                 out << milliseconds_since_epoch << ";";
+                 out << msg_storage_status.System_Timestamp << ";";
+                 out << msg_storage_status.Storage_Free_Data_Size << ";";
+                 out << msg_storage_status.Storage_Module_Status_Mask << ";\r\n";;
+              }
+         }
+         else
+         {
+              if (file.open(QIODevice::WriteOnly))
+              {
+                 out << "SystemTime;";
+                 out << "Timestamp;";
+                 out << "FreeSpace;";
+                 out << "STR_SM;"<< "\r\n";
+                 out << milliseconds_since_epoch << ";";
+                 out << msg_storage_status.System_Timestamp << ";";
+                 out << msg_storage_status.Storage_Free_Data_Size << ";";
+                 out << msg_storage_status.Storage_Module_Status_Mask << ";\r\n";;
+              }
+          }
+     }
+     else
+     {
+        if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+        {
+            out << milliseconds_since_epoch << ";";   /*stampo ultima riga file*/
+            out << msg_storage_status.System_Timestamp << ";";
+            out << msg_storage_status.Storage_Free_Data_Size << ";";
+            out << msg_storage_status.Storage_Module_Status_Mask << ";\r\n";;
+        }
+
+        CountST = false;
+    }
+}
+
+void Storage::storeDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status)
+{
+    QString NewPathName = CalculatePathName();
+    unsigned long milliseconds_since_epoch;
+
+    milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+
+    if (GPS.FixGPSTime == true)
+    {
+        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+    }
+
+    NewPathName.append("_GUID_Log.csv");
+
+    if (CountG == false)
+    {
+        PathGuidance = NewPathName.mid(0);  /*esegue la copia*/
+        CountG = true;
+    }
+
+    QFile file(PathGuidance);
+    QTextStream out(&file);
+
+    if (file.size() < LenGuidance)
+    {
+        if (file.size() > 0)
+        {
+             if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+             {
+                 out << milliseconds_since_epoch << ";";
+                 out << msg_guidance_status.System_Timestamp << ";";
+                 out << msg_guidance_status.Guidance_Module_Status_Mask << ";\r\n";;
+             }
+         }
+         else
+         {
+              if (file.open(QIODevice::WriteOnly))
+              {
+                 out << "SystemTime;";
+                 out << "Timestamp;";
+                 out << "GUID_SM;"<< "\r\n";
+                 out << milliseconds_since_epoch << ";";
+                 out << msg_guidance_status.System_Timestamp << ";";
+                 out << msg_guidance_status.Guidance_Module_Status_Mask << ";\r\n";;
+              }
+          }
+     }
+     else
+     {
+        if (file.open(QIODevice::WriteOnly | QIODevice::Append))
+        {
+            out << milliseconds_since_epoch << ";";   /*stampo ultima riga file*/
+            out << msg_guidance_status.System_Timestamp << ";";
+            out << msg_guidance_status.Guidance_Module_Status_Mask << ";\r\n";;
+        }
+
+        CountG = false;
+    }
 }
 
 /*!
