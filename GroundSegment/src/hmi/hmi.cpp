@@ -192,24 +192,24 @@ void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
     m_RadioLinkModuleStatusMask= msg_status.Radio_Link_Module_Status_Mask; emit RadioLinkModuleStatusMaskChanged();
 
     std::bitset<32> bitSet(msg_status.Core_Module_Status_Mask);
-    m_systemCoreMask0 = bitSet.test(0); emit systemCoreMask0Changed();
-    m_systemCoreMask1 = bitSet.test(1); emit systemCoreMask1Changed();
-    m_systemCoreMask2 = bitSet.test(2); emit systemCoreMask2Changed();
-    m_systemCoreMask3 = bitSet.test(3); emit systemCoreMask3Changed();
-    m_systemCoreMask4 = bitSet.test(4); emit systemCoreMask4Changed();
-    m_systemCoreMask5 = bitSet.test(5); emit systemCoreMask5Changed();
-    m_systemCoreMask6 = bitSet.test(6); emit systemCoreMask6Changed();
-    m_systemCoreMask7 = bitSet.test(7); emit systemCoreMask7Changed();
-    m_systemCoreMask8 = bitSet.test(8); emit systemCoreMask8Changed();
-    m_systemCoreMask9 = bitSet.test(9); emit systemCoreMask9Changed();
-    m_systemCoreMask10 = bitSet.test(10); emit systemCoreMask10Changed();
-    m_systemCoreMask11 = bitSet.test(11); emit systemCoreMask11Changed();
-    m_systemCoreMask12 = bitSet.test(12); emit systemCoreMask12Changed();
-    m_systemCoreMask13 = bitSet.test(13); emit systemCoreMask13Changed();
-    m_systemCoreMask14 = bitSet.test(14); emit systemCoreMask14Changed();
-    m_systemCoreMask15 = bitSet.test(15); emit systemCoreMask15Changed();
+    update_systemCoreMask0(bitSet.test(0));
+    update_systemCoreMask1(bitSet.test(1));
+    update_systemCoreMask2(bitSet.test(2));
+    update_systemCoreMask3(bitSet.test(3));
+    update_systemCoreMask4(bitSet.test(4));
+    update_systemCoreMask5(bitSet.test(5));
+    update_systemCoreMask6(bitSet.test(6));
+    update_systemCoreMask7(bitSet.test(7));
+    update_systemCoreMask8(bitSet.test(8));
+    update_systemCoreMask9(bitSet.test(9));
+    update_systemCoreMask10(bitSet.test(10));
+    update_systemCoreMask11(bitSet.test(11));
+    update_systemCoreMask12(bitSet.test(12));
+    update_systemCoreMask13(bitSet.test(13));
+    update_systemCoreMask14(bitSet.test(14));
+    update_systemCoreMask15(bitSet.test(15));
 
-    update_communicationErrorCounter(extractBits32(bitSet,16,24)); emit communicationErrorCounterChanged();
+    update_communicationErrorCounter(extractBits32(bitSet,16,24));
 
 }
 
