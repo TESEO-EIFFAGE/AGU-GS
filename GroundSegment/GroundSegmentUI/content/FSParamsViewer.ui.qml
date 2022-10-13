@@ -345,7 +345,7 @@ Rectangle {
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: telemetryTab.lit ? "#ff0000" : "green"
+                            color: telemetryTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -397,7 +397,7 @@ Rectangle {
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: motorsBMSTab.lit ? "#ff0000" : "green"
+                            color: motorsBMSTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -452,7 +452,7 @@ Rectangle {
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: storageTab.lit ? "#ff0000" : "green"
+                            color: storageTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -504,7 +504,7 @@ Rectangle {
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: coreTab.lit ? "#ff0000" : "green"
+                            color: coreTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -554,7 +554,7 @@ Rectangle {
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: radioLinkTab.lit ? "#ff0000" : "green"
+                            color: radioLinkTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -606,7 +606,7 @@ Rectangle {
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: guidanceTab.lit ? "#ff0000" : "green"
+                            color: guidanceTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
