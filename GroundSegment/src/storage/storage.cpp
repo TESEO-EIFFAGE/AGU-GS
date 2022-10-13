@@ -1,4 +1,16 @@
 #include "storage.h"
+#include <bitset>
+#include <QString>
+#include <QVariant>
+#include <QDebug>
+#include <iostream>
+
+Q_DECLARE_METATYPE(mavlink_system_status_pack_t);
+Q_DECLARE_METATYPE(mavlink_telemetry_data_pack_t);
+Q_DECLARE_METATYPE(mavlink_motor_status_pack_t);
+Q_DECLARE_METATYPE(mavlink_storage_status_pack_t);
+Q_DECLARE_METATYPE(mavlink_guidance_status_pack_t);
+Q_DECLARE_METATYPE(mavlink_radio_link_status_pack_t);
 
 /*!
         \class Storage
