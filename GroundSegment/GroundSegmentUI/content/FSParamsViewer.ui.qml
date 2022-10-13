@@ -229,6 +229,8 @@ Rectangle {
     property alias radioLinkLight1: radioLinkTab.radioLinkLight1
     property alias radioLinkLight0: radioLinkTab.radioLinkLight0
 
+    property alias txtRadioLinkErrorCounter: radioLinkTab.txtRadioLinkErrorCounter
+
 
     ColumnLayout {
         //anchors.fill: parent

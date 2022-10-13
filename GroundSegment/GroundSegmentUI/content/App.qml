@@ -422,7 +422,7 @@ Window {
         fsParams.motorLight2.up: hmi.motor2
         fsParams.motorLight1.up: hmi.motor1
 
-        //fsParams.
+        fsParams.txtRadioLinkErrorCounter: hmi.radiolinkErrorCounter
 
         fsParams.radioLinkLight8.up: hmi.radiolinkMask8
         fsParams.radioLinkLight9.up: hmi.radiolinkMask9
@@ -430,6 +430,7 @@ Window {
         fsParams.radioLinkLight3.up: hmi.radiolinkMask3
         fsParams.radioLinkLight2.up: hmi.radiolinkMask2
         fsParams.radioLinkLight1.up: hmi.radiolinkMask1
+        fsParams.radioLinkLight0.up: hmi.radiolinkMask0
 
         map.latitude: hmi.Latitude
         map.longitude: hmi.Longitude
