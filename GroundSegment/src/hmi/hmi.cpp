@@ -138,7 +138,7 @@ uint8_t HMI::extractBits64(const std::bitset<64> the_bitset, size_t start_bit, s
     unsigned long result = 0;
     for (size_t i = start_bit; i < end_bit; ++ i) {
         if (the_bitset.test(i))
-           result |= mask;
+            result |= mask;
         mask <<= 1;
     }
     return result;
@@ -148,7 +148,7 @@ uint8_t HMI::extractBits32(const std::bitset<32> the_bitset, size_t start_bit, s
     unsigned long result = 0;
     for (size_t i = start_bit; i < end_bit; ++ i) {
         if (the_bitset.test(i))
-           result |= mask;
+            result |= mask;
         mask <<= 1;
     }
     return result;
@@ -158,7 +158,7 @@ uint8_t HMI::extractBits16(const std::bitset<16> the_bitset, size_t start_bit, s
     unsigned long result = 0;
     for (size_t i = start_bit; i < end_bit; ++ i) {
         if (the_bitset.test(i))
-           result |= mask;
+            result |= mask;
         mask <<= 1;
     }
     return result;
@@ -168,7 +168,7 @@ uint8_t HMI::extractBits8(const std::bitset<8> the_bitset, size_t start_bit, siz
     unsigned long result = 0;
     for (size_t i = start_bit; i < end_bit; ++ i) {
         if (the_bitset.test(i))
-           result |= mask;
+            result |= mask;
         mask <<= 1;
     }
     return result;
@@ -209,7 +209,16 @@ void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
     m_systemCoreMask14 = bitSet.test(14); emit systemCoreMask14Changed();
     m_systemCoreMask15 = bitSet.test(15); emit systemCoreMask15Changed();
 
-    update_communicationErrorCounter(extractBits32(bitSet,16,24)); emit communicationErrorCounterChanged();
+    update_communicationErrorCounter(extractBits32(bitSet,16,24));
+
+    std::bitset<32> rlBitSet(msg_status.Radio_Link_Module_Status_Mask);
+    update_radiolinkMask0(rlBitSet.test(0));
+    update_radiolinkMask1(rlBitSet.test(1));
+    update_radiolinkMask2(rlBitSet.test(2));
+    update_radiolinkMask3(rlBitSet.test(3));
+    update_radiolinkMask8(rlBitSet.test(8));
+    update_radiolinkMask9(rlBitSet.test(9));
+    update_radiolinkErrorCounter(extractBits32(rlBitSet,24,31));
 
 }
 

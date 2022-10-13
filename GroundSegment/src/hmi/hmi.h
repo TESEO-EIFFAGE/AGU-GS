@@ -380,38 +380,6 @@ public:
     QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask30);
     QML_READONLY_AUTO_PROPERTY(bool,systemMotorControlMask31);
 
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask0);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask1);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask2);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask3);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask4);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask5);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask6);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask7);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask8);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask9);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask10);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask11);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask12);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask13);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask14);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask15);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask16);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask17);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask18);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask19);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask20);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask21);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask22);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask23);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask24);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask25);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask26);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask27);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask28);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask29);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask30);
-    QML_READONLY_AUTO_PROPERTY(bool,systemRadioLinkMask31);
 
     QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask0);
     QML_READONLY_AUTO_PROPERTY(bool,systemTelemetryMask1);
@@ -524,6 +492,7 @@ public:
     /* RADIOLINK */
 
     QML_READONLY_AUTO_PROPERTY(quint16,RSSI);
+    QML_READONLY_AUTO_PROPERTY(quint8,radiolinkErrorCounter);
     QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask0);
     QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask1);
     QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask2);

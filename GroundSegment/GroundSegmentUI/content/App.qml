@@ -207,12 +207,12 @@ Window {
                               || hmi.systemCoreMask7
                               || hmi.systemCoreMask6
                               || hmi.systemCoreMask5
-//        fsParams.radioLinkTab.lit: hmi.systemRadioLinkMask0
-//                                   || hmi.systemRadioLinkMask1
-//                                   || hmi.systemRadioLinkMask2
-//                                   || hmi.systemRadioLinkMask3
-//                                   || hmi.systemRadioLinkMask8
-//                                   || hmi.systemRadioLinkMask9
+        fsParams.radioLinkTab.lit: hmi.radioLinkMask0
+                                   || hmi.radioLinkMask1
+                                   || hmi.radioLinkMask2
+                                   || hmi.radioLinkMask3
+                                   || hmi.radioLinkMask8
+                                   || hmi.radioLinkMask9
 
         fsParams.radioLinkTab.txtRadioLinkErrorCounter: hmi.FSRLErrorCounter
 
@@ -422,8 +422,14 @@ Window {
         fsParams.motorLight2.up: hmi.motor2
         fsParams.motorLight1.up: hmi.motor1
 
+        //fsParams.
 
+        fsParams.radioLinkLight8.up: hmi.radiolinkMask8
+        fsParams.radioLinkLight9.up: hmi.radiolinkMask9
 
+        fsParams.radioLinkLight3.up: hmi.radiolinkMask3
+        fsParams.radioLinkLight2.up: hmi.radiolinkMask2
+        fsParams.radioLinkLight1.up: hmi.radiolinkMask1
 
         map.latitude: hmi.Latitude
         map.longitude: hmi.Longitude
