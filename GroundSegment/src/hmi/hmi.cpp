@@ -16,7 +16,7 @@ Q_DECLARE_METATYPE(mavlink_radio_link_status_pack_t);
 /*!
         \class HMI
 
-        \brief The HMI class is the class used to show data in the GUI
+        \brief The HMI class is the class used to show data in the UI
 */
 HMI::HMI(QObject *parent)
     : QObject{parent}
@@ -27,7 +27,7 @@ HMI::HMI(QObject *parent)
 /*!
     \fn void HMI::showData(QVariant msg)
 
-    It calls the function to show the data in the GUI
+    Calls specialized functions to show the data in the UI
 */
 void HMI::showData(QVariant msg) {
     if (msg.canConvert<mavlink_telemetry_data_pack_t>()) {
@@ -54,7 +54,7 @@ void HMI::showData(QVariant msg) {
 /*!
     \fn void HMI::showDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry)
 
-    It shows in the GUI the telemetry related data
+    Sets UI properties for telemetry-related data
 */
 void HMI::showDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry) {
     m_TimeStamp= msg_telemetry.GNSS_Timestamp; emit TimeStampChanged();
@@ -177,7 +177,7 @@ uint8_t HMI::extractBits8(const std::bitset<8> the_bitset, size_t start_bit, siz
 /*!
     \fn void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 
-    It shows in the GUI the system status related data
+    Sets UI properties for system status-related data
 */
 void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 {
@@ -220,7 +220,7 @@ void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 /*!
     \fn void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
 
-    It shows in the GUI the motor status related data
+    Sets UI properties for motor status-related data
 */
 void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
 {
@@ -239,10 +239,6 @@ void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
     m_BMSVoltage= msg_status.BMS_Voltage;emit BMSVoltageChanged();
     m_BMSAbsorption=msg_status.BMS_Absorption;emit BMSAbsorptionChanged();
     m_BMSTemp= msg_status.BMS_Temperature;emit BMSTempChanged();
-
-
-
-
 
     std::bitset<32> bitSet(msg_status.BMS_Faults_Mask);
     m_BMS0 = bitSet.test(0); emit BMS0Changed();
@@ -278,7 +274,6 @@ void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
     m_BMS30 = bitSet.test(30); emit BMS30Changed();
     m_BMS31 = bitSet.test(31); emit BMS31Changed();
 
-
     std::bitset<32> motorBitSet(msg_status.Motor_Control_Status_Mask);
     m_motor0 = motorBitSet.test(0); emit motor0Changed();
     m_motor1 = motorBitSet.test(1); emit motor1Changed();
@@ -304,8 +299,6 @@ void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
     m_motor22 = motorBitSet.test(22); emit motor22Changed();
     m_motor23 = motorBitSet.test(23); emit motor23Changed();
 
-
-
     m_ChargeValue = extractBits32(motorBitSet,24,31); emit ChargeValueChanged();
 
     m_MotorControlStatusMask= msg_status.Motor_Control_Status_Mask;emit MotorControlStatusMaskChanged();
@@ -317,7 +310,8 @@ void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
 /*!
     \fn void HMI::showDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio_status)
 
-    It show in the GUI the radio link related data
+    Sets UI properties for radiolink-related data
+
 */
 void HMI::showDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio_status)
 {
@@ -327,7 +321,8 @@ void HMI::showDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio_stat
 /*!
     \fn void HMI::showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_status)
 
-    It shows in the GUI the storage related data
+    Sets UI properties for storage-related data
+
 */
 void HMI::showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_status)
 {
@@ -358,7 +353,6 @@ void HMI::showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_
     m_storage21 = bitSet.test(21); emit storage21Changed();
     m_storage22 = bitSet.test(22); emit storage22Changed();
     m_storage23 = bitSet.test(23); emit storage23Changed();
-
 }
 
 /*!
