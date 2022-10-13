@@ -191,28 +191,28 @@ Window {
                                    || hmi.motor2
                                    || hmi.motor1
                                    || hmi.motor0
-        fsParams.coreTab.lit: hmi.core0
-                              || hmi.core1
-                              || hmi.core2
-                              || hmi.core3
-                              || hmi.core4
-                              || hmi.core15
-                              || hmi.core14
-                              || hmi.core13
-                              || hmi.core12
-                              || hmi.core11
-                              || hmi.core10
-                              || hmi.core9
-                              || hmi.core8
-                              || hmi.core7
-                              || hmi.core6
-                              || hmi.core5
-        fsParams.radioLinkTab.lit: hmi.radiolink0
-                                   || hmi.radiolink1
-                                   || hmi.radiolink2
-                                   || hmi.radiolink3
-                                   || hmi.radiolink8
-                                   || hmi.radiolink9
+        fsParams.coreTab.lit: hmi.systemCoreMask0
+                              || hmi.systemCoreMask1
+                              || hmi.systemCoreMask2
+                              || hmi.systemCoreMask3
+                              || hmi.systemCoreMask4
+                              || hmi.systemCoreMask15
+                              || hmi.systemCoreMask14
+                              || hmi.systemCoreMask13
+                              || hmi.systemCoreMask12
+                              || hmi.systemCoreMask11
+                              || hmi.systemCoreMask10
+                              || hmi.systemCoreMask9
+                              || hmi.systemCoreMask8
+                              || hmi.systemCoreMask7
+                              || hmi.systemCoreMask6
+                              || hmi.systemCoreMask5
+//        fsParams.radioLinkTab.lit: hmi.systemRadioLinkMask0
+//                                   || hmi.systemRadioLinkMask1
+//                                   || hmi.systemRadioLinkMask2
+//                                   || hmi.systemRadioLinkMask3
+//                                   || hmi.systemRadioLinkMask8
+//                                   || hmi.systemRadioLinkMask9
 
         fsParams.radioLinkTab.txtRadioLinkErrorCounter: hmi.FSRLErrorCounter
 
