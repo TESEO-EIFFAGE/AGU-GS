@@ -825,10 +825,6 @@ signals:
     void RLHeartbeatCounterChanged();
     void FSRLErrorCounterChanged();
 
-
-
-
-
     void storage0Changed();
     void storage1Changed();
     void storage2Changed();
@@ -838,6 +834,7 @@ signals:
     void storage6Changed();
     void storage7Changed();
     void storage8Changed();
+    void storage9Changed();
     void storage10Changed();
     void storage11Changed();
     void storage12Changed();
@@ -852,24 +849,14 @@ signals:
     void storage21Changed();
     void storage22Changed();
     void storage23Changed();
-
-    void storage31Changed();
-
-    void storage30Changed();
-
-    void storage29Changed();
-
-    void storage28Changed();
-
-    void storage27Changed();
-
-    void storage26Changed();
-
-    void storage25Changed();
-
     void storage24Changed();
-
-    void storage9Changed();
+    void storage25Changed();
+    void storage26Changed();
+    void storage27Changed();
+    void storage28Changed();
+    void storage29Changed();
+    void storage30Changed();
+    void storage31Changed();
 
 private:
     uint8_t extractBits64(const std::bitset<64> the_bitset, size_t start_bit, size_t end_bit);
@@ -966,6 +953,7 @@ private:
     bool m_storage6;
     bool m_storage7;
     bool m_storage8;
+    bool m_storage9;
     bool m_storage10;
     bool m_storage11;
     bool m_storage12;
@@ -1073,7 +1061,6 @@ private:
     int m_RLHeartbeatCounter;
     int m_FSRLErrorCounter;
 
-
     quint32 m_RadioLinkModuleStatusMask;
     quint32 m_StorageModuleStatusMask;
     quint32 m_GuidanceModuleStatusMask;
@@ -1084,7 +1071,6 @@ private:
     quint8 m_FlightMode;
     quint32 m_MotorControlStatusMask;
 
-    bool m_storage9;
 };
 
 #endif // HMI_H
