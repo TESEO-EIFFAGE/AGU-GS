@@ -37,7 +37,9 @@ Storage::~Storage()
 QString Storage::CalculatePathName()
 {
     QString docFolder= QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
-    QString PathName = docFolder + "/output/";
+    QString pathName = docFolder + "/output/";
+    printf("PATH NAME DOC %s",pathName);
+
     QDate date, j;
     int gg, mm, aa;
 
@@ -56,67 +58,67 @@ QString Storage::CalculatePathName()
 
     if (aa < 10)
     {
-        PathName.append("0");
-        PathName.append(QString::number(aa));
+        pathName.append("0");
+        pathName.append(QString::number(aa));
     }
     else
     {
-        PathName.append(QString::number(aa));
+        pathName.append(QString::number(aa));
     }
 
     if (mm < 10)
     {
-        PathName.append("0");
-        PathName.append(QString::number(mm));
+        pathName.append("0");
+        pathName.append(QString::number(mm));
     }
     else
     {
-        PathName.append(QString::number(mm));
+        pathName.append(QString::number(mm));
     }
 
     if (gg < 10)
     {
-        PathName.append("0");
-        PathName.append(QString::number(gg));
+        pathName.append("0");
+        pathName.append(QString::number(gg));
     }
     else
     {
-        PathName.append(QString::number(gg));
+        pathName.append(QString::number(gg));
     }
 
-    PathName.append("_");
+    pathName.append("_");
 
     if (hour < 10)
     {
-        PathName.append("0");
-        PathName.append(QString::number(hour));
+        pathName.append("0");
+        pathName.append(QString::number(hour));
     }
     else
     {
-        PathName.append(QString::number(hour));
+        pathName.append(QString::number(hour));
     }
 
     if (min < 10)
     {
-        PathName.append("0");
-        PathName.append(QString::number(min));
+        pathName.append("0");
+        pathName.append(QString::number(min));
     }
     else
     {
-        PathName.append(QString::number(min));
+        pathName.append(QString::number(min));
     }
 
     if (sec < 10)
     {
-        PathName.append("0");
-        PathName.append(QString::number(sec));
+        pathName.append("0");
+        pathName.append(QString::number(sec));
     }
     else
     {
-        PathName.append(QString::number(sec));
+        pathName.append(QString::number(sec));
     }
 
-    return PathName;
+    return pathName;
 }
 
 void Storage::TurnOnFixOfTime()
