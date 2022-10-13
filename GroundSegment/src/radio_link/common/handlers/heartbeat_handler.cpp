@@ -44,6 +44,6 @@ void HeartbeatHandler::processMessage(const mavlink_message_t& message)
     mavlink_heartbeat_t heartbeat;
     mavlink_msg_heartbeat_decode(&message, &heartbeat);
 
-    std::cout << "Heartbeat received, system type:" << (int)heartbeat.type
-             << " System status:" << (int)heartbeat.system_status << std::endl;
+//    std::cout << "Heartbeat received, system type:" << (int)heartbeat.type
+//             << " System status:" << (int)heartbeat.system_status << std::endl;
 }

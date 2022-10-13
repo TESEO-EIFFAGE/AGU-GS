@@ -25,9 +25,9 @@ void AGUStorageHandler::processMessage(const mavlink_message_t& message)
     mavlink_storage_status_pack_t status;
     mavlink_msg_storage_status_pack_decode(&message, &status);
 
-    std::cout << "System_Timestamp " << status.System_Timestamp << std::endl;
-    std::cout << "Storage_Free_Data_Size " << status.Storage_Free_Data_Size << std::endl;
-    std::cout << "Storage_Module_Status_Mask " << status.Storage_Module_Status_Mask << std::endl;
+//    std::cout << "System_Timestamp " << status.System_Timestamp << std::endl;
+//    std::cout << "Storage_Free_Data_Size " << status.Storage_Free_Data_Size << std::endl;
+//    std::cout << "Storage_Module_Status_Mask " << status.Storage_Module_Status_Mask << std::endl;
 
     QVariant processedMessage;
     processedMessage.setValue(status);

@@ -181,7 +181,6 @@ uint8_t HMI::extractBits8(const std::bitset<8> the_bitset, size_t start_bit, siz
 */
 void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 {
-    qInfo() << "showDataSystemStatus = CALL" ;
 
     m_FlightMode = msg_status.Flight_Mode; emit FlightModeChanged();
     m_FlightPhase= msg_status.Flight_Phase; emit FlightPhaseChanged();
@@ -212,9 +211,6 @@ void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 
     update_communicationErrorCounter(extractBits32(bitSet,16,24)); emit communicationErrorCounterChanged();
 
-    printf("SYS STATUS UPDATED \n");
-    printf("FLIGHT MODE %d \n",m_FlightMode);
-    printf("FLIGHT PHASE %d \n",m_FlightPhase);
 }
 
 /*!
@@ -303,8 +299,6 @@ void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
 
     m_MotorControlStatusMask= msg_status.Motor_Control_Status_Mask;emit MotorControlStatusMaskChanged();
 
-    printf("MOTOR STATUS UPDATED \n");
-    printf("BMS VOLTAGE %d \n",m_BMSVoltage);
 }
 
 /*!
