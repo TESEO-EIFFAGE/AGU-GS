@@ -31,7 +31,6 @@ GSCore::GSCore(QObject *parent)
     m_storage->LenRadioLink     = SetInitParameter("LenRadioLink");
     m_storage->LenTelemetry     = SetInitParameter("LenTelemetry");
 
-    std::cout<<"TESTING INIT" <<m_storage->LenSystemStatus<<std::endl;
 
     QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
                      m_hmi, &HMI::showData);
