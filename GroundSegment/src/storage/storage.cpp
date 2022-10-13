@@ -117,6 +117,16 @@ QString Storage::CalculatePathName()
     return PathName;
 }
 
+void Storage::TurnOnFixOfTime()
+{
+    GPS.FixGPSTime = true;
+}
+
+void Storage::SetDeltaTime(int deltaTime)
+{
+    GPS.DeltaGPSTimefromSystemTime=deltaTime;
+}
+
 void Storage::storeData(QVariant data)
 {
     if (data.canConvert<mavlink_telemetry_data_pack_t>()) {

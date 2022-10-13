@@ -50,7 +50,7 @@ GSCore::GSCore(QObject *parent)
     //timer->start(1000);
 
     QTimer *timerHasFix = new QTimer(this);
-    QObject::connect(timer, &QTimer::timeout, this,SetFixOfTime);
+    QObject::connect(timer, &QTimer::timeout, this,&GSCore::SetFixOfTime);
     //timerHasFix->start(1000);
 }
 
@@ -67,7 +67,7 @@ void GSCore::SetFixOfTime()
         QDate d,j;
         unsigned long milliseconds_since_epoch;
 
-        s->GPS.FixGPSTime = true;
+        m_storage->TurnOnFixOfTime();
 
         d = j.currentDate();
         int y = d.year();
@@ -81,10 +81,9 @@ void GSCore::SetFixOfTime()
 
         if (FlagDeltaTime == false)
         {
-            s->GPS.DeltaGPSTimefromSystemTime =   std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()
+            int deltaTime=std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()
                     - milliseconds_since_epoch;
-
-            qInfo () << " --------- DELTA = " << s->GPS.DeltaGPSTimefromSystemTime;
+            m_storage->SetDeltaTime(deltaTime);
 
             FlagDeltaTime = true;
         }
@@ -92,7 +91,7 @@ void GSCore::SetFixOfTime()
     }
     else
     {
-        s->GPS.FixGPSTime = false;
+        m_storage->InitFixGPSTime();
         FlagDeltaTime = false;
     }
 

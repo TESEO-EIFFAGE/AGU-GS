@@ -33,7 +33,8 @@ public:
     int LenSystemStatus, LenTelemetry, LenMotor, LenRadioLink, LenStorageStatus, LenGuidance;
     QString PathSystemStatus, PathTelemetry, PathMotor, PathRadioLink, PathStorageStatus, PathGuidance;
     GPSTimePack GPS;
-
+    void TurnOnFixOfTime();
+    void SetDeltaTime(int deltaTime);
     void storeData(QVariant data);
 
 public slots:
