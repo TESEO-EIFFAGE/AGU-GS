@@ -236,9 +236,9 @@ Rectangle {
             }
 
             ParamRow {
+                id: txtTimeStampRIO
                 text: "TimeStampRIO"
                 span: 14
-                id: txtTimeStampRIO
                 ToolTip.text: text
                 ToolTip.visible: pressed
             }

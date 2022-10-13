@@ -32,7 +32,6 @@ import QtQuick.Window 2.15
 import GroundSegmentUI 1.0
 
 Window {
-    //property
     width: Constants.width
     height: Constants.height
 

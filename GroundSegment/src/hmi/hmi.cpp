@@ -181,7 +181,7 @@ uint8_t HMI::extractBits8(const std::bitset<8> the_bitset, size_t start_bit, siz
 */
 void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 {
-
+    m_TimeStampRIO = msg_status.Log_Timestamp; emit TimeStampRIOChanged();
     m_FlightMode = msg_status.Flight_Mode; emit FlightModeChanged();
     m_FlightPhase= msg_status.Flight_Phase; emit FlightPhaseChanged();
     m_FlightPhaseExecutionTime= msg_status.Flight_Phase_Time; emit FlightPhaseExecutionTimeChanged();
