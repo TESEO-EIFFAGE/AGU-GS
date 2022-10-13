@@ -24,13 +24,14 @@ GSCore::GSCore(QObject *parent)
     setRadioLink(new RadioLink(this));
     setHmi(new HMI(this));
     setGpsData(new GNSS(this));
+    setStorage(new Storage(this));
 
-    StorageData->LenSystemStatus  = SetInitParameter("LenSystemStatus");
-    StorageData->LenStorageStatus = SetInitParameter("LenStorageStatus");
-    StorageData->LenGuidance      = SetInitParameter("LenGuidance");
-    StorageData->LenMotor         = SetInitParameter("LenMotor");
-    StorageData->LenRadioLink     = SetInitParameter("LenRadioLink");
-    StorageData->LenTelemetry     = SetInitParameter("LenTelemetry");
+    m_storage->LenSystemStatus  = SetInitParameter("LenSystemStatus");
+    m_storage->LenStorageStatus = SetInitParameter("LenStorageStatus");
+    m_storage->LenGuidance      = SetInitParameter("LenGuidance");
+    m_storage->LenMotor         = SetInitParameter("LenMotor");
+    m_storage->LenRadioLink     = SetInitParameter("LenRadioLink");
+    m_storage->LenTelemetry     = SetInitParameter("LenTelemetry");
 
     QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
                      m_hmi, &HMI::showData);
@@ -49,7 +50,7 @@ GSCore::GSCore(QObject *parent)
     //timer->start(1000);
 
     QTimer *timerHasFix = new QTimer(this);
-    QObject::connect(timer, &QTimer::timeout, m_storage,SetFixOfTime(m_storage));
+    QObject::connect(timer, &QTimer::timeout, this,SetFixOfTime);
     //timerHasFix->start(1000);
 }
 
@@ -59,7 +60,7 @@ GSCore::GSCore(QObject *parent)
     It calculates the delta between System Time and GPS Time.
     The value DeltaGPSTimefromSystemTime is stored in the Storage class.
 */
-void GSCore::SetFixOfTime(Storage *s)
+void GSCore::SetFixOfTime()
 {
     if (m_gpsData->hasFix() == true)
     {

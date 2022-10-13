@@ -25,7 +25,7 @@ public:
     void setStorage(Storage*);
     GNSS* gpsData() const;
     void setGpsData(GNSS*);
-    void SetFixOfTime(Storage *s);
+    void SetFixOfTime();
     int SetInitParameter(QString str);
     void setRadioLink(RadioLink* radioLink);
     RadioLink* radioLink() const;
