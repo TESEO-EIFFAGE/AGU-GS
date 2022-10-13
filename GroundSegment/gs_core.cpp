@@ -11,19 +11,14 @@
         \class GSCore
 
         \brief The GSCore class is the logic core of the project.
-               It defines the objects and their lines of communication.
+               It instantiates application modules and their communication.
 */
 GSCore::GSCore(QObject *parent)
     : QObject(parent)
 {       
-    Counter = 0;
-    Serial1 = new QSerialPort(this);
-    MavlinkProtocol *Mavlink = new MavlinkProtocol(this);
-    //Storage *StorageData = new Storage(this);
-
     setRadioLink(new RadioLink(this));
     setHmi(new HMI(this));
-    setGpsData(new GNSS(this));
+    setGnss(new GNSS(this));
     setStorage(new Storage(this));
 
     m_storage->LenSystemStatus  = SetInitParameter("LenSystemStatus");
@@ -37,32 +32,19 @@ GSCore::GSCore(QObject *parent)
                      m_hmi, &HMI::showData);
     QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
                      m_storage, &Storage::storeData);
-    //    QObject::connect(Mavlink, SIGNAL(toStorage(Telemetry *)), StorageData, SLOT(StoreDataInMemory(Telemetry *)));
-//    QObject::connect(Mavlink, SIGNAL(toStorageSystemStatus(SystemStatusPack *)), StorageData, SLOT(StoreDataInMemorySystemStatus(SystemStatusPack *)));
-//    QObject::connect(Mavlink, SIGNAL(toStorageMotorStatusPack(MotorStatusPackDataset *)), StorageData, SLOT(StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *)));
-//    QObject::connect(Mavlink, SIGNAL(toStorageRadioLink(RadioLinkPackDataset *)), StorageData, SLOT(StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *)));
-//    QObject::connect(Mavlink, SIGNAL(toStorageStorageStatusPack(StorageStatusPack *)), StorageData, SLOT(StoreDataInMemoryStorageStatusPack(StorageStatusPack *)));
-//    QObject::connect(Mavlink, SIGNAL(toStorageGuidance(GuidancePackDataset *)), StorageData, SLOT(StoreDataInMemoryGuidance(GuidancePackDataset *)));
-
     QTimer *timer = new QTimer(this);
-    //QObject::connect(timer, &QTimer::timeout, this, [this](){ emit work_is_down(); });
-    //QObject::connect(this, SIGNAL(work_is_down()), this, SLOT(WriteHartBeat()));
-    //timer->start(1000);
-
-    QTimer *timerHasFix = new QTimer(this);
     QObject::connect(timer, &QTimer::timeout, this,&GSCore::SetFixOfTime);
-    //timerHasFix->start(1000);
 }
 
 /*!
     \fn void GSCore::SetFixOfTime(Storage *s)
 
-    It calculates the delta between System Time and GPS Time.
+    Calculates the delta between System Time and GPS Time.
     The value DeltaGPSTimefromSystemTime is stored in the Storage class.
 */
 void GSCore::SetFixOfTime()
 {
-    if (m_gpsData->hasFix() == true)
+    if (m_gnss->hasFix())
     {
         QDate d,j;
         unsigned long milliseconds_since_epoch;
@@ -74,25 +56,24 @@ void GSCore::SetFixOfTime()
         int mm = d.month();
         int day = d.day();
         QDate date(y, mm, day);
-        QTime time(m_gpsData->hour(), m_gpsData->minute(), m_gpsData->second());
+        QTime time(m_gnss->hour(), m_gnss->minute(), m_gnss->second());
         QDateTime localTime = QDateTime(date, time, Qt::UTC);
         milliseconds_since_epoch = localTime.toUTC().toMSecsSinceEpoch();
 
-
-        if (FlagDeltaTime == false)
+        if (m_flagDeltaTime == false)
         {
             int deltaTime=std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()
                     - milliseconds_since_epoch;
             m_storage->SetDeltaTime(deltaTime);
 
-            FlagDeltaTime = true;
+            m_flagDeltaTime = true;
         }
 
     }
     else
     {
         m_storage->InitFixGPSTime();
-        FlagDeltaTime = false;
+        m_flagDeltaTime = false;
     }
 
     qInfo() << "------ sono in  SetFixOfTime "  ;
@@ -102,7 +83,7 @@ void GSCore::SetFixOfTime()
 /*!
     \fn int GSCore::SetInitParameter(QString str)
 
-    It extracts from the .ini configuration file the initialization length of the file.
+    Extracts from the .ini configuration file the initialization length of the file.
     For each file this returns the length.
 */
 int GSCore::SetInitParameter(QString str)
@@ -124,7 +105,7 @@ int GSCore::SetInitParameter(QString str)
 /*!
     \fn void GSCore::setRadioLink(RadioLink *radioLink)
 
-    It sets the radioLink object.
+    Sets the radioLink module.
 */
 void GSCore::setRadioLink(RadioLink *radioLink)
 {
@@ -133,7 +114,7 @@ void GSCore::setRadioLink(RadioLink *radioLink)
 /*!
     \fn RadioLink *GSCore::radioLink() const
 
-    It returns the radioLink object.
+    Returns the radioLink module.
 */
 RadioLink *GSCore::radioLink() const
 {
@@ -147,7 +128,7 @@ GSCore::~GSCore()
 /*!
     \fn HMI *GSCore::hmi() const
 
-    It returns the hmi object.
+    Returns the hmi module.
 */
 HMI *GSCore::hmi() const
 {
@@ -157,7 +138,7 @@ HMI *GSCore::hmi() const
 /*!
     \fn void GSCore::setHmi(HMI* hmi)
 
-    It sets the hmi object.
+    Sets the hmi module.
 */
 void GSCore::setHmi(HMI* hmi)
 {
@@ -167,30 +148,35 @@ void GSCore::setHmi(HMI* hmi)
 /*!
     \fn void GSCore::setStorage(Storage* storage)
 
-    It sets the storage object.
+    Sets the storage module.
 */
 void GSCore::setStorage(Storage* storage)
 {
     m_storage = storage;
 }
 
-/*!
-    \fn GNSS *GSCore::gpsData() const
-
-    It returns the gpsData object.
-*/
-GNSS *GSCore::gpsData() const
+Storage *GSCore::storage() const
 {
-    return m_gpsData;
+    return m_storage;
 }
 
 /*!
-    \fn void GSCore::setGpsData(GNSS* gpsData)
+    \fn GNSS *GSCore::gnss() const
 
-    It sets the gpsData object.
+    Returns the GNSS module.
 */
-void GSCore::setGpsData(GNSS* gpsData)
+GNSS *GSCore::gnss() const
 {
-    m_gpsData = gpsData;
+    return m_gnss;
+}
+
+/*!
+    \fn void GSCore::setGnss(GNSS* gnss)
+
+    Sets the GNSS module.
+*/
+void GSCore::setGnss(GNSS* gnss)
+{
+    m_gnss = gnss;
 }
 

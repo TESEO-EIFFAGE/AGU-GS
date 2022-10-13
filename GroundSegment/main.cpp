@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     auto gsCore = new GSCore(&app);
     auto hmi = gsCore->hmi();
-    auto gpsData = gsCore->gpsData();
+    auto gpsData = gsCore->gnss();
 
     engine.rootContext()->setContextProperty("hmi", hmi);
     engine.rootContext()->setContextProperty("gpsData", gpsData);
