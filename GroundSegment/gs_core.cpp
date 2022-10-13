@@ -8,6 +8,7 @@
 #include <QObject>
 #include <QStandardPaths>
 #include <QDir>
+#include<iostream>
 
 /*!
         \class GSCore
@@ -29,6 +30,8 @@ GSCore::GSCore(QObject *parent)
     m_storage->LenMotor         = SetInitParameter("LenMotor");
     m_storage->LenRadioLink     = SetInitParameter("LenRadioLink");
     m_storage->LenTelemetry     = SetInitParameter("LenTelemetry");
+
+    std::cout<<"TESTING INIT" <<m_storage->LenSystemStatus<<std::endl;
 
     QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
                      m_hmi, &HMI::showData);
@@ -94,6 +97,7 @@ int GSCore::SetInitParameter(QString str)
     QString docFolder= QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
     QString settingsFileName = docFolder + "/agu-settings/myInit.ini";
 
+    if(QFileInfo(settingsFileName).exists()){
 
     QSettings settings (settingsFileName, QSettings::IniFormat);
     QStringList childKeys = settings.childKeys();
@@ -103,6 +107,8 @@ int GSCore::SetInitParameter(QString str)
         qInfo() << "----- VALUE ------- " << settings.value(childKey).toInt();  /*estraggo il valore numerico*/
         qInfo() << QVariant(childKey).toString();  /*estraggo nome del parametro*/
         if (str.compare(QVariant(childKey).toString()) == 0) return settings.value(childKey).toInt();
+    }
+
     }
 
     return defaultValue;
