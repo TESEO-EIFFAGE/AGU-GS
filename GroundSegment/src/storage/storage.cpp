@@ -35,7 +35,7 @@ Storage::~Storage()
 */
 QString Storage::CalculatePathName()
 {
-    QString PathName = "/home/AGU/GroundSegment/";
+    QString PathName = "/home/agudev/Documents/output/";
     QDate date, j;
     int gg, mm, aa;
 
@@ -630,6 +630,7 @@ void Storage::storeDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemet
 {
     QString NewPathName = CalculatePathName();
     unsigned long milliseconds_since_epoch;
+
 
     milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
