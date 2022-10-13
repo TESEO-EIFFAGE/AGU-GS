@@ -219,6 +219,19 @@ Rectangle {
     property alias coreLight1: coreTab.coreLight1
     property alias coreLight0: coreTab.coreLight0
 
+
+
+    property alias radioLinkLight9: radioLinkTab.radioLinkLight9
+    property alias radioLinkLight8: radioLinkTab.radioLinkLight8
+
+    property alias radioLinkLight3: radioLinkTab.radioLinkLight3
+    property alias radioLinkLight2: radioLinkTab.radioLinkLight2
+    property alias radioLinkLight1: radioLinkTab.radioLinkLight1
+    property alias radioLinkLight0: radioLinkTab.radioLinkLight0
+
+    property alias txtRadioLinkErrorCounter: radioLinkTab.txtRadioLinkErrorCounter
+
+
     ColumnLayout {
         //anchors.fill: parent
         id: col
