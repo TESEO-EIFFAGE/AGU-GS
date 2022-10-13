@@ -37,8 +37,8 @@ Storage::~Storage()
 QString Storage::CalculatePathName()
 {
     QString docFolder= QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
-    QString pathName = docFolder + "/output/";
-    printf("PATH NAME DOC %s",pathName);
+    QString pathName = docFolder + "/agu-logs/";
+    std::cout <<"PATH NAME"<< pathName.toStdString() << std::endl;
 
     QDate date, j;
     int gg, mm, aa;
