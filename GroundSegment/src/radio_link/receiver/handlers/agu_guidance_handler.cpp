@@ -25,8 +25,8 @@ void AGUGuidanceHandler::processMessage(const mavlink_message_t& message)
     mavlink_guidance_status_pack_t status;
     mavlink_msg_guidance_status_pack_decode(&message, &status);
 
-    std::cout << "System_Timestamp " << status.System_Timestamp << std::endl;
-    std::cout << "Guidance_Module_Status_Mask " << status.Guidance_Module_Status_Mask << std::endl;
+//    std::cout << "System_Timestamp " << status.System_Timestamp << std::endl;
+//    std::cout << "Guidance_Module_Status_Mask " << status.Guidance_Module_Status_Mask << std::endl;
 
     QVariant processedMessage;
     processedMessage.setValue(status);

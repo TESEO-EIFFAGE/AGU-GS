@@ -24,9 +24,9 @@ void AGURadioLinkHandler::processMessage(const mavlink_message_t& message)
     mavlink_radio_link_status_pack_t status;
     mavlink_msg_radio_link_status_pack_decode(&message, &status);
 
-    std::cout << "System_Timestamp " << status.System_Timestamp << std::endl;
-    std::cout << "RSSI " << status.RSSI << std::endl;
-    std::cout << "Radio_Link_Module_Status_Mask " << status.Radio_Link_Module_Status_Mask << std::endl;
+//    std::cout << "RL" << "System_Timestamp " << status.System_Timestamp << std::endl;
+//    std::cout << "RL" << "RSSI " << status.RSSI << std::endl;
+//    std::cout << "RL" << "Radio_Link_Module_Status_Mask " << status.Radio_Link_Module_Status_Mask << std::endl;
 
     QVariant processedMessage;
     processedMessage.setValue(status);
