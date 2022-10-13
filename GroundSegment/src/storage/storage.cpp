@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <iostream>
 #include <QStandardPaths>
+#include <QDir>
 
 Q_DECLARE_METATYPE(mavlink_system_status_pack_t);
 Q_DECLARE_METATYPE(mavlink_telemetry_data_pack_t);
@@ -36,8 +37,12 @@ Storage::~Storage()
 */
 QString Storage::CalculatePathName()
 {
+
     QString docFolder= QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
     QString pathName = docFolder + "/agu-logs/";
+    if(QDir(pathName).exists()==false){
+    QDir().mkdir(pathName);
+    }
     std::cout <<"PATH NAME"<< pathName.toStdString() << std::endl;
 
     QDate date, j;
