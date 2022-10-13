@@ -6,6 +6,8 @@
 #include <mavlink_communicator.h>
 #include <QTimer>
 #include <QObject>
+#include <QStandardPaths>
+#include <QDir>
 
 /*!
         \class GSCore
@@ -108,7 +110,11 @@ void GSCore::SetFixOfTime()
 int GSCore::SetInitParameter(QString str)
 {
     int defaultValue = 50000;
-    QSettings settings ("/home/AGU/QtSoftware/Agu/GroundSegment/myInit.ini", QSettings::IniFormat);
+    QString docFolder= QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+    QString settingsFileName = docFolder + "/agu-settings/myInit.ini";
+
+
+    QSettings settings (settingsFileName, QSettings::IniFormat);
     QStringList childKeys = settings.childKeys();
     foreach (const QString &childKey, childKeys)
     {
