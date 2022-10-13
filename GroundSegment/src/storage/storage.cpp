@@ -4,6 +4,7 @@
 #include <QVariant>
 #include <QDebug>
 #include <iostream>
+#include <QStandardPaths>
 
 Q_DECLARE_METATYPE(mavlink_system_status_pack_t);
 Q_DECLARE_METATYPE(mavlink_telemetry_data_pack_t);
@@ -35,7 +36,8 @@ Storage::~Storage()
 */
 QString Storage::CalculatePathName()
 {
-    QString PathName = "/home/agudev/Documents/output/";
+    QString docFolder= QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+    QString PathName = docFolder + "/output/";
     QDate date, j;
     int gg, mm, aa;
 
