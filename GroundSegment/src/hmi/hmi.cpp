@@ -281,7 +281,6 @@ void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
     update_motor6(motorBitSet.test(6));
     update_motor7(motorBitSet.test(7));
     update_motor8(motorBitSet.test(8));
-    update_motor9(motorBitSet.test(9));
     update_motor10(motorBitSet.test(10));
     update_motor11(motorBitSet.test(11));
     update_motor12(motorBitSet.test(12));

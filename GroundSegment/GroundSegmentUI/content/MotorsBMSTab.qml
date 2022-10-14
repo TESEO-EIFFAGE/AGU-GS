@@ -101,13 +101,7 @@ Layout.preferredWidth: 300
             ParamGrp2Label {
                 text: "General"
             }
-            ParamRow {
-                id: txtMotorTimestamp
-                text: "TimeStamp"
-                span: 12
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
+
             ParamRow {
                 id: txtBMS1Voltage
                 text: "BMS1 Voltage"
