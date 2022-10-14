@@ -624,6 +624,8 @@ private:
     void showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_status);
     void showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status);
 
+    void initValues();
+
 };
 
 #endif // HMI_H

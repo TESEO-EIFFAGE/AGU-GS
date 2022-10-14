@@ -21,7 +21,7 @@ Q_DECLARE_METATYPE(mavlink_radio_link_status_pack_t);
 HMI::HMI(QObject *parent)
     : QObject{parent}
 {
-
+    initValues();
 }
 
 /*!
@@ -372,4 +372,226 @@ void HMI::showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_
 void HMI::showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status)
 {
 
+}
+
+void HMI::initValues()
+{
+    update_TimeStamp({});
+    update_Latitude({});
+    update_Longitude({});
+    update_GNSSAltitude({});
+    update_AirSpeed_UVector({});
+    update_AirSpeed_VVector({});
+    update_AirSpeed_WVector({});
+    update_AirTemperature({});
+    update_AltitudeFromPayloadAltimeter({});
+    update_AltitudeFromRadarAltimeter({});
+    update_LinearVelocityHorizontal({});
+    update_LinearVelocityVertical({});
+    update_PositionAccuracy({});
+    update_SpeedAccuracy({});
+    update_LinearAccelerationX({});
+    update_LinearAccelerationY({});
+    update_LinearAccelerationZ({});
+    update_ECEFVectorPositionX({});
+    update_ECEFVectorPositionY({});
+    update_ECEFVectorPositionZ({});
+    update_ECEFVectorVelocityX({});
+    update_ECEFVectorVelocityY({});
+    update_ECEFVectorVelocityZ({});
+    update_RollAngle({});
+    update_YawAngle({});
+    update_PitchAngle({});
+    update_AngularRatePitch({});
+    update_AngularRateRoll({});
+    update_AngularRateYaw({});
+    update_Quaternion0({});
+    update_Quaternion1({});
+    update_Quaternion2({});
+    update_Quaternion3({});
+    update_NumberOfGPSSatellite({});
+
+
+    update_telemetry0({});
+    update_telemetry1({});
+    update_telemetry2({});
+    update_telemetry3({});
+    update_telemetry4({});
+    update_telemetry5({});
+    update_telemetry6({});
+    update_telemetry7({});
+    update_telemetry8({});
+    update_telemetry9({});
+    update_telemetry10({});
+    update_telemetry11({});
+    update_telemetry12({});
+    update_telemetry13({});
+    update_telemetry14({});
+    update_telemetry15({});
+    update_telemetry16({});
+    update_telemetry17({});
+    update_telemetry18({});
+    update_telemetry19({});
+    update_telemetry20({});
+    update_telemetry21({});
+    update_telemetry22({});
+    update_telemetry23({});
+    update_telemetry24({});
+    update_telemetry25({});
+    update_telemetry26({});
+    update_telemetry27({});
+    update_telemetry28({});
+    update_telemetry29({});
+    update_telemetry30({});
+    update_telemetry31({});
+
+
+    update_AnemCommErrorCounter({});
+    update_RDAltCommErrorCounter({});
+    update_GNSSCommErrorCounter({});
+    update_PLAltCommErrorCounter({});
+
+    update_TimeStampRIO ({});
+    update_FlightMode ({});
+    update_FlightPhase({});
+    update_FlightPhaseExecutionTime({});
+    update_TelemetryModuleStatusMask({});
+    update_StorageModuleStatusMask({});
+    update_GuidanceModuleStatusMask({});
+    update_CoreModuleStatusMask({});
+    update_RadioLinkModuleStatusMask({});
+
+
+    update_systemCoreMask0({});
+    update_systemCoreMask1({});
+    update_systemCoreMask2({});
+    update_systemCoreMask3({});
+    update_systemCoreMask4({});
+    update_systemCoreMask5({});
+    update_systemCoreMask6({});
+    update_systemCoreMask7({});
+    update_systemCoreMask8({});
+    update_systemCoreMask9({});
+    update_systemCoreMask10({});
+    update_systemCoreMask11({});
+    update_systemCoreMask12({});
+    update_systemCoreMask13({});
+    update_systemCoreMask14({});
+    update_systemCoreMask15({});
+
+    update_communicationErrorCounter({});
+
+
+
+    update_radiolinkMask0({});
+    update_radiolinkMask1({});
+    update_radiolinkMask2({});
+    update_radiolinkMask3({});
+    update_radiolinkMask8({});
+    update_radiolinkMask9({});
+    update_radiolinkErrorCounter({});
+
+    update_MotorARealPosition({});
+    update_MotorADemandPosition({});
+    update_MotorATemp({});
+    update_MotorATorque({});
+    update_MotorAFaultsMask({});
+
+    update_MotorBRealPosition({});
+    update_MotorBDemandPosition({});
+    update_MotorBTemp({});
+    update_MotorBTorque({});
+    update_MotorBFaultsMask({});
+
+    update_BMSVoltage({});
+    update_BMSAbsorption({});
+    update_BMSTemp({});
+
+    update_BMS0({});
+    update_BMS1({});
+    update_BMS2({});
+    update_BMS3({});
+    update_BMS4({});
+    update_BMS5({});
+    update_BMS6({});
+    update_BMS7({});
+    update_BMS8({});
+    update_BMS9({});
+    update_BMS10({});
+    update_BMS11({});
+    update_BMS12({});
+    update_BMS13({});
+    update_BMS14({});
+    update_BMS15({});
+    update_BMS16({});
+    update_BMS17({});
+    update_BMS18({});
+    update_BMS19({});
+    update_BMS20({});
+    update_BMS21({});
+    update_BMS22({});
+    update_BMS23({});
+    update_BMS24({});
+    update_BMS25({});
+    update_BMS26({});
+    update_BMS27({});
+    update_BMS28({});
+    update_BMS29({});
+    update_BMS30({});
+    update_BMS31({});
+
+    update_motor0({});
+    update_motor1({});
+    update_motor2({});
+    update_motor3({});
+    update_motor4({});
+    update_motor5({});
+    update_motor6({});
+    update_motor7({});
+    update_motor8({});
+    update_motor10({});
+    update_motor11({});
+    update_motor12({});
+    update_motor13({});
+    update_motor14({});
+    update_motor15({});
+    update_motor16({});
+    update_motor17({});
+    update_motor18({});
+    update_motor19({});
+    update_motor20({});
+    update_motor21({});
+    update_motor22({});
+    update_motor23({});
+
+
+    update_ChargeValue({});
+    update_MotorControlStatusMask({});
+
+    update_storageFreeDataSize({});
+
+    update_storage0({});
+    update_storage1({});
+    update_storage2({});
+    update_storage3({});
+    update_storage4({});
+    update_storage5({});
+    update_storage6({});
+    update_storage7({});
+    update_storage8({});
+    update_storage9({});
+    update_storage10({});
+    update_storage11({});
+    update_storage12({});
+    update_storage13({});
+    update_storage14({});
+    update_storage15({});
+    update_storage16({});
+    update_storage17({});
+    update_storage18({});
+    update_storage19({});
+    update_storage20({});
+    update_storage21({});
+    update_storage22({});
+    update_storage23({});
 }

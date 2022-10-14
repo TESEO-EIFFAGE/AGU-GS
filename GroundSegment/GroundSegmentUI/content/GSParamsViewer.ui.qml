@@ -110,7 +110,7 @@ Rectangle {
                 }
                 Item {
                     height: childrenRect.height
-                    width: parent.width-12
+                    width: parent.width - 12
 
                     Label {
 
@@ -129,16 +129,19 @@ Rectangle {
                         anchors.right: parent.right
                         anchors.rightMargin: 12
                         Label {
+
                             text: "[val]"
                             font.pixelSize: 12
                             font.family: "Roboto Mono"
                             horizontalAlignment: Text.AlignRight
+                            verticalAlignment: Text.AlignVCenter
                             styleColor: "#ffffff"
                             id: txtHourGPSData
                         }
                         Label {
-
+                            verticalAlignment: Text.AlignVCenter
                             text: ":"
+                            y: -1
                         }
                         Label {
                             font.pixelSize: 12
@@ -149,7 +152,7 @@ Rectangle {
                             id: txtminuteGPSData
                         }
                         Label {
-
+                            y: -1
                             text: ":"
                         }
                         Label {
