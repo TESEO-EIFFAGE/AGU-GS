@@ -23,7 +23,6 @@ Rectangle {
     property alias txtBMS1Voltage: txtBMS1Voltage.value
     property alias txtBMS1Absorption: txtBMS1Absorption.value
     property alias txtBMS1Temp: txtBMS1Temp.value
-    property alias txtMotorTimestamp: txtMotorTimestamp.value
     property alias txtChargeValue: txtChargeValue.value
 
     //    property alias motorLight25: motorLight25
@@ -101,13 +100,7 @@ Layout.preferredWidth: 300
             ParamGrp2Label {
                 text: "General"
             }
-            ParamRow {
-                id: txtMotorTimestamp
-                text: "TimeStamp"
-                span: 12
-                ToolTip.text: text
-                ToolTip.visible: pressed
-            }
+
             ParamRow {
                 id: txtBMS1Voltage
                 text: "BMS1 Voltage"

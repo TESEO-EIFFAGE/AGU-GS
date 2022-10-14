@@ -78,7 +78,6 @@ Rectangle {
     property alias txtBMS1Voltage: motorsBMSTab.txtBMS1Voltage
     property alias txtBMS1Absorption: motorsBMSTab.txtBMS1Absorption
     property alias txtBMS1Temp: motorsBMSTab.txtBMS1Temp
-    property alias txtMotorTimestamp: motorsBMSTab.txtMotorTimestamp
     property alias txtChargeValue: motorsBMSTab.txtChargeValue
 
     width: Constants.width / 2 //750 //C
