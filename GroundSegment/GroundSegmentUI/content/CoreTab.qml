@@ -6,7 +6,6 @@ import "controls"
 
 Rectangle {
     color:"transparent"
-    border.color: "#ffffff"
 
     property bool lit
 
