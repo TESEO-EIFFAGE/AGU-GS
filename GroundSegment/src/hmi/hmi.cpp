@@ -213,6 +213,18 @@ void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 
     update_communicationErrorCounter(extractBits32(bitSet,16,24));
 
+
+
+    std::bitset<32> rlBitSet(msg_status.Radio_Link_Module_Status_Mask);
+    update_radiolinkMask0(rlBitSet.test(0));
+    update_radiolinkMask1(rlBitSet.test(1));
+    update_radiolinkMask2(rlBitSet.test(2));
+    update_radiolinkMask3(rlBitSet.test(3));
+    update_radiolinkMask8(rlBitSet.test(8));
+    update_radiolinkMask9(rlBitSet.test(9));
+    update_radiolinkErrorCounter(extractBits32(rlBitSet,24,31));
+
+
 }
 
 /*!
