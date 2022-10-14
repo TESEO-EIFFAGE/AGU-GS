@@ -23,7 +23,6 @@ Rectangle {
     property alias txtBMS1Voltage: txtBMS1Voltage.value
     property alias txtBMS1Absorption: txtBMS1Absorption.value
     property alias txtBMS1Temp: txtBMS1Temp.value
-    property alias txtMotorTimestamp: txtMotorTimestamp.value
     property alias txtChargeValue: txtChargeValue.value
 
     //    property alias motorLight25: motorLight25
