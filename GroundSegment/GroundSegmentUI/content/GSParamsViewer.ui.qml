@@ -122,11 +122,10 @@ Rectangle {
                         horizontalAlignment: Text.AlignRight
 
                         anchors.left: parent.left
-
                     }
                     Row {
                         spacing: 2
-                        anchors.right: parent.rights
+                        anchors.right: parent.right
                         anchors.rightMargin: 12
                         Label {
                             text: "[val]"
@@ -135,7 +134,6 @@ Rectangle {
                             horizontalAlignment: Text.AlignRight
                             styleColor: "#ffffff"
                             id: txtHourGPSData
-
                         }
                         Label {
 
@@ -164,6 +162,7 @@ Rectangle {
                     }
                 }
                 Row {
+
                     Text {
                         text: "Manual coordinates"
                         anchors.verticalCenter: parent.verticalCenter

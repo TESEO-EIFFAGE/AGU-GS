@@ -206,6 +206,7 @@ Window {
                               || hmi.systemCoreMask7
                               || hmi.systemCoreMask6
                               || hmi.systemCoreMask5
+
         fsParams.radioLinkTab.lit: hmi.radioLinkMask0
                                    || hmi.radioLinkMask1
                                    || hmi.radioLinkMask2
@@ -213,7 +214,6 @@ Window {
                                    || hmi.radioLinkMask8
                                    || hmi.radioLinkMask9
 
-        fsParams.radioLinkTab.txtRadioLinkErrorCounter: hmi.FSRLErrorCounter
 
         fsParams.txtTimeStampRIO: timestampToUTCDate(hmi.TimeStampRIO)
         fsParams.txtLatitude: hmi.Latitude.toFixed(2)
