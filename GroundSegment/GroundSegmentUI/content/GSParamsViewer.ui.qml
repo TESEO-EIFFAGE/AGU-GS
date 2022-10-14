@@ -110,7 +110,8 @@ Rectangle {
                 }
                 Item {
                     height: childrenRect.height
-                    width: parent.width
+                    width: parent.width-12
+
                     Label {
 
                         text: "Time"
