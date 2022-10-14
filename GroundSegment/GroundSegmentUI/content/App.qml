@@ -207,12 +207,12 @@ Window {
                               || hmi.systemCoreMask6
                               || hmi.systemCoreMask5
 
-        fsParams.radioLinkTab.lit: hmi.radioLinkMask0
-                                   || hmi.radioLinkMask1
-                                   || hmi.radioLinkMask2
-                                   || hmi.radioLinkMask3
-                                   || hmi.radioLinkMask8
-                                   || hmi.radioLinkMask9
+        fsParams.radioLinkTab.lit: hmi.radiolinkMask0
+                                   || hmi.radiolinkMask1
+                                   || hmi.radiolinkMask2
+                                   || hmi.radiolinkMask3
+                                   || hmi.radiolinkMask8
+                                   || hmi.radiolinkMask9
 
 
         fsParams.txtTimeStampRIO: timestampToUTCDate(hmi.TimeStampRIO)
