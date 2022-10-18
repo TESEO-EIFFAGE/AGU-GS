@@ -29,13 +29,6 @@ HMI::HMI(QObject *parent)
     update_systemMsgCounter(0);
 
 
-    update_telemetryMsgCounter(0);
-    update_motorMsgCounter(0);
-    update_storageMsgCounter(0);
-    update_radiolinkMsgCounter(0);
-    update_guidanceMsgCounter(0);
-    update_systemMsgCounter(0);
-
     update_TimeStamp(0);
     update_Latitude(0);
     update_Longitude(0);
@@ -72,38 +65,7 @@ HMI::HMI(QObject *parent)
     update_NumberOfGPSSatellite(0);
 
 
-    update_telemetry0(0);
-    update_telemetry1(0);
-    update_telemetry2(0);
-    update_telemetry3(0);
-    update_telemetry4(0);
-    update_telemetry5(0);
-    update_telemetry6(0);
-    update_telemetry7(0);
-    update_telemetry8(0);
-    update_telemetry9(0);
-    update_telemetry10(0);
-    update_telemetry11(0);
-    update_telemetry12(0);
-    update_telemetry13(0);
-    update_telemetry14(0);
-    update_telemetry15(0);
-    update_telemetry16(0);
-    update_telemetry17(0);
-    update_telemetry18(0);
-    update_telemetry19(0);
-    update_telemetry20(0);
-    update_telemetry21(0);
-    update_telemetry22(0);
-    update_telemetry23(0);
-    update_telemetry24(0);
-    update_telemetry25(0);
-    update_telemetry26(0);
-    update_telemetry27(0);
-    update_telemetry28(0);
-    update_telemetry29(0);
-    update_telemetry30(0);
-    update_telemetry31(0);
+
 
 
     update_AnemCommErrorCounter(0);
@@ -122,33 +84,11 @@ HMI::HMI(QObject *parent)
     update_RadioLinkModuleStatusMask(0);
 
 
-    update_systemCoreMask0(0);
-    update_systemCoreMask1(0);
-    update_systemCoreMask2(0);
-    update_systemCoreMask3(0);
-    update_systemCoreMask4(0);
-    update_systemCoreMask5(0);
-    update_systemCoreMask6(0);
-    update_systemCoreMask7(0);
-    update_systemCoreMask8(0);
-    update_systemCoreMask9(0);
-    update_systemCoreMask10(0);
-    update_systemCoreMask11(0);
-    update_systemCoreMask12(0);
-    update_systemCoreMask13(0);
-    update_systemCoreMask14(0);
-    update_systemCoreMask15(0);
+
 
     update_communicationErrorCounter(0);
 
 
-
-    update_radiolinkMask0(0);
-    update_radiolinkMask1(0);
-    update_radiolinkMask2(0);
-    update_radiolinkMask3(0);
-    update_radiolinkMask8(0);
-    update_radiolinkMask9(0);
     update_radiolinkErrorCounter(0);
 
     update_MotorARealPosition(0);
@@ -167,62 +107,9 @@ HMI::HMI(QObject *parent)
     update_BMSAbsorption(0);
     update_BMSTemp(0);
 
-    update_BMS0(0);
-    update_BMS1(0);
-    update_BMS2(0);
-    update_BMS3(0);
-    update_BMS4(0);
-    update_BMS5(0);
-    update_BMS6(0);
-    update_BMS7(0);
-    update_BMS8(0);
-    update_BMS9(0);
-    update_BMS10(0);
-    update_BMS11(0);
-    update_BMS12(0);
-    update_BMS13(0);
-    update_BMS14(0);
-    update_BMS15(0);
-    update_BMS16(0);
-    update_BMS17(0);
-    update_BMS18(0);
-    update_BMS19(0);
-    update_BMS20(0);
-    update_BMS21(0);
-    update_BMS22(0);
-    update_BMS23(0);
-    update_BMS24(0);
-    update_BMS25(0);
-    update_BMS26(0);
-    update_BMS27(0);
-    update_BMS28(0);
-    update_BMS29(0);
-    update_BMS30(0);
-    update_BMS31(0);
 
-    update_motor0(0);
-    update_motor1(0);
-    update_motor2(0);
-    update_motor3(0);
-    update_motor4(0);
-    update_motor5(0);
-    update_motor6(0);
-    update_motor7(0);
-    update_motor8(0);
-    update_motor10(0);
-    update_motor11(0);
-    update_motor12(0);
-    update_motor13(0);
-    update_motor14(0);
-    update_motor15(0);
-    update_motor16(0);
-    update_motor17(0);
-    update_motor18(0);
-    update_motor19(0);
-    update_motor20(0);
-    update_motor21(0);
-    update_motor22(0);
-    update_motor23(0);
+
+
 
 
     update_ChargeValue(0);
@@ -230,30 +117,7 @@ HMI::HMI(QObject *parent)
 
     update_storageFreeDataSize(0);
 
-    update_storage0(0);
-    update_storage1(0);
-    update_storage2(0);
-    update_storage3(0);
-    update_storage4(0);
-    update_storage5(0);
-    update_storage6(0);
-    update_storage7(0);
-    update_storage8(0);
-    update_storage9(0);
-    update_storage10(0);
-    update_storage11(0);
-    update_storage12(0);
-    update_storage13(0);
-    update_storage14(0);
-    update_storage15(0);
-    update_storage16(0);
-    update_storage17(0);
-    update_storage18(0);
-    update_storage19(0);
-    update_storage20(0);
-    update_storage21(0);
-    update_storage22(0);
-    update_storage23(0);
+
     //initValues();
 }
 
