@@ -127,12 +127,12 @@ QString Storage::calculatePathName()
 
 void Storage::turnOnFixOfTime()
 {
-    GPS.FixGPSTime = true;
+    GPS.fixGPSTime = true;
 }
 
 void Storage::setDeltaTime(int deltaTime)
 {
-    GPS.DeltaGPSTimefromSystemTime=deltaTime;
+    GPS.deltaGPSTimefromSystemTime=deltaTime;
 }
 
 void Storage::storeData(QVariant data)
@@ -167,7 +167,7 @@ void Storage::storeData(QVariant data)
 */
 void Storage::initFixGPSTime()
 {
-    GPS.FixGPSTime = false;
+    GPS.fixGPSTime = false;
 }
 /*!
     \fn void Storage::storeDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry)
@@ -184,9 +184,9 @@ void Storage::storeDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemet
 
     milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
-    if (GPS.FixGPSTime == true)
+    if (GPS.fixGPSTime == true)
     {
-        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+        milliseconds_since_epoch -= GPS.deltaGPSTimefromSystemTime;
     }
 
     NewPathName.append("_TLM_Log.csv");
@@ -385,14 +385,14 @@ void Storage::storeDataSystemStatus(const mavlink_system_status_pack_t msg_syste
 
     milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
-    if (GPS.FixGPSTime == true)
+    if (GPS.fixGPSTime)
     {
-        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+        milliseconds_since_epoch -= GPS.deltaGPSTimefromSystemTime;
     }
 
     NewPathName.append("_CORE_Log.csv");
 
-    if (m_countS == false)
+    if (!m_countS)
     {
         m_pathSystemStatus = NewPathName.mid(0);  /*esegue la copia*/
         m_countS = true;
@@ -516,9 +516,9 @@ void Storage::storeDataMotorStatus(const mavlink_motor_status_pack_t msg_motor_s
 
     milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
-    if (GPS.FixGPSTime == true)
+    if (GPS.fixGPSTime == true)
     {
-        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+        milliseconds_since_epoch -= GPS.deltaGPSTimefromSystemTime;
     }
 
     NewPathName.append("_MSTP_Log.csv");
@@ -638,9 +638,9 @@ void Storage::storeDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio
 
     milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
-    if (GPS.FixGPSTime == true)
+    if (GPS.fixGPSTime == true)
     {
-        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+        milliseconds_since_epoch -= GPS.deltaGPSTimefromSystemTime;
     }
 
     NewPathName.append("_RL_Log.csv");
@@ -708,9 +708,9 @@ void Storage::storeDataStorageStatus(const mavlink_storage_status_pack_t msg_sto
 
     milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
-    if (GPS.FixGPSTime == true)
+    if (GPS.fixGPSTime == true)
     {
-        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+        milliseconds_since_epoch -= GPS.deltaGPSTimefromSystemTime;
     }
 
     NewPathName.append("_STR_Log.csv");
@@ -778,9 +778,9 @@ void Storage::storeDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_g
 
     milliseconds_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
-    if (GPS.FixGPSTime == true)
+    if (GPS.fixGPSTime == true)
     {
-        milliseconds_since_epoch -= GPS.DeltaGPSTimefromSystemTime;
+        milliseconds_since_epoch -= GPS.deltaGPSTimefromSystemTime;
     }
 
     NewPathName.append("_GUID_Log.csv");

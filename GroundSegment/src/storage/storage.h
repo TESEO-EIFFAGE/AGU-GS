@@ -9,8 +9,8 @@
 
 typedef struct
 {
-    bool FixGPSTime;
-    int  DeltaGPSTimefromSystemTime;
+    bool fixGPSTime;
+    int  deltaGPSTimefromSystemTime;
 }GPSTimePack;
 Q_DECLARE_METATYPE(GPSTimePack);
 
