@@ -32,22 +32,28 @@ HMI::HMI(QObject *parent)
 void HMI::showData(QVariant msg) {
     if (msg.canConvert<mavlink_telemetry_data_pack_t>()) {
         showDataTelemetry(msg.value<mavlink_telemetry_data_pack_t>());
+        update_telemetryMsgCounter(m_telemetryMsgCounter+1);
     }
     else if (msg.canConvert<mavlink_system_status_pack_t>()) {
         showDataSystemStatus(msg.value<mavlink_system_status_pack_t>());
+        update_systemMsgCounter(m_systemMsgCounter+1);
     }
     else if (msg.canConvert<mavlink_motor_status_pack_t>()) {
         showDataMotorStatus(msg.value<mavlink_motor_status_pack_t>());
+        update_motorMsgCounter(m_motorMsgCounter+1);
     }
 
     else if (msg.canConvert<mavlink_guidance_status_pack_t>()) {
         showDataGuidanceStatus(msg.value<mavlink_guidance_status_pack_t>());
+        update_guidanceMsgCounter(m_guidanceMsgCounter+1);
     }
     else if (msg.canConvert<mavlink_storage_status_pack_t>()) {
         showDataStorageStatus(msg.value<mavlink_storage_status_pack_t>());
+        update_storageMsgCounter(m_storageMsgCounter+1);
     }
     else if (msg.canConvert<mavlink_radio_link_status_pack_t>()) {
         showDataRLStatus(msg.value<mavlink_radio_link_status_pack_t>());
+        update_radiolinkMsgCounter(m_radiolinkMsgCounter+1);
     }
 }
 

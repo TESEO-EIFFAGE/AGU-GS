@@ -87,6 +87,8 @@ public:
     QML_READONLY_AUTO_PROPERTY(bool,telemetry30)
     QML_READONLY_AUTO_PROPERTY(bool,telemetry31)
 
+    QML_READONLY_AUTO_PROPERTY(int,telemetryMsgCounter)
+
     /* MOTOR */
 
 
@@ -233,6 +235,8 @@ public:
     QML_READONLY_AUTO_PROPERTY(bool,BMS29)
     QML_READONLY_AUTO_PROPERTY(bool,BMS30)
     QML_READONLY_AUTO_PROPERTY(bool,BMS31)
+
+    QML_READONLY_AUTO_PROPERTY(int,motorMsgCounter)
 
     /* SYSTEM */
 
@@ -488,7 +492,7 @@ public:
     QML_READONLY_AUTO_PROPERTY(bool,emergencyRadioLinkStatus6);
     QML_READONLY_AUTO_PROPERTY(bool,emergencyRadioLinkStatus7);
 
-
+    QML_READONLY_AUTO_PROPERTY(int,systemMsgCounter)
 
 
     /* RADIOLINK */
@@ -528,6 +532,8 @@ public:
     QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask30);
     QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask31);
 
+    QML_READONLY_AUTO_PROPERTY(int,radiolinkMsgCounter)
+
 
     /* GUIDANCE */
 
@@ -564,6 +570,8 @@ public:
     QML_READONLY_AUTO_PROPERTY(bool,guidanceMask30);
     QML_READONLY_AUTO_PROPERTY(bool,guidanceMask31);
 
+    QML_READONLY_AUTO_PROPERTY(int,guidanceMsgCounter)
+
     /* STORAGE */
 
     QML_READONLY_AUTO_PROPERTY(quint32,storageFreeDataSize);
@@ -599,6 +607,8 @@ public:
     QML_READONLY_AUTO_PROPERTY(bool,storage29)
     QML_READONLY_AUTO_PROPERTY(bool,storage30)
     QML_READONLY_AUTO_PROPERTY(bool,storage31)
+
+    QML_READONLY_AUTO_PROPERTY(int,storageMsgCounter)
 
     /* TBD */
 

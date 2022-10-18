@@ -30,6 +30,8 @@ Rectangle {
     property alias txtGNSSAltitude: telemetryTab.txtGNSSAltitude
     property alias txtAirSpeed_UVector: telemetryTab.txtAirSpeed_UVector
 
+    property alias txtTelemetryMsgCounter: telemetryTab.txtTelemetryMsgCounter
+
     property alias txtAirSpeed_VVector: telemetryTab.txtAirSpeed_VVector
     property alias txtAirSpeed_WVector: telemetryTab.txtAirSpeed_WVector
     property alias txtAirTemperature: telemetryTab.txtAirTemperature
@@ -80,6 +82,8 @@ Rectangle {
     property alias txtBMS1Temp: motorsBMSTab.txtBMS1Temp
     property alias txtChargeValue: motorsBMSTab.txtChargeValue
 
+    property alias txtMotorMsgCounter: motorsBMSTab.txtMotorMsgCounter
+
     width: Constants.width / 2 //750 //C
     height: Constants.height //667 //
     color: "#ffffff"
@@ -117,6 +121,8 @@ Rectangle {
     property alias telemetryLight2: telemetryTab.telemetryLight2
     property alias telemetryLight1: telemetryTab.telemetryLight1
 
+
+    property alias txtStorageMsgCounter: storagetab.txtStorageMsgCounter
     property alias storageLight23: storageTab.storageLight23
     property alias storageLight22: storageTab.storageLight22
     property alias storageLight21: storageTab.storageLight21
@@ -230,6 +236,9 @@ Rectangle {
 
     property alias txtRadioLinkErrorCounter: radioLinkTab.txtRadioLinkErrorCounter
 
+    property alias txtRadioLinkMsgCounter: radioLinkTab.txtRadioLinkMsgCounter
+
+    property alias txtSystemMsgCounter: homeTab.txtSystemMsgCounter
 
     ColumnLayout {
         //anchors.fill: parent

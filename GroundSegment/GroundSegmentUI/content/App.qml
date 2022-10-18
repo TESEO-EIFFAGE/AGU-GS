@@ -215,6 +215,13 @@ Window {
                                    || hmi.radiolinkMask9
 
 
+        fsParams.txtTelemetryMsgCounter: hmi.telemetryMsgCounter
+        fsParams.txtStorageMsgCounter: hmi.storageMsgCounter
+        fsParams.txtSystemMsgCounter: hmi.systemMsgCounter
+        //fsParams.txtGuidanceMsgCounter: hmi.guidanceMsgCounter
+        fsParams.txtRadioLinkMsgCounter: hmi.radiolinkMsgCounter
+        fsParams.txtMotorMsgCounter: hmi.motorMsgCounter
+
         fsParams.txtTimeStampRIO: timestampToUTCDate(hmi.TimeStampRIO)
         fsParams.txtLatitude: hmi.Latitude.toFixed(2)
         fsParams.txtLongitude: hmi.Longitude.toFixed(2)
