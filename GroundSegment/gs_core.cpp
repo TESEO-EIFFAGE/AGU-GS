@@ -24,12 +24,12 @@ GSCore::GSCore(QObject *parent)
     setGnss(new GNSS(this));
     setStorage(new Storage(this));
 
-    m_storage->LenSystemStatus  = SetInitParameter("LenSystemStatus");
-    m_storage->LenStorageStatus = SetInitParameter("LenStorageStatus");
-    m_storage->LenGuidance      = SetInitParameter("LenGuidance");
-    m_storage->LenMotor         = SetInitParameter("LenMotor");
-    m_storage->LenRadioLink     = SetInitParameter("LenRadioLink");
-    m_storage->LenTelemetry     = SetInitParameter("LenTelemetry");
+    m_storage->lenSystemStatus  = SetInitParameter("LenSystemStatus");
+    m_storage->lenStorageStatus = SetInitParameter("LenStorageStatus");
+    m_storage->lenGuidance      = SetInitParameter("LenGuidance");
+    m_storage->lenMotor         = SetInitParameter("LenMotor");
+    m_storage->lenRadioLink     = SetInitParameter("LenRadioLink");
+    m_storage->lenTelemetry     = SetInitParameter("LenTelemetry");
 
 
     QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
@@ -53,7 +53,7 @@ void GSCore::SetFixOfTime()
         QDate d,j;
         unsigned long milliseconds_since_epoch;
 
-        m_storage->TurnOnFixOfTime();
+        m_storage->turnOnFixOfTime();
 
         d = j.currentDate();
         int y = d.year();
@@ -68,7 +68,7 @@ void GSCore::SetFixOfTime()
         {
             int deltaTime=std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()
                     - milliseconds_since_epoch;
-            m_storage->SetDeltaTime(deltaTime);
+            m_storage->setDeltaTime(deltaTime);
 
             m_flagDeltaTime = true;
         }
@@ -76,7 +76,7 @@ void GSCore::SetFixOfTime()
     }
     else
     {
-        m_storage->InitFixGPSTime();
+        m_storage->initFixGPSTime();
         m_flagDeltaTime = false;
     }
 

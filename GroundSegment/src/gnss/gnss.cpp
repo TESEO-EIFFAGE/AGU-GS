@@ -23,7 +23,7 @@ GNSS::GNSS(QObject *parent) :
 
     if (m_gnss->init("/dev/ttyACM0")) {
         m_timer = new QTimer(this);
-        connect(m_timer, &QTimer::timeout, this, &GNSS::UpdateData);
+        connect(m_timer, &QTimer::timeout, this, &GNSS::updateData);
         m_timer->start(250);
 
         std::cout << m_gnss->get_gnss_name() << std::endl;
@@ -37,7 +37,7 @@ GNSS::GNSS(QObject *parent) :
 
     It updates the GNSS object's position and time
 */
-void GNSS::UpdateData() {
+void GNSS::updateData() {
     double hasFix;
 
     double *gnss_info = new double[6];

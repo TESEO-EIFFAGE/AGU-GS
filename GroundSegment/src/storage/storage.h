@@ -3,10 +3,8 @@
 #include <QObject>
 #include <QTextStream>
 #include <QFileInfo>
-#include "mavlinkprotocol.h"
 #include <AGU_MAVLINK/mavlink.h>
 #include <bitset>
-#include "QQmlAutoPropertyHelpers.h"
 #include <gnss.h>
 
 typedef struct
@@ -19,33 +17,19 @@ Q_DECLARE_METATYPE(GPSTimePack);
 class Storage : public QObject
 {
     Q_OBJECT
-
 public:
     explicit Storage(QObject *parent = nullptr);
     ~Storage();
-    QString CalculatePathName(void);
-    bool CountT = 0;
-    bool CountS = 0;
-    bool CountM = 0;
-    bool CountR = 0;
-    bool CountST = 0;
-    bool CountG = 0;
-    int LenSystemStatus, LenTelemetry, LenMotor, LenRadioLink, LenStorageStatus, LenGuidance;
-    QString PathSystemStatus, PathTelemetry, PathMotor, PathRadioLink, PathStorageStatus, PathGuidance;
-    GPSTimePack GPS;
-    void TurnOnFixOfTime();
-    void SetDeltaTime(int deltaTime);
+    void initFixGPSTime(void);
+    void turnOnFixOfTime();
+    void setDeltaTime(int deltaTime);
     void storeData(QVariant data);
-
-public slots:
-    void StoreDataInMemory(Telemetry *t);
-    void StoreDataInMemorySystemStatus(SystemStatusPack *s);
-    void StoreDataInMemoryMotorStatusPack(MotorStatusPackDataset *m);
-    void StoreDataInMemoryRadioLinkStatusPack(RadioLinkPackDataset *r);
-    void StoreDataInMemoryStorageStatusPack(StorageStatusPack *st);
-    void StoreDataInMemoryGuidance(GuidancePackDataset *g);
-    void InitFixGPSTime(void);
-
+    int lenSystemStatus;
+    int lenTelemetry;
+    int lenMotor;
+    int lenRadioLink;
+    int lenStorageStatus;
+    int lenGuidance;
 private:
     void storeDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry);
     void storeDataSystemStatus(const mavlink_system_status_pack_t msg_system_status);
@@ -53,6 +37,20 @@ private:
     void storeDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio_status);
     void storeDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_status);
     void storeDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status);
+    QString calculatePathName(void);
+    bool m_countT{};
+    bool m_countS{};
+    bool m_countM{};
+    bool m_countR{};
+    bool m_countST{};
+    bool m_countG{};
+    QString m_pathSystemStatus;
+    QString m_pathTelemetry;
+    QString m_pathMotor;
+    QString m_pathRadioLink;
+    QString m_pathStorageStatus;
+    QString m_pathGuidance;
+    GPSTimePack GPS;
 
 };
 

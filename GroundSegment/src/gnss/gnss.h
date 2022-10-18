@@ -6,8 +6,6 @@
 #include <QString>
 #include <QtQml>
 
-//#include "../src/gps_driver/drotek_f9p_rover.cpp"
-
 class PyHALDrotekF9P;
 
 class GNSS : public QObject
@@ -20,7 +18,6 @@ class GNSS : public QObject
     Q_PROPERTY(int hour READ hour WRITE setHour NOTIFY hourChanged)
     Q_PROPERTY(int minute READ minute WRITE setMinute NOTIFY minuteChanged)
     Q_PROPERTY(double second READ second WRITE setSecond NOTIFY secondChanged)
-    QML_ELEMENT
 
 public:
     explicit GNSS(QObject *parent = nullptr);
@@ -51,7 +48,7 @@ signals:
     void secondChanged();
 
 public slots:
-    void UpdateData();
+    void updateData();
 
 private:
     double m_latitude;
@@ -61,10 +58,8 @@ private:
     double m_hour;
     double m_minute;
     double m_second;
-
-    QTimer *m_timer;
-
-    PyHALDrotekF9P *m_gnss;
+    QTimer* m_timer;
+    PyHALDrotekF9P* m_gnss;
 };
 
 #endif // GNSS_H
