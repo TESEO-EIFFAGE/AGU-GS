@@ -24,8 +24,8 @@ RadioLink::RadioLink(QObject *parent) : QObject(parent)
     auto udpLink = qobject_cast<radiolink::UdpLink*>(m_link);
     udpLink->addEndpoint(radiolink::Endpoint(QHostAddress::LocalHost, 14551));
 
-    //m_link = new radiolink::SerialLink("/dev/ttyUSB0", 57600, this);
-    //m_link = new radiolink::SerialLink("/dev/tty.usbserial-AH05K5MC", 57600);
+    //m_link = new radiolink::SerialLink("/dev/ttyUSB0", 115200, this);
+    //m_link = new radiolink::SerialLink("/dev/tty.usbserial-AH05K5MC", 115200);
 
     m_communicator->addLink(m_link, MAVLINK_COMM_0);
     this->start();
