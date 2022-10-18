@@ -21,7 +21,13 @@ Q_DECLARE_METATYPE(mavlink_radio_link_status_pack_t);
 HMI::HMI(QObject *parent)
     : QObject{parent}
 {
-    initValues();
+    update_telemetryMsgCounter(0);
+    update_motorMsgCounter(0);
+    update_storageMsgCounter(0);
+    update_radiolinkMsgCounter(0);
+    update_guidanceMsgCounter(0);
+    update_systemMsgCounter(0);
+    //initValues();
 }
 
 /*!
