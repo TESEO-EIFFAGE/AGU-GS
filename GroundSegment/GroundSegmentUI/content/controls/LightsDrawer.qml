@@ -8,8 +8,8 @@ Rectangle {
     id: root
     property alias columnTitle: columnTitle
 
-    property alias gridColumns: valuesGrid.columns
-    property alias gridRows: valuesGrid.rows
+//    property alias gridColumns: valuesGrid.columns
+//    property alias gridRows: valuesGrid.rows
 
     property alias light31: light31
     property alias light30: light30
@@ -81,7 +81,7 @@ Rectangle {
         }
     ]
 
-    property bool open: false
+    property bool open: true
 
     Column {
         id: contentColumn
@@ -151,14 +151,15 @@ Row{
             clip: true
             height: root.open ? 222 : 0
 
-            Grid {
+            Flow {
                 id: valuesGrid
                 anchors.fill:parent
-                columnSpacing: 16
-                rowSpacing: 12
-                flow: Grid.TopToBottom
-                columns: 4
-                rows: 8
+                spacing: 16
+//                columnSpacing: 16
+//                rowSpacing: 12
+                //flow: Grid.TopToBottom
+//                columns: 4
+//                rows: 8
                 anchors.topMargin: 8
                 anchors.rightMargin: 16
                 //anchors.leftMargin: 16
