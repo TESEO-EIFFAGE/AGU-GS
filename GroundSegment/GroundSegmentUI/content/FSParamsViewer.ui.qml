@@ -122,7 +122,7 @@ Rectangle {
     property alias telemetryLight1: telemetryTab.telemetryLight1
 
 
-    property alias txtStorageMsgCounter: storagetab.txtStorageMsgCounter
+    property alias txtStorageMsgCounter: storageTab.txtStorageMsgCounter
     property alias storageLight23: storageTab.storageLight23
     property alias storageLight22: storageTab.storageLight22
     property alias storageLight21: storageTab.storageLight21

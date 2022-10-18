@@ -382,6 +382,13 @@ void HMI::showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidan
 
 void HMI::initValues()
 {
+    update_telemetryMsgCounter({});
+    update_motorMsgCounter({});
+    update_storageMsgCounter({});
+    update_radiolinkMsgCounter({});
+    update_guidanceMsgCounter({});
+    update_systemMsgCounter({});
+
     update_TimeStamp({});
     update_Latitude({});
     update_Longitude({});
