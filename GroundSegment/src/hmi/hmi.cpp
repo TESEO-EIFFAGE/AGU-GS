@@ -21,7 +21,7 @@ Q_DECLARE_METATYPE(mavlink_radio_link_status_pack_t);
 HMI::HMI(QObject *parent)
     : QObject{parent}
 {
-    initValues();
+   // initValues();
 }
 
 /*!
