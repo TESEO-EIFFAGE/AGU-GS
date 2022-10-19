@@ -21,6 +21,30 @@ Q_DECLARE_METATYPE(mavlink_radio_link_status_pack_t);
 HMI::HMI(QObject *parent)
     : QObject{parent}
 {
+
+    timerTelemetry= new QTimer(this);
+    timerSystem= new QTimer(this);
+    timerGuidance= new QTimer(this);
+    timerMotor= new QTimer(this);
+    timerRadioLink= new QTimer(this);
+    timerStorage= new QTimer(this);
+
+    timerTelemetry->setInterval(100);
+    timerMotor->setInterval(100);
+    timerGuidance->setInterval(100);
+    timerRadioLink->setInterval(100);
+    timerStorage->setInterval(100);
+    timerSystem->setInterval(100);
+
+    QObject::connect(timerTelemetry,&QTimer::timeout,this, &HMI::checkTelemetry);
+    QObject::connect(timerMotor,&QTimer::timeout,this, &HMI::checkMotor);
+    QObject::connect(timerGuidance,&QTimer::timeout,this, &HMI::checkGuidance);
+    QObject::connect(timerRadioLink,&QTimer::timeout,this, &HMI::checkRadioLink);
+    QObject::connect(timerSystem,&QTimer::timeout,this, &HMI::checkSystem);
+    QObject::connect(timerStorage,&QTimer::timeout,this, &HMI::checkStorage);
+
+
+
     update_telemetryMsgCounter(0);
     update_motorMsgCounter(0);
     update_storageMsgCounter(0);
@@ -29,93 +53,93 @@ HMI::HMI(QObject *parent)
     update_systemMsgCounter(0);
 
 
-    update_TimeStamp(0);
-    update_Latitude(0);
-    update_Longitude(0);
-    update_GNSSAltitude(0);
-    update_AirSpeed_UVector(0);
-    update_AirSpeed_VVector(0);
-    update_AirSpeed_WVector(0);
-    update_AirTemperature(0);
-    update_AltitudeFromPayloadAltimeter(0);
-    update_AltitudeFromRadarAltimeter(0);
-    update_LinearVelocityHorizontal(0);
-    update_LinearVelocityVertical(0);
-    update_PositionAccuracy(0);
-    update_SpeedAccuracy(0);
-    update_LinearAccelerationX(0);
-    update_LinearAccelerationY(0);
-    update_LinearAccelerationZ(0);
-    update_ECEFVectorPositionX(0);
-    update_ECEFVectorPositionY(0);
-    update_ECEFVectorPositionZ(0);
-    update_ECEFVectorVelocityX(0);
-    update_ECEFVectorVelocityY(0);
-    update_ECEFVectorVelocityZ(0);
-    update_RollAngle(0);
-    update_YawAngle(0);
-    update_PitchAngle(0);
-    update_AngularRatePitch(0);
-    update_AngularRateRoll(0);
-    update_AngularRateYaw(0);
-    update_Quaternion0(0);
-    update_Quaternion1(0);
-    update_Quaternion2(0);
-    update_Quaternion3(0);
-    update_NumberOfGPSSatellite(0);
+    //    update_TimeStamp(0);
+    //    update_Latitude(0);
+    //    update_Longitude(0);
+    //    update_GNSSAltitude(0);
+    //    update_AirSpeed_UVector(0);
+    //    update_AirSpeed_VVector(0);
+    //    update_AirSpeed_WVector(0);
+    //    update_AirTemperature(0);
+    //    update_AltitudeFromPayloadAltimeter(0);
+    //    update_AltitudeFromRadarAltimeter(0);
+    //    update_LinearVelocityHorizontal(0);
+    //    update_LinearVelocityVertical(0);
+    //    update_PositionAccuracy(0);
+    //    update_SpeedAccuracy(0);
+    //    update_LinearAccelerationX(0);
+    //    update_LinearAccelerationY(0);
+    //    update_LinearAccelerationZ(0);
+    //    update_ECEFVectorPositionX(0);
+    //    update_ECEFVectorPositionY(0);
+    //    update_ECEFVectorPositionZ(0);
+    //    update_ECEFVectorVelocityX(0);
+    //    update_ECEFVectorVelocityY(0);
+    //    update_ECEFVectorVelocityZ(0);
+    //    update_RollAngle(0);
+    //    update_YawAngle(0);
+    //    update_PitchAngle(0);
+    //    update_AngularRatePitch(0);
+    //    update_AngularRateRoll(0);
+    //    update_AngularRateYaw(0);
+    //    update_Quaternion0(0);
+    //    update_Quaternion1(0);
+    //    update_Quaternion2(0);
+    //    update_Quaternion3(0);
+    //    update_NumberOfGPSSatellite(0);
 
 
 
 
 
-    update_AnemCommErrorCounter(0);
-    update_RDAltCommErrorCounter(0);
-    update_GNSSCommErrorCounter(0);
-    update_PLAltCommErrorCounter(0);
+    //    update_AnemCommErrorCounter(0);
+    //    update_RDAltCommErrorCounter(0);
+    //    update_GNSSCommErrorCounter(0);
+    //    update_PLAltCommErrorCounter(0);
 
-    update_TimeStampRIO (0);
-    update_FlightMode (0);
-    update_FlightPhase(0);
-    update_FlightPhaseExecutionTime(0);
-    update_TelemetryModuleStatusMask(0);
-    update_StorageModuleStatusMask(0);
-    update_GuidanceModuleStatusMask(0);
-    update_CoreModuleStatusMask(0);
-    update_RadioLinkModuleStatusMask(0);
-
-
-
-
-    update_communicationErrorCounter(0);
-
-
-    update_radiolinkErrorCounter(0);
-
-    update_MotorARealPosition(0);
-    update_MotorADemandPosition(0);
-    update_MotorATemp(0);
-    update_MotorATorque(0);
-    update_MotorAFaultsMask(0);
-
-    update_MotorBRealPosition(0);
-    update_MotorBDemandPosition(0);
-    update_MotorBTemp(0);
-    update_MotorBTorque(0);
-    update_MotorBFaultsMask(0);
-
-    update_BMSVoltage(0);
-    update_BMSAbsorption(0);
-    update_BMSTemp(0);
+    //    update_TimeStampRIO (0);
+    //    update_FlightMode (0);
+    //    update_FlightPhase(0);
+    //    update_FlightPhaseExecutionTime(0);
+    //    update_TelemetryModuleStatusMask(0);
+    //    update_StorageModuleStatusMask(0);
+    //    update_GuidanceModuleStatusMask(0);
+    //    update_CoreModuleStatusMask(0);
+    //    update_RadioLinkModuleStatusMask(0);
 
 
 
 
+    //    update_communicationErrorCounter(0);
 
 
-    update_ChargeValue(0);
-    update_MotorControlStatusMask(0);
+    //    update_radiolinkErrorCounter(0);
 
-    update_storageFreeDataSize(0);
+    //    update_MotorARealPosition(0);
+    //    update_MotorADemandPosition(0);
+    //    update_MotorATemp(0);
+    //    update_MotorATorque(0);
+    //    update_MotorAFaultsMask(0);
+
+    //    update_MotorBRealPosition(0);
+    //    update_MotorBDemandPosition(0);
+    //    update_MotorBTemp(0);
+    //    update_MotorBTorque(0);
+    //    update_MotorBFaultsMask(0);
+
+    //    update_BMSVoltage(0);
+    //    update_BMSAbsorption(0);
+    //    update_BMSTemp(0);
+
+
+
+
+
+
+    //    update_ChargeValue(0);
+    //    update_MotorControlStatusMask(0);
+
+    //    update_storageFreeDataSize(0);
 
 
     //initValues();
@@ -127,6 +151,18 @@ HMI::HMI(QObject *parent)
     Calls specialized functions to show the data in the UI
 */
 void HMI::showData(QVariant msg) {
+    timerTelemetry->start();
+    timerMotor->start();
+    timerGuidance->start();
+    timerRadioLink->start();
+    timerStorage->start();
+    timerSystem->start();
+    update_msgGuidanceOld(0);
+    update_msgSystemOld(0);
+    update_msgRadioLinkOld(0);
+    update_msgStorageOld(0);
+    update_msgMotorOld(0);
+    update_msgTelemetryOld(0);
     if (msg.canConvert<mavlink_telemetry_data_pack_t>()) {
         showDataTelemetry(msg.value<mavlink_telemetry_data_pack_t>());
         update_telemetryMsgCounter(m_telemetryMsgCounter+1);
@@ -704,4 +740,34 @@ void HMI::initValues()
     update_storage21(0);
     update_storage22(0);
     update_storage23(0);
+}
+
+void HMI::checkTelemetry()
+{
+    update_msgTelemetryOld(1);
+}
+
+void HMI::checkGuidance()
+{
+    update_msgGuidanceOld(1);
+}
+
+void HMI::checkSystem()
+{
+    update_msgSystemOld(1);
+}
+
+void HMI::checkStorage()
+{
+    update_msgStorageOld(1);
+}
+
+void HMI::checkMotor()
+{
+    update_msgMotorOld(1);
+}
+
+void HMI::checkRadioLink()
+{
+    update_msgRadioLinkOld(1);
 }

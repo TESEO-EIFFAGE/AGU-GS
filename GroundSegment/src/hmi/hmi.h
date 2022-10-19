@@ -5,6 +5,7 @@
 #include <AGU_MAVLINK/mavlink.h>
 #include <bitset>
 #include "QQmlAutoPropertyHelpers.h"
+#include<QTimer>
 
 class HMI : public QObject
 {
@@ -617,6 +618,13 @@ public:
     QML_READONLY_AUTO_PROPERTY(quint8,RLHeartbeatCounter)
     QML_READONLY_AUTO_PROPERTY(bool,gnssFound)
 
+    QML_READONLY_AUTO_PROPERTY(bool,msgTelemetryOld)
+    QML_READONLY_AUTO_PROPERTY(bool,msgGuidanceOld)
+    QML_READONLY_AUTO_PROPERTY(bool,msgStorageOld)
+    QML_READONLY_AUTO_PROPERTY(bool,msgSystemOld)
+    QML_READONLY_AUTO_PROPERTY(bool,msgRadioLinkOld)
+    QML_READONLY_AUTO_PROPERTY(bool,msgMotorOld)
+
 public:
 
     void showData(QVariant data);
@@ -635,6 +643,21 @@ private:
     void showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status);
 
     void initValues();
+    void checkTelemetry();
+    void checkGuidance();
+    void checkSystem();
+    void checkStorage();
+    void checkMotor();
+    void checkRadioLink();
+
+    bool telemetryCheck {0};
+
+    QTimer *timerTelemetry;
+    QTimer *timerMotor;
+    QTimer *timerGuidance;
+    QTimer *timerRadioLink;
+    QTimer *timerStorage;
+    QTimer *timerSystem;
 
 };
 

@@ -298,144 +298,144 @@ Window {
         fsParams.txtBMS1Temp: hmi.BMSTemp.toFixed(2)
         fsParams.txtChargeValue: hmi.ChargeValue
 
-        fsParams.telemetryLight0.up: hmi.telemetry0
-        fsParams.telemetryLight31.up: hmi.telemetry31
-        fsParams.telemetryLight30.up: hmi.telemetry30
-        fsParams.telemetryLight29.up: hmi.telemetry29
-        fsParams.telemetryLight28.up: hmi.telemetry28
-        fsParams.telemetryLight27.up: hmi.telemetry27
-        fsParams.telemetryLight26.up: hmi.telemetry26
-        fsParams.telemetryLight25.up: hmi.telemetry25
-        fsParams.telemetryLight24.up: hmi.telemetry24
-        fsParams.telemetryLight23.up: hmi.telemetry23
-        fsParams.telemetryLight22.up: hmi.telemetry22
-        fsParams.telemetryLight21.up: hmi.telemetry21
-        fsParams.telemetryLight20.up: hmi.telemetry20
-        fsParams.telemetryLight19.up: hmi.telemetry19
-        fsParams.telemetryLight18.up: hmi.telemetry18
-        fsParams.telemetryLight17.up: hmi.telemetry17
-        fsParams.telemetryLight16.up: hmi.telemetry16
-        fsParams.telemetryLight15.up: hmi.telemetry15
-        fsParams.telemetryLight14.up: hmi.telemetry14
-        fsParams.telemetryLight13.up: hmi.telemetry13
-        fsParams.telemetryLight12.up: hmi.telemetry12
-        fsParams.telemetryLight11.up: hmi.telemetry11
-        fsParams.telemetryLight10.up: hmi.telemetry10
-        fsParams.telemetryLight9.up: hmi.telemetry9
-        fsParams.telemetryLight8.up: hmi.telemetry8
-        fsParams.telemetryLight7.up: hmi.telemetry7
-        fsParams.telemetryLight6.up: hmi.telemetry6
-        fsParams.telemetryLight5.up: hmi.telemetry5
-        fsParams.telemetryLight4.up: hmi.telemetry4
-        fsParams.telemetryLight3.up: hmi.telemetry3
-        fsParams.telemetryLight2.up: hmi.telemetry2
-        fsParams.telemetryLight1.up: hmi.telemetry1
+        fsParams.telemetryLight0.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry0
+        fsParams.telemetryLight31.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry31
+        fsParams.telemetryLight30.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry30
+        fsParams.telemetryLight29.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry29
+        fsParams.telemetryLight28.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry28
+        fsParams.telemetryLight27.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry27
+        fsParams.telemetryLight26.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry26
+        fsParams.telemetryLight25.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry25
+        fsParams.telemetryLight24.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry24
+        fsParams.telemetryLight23.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry23
+        fsParams.telemetryLight22.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry22
+        fsParams.telemetryLight21.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry21
+        fsParams.telemetryLight20.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry20
+        fsParams.telemetryLight19.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry19
+        fsParams.telemetryLight18.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry18
+        fsParams.telemetryLight17.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry17
+        fsParams.telemetryLight16.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry16
+        fsParams.telemetryLight15.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry15
+        fsParams.telemetryLight14.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry14
+        fsParams.telemetryLight13.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry13
+        fsParams.telemetryLight12.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry12
+        fsParams.telemetryLight11.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry11
+        fsParams.telemetryLight10.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry10
+        fsParams.telemetryLight9.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry9
+        fsParams.telemetryLight8.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry8
+        fsParams.telemetryLight7.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry7
+        fsParams.telemetryLight6.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry6
+        fsParams.telemetryLight5.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry5
+        fsParams.telemetryLight4.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry4
+        fsParams.telemetryLight3.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry3
+        fsParams.telemetryLight2.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry2
+        fsParams.telemetryLight1.up: hmi.msgTelemetryOld ? undefined : hmi.telemetry1
 
-        fsParams.storageLight0.up: hmi.storage0
-        fsParams.storageLight23.up: hmi.storage23
-        fsParams.storageLight22.up: hmi.storage22
-        fsParams.storageLight21.up: hmi.storage21
-        fsParams.storageLight20.up: hmi.storage20
-        fsParams.storageLight19.up: hmi.storage19
-        fsParams.storageLight18.up: hmi.storage18
-        fsParams.storageLight17.up: hmi.storage17
-        fsParams.storageLight16.up: hmi.storage16
-        fsParams.storageLight15.up: hmi.storage15
-        fsParams.storageLight14.up: hmi.storage14
-        fsParams.storageLight13.up: hmi.storage13
-        fsParams.storageLight12.up: hmi.storage12
-        fsParams.storageLight11.up: hmi.storage11
-        fsParams.storageLight10.up: hmi.storage10
-        fsParams.storageLight9.up: hmi.storage9
-        fsParams.storageLight8.up: hmi.storage8
-        fsParams.storageLight7.up: hmi.storage7
-        fsParams.storageLight6.up: hmi.storage6
-        fsParams.storageLight5.up: hmi.storage5
-        fsParams.storageLight4.up: hmi.storage4
-        fsParams.storageLight3.up: hmi.storage3
-        fsParams.storageLight2.up: hmi.storage2
-        fsParams.storageLight1.up: hmi.storage1
+        fsParams.storageLight0.up: hmi.msgStorageOld ? undefined : hmi.storage0
+        fsParams.storageLight23.up: hmi.msgStorageOld ? undefined : hmi.storage23
+        fsParams.storageLight22.up: hmi.msgStorageOld ? undefined : hmi.storage22
+        fsParams.storageLight21.up: hmi.msgStorageOld ? undefined : hmi.storage21
+        fsParams.storageLight20.up: hmi.msgStorageOld ? undefined : hmi.storage20
+        fsParams.storageLight19.up: hmi.msgStorageOld ? undefined : hmi.storage19
+        fsParams.storageLight18.up: hmi.msgStorageOld ? undefined : hmi.storage18
+        fsParams.storageLight17.up: hmi.msgStorageOld ? undefined : hmi.storage17
+        fsParams.storageLight16.up: hmi.msgStorageOld ? undefined : hmi.storage16
+        fsParams.storageLight15.up: hmi.msgStorageOld ? undefined : hmi.storage15
+        fsParams.storageLight14.up: hmi.msgStorageOld ? undefined : hmi.storage14
+        fsParams.storageLight13.up: hmi.msgStorageOld ? undefined : hmi.storage13
+        fsParams.storageLight12.up: hmi.msgStorageOld ? undefined : hmi.storage12
+        fsParams.storageLight11.up: hmi.msgStorageOld ? undefined : hmi.storage11
+        fsParams.storageLight10.up: hmi.msgStorageOld ? undefined : hmi.storage10
+        fsParams.storageLight9.up: hmi.msgStorageOld ? undefined : hmi.storage9
+        fsParams.storageLight8.up: hmi.msgStorageOld ? undefined : hmi.storage8
+        fsParams.storageLight7.up: hmi.msgStorageOld ? undefined : hmi.storage7
+        fsParams.storageLight6.up: hmi.msgStorageOld ? undefined : hmi.storage6
+        fsParams.storageLight5.up: hmi.msgStorageOld ? undefined : hmi.storage5
+        fsParams.storageLight4.up: hmi.msgStorageOld ? undefined : hmi.storage4
+        fsParams.storageLight3.up: hmi.msgStorageOld ? undefined : hmi.storage3
+        fsParams.storageLight2.up: hmi.msgStorageOld ? undefined : hmi.storage2
+        fsParams.storageLight1.up: hmi.msgStorageOld ? undefined : hmi.storage1
 
-        fsParams.coreLight15.up: hmi.systemCoreMask15
-        fsParams.coreLight14.up: hmi.systemCoreMask14
-        fsParams.coreLight13.up: hmi.systemCoreMask13
-        fsParams.coreLight12.up: hmi.systemCoreMask12
-        fsParams.coreLight11.up: hmi.systemCoreMask11
-        fsParams.coreLight10.up: hmi.systemCoreMask10
-        fsParams.coreLight8.up: hmi.systemCoreMask8
-        fsParams.coreLight9.up: hmi.systemCoreMask9
-        fsParams.coreLight7.up: hmi.systemCoreMask7
-        fsParams.coreLight6.up: hmi.systemCoreMask6
-        fsParams.coreLight5.up: hmi.systemCoreMask5
-        fsParams.coreLight4.up: hmi.systemCoreMask4
-        fsParams.coreLight3.up: hmi.systemCoreMask3
-        fsParams.coreLight2.up: hmi.systemCoreMask2
-        fsParams.coreLight1.up: hmi.systemCoreMask1
-        fsParams.coreLight0.up: hmi.systemCoreMask0
+        fsParams.coreLight15.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask15
+        fsParams.coreLight14.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask14
+        fsParams.coreLight13.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask13
+        fsParams.coreLight12.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask12
+        fsParams.coreLight11.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask11
+        fsParams.coreLight10.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask10
+        fsParams.coreLight8.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask8
+        fsParams.coreLight9.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask9
+        fsParams.coreLight7.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask7
+        fsParams.coreLight6.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask6
+        fsParams.coreLight5.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask5
+        fsParams.coreLight4.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask4
+        fsParams.coreLight3.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask3
+        fsParams.coreLight2.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask2
+        fsParams.coreLight1.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask1
+        fsParams.coreLight0.up: hmi.msgSystemOld ? undefined : hmi.systemCoreMask0
 
-        fsParams.bmsLight0.up: hmi.BMS0
-        fsParams.bmsLight31.up: hmi.BMS31
-        fsParams.bmsLight30.up: hmi.BMS30
-        fsParams.bmsLight29.up: hmi.BMS29
-        fsParams.bmsLight28.up: hmi.BMS28
-        fsParams.bmsLight27.up: hmi.BMS27
-        fsParams.bmsLight26.up: hmi.BMS26
-        fsParams.bmsLight25.up: hmi.BMS25
-        fsParams.bmsLight24.up: hmi.BMS24
-        fsParams.bmsLight23.up: hmi.BMS23
-        fsParams.bmsLight22.up: hmi.BMS22
-        fsParams.bmsLight21.up: hmi.BMS21
-        fsParams.bmsLight20.up: hmi.BMS20
-        fsParams.bmsLight19.up: hmi.BMS19
-        fsParams.bmsLight18.up: hmi.BMS18
-        fsParams.bmsLight17.up: hmi.BMS17
-        fsParams.bmsLight16.up: hmi.BMS16
-        fsParams.bmsLight15.up: hmi.BMS15
-        fsParams.bmsLight14.up: hmi.BMS14
-        fsParams.bmsLight13.up: hmi.BMS13
-        fsParams.bmsLight12.up: hmi.BMS12
-        fsParams.bmsLight11.up: hmi.BMS11
-        fsParams.bmsLight10.up: hmi.BMS10
-        fsParams.bmsLight9.up: hmi.BMS9
-        fsParams.bmsLight8.up: hmi.BMS8
-        fsParams.bmsLight7.up: hmi.BMS7
-        fsParams.bmsLight6.up: hmi.BMS6
-        fsParams.bmsLight5.up: hmi.BMS5
-        fsParams.bmsLight4.up: hmi.BMS4
-        fsParams.bmsLight3.up: hmi.BMS3
-        fsParams.bmsLight2.up: hmi.BMS2
-        fsParams.bmsLight1.up: hmi.BMS1
+        fsParams.bmsLight0.up: hmi.msgMotorOld ? undefined : hmi.BMS0
+        fsParams.bmsLight31.up: hmi.msgMotorOld ? undefined : hmi.BMS31
+        fsParams.bmsLight30.up: hmi.msgMotorOld ? undefined : hmi.BMS30
+        fsParams.bmsLight29.up: hmi.msgMotorOld ? undefined : hmi.BMS29
+        fsParams.bmsLight28.up: hmi.msgMotorOld ? undefined : hmi.BMS28
+        fsParams.bmsLight27.up: hmi.msgMotorOld ? undefined : hmi.BMS27
+        fsParams.bmsLight26.up: hmi.msgMotorOld ? undefined : hmi.BMS26
+        fsParams.bmsLight25.up: hmi.msgMotorOld ? undefined : hmi.BMS25
+        fsParams.bmsLight24.up: hmi.msgMotorOld ? undefined : hmi.BMS24
+        fsParams.bmsLight23.up: hmi.msgMotorOld ? undefined : hmi.BMS23
+        fsParams.bmsLight22.up: hmi.msgMotorOld ? undefined : hmi.BMS22
+        fsParams.bmsLight21.up: hmi.msgMotorOld ? undefined : hmi.BMS21
+        fsParams.bmsLight20.up: hmi.msgMotorOld ? undefined : hmi.BMS20
+        fsParams.bmsLight19.up: hmi.msgMotorOld ? undefined : hmi.BMS19
+        fsParams.bmsLight18.up: hmi.msgMotorOld ? undefined : hmi.BMS18
+        fsParams.bmsLight17.up: hmi.msgMotorOld ? undefined : hmi.BMS17
+        fsParams.bmsLight16.up: hmi.msgMotorOld ? undefined : hmi.BMS16
+        fsParams.bmsLight15.up: hmi.msgMotorOld ? undefined : hmi.BMS15
+        fsParams.bmsLight14.up: hmi.msgMotorOld ? undefined : hmi.BMS14
+        fsParams.bmsLight13.up: hmi.msgMotorOld ? undefined : hmi.BMS13
+        fsParams.bmsLight12.up: hmi.msgMotorOld ? undefined : hmi.BMS12
+        fsParams.bmsLight11.up: hmi.msgMotorOld ? undefined : hmi.BMS11
+        fsParams.bmsLight10.up: hmi.msgMotorOld ? undefined : hmi.BMS10
+        fsParams.bmsLight9.up: hmi.msgMotorOld ? undefined : hmi.BMS9
+        fsParams.bmsLight8.up: hmi.msgMotorOld ? undefined : hmi.BMS8
+        fsParams.bmsLight7.up: hmi.msgMotorOld ? undefined : hmi.BMS7
+        fsParams.bmsLight6.up: hmi.msgMotorOld ? undefined : hmi.BMS6
+        fsParams.bmsLight5.up: hmi.msgMotorOld ? undefined : hmi.BMS5
+        fsParams.bmsLight4.up: hmi.msgMotorOld ? undefined : hmi.BMS4
+        fsParams.bmsLight3.up: hmi.msgMotorOld ? undefined : hmi.BMS3
+        fsParams.bmsLight2.up: hmi.msgMotorOld ? undefined : hmi.BMS2
+        fsParams.bmsLight1.up: hmi.msgMotorOld ? undefined : hmi.BMS1
 
-        fsParams.motorLight0.up: hmi.motor0
-        //fsParams.motorLight24.up: hmi.motor24
-        fsParams.motorLight23.up: hmi.motor23
-        fsParams.motorLight22.up: hmi.motor22
-        fsParams.motorLight21.up: hmi.motor21
-        fsParams.motorLight20.up: hmi.motor20
+        fsParams.motorLight0.up: hmi.msgMotorOld ? undefined : hmi.motor0
+        //fsParams.motorLight24.up: hmi.msgMotorOld ? undefined : hmi.motor24
+        fsParams.motorLight23.up: hmi.msgMotorOld ? undefined : hmi.motor23
+        fsParams.motorLight22.up: hmi.msgMotorOld ? undefined : hmi.motor22
+        fsParams.motorLight21.up: hmi.msgMotorOld ? undefined : hmi.motor21
+        fsParams.motorLight20.up: hmi.msgMotorOld ? undefined : hmi.motor20
 
-        fsParams.motorLight15.up: hmi.motor15
-        fsParams.motorLight14.up: hmi.motor14
-        fsParams.motorLight13.up: hmi.motor13
-        fsParams.motorLight12.up: hmi.motor12
+        fsParams.motorLight15.up: hmi.msgMotorOld ? undefined : hmi.motor15
+        fsParams.motorLight14.up: hmi.msgMotorOld ? undefined : hmi.motor14
+        fsParams.motorLight13.up: hmi.msgMotorOld ? undefined : hmi.motor13
+        fsParams.motorLight12.up: hmi.msgMotorOld ? undefined : hmi.motor12
 
-        fsParams.motorLight8.up: hmi.motor8
-        fsParams.motorLight7.up: hmi.motor7
-        fsParams.motorLight6.up: hmi.motor6
-        fsParams.motorLight5.up: hmi.motor5
-        fsParams.motorLight4.up: hmi.motor4
-        fsParams.motorLight3.up: hmi.motor3
-        fsParams.motorLight2.up: hmi.motor2
-        fsParams.motorLight1.up: hmi.motor1
+        fsParams.motorLight8.up: hmi.msgMotorOld ? undefined : hmi.motor8
+        fsParams.motorLight7.up: hmi.msgMotorOld ? undefined : hmi.motor7
+        fsParams.motorLight6.up: hmi.msgMotorOld ? undefined : hmi.motor6
+        fsParams.motorLight5.up: hmi.msgMotorOld ? undefined : hmi.motor5
+        fsParams.motorLight4.up: hmi.msgMotorOld ? undefined : hmi.motor4
+        fsParams.motorLight3.up: hmi.msgMotorOld ? undefined : hmi.motor3
+        fsParams.motorLight2.up: hmi.msgMotorOld ? undefined : hmi.motor2
+        fsParams.motorLight1.up: hmi.msgMotorOld ? undefined : hmi.motor1
 
         fsParams.txtRadioLinkErrorCounter: hmi.radiolinkErrorCounter
 
-        fsParams.radioLinkLight8.up: hmi.radiolinkMask8
-        fsParams.radioLinkLight9.up: hmi.radiolinkMask9
+        fsParams.radioLinkLight8.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask8
+        fsParams.radioLinkLight9.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask9
 
-        fsParams.radioLinkLight3.up: hmi.radiolinkMask3
-        fsParams.radioLinkLight2.up: hmi.radiolinkMask2
-        fsParams.radioLinkLight1.up: hmi.radiolinkMask1
-        fsParams.radioLinkLight0.up: hmi.radiolinkMask0
+        fsParams.radioLinkLight3.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask3
+        fsParams.radioLinkLight2.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask2
+        fsParams.radioLinkLight1.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask1
+        fsParams.radioLinkLight0.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask0
 
         map.latitude: hmi.Latitude
         map.longitude: hmi.Longitude
