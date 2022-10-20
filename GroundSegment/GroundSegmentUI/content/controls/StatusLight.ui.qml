@@ -10,26 +10,26 @@ Row {
     states: [
         State {
             name: ""
-            when: typeof (up) == "undefined"
+            //when: typeof (up) == "undefined"
             PropertyChanges {
                 target: light
-                color: "yellow"
+                color: "#b1b1b1"
             }
         },
         State {
-            name: "lightUp"
-            when: up //=== 1
+            name: "true"
+            //when: up //=== 1
             PropertyChanges {
                 target: light
                 color: "#ff0000"
             }
         },
         State {
-            name: "lightDown"
-            when: !up //=== 0
+            name: "false"
+            //when: !up //=== 0
             PropertyChanges {
                 target: light
-                color: "#b1b1b1"
+                color: "#00ff00"
             }
         }
     ]
