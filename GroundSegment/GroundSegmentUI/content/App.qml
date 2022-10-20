@@ -324,6 +324,7 @@ Window {
         fsParams.telemetryLight2.up: hmi.telemetry2
         fsParams.telemetryLight1.up: hmi.telemetry1
 
+        fsParams.txtFreeDataStorageSize: hmi.storageFreeDataSize
         fsParams.storageLight0.up: hmi.storage0
         fsParams.storageLight23.up: hmi.storage23
         fsParams.storageLight22.up: hmi.storage22

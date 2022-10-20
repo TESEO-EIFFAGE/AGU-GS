@@ -9,7 +9,7 @@ Rectangle {
 
     property bool lit
 
-
+    property alias txtFreeDataStorageSize: txtFreeDataStorageSize.value
     property alias storageLight23: storageLight23
     property alias storageLight22: storageLight22
     property alias storageLight21: storageLight21
@@ -156,14 +156,22 @@ Rectangle {
             id: storageLight23
             text: "Flare script storage err"
         }
+
+        ParamRow{
+
+            id: txtFreeDataStorageSize
+
+            text: "Free Data Size"
+            span: 4
+            ToolTip.text: text
+            ToolTip.visible: pressed
+        }
     }
 }
 
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:2}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}
-D{i:9}D{i:10}D{i:11}D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}
-D{i:21}D{i:22}D{i:23}D{i:24}D{i:1}
+    D{i:0;autoSize:true;height:480;width:640}
 }
 ##^##*/

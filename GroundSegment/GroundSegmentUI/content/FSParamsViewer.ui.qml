@@ -117,6 +117,8 @@ Rectangle {
     property alias telemetryLight2: telemetryTab.telemetryLight2
     property alias telemetryLight1: telemetryTab.telemetryLight1
 
+
+    property alias txtFreeDataStorageSize: storageTab.txtFreeDataStorageSize
     property alias storageLight23: storageTab.storageLight23
     property alias storageLight22: storageTab.storageLight22
     property alias storageLight21: storageTab.storageLight21
