@@ -4,12 +4,14 @@ import GroundSegmentUI 1.0
 import QtQuick.Layouts 1.11
 import "controls"
 
-Rectangle {
+Pane {
+    background: Rectangle{
     color:"transparent"
-
+    }
     property bool lit
 
     property alias txtFreeDataStorageSize: txtFreeDataStorageSize.value
+    property alias txtStorageMsgCounter: txtStorageMsgCounter.value
     property alias storageLight23: storageLight23
     property alias storageLight22: storageLight22
     property alias storageLight21: storageLight21
@@ -157,12 +159,19 @@ Rectangle {
             text: "Flare script storage err"
         }
 
+
         ParamRow{
 
             id: txtFreeDataStorageSize
 
             text: "Free Data Size"
-            span: 4
+            span: 6
+            ToolTip.text: text
+            ToolTip.visible: pressed
+        ParamRow{
+            text: "N. Storage Msg"
+            span: 6
+            id: txtStorageMsgCounter
             ToolTip.text: text
             ToolTip.visible: pressed
         }
@@ -170,8 +179,6 @@ Rectangle {
 }
 
 
-/*##^##
-Designer {
-    D{i:0;autoSize:true;height:480;width:640}
+
 }
-##^##*/
+

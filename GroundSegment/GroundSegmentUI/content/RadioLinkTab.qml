@@ -4,11 +4,13 @@ import GroundSegmentUI 1.0
 import QtQuick.Layouts 1.11
 import "controls"
 
-Rectangle {
+Pane {
+    background: Rectangle{
     color:"transparent"
-
+    }
     property bool lit
 
+    property alias txtRadioLinkMsgCounter: txtRadioLinkMsgCounter.value
 
     property alias radioLinkLight9: radioLinkLight9
     property alias radioLinkLight8: radioLinkLight8
@@ -69,6 +71,14 @@ height: childrenRect.height
                 ToolTip.visible: pressed
             }
 
+            ParamRow {
+                id: txtRadioLinkMsgCounter
+                text: "RL Msg counter"
+                span: 4
+                ToolTip.text: text
+                ToolTip.visible: pressed
+            }
+
 
     }
 }
@@ -77,6 +87,6 @@ height: childrenRect.height
 /*##^##
 Designer {
     D{i:0;autoSize:true;height:480;width:640}D{i:2}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}
-D{i:1}
+D{i:9}D{i:1}
 }
 ##^##*/

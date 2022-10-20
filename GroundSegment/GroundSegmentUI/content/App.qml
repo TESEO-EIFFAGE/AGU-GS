@@ -83,6 +83,21 @@ Window {
             }
 
         }
+
+        fsParams.telemetryTab.enabled: !hmi.msgTelemetryOld
+        fsParams.storageTab.enabled: !hmi.msgStorageOld
+        fsParams.motorsBMSTab.enabled: !hmi.msgMotorOld
+        fsParams.coreTab.enabled: !hmi.msgSystemOld
+        fsParams.radioLinkTab.enabled: !hmi.msgRadioLinkOld
+        fsParams.guidanceTab.enabled: !hmi.msgGuidanceOld
+
+        fsParams.telemetryTabLight.color: hmi.msgTelemetryOld ? "#b1b1b1" : (telemetryTab.lit ? "#ff0000" : "#00ff00")
+        fsParams.storageTabLight.color: hmi.msgStorageOld ? "#b1b1b1" : (storageTab.lit ? "#ff0000" : "#00ff00")
+        fsParams.motorsBMSTabLight.color: hmi.msgMotorOld ? "#b1b1b1" : (motorsBMSTab.lit ? "#ff0000" : "#00ff00")
+        fsParams.coreTabLight.color: hmi.msgSystemOld ? "#b1b1b1" : (coreTab.lit ? "#ff0000" : "#00ff00")
+        fsParams.radioLinkTabLight.color: hmi.msgRadioLinkOld ? "#b1b1b1" : (radioLinkTab.lit ? "#ff0000" : "#00ff00")
+        fsParams.guidanceTabLight.color: hmi.msgGuidanceOld ? "#b1b1b1" : (guidanceTab.lit ? "#ff0000" : "#00ff00")
+
         fsParams.telemetryTab.lit: hmi.telemetry0
                                    || hmi.telemetry31
                                    || hmi.telemetry30
@@ -215,6 +230,13 @@ Window {
                                    || hmi.radiolinkMask9
 
 
+        fsParams.txtTelemetryMsgCounter: hmi.telemetryMsgCounter
+        fsParams.txtStorageMsgCounter: hmi.storageMsgCounter
+        fsParams.txtSystemMsgCounter: hmi.systemMsgCounter
+        //fsParams.txtGuidanceMsgCounter: hmi.guidanceMsgCounter
+        fsParams.txtRadioLinkMsgCounter: hmi.radiolinkMsgCounter
+        fsParams.txtMotorMsgCounter: hmi.motorMsgCounter
+
         fsParams.txtTimeStampRIO: timestampToUTCDate(hmi.TimeStampRIO)
         fsParams.txtLatitude: hmi.Latitude.toFixed(2)
         fsParams.txtLongitude: hmi.Longitude.toFixed(2)
@@ -291,145 +313,149 @@ Window {
         fsParams.txtBMS1Temp: hmi.BMSTemp.toFixed(2)
         fsParams.txtChargeValue: hmi.ChargeValue
 
-        fsParams.telemetryLight0.up: hmi.telemetry0
-        fsParams.telemetryLight31.up: hmi.telemetry31
-        fsParams.telemetryLight30.up: hmi.telemetry30
-        fsParams.telemetryLight29.up: hmi.telemetry29
-        fsParams.telemetryLight28.up: hmi.telemetry28
-        fsParams.telemetryLight27.up: hmi.telemetry27
-        fsParams.telemetryLight26.up: hmi.telemetry26
-        fsParams.telemetryLight25.up: hmi.telemetry25
-        fsParams.telemetryLight24.up: hmi.telemetry24
-        fsParams.telemetryLight23.up: hmi.telemetry23
-        fsParams.telemetryLight22.up: hmi.telemetry22
-        fsParams.telemetryLight21.up: hmi.telemetry21
-        fsParams.telemetryLight20.up: hmi.telemetry20
-        fsParams.telemetryLight19.up: hmi.telemetry19
-        fsParams.telemetryLight18.up: hmi.telemetry18
-        fsParams.telemetryLight17.up: hmi.telemetry17
-        fsParams.telemetryLight16.up: hmi.telemetry16
-        fsParams.telemetryLight15.up: hmi.telemetry15
-        fsParams.telemetryLight14.up: hmi.telemetry14
-        fsParams.telemetryLight13.up: hmi.telemetry13
-        fsParams.telemetryLight12.up: hmi.telemetry12
-        fsParams.telemetryLight11.up: hmi.telemetry11
-        fsParams.telemetryLight10.up: hmi.telemetry10
-        fsParams.telemetryLight9.up: hmi.telemetry9
-        fsParams.telemetryLight8.up: hmi.telemetry8
-        fsParams.telemetryLight7.up: hmi.telemetry7
-        fsParams.telemetryLight6.up: hmi.telemetry6
-        fsParams.telemetryLight5.up: hmi.telemetry5
-        fsParams.telemetryLight4.up: hmi.telemetry4
-        fsParams.telemetryLight3.up: hmi.telemetry3
-        fsParams.telemetryLight2.up: hmi.telemetry2
-        fsParams.telemetryLight1.up: hmi.telemetry1
+
 
         fsParams.txtFreeDataStorageSize: hmi.storageFreeDataSize
-        fsParams.storageLight0.up: hmi.storage0
-        fsParams.storageLight23.up: hmi.storage23
-        fsParams.storageLight22.up: hmi.storage22
-        fsParams.storageLight21.up: hmi.storage21
-        fsParams.storageLight20.up: hmi.storage20
-        fsParams.storageLight19.up: hmi.storage19
-        fsParams.storageLight18.up: hmi.storage18
-        fsParams.storageLight17.up: hmi.storage17
-        fsParams.storageLight16.up: hmi.storage16
-        fsParams.storageLight15.up: hmi.storage15
-        fsParams.storageLight14.up: hmi.storage14
-        fsParams.storageLight13.up: hmi.storage13
-        fsParams.storageLight12.up: hmi.storage12
-        fsParams.storageLight11.up: hmi.storage11
-        fsParams.storageLight10.up: hmi.storage10
-        fsParams.storageLight9.up: hmi.storage9
-        fsParams.storageLight8.up: hmi.storage8
-        fsParams.storageLight7.up: hmi.storage7
-        fsParams.storageLight6.up: hmi.storage6
-        fsParams.storageLight5.up: hmi.storage5
-        fsParams.storageLight4.up: hmi.storage4
-        fsParams.storageLight3.up: hmi.storage3
-        fsParams.storageLight2.up: hmi.storage2
-        fsParams.storageLight1.up: hmi.storage1
 
-        fsParams.coreLight15.up: hmi.systemCoreMask15
-        fsParams.coreLight14.up: hmi.systemCoreMask14
-        fsParams.coreLight13.up: hmi.systemCoreMask13
-        fsParams.coreLight12.up: hmi.systemCoreMask12
-        fsParams.coreLight11.up: hmi.systemCoreMask11
-        fsParams.coreLight10.up: hmi.systemCoreMask10
-        fsParams.coreLight8.up: hmi.systemCoreMask8
-        fsParams.coreLight9.up: hmi.systemCoreMask9
-        fsParams.coreLight7.up: hmi.systemCoreMask7
-        fsParams.coreLight6.up: hmi.systemCoreMask6
-        fsParams.coreLight5.up: hmi.systemCoreMask5
-        fsParams.coreLight4.up: hmi.systemCoreMask4
-        fsParams.coreLight3.up: hmi.systemCoreMask3
-        fsParams.coreLight2.up: hmi.systemCoreMask2
-        fsParams.coreLight1.up: hmi.systemCoreMask1
-        fsParams.coreLight0.up: hmi.systemCoreMask0
 
-        fsParams.bmsLight0.up: hmi.BMS0
-        fsParams.bmsLight31.up: hmi.BMS31
-        fsParams.bmsLight30.up: hmi.BMS30
-        fsParams.bmsLight29.up: hmi.BMS29
-        fsParams.bmsLight28.up: hmi.BMS28
-        fsParams.bmsLight27.up: hmi.BMS27
-        fsParams.bmsLight26.up: hmi.BMS26
-        fsParams.bmsLight25.up: hmi.BMS25
-        fsParams.bmsLight24.up: hmi.BMS24
-        fsParams.bmsLight23.up: hmi.BMS23
-        fsParams.bmsLight22.up: hmi.BMS22
-        fsParams.bmsLight21.up: hmi.BMS21
-        fsParams.bmsLight20.up: hmi.BMS20
-        fsParams.bmsLight19.up: hmi.BMS19
-        fsParams.bmsLight18.up: hmi.BMS18
-        fsParams.bmsLight17.up: hmi.BMS17
-        fsParams.bmsLight16.up: hmi.BMS16
-        fsParams.bmsLight15.up: hmi.BMS15
-        fsParams.bmsLight14.up: hmi.BMS14
-        fsParams.bmsLight13.up: hmi.BMS13
-        fsParams.bmsLight12.up: hmi.BMS12
-        fsParams.bmsLight11.up: hmi.BMS11
-        fsParams.bmsLight10.up: hmi.BMS10
-        fsParams.bmsLight9.up: hmi.BMS9
-        fsParams.bmsLight8.up: hmi.BMS8
-        fsParams.bmsLight7.up: hmi.BMS7
-        fsParams.bmsLight6.up: hmi.BMS6
-        fsParams.bmsLight5.up: hmi.BMS5
-        fsParams.bmsLight4.up: hmi.BMS4
-        fsParams.bmsLight3.up: hmi.BMS3
-        fsParams.bmsLight2.up: hmi.BMS2
-        fsParams.bmsLight1.up: hmi.BMS1
+        fsParams.telemetryLight0.state: hmi.msgTelemetryOld ? "" : hmi.telemetry0
+        fsParams.telemetryLight31.state: hmi.msgTelemetryOld ? "" : hmi.telemetry31
+        fsParams.telemetryLight30.state: hmi.msgTelemetryOld ? "" : hmi.telemetry30
+        fsParams.telemetryLight29.state: hmi.msgTelemetryOld ? "" : hmi.telemetry29
+        fsParams.telemetryLight28.state: hmi.msgTelemetryOld ? "" : hmi.telemetry28
+        fsParams.telemetryLight27.state: hmi.msgTelemetryOld ? "" : hmi.telemetry27
+        fsParams.telemetryLight26.state: hmi.msgTelemetryOld ? "" : hmi.telemetry26
+        fsParams.telemetryLight25.state: hmi.msgTelemetryOld ? "" : hmi.telemetry25
+        fsParams.telemetryLight24.state: hmi.msgTelemetryOld ? "" : hmi.telemetry24
+        fsParams.telemetryLight23.state: hmi.msgTelemetryOld ? "" : hmi.telemetry23
+        fsParams.telemetryLight22.state: hmi.msgTelemetryOld ? "" : hmi.telemetry22
+        fsParams.telemetryLight21.state: hmi.msgTelemetryOld ? "" : hmi.telemetry21
+        fsParams.telemetryLight20.state: hmi.msgTelemetryOld ? "" : hmi.telemetry20
+        fsParams.telemetryLight19.state: hmi.msgTelemetryOld ? "" : hmi.telemetry19
+        fsParams.telemetryLight18.state: hmi.msgTelemetryOld ? "" : hmi.telemetry18
+        fsParams.telemetryLight17.state: hmi.msgTelemetryOld ? "" : hmi.telemetry17
+        fsParams.telemetryLight16.state: hmi.msgTelemetryOld ? "" : hmi.telemetry16
+        fsParams.telemetryLight15.state: hmi.msgTelemetryOld ? "" : hmi.telemetry15
+        fsParams.telemetryLight14.state: hmi.msgTelemetryOld ? "" : hmi.telemetry14
+        fsParams.telemetryLight13.state: hmi.msgTelemetryOld ? "" : hmi.telemetry13
+        fsParams.telemetryLight12.state: hmi.msgTelemetryOld ? "" : hmi.telemetry12
+        fsParams.telemetryLight11.state: hmi.msgTelemetryOld ? "" : hmi.telemetry11
+        fsParams.telemetryLight10.state: hmi.msgTelemetryOld ? "" : hmi.telemetry10
+        fsParams.telemetryLight9.state: hmi.msgTelemetryOld ? "" : hmi.telemetry9
+        fsParams.telemetryLight8.state: hmi.msgTelemetryOld ? "" : hmi.telemetry8
+        fsParams.telemetryLight7.state: hmi.msgTelemetryOld ? "" : hmi.telemetry7
+        fsParams.telemetryLight6.state: hmi.msgTelemetryOld ? "" : hmi.telemetry6
+        fsParams.telemetryLight5.state: hmi.msgTelemetryOld ? "" : hmi.telemetry5
+        fsParams.telemetryLight4.state: hmi.msgTelemetryOld ? "" : hmi.telemetry4
+        fsParams.telemetryLight3.state: hmi.msgTelemetryOld ? "" : hmi.telemetry3
+        fsParams.telemetryLight2.state: hmi.msgTelemetryOld ? "" : hmi.telemetry2
+        fsParams.telemetryLight1.state: hmi.msgTelemetryOld ? "" : hmi.telemetry1
 
-        fsParams.motorLight0.up: hmi.motor0
-        //fsParams.motorLight24.up: hmi.motor24
-        fsParams.motorLight23.up: hmi.motor23
-        fsParams.motorLight22.up: hmi.motor22
-        fsParams.motorLight21.up: hmi.motor21
-        fsParams.motorLight20.up: hmi.motor20
+        fsParams.storageLight0.state: hmi.msgStorageOld ? "" : hmi.storage0
+        fsParams.storageLight23.state: hmi.msgStorageOld ? "" : hmi.storage23
+        fsParams.storageLight22.state: hmi.msgStorageOld ? "" : hmi.storage22
+        fsParams.storageLight21.state: hmi.msgStorageOld ? "" : hmi.storage21
+        fsParams.storageLight20.state: hmi.msgStorageOld ? "" : hmi.storage20
+        fsParams.storageLight19.state: hmi.msgStorageOld ? "" : hmi.storage19
+        fsParams.storageLight18.state: hmi.msgStorageOld ? "" : hmi.storage18
+        fsParams.storageLight17.state: hmi.msgStorageOld ? "" : hmi.storage17
+        fsParams.storageLight16.state: hmi.msgStorageOld ? "" : hmi.storage16
+        fsParams.storageLight15.state: hmi.msgStorageOld ? "" : hmi.storage15
+        fsParams.storageLight14.state: hmi.msgStorageOld ? "" : hmi.storage14
+        fsParams.storageLight13.state: hmi.msgStorageOld ? "" : hmi.storage13
+        fsParams.storageLight12.state: hmi.msgStorageOld ? "" : hmi.storage12
+        fsParams.storageLight11.state: hmi.msgStorageOld ? "" : hmi.storage11
+        fsParams.storageLight10.state: hmi.msgStorageOld ? "" : hmi.storage10
+        fsParams.storageLight9.state: hmi.msgStorageOld ? "" : hmi.storage9
+        fsParams.storageLight8.state: hmi.msgStorageOld ? "" : hmi.storage8
+        fsParams.storageLight7.state: hmi.msgStorageOld ? "" : hmi.storage7
+        fsParams.storageLight6.state: hmi.msgStorageOld ? "" : hmi.storage6
+        fsParams.storageLight5.state: hmi.msgStorageOld ? "" : hmi.storage5
+        fsParams.storageLight4.state: hmi.msgStorageOld ? "" : hmi.storage4
+        fsParams.storageLight3.state: hmi.msgStorageOld ? "" : hmi.storage3
+        fsParams.storageLight2.state: hmi.msgStorageOld ? "" : hmi.storage2
+        fsParams.storageLight1.state: hmi.msgStorageOld ? "" : hmi.storage1
 
-        fsParams.motorLight15.up: hmi.motor15
-        fsParams.motorLight14.up: hmi.motor14
-        fsParams.motorLight13.up: hmi.motor13
-        fsParams.motorLight12.up: hmi.motor12
+        fsParams.coreLight15.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask15
+        fsParams.coreLight14.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask14
+        fsParams.coreLight13.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask13
+        fsParams.coreLight12.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask12
+        fsParams.coreLight11.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask11
+        fsParams.coreLight10.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask10
+        fsParams.coreLight8.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask8
+        fsParams.coreLight9.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask9
+        fsParams.coreLight7.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask7
+        fsParams.coreLight6.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask6
+        fsParams.coreLight5.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask5
+        fsParams.coreLight4.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask4
+        fsParams.coreLight3.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask3
+        fsParams.coreLight2.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask2
+        fsParams.coreLight1.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask1
+        fsParams.coreLight0.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask0
 
-        fsParams.motorLight8.up: hmi.motor8
-        fsParams.motorLight7.up: hmi.motor7
-        fsParams.motorLight6.up: hmi.motor6
-        fsParams.motorLight5.up: hmi.motor5
-        fsParams.motorLight4.up: hmi.motor4
-        fsParams.motorLight3.up: hmi.motor3
-        fsParams.motorLight2.up: hmi.motor2
-        fsParams.motorLight1.up: hmi.motor1
+        fsParams.bmsLight0.state: hmi.msgMotorOld ? "" : hmi.BMS0
+        fsParams.bmsLight31.state: hmi.msgMotorOld ? "" : hmi.BMS31
+        fsParams.bmsLight30.state: hmi.msgMotorOld ? "" : hmi.BMS30
+        fsParams.bmsLight29.state: hmi.msgMotorOld ? "" : hmi.BMS29
+        fsParams.bmsLight28.state: hmi.msgMotorOld ? "" : hmi.BMS28
+        fsParams.bmsLight27.state: hmi.msgMotorOld ? "" : hmi.BMS27
+        fsParams.bmsLight26.state: hmi.msgMotorOld ? "" : hmi.BMS26
+        fsParams.bmsLight25.state: hmi.msgMotorOld ? "" : hmi.BMS25
+        fsParams.bmsLight24.state: hmi.msgMotorOld ? "" : hmi.BMS24
+        fsParams.bmsLight23.state: hmi.msgMotorOld ? "" : hmi.BMS23
+        fsParams.bmsLight22.state: hmi.msgMotorOld ? "" : hmi.BMS22
+        fsParams.bmsLight21.state: hmi.msgMotorOld ? "" : hmi.BMS21
+        fsParams.bmsLight20.state: hmi.msgMotorOld ? "" : hmi.BMS20
+        fsParams.bmsLight19.state: hmi.msgMotorOld ? "" : hmi.BMS19
+        fsParams.bmsLight18.state: hmi.msgMotorOld ? "" : hmi.BMS18
+        fsParams.bmsLight17.state: hmi.msgMotorOld ? "" : hmi.BMS17
+        fsParams.bmsLight16.state: hmi.msgMotorOld ? "" : hmi.BMS16
+        fsParams.bmsLight15.state: hmi.msgMotorOld ? "" : hmi.BMS15
+        fsParams.bmsLight14.state: hmi.msgMotorOld ? "" : hmi.BMS14
+        fsParams.bmsLight13.state: hmi.msgMotorOld ? "" : hmi.BMS13
+        fsParams.bmsLight12.state: hmi.msgMotorOld ? "" : hmi.BMS12
+        fsParams.bmsLight11.state: hmi.msgMotorOld ? "" : hmi.BMS11
+        fsParams.bmsLight10.state: hmi.msgMotorOld ? "" : hmi.BMS10
+        fsParams.bmsLight9.state: hmi.msgMotorOld ? "" : hmi.BMS9
+        fsParams.bmsLight8.state: hmi.msgMotorOld ? "" : hmi.BMS8
+        fsParams.bmsLight7.state: hmi.msgMotorOld ? "" : hmi.BMS7
+        fsParams.bmsLight6.state: hmi.msgMotorOld ? "" : hmi.BMS6
+        fsParams.bmsLight5.state: hmi.msgMotorOld ? "" : hmi.BMS5
+        fsParams.bmsLight4.state: hmi.msgMotorOld ? "" : hmi.BMS4
+        fsParams.bmsLight3.state: hmi.msgMotorOld ? "" : hmi.BMS3
+        fsParams.bmsLight2.state: hmi.msgMotorOld ? "" : hmi.BMS2
+        fsParams.bmsLight1.state: hmi.msgMotorOld ? "" : hmi.BMS1
+
+        fsParams.motorLight0.state: hmi.msgMotorOld ? "" : hmi.motor0
+        //fsParams.motorLight24.state: hmi.msgMotorOld ? "" : hmi.motor24
+        fsParams.motorLight23.state: hmi.msgMotorOld ? "" : hmi.motor23
+        fsParams.motorLight22.state: hmi.msgMotorOld ? "" : hmi.motor22
+        fsParams.motorLight21.state: hmi.msgMotorOld ? "" : hmi.motor21
+        fsParams.motorLight20.state: hmi.msgMotorOld ? "" : hmi.motor20
+
+        fsParams.motorLight15.state: hmi.msgMotorOld ? "" : hmi.motor15
+        fsParams.motorLight14.state: hmi.msgMotorOld ? "" : hmi.motor14
+        fsParams.motorLight13.state: hmi.msgMotorOld ? "" : hmi.motor13
+        fsParams.motorLight12.state: hmi.msgMotorOld ? "" : hmi.motor12
+
+        fsParams.motorLight8.state: hmi.msgMotorOld ? "" : hmi.motor8
+        fsParams.motorLight7.state: hmi.msgMotorOld ? "" : hmi.motor7
+        fsParams.motorLight6.state: hmi.msgMotorOld ? "" : hmi.motor6
+        fsParams.motorLight5.state: hmi.msgMotorOld ? "" : hmi.motor5
+        fsParams.motorLight4.state: hmi.msgMotorOld ? "" : hmi.motor4
+        fsParams.motorLight3.state: hmi.msgMotorOld ? "" : hmi.motor3
+        fsParams.motorLight2.state: hmi.msgMotorOld ? "" : hmi.motor2
+        fsParams.motorLight1.state: hmi.msgMotorOld ? "" : hmi.motor1
 
         fsParams.txtRadioLinkErrorCounter: hmi.radiolinkErrorCounter
 
-        fsParams.radioLinkLight8.up: hmi.radiolinkMask8
-        fsParams.radioLinkLight9.up: hmi.radiolinkMask9
+        fsParams.radioLinkLight8.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask8
+        fsParams.radioLinkLight9.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask9
 
-        fsParams.radioLinkLight3.up: hmi.radiolinkMask3
-        fsParams.radioLinkLight2.up: hmi.radiolinkMask2
-        fsParams.radioLinkLight1.up: hmi.radiolinkMask1
-        fsParams.radioLinkLight0.up: hmi.radiolinkMask0
+        fsParams.radioLinkLight3.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask3
+        fsParams.radioLinkLight2.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask2
+        fsParams.radioLinkLight1.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask1
+        fsParams.radioLinkLight0.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask0
 
         map.latitude: hmi.Latitude
         map.longitude: hmi.Longitude

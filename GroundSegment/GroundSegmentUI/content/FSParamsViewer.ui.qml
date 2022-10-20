@@ -24,11 +24,21 @@ Rectangle {
     property alias radioLinkTab: radioLinkTab
     property alias guidanceTab: guidanceTab
 
+    property alias telemetryTabLight: telemetryTabLight
+    property alias storageTabLight: storageTabLight
+    property alias motorsBMSTabLight: motorsBMSTabLight
+
+    property alias coreTabLight: coreTabLight
+    property alias radioLinkTabLight: radioLinkTabLight
+    property alias guidanceTabLight: guidanceTabLight
+
     property alias txtTimeStampRIO: txtTimeStampRIO.value
     property alias txtLatitude: telemetryTab.txtLatitude
     property alias txtLongitude: telemetryTab.txtLongitude
     property alias txtGNSSAltitude: telemetryTab.txtGNSSAltitude
     property alias txtAirSpeed_UVector: telemetryTab.txtAirSpeed_UVector
+
+    property alias txtTelemetryMsgCounter: telemetryTab.txtTelemetryMsgCounter
 
     property alias txtAirSpeed_VVector: telemetryTab.txtAirSpeed_VVector
     property alias txtAirSpeed_WVector: telemetryTab.txtAirSpeed_WVector
@@ -80,6 +90,8 @@ Rectangle {
     property alias txtBMS1Temp: motorsBMSTab.txtBMS1Temp
     property alias txtChargeValue: motorsBMSTab.txtChargeValue
 
+    property alias txtMotorMsgCounter: motorsBMSTab.txtMotorMsgCounter
+
     width: Constants.width / 2 //750 //C
     height: Constants.height //667 //
     color: "#ffffff"
@@ -119,6 +131,8 @@ Rectangle {
 
 
     property alias txtFreeDataStorageSize: storageTab.txtFreeDataStorageSize
+
+    property alias txtStorageMsgCounter: storageTab.txtStorageMsgCounter
     property alias storageLight23: storageTab.storageLight23
     property alias storageLight22: storageTab.storageLight22
     property alias storageLight21: storageTab.storageLight21
@@ -220,8 +234,6 @@ Rectangle {
     property alias coreLight1: coreTab.coreLight1
     property alias coreLight0: coreTab.coreLight0
 
-
-
     property alias radioLinkLight9: radioLinkTab.radioLinkLight9
     property alias radioLinkLight8: radioLinkTab.radioLinkLight8
 
@@ -232,6 +244,9 @@ Rectangle {
 
     property alias txtRadioLinkErrorCounter: radioLinkTab.txtRadioLinkErrorCounter
 
+    property alias txtRadioLinkMsgCounter: radioLinkTab.txtRadioLinkMsgCounter
+
+    property alias txtSystemMsgCounter: homeTab.txtSystemMsgCounter
 
     ColumnLayout {
         //anchors.fill: parent
@@ -353,13 +368,14 @@ Rectangle {
                             }
                         }
                         Rectangle {
+                            id: telemetryTabLight
                             anchors.left: parent.left
                             anchors.leftMargin: 12
                             anchors.bottom: parent.bottom
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: telemetryTab.lit ? "#ff0000" : "#b1b1b1"
+                            //color: telemetryTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -405,13 +421,14 @@ Rectangle {
                         }
 
                         Rectangle {
+                            id: motorsBMSTabLight
                             anchors.left: parent.left
                             anchors.leftMargin: 12
                             anchors.bottom: parent.bottom
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: motorsBMSTab.lit ? "#ff0000" : "#b1b1b1"
+                            //color: motorsBMSTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -423,7 +440,6 @@ Rectangle {
                                     params.tabIndex = 2
                                     params.motorsBMSTabClicked()
                                 }
-
                             }
                         }
                     }
@@ -460,13 +476,14 @@ Rectangle {
                         }
 
                         Rectangle {
+                            id: storageTabLight
                             anchors.left: parent.left
                             anchors.leftMargin: 12
                             anchors.bottom: parent.bottom
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: storageTab.lit ? "#ff0000" : "#b1b1b1"
+                            //color: storageTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -478,7 +495,6 @@ Rectangle {
                                     params.tabIndex = 3
                                     params.storageTabClicked()
                                 }
-
                             }
                         }
                     }
@@ -512,13 +528,14 @@ Rectangle {
                         }
 
                         Rectangle {
+                            id: coreTabLight
                             anchors.left: parent.left
                             anchors.leftMargin: 12
                             anchors.bottom: parent.bottom
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: coreTab.lit ? "#ff0000" : "#b1b1b1"
+                            //color: coreTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -562,13 +579,14 @@ Rectangle {
                         }
 
                         Rectangle {
+                            id: radioLinkTabLight
                             anchors.left: parent.left
                             anchors.leftMargin: 12
                             anchors.bottom: parent.bottom
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: radioLinkTab.lit ? "#ff0000" : "#b1b1b1"
+                            //color: radioLinkTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -580,7 +598,6 @@ Rectangle {
                                     params.tabIndex = 4
                                     params.radioLinkTabClicked()
                                 }
-
                             }
                         }
                     }
@@ -614,13 +631,14 @@ Rectangle {
                         }
 
                         Rectangle {
+                            id: guidanceTabLight
                             anchors.left: parent.left
                             anchors.leftMargin: 12
                             anchors.bottom: parent.bottom
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: guidanceTab.lit ? "#ff0000" : "#b1b1b1"
+                            //color: guidanceTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -635,8 +653,6 @@ Rectangle {
                             }
                         }
                     }
-
-
                 }
                 Rectangle {
                     x: -10
@@ -691,26 +707,11 @@ Rectangle {
                     }
                 }
             }
-
-
         }
         Item {
             Layout.fillHeight: true
         }
     }
 }
-/*##^##
-Designer {
-<<<<<<< HEAD
-    D{i:0;height:1080;width:1600}
-=======
-    D{i:0;height:700;width:1600}D{i:3}D{i:4}D{i:2}D{i:9}D{i:10}D{i:13}D{i:12}D{i:8}D{i:15}
-D{i:16}D{i:18}D{i:20}D{i:19}D{i:14}D{i:22}D{i:23}D{i:25}D{i:27}D{i:26}D{i:21}D{i:29}
-D{i:30}D{i:32}D{i:34}D{i:33}D{i:28}D{i:36}D{i:37}D{i:39}D{i:41}D{i:40}D{i:35}D{i:43}
-D{i:44}D{i:46}D{i:48}D{i:47}D{i:42}D{i:50}D{i:51}D{i:53}D{i:55}D{i:54}D{i:49}D{i:7}
-D{i:58}D{i:59}D{i:60}D{i:61}D{i:62}D{i:63}D{i:64}D{i:57}D{i:56}D{i:6}D{i:5}D{i:65}
-D{i:1}
->>>>>>> feature/fix_ui_responsive
-}
-##^##*/
+
 

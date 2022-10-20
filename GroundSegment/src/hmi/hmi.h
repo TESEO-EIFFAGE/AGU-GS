@@ -5,6 +5,7 @@
 #include <AGU_MAVLINK/mavlink.h>
 #include <bitset>
 #include "QQmlAutoPropertyHelpers.h"
+#include<QTimer>
 
 class HMI : public QObject
 {
@@ -86,6 +87,8 @@ public:
     QML_READONLY_AUTO_PROPERTY(bool,telemetry29)
     QML_READONLY_AUTO_PROPERTY(bool,telemetry30)
     QML_READONLY_AUTO_PROPERTY(bool,telemetry31)
+
+    QML_READONLY_AUTO_PROPERTY(int,telemetryMsgCounter)
 
     /* MOTOR */
 
@@ -233,6 +236,8 @@ public:
     QML_READONLY_AUTO_PROPERTY(bool,BMS29)
     QML_READONLY_AUTO_PROPERTY(bool,BMS30)
     QML_READONLY_AUTO_PROPERTY(bool,BMS31)
+
+    QML_READONLY_AUTO_PROPERTY(int,motorMsgCounter)
 
     /* SYSTEM */
 
@@ -488,7 +493,7 @@ public:
     QML_READONLY_AUTO_PROPERTY(bool,emergencyRadioLinkStatus6);
     QML_READONLY_AUTO_PROPERTY(bool,emergencyRadioLinkStatus7);
 
-
+    QML_READONLY_AUTO_PROPERTY(int,systemMsgCounter)
 
 
     /* RADIOLINK */
@@ -528,6 +533,8 @@ public:
     QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask30);
     QML_READONLY_AUTO_PROPERTY(bool,radiolinkMask31);
 
+    QML_READONLY_AUTO_PROPERTY(int,radiolinkMsgCounter)
+
 
     /* GUIDANCE */
 
@@ -563,6 +570,8 @@ public:
     QML_READONLY_AUTO_PROPERTY(bool,guidanceMask29);
     QML_READONLY_AUTO_PROPERTY(bool,guidanceMask30);
     QML_READONLY_AUTO_PROPERTY(bool,guidanceMask31);
+
+    QML_READONLY_AUTO_PROPERTY(int,guidanceMsgCounter)
 
     /* STORAGE */
 
@@ -600,13 +609,20 @@ public:
     QML_READONLY_AUTO_PROPERTY(bool,storage30)
     QML_READONLY_AUTO_PROPERTY(bool,storage31)
 
-    /* TBD */
+    QML_READONLY_AUTO_PROPERTY(int,storageMsgCounter)
 
+    QML_READONLY_AUTO_PROPERTY(bool,msgTelemetryOld)
+    QML_READONLY_AUTO_PROPERTY(bool,msgGuidanceOld)
+    QML_READONLY_AUTO_PROPERTY(bool,msgStorageOld)
+    QML_READONLY_AUTO_PROPERTY(bool,msgSystemOld)
+    QML_READONLY_AUTO_PROPERTY(bool,msgRadioLinkOld)
+    QML_READONLY_AUTO_PROPERTY(bool,msgMotorOld)
+
+    /* TBD */
     QML_READONLY_AUTO_PROPERTY(quint8,GSRLErrorCounter)
     QML_READONLY_AUTO_PROPERTY(quint8,FSRLErrorCounter)
     QML_READONLY_AUTO_PROPERTY(quint8,RLHeartbeatCounter)
     QML_READONLY_AUTO_PROPERTY(bool,gnssFound)
-
 public:
 
     void showData(QVariant data);
@@ -625,7 +641,21 @@ private:
     void showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status);
 
     void initValues();
+    void checkTelemetry();
+    void checkGuidance();
+    void checkSystem();
+    void checkStorage();
+    void checkMotor();
+    void checkRadioLink();
 
+    bool telemetryCheck {0};
+
+    QTimer *timerTelemetry;
+    QTimer *timerMotor;
+    QTimer *timerGuidance;
+    QTimer *timerRadioLink;
+    QTimer *timerStorage;
+    QTimer *timerSystem;
 };
 
 #endif // HMI_H
