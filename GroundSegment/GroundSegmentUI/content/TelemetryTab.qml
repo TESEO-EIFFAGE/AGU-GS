@@ -5,9 +5,9 @@ import QtQuick.Layouts 1.11
 import "controls"
 
 Pane {
-    //color:"transparent"
-    //border.color: "#ffffff"
-
+    background: Rectangle{
+    color:"transparent"
+    }
     property bool lit
 
     property alias txtLatitude: txtLatitude.value
