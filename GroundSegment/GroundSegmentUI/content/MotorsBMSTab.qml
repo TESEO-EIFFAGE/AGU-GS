@@ -53,8 +53,6 @@ Rectangle {
 
     property alias bmsLight0: bmsLight0
 
-    property alias motorLight22: motorLight22
-    property alias motorLight21: motorLight21
 
     property alias bmsLight13: bmsLight13
     property alias bmsLight12: bmsLight12
