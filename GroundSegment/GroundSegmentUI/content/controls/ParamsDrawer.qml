@@ -7,6 +7,8 @@ import GroundSegmentUI 1.0
 Rectangle {
     id: root
     property alias columnTitle: columnTitle
+    property alias contentColumn: contentColumn
+    property alias spacer: spacer
     property alias param1: param1
     property alias param2: param2
     property alias param3: param3
@@ -53,9 +55,9 @@ Rectangle {
     Column {
         id: contentColumn
 
-        height: childrenRect.height
+        height: childrenRect.height+8
         width: parent.width
-clip: true
+        clip: true
         spacing: 8 //0
         anchors.top: parent.top
         Rectangle {
@@ -91,6 +93,11 @@ clip: true
                 //anchors.leftMargin: 16
                 text: "[title]"
             }
+            Item{
+                id: spacer
+                width: 1
+            }
+
             Image {
 
                 anchors.right: parent.right

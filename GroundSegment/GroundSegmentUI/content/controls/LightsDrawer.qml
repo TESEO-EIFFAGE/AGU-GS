@@ -7,9 +7,9 @@ import GroundSegmentUI 1.0
 Rectangle {
     id: root
     property alias columnTitle: columnTitle
-
-//    property alias gridColumns: valuesGrid.columns
-//    property alias gridRows: valuesGrid.rows
+    property aliad contentColumn: contentColumn
+    //    property alias gridColumns: valuesGrid.columns
+    //    property alias gridRows: valuesGrid.rows
 
     property alias light31: light31
     property alias light30: light30
@@ -114,33 +114,33 @@ Rectangle {
             }
 
             radius: 8
-Row{
-    anchors.fill: parent
-    spacing:24
-    anchors.top: parent.top
-    anchors.left: parent.left
-            ParamGrp2Label {
-                id: columnTitle
+            Row{
+                anchors.fill: parent
+                spacing:24
+                anchors.top: parent.top
+                anchors.left: parent.left
+                ParamGrp2Label {
+                    id: columnTitle
 
 
-                //anchors.topMargin: 8
-                //anchors.leftMargin: 16
-                text: "[title]"
+                    //anchors.topMargin: 8
+                    //anchors.leftMargin: 16
+                    text: "[title]"
+                }
+                Image {
+
+
+                    anchors.rightMargin: 8
+                    anchors.verticalCenter: parent.verticalCenter
+                    source: "../images/svgs/solid/chevron-down.svg"
+                    fillMode: Image.PreserveAspectFit
+                    height:16
+                    width: 16
+                    sourceSize.height: 16
+                    sourceSize.width: 16
+                    z:1
+                }
             }
-            Image {
-
-
-                anchors.rightMargin: 8
-                anchors.verticalCenter: parent.verticalCenter
-                source: "../images/svgs/solid/chevron-down.svg"
-                fillMode: Image.PreserveAspectFit
-                height:16
-                width: 16
-                sourceSize.height: 16
-                sourceSize.width: 16
-                z:1
-            }
-}
         }
         Rectangle {
             id: advancedSectionBody
@@ -155,11 +155,11 @@ Row{
                 id: valuesGrid
                 anchors.fill:parent
                 spacing: 16
-//                columnSpacing: 16
-//                rowSpacing: 12
+                //                columnSpacing: 16
+                //                rowSpacing: 12
                 //flow: Grid.TopToBottom
-//                columns: 4
-//                rows: 8
+                //                columns: 4
+                //                rows: 8
                 anchors.topMargin: 8
                 anchors.rightMargin: 16
                 //anchors.leftMargin: 16

@@ -18,8 +18,9 @@ Rectangle {
     property alias txtAirSpeed_VVector: txtAirSpeed_VVector.value
     property alias txtAirSpeed_WVector: txtAirSpeed_WVector.value
     property alias txtAirTemperature: txtAirTemperature.value
-    property alias txtAltitudeFromRadarAltimeter: txtAltitudeFromRadarAltimeter.value
+
     property alias payloadDrawer: payloadDrawer
+    property alias radarDrawer: radarDrawer
     //property alias txtAltitudeFromPayloadAltimeter: txtAltitudeFromPayloadAltimeter.value
     property alias txtLinearVelocityHorizontal: txtLinearVelocityHorizontal.value
 
@@ -390,47 +391,44 @@ Column{
             }
 
     }
-//    Item {
-//        width: 24
-//        height: 1
-//    }
-    Column{
-        spacing:8
+
+
+
+    Column {
         Layout.alignment: Qt.AlignTop
-    Row {
 
-            spacing: 8
-            Image {
-                x: 3
-                y: 0
-                source: "images/svgs/solid/satellite-dish.svg"
-                fillMode: Image.PreserveAspectFit
-                sourceSize.height: 24
-                sourceSize.width: 24
-            }
+        spacing: 16
+        Row{
+            spacing:8
+        Image {
 
-
-            ParamGrp1Label {
-                text: "Radar"
-
-            }
+            source: "images/svgs/solid/satellite-dish.svg"
+            fillMode: Image.PreserveAspectFit
+            sourceSize.height: 24
+            sourceSize.width: 24
         }
 
-        ParamRow {
-            text: "Altitude"
+        ParamsDrawer{
+            id:radarDrawer
 
-            span: 3
-            id: txtAltitudeFromRadarAltimeter
-            ToolTip.text: text
-            ToolTip.visible: pressed
+            open: true
+            columnTitle.text: "Radar"
+            width: 120
+            height: open ? 60 : 24
+            Layout.alignment: Qt.AlignTop
+            param1.text: "Altitude"
+            param1.span:3
+            param2.visible: false
+            param3.visible: false
         }
-}
+        }
 
 
+    }
         Column {
             Layout.alignment: Qt.AlignTop
 
-            spacing: 8
+            spacing: 16
             Row{
                 spacing:8
             Image {
@@ -443,9 +441,11 @@ Column{
 
             ParamsDrawer{
                 id:payloadDrawer
+
+                open: true
                 columnTitle.text: "Payload"
                 width: 120
-                height: open ? 40 : 24
+                height: open ? 60 : 24
                 Layout.alignment: Qt.AlignTop
                 param1.text: "Altitude"
                 param1.span:3
@@ -535,7 +535,7 @@ Rectangle {
 //            gridColumns: 4
 //            gridRows:7
 
-
+columnTitle.text: "Components Status"
             light0.visible: false
             light1.visible: false
             light2.visible: false
@@ -763,14 +763,10 @@ Column{
 }
 
 
+
+
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:3}D{i:4}D{i:2}D{i:7}D{i:8}D{i:9}D{i:10}
-D{i:6}D{i:12}D{i:13}D{i:14}D{i:15}D{i:11}D{i:16}D{i:18}D{i:19}D{i:20}D{i:17}D{i:22}
-D{i:23}D{i:24}D{i:25}D{i:21}D{i:27}D{i:28}D{i:29}D{i:30}D{i:26}D{i:32}D{i:33}D{i:34}
-D{i:35}D{i:31}D{i:36}D{i:5}D{i:37}D{i:41}D{i:42}D{i:40}D{i:43}D{i:44}D{i:45}D{i:46}
-D{i:39}D{i:49}D{i:50}D{i:48}D{i:51}D{i:47}D{i:54}D{i:55}D{i:53}D{i:52}D{i:38}D{i:56}
-D{i:58}D{i:59}D{i:57}D{i:62}D{i:63}D{i:64}D{i:65}D{i:66}D{i:67}D{i:68}D{i:61}D{i:69}
-D{i:71}D{i:72}D{i:73}D{i:74}D{i:70}D{i:60}D{i:1}
+    D{i:0;autoSize:true;height:480;width:640}
 }
 ##^##*/

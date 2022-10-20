@@ -183,9 +183,8 @@ Window {
 
         fsParams.txtAirTemperature: hmi.AirTemperature.toFixed(2)
 
-        fsParams.txtAltitudeFromRadarAltimeter: hmi.AltitudeFromRadarAltimeter.toFixed(2)
+        fsParams.radarDrawer.param1.value: hmi.AltitudeFromRadarAltimeter.toFixed(2)
         fsParams.payloadDrawer.param1.value:hmi.AltitudeFromPayloadAltimeter.toFixed(2)
-        //fsParams.txtAltitudeFromPayloadAltimeter: hmi.AltitudeFromPayloadAltimeter.toFixed(2)
 
         fsParams.txtLinearVelocityHorizontal: hmi.LinearVelocityHorizontal.toFixed(2)
         fsParams.txtLinearVelocityVertical: hmi.LinearVelocityVertical.toFixed(2)

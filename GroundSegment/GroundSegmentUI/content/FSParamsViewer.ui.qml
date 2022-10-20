@@ -26,9 +26,9 @@ Rectangle {
     property alias txtAirSpeed_VVector: telemetryTab.txtAirSpeed_VVector
     property alias txtAirSpeed_WVector: telemetryTab.txtAirSpeed_WVector
     property alias txtAirTemperature: telemetryTab.txtAirTemperature
-    property alias txtAltitudeFromRadarAltimeter: telemetryTab.txtAltitudeFromRadarAltimeter
-    //property alias txtAltitudeFromPayloadAltimeter: telemetryTab.txtAltitudeFromPayloadAltimeter
+
     property alias payloadDrawer: telemetryTab.payloadDrawer
+    property alias radarDrawer: telemetryTab.radarDrawer
     property alias txtLinearVelocityHorizontal: telemetryTab.txtLinearVelocityHorizontal
 
     property alias txtLinearVelocityVertical: telemetryTab.txtLinearVelocityVertical
