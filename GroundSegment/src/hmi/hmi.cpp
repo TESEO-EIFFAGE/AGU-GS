@@ -34,7 +34,7 @@ HMI::HMI(QObject *parent)
     timerMotor->setInterval(1000);
     timerGuidance->setInterval(1000);
     timerRadioLink->setInterval(1000);
-    timerStorage->setInterval(1000);
+    timerStorage->setInterval(6000);
     timerSystem->setInterval(1000);
 
     QObject::connect(timerTelemetry,&QTimer::timeout,this, &HMI::checkTelemetry);
