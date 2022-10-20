@@ -3,7 +3,7 @@ import GroundSegmentUI 1.0
 
 Row {
     id: root
-    property var up: false
+    property var up
     property alias text: text1.text
     spacing: 8
     width: 200

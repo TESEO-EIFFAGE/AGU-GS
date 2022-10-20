@@ -45,12 +45,12 @@ HMI::HMI(QObject *parent)
 
 
 
-    update_telemetryMsgCounter(0);
-    update_motorMsgCounter(0);
-    update_storageMsgCounter(0);
-    update_radiolinkMsgCounter(0);
-    update_guidanceMsgCounter(0);
-    update_systemMsgCounter(0);
+//    update_telemetryMsgCounter(0);
+//    update_motorMsgCounter(0);
+//    update_storageMsgCounter(0);
+//    update_radiolinkMsgCounter(0);
+//    update_guidanceMsgCounter(0);
+//    update_systemMsgCounter(0);
 
 
     //    update_TimeStamp(0);
