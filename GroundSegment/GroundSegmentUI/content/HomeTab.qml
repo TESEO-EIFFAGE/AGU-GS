@@ -5,8 +5,11 @@ import QtQuick.Layouts 1.11
 import "controls"
 
 Pane {
-    //color:"transparent"
+    background: Rectangle{
+    color:"transparent"
+    }
     //border.color: "#ffffff"
+enabled: false
 
     property bool lit
 

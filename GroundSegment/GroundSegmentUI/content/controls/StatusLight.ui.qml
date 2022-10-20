@@ -48,6 +48,7 @@ Row {
         anchors.verticalCenter: parent.verticalCenter
         font.pixelSize: 12
         font.family: "Roboto"
+        color: enabled ? "#000000" : "#878787"
     }
 }
 

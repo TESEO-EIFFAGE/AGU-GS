@@ -14,6 +14,7 @@ Row {
         id: paramLabel
         anchors.verticalCenter: parent.verticalCenter
         width: 16 * span
+        color: enabled ? "#000000" : "#878787"
         MouseArea {
             id: mouseArea
             hoverEnabled: true
@@ -32,14 +33,9 @@ Row {
     }
     ParamValue {
         id: paramValue
+        color: enabled ? "#000000" : "#878787"
+
         anchors.verticalCenter: parent.verticalCenter
         width: 60
     }
 }
-
-/*##^##
-Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:3}D{i:2}D{i:1}D{i:4}
-}
-##^##*/
-

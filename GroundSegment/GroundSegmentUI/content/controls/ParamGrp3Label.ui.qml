@@ -3,7 +3,7 @@ import QtQuick.Controls 2.15
 import GroundSegmentUI 1.0
 
 Label {
-    color: "#000000"
+    color: enabled ? "#000000" : "#878787"
     text: "[ParamGrp3Label]"
     font.pixelSize: 12
     font.styleName: "Bold"
