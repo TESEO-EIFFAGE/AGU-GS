@@ -393,6 +393,12 @@ Window {
         fsParams.coreLight1.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask1
         fsParams.coreLight0.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask0
 
+        fsParams.homeTab.coreLight4.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask9
+        fsParams.homeTab.coreLight3.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask10
+        fsParams.homeTab.coreLight2.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask8
+        fsParams.homeTab.coreLight1.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask11
+        fsParams.homeTab.coreLight0.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask7
+
         fsParams.bmsLight0.state: hmi.msgMotorOld ? "" : hmi.BMS0
         fsParams.bmsLight31.state: hmi.msgMotorOld ? "" : hmi.BMS31
         fsParams.bmsLight30.state: hmi.msgMotorOld ? "" : hmi.BMS30
