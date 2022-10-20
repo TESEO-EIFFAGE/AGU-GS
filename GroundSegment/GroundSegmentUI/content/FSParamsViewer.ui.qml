@@ -24,6 +24,14 @@ Rectangle {
     property alias radioLinkTab: radioLinkTab
     property alias guidanceTab: guidanceTab
 
+    property alias telemetryTabLight: telemetryTabLight
+    property alias storageTabLight: storageTabLight
+    property alias motorsBMSTabLight: motorsBMSTabLight
+    property alias homeTabLight: homeTabLight
+    property alias coreTabLight: coreTabLight
+    property alias radioLinkTabLight: radioLinkTabLight
+    property alias guidanceTabLight: guidanceTabLight
+
     property alias txtTimeStampRIO: txtTimeStampRIO.value
     property alias txtLatitude: telemetryTab.txtLatitude
     property alias txtLongitude: telemetryTab.txtLongitude
@@ -360,13 +368,14 @@ Rectangle {
                             }
                         }
                         Rectangle {
+                            id: telemetryTabLight
                             anchors.left: parent.left
                             anchors.leftMargin: 12
                             anchors.bottom: parent.bottom
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: telemetryTab.lit ? "#ff0000" : "#b1b1b1"
+                            //color: telemetryTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -412,13 +421,14 @@ Rectangle {
                         }
 
                         Rectangle {
+                            id: motorsBMSTabLight
                             anchors.left: parent.left
                             anchors.leftMargin: 12
                             anchors.bottom: parent.bottom
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: motorsBMSTab.lit ? "#ff0000" : "#b1b1b1"
+                            //color: motorsBMSTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -467,13 +477,14 @@ Rectangle {
                         }
 
                         Rectangle {
+                            id: storageTabLight
                             anchors.left: parent.left
                             anchors.leftMargin: 12
                             anchors.bottom: parent.bottom
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: storageTab.lit ? "#ff0000" : "#b1b1b1"
+                            //color: storageTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -519,13 +530,14 @@ Rectangle {
                         }
 
                         Rectangle {
+                            id: coreTabLight
                             anchors.left: parent.left
                             anchors.leftMargin: 12
                             anchors.bottom: parent.bottom
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: coreTab.lit ? "#ff0000" : "#b1b1b1"
+                            //color: coreTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -569,13 +581,14 @@ Rectangle {
                         }
 
                         Rectangle {
+                            id : radioLinkTabLight
                             anchors.left: parent.left
                             anchors.leftMargin: 12
                             anchors.bottom: parent.bottom
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: radioLinkTab.lit ? "#ff0000" : "#b1b1b1"
+                            //color: radioLinkTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {
@@ -621,13 +634,14 @@ Rectangle {
                         }
 
                         Rectangle {
+                            id: guidanceTabLight
                             anchors.left: parent.left
                             anchors.leftMargin: 12
                             anchors.bottom: parent.bottom
                             anchors.bottomMargin: 8
                             width: 16
                             height: 16
-                            color: guidanceTab.lit ? "#ff0000" : "#b1b1b1"
+                            //color: guidanceTab.lit ? "#ff0000" : "#b1b1b1"
                             radius: 8
                         }
                         MouseArea {

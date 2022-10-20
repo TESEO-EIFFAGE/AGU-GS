@@ -427,6 +427,13 @@ Window {
         fsParams.motorLight2.up: hmi.msgMotorOld ? undefined : hmi.motor2
         fsParams.motorLight1.up: hmi.msgMotorOld ? undefined : hmi.motor1
 
+        fsParams.telemetryTabLight.color: hmi.msgTelemetryOld ? "yellow" : (telemetryTab.lit ? "#ff0000" : "#b1b1b1")
+        fsParams.storageTabLight.color: hmi.msgStorageOld ? "yellow" : (storageTab.lit ? "#ff0000" : "#b1b1b1")
+        fsParams.motorsBMSTabLight.color: hmi.msgMotorOld ? "yellow" : (motorsBMSTab.lit ? "#ff0000" : "#b1b1b1")
+        fsParams.coreTabLight.color: hmi.msgSystemOld ? "yellow" : (coreTab.lit ? "#ff0000" : "#b1b1b1")
+        fsParams.radioLinkTabLight.color: hmi.msgRadioLinkOld ? "yellow" : (radioLinkTab.lit ? "#ff0000" : "#b1b1b1")
+        fsParams.guidanceTabLight.color: hmi.msgGuidanceOld ? "yellow" : (guidanceTab.lit ? "#ff0000" : "#b1b1b1")
+
         fsParams.txtRadioLinkErrorCounter: hmi.radiolinkErrorCounter
 
         fsParams.radioLinkLight8.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask8
