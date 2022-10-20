@@ -8,36 +8,36 @@ Row {
     spacing: 8
     width: 200
     states: [
-    State {
-        name: ""
-        when: typeof (up) == "undefined"
-        PropertyChanges {
-            target: light
-            color: "yellow"
+        State {
+            name: ""
+            when: typeof (up) == "undefined"
+            PropertyChanges {
+                target: light
+                color: "yellow"
+            }
+        },
+        State {
+            name: "lightUp"
+            when: up
+            PropertyChanges {
+                target: light
+                color: "#ff0000"
+            }
+        },
+        State {
+            name: "lightDown"
+            when: !up
+            PropertyChanges {
+                target: light
+                color: "#b1b1b1"
+            }
         }
-    },
-    State {
-        name: "lightUp"
-        when: up
-        PropertyChanges {
-            target: light
-            color: "#ff0000"
-        }
-    },
-    State {
-        name: "lightDown"
-        when: !up
-        PropertyChanges {
-            target: light
-            color: "#b1b1b1"
-        }
-    }
     ]
     Rectangle {
         id: light
         width: 16
         height: 16
-        //color: root.up == true ? "#ff0000" : (root.up == false ? "#b1b1b1" : "yellow")
+        color: "#b1b1b1" //root.up == true ? "#ff0000" : (root.up == false ? "#b1b1b1" : "yellow")
         radius: 8
         anchors.verticalCenter: parent.verticalCenter
     }

@@ -29,12 +29,12 @@ HMI::HMI(QObject *parent)
     timerRadioLink= new QTimer(this);
     timerStorage= new QTimer(this);
 
-    timerTelemetry->setInterval(100);
-    timerMotor->setInterval(100);
-    timerGuidance->setInterval(100);
-    timerRadioLink->setInterval(100);
-    timerStorage->setInterval(100);
-    timerSystem->setInterval(100);
+    timerTelemetry->setInterval(1000);
+    timerMotor->setInterval(1000);
+    timerGuidance->setInterval(1000);
+    timerRadioLink->setInterval(1000);
+    timerStorage->setInterval(1000);
+    timerSystem->setInterval(1000);
 
     QObject::connect(timerTelemetry,&QTimer::timeout,this, &HMI::checkTelemetry);
     QObject::connect(timerMotor,&QTimer::timeout,this, &HMI::checkMotor);
@@ -157,12 +157,14 @@ void HMI::showData(QVariant msg) {
     timerRadioLink->start();
     timerStorage->start();
     timerSystem->start();
+
     update_msgGuidanceOld(0);
     update_msgSystemOld(0);
     update_msgRadioLinkOld(0);
     update_msgStorageOld(0);
     update_msgMotorOld(0);
     update_msgTelemetryOld(0);
+
     if (msg.canConvert<mavlink_telemetry_data_pack_t>()) {
         showDataTelemetry(msg.value<mavlink_telemetry_data_pack_t>());
         update_telemetryMsgCounter(m_telemetryMsgCounter+1);
