@@ -611,13 +611,6 @@ public:
 
     QML_READONLY_AUTO_PROPERTY(int,storageMsgCounter)
 
-    /* TBD */
-
-    QML_READONLY_AUTO_PROPERTY(quint8,GSRLErrorCounter)
-    QML_READONLY_AUTO_PROPERTY(quint8,FSRLErrorCounter)
-    QML_READONLY_AUTO_PROPERTY(quint8,RLHeartbeatCounter)
-    QML_READONLY_AUTO_PROPERTY(bool,gnssFound)
-
     QML_READONLY_AUTO_PROPERTY(bool,msgTelemetryOld)
     QML_READONLY_AUTO_PROPERTY(bool,msgGuidanceOld)
     QML_READONLY_AUTO_PROPERTY(bool,msgStorageOld)
@@ -625,6 +618,11 @@ public:
     QML_READONLY_AUTO_PROPERTY(bool,msgRadioLinkOld)
     QML_READONLY_AUTO_PROPERTY(bool,msgMotorOld)
 
+    /* TBD */
+    QML_READONLY_AUTO_PROPERTY(quint8,GSRLErrorCounter)
+    QML_READONLY_AUTO_PROPERTY(quint8,FSRLErrorCounter)
+    QML_READONLY_AUTO_PROPERTY(quint8,RLHeartbeatCounter)
+    QML_READONLY_AUTO_PROPERTY(bool,gnssFound)
 public:
 
     void showData(QVariant data);
@@ -658,7 +656,6 @@ private:
     QTimer *timerRadioLink;
     QTimer *timerStorage;
     QTimer *timerSystem;
-
 };
 
 #endif // HMI_H

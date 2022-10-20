@@ -158,12 +158,12 @@ void HMI::showData(QVariant msg) {
     timerStorage->start();
     timerSystem->start();
 
-    update_msgGuidanceOld(0);
-    update_msgSystemOld(0);
-    update_msgRadioLinkOld(0);
-    update_msgStorageOld(0);
-    update_msgMotorOld(0);
-    update_msgTelemetryOld(0);
+    update_msgGuidanceOld(false);
+    update_msgSystemOld(false);
+    update_msgRadioLinkOld(false);
+    update_msgStorageOld(false);
+    update_msgMotorOld(false);
+    update_msgTelemetryOld(false);
 
     if (msg.canConvert<mavlink_telemetry_data_pack_t>()) {
         showDataTelemetry(msg.value<mavlink_telemetry_data_pack_t>());
@@ -177,7 +177,6 @@ void HMI::showData(QVariant msg) {
         showDataMotorStatus(msg.value<mavlink_motor_status_pack_t>());
         update_motorMsgCounter(m_motorMsgCounter+1);
     }
-
     else if (msg.canConvert<mavlink_guidance_status_pack_t>()) {
         showDataGuidanceStatus(msg.value<mavlink_guidance_status_pack_t>());
         update_guidanceMsgCounter(m_guidanceMsgCounter+1);
@@ -746,30 +745,30 @@ void HMI::initValues()
 
 void HMI::checkTelemetry()
 {
-    update_msgTelemetryOld(1);
+    update_msgTelemetryOld(true);
 }
 
 void HMI::checkGuidance()
 {
-    update_msgGuidanceOld(1);
+    update_msgGuidanceOld(true);
 }
 
 void HMI::checkSystem()
 {
-    update_msgSystemOld(1);
+    update_msgSystemOld(true);
 }
 
 void HMI::checkStorage()
 {
-    update_msgStorageOld(1);
+    update_msgStorageOld(true);
 }
 
 void HMI::checkMotor()
 {
-    update_msgMotorOld(1);
+    update_msgMotorOld(true);
 }
 
 void HMI::checkRadioLink()
 {
-    update_msgRadioLinkOld(1);
+    update_msgRadioLinkOld(true);
 }
