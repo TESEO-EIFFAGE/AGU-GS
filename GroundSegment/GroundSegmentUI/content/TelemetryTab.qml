@@ -496,7 +496,14 @@ Rectangle {
         rows: 7
         Column{
             spacing:8
+            ParamGrp2Label {
 
+
+
+                //anchors.topMargin: 8
+                //anchors.leftMargin: 16
+                text: "Sensors"
+            }
             StatusLight {
                 id: telemetryLight0
                 text: "Anemom NOT present"
