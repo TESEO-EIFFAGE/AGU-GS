@@ -18,7 +18,7 @@ Row {
         },
         State {
             name: "lightUp"
-            when: up
+            when: up //=== 1
             PropertyChanges {
                 target: light
                 color: "#ff0000"
@@ -26,7 +26,7 @@ Row {
         },
         State {
             name: "lightDown"
-            when: !up
+            when: !up //=== 0
             PropertyChanges {
                 target: light
                 color: "#b1b1b1"
