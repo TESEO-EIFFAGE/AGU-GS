@@ -305,7 +305,7 @@ Rectangle {
         }
 
         Item {
-            Layout.fillWidth: true
+            Layout.fillHeight: true
         }
     }
     Item {
