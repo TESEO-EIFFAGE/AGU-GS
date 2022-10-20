@@ -27,7 +27,7 @@ Rectangle {
     property alias telemetryTabLight: telemetryTabLight
     property alias storageTabLight: storageTabLight
     property alias motorsBMSTabLight: motorsBMSTabLight
-    property alias homeTabLight: homeTabLight
+
     property alias coreTabLight: coreTabLight
     property alias radioLinkTabLight: radioLinkTabLight
     property alias guidanceTabLight: guidanceTabLight
@@ -128,7 +128,6 @@ Rectangle {
     property alias telemetryLight3: telemetryTab.telemetryLight3
     property alias telemetryLight2: telemetryTab.telemetryLight2
     property alias telemetryLight1: telemetryTab.telemetryLight1
-
 
     property alias txtStorageMsgCounter: storageTab.txtStorageMsgCounter
     property alias storageLight23: storageTab.storageLight23
@@ -231,8 +230,6 @@ Rectangle {
     property alias coreLight2: coreTab.coreLight2
     property alias coreLight1: coreTab.coreLight1
     property alias coreLight0: coreTab.coreLight0
-
-
 
     property alias radioLinkLight9: radioLinkTab.radioLinkLight9
     property alias radioLinkLight8: radioLinkTab.radioLinkLight8
@@ -440,7 +437,6 @@ Rectangle {
                                     params.tabIndex = 2
                                     params.motorsBMSTabClicked()
                                 }
-
                             }
                         }
                     }
@@ -496,7 +492,6 @@ Rectangle {
                                     params.tabIndex = 3
                                     params.storageTabClicked()
                                 }
-
                             }
                         }
                     }
@@ -581,7 +576,7 @@ Rectangle {
                         }
 
                         Rectangle {
-                            id : radioLinkTabLight
+                            id: radioLinkTabLight
                             anchors.left: parent.left
                             anchors.leftMargin: 12
                             anchors.bottom: parent.bottom
@@ -600,7 +595,6 @@ Rectangle {
                                     params.tabIndex = 4
                                     params.radioLinkTabClicked()
                                 }
-
                             }
                         }
                     }
@@ -656,8 +650,6 @@ Rectangle {
                             }
                         }
                     }
-
-
                 }
                 Rectangle {
                     x: -10
@@ -712,26 +704,11 @@ Rectangle {
                     }
                 }
             }
-
-
         }
         Item {
             Layout.fillHeight: true
         }
     }
 }
-/*##^##
-Designer {
-<<<<<<< HEAD
-    D{i:0;height:1080;width:1600}
-=======
-    D{i:0;height:700;width:1600}D{i:3}D{i:4}D{i:2}D{i:9}D{i:10}D{i:13}D{i:12}D{i:8}D{i:15}
-D{i:16}D{i:18}D{i:20}D{i:19}D{i:14}D{i:22}D{i:23}D{i:25}D{i:27}D{i:26}D{i:21}D{i:29}
-D{i:30}D{i:32}D{i:34}D{i:33}D{i:28}D{i:36}D{i:37}D{i:39}D{i:41}D{i:40}D{i:35}D{i:43}
-D{i:44}D{i:46}D{i:48}D{i:47}D{i:42}D{i:50}D{i:51}D{i:53}D{i:55}D{i:54}D{i:49}D{i:7}
-D{i:58}D{i:59}D{i:60}D{i:61}D{i:62}D{i:63}D{i:64}D{i:57}D{i:56}D{i:6}D{i:5}D{i:65}
-D{i:1}
->>>>>>> feature/fix_ui_responsive
-}
-##^##*/
+
 
