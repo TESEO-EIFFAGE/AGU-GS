@@ -45,10 +45,8 @@ Rectangle {
             width:parent.width
             columnTitle.text: "Storage Status"
             open:true
-            gridColumns: 4
-            gridRows:6
 
-            light9.visible: false
+
             light24.visible: false
             light25.visible: false
             light26.visible: false
@@ -67,6 +65,7 @@ Rectangle {
             light6.text: "Radio link module log write error"
             light7.text: "Motor control log write error"
             light8.text: "Guidance module log write error"
+            light9.text: "Config file not loaded"
             light10.text: "PGNC initialization verification error"
             light11.text: "PGNC initialization storage error"
             light12.text: "PGNC flight path verification error"

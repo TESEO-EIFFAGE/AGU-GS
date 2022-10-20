@@ -211,9 +211,9 @@ Window {
         fsParams.ecefVelocityDrawer.param2.value: hmi.ECEFVectorVelocityY.toFixed(2)
         fsParams.ecefVelocityDrawer.param3.value: hmi.ECEFVectorVelocityZ.toFixed(2)
 
-//        fsParams.txtECEFVectorVelocityX: hmi.ECEFVectorVelocityX.toFixed(2)
-//        fsParams.txtECEFVectorVelocityY: hmi.ECEFVectorVelocityY.toFixed(2)
-//        fsParams.txtECEFVectorVelocityZ: hmi.ECEFVectorVelocityZ.toFixed(2)
+        //        fsParams.txtECEFVectorVelocityX: hmi.ECEFVectorVelocityX.toFixed(2)
+        //        fsParams.txtECEFVectorVelocityY: hmi.ECEFVectorVelocityY.toFixed(2)
+        //        fsParams.txtECEFVectorVelocityZ: hmi.ECEFVectorVelocityZ.toFixed(2)
 
         fsParams.txtRollAngle: hmi.RollAngle.toFixed(2)
         fsParams.txtPitchAngle: hmi.PitchAngle.toFixed(2)
@@ -256,34 +256,34 @@ Window {
 
 
         fsParams.telemetryLight0.up: hmi.telemetry0
-        fsParams.telemetryStatusDrawer.light27.up: hmi.telemetry31
-        fsParams.telemetryStatusDrawer.light26.up: hmi.telemetry30
-        fsParams.telemetryStatusDrawer.light25.up: hmi.telemetry29
-        fsParams.telemetryStatusDrawer.light24.up: hmi.telemetry28
-        fsParams.telemetryStatusDrawer.light23.up: hmi.telemetry27
-        fsParams.telemetryStatusDrawer.light22.up: hmi.telemetry26
-        fsParams.telemetryStatusDrawer.light21.up: hmi.telemetry25
-        fsParams.telemetryStatusDrawer.light20.up: hmi.telemetry24
-        fsParams.telemetryStatusDrawer.light19.up: hmi.telemetry23
-        fsParams.telemetryStatusDrawer.light18.up: hmi.telemetry22
-        fsParams.telemetryStatusDrawer.light17.up: hmi.telemetry21
-        fsParams.telemetryStatusDrawer.light16.up: hmi.telemetry20
-        fsParams.telemetryStatusDrawer.light15.up: hmi.telemetry19
-        fsParams.telemetryStatusDrawer.light14.up: hmi.telemetry18
-        fsParams.telemetryStatusDrawer.light13.up: hmi.telemetry17
-        fsParams.telemetryStatusDrawer.light12.up: hmi.telemetry16
-        fsParams.telemetryStatusDrawer.light11.up: hmi.telemetry15
-        fsParams.telemetryStatusDrawer.light10.up: hmi.telemetry14
-        fsParams.telemetryStatusDrawer.light9.up: hmi.telemetry13
-        fsParams.telemetryStatusDrawer.light8.up: hmi.telemetry12
-        fsParams.telemetryStatusDrawer.light7.up: hmi.telemetry11
-        fsParams.telemetryStatusDrawer.light6.up: hmi.telemetry10
-        fsParams.telemetryStatusDrawer.light5.up: hmi.telemetry9
-        fsParams.telemetryStatusDrawer.light4.up: hmi.telemetry8
-        fsParams.telemetryStatusDrawer.light3.up: hmi.telemetry7
-        fsParams.telemetryStatusDrawer.light2.up: hmi.telemetry6
-        fsParams.telemetryStatusDrawer.light1.up: hmi.telemetry5
-        fsParams.telemetryStatusDrawer.light0.up: hmi.telemetry4
+        fsParams.telemetryStatusDrawer.light31.up: hmi.telemetry31
+        fsParams.telemetryStatusDrawer.light30.up: hmi.telemetry30
+        fsParams.telemetryStatusDrawer.light29.up: hmi.telemetry29
+        fsParams.telemetryStatusDrawer.light28.up: hmi.telemetry28
+        fsParams.telemetryStatusDrawer.light27.up: hmi.telemetry27
+        fsParams.telemetryStatusDrawer.light26.up: hmi.telemetry26
+        fsParams.telemetryStatusDrawer.light25.up: hmi.telemetry25
+        fsParams.telemetryStatusDrawer.light24.up: hmi.telemetry24
+        fsParams.telemetryStatusDrawer.light23.up: hmi.telemetry23
+        fsParams.telemetryStatusDrawer.light22.up: hmi.telemetry22
+        fsParams.telemetryStatusDrawer.light21.up: hmi.telemetry21
+        fsParams.telemetryStatusDrawer.light20.up: hmi.telemetry20
+        fsParams.telemetryStatusDrawer.light19.up: hmi.telemetry19
+        fsParams.telemetryStatusDrawer.light18.up: hmi.telemetry18
+        fsParams.telemetryStatusDrawer.light17.up: hmi.telemetry17
+        fsParams.telemetryStatusDrawer.light16.up: hmi.telemetry16
+        fsParams.telemetryStatusDrawer.light15.up: hmi.telemetry15
+        fsParams.telemetryStatusDrawer.light14.up: hmi.telemetry14
+        fsParams.telemetryStatusDrawer.light13.up: hmi.telemetry13
+        fsParams.telemetryStatusDrawer.light12.up: hmi.telemetry12
+        fsParams.telemetryStatusDrawer.light11.up: hmi.telemetry11
+        fsParams.telemetryStatusDrawer.light10.up: hmi.telemetry10
+        fsParams.telemetryStatusDrawer.light9.up: hmi.telemetry9
+        fsParams.telemetryStatusDrawer.light8.up: hmi.telemetry8
+        fsParams.telemetryStatusDrawer.light7.up: hmi.telemetry7
+        fsParams.telemetryStatusDrawer.light6.up: hmi.telemetry6
+        fsParams.telemetryStatusDrawer.light5.up: hmi.telemetry5
+        fsParams.telemetryStatusDrawer.light4.up: hmi.telemetry4
         fsParams.telemetryLight3.up: hmi.telemetry3
         fsParams.telemetryLight2.up: hmi.telemetry2
         fsParams.telemetryLight1.up: hmi.telemetry1
@@ -303,7 +303,7 @@ Window {
         fsParams.storageDrawer.light12.up: hmi.storage12
         fsParams.storageDrawer.light11.up: hmi.storage11
         fsParams.storageDrawer.light10.up: hmi.storage10
-
+        fsParams.storageDrawer.light9.up: hmi.storage9
         fsParams.storageDrawer.light8.up: hmi.storage8
         fsParams.storageDrawer.light7.up: hmi.storage7
         fsParams.storageDrawer.light6.up: hmi.storage6
@@ -314,34 +314,34 @@ Window {
         fsParams.storageDrawer.light1.up: hmi.storage1
 
         fsParams.bmsLight0.up: hmi.BMS0
-        fsParams.bmsLight31.up: hmi.BMS31
-        fsParams.bmsLight30.up: hmi.BMS30
-        fsParams.bmsLight29.up: hmi.BMS29
-        fsParams.bmsLight28.up: hmi.BMS28
-        fsParams.bmsLight27.up: hmi.BMS27
-        fsParams.bmsLight26.up: hmi.BMS26
-        fsParams.bmsLight25.up: hmi.BMS25
-        fsParams.bmsLight24.up: hmi.BMS24
-        fsParams.bmsLight23.up: hmi.BMS23
-        fsParams.bmsLight22.up: hmi.BMS22
-        fsParams.bmsLight21.up: hmi.BMS21
-        fsParams.bmsLight20.up: hmi.BMS20
-        fsParams.bmsLight19.up: hmi.BMS19
-        fsParams.bmsLight18.up: hmi.BMS18
-        fsParams.bmsLight17.up: hmi.BMS17
-        fsParams.bmsLight16.up: hmi.BMS16
-        fsParams.bmsLight15.up: hmi.BMS15
-        fsParams.bmsLight14.up: hmi.BMS14
+        fsParams.bmsDrawer.light31.up: hmi.BMS31
+        fsParams.bmsDrawer.light30.up: hmi.BMS30
+        fsParams.bmsDrawer.light29.up: hmi.BMS29
+        fsParams.bmsDrawer.light28.up: hmi.BMS28
+        fsParams.bmsDrawer.light27.up: hmi.BMS27
+        fsParams.bmsDrawer.light26.up: hmi.BMS26
+        fsParams.bmsDrawer.light25.up: hmi.BMS25
+        fsParams.bmsDrawer.light24.up: hmi.BMS24
+        fsParams.bmsDrawer.light23.up: hmi.BMS23
+        fsParams.bmsDrawer.light22.up: hmi.BMS22
+        fsParams.bmsDrawer.light21.up: hmi.BMS21
+        fsParams.bmsDrawer.light20.up: hmi.BMS20
+        fsParams.bmsDrawer.light19.up: hmi.BMS19
+        fsParams.bmsDrawer.light18.up: hmi.BMS18
+        fsParams.bmsDrawer.light17.up: hmi.BMS17
+        fsParams.bmsDrawer.light16.up: hmi.BMS16
+        fsParams.bmsDrawer.light15.up: hmi.BMS15
+        fsParams.bmsDrawer.light14.up: hmi.BMS14
         fsParams.bmsLight13.up: hmi.BMS13
         fsParams.bmsLight12.up: hmi.BMS12
         fsParams.bmsLight11.up: hmi.BMS11
         fsParams.bmsLight10.up: hmi.BMS10
-        fsParams.bmsLight9.up: hmi.BMS9
-        fsParams.bmsLight8.up: hmi.BMS8
-        fsParams.bmsLight7.up: hmi.BMS7
-        fsParams.bmsLight6.up: hmi.BMS6
-        fsParams.bmsLight5.up: hmi.BMS5
-        fsParams.bmsLight4.up: hmi.BMS4
+        fsParams.bmsDrawer.light9.up: hmi.BMS9
+        fsParams.bmsDrawer.light8.up: hmi.BMS8
+        fsParams.bmsDrawer.light7.up: hmi.BMS7
+        fsParams.bmsDrawer.light6.up: hmi.BMS6
+        fsParams.bmsDrawer.light5.up: hmi.BMS5
+        fsParams.bmsDrawer.light4.up: hmi.BMS4
         fsParams.bmsLight3.up: hmi.BMS3
         fsParams.bmsLight2.up: hmi.BMS2
         fsParams.bmsLight1.up: hmi.BMS1
@@ -350,6 +350,7 @@ Window {
         fsParams.motorLight23.up: hmi.motor23
         fsParams.motorLight22.up: hmi.motor22
         fsParams.motorLight21.up: hmi.motor21
+        fsParams.motorLight20.up: hmi.motor20
 
         fsParams.motorLight15.up: hmi.motor15
         fsParams.motorLight14.up: hmi.motor14

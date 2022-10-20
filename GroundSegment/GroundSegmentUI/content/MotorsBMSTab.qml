@@ -27,15 +27,12 @@ Rectangle {
     property alias txtChargeValue: txtChargeValue.value
 
     property alias generalMotorDrawer: generalMotorDrawer
-    //    property alias motorLight25: motorLight25
-    //    property alias motorLight24: motorLight24
+    property alias motorLight20: motorLight20
+    property alias motorLight21: motorLight21
+    property alias motorLight22: motorLight22
     property alias motorLight23: motorLight23
 
-    //    property alias motorLight20: motorLight20
-    //    property alias motorLight19: motorLight19
-    //    property alias motorLight18: motorLight18
-    //    property alias motorLight17: motorLight17
-    //    property alias motorLight16: motorLight16
+
     property alias motorLight15: motorLight15
     property alias motorLight14: motorLight14
     property alias motorLight13: motorLight13
@@ -53,38 +50,17 @@ Rectangle {
     //    property alias motorLight0: motorLight0
 
     property alias bmsDrawer: bmsDrawer
+
     property alias bmsLight0: bmsLight0
 
     property alias motorLight22: motorLight22
     property alias motorLight21: motorLight21
-    property alias bmsLight31: bmsLight31
-    property alias bmsLight30: bmsLight30
-    property alias bmsLight29: bmsLight29
-    property alias bmsLight28: bmsLight28
-    property alias bmsLight27: bmsLight27
-    property alias bmsLight26: bmsLight26
-    property alias bmsLight25: bmsLight25
-    property alias bmsLight24: bmsLight24
-    property alias bmsLight23: bmsLight23
-    property alias bmsLight22: bmsLight22
-    property alias bmsLight21: bmsLight21
-    property alias bmsLight20: bmsLight20
-    property alias bmsLight19: bmsLight19
-    property alias bmsLight18: bmsLight18
-    property alias bmsLight17: bmsLight17
-    property alias bmsLight16: bmsLight16
-    property alias bmsLight15: bmsLight15
-    property alias bmsLight14: bmsLight14
+
     property alias bmsLight13: bmsLight13
     property alias bmsLight12: bmsLight12
     property alias bmsLight11: bmsLight11
     property alias bmsLight10: bmsLight10
-    property alias bmsLight9: bmsLight9
-    property alias bmsLight8: bmsLight8
-    property alias bmsLight7: bmsLight7
-    property alias bmsLight6: bmsLight6
-    property alias bmsLight5: bmsLight5
-    property alias bmsLight4: bmsLight4
+
     property alias bmsLight3: bmsLight3
     property alias bmsLight2: bmsLight2
     property alias bmsLight1: bmsLight1
@@ -99,7 +75,7 @@ Rectangle {
 
             Column {
                 Layout.alignment: Qt.AlignTop
-
+                Layout.preferredHeight: childrenRect.height
                 spacing: 8
                 Layout.preferredWidth: 300
                 ParamGrp2Label {
@@ -145,10 +121,11 @@ Rectangle {
                 {
                     id:generalMotorDrawer
                     width:180
+
                     columnTitle.text: "General Motor Status"
                     //open:true
-//                    gridColumns: 1
-//                    gridRows:7
+                    //                    gridColumns: 1
+                    //                    gridRows:7
 
                     light4.visible: false
                     light5.visible: false
@@ -384,6 +361,18 @@ Rectangle {
                     text: "Battery LOW"
                 }
 
+                StatusLight {
+                    id: motorLight20
+                    text: "BMS INDICATION"
+                }
+                StatusLight {
+                    id: motorLight21
+                    text: "BMS FAULT"
+                }
+                StatusLight {
+                    id: motorLight22
+                    text: "BMS REQUEST"
+                }
 
 
                 StatusLight {
@@ -426,19 +415,81 @@ Rectangle {
             LightsDrawer{
                 id:bmsDrawer
                 width:180
-Layout.fillWidth: true
+                Layout.fillWidth: true
                 Layout.fillHeight: true
                 columnTitle.text: "BMS Status"
-                //open:true
-//                gridColumns: 3
-//                gridRows:9
 
-                light27.visible: false
-                light28.visible: false
-                light29.visible: false
-                light30.visible: false
-                light31.visible: false
+                light0.visible: false
+                light1.visible: false
+                light2.visible: false
+                light3.visible: false
+                light4.visible: true
+                light5.visible: true
+                light6.visible: true
+                light7.visible: true
+                light8.visible: true
+                light9.visible: true
+                light10.visible: false
+                light11.visible: false
+                light12.visible:false
+                light13.visible: false
 
+
+                light14.visible: true
+                light15.visible: true
+                light16.visible: true
+                light17.visible: true
+                light18.visible: true
+                light19.visible: true
+                light20.visible: true
+                light21.visible: true
+                light22.visible: true
+                light23.visible: true
+                light24.visible: true
+                light25.visible: true
+                light26.visible: true
+                light27.visible: true
+                light28.visible: true
+                light29.visible: true
+                light30.visible: true
+                light31.visible: true
+
+
+                light4.text: "Battery EXCESSIVE INDICATION"
+                light5.text: "Battery EXCESSIVE FAULT"
+                light6.text: "Battery temp HIGH INDICATION"
+                light7.text: "Battery temp HIGH FAULT"
+                light8.text: "Battery temp LOW INDICATION"
+                light9.text: "Battery temp LOW FAULT"
+                light14.text: "Cell voltage difference INDICATION"
+                light15.text: "Cell voltage difference FAULT"
+                light16.text: "Cell temp difference INDICATION"
+                light17.text: "Cell temp difference FAULT"
+                light18.text: "Cell temp sensor FAULT"
+                light19.text: "Generic HW FAULT"
+                light20.text: "Charge switch FAULT"
+                light21.text: "Discharge switch FAULT"
+                light22.text: "Self-test FAULT"
+
+
+                light23.text: "Collection line FAULT"
+
+
+
+                light24.text: "Temp line FAULT"
+
+
+                light25.text: "BMS alarm FAULT"
+
+
+                light26.text: "Activity limit request"
+
+
+                light27.text: "Discharge current limit request"
+                light28.text: "Consumption STOP request"
+                light29.text: "Charging temp low FAULT"
+                light30.text: "Charging temp high FAULT"
+                light31.text: "Excessive charging current FAULT"
 
 
             }
@@ -464,58 +515,58 @@ Layout.fillWidth: true
             //                text: "BMS active REQUEST"
             //            }
             //            StatusLight {
-            //                id: bmsLight4
+            //                light4
             //                text: "Battery EXCESSIVE INDICATION"
             //            }
             //            StatusLight {
-            //                id: bmsLight5
+            //                light5
             //                text: "Battery EXCESSIVE FAULT"
             //            }
             //            StatusLight {
-            //                id: bmsLight6
+            //                light6
             //                text: "Battery temp HIGH INDICATION"
             //            }
             //            StatusLight {
-            //                id: bmsLight7
+            //                light7
             //                text: "Battery temp HIGH FAULT"
             //            }
             //            StatusLight {
-            //                id: bmsLight8
+            //                light8
             //                text: "Battery temp LOW INDICATION"
             //            }
             //            StatusLight {
-            //                id: bmsLight9
+            //                light9
             //                text: "Battery temp LOW FAULT"
             //            }
 
             //            StatusLight {
-            //                id: bmsLight14
+            //                light14
             //                text: "Cell voltage difference INDICATION"
             //            }
             //            StatusLight {
-            //                id: bmsLight15
+            //                light15
             //                text: "Cell voltage difference FAULT"
             //            }
             //            StatusLight {
-            //                id: bmsLight16
+            //                light16
             //                text: "Cell temp difference INDICATION"
             //            }
             //            StatusLight {
-            //                id: bmsLight17
+            //                light17
             //                text: "Cell temp difference FAULT"
             //            }
 
             //            StatusLight {
-            //                id: bmsLight18
+            //                light18
             //                text: "Cell temp sensor FAULT"
             //            }
             //            StatusLight {
-            //                id: bmsLight19
+            //                light19
             //                text: "Generic HW FAULT"
             //            }
 
             //            StatusLight {
-            //                id: bmsLight20
+            //                light20
             //                text: "Charge switch FAULT"
             //            }
             //        }
@@ -529,49 +580,49 @@ Layout.fillWidth: true
             //            }
 
             //            StatusLight {
-            //                id: bmsLight21
+            //                light21
             //                text: "Discharge switch FAULT"
             //            }
 
             //            StatusLight {
-            //                id: bmsLight22
+            //                light22
             //                text: "Self-test FAULT"
             //            }
             //            StatusLight {
-            //                id: bmsLight23
+            //                light23
             //                text: "Collection line FAULT"
             //            }
 
             //            StatusLight {
-            //                id: bmsLight24
+            //                light24
             //                text: "Temp line FAULT"
             //            }
             //            StatusLight {
-            //                id: bmsLight25
+            //                light25
             //                text: "BMS alarm FAULT"
             //            }
             //            StatusLight {
-            //                id: bmsLight26
+            //                light26
             //                text: "Activity limit request"
             //            }
             //            StatusLight {
-            //                id: bmsLight27
+            //                light27
             //                text: "Discharge current limit request"
             //            }
             //            StatusLight {
-            //                id: bmsLight28
+            //                light28
             //                text: "Consumption STOP request"
             //            }
             //            StatusLight {
-            //                id: bmsLight29
+            //                light29
             //                text: "Charging temp low FAULT"
             //            }
             //            StatusLight {
-            //                id: bmsLight30
+            //                light30
             //                text: "Charging temp high FAULT"
             //            }
             //            StatusLight {
-            //                id: bmsLight31
+            //                light31
             //                text: "Excessive charging current FAULT"
             //            }
             //        }
@@ -587,6 +638,7 @@ Designer {
     D{i:0;autoSize:true;height:1080;width:1299}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}
 D{i:11}D{i:3}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:12}D{i:21}D{i:22}
 D{i:23}D{i:24}D{i:25}D{i:26}D{i:27}D{i:20}D{i:28}D{i:2}D{i:31}D{i:32}D{i:33}D{i:34}
-D{i:35}D{i:36}D{i:37}D{i:38}D{i:39}D{i:40}D{i:41}D{i:30}D{i:42}D{i:43}D{i:29}D{i:1}
+D{i:35}D{i:36}D{i:37}D{i:38}D{i:39}D{i:40}D{i:41}D{i:42}D{i:43}D{i:44}D{i:30}D{i:45}
+D{i:46}D{i:29}D{i:1}
 }
 ##^##*/
