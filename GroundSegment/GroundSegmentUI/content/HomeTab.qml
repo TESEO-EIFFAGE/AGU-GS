@@ -4,9 +4,9 @@ import GroundSegmentUI 1.0
 import QtQuick.Layouts 1.11
 import "controls"
 
-Rectangle {
-    color:"transparent"
-    border.color: "#ffffff"
+Pane {
+    //color:"transparent"
+    //border.color: "#ffffff"
 
     property bool lit
 
