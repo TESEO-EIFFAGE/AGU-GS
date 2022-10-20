@@ -7,7 +7,7 @@ import GroundSegmentUI 1.0
 Rectangle {
     id: root
     property alias columnTitle: columnTitle
-    property aliad contentColumn: contentColumn
+    property alias contentColumn: contentColumn
     //    property alias gridColumns: valuesGrid.columns
     //    property alias gridRows: valuesGrid.rows
 

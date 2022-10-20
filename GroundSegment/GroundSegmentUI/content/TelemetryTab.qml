@@ -497,25 +497,25 @@ Rectangle {
         Column{
             spacing:8
 
-        StatusLight {
-            id: telemetryLight0
-            text: "Anemom NOT present"
-        }
+            StatusLight {
+                id: telemetryLight0
+                text: "Anemom NOT present"
+            }
 
-        StatusLight {
-            id: telemetryLight1
-            text: "RD Altimeter NOT present"
-        }
+            StatusLight {
+                id: telemetryLight1
+                text: "RD Altimeter NOT present"
+            }
 
-        StatusLight {
-            id: telemetryLight2
-            text: "GNSS NOT present"
-        }
+            StatusLight {
+                id: telemetryLight2
+                text: "GNSS NOT present"
+            }
 
-        StatusLight {
-            id: telemetryLight3
-            text: "PL Altimeter NOT present"
-        }
+            StatusLight {
+                id: telemetryLight3
+                text: "PL Altimeter NOT present"
+            }
         Item{
             height:1
             width:1
