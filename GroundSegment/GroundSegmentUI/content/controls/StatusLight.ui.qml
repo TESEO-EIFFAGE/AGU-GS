@@ -7,6 +7,7 @@ Row {
     property alias text: text1.text
     spacing: 8
     width: 200
+    states: [
     State {
         name: ""
         when: typeof (up) == "undefined"
@@ -14,7 +15,7 @@ Row {
             target: light
             color: "yellow"
         }
-    }
+    },
     State {
         name: "lightUp"
         when: up
@@ -22,7 +23,7 @@ Row {
             target: light
             color: "#ff0000"
         }
-    }
+    },
     State {
         name: "lightDown"
         when: !up
@@ -31,6 +32,7 @@ Row {
             color: "#b1b1b1"
         }
     }
+    ]
     Rectangle {
         id: light
         width: 16
