@@ -84,6 +84,13 @@ Window {
 
         }
 
+        fsParams.telemetryTab.enabled: !hmi.msgTelemetryOld
+        fsParams.storageTab.enabled: !hmi.msgStorageOld
+        fsParams.motorsBMSTab.enabled: !hmi.msgMotorOld
+        fsParams.coreTab.enabled: !hmi.msgSystemOld
+        fsParams.radioLinkTab.enabled: !hmi.msgRadioLinkOld
+        fsParams.guidanceTab.enabled: !hmi.msgGuidanceOld
+
         fsParams.telemetryTabLight.color: hmi.msgTelemetryOld ? "#b1b1b1" : (telemetryTab.lit ? "#ff0000" : "#00ff00")
         fsParams.storageTabLight.color: hmi.msgStorageOld ? "#b1b1b1" : (storageTab.lit ? "#ff0000" : "#00ff00")
         fsParams.motorsBMSTabLight.color: hmi.msgMotorOld ? "#b1b1b1" : (motorsBMSTab.lit ? "#ff0000" : "#00ff00")

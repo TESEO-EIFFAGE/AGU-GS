@@ -4,9 +4,10 @@ import GroundSegmentUI 1.0
 import QtQuick.Layouts 1.11
 import "controls"
 
-Rectangle {
+Pane {
+    background: Rectangle{
     color:"transparent"
-
+    }
     property bool lit
 
     property alias txtRadioLinkMsgCounter: txtRadioLinkMsgCounter.value

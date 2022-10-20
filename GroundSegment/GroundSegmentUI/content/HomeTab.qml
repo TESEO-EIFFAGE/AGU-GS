@@ -8,8 +8,7 @@ Pane {
     background: Rectangle{
     color:"transparent"
     }
-    //border.color: "#ffffff"
-enabled: false
+
 
     property bool lit
 
