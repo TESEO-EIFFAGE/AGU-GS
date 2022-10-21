@@ -89,14 +89,14 @@ Rectangle {
         height: childrenRect.height
         width: parent.width
         clip: true
-        spacing: 8 //0
+        spacing: 8//0
         anchors.top: parent.top
         Rectangle {
             id: overviewBox
             color: "transparent"
-            height: 16
+            height: 24
             width: parent.width
-            anchors.top: parent.top
+            //anchors.top: parent.top
 
             MouseArea {
                 id: headerArea
@@ -122,7 +122,7 @@ Rectangle {
                 ParamGrp2Label {
                     id: columnTitle
 
-
+anchors.verticalCenter: parent.verticalCenter
                     //anchors.topMargin: 8
                     //anchors.leftMargin: 16
                     text: "[title]"
@@ -147,6 +147,7 @@ Rectangle {
             color: "transparent"
             anchors.left: parent.left
             anchors.right: parent.right
+            anchors.topMargin: 8
             anchors.top: overviewBox.bottom
             clip: true
             height: root.open ? 222 : 0
