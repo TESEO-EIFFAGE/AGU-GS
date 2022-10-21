@@ -75,7 +75,7 @@ Item{
         MapQuickItem {
             id: flyingObjectSouthBorder
             sourceItem: Rectangle { width: 60; height: 2; color: "red"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
-            coordinate : QtPositioning.coordinate(groundControlStation.flyingObjectLatitude, groundControlStation.flyingObjectLongitude+0.08)
+            coordinate : QtPositioning.coordinate(hmi.Latitude, hmi.Longitude+0.08)
             opacity: 1.0
             anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
             visible: true
@@ -83,7 +83,7 @@ Item{
         MapQuickItem {
             id: flyingObjectNorthBorder
             sourceItem: Rectangle { width: 60; height: 2; color: "red"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
-            coordinate : QtPositioning.coordinate(groundControlStation.flyingObjectLatitude, groundControlStation.flyingObjectLongitude-0.08)
+            coordinate : QtPositioning.coordinate(hmi.Latitude, hmi.Longitude-0.08)
             opacity: 1.0
             anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
             visible: true
@@ -255,3 +255,9 @@ Item{
 }
 
 
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+##^##*/
