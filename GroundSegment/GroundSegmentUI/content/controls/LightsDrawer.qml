@@ -153,11 +153,12 @@ Rectangle {
 
             Flow {
                 id: valuesGrid
-                anchors.fill:parent
+                width:parent.width
+                height:parent.height
                 spacing: 16
                 //                columnSpacing: 16
                 //                rowSpacing: 12
-                //flow: Grid.TopToBottom
+                flow: Grid.TopToBottom
                 //                columns: 4
                 //                rows: 8
                 anchors.topMargin: 8
