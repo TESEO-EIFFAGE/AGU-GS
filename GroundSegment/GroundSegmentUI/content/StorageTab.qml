@@ -12,30 +12,7 @@ Pane {
 
     property alias txtFreeDataStorageSize: txtFreeDataStorageSize.value
     property alias txtStorageMsgCounter: txtStorageMsgCounter.value
-    property alias storageLight23: storageLight23
-    property alias storageLight22: storageLight22
-    property alias storageLight21: storageLight21
-    property alias storageLight20: storageLight20
-    property alias storageLight19: storageLight19
-    property alias storageLight18: storageLight18
-    property alias storageLight17: storageLight17
-    property alias storageLight16: storageLight16
-    property alias storageLight15: storageLight15
-    property alias storageLight14: storageLight14
-    property alias storageLight13: storageLight13
-    property alias storageLight12: storageLight12
-    property alias storageLight11: storageLight11
-    property alias storageLight10: storageLight10
-    property alias storageLight9: storageLight9
-    property alias storageLight8: storageLight8
-    property alias storageLight7: storageLight7
-    property alias storageLight6: storageLight6
-    property alias storageLight5: storageLight5
-    property alias storageLight4: storageLight4
-    property alias storageLight3: storageLight3
-    property alias storageLight2: storageLight2
-    property alias storageLight1: storageLight1
-    property alias storageLight0: storageLight0
+
 
 
     property alias storageDrawer: storageStatusDrawer
@@ -65,7 +42,7 @@ Pane {
     Flow {
         anchors.fill:parent
         id: gridStorage
-        spacing: 16
+        spacing: 8
 //        rowSpacing: 12
         //flow: Grid.TopToBottom
 //        columns: 1

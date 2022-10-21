@@ -83,13 +83,7 @@ Pane {
                 ParamGrp2Label {
                     text: "General"
                 }
-                ParamRow {
-                    id: txtMotorTimestamp
-                    text: "TimeStamp"
-                    span: 4
-                    ToolTip.text: text
-                    ToolTip.visible: pressed
-                }
+
                 ParamRow {
                     id: txtBMS1Voltage
                     text: "BMS1 Voltage"
