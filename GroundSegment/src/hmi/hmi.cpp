@@ -4,6 +4,9 @@
 #include <QVariant>
 #include <QDebug>
 #include <iostream>
+#include <QStandardPaths>
+#include <QDir>
+
 
 Q_DECLARE_METATYPE(mavlink_system_status_pack_t);
 Q_DECLARE_METATYPE(mavlink_telemetry_data_pack_t);
@@ -43,6 +46,10 @@ HMI::HMI(QObject *parent)
     QObject::connect(timerRadioLink,&QTimer::timeout,this, &HMI::checkRadioLink);
     QObject::connect(timerSystem,&QTimer::timeout,this, &HMI::checkSystem);
     QObject::connect(timerStorage,&QTimer::timeout,this, &HMI::checkStorage);
+
+update_TimeStampDesc(initDesc("TimeStamp"));
+
+
 
 
 
@@ -743,6 +750,28 @@ void HMI::initValues()
     update_storage21(0);
     update_storage22(0);
     update_storage23(0);
+}
+
+QString HMI::initDesc(QString str)
+{
+    QString defaultValue = "";
+    QString docFolder= QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+    QString settingsFileName = docFolder + "/agu-settings/descInit.ini";
+
+    if(QFileInfo(settingsFileName).exists()){
+
+        QSettings settings (settingsFileName, QSettings::IniFormat);
+        QStringList childKeys = settings.childKeys();
+        foreach (const QString &childKey, childKeys)
+        {
+
+            if (str.compare(QVariant(childKey).toString()) == 0)
+                return settings.value(childKey).toString();
+        }
+
+    }
+
+    return defaultValue;
 }
 
 void HMI::checkTelemetry()

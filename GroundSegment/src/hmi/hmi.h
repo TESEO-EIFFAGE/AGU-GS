@@ -618,6 +618,50 @@ public:
     QML_READONLY_AUTO_PROPERTY(bool,msgRadioLinkOld)
     QML_READONLY_AUTO_PROPERTY(bool,msgMotorOld)
 
+
+    /* DESC */
+    QML_READONLY_AUTO_PROPERTY(QString,TimeStampDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,TimeStampRIODesc)
+    QML_READONLY_AUTO_PROPERTY(QString,LatitudeDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,LongitudeDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,GNSSAltitudeDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,AirSpeed_UVectorDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,AirSpeed_VVectorDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,AirSpeed_WVectorDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,AirTemperatureDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,AltitudeFromRadarAltimeterDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,AltitudeFromPayloadAltimeterDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,LinearVelocityHorizontalDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,LinearVelocityVerticalDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,PositionAccuracyDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,SpeedAccuracyDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,LinearAccelerationXDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,LinearAccelerationYDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,LinearAccelerationZDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,ECEFVectorPositionXDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,ECEFVectorPositionYDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,ECEFVectorPositionZDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,ECEFVectorVelocityXDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,ECEFVectorVelocityYDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,ECEFVectorVelocityZDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,RollAngleDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,PitchAngleDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,YawAngleDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,AngularRateRollDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,AngularRatePitchDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,AngularRateYawDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,Quaternion0Desc)
+    QML_READONLY_AUTO_PROPERTY(QString,Quaternion1Desc)
+    QML_READONLY_AUTO_PROPERTY(QString,Quaternion2Desc)
+    QML_READONLY_AUTO_PROPERTY(QString,Quaternion3Desc)
+    QML_READONLY_AUTO_PROPERTY(QString,NumberOfGPSSatelliteDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,AnemCommErrorCounterDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,RDAltCommErrorCounterDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,GNSSCommErrorCounterDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,PLAltCommErrorCounterDesc)
+
+
+
     /* TBD */
     QML_READONLY_AUTO_PROPERTY(quint8,GSRLErrorCounter)
     QML_READONLY_AUTO_PROPERTY(quint8,FSRLErrorCounter)
@@ -641,6 +685,7 @@ private:
     void showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status);
 
     void initValues();
+    QString initDesc(QString str);
     void checkTelemetry();
     void checkGuidance();
     void checkSystem();
