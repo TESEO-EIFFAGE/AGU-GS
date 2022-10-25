@@ -660,6 +660,35 @@ public:
     QML_READONLY_AUTO_PROPERTY(QString,GNSSCommErrorCounterDesc)
     QML_READONLY_AUTO_PROPERTY(QString,PLAltCommErrorCounterDesc)
 
+    QML_READONLY_AUTO_PROPERTY(QString,MotorARealPositionDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,MotorADemandPositionDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,MotorATorqueDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,MotorATempDesc)
+
+    QML_READONLY_AUTO_PROPERTY(QString,MotorBRealPositionDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,MotorBDemandPositionDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,MotorBTorqueDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,MotorBTempDesc)
+
+    QML_READONLY_AUTO_PROPERTY(QString,BMSVoltageDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,BMSAbsorptionDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,BMSTempDesc)
+
+    QML_READONLY_AUTO_PROPERTY(QString,MotorAFaultsMaskDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,MotorBFaultsMaskDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,BMSFaultsMaskDesc)
+
+    QML_READONLY_AUTO_PROPERTY(QString,ChargeValueDesc)
+
+    QML_READONLY_AUTO_PROPERTY(QString,FlightModeDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,FlightPhaseDesc)
+    QML_READONLY_AUTO_PROPERTY(QString,FlightPhaseExecutionTimeDesc)
+
+    QML_READONLY_AUTO_PROPERTY(QString,communicationErrorCounterDesc);
+
+    QML_READONLY_AUTO_PROPERTY(QString,RSSIDesc);
+
+    QML_READONLY_AUTO_PROPERTY(QString,storageFreeDataSizeDesc);
 
 
     /* TBD */

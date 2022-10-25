@@ -135,7 +135,7 @@ Rectangle {
                     text: "[param1]"
 
                     id: param1
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -143,7 +143,7 @@ Rectangle {
                     text: "[param2]"
 
                     id: param2
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -151,7 +151,7 @@ Rectangle {
                     text: "[param3]"
 
                     id: param3
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
             }

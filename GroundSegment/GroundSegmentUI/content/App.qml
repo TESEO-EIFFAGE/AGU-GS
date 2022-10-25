@@ -230,7 +230,7 @@ Window {
                                    || hmi.radiolinkMask9
 
 
-        fsParams.txtTelemetryMsgCounter: hmi.telemetryMsgCounter
+        fsParams.txtTelemetryMsgCounter.value: hmi.telemetryMsgCounter
         fsParams.txtStorageMsgCounter: hmi.storageMsgCounter
         fsParams.txtSystemMsgCounter: hmi.systemMsgCounter
         //fsParams.txtGuidanceMsgCounter: hmi.guidanceMsgCounter
@@ -238,73 +238,112 @@ Window {
         fsParams.txtMotorMsgCounter: hmi.motorMsgCounter
 
         fsParams.txtTimeStampRIO: timestampToUTCDate(hmi.TimeStampRIO)
-        fsParams.txtLatitude: hmi.Latitude.toFixed(2)
-        fsParams.txtLongitude: hmi.Longitude.toFixed(2)
-        fsParams.txtGNSSAltitude: hmi.GNSSAltitude.toFixed(3)
+        fsParams.txtLatitude.value: hmi.Latitude.toFixed(2)
+        fsParams.txtLongitude.value: hmi.Longitude.toFixed(2)
+        fsParams.txtGNSSAltitude.value: hmi.GNSSAltitude.toFixed(3)
+
+        fsParams.txtLatitude.desc: hmi.LatitudeDesc
+        fsParams.txtLongitude.desc: hmi.LongitudeDesc
+        fsParams.txtGNSSAltitude.desc: hmi.GNSSAltitudeDesc
 
         fsParams.homeTab.txtLatitude: hmi.Latitude.toFixed(2)
         fsParams.homeTab.txtLongitude: hmi.Longitude.toFixed(2)
         fsParams.homeTab.txtGNSSAltitude: hmi.GNSSAltitude.toFixed(3)
 
-        fsParams.txtAirSpeed_UVector: hmi.AirSpeed_UVector.toFixed(2)
-        fsParams.txtAirSpeed_VVector: hmi.AirSpeed_VVector.toFixed(2)
-        fsParams.txtAirSpeed_WVector: hmi.AirSpeed_WVector.toFixed(2)
+        fsParams.txtAirSpeed_UVector.value: hmi.AirSpeed_UVector.toFixed(2)
+        fsParams.txtAirSpeed_VVector.value: hmi.AirSpeed_VVector.toFixed(2)
+        fsParams.txtAirSpeed_WVector.value: hmi.AirSpeed_WVector.toFixed(2)
+
+        fsParams.txtAirSpeed_UVector.desc: hmi.AirSpeed_UVectorDesc
+        fsParams.txtAirSpeed_VVector.desc: hmi.AirSpeed_VVectorDesc
+        fsParams.txtAirSpeed_WVector.desc: hmi.AirSpeed_WVectorDesc
 
         fsParams.homeTab.txtAirSpeed_UVector: hmi.AirSpeed_UVector.toFixed(2)
         fsParams.homeTab.txtAirSpeed_VVector: hmi.AirSpeed_VVector.toFixed(2)
         fsParams.homeTab.txtAirSpeed_WVector: hmi.AirSpeed_WVector.toFixed(2)
 
-        fsParams.txtAirTemperature: hmi.AirTemperature.toFixed(2)
+        fsParams.txtAirTemperature.value: hmi.AirTemperature.toFixed(2)
 
         fsParams.radarDrawer.param1.value: hmi.AltitudeFromRadarAltimeter.toFixed(2)
         fsParams.payloadDrawer.param1.value:hmi.AltitudeFromPayloadAltimeter.toFixed(2)
 
-        fsParams.txtLinearVelocityHorizontal: hmi.LinearVelocityHorizontal.toFixed(2)
-        fsParams.txtLinearVelocityVertical: hmi.LinearVelocityVertical.toFixed(2)
+        fsParams.txtLinearVelocityHorizontal.value: hmi.LinearVelocityHorizontal.toFixed(2)
+        fsParams.txtLinearVelocityVertical.value: hmi.LinearVelocityVertical.toFixed(2)
+
+        fsParams.txtAirTemperature.desc: hmi.AirTemperatureDesc
+
+        fsParams.radarDrawer.param1.desc: hmi.AltitudeFromRadarAltimeterDesc
+        fsParams.payloadDrawer.param1.desc:hmi.AltitudeFromPayloadAltimeterDesc
+
+        fsParams.txtLinearVelocityHorizontal.desc: hmi.LinearVelocityHorizontalDesc
+        fsParams.txtLinearVelocityVertical.desc: hmi.LinearVelocityVerticalDesc
 
         fsParams.homeTab.txtLinearVelocityHorizontal: hmi.LinearVelocityHorizontal.toFixed(2)
         fsParams.homeTab.txtLinearVelocityVertical: hmi.LinearVelocityVertical.toFixed(2)
 
-        fsParams.txtPositionAccuracy: hmi.PositionAccuracy.toFixed(2)
-        fsParams.txtSpeedAccuracy:hmi.SpeedAccuracy.toFixed(2)
+        fsParams.txtPositionAccuracy.value: hmi.PositionAccuracy.toFixed(2)
+        fsParams.txtSpeedAccuracy.value:hmi.SpeedAccuracy.toFixed(2)
+
+        fsParams.txtPositionAccuracy.desc: hmi.PositionAccuracyDesc
+        fsParams.txtSpeedAccuracy.desc:hmi.SpeedAccuracyDesc
 
         fsParams.linearAccDrawer.param1.value: hmi.LinearAccelerationX.toFixed(2)
         fsParams.linearAccDrawer.param2.value: hmi.LinearAccelerationY.toFixed(2)
         fsParams.linearAccDrawer.param3.value: hmi.LinearAccelerationZ.toFixed(2)
-        //        fsParams.txtLinearAccelerationX: hmi.LinearAccelerationX.toFixed(2)
-        //        fsParams.txtLinearAccelerationY: hmi.LinearAccelerationY.toFixed(2)
-        //        fsParams.txtLinearAccelerationZ: hmi.LinearAccelerationZ.toFixed(2)
 
-        fsParams.txtECEFVectorPositionX: hmi.ECEFVectorPositionX.toFixed(2)
-        fsParams.txtECEFVectorPositionY: hmi.ECEFVectorPositionY.toFixed(2)
-        fsParams.txtECEFVectorPositionZ: hmi.ECEFVectorPositionZ.toFixed(2)
+        fsParams.linearAccDrawer.param1.desc: hmi.LinearAccelerationXDesc
+        fsParams.linearAccDrawer.param2.desc: hmi.LinearAccelerationYDesc
+        fsParams.linearAccDrawer.param3.desc: hmi.LinearAccelerationZDesc
+
+        fsParams.txtECEFVectorPositionX.value: hmi.ECEFVectorPositionX.toFixed(2)
+        fsParams.txtECEFVectorPositionY.value: hmi.ECEFVectorPositionY.toFixed(2)
+        fsParams.txtECEFVectorPositionZ.value: hmi.ECEFVectorPositionZ.toFixed(2)
+
+        fsParams.txtECEFVectorPositionX.desc: hmi.ECEFVectorPositionXDesc
+        fsParams.txtECEFVectorPositionY.desc: hmi.ECEFVectorPositionYDesc
+        fsParams.txtECEFVectorPositionZ.desc: hmi.ECEFVectorPositionZDesc
 
         fsParams.ecefVelocityDrawer.param1.value: hmi.ECEFVectorVelocityX.toFixed(2)
         fsParams.ecefVelocityDrawer.param2.value: hmi.ECEFVectorVelocityY.toFixed(2)
         fsParams.ecefVelocityDrawer.param3.value: hmi.ECEFVectorVelocityZ.toFixed(2)
 
-        //        fsParams.txtECEFVectorVelocityX: hmi.ECEFVectorVelocityX.toFixed(2)
-        //        fsParams.txtECEFVectorVelocityY: hmi.ECEFVectorVelocityY.toFixed(2)
-        //        fsParams.txtECEFVectorVelocityZ: hmi.ECEFVectorVelocityZ.toFixed(2)
+        fsParams.ecefVelocityDrawer.param1.desc: hmi.ECEFVectorVelocityXDesc
+        fsParams.ecefVelocityDrawer.param2.desc: hmi.ECEFVectorVelocityYDesc
+        fsParams.ecefVelocityDrawer.param3.desc: hmi.ECEFVectorVelocityZDesc
 
-        fsParams.txtRollAngle: hmi.RollAngle.toFixed(2)
-        fsParams.txtPitchAngle: hmi.PitchAngle.toFixed(2)
-        fsParams.txtYawAngle: hmi.YawAngle.toFixed(2)
+        fsParams.txtRollAngle.value: hmi.RollAngle.toFixed(2)
+        fsParams.txtPitchAngle.value: hmi.PitchAngle.toFixed(2)
+        fsParams.txtYawAngle.value: hmi.YawAngle.toFixed(2)
+
+        fsParams.txtRollAngle.desc: hmi.RollAngleDesc
+        fsParams.txtPitchAngle.desc: hmi.PitchAngleDesc
+        fsParams.txtYawAngle.desc: hmi.YawAngleDesc
 
         fsParams.homeTab.txtRollAngle: hmi.RollAngle.toFixed(2)
         fsParams.homeTab.txtPitchAngle: hmi.PitchAngle.toFixed(2)
         fsParams.homeTab.txtYawAngle: hmi.YawAngle.toFixed(2)
 
-        fsParams.txtAngularRateRoll: hmi.AngularRateRoll.toFixed(2)
-        fsParams.txtAngularRatePitch: hmi.AngularRatePitch.toFixed(2)
-        fsParams.txtAngularRateYaw: hmi.AngularRateYaw.toFixed(2)
+        fsParams.txtAngularRateRoll.value: hmi.AngularRateRoll.toFixed(2)
+        fsParams.txtAngularRatePitch.value: hmi.AngularRatePitch.toFixed(2)
+        fsParams.txtAngularRateYaw.value: hmi.AngularRateYaw.toFixed(2)
 
-        fsParams.txtNumberOfGPSSatellite: hmi.NumberOfGPSSatellite
+        fsParams.txtNumberOfGPSSatellite.value: hmi.NumberOfGPSSatellite
 
-        fsParams.txtAnemCommErrorCounter: hmi.AnemCommErrorCounter
-        fsParams.txtRDAltCommErrorCounter: hmi.RDAltCommErrorCounter
-        fsParams.txtGNSSCommErrorCounter: hmi.GNSSCommErrorCounter
-        fsParams.txtPLAltCommErrorCounter: hmi.PLAltCommErrorCounter
+        fsParams.txtAnemCommErrorCounter.value: hmi.AnemCommErrorCounter
+        fsParams.txtRDAltCommErrorCounter.value: hmi.RDAltCommErrorCounter
+        fsParams.txtGNSSCommErrorCounter.value: hmi.GNSSCommErrorCounter
+        fsParams.txtPLAltCommErrorCounter.value: hmi.PLAltCommErrorCounter
+
+        fsParams.txtAngularRateRoll.desc: hmi.AngularRateRollDesc
+        fsParams.txtAngularRatePitch.desc: hmi.AngularRatePitchDesc
+        fsParams.txtAngularRateYaw.desc: hmi.AngularRateYawDesc
+
+        fsParams.txtNumberOfGPSSatellite.desc: hmi.NumberOfGPSSatelliteDesc
+
+        fsParams.txtAnemCommErrorCounter.desc: hmi.AnemCommErrorCounterDesc
+        fsParams.txtRDAltCommErrorCounter.desc: hmi.RDAltCommErrorCounterDesc
+        fsParams.txtGNSSCommErrorCounter.desc: hmi.GNSSCommErrorCounterDesc
+        fsParams.txtPLAltCommErrorCounter.desc: hmi.PLAltCommErrorCounterDesc
 
         fsParams.txtMotorARealPosition: hmi.MotorARealPosition.toFixed(3)
         fsParams.txtMotorADemandPosition: hmi.MotorADemandPosition.toFixed(3)
