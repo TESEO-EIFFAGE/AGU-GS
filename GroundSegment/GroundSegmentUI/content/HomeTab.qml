@@ -14,17 +14,17 @@ Pane {
 
     property alias txtSystemMsgCounter: txtSystemMsgCounter.value
 
-    property alias txtLatitude: txtLatitude.value
-    property alias txtLongitude: txtLongitude.value
-    property alias txtGNSSAltitude: txtGNSSAltitude.value
-    property alias txtRollAngle: txtRollAngle.value
-    property alias txtPitchAngle: txtPitchAngle.value
-    property alias txtYawAngle: txtYawAngle.value
-    property alias txtLinearVelocityHorizontal: txtLinearVelocityHorizontal.value
-    property alias txtLinearVelocityVertical: txtLinearVelocityVertical.value
-    property alias txtAirSpeed_UVector: txtAirSpeed_UVector.value
-    property alias txtAirSpeed_VVector: txtAirSpeed_VVector.value
-    property alias txtAirSpeed_WVector: txtAirSpeed_WVector.value
+    property alias txtLatitude: txtLatitude
+    property alias txtLongitude: txtLongitude
+    property alias txtGNSSAltitude: txtGNSSAltitude
+    property alias txtRollAngle: txtRollAngle
+    property alias txtPitchAngle: txtPitchAngle
+    property alias txtYawAngle: txtYawAngle
+    property alias txtLinearVelocityHorizontal: txtLinearVelocityHorizontal
+    property alias txtLinearVelocityVertical: txtLinearVelocityVertical
+    property alias txtAirSpeed_UVector: txtAirSpeed_UVector
+    property alias txtAirSpeed_VVector: txtAirSpeed_VVector
+    property alias txtAirSpeed_WVector: txtAirSpeed_WVector
 
     property alias coreLight4: coreLight4
     property alias coreLight3: coreLight3

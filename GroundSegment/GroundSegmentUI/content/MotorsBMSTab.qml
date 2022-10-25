@@ -13,20 +13,20 @@ Pane {
 
     property alias txtMotorMsgCounter: txtMotorMsgCounter.value
 
-    property alias txtMotorARealPosition: txtMotorARealPosition.value
-    property alias txtMotorADemandPosition: txtMotorADemandPosition.value
-    property alias txtMotorATorque: txtMotorATorque.value
-    property alias txtMotorATemp: txtMotorATemp.value
+    property alias txtMotorARealPosition: txtMotorARealPosition
+    property alias txtMotorADemandPosition: txtMotorADemandPosition
+    property alias txtMotorATorque: txtMotorATorque
+    property alias txtMotorATemp: txtMotorATemp
 
-    property alias txtMotorBRealPosition: txtMotorBRealPosition.value
-    property alias txtMotorBDemandPosition: txtMotorBDemandPosition.value
-    property alias txtMotorBTorque: txtMotorBTorque.value
-    property alias txtMotorBTemp: txtMotorBTemp.value
+    property alias txtMotorBRealPosition: txtMotorBRealPosition
+    property alias txtMotorBDemandPosition: txtMotorBDemandPosition
+    property alias txtMotorBTorque: txtMotorBTorque
+    property alias txtMotorBTemp: txtMotorBTemp
 
-    property alias txtBMS1Voltage: txtBMS1Voltage.value
-    property alias txtBMS1Absorption: txtBMS1Absorption.value
-    property alias txtBMS1Temp: txtBMS1Temp.value
-    property alias txtChargeValue: txtChargeValue.value
+    property alias txtBMS1Voltage: txtBMS1Voltage
+    property alias txtBMS1Absorption: txtBMS1Absorption
+    property alias txtBMS1Temp: txtBMS1Temp
+    property alias txtChargeValue: txtChargeValue
 
     property alias generalMotorDrawer: generalMotorDrawer
     property alias motorLight20: motorLight20
@@ -88,21 +88,21 @@ Pane {
                     id: txtBMS1Voltage
                     text: "BMS1 Voltage"
                     span: 6
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
                 ParamRow {
                     id: txtBMS1Absorption
                     text: "BMS1 Absorption"
                     span: 6
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
                 ParamRow {
                     id: txtBMS1Temp
                     text: "BMS1 Temperature"
                     span: 6
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
                 StatusLight {
@@ -206,7 +206,7 @@ Pane {
                     id: txtMotorARealPosition
                     text: "MotorA RealPosition"
                     span: 8
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -214,7 +214,7 @@ Pane {
                     id: txtMotorADemandPosition
                     text: "MotorA DemandPosition"
                     span: 8
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
                 ParamRow {
@@ -222,7 +222,7 @@ Pane {
 
                     text: "MotorA Torque"
                     span: 5
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
                 ParamRow {
@@ -230,7 +230,7 @@ Pane {
 
                     text: "MotorA Temp"
                     span: 5
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -272,7 +272,7 @@ Pane {
 
                     text: "MotorB RealPosition"
                     span: 8
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
                 ParamRow {
@@ -280,7 +280,7 @@ Pane {
 
                     text: "MotorB DemandPosition"
                     span: 8
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -289,7 +289,7 @@ Pane {
 
                     text: "MotorB Torque"
                     span: 5
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -298,7 +298,7 @@ Pane {
 
                     text: "MotorB Temp"
                     span: 5
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -365,7 +365,7 @@ Pane {
                     id: txtChargeValue
                     text: "Charge %"
                     span: 3
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
                 StatusLight {
