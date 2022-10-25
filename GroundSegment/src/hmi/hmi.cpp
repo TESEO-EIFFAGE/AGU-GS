@@ -6,6 +6,7 @@
 #include <iostream>
 #include <QStandardPaths>
 #include <QDir>
+#include<QSettings>
 
 
 Q_DECLARE_METATYPE(mavlink_system_status_pack_t);
@@ -47,7 +48,7 @@ HMI::HMI(QObject *parent)
     QObject::connect(timerSystem,&QTimer::timeout,this, &HMI::checkSystem);
     QObject::connect(timerStorage,&QTimer::timeout,this, &HMI::checkStorage);
 
-update_TimeStampDesc(initDesc("TimeStamp"));
+    update_TimeStampDesc(initDesc("TimeStamp"));
 
 
 
@@ -766,7 +767,11 @@ QString HMI::initDesc(QString str)
         {
 
             if (str.compare(QVariant(childKey).toString()) == 0)
+            {
+                printf("Found TimeStamp desc");
+
                 return settings.value(childKey).toString();
+            }
         }
 
     }
