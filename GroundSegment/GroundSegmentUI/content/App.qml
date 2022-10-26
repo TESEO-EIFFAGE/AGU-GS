@@ -246,13 +246,13 @@ Window {
         fsParams.txtLongitude.desc: hmi.LongitudeDesc
         fsParams.txtGNSSAltitude.desc: hmi.GNSSAltitudeDesc
 
-        fsParams.homeTab.txtLatitude.value: hmi.Latitude.toFixed(2)
-        fsParams.homeTab.txtLongitude.value: hmi.Longitude.toFixed(2)
-        fsParams.homeTab.txtGNSSAltitude.value: hmi.GNSSAltitude.toFixed(3)
+        fsParams.txtLatitudeHome.value: hmi.Latitude.toFixed(2)
+        fsParams.txtLongitudeHome.value: hmi.Longitude.toFixed(2)
+        fsParams.txtGNSSAltitudeHome.value: hmi.GNSSAltitude.toFixed(3)
 
-        fsParams.homeTab.txtLatitude.desc: hmi.LatitudeDesc
-        fsParams.homeTab.txtLongitude.desc: hmi.LongitudeDesc
-        fsParams.homeTab.txtGNSSAltitude.desc: hmi.GNSSAltitudeDesc
+        fsParams.txtLatitudeHome.desc: hmi.LatitudeDesc
+        fsParams.txtLongitudeHome.desc: hmi.LongitudeDesc
+        fsParams.txtGNSSAltitudeHome.desc: hmi.GNSSAltitudeDesc
 
         fsParams.txtAirSpeed_UVector.value: hmi.AirSpeed_UVector.toFixed(2)
         fsParams.txtAirSpeed_VVector.value: hmi.AirSpeed_VVector.toFixed(2)
@@ -262,13 +262,13 @@ Window {
         fsParams.txtAirSpeed_VVector.desc: hmi.AirSpeed_VVectorDesc
         fsParams.txtAirSpeed_WVector.desc: hmi.AirSpeed_WVectorDesc
 
-        fsParams.homeTab.txtAirSpeed_UVector.value: hmi.AirSpeed_UVector.toFixed(2)
-        fsParams.homeTab.txtAirSpeed_VVector.value: hmi.AirSpeed_VVector.toFixed(2)
-        fsParams.homeTab.txtAirSpeed_WVector.value: hmi.AirSpeed_WVector.toFixed(2)
+        fsParams.txtAirSpeed_UVectorHome.value: hmi.AirSpeed_UVector.toFixed(2)
+        fsParams.txtAirSpeed_VVectorHome.value: hmi.AirSpeed_VVector.toFixed(2)
+        fsParams.txtAirSpeed_WVectorHome.value: hmi.AirSpeed_WVector.toFixed(2)
 
-        fsParams.homeTab.txtAirSpeed_UVector.desc: hmi.AirSpeed_UVectorDesc
-        fsParams.homeTab.txtAirSpeed_VVector.desc: hmi.AirSpeed_VVectorDesc
-        fsParams.homeTab.txtAirSpeed_WVector.desc: hmi.AirSpeed_WVectorDesc
+        fsParams.txtAirSpeed_UVectorHome.desc: hmi.AirSpeed_UVectorDesc
+        fsParams.txtAirSpeed_VVectorHome.desc: hmi.AirSpeed_VVectorDesc
+        fsParams.txtAirSpeed_WVectorHome.desc: hmi.AirSpeed_WVectorDesc
 
         fsParams.txtAirTemperature.value: hmi.AirTemperature.toFixed(2)
 
@@ -286,11 +286,11 @@ Window {
         fsParams.txtLinearVelocityHorizontal.desc: hmi.LinearVelocityHorizontalDesc
         fsParams.txtLinearVelocityVertical.desc: hmi.LinearVelocityVerticalDesc
 
-        fsParams.homeTab.txtLinearVelocityHorizontal.value: hmi.LinearVelocityHorizontal.toFixed(2)
-        fsParams.homeTab.txtLinearVelocityVertical.value: hmi.LinearVelocityVertical.toFixed(2)
+        fsParams.txtLinearVelocityHorizontalHome.value: hmi.LinearVelocityHorizontal.toFixed(2)
+        fsParams.txtLinearVelocityVerticalHome.value: hmi.LinearVelocityVertical.toFixed(2)
 
-        fsParams.homeTab.txtLinearVelocityHorizontal.desc: hmi.LinearVelocityHorizontalDesc
-        fsParams.homeTab.txtLinearVelocityVertical.desc: hmi.LinearVelocityVerticalDesc
+        fsParams.txtLinearVelocityHorizontalHome.desc: hmi.LinearVelocityHorizontalDesc
+        fsParams.txtLinearVelocityVerticalHome.desc: hmi.LinearVelocityVerticalDesc
 
         fsParams.txtPositionAccuracy.value: hmi.PositionAccuracy.toFixed(2)
         fsParams.txtSpeedAccuracy.value:hmi.SpeedAccuracy.toFixed(2)
@@ -330,13 +330,13 @@ Window {
         fsParams.txtPitchAngle.desc: hmi.PitchAngleDesc
         fsParams.txtYawAngle.desc: hmi.YawAngleDesc
 
-        fsParams.homeTab.txtRollAngle.value: hmi.RollAngle.toFixed(2)
-        fsParams.homeTab.txtPitchAngle.value: hmi.PitchAngle.toFixed(2)
-        fsParams.homeTab.txtYawAngle.value: hmi.YawAngle.toFixed(2)
+        fsParams.txtRollAngleHome.value: hmi.RollAngle.toFixed(2)
+        fsParams.txtPitchAngleHome.value: hmi.PitchAngle.toFixed(2)
+        fsParams.txtYawAngleHome.value: hmi.YawAngle.toFixed(2)
 
-        fsParams.homeTab.txtRollAngle.desc: hmi.RollAngleDesc
-        fsParams.homeTab.txtPitchAngle.desc: hmi.PitchAngleDesc
-        fsParams.homeTab.txtYawAngle.desc: hmi.YawAngleDesc
+        fsParams.txtRollAngleHome.desc: hmi.RollAngleDesc
+        fsParams.txtPitchAngleHome.desc: hmi.PitchAngleDesc
+        fsParams.txtYawAngleHome.desc: hmi.YawAngleDesc
 
         fsParams.txtAngularRateRoll.value: hmi.AngularRateRoll.toFixed(2)
         fsParams.txtAngularRatePitch.value: hmi.AngularRatePitch.toFixed(2)
