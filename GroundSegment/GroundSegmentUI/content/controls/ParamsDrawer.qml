@@ -65,7 +65,7 @@ Rectangle {
             color: "transparent"
             height: 16
             width: parent.width
-            anchors.top: parent.top
+            //anchors.top: parent.top
 
             MouseArea {
                 id: headerArea
@@ -117,7 +117,7 @@ Rectangle {
             color: "transparent"
             anchors.left: parent.left
             anchors.right: parent.right
-            anchors.top: overviewBox.bottom
+            //anchors.top: overviewBox.bottom
             clip: true
             height: root.open ? 80 : 0
 
