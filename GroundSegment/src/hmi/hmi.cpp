@@ -117,12 +117,13 @@ HMI::HMI(QObject *parent)
 
 
 
-//    update_telemetryMsgCounter(0);
-//    update_motorMsgCounter(0);
-//    update_storageMsgCounter(0);
-//    update_radiolinkMsgCounter(0);
-//    update_guidanceMsgCounter(0);
-//    update_systemMsgCounter(0);
+
+    //    update_telemetryMsgCounter(0);
+    //    update_motorMsgCounter(0);
+    //    update_storageMsgCounter(0);
+    //    update_radiolinkMsgCounter(0);
+    //    update_guidanceMsgCounter(0);
+    //    update_systemMsgCounter(0);
 
 
     //    update_TimeStamp(0);
@@ -816,29 +817,28 @@ void HMI::initValues()
     update_storage23(0);
 }
 
-QString HMI::initDesc(QString str)
+QString HMI::initDesc(const QString &str)
 {
-    QString defaultValue = "";
-    QString docFolder= QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
-    QString settingsFileName = docFolder + "/agu-settings/params-descriptions.ini";
-
-    if(QFileInfo(settingsFileName).exists()){
-
+    QString defaultValue{str};
+    QString docFolder(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
+    const QString settingsFileName(docFolder + "/agu-settings/params-descriptions.ini");
+    const QString settingsTplName(docFolder + "/agu-settings/params-descriptions-template.ini");
+    if (!QFileInfo(settingsFileName).exists()) {
+        QFile::copy(settingsTplName, settingsFileName);
+    }
+    if (QFileInfo(settingsFileName).exists()) {
         QSettings settings (settingsFileName, QSettings::IniFormat);
         QStringList childKeys = settings.childKeys();
-        foreach (const QString &childKey, childKeys)
+        for (const QString& childKey : settings.childKeys())
         {
-
             if (str.compare(QVariant(childKey).toString()) == 0)
             {
-                printf("Found TimeStamp desc");
-
-                return settings.value(childKey).toString();
+                //printf("Found TimeStamp desc");
+                defaultValue = settings.value(childKey).toString();
+                break;
             }
         }
-
     }
-
     return defaultValue;
 }
 

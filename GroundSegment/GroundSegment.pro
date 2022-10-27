@@ -17,15 +17,24 @@ HEADERS += \
 RESOURCES += \
     GroundSegmentUI/GroundSegmentUI.qrc
 
+OTHER_FILES += \
+    conf/params-descriptions-template.ini
+
 QML_IMPORT_PATH += \
     GroundSegmentUI/ \
     GroundSegmentUI/imports
-#/home/agudev/Documents
-configdocs.files = params-descriptions.ini
-configdocs.path = "/home/agudev/Documents/agu-settings" #$HOME/Documents/agu-settings
 
-QMAKE_BUNDLE_DATA += configdocs
-INSTALLS += configdocs
+CONFIG_DESTDIR = $$(HOME)/Documents/agu-settings
+confcreatedir.commands = $$shell_path($$CONFIG_DESTDIR) & $(MKDIR) $$shell_path($$CONFIG_DESTDIR)
+QMAKE_EXTRA_TARGETS += confcreatedir
+PRE_TARGETDEPS += confcreatedir
+
+PARAM_DESC_TPL = params-descriptions-template.ini
+PARAM_DESC_SRC = $$PWD/conf/$$PARAM_DESC_TPL
+PARAM_DESC_DESTTPL = $$CONFIG_DESTDIR/$$PARAM_DESC_TPL
+confcopy.commands = $(COPY) $${PARAM_DESC_SRC} $${PARAM_DESC_DESTTPL}
+POST_TARGETDEPS += confcopy
+QMAKE_EXTRA_TARGETS += confcopy
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

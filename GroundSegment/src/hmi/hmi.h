@@ -714,7 +714,7 @@ private:
     void showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status);
 
     void initValues();
-    QString initDesc(QString str);
+    QString initDesc(const QString& str);
     void checkTelemetry();
     void checkGuidance();
     void checkSystem();
