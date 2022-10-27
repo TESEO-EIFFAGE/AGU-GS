@@ -629,6 +629,8 @@ public:
 
     QML_READONLY_AUTO_PROPERTY(qint32,LatTopLeft)
     QML_READONLY_AUTO_PROPERTY(qint32,LongTopLeft)
+    QML_READONLY_AUTO_PROPERTY(qint32,LatBotRight)
+    QML_READONLY_AUTO_PROPERTY(qint32,LongBotRight)
 public:
 
     void showData(QVariant data);
@@ -647,6 +649,7 @@ private:
     void showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status);
 
     void initValues();
+    qint32 initMap(QString str);
     void checkTelemetry();
     void checkGuidance();
     void checkSystem();

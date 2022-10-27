@@ -4,6 +4,9 @@
 #include <QVariant>
 #include <QDebug>
 #include <iostream>
+#include <QStandardPaths>
+#include <QDir>
+#include <QSettings>
 
 Q_DECLARE_METATYPE(mavlink_system_status_pack_t);
 Q_DECLARE_METATYPE(mavlink_telemetry_data_pack_t);
@@ -44,14 +47,17 @@ HMI::HMI(QObject *parent)
     QObject::connect(timerSystem,&QTimer::timeout,this, &HMI::checkSystem);
     QObject::connect(timerStorage,&QTimer::timeout,this, &HMI::checkStorage);
 
+    update_LatTopLeft(initMap("LatTopLeft"));
+    update_LongTopLeft(initMap("LongTopLeft"));
+    update_LatBotRight(initMap("LatBotRight"));
+    update_LongBotRight(initMap("LongBotRight"));
 
-
-//    update_telemetryMsgCounter(0);
-//    update_motorMsgCounter(0);
-//    update_storageMsgCounter(0);
-//    update_radiolinkMsgCounter(0);
-//    update_guidanceMsgCounter(0);
-//    update_systemMsgCounter(0);
+    //    update_telemetryMsgCounter(0);
+    //    update_motorMsgCounter(0);
+    //    update_storageMsgCounter(0);
+    //    update_radiolinkMsgCounter(0);
+    //    update_guidanceMsgCounter(0);
+    //    update_systemMsgCounter(0);
 
 
     //    update_TimeStamp(0);
@@ -743,6 +749,28 @@ void HMI::initValues()
     update_storage21(0);
     update_storage22(0);
     update_storage23(0);
+}
+
+qint32 HMI::initMap(QString str)
+{
+    int defaultValue = 0;
+    QString docFolder= QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+    QString settingsFileName = docFolder + "/agu-settings/map-parameters.ini";
+
+    if(QFileInfo(settingsFileName).exists()){
+
+        QSettings settings (settingsFileName, QSettings::IniFormat);
+        QStringList childKeys = settings.childKeys();
+        foreach (const QString &childKey, childKeys)
+        {
+
+            if (str.compare(QVariant(childKey).toString()) == 0)
+                defaultValue = settings.value(childKey).toInt();
+        }
+
+    }
+
+    return defaultValue;
 }
 
 void HMI::checkTelemetry()
