@@ -623,6 +623,12 @@ public:
     QML_READONLY_AUTO_PROPERTY(quint8,FSRLErrorCounter)
     QML_READONLY_AUTO_PROPERTY(quint8,RLHeartbeatCounter)
     QML_READONLY_AUTO_PROPERTY(bool,gnssFound)
+
+
+
+
+    QML_READONLY_AUTO_PROPERTY(qint32,LatTopLeft)
+    QML_READONLY_AUTO_PROPERTY(qint32,LongTopLeft)
 public:
 
     void showData(QVariant data);
