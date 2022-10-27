@@ -34,6 +34,7 @@ Rectangle {
     property alias radioLinkLight1: radioLinkLight1
     property alias radioLinkLight0: radioLinkLight0
 
+
     ColumnLayout {
         anchors.fill: parent
         spacing: 24 //20

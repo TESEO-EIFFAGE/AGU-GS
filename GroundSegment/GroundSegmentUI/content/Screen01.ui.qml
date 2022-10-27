@@ -30,6 +30,7 @@ Rectangle {
 
     property alias customCursor: map.customCursor
     property alias map: map
+    property alias mapBoundaries: map.mapBoundaries
     RowLayout {
         anchors.fill: parent
         spacing: 0

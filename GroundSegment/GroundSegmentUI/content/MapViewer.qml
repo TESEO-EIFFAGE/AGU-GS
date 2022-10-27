@@ -7,12 +7,16 @@ import agu.gnss 1.0
 
 Item{
     id: mapviewer
+
+
     property bool hasGps: gpsData.hasFix
+
     property int latitude
     property int longitude
     property int zoomLevel: 1//0
 
     property alias customCursor: customCursor
+    property alias mapBoundaries: mapBoundaries
     //width: Qt.platform.os =ss= "android" ? Screen.width : 512
     //height: Qt.platform.os == "android" ? Screen.height : 512
 
@@ -73,9 +77,11 @@ Item{
             visible: true
         }
         MapRectangle{
+            id: mapBoundaries
             autoFadeIn: false
             opacity: 1
-            color:"green"
+            border.color: "green"
+            border.width: 3
             topLeft:QtPositioning.coordinate(-0.3354, 1.4524)
             bottomRight:QtPositioning.coordinate(1, 3)
 //            topLeft: {

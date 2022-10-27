@@ -30,6 +30,7 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import GroundSegmentUI 1.0
+import QtPositioning 5.6
 
 Window {
     width: Constants.width
@@ -83,6 +84,9 @@ Window {
             }
 
         }
+
+        mapBoundaries.topLeft: QtPositioning.coordinate(hmi.LatTopLeft,hmi.LongTopLeft)
+        mapBoundaries.bottomRight: QtPositioning.coordinate(hmi.LatBotRight,hmi.LongBotRight)
 
         fsParams.telemetryTab.enabled: !hmi.msgTelemetryOld
         fsParams.storageTab.enabled: !hmi.msgStorageOld
