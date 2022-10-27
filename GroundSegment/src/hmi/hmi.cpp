@@ -820,7 +820,7 @@ QString HMI::initDesc(QString str)
 {
     QString defaultValue = "";
     QString docFolder= QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
-    QString settingsFileName = docFolder + "/agu-settings/descInit.ini";
+    QString settingsFileName = docFolder + "/agu-settings/params-descriptions.ini";
 
     if(QFileInfo(settingsFileName).exists()){
 

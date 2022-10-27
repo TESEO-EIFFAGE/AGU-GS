@@ -20,6 +20,12 @@ RESOURCES += \
 QML_IMPORT_PATH += \
     GroundSegmentUI/ \
     GroundSegmentUI/imports
+#/home/agudev/Documents
+configdocs.files = params-descriptions.ini
+configdocs.path = "/home/agudev/Documents/agu-settings" #$HOME/Documents/agu-settings
+
+QMAKE_BUNDLE_DATA += configdocs
+INSTALLS += configdocs
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
