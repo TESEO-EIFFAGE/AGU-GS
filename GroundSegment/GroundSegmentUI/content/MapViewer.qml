@@ -189,9 +189,7 @@ Item{
                 anchors.topMargin: 2
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "+"
-                onClicked: {
-                    mapviewer.zoomLevel+=1
-                }
+                onClicked: mapviewer.zoomLevel+=1
             }
             Button {
                 id: zoomOutBtn
@@ -199,9 +197,7 @@ Item{
                 width:parent.width-4
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "-"
-                onClicked: {
-                    mapviewer.zoomLevel-=1
-                }
+                onClicked: mapviewer.zoomLevel-=1
             }
         }
     }
