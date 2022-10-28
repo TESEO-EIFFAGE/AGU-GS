@@ -488,12 +488,12 @@ Window {
         fsParams.radioLinkLight1.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask1
         fsParams.radioLinkLight0.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask0
 
-        map.latitude: hmi.Latitude
-        map.longitude: hmi.Longitude
+        map.latitude: gsParams.latitude
+        map.longitude:  gsParams.Longitude
 
 
         //gsParams.gnssLight.up: hmi.gnssFound
-
+        map.customCursorIcon.visible: map.latitudeIsSet && map.longitudeIsSet
         gsParams.txtTimeStamp: timestampToUTCDate(hmi.TimeStamp)
 
         gsParams.txtLatitudeGPSData:  gpsData.latitude.toFixed(2)

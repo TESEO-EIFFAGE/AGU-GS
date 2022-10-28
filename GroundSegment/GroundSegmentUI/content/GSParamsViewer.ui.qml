@@ -9,6 +9,9 @@ Rectangle {
     property int latitude
     property int longitude
 
+    property bool longitudeIsSet:false
+    property bool latitudeIsSet: false
+
     property alias gnssSwitch: gnssSwitch
 
     property alias txtTimeStamp: txtTimeStamp.value
@@ -198,7 +201,7 @@ Rectangle {
                             }
 
                             TextField {
-                                height: 24
+                                height: 32
                                 width: 120
                                 placeholderText: qsTr("Latitude  ...")
                                 onEditingFinished: text !== "" ? params.latitude = text : params.latitudeIsSet = false
@@ -216,7 +219,7 @@ Rectangle {
                             }
 
                             TextField {
-                                height: 24
+                                height: 32
                                 width: 120
                                 placeholderText: qsTr("Longitude ...")
 

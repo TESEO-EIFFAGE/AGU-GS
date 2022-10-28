@@ -68,8 +68,8 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
     mavlink_telemetry_data_pack_t telemetry;
 
     //uint64_t telemetry_Status_Mask = (rand() % 1000) + 1;
-    int32_t latitude= (rand() % 10000000) + 1;
-    int32_t longitude= (rand() % 10000000) + 1;
+    int32_t latitude= (rand() % 180) - 90;
+    int32_t longitude= (rand() % 360) -180;
     uint32_t gnss_Altitude= (rand() % 1000) + 1;
     int32_t altitude_Main_Altimeter= (rand() % 100) + 1;
     int32_t altitude_Payload_Altimeter= (rand() % 100) + 1;

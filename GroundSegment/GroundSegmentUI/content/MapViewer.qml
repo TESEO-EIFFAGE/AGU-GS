@@ -11,11 +11,14 @@ Item{
 
     property bool hasGps: gpsData.hasFix
 
-    property int latitude
-    property int longitude
+
+    property int latitude :0
+    property int longitude :0
     property int zoomLevel: 1//0
 
     property alias customCursor: customCursor
+    property alias customCursorIcon: customCursorIcon
+
     property alias mapBoundaries: mapBoundaries
     //width: Qt.platform.os =ss= "android" ? Screen.width : 512
     //height: Qt.platform.os == "android" ? Screen.height : 512
@@ -39,6 +42,9 @@ Item{
     Map {
         id: map
         anchors.fill: parent
+        gesture.acceptedGestures: MapGestureArea.NoGesture
+
+
         plugin: Plugin {
             id: mapPlugin
             name: "osm"
