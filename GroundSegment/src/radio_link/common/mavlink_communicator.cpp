@@ -38,6 +38,16 @@ bool MavLinkCommunicator::randomBool() {
     return gen();
 }
 
+float MavLinkCommunicator::randomLat() {
+    static auto gen = std::bind(std::uniform_real_distribution<>(-80,80),std::default_random_engine());
+    return gen();
+}
+
+float MavLinkCommunicator::randomLon() {
+    static auto gen = std::bind(std::uniform_real_distribution<>(-120,120),std::default_random_engine());
+    return gen();
+}
+
 uint8_t MavLinkCommunicator::random255() {
     static auto gen = std::bind(std::uniform_int_distribution<>(0,255),std::default_random_engine());
     return gen();

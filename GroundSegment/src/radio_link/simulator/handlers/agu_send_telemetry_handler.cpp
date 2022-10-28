@@ -19,6 +19,8 @@ AGUSendTelemetryHandler::AGUSendTelemetryHandler(MavLinkCommunicator* communicat
     AbstractHandler(communicator),
     m_model(model)
 {
+    this->m_lat = m_communicator->randomLat();
+    this->m_lat = m_communicator->randomLon();
     this->startTimer(200);
 }
 
@@ -67,9 +69,10 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
     mavlink_message_t message;
     mavlink_telemetry_data_pack_t telemetry;
 
+
     //uint64_t telemetry_Status_Mask = (rand() % 1000) + 1;
-    int32_t latitude= (rand() % 10000000) + 1;
-    int32_t longitude= (rand() % 10000000) + 1;
+    //int32_t latitude= (rand() % 10000000) + 1;
+    //int32_t longitude= (rand() % 10000000) + 1;
     uint32_t gnss_Altitude= (rand() % 1000) + 1;
     int32_t altitude_Main_Altimeter= (rand() % 100) + 1;
     int32_t altitude_Payload_Altimeter= (rand() % 100) + 1;
@@ -105,8 +108,8 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
     printf("ROLL ANGLE %d \n",roll_Angle);
 
     //telemetry.Telemetry_Status_Mask=telemetry_Status_Mask;
-    telemetry.Latitude=latitude;
-    telemetry.Longitude=longitude;
+    telemetry.Latitude=m_lat;
+    telemetry.Longitude=m_lon;
     telemetry.GNSS_Altitude=gnss_Altitude;
     telemetry.Altitude_Main_Altimeter=altitude_Main_Altimeter;
     telemetry.Altitude_Payload_Altimeter=altitude_Payload_Altimeter;
@@ -140,7 +143,6 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
     telemetry.Satellite_Num=satellite_Num;
     telemetry.Log_Timestamp = QDateTime::currentDateTimeUtc().toMSecsSinceEpoch();
     telemetry.GNSS_Timestamp= QDateTime::currentDateTimeUtc().toMSecsSinceEpoch();
-
     telemetry.Telemetry_Status_Mask = this->generateMask();
 
     mavlink_msg_telemetry_data_pack_encode(m_communicator->systemId(),
@@ -148,5 +150,8 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
                                            &message, &telemetry);
 
     m_communicator->sendMessageOnLastReceivedLink(message);
+
+    m_lat += 0.01;
+    m_lon += 0.01;
 }
 

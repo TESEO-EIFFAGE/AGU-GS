@@ -26,8 +26,11 @@ public:
 
     uint8_t systemId() const;
     uint8_t componentId() const;
+
     bool randomBool();
     uint8_t random255();
+    float randomLat();
+    float randomLon();
 
 public slots:
     void addLink(radiolink::AbstractLink* link, uint8_t channel);

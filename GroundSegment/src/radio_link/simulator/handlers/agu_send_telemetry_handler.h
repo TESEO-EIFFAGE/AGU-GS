@@ -22,6 +22,8 @@ namespace radiolink
     private:
         UavModel* m_model;
         uint64_t generateMask();
+        float m_lat;
+        float m_lon;
     };
 }
 
