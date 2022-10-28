@@ -623,12 +623,12 @@ public:
     Q_PROPERTY(QString LatitudeDesc READ LatitudeDesc WRITE setLatitudeDesc NOTIFY LatitudeDescChanged)
     Q_PROPERTY(QString LongitudeDesc READ LongitudeDesc WRITE setLongitudeDesc NOTIFY LongitudeDescChanged)
     Q_PROPERTY(QString GNSSAltitudeDesc READ GNSSAltitudeDesc WRITE setGNSSAltitudeDesc NOTIFY GNSSAltitudeDescChanged)
-
+//    QML_READONLY_AUTO_PROPERTY(QString,LatitudeDesc)
+//    QML_READONLY_AUTO_PROPERTY(QString,LongitudeDesc)
+//    QML_READONLY_AUTO_PROPERTY(QString,GNSSAltitudeDesc)
     QML_READONLY_AUTO_PROPERTY(QString,TimeStampDesc)
     QML_READONLY_AUTO_PROPERTY(QString,TimeStampRIODesc)
-    QML_READONLY_AUTO_PROPERTY(QString,LatitudeDesc)
-    QML_READONLY_AUTO_PROPERTY(QString,LongitudeDesc)
-    QML_READONLY_AUTO_PROPERTY(QString,GNSSAltitudeDesc)
+
     QML_READONLY_AUTO_PROPERTY(QString,AirSpeed_UVectorDesc)
     QML_READONLY_AUTO_PROPERTY(QString,AirSpeed_VVectorDesc)
     QML_READONLY_AUTO_PROPERTY(QString,AirSpeed_WVectorDesc)
@@ -704,6 +704,56 @@ public:
 
     void showData(QVariant data);
 
+    QString LatitudeDesc() const
+    {
+        return m_LatitudeDesc;
+    }
+
+    QString LongitudeDesc() const
+    {
+        return m_LongitudeDesc;
+    }
+
+    QString GNSSAltitudeDesc() const
+    {
+        return m_GNSSAltitudeDesc;
+    }
+
+public slots:
+    void setLatitudeDesc(QString LatitudeDesc)
+    {
+        if (m_LatitudeDesc == LatitudeDesc)
+            return;
+
+        m_LatitudeDesc = LatitudeDesc;
+        emit LatitudeDescChanged(m_LatitudeDesc);
+    }
+
+    void setLongitudeDesc(QString LongitudeDesc)
+    {
+        if (m_LongitudeDesc == LongitudeDesc)
+            return;
+
+        m_LongitudeDesc = LongitudeDesc;
+        emit LongitudeDescChanged(m_LongitudeDesc);
+    }
+
+    void setGNSSAltitudeDesc(QString GNSSAltitudeDesc)
+    {
+        if (m_GNSSAltitudeDesc == GNSSAltitudeDesc)
+            return;
+
+        m_GNSSAltitudeDesc = GNSSAltitudeDesc;
+        emit GNSSAltitudeDescChanged(m_GNSSAltitudeDesc);
+    }
+
+signals:
+    void LatitudeDescChanged(QString LatitudeDesc);
+
+    void LongitudeDescChanged(QString LongitudeDesc);
+
+    void GNSSAltitudeDescChanged(QString GNSSAltitudeDesc);
+
 private:
     uint8_t extractBits64(const std::bitset<64> the_bitset, size_t start_bit, size_t end_bit);
     uint8_t extractBits32(const std::bitset<32> the_bitset, size_t start_bit, size_t end_bit);
@@ -734,6 +784,9 @@ private:
     QTimer *timerRadioLink;
     QTimer *timerStorage;
     QTimer *timerSystem;
+    QString m_LatitudeDesc;
+    QString m_LongitudeDesc;
+    QString m_GNSSAltitudeDesc;
 };
 
 #endif // HMI_H
