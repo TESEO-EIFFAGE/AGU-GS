@@ -48,172 +48,72 @@ HMI::HMI(QObject *parent)
     QObject::connect(timerSystem,&QTimer::timeout,this, &HMI::checkSystem);
     QObject::connect(timerStorage,&QTimer::timeout,this, &HMI::checkStorage);
 
-  //  setTimeStampDesc(initDesc("TimeStamp"));
-  //  setTimeStampRIODesc(initDesc("TimeStampRIO"));
+    setTimeStampDesc(initDesc("TimeStamp"));
+    setTimeStampRIODesc(initDesc("TimeStampRIO"));
     setLatitudeDesc(initDesc("Latitude"));
     setLongitudeDesc(initDesc("Longitude"));
     setGNSSAltitudeDesc(initDesc("GNSSAltitude"));
-//    setAirSpeed_UVectorDesc(initDesc("AirSpeed_UVector"));
-//    setAirSpeed_VVectorDesc(initDesc("AirSpeed_VVector"));
-//    setAirSpeed_WVectorDesc(initDesc("AirSpeed_WVector"));
-//    setAirTemperatureDesc(initDesc("AirTemperature"));
-//    setAltitudeFromRadarAltimeterDesc(initDesc("AltitudeFromRadarAltimeter"));
-//    setAltitudeFromPayloadAltimeterDesc(initDesc("AltitudeFromPayloadAltimeter"));
-//    setLinearVelocityHorizontalDesc(initDesc("LinearVelocityHorizontal"));
-//    setLinearVelocityVerticalDesc(initDesc("LinearVelocityVertical"));
-//    setPositionAccuracyDesc(initDesc("PositionAccuracy"));
-//    setSpeedAccuracyDesc(initDesc("SpeedAccuracy"));
-//    setLinearAccelerationXDesc(initDesc("LinearAccelerationX"));
-//    setLinearAccelerationYDesc(initDesc("LinearAccelerationY"));
-//    setLinearAccelerationZDesc(initDesc("LinearAccelerationZ"));
-//    setECEFVectorPositionXDesc(initDesc("ECEFVectorPositionX"));
-//    setECEFVectorPositionYDesc(initDesc("ECEFVectorPositionY"));
-//    setECEFVectorPositionZDesc(initDesc("ECEFVectorPositionZ"));
-//    setECEFVectorVelocityXDesc(initDesc("ECEFVectorVelocityX"));
-//    setECEFVectorVelocityYDesc(initDesc("ECEFVectorVelocityY"));
-//    setECEFVectorVelocityZDesc(initDesc("ECEFVectorVelocityZ"));
-//    setRollAngleDesc(initDesc("RollAngle"));
-//    setPitchAngleDesc(initDesc("PitchAngle"));
-//    setYawAngleDesc(initDesc("YawAngle"));
-//    setAngularRateRollDesc(initDesc("AngularRateRoll"));
-//    setAngularRatePitchDesc(initDesc("AngularRatePitch"));
-//    setAngularRateYawDesc(initDesc("AngularRateYaw"));
-//    setQuaternion0Desc(initDesc("Quaternion0"));
-//    setQuaternion1Desc(initDesc("Quaternion1"));
-//    setQuaternion2Desc(initDesc("Quaternion2"));
-//    setQuaternion3Desc(initDesc("Quaternion3"));
-//    setNumberOfGPSSatelliteDesc(initDesc("NumberOfGPSSatellite"));
-//    setAnemCommErrorCounterDesc(initDesc("AnemCommErrorCounter"));
-//    setRDAltCommErrorCounterDesc(initDesc("RDAltCommErrorCounter"));
-//    setGNSSCommErrorCounterDesc(initDesc("GNSSCommErrorCounter"));
-//    setPLAltCommErrorCounterDesc(initDesc("PLAltCommErrorCounter"));
+    setAirSpeed_UVectorDesc(initDesc("AirSpeed_UVector"));
+    setAirSpeed_VVectorDesc(initDesc("AirSpeed_VVector"));
+    setAirSpeed_WVectorDesc(initDesc("AirSpeed_WVector"));
+    setAirTemperatureDesc(initDesc("AirTemperature"));
+    setAltitudeFromRadarAltimeterDesc(initDesc("AltitudeFromRadarAltimeter"));
+    setAltitudeFromPayloadAltimeterDesc(initDesc("AltitudeFromPayloadAltimeter"));
+    setLinearVelocityHorizontalDesc(initDesc("LinearVelocityHorizontal"));
+    setLinearVelocityVerticalDesc(initDesc("LinearVelocityVertical"));
+    setPositionAccuracyDesc(initDesc("PositionAccuracy"));
+    setSpeedAccuracyDesc(initDesc("SpeedAccuracy"));
+    setLinearAccelerationXDesc(initDesc("LinearAccelerationX"));
+    setLinearAccelerationYDesc(initDesc("LinearAccelerationY"));
+    setLinearAccelerationZDesc(initDesc("LinearAccelerationZ"));
+    setECEFVectorPositionXDesc(initDesc("ECEFVectorPositionX"));
+    setECEFVectorPositionYDesc(initDesc("ECEFVectorPositionY"));
+    setECEFVectorPositionZDesc(initDesc("ECEFVectorPositionZ"));
+    setECEFVectorVelocityXDesc(initDesc("ECEFVectorVelocityX"));
+    setECEFVectorVelocityYDesc(initDesc("ECEFVectorVelocityY"));
+    setECEFVectorVelocityZDesc(initDesc("ECEFVectorVelocityZ"));
+    setRollAngleDesc(initDesc("RollAngle"));
+    setPitchAngleDesc(initDesc("PitchAngle"));
+    setYawAngleDesc(initDesc("YawAngle"));
+    setAngularRateRollDesc(initDesc("AngularRateRoll"));
+    setAngularRatePitchDesc(initDesc("AngularRatePitch"));
+    setAngularRateYawDesc(initDesc("AngularRateYaw"));
+    setQuaternion0Desc(initDesc("Quaternion0"));
+    setQuaternion1Desc(initDesc("Quaternion1"));
+    setQuaternion2Desc(initDesc("Quaternion2"));
+    setQuaternion3Desc(initDesc("Quaternion3"));
+    setNumberOfGPSSatelliteDesc(initDesc("NumberOfGPSSatellite"));
+    setAnemCommErrorCounterDesc(initDesc("AnemCommErrorCounter"));
+    setRDAltCommErrorCounterDesc(initDesc("RDAltCommErrorCounter"));
+    setGNSSCommErrorCounterDesc(initDesc("GNSSCommErrorCounter"));
+    setPLAltCommErrorCounterDesc(initDesc("PLAltCommErrorCounter"));
 
 
-//    setMotorARealPositionDesc(initDesc("MotorARealPosition"));
-//    setMotorADemandPositionDesc(initDesc("MotorADemandPosition"));
-//    setMotorATorqueDesc(initDesc("MotorATorque"));
-//    setMotorATempDesc(initDesc("MotorATemp"));
+    setMotorARealPositionDesc(initDesc("MotorARealPosition"));
+    setMotorADemandPositionDesc(initDesc("MotorADemandPosition"));
+    setMotorATorqueDesc(initDesc("MotorATorque"));
+    setMotorATempDesc(initDesc("MotorATemp"));
 
-//    setMotorBRealPositionDesc(initDesc("MotorBRealPosition"));
-//    setMotorBDemandPositionDesc(initDesc("MotorBDemandPosition"));
-//    setMotorBTorqueDesc(initDesc("MotorBTorque"));
-//    setMotorBTempDesc(initDesc("MotorBTemp"));
+    setMotorBRealPositionDesc(initDesc("MotorBRealPosition"));
+    setMotorBDemandPositionDesc(initDesc("MotorBDemandPosition"));
+    setMotorBTorqueDesc(initDesc("MotorBTorque"));
+    setMotorBTempDesc(initDesc("MotorBTemp"));
 
-//    setBMSVoltageDesc(initDesc("BMSVoltage"));
-//    setBMSAbsorptionDesc(initDesc("BMSAbsorption"));
-//    setBMSTempDesc(initDesc("BMSTemp"));
+    setBMSVoltageDesc(initDesc("BMSVoltage"));
+    setBMSAbsorptionDesc(initDesc("BMSAbsorption"));
+    setBMSTempDesc(initDesc("BMSTemp"));
 
-//    setChargeValueDesc(initDesc("ChargeValue"));
+    setChargeValueDesc(initDesc("ChargeValue"));
 
-//    setFlightModeDesc(initDesc("FlightMode"));
-//    setFlightPhaseDesc(initDesc("FlightPhase"));
-//    setFlightPhaseExecutionTimeDesc(initDesc("FlightPhaseExecutionTime"));
+    setFlightModeDesc(initDesc("FlightMode"));
+    setFlightPhaseDesc(initDesc("FlightPhase"));
+    setFlightPhaseExecutionTimeDesc(initDesc("FlightPhaseExecutionTime"));
 
-//    setcommunicationErrorCounterDesc(initDesc("communicationErrorCounter"));
+    setcommunicationErrorCounterDesc(initDesc("communicationErrorCounter"));
 
-//    setRSSIDesc(initDesc("RSSI"));
+    setRSSIDesc(initDesc("RSSI"));
 
-//    setstorageFreeDataSizeDesc(initDesc("storageFreeDataSize"));
-
-
-
-
-    //    settelemetryMsgCounter(0);
-    //    setmotorMsgCounter(0);
-    //    setstorageMsgCounter(0);
-    //    setradiolinkMsgCounter(0);
-    //    setguidanceMsgCounter(0);
-    //    setsystemMsgCounter(0);
-
-
-    //    setTimeStamp(0);
-    //    setLatitude(0);
-    //    setLongitude(0);
-    //    setGNSSAltitude(0);
-    //    setAirSpeed_UVector(0);
-    //    setAirSpeed_VVector(0);
-    //    setAirSpeed_WVector(0);
-    //    setAirTemperature(0);
-    //    setAltitudeFromPayloadAltimeter(0);
-    //    setAltitudeFromRadarAltimeter(0);
-    //    setLinearVelocityHorizontal(0);
-    //    setLinearVelocityVertical(0);
-    //    setPositionAccuracy(0);
-    //    setSpeedAccuracy(0);
-    //    setLinearAccelerationX(0);
-    //    setLinearAccelerationY(0);
-    //    setLinearAccelerationZ(0);
-    //    setECEFVectorPositionX(0);
-    //    setECEFVectorPositionY(0);
-    //    setECEFVectorPositionZ(0);
-    //    setECEFVectorVelocityX(0);
-    //    setECEFVectorVelocityY(0);
-    //    setECEFVectorVelocityZ(0);
-    //    setRollAngle(0);
-    //    setYawAngle(0);
-    //    setPitchAngle(0);
-    //    setAngularRatePitch(0);
-    //    setAngularRateRoll(0);
-    //    setAngularRateYaw(0);
-    //    setQuaternion0(0);
-    //    setQuaternion1(0);
-    //    setQuaternion2(0);
-    //    setQuaternion3(0);
-    //    setNumberOfGPSSatellite(0);
-
-
-
-
-
-    //    setAnemCommErrorCounter(0);
-    //    setRDAltCommErrorCounter(0);
-    //    setGNSSCommErrorCounter(0);
-    //    setPLAltCommErrorCounter(0);
-
-    //    setTimeStampRIO (0);
-    //    setFlightMode (0);
-    //    setFlightPhase(0);
-    //    setFlightPhaseExecutionTime(0);
-    //    setTelemetryModuleStatusMask(0);
-    //    setStorageModuleStatusMask(0);
-    //    setGuidanceModuleStatusMask(0);
-    //    setCoreModuleStatusMask(0);
-    //    setRadioLinkModuleStatusMask(0);
-
-
-
-
-    //    setcommunicationErrorCounter(0);
-
-
-    //    setradiolinkErrorCounter(0);
-
-    //    setMotorARealPosition(0);
-    //    setMotorADemandPosition(0);
-    //    setMotorATemp(0);
-    //    setMotorATorque(0);
-    //    setMotorAFaultsMask(0);
-
-    //    setMotorBRealPosition(0);
-    //    setMotorBDemandPosition(0);
-    //    setMotorBTemp(0);
-    //    setMotorBTorque(0);
-    //    setMotorBFaultsMask(0);
-
-    //    setBMSVoltage(0);
-    //    setBMSAbsorption(0);
-    //    setBMSTemp(0);
-
-
-
-
-
-
-    //    setChargeValue(0);
-    //    setMotorControlStatusMask(0);
-
-    //    setstorageFreeDataSize(0);
-
+    setstorageFreeDataSizeDesc(initDesc("storageFreeDataSize"));
 
     //initValues();
 
