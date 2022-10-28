@@ -620,6 +620,10 @@ public:
 
 
     /* DESC */
+    Q_PROPERTY(QString LatitudeDesc READ LatitudeDesc WRITE setLatitudeDesc NOTIFY LatitudeDescChanged)
+    Q_PROPERTY(QString LongitudeDesc READ LongitudeDesc WRITE setLongitudeDesc NOTIFY LongitudeDescChanged)
+    Q_PROPERTY(QString GNSSAltitudeDesc READ GNSSAltitudeDesc WRITE setGNSSAltitudeDesc NOTIFY GNSSAltitudeDescChanged)
+
     QML_READONLY_AUTO_PROPERTY(QString,TimeStampDesc)
     QML_READONLY_AUTO_PROPERTY(QString,TimeStampRIODesc)
     QML_READONLY_AUTO_PROPERTY(QString,LatitudeDesc)

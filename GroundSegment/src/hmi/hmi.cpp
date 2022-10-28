@@ -48,72 +48,72 @@ HMI::HMI(QObject *parent)
     QObject::connect(timerSystem,&QTimer::timeout,this, &HMI::checkSystem);
     QObject::connect(timerStorage,&QTimer::timeout,this, &HMI::checkStorage);
 
-    update_TimeStampDesc(initDesc("TimeStamp"));
-    update_TimeStampRIODesc(initDesc("TimeStampRIO"));
-    update_LatitudeDesc(initDesc("Latitude"));
-    update_LongitudeDesc(initDesc("Longitude"));
-    update_GNSSAltitudeDesc(initDesc("GNSSAltitude"));
-    update_AirSpeed_UVectorDesc(initDesc("AirSpeed_UVector"));
-    update_AirSpeed_VVectorDesc(initDesc("AirSpeed_VVector"));
-    update_AirSpeed_WVectorDesc(initDesc("AirSpeed_WVector"));
-    update_AirTemperatureDesc(initDesc("AirTemperature"));
-    update_AltitudeFromRadarAltimeterDesc(initDesc("AltitudeFromRadarAltimeter"));
-    update_AltitudeFromPayloadAltimeterDesc(initDesc("AltitudeFromPayloadAltimeter"));
-    update_LinearVelocityHorizontalDesc(initDesc("LinearVelocityHorizontal"));
-    update_LinearVelocityVerticalDesc(initDesc("LinearVelocityVertical"));
-    update_PositionAccuracyDesc(initDesc("PositionAccuracy"));
-    update_SpeedAccuracyDesc(initDesc("SpeedAccuracy"));
-    update_LinearAccelerationXDesc(initDesc("LinearAccelerationX"));
-    update_LinearAccelerationYDesc(initDesc("LinearAccelerationY"));
-    update_LinearAccelerationZDesc(initDesc("LinearAccelerationZ"));
-    update_ECEFVectorPositionXDesc(initDesc("ECEFVectorPositionX"));
-    update_ECEFVectorPositionYDesc(initDesc("ECEFVectorPositionY"));
-    update_ECEFVectorPositionZDesc(initDesc("ECEFVectorPositionZ"));
-    update_ECEFVectorVelocityXDesc(initDesc("ECEFVectorVelocityX"));
-    update_ECEFVectorVelocityYDesc(initDesc("ECEFVectorVelocityY"));
-    update_ECEFVectorVelocityZDesc(initDesc("ECEFVectorVelocityZ"));
-    update_RollAngleDesc(initDesc("RollAngle"));
-    update_PitchAngleDesc(initDesc("PitchAngle"));
-    update_YawAngleDesc(initDesc("YawAngle"));
-    update_AngularRateRollDesc(initDesc("AngularRateRoll"));
-    update_AngularRatePitchDesc(initDesc("AngularRatePitch"));
-    update_AngularRateYawDesc(initDesc("AngularRateYaw"));
-    update_Quaternion0Desc(initDesc("Quaternion0"));
-    update_Quaternion1Desc(initDesc("Quaternion1"));
-    update_Quaternion2Desc(initDesc("Quaternion2"));
-    update_Quaternion3Desc(initDesc("Quaternion3"));
-    update_NumberOfGPSSatelliteDesc(initDesc("NumberOfGPSSatellite"));
-    update_AnemCommErrorCounterDesc(initDesc("AnemCommErrorCounter"));
-    update_RDAltCommErrorCounterDesc(initDesc("RDAltCommErrorCounter"));
-    update_GNSSCommErrorCounterDesc(initDesc("GNSSCommErrorCounter"));
-    update_PLAltCommErrorCounterDesc(initDesc("PLAltCommErrorCounter"));
+  //  update_TimeStampDesc(initDesc("TimeStamp"));
+  //  update_TimeStampRIODesc(initDesc("TimeStampRIO"));
+    setLatitudeDesc(initDesc("Latitude"));
+    setLongitudeDesc(initDesc("Longitude"));
+    setGNSSAltitudeDesc(initDesc("GNSSAltitude"));
+//    update_AirSpeed_UVectorDesc(initDesc("AirSpeed_UVector"));
+//    update_AirSpeed_VVectorDesc(initDesc("AirSpeed_VVector"));
+//    update_AirSpeed_WVectorDesc(initDesc("AirSpeed_WVector"));
+//    update_AirTemperatureDesc(initDesc("AirTemperature"));
+//    update_AltitudeFromRadarAltimeterDesc(initDesc("AltitudeFromRadarAltimeter"));
+//    update_AltitudeFromPayloadAltimeterDesc(initDesc("AltitudeFromPayloadAltimeter"));
+//    update_LinearVelocityHorizontalDesc(initDesc("LinearVelocityHorizontal"));
+//    update_LinearVelocityVerticalDesc(initDesc("LinearVelocityVertical"));
+//    update_PositionAccuracyDesc(initDesc("PositionAccuracy"));
+//    update_SpeedAccuracyDesc(initDesc("SpeedAccuracy"));
+//    update_LinearAccelerationXDesc(initDesc("LinearAccelerationX"));
+//    update_LinearAccelerationYDesc(initDesc("LinearAccelerationY"));
+//    update_LinearAccelerationZDesc(initDesc("LinearAccelerationZ"));
+//    update_ECEFVectorPositionXDesc(initDesc("ECEFVectorPositionX"));
+//    update_ECEFVectorPositionYDesc(initDesc("ECEFVectorPositionY"));
+//    update_ECEFVectorPositionZDesc(initDesc("ECEFVectorPositionZ"));
+//    update_ECEFVectorVelocityXDesc(initDesc("ECEFVectorVelocityX"));
+//    update_ECEFVectorVelocityYDesc(initDesc("ECEFVectorVelocityY"));
+//    update_ECEFVectorVelocityZDesc(initDesc("ECEFVectorVelocityZ"));
+//    update_RollAngleDesc(initDesc("RollAngle"));
+//    update_PitchAngleDesc(initDesc("PitchAngle"));
+//    update_YawAngleDesc(initDesc("YawAngle"));
+//    update_AngularRateRollDesc(initDesc("AngularRateRoll"));
+//    update_AngularRatePitchDesc(initDesc("AngularRatePitch"));
+//    update_AngularRateYawDesc(initDesc("AngularRateYaw"));
+//    update_Quaternion0Desc(initDesc("Quaternion0"));
+//    update_Quaternion1Desc(initDesc("Quaternion1"));
+//    update_Quaternion2Desc(initDesc("Quaternion2"));
+//    update_Quaternion3Desc(initDesc("Quaternion3"));
+//    update_NumberOfGPSSatelliteDesc(initDesc("NumberOfGPSSatellite"));
+//    update_AnemCommErrorCounterDesc(initDesc("AnemCommErrorCounter"));
+//    update_RDAltCommErrorCounterDesc(initDesc("RDAltCommErrorCounter"));
+//    update_GNSSCommErrorCounterDesc(initDesc("GNSSCommErrorCounter"));
+//    update_PLAltCommErrorCounterDesc(initDesc("PLAltCommErrorCounter"));
 
 
-    update_MotorARealPositionDesc(initDesc("MotorARealPosition"));
-    update_MotorADemandPositionDesc(initDesc("MotorADemandPosition"));
-    update_MotorATorqueDesc(initDesc("MotorATorque"));
-    update_MotorATempDesc(initDesc("MotorATemp"));
+//    update_MotorARealPositionDesc(initDesc("MotorARealPosition"));
+//    update_MotorADemandPositionDesc(initDesc("MotorADemandPosition"));
+//    update_MotorATorqueDesc(initDesc("MotorATorque"));
+//    update_MotorATempDesc(initDesc("MotorATemp"));
 
-    update_MotorBRealPositionDesc(initDesc("MotorBRealPosition"));
-    update_MotorBDemandPositionDesc(initDesc("MotorBDemandPosition"));
-    update_MotorBTorqueDesc(initDesc("MotorBTorque"));
-    update_MotorBTempDesc(initDesc("MotorBTemp"));
+//    update_MotorBRealPositionDesc(initDesc("MotorBRealPosition"));
+//    update_MotorBDemandPositionDesc(initDesc("MotorBDemandPosition"));
+//    update_MotorBTorqueDesc(initDesc("MotorBTorque"));
+//    update_MotorBTempDesc(initDesc("MotorBTemp"));
 
-    update_BMSVoltageDesc(initDesc("BMSVoltage"));
-    update_BMSAbsorptionDesc(initDesc("BMSAbsorption"));
-    update_BMSTempDesc(initDesc("BMSTemp"));
+//    update_BMSVoltageDesc(initDesc("BMSVoltage"));
+//    update_BMSAbsorptionDesc(initDesc("BMSAbsorption"));
+//    update_BMSTempDesc(initDesc("BMSTemp"));
 
-    update_ChargeValueDesc(initDesc("ChargeValue"));
+//    update_ChargeValueDesc(initDesc("ChargeValue"));
 
-    update_FlightModeDesc(initDesc("FlightMode"));
-    update_FlightPhaseDesc(initDesc("FlightPhase"));
-    update_FlightPhaseExecutionTimeDesc(initDesc("FlightPhaseExecutionTime"));
+//    update_FlightModeDesc(initDesc("FlightMode"));
+//    update_FlightPhaseDesc(initDesc("FlightPhase"));
+//    update_FlightPhaseExecutionTimeDesc(initDesc("FlightPhaseExecutionTime"));
 
-    update_communicationErrorCounterDesc(initDesc("communicationErrorCounter"));
+//    update_communicationErrorCounterDesc(initDesc("communicationErrorCounter"));
 
-    update_RSSIDesc(initDesc("RSSI"));
+//    update_RSSIDesc(initDesc("RSSI"));
 
-    update_storageFreeDataSizeDesc(initDesc("storageFreeDataSize"));
+//    update_storageFreeDataSizeDesc(initDesc("storageFreeDataSize"));
 
 
 
@@ -870,4 +870,43 @@ void HMI::checkMotor()
 void HMI::checkRadioLink()
 {
     update_msgRadioLinkOld(true);
+}
+
+const QString &HMI::LatitudeDesc() const
+{
+    return m_LatitudeDesc;
+}
+
+void HMI::setLatitudeDesc(const QString &newLatitudeDesc)
+{
+    if (m_LatitudeDesc == newLatitudeDesc)
+        return;
+    m_LatitudeDesc = newLatitudeDesc;
+    emit LatitudeDescChanged();
+}
+
+const QString &HMI::LongitudeDesc() const
+{
+    return m_LongitudeDesc;
+}
+
+void HMI::setLongitudeDesc(const QString &newLongitudeDesc)
+{
+    if (m_LongitudeDesc == newLongitudeDesc)
+        return;
+    m_LongitudeDesc = newLongitudeDesc;
+    emit LongitudeDescChanged();
+}
+
+const QString &HMI::GNSSAltitudeDesc() const
+{
+    return m_GNSSAltitudeDesc;
+}
+
+void HMI::setGNSSAltitudeDesc(const QString &newGNSSAltitudeDesc)
+{
+    if (m_GNSSAltitudeDesc == newGNSSAltitudeDesc)
+        return;
+    m_GNSSAltitudeDesc = newGNSSAltitudeDesc;
+    emit GNSSAltitudeDescChanged();
 }
