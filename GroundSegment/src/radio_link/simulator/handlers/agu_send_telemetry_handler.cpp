@@ -20,7 +20,7 @@ AGUSendTelemetryHandler::AGUSendTelemetryHandler(MavLinkCommunicator* communicat
     m_model(model)
 {
     this->m_lat = m_communicator->randomLat();
-    this->m_lat = m_communicator->randomLon();
+    this->m_lon = m_communicator->randomLon();
     this->startTimer(200);
 }
 
@@ -71,8 +71,8 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
 
 
     //uint64_t telemetry_Status_Mask = (rand() % 1000) + 1;
-    int32_t latitude= (rand() % 180) - 90;
-    int32_t longitude= (rand() % 360) -180;
+    int32_t latitude= m_lat;
+    int32_t longitude= m_lon;
 
     uint32_t gnss_Altitude= (rand() % 1000) + 1;
     int32_t altitude_Main_Altimeter= (rand() % 100) + 1;
@@ -152,7 +152,7 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
 
     m_communicator->sendMessageOnLastReceivedLink(message);
 
-    m_lat += 0.01;
-    m_lon += 0.01;
+    m_lat = (m_lat > 90) ? 0 : (m_lat+1);
+    m_lon = (m_lon > 180) ? 0 : (m_lon+1);
 }
 

@@ -27,8 +27,8 @@ MavLinkCommunicator* UavCommunicatorFactory::create()
     new radiolink::AGUSendSystemHandler(communicator, m_model);
     new radiolink::AGUSendTelemetryHandler(communicator, m_model);
     new radiolink::AGUSendMotorHandler(communicator, m_model);
-    new radiolink::AGUSendGuidanceHandler(communicator, m_model);
-    new radiolink::AGUSendRadioLinkHandler(communicator, m_model);
+//    new radiolink::AGUSendGuidanceHandler(communicator, m_model);
+//    new radiolink::AGUSendRadioLinkHandler(communicator, m_model);
     new radiolink::AGUSendStorageHandler(communicator, m_model);
 
     /* add handler instances here */

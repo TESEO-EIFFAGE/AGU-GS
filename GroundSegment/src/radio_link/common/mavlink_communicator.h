@@ -29,8 +29,8 @@ public:
 
     bool randomBool();
     uint8_t random255();
-    float randomLat();
-    float randomLon();
+    int32_t randomLat();
+    int32_t randomLon();
 
 public slots:
     void addLink(radiolink::AbstractLink* link, uint8_t channel);

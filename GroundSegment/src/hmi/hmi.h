@@ -724,12 +724,13 @@ private:
     void loadDescriptions();
     void loadBoundingBox();
 
-    QTimer* timerTelemetry;
-    QTimer* timerMotor;
-    QTimer* timerGuidance;
-    QTimer* timerRadioLink;
-    QTimer* timerStorage;
-    QTimer* timerSystem;
+    QTimer* m_timerTelemetry;
+    QTimer* m_timerMotor;
+    QTimer* m_timerGuidance;
+    QTimer* m_timerRadioLink;
+    QTimer* m_timerStorage;
+    QTimer* m_timerSystem;
+    void setupMsgTimeouts();
 };
 
 #endif // HMI_H

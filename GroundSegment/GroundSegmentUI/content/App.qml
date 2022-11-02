@@ -42,47 +42,19 @@ Window {
 
     Screen01 {
         id: mainScreen
-        fsParams.onTelemetryTabClicked: {
-            timer.counter=0
-            timer.restart()
-        }
-        fsParams.onMotorsBMSTabClicked: {
-            timer.counter=0
-            timer.restart()
-        }
-        fsParams.onStorageTabClicked:{
-            timer.counter=0
-            timer.restart()
-        }
-        fsParams.onGuidanceTabClicked: {
-            timer.counter=0
-            timer.restart()
-        }
-        fsParams.onCoreTabClicked: {
-            timer.counter=0
-            timer.restart()
-        }
-        fsParams.onRadioLinkTabClicked: {
-            timer.counter=0
-            timer.restart()
-        }
+        fsParams.onTelemetryTabClicked: timer.restart()
+        fsParams.onMotorsBMSTabClicked: timer.restart()
+        fsParams.onStorageTabClicked: timer.restart()
+        fsParams.onGuidanceTabClicked: timer.restart()
+        fsParams.onCoreTabClicked: timer.restart()
+        fsParams.onRadioLinkTabClicked: timer.restart()
         anchors.fill:parent
         Timer{
             id:timer
-            property int counter : 0
             running:true
             repeat: true
-            interval:1200
-            onTriggered: {
-                counter += 1;
-                if(counter==10){
-                    mainScreen.tabIndex=0;
-                    counter=0;
-
-                }
-                
-            }
-
+            interval:12000
+            onTriggered: mainScreen.tabIndex=0
         }
 
         mapBoundaries.topLeft: QtPositioning.coordinate(hmi.LatTopLeft,hmi.LongTopLeft)
@@ -364,10 +336,6 @@ Window {
         fsParams.txtGNSSCommErrorCounter.desc: hmi.GNSSCommErrorCounterDesc
         fsParams.txtPLAltCommErrorCounter.desc: hmi.PLAltCommErrorCounterDesc
 
-
-
-
-
         fsParams.txtMotorARealPosition.value: hmi.MotorARealPosition.toFixed(3)
         fsParams.txtMotorADemandPosition.value: hmi.MotorADemandPosition.toFixed(3)
         fsParams.txtMotorATorque.value: hmi.MotorATorque.toFixed(2)
@@ -382,8 +350,6 @@ Window {
         fsParams.txtBMS1Absorption.value: hmi.BMSAbsorption.toFixed(2)
         fsParams.txtBMS1Temp.value: hmi.BMSTemp.toFixed(2)
         fsParams.txtChargeValue.value: hmi.ChargeValue
-
-
 
         fsParams.txtMotorARealPosition.desc: hmi.MotorARealPositionDesc
         fsParams.txtMotorADemandPosition.desc: hmi.MotorADemandPositionDesc
@@ -405,42 +371,39 @@ Window {
         fsParams.txtFreeDataStorageSize.value: hmi.storageFreeDataSize
         fsParams.txtFreeDataStorageSize.desc: hmi.storageFreeDataSizeDesc
 
+        fsParams.telemetryStatusDrawer.light31.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry31
+        fsParams.telemetryStatusDrawer.light30.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry30
+        fsParams.telemetryStatusDrawer.light29.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry29
+        fsParams.telemetryStatusDrawer.light28.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry28
+        fsParams.telemetryStatusDrawer.light27.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry27
+        fsParams.telemetryStatusDrawer.light26.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry26
+        fsParams.telemetryStatusDrawer.light25.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry25
+        fsParams.telemetryStatusDrawer.light24.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry24
+        fsParams.telemetryStatusDrawer.light23.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry23
+        fsParams.telemetryStatusDrawer.light22.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry22
+        fsParams.telemetryStatusDrawer.light21.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry21
+        fsParams.telemetryStatusDrawer.light20.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry20
+        fsParams.telemetryStatusDrawer.light19.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry19
+        fsParams.telemetryStatusDrawer.light18.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry18
+        fsParams.telemetryStatusDrawer.light17.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry17
+        fsParams.telemetryStatusDrawer.light16.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry16
+        fsParams.telemetryStatusDrawer.light15.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry15
+        fsParams.telemetryStatusDrawer.light14.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry14
+        fsParams.telemetryStatusDrawer.light13.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry13
+        fsParams.telemetryStatusDrawer.light12.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry12
+        fsParams.telemetryStatusDrawer.light11.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry11
+        fsParams.telemetryStatusDrawer.light10.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry10
+        fsParams.telemetryStatusDrawer.light9.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry9
+        fsParams.telemetryStatusDrawer.light8.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry8
+        fsParams.telemetryStatusDrawer.light7.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry7
+        fsParams.telemetryStatusDrawer.light6.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry6
+        fsParams.telemetryStatusDrawer.light5.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry5
+        fsParams.telemetryStatusDrawer.light4.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry4
+        fsParams.telemetryStatusDrawer.light3.state: hmi.msgTelemetryOld ? "" : hmi.telemetry3
+        fsParams.telemetryStatusDrawer.light2.state: hmi.msgTelemetryOld ? "" : hmi.telemetry2
+        fsParams.telemetryStatusDrawer.light1.state: hmi.msgTelemetryOld ? "" : hmi.telemetry1
+        fsParams.telemetryStatusDrawer.light0.state: hmi.msgTelemetryOld ? "" : hmi.telemetry0
 
-
-        fsParams.telemetryStatusDrawer.light31.up: hmi.telemetry31
-        fsParams.telemetryStatusDrawer.light30.up: hmi.telemetry30
-        fsParams.telemetryStatusDrawer.light29.up: hmi.telemetry29
-        fsParams.telemetryStatusDrawer.light28.up: hmi.telemetry28
-        fsParams.telemetryStatusDrawer.light27.up: hmi.telemetry27
-        fsParams.telemetryStatusDrawer.light26.up: hmi.telemetry26
-        fsParams.telemetryStatusDrawer.light25.up: hmi.telemetry25
-        fsParams.telemetryStatusDrawer.light24.up: hmi.telemetry24
-        fsParams.telemetryStatusDrawer.light23.up: hmi.telemetry23
-        fsParams.telemetryStatusDrawer.light22.up: hmi.telemetry22
-        fsParams.telemetryStatusDrawer.light21.up: hmi.telemetry21
-        fsParams.telemetryStatusDrawer.light20.up: hmi.telemetry20
-        fsParams.telemetryStatusDrawer.light19.up: hmi.telemetry19
-        fsParams.telemetryStatusDrawer.light18.up: hmi.telemetry18
-        fsParams.telemetryStatusDrawer.light17.up: hmi.telemetry17
-        fsParams.telemetryStatusDrawer.light16.up: hmi.telemetry16
-        fsParams.telemetryStatusDrawer.light15.up: hmi.telemetry15
-        fsParams.telemetryStatusDrawer.light14.up: hmi.telemetry14
-        fsParams.telemetryStatusDrawer.light13.up: hmi.telemetry13
-        fsParams.telemetryStatusDrawer.light12.up: hmi.telemetry12
-        fsParams.telemetryStatusDrawer.light11.up: hmi.telemetry11
-        fsParams.telemetryStatusDrawer.light10.up: hmi.telemetry10
-        fsParams.telemetryStatusDrawer.light9.up: hmi.telemetry9
-        fsParams.telemetryStatusDrawer.light8.up: hmi.telemetry8
-        fsParams.telemetryStatusDrawer.light7.up: hmi.telemetry7
-        fsParams.telemetryStatusDrawer.light6.up: hmi.telemetry6
-        fsParams.telemetryStatusDrawer.light5.up: hmi.telemetry5
-        fsParams.telemetryStatusDrawer.light4.up: hmi.telemetry4
-        fsParams.telemetryLight3.state: hmi.msgTelemetryOld ? "" : hmi.telemetry3
-        fsParams.telemetryLight2.state: hmi.msgTelemetryOld ? "" : hmi.telemetry2
-        fsParams.telemetryLight1.state: hmi.msgTelemetryOld ? "" : hmi.telemetry1
-        fsParams.telemetryLight0.state: hmi.msgTelemetryOld ? "" : hmi.telemetry0
-
-        fsParams.storageDrawer.light0.state: hmi.msgStorageOld ? "" : hmi.storage0
         fsParams.storageDrawer.light23.state: hmi.msgStorageOld ? "" : hmi.storage23
         fsParams.storageDrawer.light22.state: hmi.msgStorageOld ? "" : hmi.storage22
         fsParams.storageDrawer.light21.state: hmi.msgStorageOld ? "" : hmi.storage21
@@ -464,9 +427,7 @@ Window {
         fsParams.storageDrawer.light3.state: hmi.msgStorageOld ? "" : hmi.storage3
         fsParams.storageDrawer.light2.state: hmi.msgStorageOld ? "" : hmi.storage2
         fsParams.storageDrawer.light1.state: hmi.msgStorageOld ? "" : hmi.storage1
-
-
-
+        fsParams.storageDrawer.light0.state: hmi.msgStorageOld ? "" : hmi.storage0
 
         fsParams.coreLight15.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask15
         fsParams.coreLight14.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask14
@@ -491,10 +452,6 @@ Window {
         fsParams.homeTab.coreLight1.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask11
         fsParams.homeTab.coreLight0.state: hmi.msgSystemOld ? "" : hmi.systemCoreMask7
 
-
-
-
-        fsParams.bmsLight0.state: hmi.msgMotorOld ? "" : hmi.BMS0
         fsParams.bmsDrawer.light31.state: hmi.msgMotorOld ? "" : hmi.BMS31
         fsParams.bmsDrawer.light30.state: hmi.msgMotorOld ? "" : hmi.BMS30
         fsParams.bmsDrawer.light29.state: hmi.msgMotorOld ? "" : hmi.BMS29
@@ -513,62 +470,53 @@ Window {
         fsParams.bmsDrawer.light16.state: hmi.msgMotorOld ? "" : hmi.BMS16
         fsParams.bmsDrawer.light15.state: hmi.msgMotorOld ? "" : hmi.BMS15
         fsParams.bmsDrawer.light14.state: hmi.msgMotorOld ? "" : hmi.BMS14
-        fsParams.bmsLight13.state: hmi.msgMotorOld ? "" : hmi.BMS13
-        fsParams.bmsLight12.state: hmi.msgMotorOld ? "" : hmi.BMS12
-        fsParams.bmsLight11.state: hmi.msgMotorOld ? "" : hmi.BMS11
-        fsParams.bmsLight10.state: hmi.msgMotorOld ? "" : hmi.BMS10
+        fsParams.bmsDrawer.light13.state: hmi.msgMotorOld ? "" : hmi.BMS13
+        fsParams.bmsDrawer.light12.state: hmi.msgMotorOld ? "" : hmi.BMS12
+        fsParams.bmsDrawer.light11.state: hmi.msgMotorOld ? "" : hmi.BMS11
+        fsParams.bmsDrawer.light10.state: hmi.msgMotorOld ? "" : hmi.BMS10
         fsParams.bmsDrawer.light9.state: hmi.msgMotorOld ? "" : hmi.BMS9
         fsParams.bmsDrawer.light8.state: hmi.msgMotorOld ? "" : hmi.BMS8
         fsParams.bmsDrawer.light7.state: hmi.msgMotorOld ? "" : hmi.BMS7
         fsParams.bmsDrawer.light6.state: hmi.msgMotorOld ? "" : hmi.BMS6
         fsParams.bmsDrawer.light5.state: hmi.msgMotorOld ? "" : hmi.BMS5
         fsParams.bmsDrawer.light4.state: hmi.msgMotorOld ? "" : hmi.BMS4
-
-        fsParams.bmsLight3.state: hmi.msgMotorOld ? "" : hmi.BMS3
-        fsParams.bmsLight2.state: hmi.msgMotorOld ? "" : hmi.BMS2
-        fsParams.bmsLight1.state: hmi.msgMotorOld ? "" : hmi.BMS1
-
-
-
+        fsParams.bmsDrawer.light3.state: hmi.msgMotorOld ? "" : hmi.BMS3
+        fsParams.bmsDrawer.light2.state: hmi.msgMotorOld ? "" : hmi.BMS2
+        fsParams.bmsDrawer.light1.state: hmi.msgMotorOld ? "" : hmi.BMS1
+        fsParams.bmsDrawer.light0.state: hmi.msgMotorOld ? "" : hmi.BMS0
 
 
         //fsParams.motorLight24.state: hmi.msgMotorOld ? "" : hmi.motor24
-        fsParams.motorLight23.state: hmi.msgMotorOld ? "" : hmi.motor23
-        fsParams.motorLight22.state: hmi.msgMotorOld ? "" : hmi.motor22
-        fsParams.motorLight21.state: hmi.msgMotorOld ? "" : hmi.motor21
-        fsParams.motorLight20.state: hmi.msgMotorOld ? "" : hmi.motor20
+        fsParams.generalMotorDrawer.light23.state: hmi.msgMotorOld ? "" : hmi.motor23
+        fsParams.generalMotorDrawer.light22.state: hmi.msgMotorOld ? "" : hmi.motor22
+        fsParams.generalMotorDrawer.light21.state: hmi.msgMotorOld ? "" : hmi.motor21
+        fsParams.generalMotorDrawer.light20.state: hmi.msgMotorOld ? "" : hmi.motor20
 
-        fsParams.motorLight15.state: hmi.msgMotorOld ? "" : hmi.motor15
-        fsParams.motorLight14.state: hmi.msgMotorOld ? "" : hmi.motor14
-        fsParams.motorLight13.state: hmi.msgMotorOld ? "" : hmi.motor13
-        fsParams.motorLight12.state: hmi.msgMotorOld ? "" : hmi.motor12
+        fsParams.generalMotorDrawer.light15.state: hmi.msgMotorOld ? "" : hmi.motor15
+        fsParams.generalMotorDrawer.light14.state: hmi.msgMotorOld ? "" : hmi.motor14
+        fsParams.generalMotorDrawer.light13.state: hmi.msgMotorOld ? "" : hmi.motor13
+        fsParams.generalMotorDrawer.light12.state: hmi.msgMotorOld ? "" : hmi.motor12
 
         fsParams.generalMotorDrawer.light8.state: hmi.msgMotorOld ? "" : hmi.motor8
         fsParams.generalMotorDrawer.light7.state: hmi.msgMotorOld ? "" : hmi.motor7
         fsParams.generalMotorDrawer.light6.state: hmi.msgMotorOld ? "" : hmi.motor6
-        fsParams.motorLight5.state: hmi.msgMotorOld ? "" : hmi.motor5
-        fsParams.motorLight4.state: hmi.msgMotorOld ? "" : hmi.motor4
+        fsParams.generalMotorDrawer.light5.state: hmi.msgMotorOld ? "" : hmi.motor5
+        fsParams.generalMotorDrawer.light4.state: hmi.msgMotorOld ? "" : hmi.motor4
         fsParams.generalMotorDrawer.light3.state: hmi.msgMotorOld ? "" : hmi.motor3
         fsParams.generalMotorDrawer.light2.state: hmi.msgMotorOld ? "" : hmi.motor2
         fsParams.generalMotorDrawer.light1.state: hmi.msgMotorOld ? "" : hmi.motor1
         fsParams.generalMotorDrawer.light0.state: hmi.msgMotorOld ? "" : hmi.motor0
 
-
         fsParams.txtRadioLinkErrorCounter: hmi.radiolinkErrorCounter
 
-        fsParams.radioLinkLight8.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask8
-        fsParams.radioLinkLight9.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask9
+        fsParams.radioLinkLight8.state: hmi.msgRadioLinkOld ? "" : hmi.radiolinkMask8
+        fsParams.radioLinkLight9.state: hmi.msgRadioLinkOld ? "" : hmi.radiolinkMask9
 
-        fsParams.radioLinkLight3.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask3
-        fsParams.radioLinkLight2.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask2
-        fsParams.radioLinkLight1.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask1
-        fsParams.radioLinkLight0.up: hmi.msgRadioLinkOld ? undefined : hmi.radiolinkMask0
+        fsParams.radioLinkLight3.state: hmi.msgRadioLinkOld ? "" : hmi.radiolinkMask3
+        fsParams.radioLinkLight2.state: hmi.msgRadioLinkOld ? "" : hmi.radiolinkMask2
+        fsParams.radioLinkLight1.state: hmi.msgRadioLinkOld ? "" : hmi.radiolinkMask1
+        fsParams.radioLinkLight0.state: hmi.msgRadioLinkOld ? "" : hmi.radiolinkMask0
 
-        map.latitude: gsParams.latitude
-        map.longitude:  gsParams.Longitude
-
-
-        //gsParams.gnssLight.up: hmi.gnssFound
         map.customCursorIcon.visible: map.latitudeIsSet && map.longitudeIsSet
         gsParams.txtTimeStamp: timestampToUTCDate(hmi.TimeStamp)
 

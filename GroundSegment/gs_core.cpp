@@ -24,13 +24,12 @@ GSCore::GSCore(QObject *parent)
     setGnss(new GNSS(this));
     setStorage(new Storage(this));
 
-    m_storage->lenSystemStatus  = SetInitParameter("LenSystemStatus");
-    m_storage->lenStorageStatus = SetInitParameter("LenStorageStatus");
-    m_storage->lenGuidance      = SetInitParameter("LenGuidance");
-    m_storage->lenMotor         = SetInitParameter("LenMotor");
-    m_storage->lenRadioLink     = SetInitParameter("LenRadioLink");
-    m_storage->lenTelemetry     = SetInitParameter("LenTelemetry");
-
+    m_storage->lenSystemStatus  = loadStorageFileSize("LenSystemStatus");
+    m_storage->lenStorageStatus = loadStorageFileSize("LenStorageStatus");
+    m_storage->lenGuidance      = loadStorageFileSize("LenGuidance");
+    m_storage->lenMotor         = loadStorageFileSize("LenMotor");
+    m_storage->lenRadioLink     = loadStorageFileSize("LenRadioLink");
+    m_storage->lenTelemetry     = loadStorageFileSize("LenTelemetry");
 
     QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
                      m_hmi, &HMI::showData);
@@ -41,10 +40,10 @@ GSCore::GSCore(QObject *parent)
 }
 
 /*!
-    \fn void GSCore::SetFixOfTime(Storage *s)
+    \fn void GSCore::SetFixOfTime()
 
     Calculates the delta between System Time and GPS Time.
-    The value DeltaGPSTimefromSystemTime is stored in the Storage class.
+    The value deltaTime is stored in the Storage class.
 */
 void GSCore::SetFixOfTime()
 {
@@ -79,8 +78,6 @@ void GSCore::SetFixOfTime()
         m_storage->initFixGPSTime();
         m_flagDeltaTime = false;
     }
-
-
 }
 
 /*!
@@ -89,7 +86,7 @@ void GSCore::SetFixOfTime()
     Extracts from the .ini configuration file the initialization length of the file.
     For each file this returns the length.
 */
-int GSCore::SetInitParameter(QString str)
+int GSCore::loadStorageFileSize(QString str)
 {
     int defaultValue = 50000;
     QString docFolder= QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);

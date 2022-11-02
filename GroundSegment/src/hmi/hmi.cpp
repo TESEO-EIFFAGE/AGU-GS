@@ -20,118 +20,13 @@ Q_DECLARE_METATYPE(mavlink_radio_link_status_pack_t);
 
         \brief The HMI class is the class used to show data in the UI
 */
-void HMI::loadDescriptions()
-{
-    update_TimeStampDesc(initDesc("TimeStamp"));
-    update_TimeStampRIODesc(initDesc("TimeStampRIO"));
-    update_LatitudeDesc(initDesc("Latitude"));
-    update_LongitudeDesc(initDesc("Longitude"));
-    update_GNSSAltitudeDesc(initDesc("GNSSAltitude"));
-    update_AirSpeed_UVectorDesc(initDesc("AirSpeed_UVector"));
-    update_AirSpeed_VVectorDesc(initDesc("AirSpeed_VVector"));
-    update_AirSpeed_WVectorDesc(initDesc("AirSpeed_WVector"));
-    update_AirTemperatureDesc(initDesc("AirTemperature"));
-    update_AltitudeFromRadarAltimeterDesc(initDesc("AltitudeFromRadarAltimeter"));
-    update_AltitudeFromPayloadAltimeterDesc(initDesc("AltitudeFromPayloadAltimeter"));
-    update_LinearVelocityHorizontalDesc(initDesc("LinearVelocityHorizontal"));
-    update_LinearVelocityVerticalDesc(initDesc("LinearVelocityVertical"));
-    update_PositionAccuracyDesc(initDesc("PositionAccuracy"));
-    update_SpeedAccuracyDesc(initDesc("SpeedAccuracy"));
-    update_LinearAccelerationXDesc(initDesc("LinearAccelerationX"));
-    update_LinearAccelerationYDesc(initDesc("LinearAccelerationY"));
-    update_LinearAccelerationZDesc(initDesc("LinearAccelerationZ"));
-    update_ECEFVectorPositionXDesc(initDesc("ECEFVectorPositionX"));
-    update_ECEFVectorPositionYDesc(initDesc("ECEFVectorPositionY"));
-    update_ECEFVectorPositionZDesc(initDesc("ECEFVectorPositionZ"));
-    update_ECEFVectorVelocityXDesc(initDesc("ECEFVectorVelocityX"));
-    update_ECEFVectorVelocityYDesc(initDesc("ECEFVectorVelocityY"));
-    update_ECEFVectorVelocityZDesc(initDesc("ECEFVectorVelocityZ"));
-    update_RollAngleDesc(initDesc("RollAngle"));
-    update_PitchAngleDesc(initDesc("PitchAngle"));
-    update_YawAngleDesc(initDesc("YawAngle"));
-    update_AngularRateRollDesc(initDesc("AngularRateRoll"));
-    update_AngularRatePitchDesc(initDesc("AngularRatePitch"));
-    update_AngularRateYawDesc(initDesc("AngularRateYaw"));
-    update_Quaternion0Desc(initDesc("Quaternion0"));
-    update_Quaternion1Desc(initDesc("Quaternion1"));
-    update_Quaternion2Desc(initDesc("Quaternion2"));
-    update_Quaternion3Desc(initDesc("Quaternion3"));
-    update_NumberOfGPSSatelliteDesc(initDesc("NumberOfGPSSatellite"));
-    update_AnemCommErrorCounterDesc(initDesc("AnemCommErrorCounter"));
-    update_RDAltCommErrorCounterDesc(initDesc("RDAltCommErrorCounter"));
-    update_GNSSCommErrorCounterDesc(initDesc("GNSSCommErrorCounter"));
-    update_PLAltCommErrorCounterDesc(initDesc("PLAltCommErrorCounter"));
-
-
-    update_MotorARealPositionDesc(initDesc("MotorARealPosition"));
-    update_MotorADemandPositionDesc(initDesc("MotorADemandPosition"));
-    update_MotorATorqueDesc(initDesc("MotorATorque"));
-    update_MotorATempDesc(initDesc("MotorATemp"));
-
-    update_MotorBRealPositionDesc(initDesc("MotorBRealPosition"));
-    update_MotorBDemandPositionDesc(initDesc("MotorBDemandPosition"));
-    update_MotorBTorqueDesc(initDesc("MotorBTorque"));
-    update_MotorBTempDesc(initDesc("MotorBTemp"));
-
-    update_BMSVoltageDesc(initDesc("BMSVoltage"));
-    update_BMSAbsorptionDesc(initDesc("BMSAbsorption"));
-    update_BMSTempDesc(initDesc("BMSTemp"));
-
-    update_ChargeValueDesc(initDesc("ChargeValue"));
-
-    update_FlightModeDesc(initDesc("FlightMode"));
-    update_FlightPhaseDesc(initDesc("FlightPhase"));
-    update_FlightPhaseExecutionTimeDesc(initDesc("FlightPhaseExecutionTime"));
-
-    update_communicationErrorCounterDesc(initDesc("communicationErrorCounter"));
-
-    update_RSSIDesc(initDesc("RSSI"));
-
-    update_storageFreeDataSizeDesc(initDesc("storageFreeDataSize"));
-}
-
-void HMI::loadBoundingBox()
-{
-    update_LatTopLeft(initMap("LatTopLeft"));
-    update_LongTopLeft(initMap("LongTopLeft"));
-    update_LatBotRight(initMap("LatBotRight"));
-    update_LongBotRight(initMap("LongBotRight"));
-}
 
 HMI::HMI(QObject *parent)
     : QObject{parent}
 {
-    timerTelemetry= new QTimer(this);
-    timerSystem= new QTimer(this);
-    timerGuidance= new QTimer(this);
-    timerMotor= new QTimer(this);
-    timerRadioLink= new QTimer(this);
-    timerStorage= new QTimer(this);
-
-    timerTelemetry->setInterval(1000);
-    timerMotor->setInterval(1000);
-    timerGuidance->setInterval(1000);
-    timerRadioLink->setInterval(1000);
-    timerStorage->setInterval(6000);
-    timerSystem->setInterval(1000);
-
-    update_msgTelemetryOld(true);
-    update_msgMotorOld(true);
-    update_msgGuidanceOld(true);
-    update_msgRadioLinkOld(true);
-    update_msgSystemOld(true);
-    update_msgStorageOld(true);
-
-    QObject::connect(timerTelemetry,&QTimer::timeout,this, [this](){update_msgTelemetryOld(true);});
-    QObject::connect(timerMotor,&QTimer::timeout,this,  [this](){update_msgMotorOld(true);});
-    QObject::connect(timerGuidance,&QTimer::timeout,this,  [this](){update_msgGuidanceOld(true);});
-    QObject::connect(timerRadioLink,&QTimer::timeout,this,  [this](){update_msgRadioLinkOld(true);});
-    QObject::connect(timerSystem,&QTimer::timeout,this,  [this](){update_msgSystemOld(true);});
-    QObject::connect(timerStorage,&QTimer::timeout,this,  [this](){update_msgStorageOld(true);});
-
     loadBoundingBox();
     loadDescriptions();
-    //initValues();
+    setupMsgTimeouts();
 }
 
 /*!
@@ -142,37 +37,37 @@ HMI::HMI(QObject *parent)
 void HMI::showData(QVariant msg) {
     if (msg.canConvert<mavlink_telemetry_data_pack_t>()) {
         update_msgTelemetryOld(false);
-        timerTelemetry->start();
+        m_timerTelemetry->start();
         showDataTelemetry(msg.value<mavlink_telemetry_data_pack_t>());
         update_telemetryMsgCounter(m_telemetryMsgCounter+1);
     }
     else if (msg.canConvert<mavlink_system_status_pack_t>()) {
         update_msgSystemOld(false);
-        timerSystem->start();
+        m_timerSystem->start();
         showDataSystemStatus(msg.value<mavlink_system_status_pack_t>());
         update_systemMsgCounter(m_systemMsgCounter+1);
     }
     else if (msg.canConvert<mavlink_motor_status_pack_t>()) {
         update_msgMotorOld(false);
-        timerMotor->start();
+        m_timerMotor->start();
         showDataMotorStatus(msg.value<mavlink_motor_status_pack_t>());
         update_motorMsgCounter(m_motorMsgCounter+1);
     }
     else if (msg.canConvert<mavlink_guidance_status_pack_t>()) {
         update_msgGuidanceOld(false);
-        timerGuidance->start();
+        m_timerGuidance->start();
         showDataGuidanceStatus(msg.value<mavlink_guidance_status_pack_t>());
         update_guidanceMsgCounter(m_guidanceMsgCounter+1);
     }
     else if (msg.canConvert<mavlink_storage_status_pack_t>()) {
         update_msgStorageOld(false);
-        timerStorage->start();
+        m_timerStorage->start();
         showDataStorageStatus(msg.value<mavlink_storage_status_pack_t>());
         update_storageMsgCounter(m_storageMsgCounter+1);
     }
     else if (msg.canConvert<mavlink_radio_link_status_pack_t>()) {
         update_msgRadioLinkOld(false);
-        timerRadioLink->start();
+        m_timerRadioLink->start();
         showDataRLStatus(msg.value<mavlink_radio_link_status_pack_t>());
         update_radiolinkMsgCounter(m_radiolinkMsgCounter+1);
     }
@@ -503,225 +398,225 @@ void HMI::showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidan
 
 void HMI::initValues()
 {
-    update_telemetryMsgCounter({});
-    update_motorMsgCounter({});
-    update_storageMsgCounter({});
-    update_radiolinkMsgCounter({});
-    update_guidanceMsgCounter({});
-    update_systemMsgCounter({});
+    update_telemetryMsgCounter(0);
+    update_motorMsgCounter(0);
+    update_storageMsgCounter(0);
+    update_radiolinkMsgCounter(0);
+    update_guidanceMsgCounter(0);
+    update_systemMsgCounter(0);
 
-    update_TimeStamp({});
-    update_Latitude({});
-    update_Longitude({});
-    update_GNSSAltitude({});
-    update_AirSpeed_UVector({});
-    update_AirSpeed_VVector({});
-    update_AirSpeed_WVector({});
-    update_AirTemperature({});
-    update_AltitudeFromPayloadAltimeter({});
-    update_AltitudeFromRadarAltimeter({});
-    update_LinearVelocityHorizontal({});
-    update_LinearVelocityVertical({});
-    update_PositionAccuracy({});
-    update_SpeedAccuracy({});
-    update_LinearAccelerationX({});
-    update_LinearAccelerationY({});
-    update_LinearAccelerationZ({});
-    update_ECEFVectorPositionX({});
-    update_ECEFVectorPositionY({});
-    update_ECEFVectorPositionZ({});
-    update_ECEFVectorVelocityX({});
-    update_ECEFVectorVelocityY({});
-    update_ECEFVectorVelocityZ({});
-    update_RollAngle({});
-    update_YawAngle({});
-    update_PitchAngle({});
-    update_AngularRatePitch({});
-    update_AngularRateRoll({});
-    update_AngularRateYaw({});
-    update_Quaternion0({});
-    update_Quaternion1({});
-    update_Quaternion2({});
-    update_Quaternion3({});
-    update_NumberOfGPSSatellite({});
+    update_TimeStamp(0);
+    update_Latitude(0);
+    update_Longitude(0);
+    update_GNSSAltitude(0);
+    update_AirSpeed_UVector(0);
+    update_AirSpeed_VVector(0);
+    update_AirSpeed_WVector(0);
+    update_AirTemperature(0);
+    update_AltitudeFromPayloadAltimeter(0);
+    update_AltitudeFromRadarAltimeter(0);
+    update_LinearVelocityHorizontal(0);
+    update_LinearVelocityVertical(0);
+    update_PositionAccuracy(0);
+    update_SpeedAccuracy(0);
+    update_LinearAccelerationX(0);
+    update_LinearAccelerationY(0);
+    update_LinearAccelerationZ(0);
+    update_ECEFVectorPositionX(0);
+    update_ECEFVectorPositionY(0);
+    update_ECEFVectorPositionZ(0);
+    update_ECEFVectorVelocityX(0);
+    update_ECEFVectorVelocityY(0);
+    update_ECEFVectorVelocityZ(0);
+    update_RollAngle(0);
+    update_YawAngle(0);
+    update_PitchAngle(0);
+    update_AngularRatePitch(0);
+    update_AngularRateRoll(0);
+    update_AngularRateYaw(0);
+    update_Quaternion0(0);
+    update_Quaternion1(0);
+    update_Quaternion2(0);
+    update_Quaternion3(0);
+    update_NumberOfGPSSatellite(0);
 
-    update_telemetry0({});
-    update_telemetry1({});
-    update_telemetry2({});
-    update_telemetry3({});
-    update_telemetry4({});
-    update_telemetry5({});
-    update_telemetry6({});
-    update_telemetry7({});
-    update_telemetry8({});
-    update_telemetry9({});
-    update_telemetry10({});
-    update_telemetry11({});
-    update_telemetry12({});
-    update_telemetry13({});
-    update_telemetry14({});
-    update_telemetry15({});
-    update_telemetry16({});
-    update_telemetry17({});
-    update_telemetry18({});
-    update_telemetry19({});
-    update_telemetry20({});
-    update_telemetry21({});
-    update_telemetry22({});
-    update_telemetry23({});
-    update_telemetry24({});
-    update_telemetry25({});
-    update_telemetry26({});
-    update_telemetry27({});
-    update_telemetry28({});
-    update_telemetry29({});
-    update_telemetry30({});
-    update_telemetry31({});
+    update_telemetry0(0);
+    update_telemetry1(0);
+    update_telemetry2(0);
+    update_telemetry3(0);
+    update_telemetry4(0);
+    update_telemetry5(0);
+    update_telemetry6(0);
+    update_telemetry7(0);
+    update_telemetry8(0);
+    update_telemetry9(0);
+    update_telemetry10(0);
+    update_telemetry11(0);
+    update_telemetry12(0);
+    update_telemetry13(0);
+    update_telemetry14(0);
+    update_telemetry15(0);
+    update_telemetry16(0);
+    update_telemetry17(0);
+    update_telemetry18(0);
+    update_telemetry19(0);
+    update_telemetry20(0);
+    update_telemetry21(0);
+    update_telemetry22(0);
+    update_telemetry23(0);
+    update_telemetry24(0);
+    update_telemetry25(0);
+    update_telemetry26(0);
+    update_telemetry27(0);
+    update_telemetry28(0);
+    update_telemetry29(0);
+    update_telemetry30(0);
+    update_telemetry31(0);
 
-    update_AnemCommErrorCounter({});
-    update_RDAltCommErrorCounter({});
-    update_GNSSCommErrorCounter({});
-    update_PLAltCommErrorCounter({});
+    update_AnemCommErrorCounter(0);
+    update_RDAltCommErrorCounter(0);
+    update_GNSSCommErrorCounter(0);
+    update_PLAltCommErrorCounter(0);
 
-    update_TimeStampRIO ({});
-    update_FlightMode ({});
-    update_FlightPhase({});
-    update_FlightPhaseExecutionTime({});
-    update_TelemetryModuleStatusMask({});
-    update_StorageModuleStatusMask({});
-    update_GuidanceModuleStatusMask({});
-    update_CoreModuleStatusMask({});
-    update_RadioLinkModuleStatusMask({});
+    update_TimeStampRIO(0);
+    update_FlightMode(0);
+    update_FlightPhase(0);
+    update_FlightPhaseExecutionTime(0);
+    update_TelemetryModuleStatusMask(0);
+    update_StorageModuleStatusMask(0);
+    update_GuidanceModuleStatusMask(0);
+    update_CoreModuleStatusMask(0);
+    update_RadioLinkModuleStatusMask(0);
 
-    update_systemCoreMask0({});
-    update_systemCoreMask1({});
-    update_systemCoreMask2({});
-    update_systemCoreMask3({});
-    update_systemCoreMask4({});
-    update_systemCoreMask5({});
-    update_systemCoreMask6({});
-    update_systemCoreMask7({});
-    update_systemCoreMask8({});
-    update_systemCoreMask9({});
-    update_systemCoreMask10({});
-    update_systemCoreMask11({});
-    update_systemCoreMask12({});
-    update_systemCoreMask13({});
-    update_systemCoreMask14({});
-    update_systemCoreMask15({});
+    update_systemCoreMask0(0);
+    update_systemCoreMask1(0);
+    update_systemCoreMask2(0);
+    update_systemCoreMask3(0);
+    update_systemCoreMask4(0);
+    update_systemCoreMask5(0);
+    update_systemCoreMask6(0);
+    update_systemCoreMask7(0);
+    update_systemCoreMask8(0);
+    update_systemCoreMask9(0);
+    update_systemCoreMask10(0);
+    update_systemCoreMask11(0);
+    update_systemCoreMask12(0);
+    update_systemCoreMask13(0);
+    update_systemCoreMask14(0);
+    update_systemCoreMask15(0);
 
-    update_communicationErrorCounter({});
+    update_communicationErrorCounter(0);
 
-    update_radiolinkMask0({});
-    update_radiolinkMask1({});
-    update_radiolinkMask2({});
-    update_radiolinkMask3({});
-    update_radiolinkMask8({});
-    update_radiolinkMask9({});
-    update_radiolinkErrorCounter({});
+    update_radiolinkMask0(0);
+    update_radiolinkMask1(0);
+    update_radiolinkMask2(0);
+    update_radiolinkMask3(0);
+    update_radiolinkMask8(0);
+    update_radiolinkMask9(0);
+    update_radiolinkErrorCounter(0);
 
-    update_MotorARealPosition({});
-    update_MotorADemandPosition({});
-    update_MotorATemp({});
-    update_MotorATorque({});
-    update_MotorAFaultsMask({});
+    update_MotorARealPosition(0);
+    update_MotorADemandPosition(0);
+    update_MotorATemp(0);
+    update_MotorATorque(0);
+    update_MotorAFaultsMask(0);
 
-    update_MotorBRealPosition({});
-    update_MotorBDemandPosition({});
-    update_MotorBTemp({});
-    update_MotorBTorque({});
-    update_MotorBFaultsMask({});
+    update_MotorBRealPosition(0);
+    update_MotorBDemandPosition(0);
+    update_MotorBTemp(0);
+    update_MotorBTorque(0);
+    update_MotorBFaultsMask(0);
 
-    update_BMSVoltage({});
-    update_BMSAbsorption({});
-    update_BMSTemp({});
+    update_BMSVoltage(0);
+    update_BMSAbsorption(0);
+    update_BMSTemp(0);
 
-    update_BMS0({});
-    update_BMS1({});
-    update_BMS2({});
-    update_BMS3({});
-    update_BMS4({});
-    update_BMS5({});
-    update_BMS6({});
-    update_BMS7({});
-    update_BMS8({});
-    update_BMS9({});
-    update_BMS10({});
-    update_BMS11({});
-    update_BMS12({});
-    update_BMS13({});
-    update_BMS14({});
-    update_BMS15({});
-    update_BMS16({});
-    update_BMS17({});
-    update_BMS18({});
-    update_BMS19({});
-    update_BMS20({});
-    update_BMS21({});
-    update_BMS22({});
-    update_BMS23({});
-    update_BMS24({});
-    update_BMS25({});
-    update_BMS26({});
-    update_BMS27({});
-    update_BMS28({});
-    update_BMS29({});
-    update_BMS30({});
-    update_BMS31({});
+    update_BMS0(0);
+    update_BMS1(0);
+    update_BMS2(0);
+    update_BMS3(0);
+    update_BMS4(0);
+    update_BMS5(0);
+    update_BMS6(0);
+    update_BMS7(0);
+    update_BMS8(0);
+    update_BMS9(0);
+    update_BMS10(0);
+    update_BMS11(0);
+    update_BMS12(0);
+    update_BMS13(0);
+    update_BMS14(0);
+    update_BMS15(0);
+    update_BMS16(0);
+    update_BMS17(0);
+    update_BMS18(0);
+    update_BMS19(0);
+    update_BMS20(0);
+    update_BMS21(0);
+    update_BMS22(0);
+    update_BMS23(0);
+    update_BMS24(0);
+    update_BMS25(0);
+    update_BMS26(0);
+    update_BMS27(0);
+    update_BMS28(0);
+    update_BMS29(0);
+    update_BMS30(0);
+    update_BMS31(0);
 
-    update_motor0({});
-    update_motor1({});
-    update_motor2({});
-    update_motor3({});
-    update_motor4({});
-    update_motor5({});
-    update_motor6({});
-    update_motor7({});
-    update_motor8({});
-    update_motor10({});
-    update_motor11({});
-    update_motor12({});
-    update_motor13({});
-    update_motor14({});
-    update_motor15({});
-    update_motor16({});
-    update_motor17({});
-    update_motor18({});
-    update_motor19({});
-    update_motor20({});
-    update_motor21({});
-    update_motor22({});
-    update_motor23({});
+    update_motor0(0);
+    update_motor1(0);
+    update_motor2(0);
+    update_motor3(0);
+    update_motor4(0);
+    update_motor5(0);
+    update_motor6(0);
+    update_motor7(0);
+    update_motor8(0);
+    update_motor10(0);
+    update_motor11(0);
+    update_motor12(0);
+    update_motor13(0);
+    update_motor14(0);
+    update_motor15(0);
+    update_motor16(0);
+    update_motor17(0);
+    update_motor18(0);
+    update_motor19(0);
+    update_motor20(0);
+    update_motor21(0);
+    update_motor22(0);
+    update_motor23(0);
 
-    update_ChargeValue({});
-    update_MotorControlStatusMask({});
+    update_ChargeValue(0);
+    update_MotorControlStatusMask(0);
 
-    update_storageFreeDataSize({});
+    update_storageFreeDataSize(0);
 
-    update_storage0({});
-    update_storage1({});
-    update_storage2({});
-    update_storage3({});
-    update_storage4({});
-    update_storage5({});
-    update_storage6({});
-    update_storage7({});
-    update_storage8({});
-    update_storage9({});
-    update_storage10({});
-    update_storage11({});
-    update_storage12({});
-    update_storage13({});
-    update_storage14({});
-    update_storage15({});
-    update_storage16({});
-    update_storage17({});
-    update_storage18({});
-    update_storage19({});
-    update_storage20({});
-    update_storage21({});
-    update_storage22({});
-    update_storage23({});
+    update_storage0(0);
+    update_storage1(0);
+    update_storage2(0);
+    update_storage3(0);
+    update_storage4(0);
+    update_storage5(0);
+    update_storage6(0);
+    update_storage7(0);
+    update_storage8(0);
+    update_storage9(0);
+    update_storage10(0);
+    update_storage11(0);
+    update_storage12(0);
+    update_storage13(0);
+    update_storage14(0);
+    update_storage15(0);
+    update_storage16(0);
+    update_storage17(0);
+    update_storage18(0);
+    update_storage19(0);
+    update_storage20(0);
+    update_storage21(0);
+    update_storage22(0);
+    update_storage23(0);
 }
 
 QString HMI::initDesc(const QString &str)
@@ -766,3 +661,113 @@ qint32 HMI::initMap(QString str)
     }
     return defaultValue;
 }
+
+void HMI::loadDescriptions()
+{
+    update_TimeStampDesc(initDesc("TimeStamp"));
+    update_TimeStampRIODesc(initDesc("TimeStampRIO"));
+    update_LatitudeDesc(initDesc("Latitude"));
+    update_LongitudeDesc(initDesc("Longitude"));
+    update_GNSSAltitudeDesc(initDesc("GNSSAltitude"));
+    update_AirSpeed_UVectorDesc(initDesc("AirSpeed_UVector"));
+    update_AirSpeed_VVectorDesc(initDesc("AirSpeed_VVector"));
+    update_AirSpeed_WVectorDesc(initDesc("AirSpeed_WVector"));
+    update_AirTemperatureDesc(initDesc("AirTemperature"));
+    update_AltitudeFromRadarAltimeterDesc(initDesc("AltitudeFromRadarAltimeter"));
+    update_AltitudeFromPayloadAltimeterDesc(initDesc("AltitudeFromPayloadAltimeter"));
+    update_LinearVelocityHorizontalDesc(initDesc("LinearVelocityHorizontal"));
+    update_LinearVelocityVerticalDesc(initDesc("LinearVelocityVertical"));
+    update_PositionAccuracyDesc(initDesc("PositionAccuracy"));
+    update_SpeedAccuracyDesc(initDesc("SpeedAccuracy"));
+    update_LinearAccelerationXDesc(initDesc("LinearAccelerationX"));
+    update_LinearAccelerationYDesc(initDesc("LinearAccelerationY"));
+    update_LinearAccelerationZDesc(initDesc("LinearAccelerationZ"));
+    update_ECEFVectorPositionXDesc(initDesc("ECEFVectorPositionX"));
+    update_ECEFVectorPositionYDesc(initDesc("ECEFVectorPositionY"));
+    update_ECEFVectorPositionZDesc(initDesc("ECEFVectorPositionZ"));
+    update_ECEFVectorVelocityXDesc(initDesc("ECEFVectorVelocityX"));
+    update_ECEFVectorVelocityYDesc(initDesc("ECEFVectorVelocityY"));
+    update_ECEFVectorVelocityZDesc(initDesc("ECEFVectorVelocityZ"));
+    update_RollAngleDesc(initDesc("RollAngle"));
+    update_PitchAngleDesc(initDesc("PitchAngle"));
+    update_YawAngleDesc(initDesc("YawAngle"));
+    update_AngularRateRollDesc(initDesc("AngularRateRoll"));
+    update_AngularRatePitchDesc(initDesc("AngularRatePitch"));
+    update_AngularRateYawDesc(initDesc("AngularRateYaw"));
+    update_Quaternion0Desc(initDesc("Quaternion0"));
+    update_Quaternion1Desc(initDesc("Quaternion1"));
+    update_Quaternion2Desc(initDesc("Quaternion2"));
+    update_Quaternion3Desc(initDesc("Quaternion3"));
+    update_NumberOfGPSSatelliteDesc(initDesc("NumberOfGPSSatellite"));
+    update_AnemCommErrorCounterDesc(initDesc("AnemCommErrorCounter"));
+    update_RDAltCommErrorCounterDesc(initDesc("RDAltCommErrorCounter"));
+    update_GNSSCommErrorCounterDesc(initDesc("GNSSCommErrorCounter"));
+    update_PLAltCommErrorCounterDesc(initDesc("PLAltCommErrorCounter"));
+
+
+    update_MotorARealPositionDesc(initDesc("MotorARealPosition"));
+    update_MotorADemandPositionDesc(initDesc("MotorADemandPosition"));
+    update_MotorATorqueDesc(initDesc("MotorATorque"));
+    update_MotorATempDesc(initDesc("MotorATemp"));
+
+    update_MotorBRealPositionDesc(initDesc("MotorBRealPosition"));
+    update_MotorBDemandPositionDesc(initDesc("MotorBDemandPosition"));
+    update_MotorBTorqueDesc(initDesc("MotorBTorque"));
+    update_MotorBTempDesc(initDesc("MotorBTemp"));
+
+    update_BMSVoltageDesc(initDesc("BMSVoltage"));
+    update_BMSAbsorptionDesc(initDesc("BMSAbsorption"));
+    update_BMSTempDesc(initDesc("BMSTemp"));
+
+    update_ChargeValueDesc(initDesc("ChargeValue"));
+
+    update_FlightModeDesc(initDesc("FlightMode"));
+    update_FlightPhaseDesc(initDesc("FlightPhase"));
+    update_FlightPhaseExecutionTimeDesc(initDesc("FlightPhaseExecutionTime"));
+
+    update_communicationErrorCounterDesc(initDesc("communicationErrorCounter"));
+
+    update_RSSIDesc(initDesc("RSSI"));
+
+    update_storageFreeDataSizeDesc(initDesc("storageFreeDataSize"));
+}
+
+void HMI::loadBoundingBox()
+{
+    update_LatTopLeft(initMap("LatTopLeft"));
+    update_LongTopLeft(initMap("LongTopLeft"));
+    update_LatBotRight(initMap("LatBotRight"));
+    update_LongBotRight(initMap("LongBotRight"));
+}
+
+void HMI::setupMsgTimeouts()
+{
+    update_msgTelemetryOld(true);
+    update_msgMotorOld(true);
+    update_msgGuidanceOld(true);
+    update_msgRadioLinkOld(true);
+    update_msgSystemOld(true);
+    update_msgStorageOld(true);
+
+    m_timerTelemetry = new QTimer(this);
+    m_timerSystem = new QTimer(this);
+    m_timerGuidance = new QTimer(this);
+    m_timerMotor = new QTimer(this);
+    m_timerRadioLink = new QTimer(this);
+    m_timerStorage = new QTimer(this);
+
+    m_timerTelemetry->setInterval(1000);
+    m_timerMotor->setInterval(1000);
+    m_timerGuidance->setInterval(1000);
+    m_timerRadioLink->setInterval(1000);
+    m_timerStorage->setInterval(6000);
+    m_timerSystem->setInterval(1000);
+
+    QObject::connect(m_timerTelemetry,&QTimer::timeout,this, [this](){update_msgTelemetryOld(true);});
+    QObject::connect(m_timerMotor,&QTimer::timeout,this,  [this](){update_msgMotorOld(true);});
+    QObject::connect(m_timerGuidance,&QTimer::timeout,this,  [this](){update_msgGuidanceOld(true);});
+    QObject::connect(m_timerRadioLink,&QTimer::timeout,this,  [this](){update_msgRadioLinkOld(true);});
+    QObject::connect(m_timerSystem,&QTimer::timeout,this,  [this](){update_msgSystemOld(true);});
+    QObject::connect(m_timerStorage,&QTimer::timeout,this,  [this](){update_msgStorageOld(true);});
+}
+

@@ -19,7 +19,7 @@ public:
     GNSS* gnss() const;
     void setGnss(GNSS*);
     void SetFixOfTime();
-    int SetInitParameter(QString str);
+    int loadStorageFileSize(QString str);
     void setRadioLink(RadioLink* radioLink);
     RadioLink* radioLink() const;
     void setStorage(Storage*);
