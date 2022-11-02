@@ -18,7 +18,8 @@ RESOURCES += \
     GroundSegmentUI/GroundSegmentUI.qrc
 
 OTHER_FILES += \
-    conf/params-descriptions-template.ini
+    conf/params-descriptions-template.ini \
+    conf/map-boundaries-template.ini
 
 QML_IMPORT_PATH += \
     GroundSegmentUI/ \
@@ -32,9 +33,16 @@ PRE_TARGETDEPS += confcreatedir
 PARAM_DESC_TPL = params-descriptions-template.ini
 PARAM_DESC_SRC = $$PWD/conf/$$PARAM_DESC_TPL
 PARAM_DESC_DESTTPL = $$CONFIG_DESTDIR/$$PARAM_DESC_TPL
-confcopy.commands = $(COPY) $${PARAM_DESC_SRC} $${PARAM_DESC_DESTTPL}
-POST_TARGETDEPS += confcopy
-QMAKE_EXTRA_TARGETS += confcopy
+desccopy.commands = $(COPY) $${PARAM_DESC_SRC} $${PARAM_DESC_DESTTPL}
+POST_TARGETDEPS += desccopy
+QMAKE_EXTRA_TARGETS += desccopy
+
+MAP_BOUND_TPL = map-boundaries-template.ini
+MAP_BOUND_SRC = $$PWD/conf/$$MAP_BOUND_TPL
+MAP_BOUND_DESTTPL = $$CONFIG_DESTDIR/$$MAP_BOUND_TPL
+mapcopy.commands = $(COPY) $${MAP_BOUND_SRC} $${MAP_BOUND_DESTTPL}
+POST_TARGETDEPS += mapcopy
+QMAKE_EXTRA_TARGETS += mapcopy
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

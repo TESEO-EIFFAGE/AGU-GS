@@ -621,7 +621,7 @@ void HMI::initValues()
 
 QString HMI::initDesc(const QString &str)
 {
-    QString defaultValue{str};
+    QString retValue{str};
     QString docFolder(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
     const QString settingsFileName(docFolder + "/agu-settings/params-descriptions.ini");
     const QString settingsTplName(docFolder + "/agu-settings/params-descriptions-template.ini");
@@ -635,31 +635,36 @@ QString HMI::initDesc(const QString &str)
         {
             if (str.compare(QVariant(childKey).toString()) == 0)
             {
-                //printf("Found TimeStamp desc");
-                defaultValue = settings.value(childKey).toString();
+                retValue = settings.value(childKey).toString();
                 break;
             }
         }
     }
-    return defaultValue;
+    return retValue;
 }
 
 qint32 HMI::initMap(QString str)
 {
-    int defaultValue = 0;
+    int retValue = 0;
     QString docFolder= QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
-    QString settingsFileName = docFolder + "/agu-settings/map-parameters.ini";
-
+    const QString settingsFileName(docFolder + "/agu-settings/map-boundaries.ini");
+    const QString settingsTplName(docFolder + "/agu-settings/map-boundaries-template.ini");
+    if (!QFileInfo(settingsFileName).exists()) {
+        QFile::copy(settingsTplName, settingsFileName);
+    }
     if (QFileInfo(settingsFileName).exists()) {
         QSettings settings (settingsFileName, QSettings::IniFormat);
         QStringList childKeys = settings.childKeys();
-        foreach (const QString &childKey, childKeys)
+        for (const QString& childKey : settings.childKeys())
         {
             if (str.compare(QVariant(childKey).toString()) == 0)
-                defaultValue = settings.value(childKey).toInt();
+            {
+                retValue = settings.value(childKey).toInt();
+                break;
+            }
         }
     }
-    return defaultValue;
+    return retValue;
 }
 
 void HMI::loadDescriptions()
