@@ -582,8 +582,6 @@ Window {
 
         gsParams.txtRLHeartbeatCounter: hmi.RLHeartbeatCounter
         gsParams.txtRadioLinkErrorCounter: hmi.GSRLErrorCounter
-
-
     }
 
     function timestampToUTCDate(number){
