@@ -25,6 +25,8 @@ QML_IMPORT_PATH += \
     GroundSegmentUI/ \
     GroundSegmentUI/imports
 
+# Copy settings INI files to agu-settings folder
+
 CONFIG_DESTDIR = $$(HOME)/Documents/agu-settings
 confcreatedir.commands = $$shell_path($$CONFIG_DESTDIR) & $(MKDIR) $$shell_path($$CONFIG_DESTDIR)
 QMAKE_EXTRA_TARGETS += confcreatedir
