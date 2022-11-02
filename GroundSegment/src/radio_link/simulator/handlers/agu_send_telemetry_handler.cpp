@@ -41,13 +41,13 @@ uint64_t AGUSendTelemetryHandler::generateMask()
     }
 
     std::string bs56 = std::bitset<8>(m_communicator->random255()).to_string()+"00000000""00000000""00000000""00000000""00000000""00000000""00000000";
-    std::cout << bs56 << std::endl;
+//    std::cout << bs56 << std::endl;
     std::string bs48 = "00000000"+std::bitset<8>(m_communicator->random255()).to_string()+"00000000""00000000""00000000""00000000""00000000""00000000";
-    std::cout << bs48 << std::endl;
+//    std::cout << bs48 << std::endl;
     std::string bs40 = "00000000""00000000"+std::bitset<8>(m_communicator->random255()).to_string()+"00000000""00000000""00000000""00000000""00000000";
-    std::cout << bs40 << std::endl;
+//    std::cout << bs40 << std::endl;
     std::string bs32 = "00000000""00000000""00000000"+std::bitset<8>(m_communicator->random255()).to_string()+"00000000""00000000""00000000""00000000";
-    std::cout << bs32 << std::endl;
+//    std::cout << bs32 << std::endl;
 
     statusMask = std::bitset<64>{bs56} | statusMask;
     statusMask = std::bitset<64>{bs48} | statusMask;
@@ -55,10 +55,10 @@ uint64_t AGUSendTelemetryHandler::generateMask()
     statusMask = std::bitset<64>{bs32} | statusMask;
     auto statusInt = statusMask.to_ulong();
     std::cout << handler << " STATUS MASK BIN " << statusMask << std::endl;
-    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
+//    std::cout << handler << " STATUS MASK INT " <<statusInt << std::endl;
     std::stringstream hexMask;
     hexMask << std::hex << std::uppercase << statusInt;
-    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
+//    std::cout << handler << " STATUS MASK HEX " << hexMask.str() << std::endl;
     return statusInt;
 }
 
@@ -152,7 +152,9 @@ void AGUSendTelemetryHandler::timerEvent(QTimerEvent* event)
 
     m_communicator->sendMessageOnLastReceivedLink(message);
 
-    m_lat = (m_lat > 90) ? 0 : (m_lat+1);
-    m_lon = (m_lon > 180) ? 0 : (m_lon+1);
+    m_lat = (m_lat > 90e7) ? m_communicator->randomLat() : (m_lat+1e6);
+    m_lon = (m_lon > 180e7) ? m_communicator->randomLon() : (m_lon+1e6);
+    std::cout << "Lat " << m_lat << std::endl;
+    std::cout << "Lon " << m_lon << std::endl;
 }
 

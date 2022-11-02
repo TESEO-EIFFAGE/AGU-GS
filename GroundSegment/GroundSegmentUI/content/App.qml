@@ -196,8 +196,8 @@ Window {
         fsParams.txtLongitude.desc: hmi.LongitudeDesc
         fsParams.txtGNSSAltitude.desc: hmi.GNSSAltitudeDesc
 
-        fsParams.txtLatitudeHome.value: hmi.Latitude.toFixed(2)
-        fsParams.txtLongitudeHome.value: hmi.Longitude.toFixed(2)
+        fsParams.txtLatitudeHome.value: hmi.Latitude.toFixed(7)
+        fsParams.txtLongitudeHome.value: hmi.Longitude.toFixed(7)
         fsParams.txtGNSSAltitudeHome.value: hmi.GNSSAltitude.toFixed(3)
 
         fsParams.txtLatitudeHome.desc: hmi.LatitudeDesc

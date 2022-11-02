@@ -39,12 +39,12 @@ bool MavLinkCommunicator::randomBool() {
 }
 
 int32_t MavLinkCommunicator::randomLat() {
-    static auto gen = std::bind(std::uniform_int_distribution<>(-90,90),std::default_random_engine());
+    static auto gen = std::bind(std::uniform_int_distribution<>(-80e7,80e7),std::default_random_engine());
     return gen();
 }
 
 int32_t MavLinkCommunicator::randomLon() {
-    static auto gen = std::bind(std::uniform_int_distribution<>(-180,180),std::default_random_engine());
+    static auto gen = std::bind(std::uniform_int_distribution<>(-120e7,120e7),std::default_random_engine());
     return gen();
 }
 

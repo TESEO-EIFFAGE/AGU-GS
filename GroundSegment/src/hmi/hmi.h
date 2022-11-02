@@ -18,8 +18,8 @@ public:
 
     QML_READONLY_AUTO_PROPERTY(quint64, TimeStamp)
     QML_READONLY_AUTO_PROPERTY(quint64, TimeStampRIO)
-    QML_READONLY_AUTO_PROPERTY(qint32, Latitude)
-    QML_READONLY_AUTO_PROPERTY(qint32, Longitude)
+    Q_PROPERTY(float Latitude READ get_Latitude WRITE update_Latitude NOTIFY Latitude_changed)
+    Q_PROPERTY(float Longitude READ get_Longitude WRITE update_Longitude NOTIFY Longitude_changed)
     QML_READONLY_AUTO_PROPERTY(quint32, GNSSAltitude)
     QML_READONLY_AUTO_PROPERTY(qint16, AirSpeed_UVector)
     QML_READONLY_AUTO_PROPERTY(qint16, AirSpeed_VVector)
@@ -705,6 +705,17 @@ public:
 
 public:
     void showData(QVariant data);
+    float get_Latitude() const;
+    float get_Longitude() const;
+
+public:
+    void update_Latitude(int32_t Latitude);
+    void update_Longitude(int32_t Longitude);
+
+signals:
+    void Latitude_changed(float Latitude);
+    void Longitude_changed(float Longitude);
+
 private:
     uint8_t extractBits64(const std::bitset<64> the_bitset, size_t start_bit, size_t end_bit);
     uint8_t extractBits32(const std::bitset<32> the_bitset, size_t start_bit, size_t end_bit);
@@ -718,11 +729,11 @@ private:
     void showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_status);
     void showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidance_status);
 
-    void initValues();
-    qint32 initMap(QString str);
+    qint32 initMap(const QString& str);
     QString initDesc(const QString& str);
     void loadDescriptions();
     void loadBoundingBox();
+    void setupMsgTimeouts();
 
     QTimer* m_timerTelemetry;
     QTimer* m_timerMotor;
@@ -730,7 +741,8 @@ private:
     QTimer* m_timerRadioLink;
     QTimer* m_timerStorage;
     QTimer* m_timerSystem;
-    void setupMsgTimeouts();
+    float m_Latitude;
+    float m_Longitude;
 };
 
 #endif // HMI_H
