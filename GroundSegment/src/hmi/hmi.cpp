@@ -148,7 +148,72 @@ HMI::HMI(QObject *parent)
 
     //    update_storageFreeDataSize(0);
 
+    setTimeStampDesc(initDesc("TimeStamp"));
+    setTimeStampRIODesc(initDesc("TimeStampRIO"));
+    setLatitudeDesc(initDesc("Latitude"));
+    setLongitudeDesc(initDesc("Longitude"));
+    setGNSSAltitudeDesc(initDesc("GNSSAltitude"));
+    setAirSpeed_UVectorDesc(initDesc("AirSpeed_UVector"));
+    setAirSpeed_VVectorDesc(initDesc("AirSpeed_VVector"));
+    setAirSpeed_WVectorDesc(initDesc("AirSpeed_WVector"));
+    setAirTemperatureDesc(initDesc("AirTemperature"));
+    setAltitudeFromRadarAltimeterDesc(initDesc("AltitudeFromRadarAltimeter"));
+    setAltitudeFromPayloadAltimeterDesc(initDesc("AltitudeFromPayloadAltimeter"));
+    setLinearVelocityHorizontalDesc(initDesc("LinearVelocityHorizontal"));
+    setLinearVelocityVerticalDesc(initDesc("LinearVelocityVertical"));
+    setPositionAccuracyDesc(initDesc("PositionAccuracy"));
+    setSpeedAccuracyDesc(initDesc("SpeedAccuracy"));
+    setLinearAccelerationXDesc(initDesc("LinearAccelerationX"));
+    setLinearAccelerationYDesc(initDesc("LinearAccelerationY"));
+    setLinearAccelerationZDesc(initDesc("LinearAccelerationZ"));
+    setECEFVectorPositionXDesc(initDesc("ECEFVectorPositionX"));
+    setECEFVectorPositionYDesc(initDesc("ECEFVectorPositionY"));
+    setECEFVectorPositionZDesc(initDesc("ECEFVectorPositionZ"));
+    setECEFVectorVelocityXDesc(initDesc("ECEFVectorVelocityX"));
+    setECEFVectorVelocityYDesc(initDesc("ECEFVectorVelocityY"));
+    setECEFVectorVelocityZDesc(initDesc("ECEFVectorVelocityZ"));
+    setRollAngleDesc(initDesc("RollAngle"));
+    setPitchAngleDesc(initDesc("PitchAngle"));
+    setYawAngleDesc(initDesc("YawAngle"));
+    setAngularRateRollDesc(initDesc("AngularRateRoll"));
+    setAngularRatePitchDesc(initDesc("AngularRatePitch"));
+    setAngularRateYawDesc(initDesc("AngularRateYaw"));
+    setQuaternion0Desc(initDesc("Quaternion0"));
+    setQuaternion1Desc(initDesc("Quaternion1"));
+    setQuaternion2Desc(initDesc("Quaternion2"));
+    setQuaternion3Desc(initDesc("Quaternion3"));
+    setNumberOfGPSSatelliteDesc(initDesc("NumberOfGPSSatellite"));
+    setAnemCommErrorCounterDesc(initDesc("AnemCommErrorCounter"));
+    setRDAltCommErrorCounterDesc(initDesc("RDAltCommErrorCounter"));
+    setGNSSCommErrorCounterDesc(initDesc("GNSSCommErrorCounter"));
+    setPLAltCommErrorCounterDesc(initDesc("PLAltCommErrorCounter"));
 
+
+    setMotorARealPositionDesc(initDesc("MotorARealPosition"));
+    setMotorADemandPositionDesc(initDesc("MotorADemandPosition"));
+    setMotorATorqueDesc(initDesc("MotorATorque"));
+    setMotorATempDesc(initDesc("MotorATemp"));
+
+    setMotorBRealPositionDesc(initDesc("MotorBRealPosition"));
+    setMotorBDemandPositionDesc(initDesc("MotorBDemandPosition"));
+    setMotorBTorqueDesc(initDesc("MotorBTorque"));
+    setMotorBTempDesc(initDesc("MotorBTemp"));
+
+    setBMSVoltageDesc(initDesc("BMSVoltage"));
+    setBMSAbsorptionDesc(initDesc("BMSAbsorption"));
+    setBMSTempDesc(initDesc("BMSTemp"));
+
+    setChargeValueDesc(initDesc("ChargeValue"));
+
+    setFlightModeDesc(initDesc("FlightMode"));
+    setFlightPhaseDesc(initDesc("FlightPhase"));
+    setFlightPhaseExecutionTimeDesc(initDesc("FlightPhaseExecutionTime"));
+
+    setcommunicationErrorCounterDesc(initDesc("communicationErrorCounter"));
+
+    setRSSIDesc(initDesc("RSSI"));
+
+    setstorageFreeDataSizeDesc(initDesc("storageFreeDataSize"));
     //initValues();
 
 }
@@ -166,36 +231,36 @@ void HMI::showData(QVariant msg) {
     timerStorage->start();
     timerSystem->start();
 
-    update_msgGuidanceOld(false);
-    update_msgSystemOld(false);
-    update_msgRadioLinkOld(false);
-    update_msgStorageOld(false);
-    update_msgMotorOld(false);
-    update_msgTelemetryOld(false);
+    setmsgGuidanceOld(false);
+    setmsgSystemOld(false);
+    setmsgRadioLinkOld(false);
+    setmsgStorageOld(false);
+    setmsgMotorOld(false);
+    setmsgTelemetryOld(false);
 
     if (msg.canConvert<mavlink_telemetry_data_pack_t>()) {
         showDataTelemetry(msg.value<mavlink_telemetry_data_pack_t>());
-        update_telemetryMsgCounter(m_telemetryMsgCounter+1);
+        settelemetryMsgCounter(m_telemetryMsgCounter+1);
     }
     else if (msg.canConvert<mavlink_system_status_pack_t>()) {
         showDataSystemStatus(msg.value<mavlink_system_status_pack_t>());
-        update_systemMsgCounter(m_systemMsgCounter+1);
+        setsystemMsgCounter(m_systemMsgCounter+1);
     }
     else if (msg.canConvert<mavlink_motor_status_pack_t>()) {
         showDataMotorStatus(msg.value<mavlink_motor_status_pack_t>());
-        update_motorMsgCounter(m_motorMsgCounter+1);
+        setmotorMsgCounter(m_motorMsgCounter+1);
     }
     else if (msg.canConvert<mavlink_guidance_status_pack_t>()) {
         showDataGuidanceStatus(msg.value<mavlink_guidance_status_pack_t>());
-        update_guidanceMsgCounter(m_guidanceMsgCounter+1);
+        setguidanceMsgCounter(m_guidanceMsgCounter+1);
     }
     else if (msg.canConvert<mavlink_storage_status_pack_t>()) {
         showDataStorageStatus(msg.value<mavlink_storage_status_pack_t>());
-        update_storageMsgCounter(m_storageMsgCounter+1);
+        setstorageMsgCounter(m_storageMsgCounter+1);
     }
     else if (msg.canConvert<mavlink_radio_link_status_pack_t>()) {
         showDataRLStatus(msg.value<mavlink_radio_link_status_pack_t>());
-        update_radiolinkMsgCounter(m_radiolinkMsgCounter+1);
+        setradiolinkMsgCounter(m_radiolinkMsgCounter+1);
     }
 }
 
@@ -205,81 +270,81 @@ void HMI::showData(QVariant msg) {
     Sets UI properties for telemetry-related data
 */
 void HMI::showDataTelemetry(const mavlink_telemetry_data_pack_t msg_telemetry) {
-    update_TimeStamp( msg_telemetry.GNSS_Timestamp);
-    update_Latitude( msg_telemetry.Latitude);
-    update_Longitude(msg_telemetry.Longitude);
-    update_GNSSAltitude( msg_telemetry.GNSS_Altitude);
-    update_AirSpeed_UVector( msg_telemetry.Air_Speed_U);
-    update_AirSpeed_VVector( msg_telemetry.Air_Speed_V);
-    update_AirSpeed_WVector( msg_telemetry.Air_Speed_W);
-    update_AirTemperature(msg_telemetry.Air_Temperature);
-    update_AltitudeFromPayloadAltimeter( msg_telemetry.Altitude_Payload_Altimeter);
-    update_AltitudeFromRadarAltimeter(msg_telemetry.Altitude_Main_Altimeter);
-    update_LinearVelocityHorizontal( msg_telemetry.Velocity_Horizontal);
-    update_LinearVelocityVertical( msg_telemetry.Velocity_Vertical);
-    update_PositionAccuracy( msg_telemetry.Position_Accuracy);
-    update_SpeedAccuracy( msg_telemetry.Speed_Accuracy);
-    update_LinearAccelerationX( msg_telemetry.Acceleration_X);
-    update_LinearAccelerationY(msg_telemetry.Acceleration_Y);
-    update_LinearAccelerationZ(msg_telemetry.Acceleration_Z);
-    update_ECEFVectorPositionX(msg_telemetry.ECEF_Position_X);
-    update_ECEFVectorPositionY(msg_telemetry.ECEF_Position_Y);
-    update_ECEFVectorPositionZ(msg_telemetry.ECEF_Position_Z);
-    update_ECEFVectorVelocityX(msg_telemetry.ECEF_Velocity_X);
-    update_ECEFVectorVelocityY(msg_telemetry.ECEF_Velocity_Y);
-    update_ECEFVectorVelocityZ(msg_telemetry.ECEF_Velocity_Z);
-    update_RollAngle(msg_telemetry.Roll_Angle);
-    update_YawAngle(msg_telemetry.Yaw_Angle);
-    update_PitchAngle(msg_telemetry.Pitch_Angle);
-    update_AngularRatePitch(msg_telemetry.Angular_Rate_Pitch);
-    update_AngularRateRoll(msg_telemetry.Angular_Rate_Roll);
-    update_AngularRateYaw(msg_telemetry.Angular_Rate_Yaw);
-    update_Quaternion0( msg_telemetry.Quaternion_0);
-    update_Quaternion1( msg_telemetry.Quaternion_1);
-    update_Quaternion2( msg_telemetry.Quaternion_2);
-    update_Quaternion3( msg_telemetry.Quaternion_3);
-    update_NumberOfGPSSatellite( msg_telemetry.Satellite_Num);
+    setTimeStamp( msg_telemetry.GNSS_Timestamp);
+    setLatitude( msg_telemetry.Latitude);
+    setLongitude(msg_telemetry.Longitude);
+    setGNSSAltitude( msg_telemetry.GNSS_Altitude);
+    setAirSpeed_UVector( msg_telemetry.Air_Speed_U);
+    setAirSpeed_VVector( msg_telemetry.Air_Speed_V);
+    setAirSpeed_WVector( msg_telemetry.Air_Speed_W);
+    setAirTemperature(msg_telemetry.Air_Temperature);
+    setAltitudeFromPayloadAltimeter( msg_telemetry.Altitude_Payload_Altimeter);
+    setAltitudeFromRadarAltimeter(msg_telemetry.Altitude_Main_Altimeter);
+    setLinearVelocityHorizontal( msg_telemetry.Velocity_Horizontal);
+    setLinearVelocityVertical( msg_telemetry.Velocity_Vertical);
+    setPositionAccuracy( msg_telemetry.Position_Accuracy);
+    setSpeedAccuracy( msg_telemetry.Speed_Accuracy);
+    setLinearAccelerationX( msg_telemetry.Acceleration_X);
+    setLinearAccelerationY(msg_telemetry.Acceleration_Y);
+    setLinearAccelerationZ(msg_telemetry.Acceleration_Z);
+    setECEFVectorPositionX(msg_telemetry.ECEF_Position_X);
+    setECEFVectorPositionY(msg_telemetry.ECEF_Position_Y);
+    setECEFVectorPositionZ(msg_telemetry.ECEF_Position_Z);
+    setECEFVectorVelocityX(msg_telemetry.ECEF_Velocity_X);
+    setECEFVectorVelocityY(msg_telemetry.ECEF_Velocity_Y);
+    setECEFVectorVelocityZ(msg_telemetry.ECEF_Velocity_Z);
+    setRollAngle(msg_telemetry.Roll_Angle);
+    setYawAngle(msg_telemetry.Yaw_Angle);
+    setPitchAngle(msg_telemetry.Pitch_Angle);
+    setAngularRatePitch(msg_telemetry.Angular_Rate_Pitch);
+    setAngularRateRoll(msg_telemetry.Angular_Rate_Roll);
+    setAngularRateYaw(msg_telemetry.Angular_Rate_Yaw);
+    setQuaternion0( msg_telemetry.Quaternion_0);
+    setQuaternion1( msg_telemetry.Quaternion_1);
+    setQuaternion2( msg_telemetry.Quaternion_2);
+    setQuaternion3( msg_telemetry.Quaternion_3);
+    setNumberOfGPSSatellite( msg_telemetry.Satellite_Num);
 
     /* TELEMETRY STATUS MASK */
     std::bitset<64> bitSet(msg_telemetry.Telemetry_Status_Mask);
 
-    update_telemetry0(bitSet.test(0));
-    update_telemetry1(bitSet.test(1));
-    update_telemetry2(bitSet.test(2));
-    update_telemetry3(bitSet.test(3));
-    update_telemetry4(bitSet.test(4));
-    update_telemetry5(bitSet.test(5));
-    update_telemetry6(bitSet.test(6));
-    update_telemetry7(bitSet.test(7));
-    update_telemetry8(bitSet.test(8));
-    update_telemetry9(bitSet.test(9));
-    update_telemetry10(bitSet.test(10));
-    update_telemetry11(bitSet.test(11));
-    update_telemetry12(bitSet.test(12));
-    update_telemetry13(bitSet.test(13));
-    update_telemetry14(bitSet.test(14));
-    update_telemetry15(bitSet.test(15));
-    update_telemetry16(bitSet.test(16));
-    update_telemetry17(bitSet.test(17));
-    update_telemetry18(bitSet.test(18));
-    update_telemetry19(bitSet.test(19));
-    update_telemetry20(bitSet.test(20));
-    update_telemetry21(bitSet.test(21));
-    update_telemetry22(bitSet.test(22));
-    update_telemetry23(bitSet.test(23));
-    update_telemetry24(bitSet.test(24));
-    update_telemetry25(bitSet.test(25));
-    update_telemetry26(bitSet.test(26));
-    update_telemetry27(bitSet.test(27));
-    update_telemetry28(bitSet.test(28));
-    update_telemetry29(bitSet.test(29));
-    update_telemetry30(bitSet.test(30));
-    update_telemetry31(bitSet.test(31));
+    settelemetry0(bitSet.test(0));
+    settelemetry1(bitSet.test(1));
+    settelemetry2(bitSet.test(2));
+    settelemetry3(bitSet.test(3));
+    settelemetry4(bitSet.test(4));
+    settelemetry5(bitSet.test(5));
+    settelemetry6(bitSet.test(6));
+    settelemetry7(bitSet.test(7));
+    settelemetry8(bitSet.test(8));
+    settelemetry9(bitSet.test(9));
+    settelemetry10(bitSet.test(10));
+    settelemetry11(bitSet.test(11));
+    settelemetry12(bitSet.test(12));
+    settelemetry13(bitSet.test(13));
+    settelemetry14(bitSet.test(14));
+    settelemetry15(bitSet.test(15));
+    settelemetry16(bitSet.test(16));
+    settelemetry17(bitSet.test(17));
+    settelemetry18(bitSet.test(18));
+    settelemetry19(bitSet.test(19));
+    settelemetry20(bitSet.test(20));
+    settelemetry21(bitSet.test(21));
+    settelemetry22(bitSet.test(22));
+    settelemetry23(bitSet.test(23));
+    settelemetry24(bitSet.test(24));
+    settelemetry25(bitSet.test(25));
+    settelemetry26(bitSet.test(26));
+    settelemetry27(bitSet.test(27));
+    settelemetry28(bitSet.test(28));
+    settelemetry29(bitSet.test(29));
+    settelemetry30(bitSet.test(30));
+    settelemetry31(bitSet.test(31));
 
-    update_AnemCommErrorCounter(extractBits64(bitSet,32,40));
-    update_RDAltCommErrorCounter(extractBits64(bitSet,40,48));
-    update_GNSSCommErrorCounter(extractBits64(bitSet,48,56));
-    update_PLAltCommErrorCounter(extractBits64(bitSet,56,64));
+    setAnemCommErrorCounter(extractBits64(bitSet,32,40));
+    setRDAltCommErrorCounter(extractBits64(bitSet,40,48));
+    setGNSSCommErrorCounter(extractBits64(bitSet,48,56));
+    setPLAltCommErrorCounter(extractBits64(bitSet,56,64));
 }
 
 uint8_t HMI::extractBits64(const std::bitset<64> the_bitset, size_t start_bit, size_t end_bit) {
@@ -330,47 +395,47 @@ uint8_t HMI::extractBits8(const std::bitset<8> the_bitset, size_t start_bit, siz
 */
 void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 {
-    update_TimeStampRIO ( msg_status.Log_Timestamp);
-    update_FlightMode ( msg_status.Flight_Mode);
-    update_FlightPhase( msg_status.Flight_Phase);
-    update_FlightPhaseExecutionTime( msg_status.Flight_Phase_Time);
-    update_TelemetryModuleStatusMask( msg_status.Telemetry_Module_Status_Mask);
-    update_StorageModuleStatusMask( msg_status.Storage_Module_Status_Mask);
-    update_GuidanceModuleStatusMask( msg_status.Guidance_Module_Status_Mask);
-    update_CoreModuleStatusMask( msg_status.Core_Module_Status_Mask);
-    update_RadioLinkModuleStatusMask( msg_status.Radio_Link_Module_Status_Mask);
+    setTimeStampRIO ( msg_status.Log_Timestamp);
+    setFlightMode ( msg_status.Flight_Mode);
+    setFlightPhase( msg_status.Flight_Phase);
+    setFlightPhaseExecutionTime( msg_status.Flight_Phase_Time);
+    setTelemetryModuleStatusMask( msg_status.Telemetry_Module_Status_Mask);
+    setStorageModuleStatusMask( msg_status.Storage_Module_Status_Mask);
+    setGuidanceModuleStatusMask( msg_status.Guidance_Module_Status_Mask);
+    setCoreModuleStatusMask( msg_status.Core_Module_Status_Mask);
+    setRadioLinkModuleStatusMask( msg_status.Radio_Link_Module_Status_Mask);
 
     std::bitset<32> bitSet(msg_status.Core_Module_Status_Mask);
 
-    update_systemCoreMask0(bitSet.test(0));
-    update_systemCoreMask1(bitSet.test(1));
-    update_systemCoreMask2(bitSet.test(2));
-    update_systemCoreMask3(bitSet.test(3));
-    update_systemCoreMask4(bitSet.test(4));
-    update_systemCoreMask5(bitSet.test(5));
-    update_systemCoreMask6(bitSet.test(6));
-    update_systemCoreMask7(bitSet.test(7));
-    update_systemCoreMask8(bitSet.test(8));
-    update_systemCoreMask9(bitSet.test(9));
-    update_systemCoreMask10(bitSet.test(10));
-    update_systemCoreMask11(bitSet.test(11));
-    update_systemCoreMask12(bitSet.test(12));
-    update_systemCoreMask13(bitSet.test(13));
-    update_systemCoreMask14(bitSet.test(14));
-    update_systemCoreMask15(bitSet.test(15));
+    setsystemCoreMask0(bitSet.test(0));
+    setsystemCoreMask1(bitSet.test(1));
+    setsystemCoreMask2(bitSet.test(2));
+    setsystemCoreMask3(bitSet.test(3));
+    setsystemCoreMask4(bitSet.test(4));
+    setsystemCoreMask5(bitSet.test(5));
+    setsystemCoreMask6(bitSet.test(6));
+    setsystemCoreMask7(bitSet.test(7));
+    setsystemCoreMask8(bitSet.test(8));
+    setsystemCoreMask9(bitSet.test(9));
+    setsystemCoreMask10(bitSet.test(10));
+    setsystemCoreMask11(bitSet.test(11));
+    setsystemCoreMask12(bitSet.test(12));
+    setsystemCoreMask13(bitSet.test(13));
+    setsystemCoreMask14(bitSet.test(14));
+    setsystemCoreMask15(bitSet.test(15));
 
-    update_communicationErrorCounter(extractBits32(bitSet,16,24));
+    setcommunicationErrorCounter(extractBits32(bitSet,16,24));
 
 
 
     std::bitset<32> rlBitSet(msg_status.Radio_Link_Module_Status_Mask);
-    update_radiolinkMask0(rlBitSet.test(0));
-    update_radiolinkMask1(rlBitSet.test(1));
-    update_radiolinkMask2(rlBitSet.test(2));
-    update_radiolinkMask3(rlBitSet.test(3));
-    update_radiolinkMask8(rlBitSet.test(8));
-    update_radiolinkMask9(rlBitSet.test(9));
-    update_radiolinkErrorCounter(extractBits32(rlBitSet,24,31));
+    setradiolinkMask0(rlBitSet.test(0));
+    setradiolinkMask1(rlBitSet.test(1));
+    setradiolinkMask2(rlBitSet.test(2));
+    setradiolinkMask3(rlBitSet.test(3));
+    setradiolinkMask8(rlBitSet.test(8));
+    setradiolinkMask9(rlBitSet.test(9));
+    setradiolinkErrorCounter(extractBits32(rlBitSet,24,31));
 
 
 }
@@ -382,84 +447,84 @@ void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 */
 void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
 {
-    update_MotorARealPosition(msg_status.Motor_A_Real_Position);
-    update_MotorADemandPosition(msg_status.Motor_A_Demand_Position);
-    update_MotorATemp(msg_status.Motor_A_Temperature);
-    update_MotorATorque(msg_status.Motor_A_Torque);
-    update_MotorAFaultsMask(msg_status.Motor_A_Faults_Mask);
+    setMotorARealPosition(msg_status.Motor_A_Real_Position);
+    setMotorADemandPosition(msg_status.Motor_A_Demand_Position);
+    setMotorATemp(msg_status.Motor_A_Temperature);
+    setMotorATorque(msg_status.Motor_A_Torque);
+    setMotorAFaultsMask(msg_status.Motor_A_Faults_Mask);
 
-    update_MotorBRealPosition(msg_status.Motor_B_Real_Position);
-    update_MotorBDemandPosition(msg_status.Motor_B_Demand_Position);
-    update_MotorBTemp(msg_status.Motor_B_Temperature);
-    update_MotorBTorque(msg_status.Motor_B_Torque);
-    update_MotorBFaultsMask(msg_status.Motor_B_Faults_Mask);
+    setMotorBRealPosition(msg_status.Motor_B_Real_Position);
+    setMotorBDemandPosition(msg_status.Motor_B_Demand_Position);
+    setMotorBTemp(msg_status.Motor_B_Temperature);
+    setMotorBTorque(msg_status.Motor_B_Torque);
+    setMotorBFaultsMask(msg_status.Motor_B_Faults_Mask);
 
-    update_BMSVoltage(msg_status.BMS_Voltage);
-    update_BMSAbsorption(msg_status.BMS_Absorption);
-    update_BMSTemp(msg_status.BMS_Temperature);
+    setBMSVoltage(msg_status.BMS_Voltage);
+    setBMSAbsorption(msg_status.BMS_Absorption);
+    setBMSTemp(msg_status.BMS_Temperature);
 
     std::bitset<32> bitSet(msg_status.BMS_Faults_Mask);
-    update_BMS0(bitSet.test(0));
-    update_BMS1(bitSet.test(1));
-    update_BMS2(bitSet.test(2));
-    update_BMS3(bitSet.test(3));
-    update_BMS4(bitSet.test(4));
-    update_BMS5(bitSet.test(5));
-    update_BMS6(bitSet.test(6));
-    update_BMS7(bitSet.test(7));
-    update_BMS8(bitSet.test(8));
-    update_BMS9(bitSet.test(9));
-    update_BMS10(bitSet.test(10));
-    update_BMS11(bitSet.test(11));
-    update_BMS12(bitSet.test(12));
-    update_BMS13(bitSet.test(13));
-    update_BMS14(bitSet.test(14));
-    update_BMS15(bitSet.test(15));
-    update_BMS16(bitSet.test(16));
-    update_BMS17(bitSet.test(17));
-    update_BMS18(bitSet.test(18));
-    update_BMS19(bitSet.test(19));
-    update_BMS20(bitSet.test(20));
-    update_BMS21(bitSet.test(21));
-    update_BMS22(bitSet.test(22));
-    update_BMS23(bitSet.test(23));
-    update_BMS24(bitSet.test(24));
-    update_BMS25(bitSet.test(25));
-    update_BMS26(bitSet.test(26));
-    update_BMS27(bitSet.test(27));
-    update_BMS28(bitSet.test(28));
-    update_BMS29(bitSet.test(29));
-    update_BMS30(bitSet.test(30));
-    update_BMS31(bitSet.test(31));
+    setBMS0(bitSet.test(0));
+    setBMS1(bitSet.test(1));
+    setBMS2(bitSet.test(2));
+    setBMS3(bitSet.test(3));
+    setBMS4(bitSet.test(4));
+    setBMS5(bitSet.test(5));
+    setBMS6(bitSet.test(6));
+    setBMS7(bitSet.test(7));
+    setBMS8(bitSet.test(8));
+    setBMS9(bitSet.test(9));
+    setBMS10(bitSet.test(10));
+    setBMS11(bitSet.test(11));
+    setBMS12(bitSet.test(12));
+    setBMS13(bitSet.test(13));
+    setBMS14(bitSet.test(14));
+    setBMS15(bitSet.test(15));
+    setBMS16(bitSet.test(16));
+    setBMS17(bitSet.test(17));
+    setBMS18(bitSet.test(18));
+    setBMS19(bitSet.test(19));
+    setBMS20(bitSet.test(20));
+    setBMS21(bitSet.test(21));
+    setBMS22(bitSet.test(22));
+    setBMS23(bitSet.test(23));
+    setBMS24(bitSet.test(24));
+    setBMS25(bitSet.test(25));
+    setBMS26(bitSet.test(26));
+    setBMS27(bitSet.test(27));
+    setBMS28(bitSet.test(28));
+    setBMS29(bitSet.test(29));
+    setBMS30(bitSet.test(30));
+    setBMS31(bitSet.test(31));
 
     std::bitset<32> motorBitSet(msg_status.Motor_Control_Status_Mask);
-    update_motor0(motorBitSet.test(0));
-    update_motor1(motorBitSet.test(1));
-    update_motor2(motorBitSet.test(2));
-    update_motor3(motorBitSet.test(3));
-    update_motor4(motorBitSet.test(4));
-    update_motor5(motorBitSet.test(5));
-    update_motor6(motorBitSet.test(6));
-    update_motor7(motorBitSet.test(7));
-    update_motor8(motorBitSet.test(8));
-    update_motor10(motorBitSet.test(10));
-    update_motor11(motorBitSet.test(11));
-    update_motor12(motorBitSet.test(12));
-    update_motor13(motorBitSet.test(13));
-    update_motor14(motorBitSet.test(14));
-    update_motor15(motorBitSet.test(15));
-    update_motor16(motorBitSet.test(16));
-    update_motor17(motorBitSet.test(17));
-    update_motor18(motorBitSet.test(18));
-    update_motor19(motorBitSet.test(19));
-    update_motor20(motorBitSet.test(20));
-    update_motor21(motorBitSet.test(21));
-    update_motor22(motorBitSet.test(22));
-    update_motor23(motorBitSet.test(23));
+    setmotor0(motorBitSet.test(0));
+    setmotor1(motorBitSet.test(1));
+    setmotor2(motorBitSet.test(2));
+    setmotor3(motorBitSet.test(3));
+    setmotor4(motorBitSet.test(4));
+    setmotor5(motorBitSet.test(5));
+    setmotor6(motorBitSet.test(6));
+    setmotor7(motorBitSet.test(7));
+    setmotor8(motorBitSet.test(8));
+    setmotor10(motorBitSet.test(10));
+    setmotor11(motorBitSet.test(11));
+    setmotor12(motorBitSet.test(12));
+    setmotor13(motorBitSet.test(13));
+    setmotor14(motorBitSet.test(14));
+    setmotor15(motorBitSet.test(15));
+    setmotor16(motorBitSet.test(16));
+    setmotor17(motorBitSet.test(17));
+    setmotor18(motorBitSet.test(18));
+    setmotor19(motorBitSet.test(19));
+    setmotor20(motorBitSet.test(20));
+    setmotor21(motorBitSet.test(21));
+    setmotor22(motorBitSet.test(22));
+    setmotor23(motorBitSet.test(23));
 
 
-    update_ChargeValue(extractBits32(motorBitSet,24,31));
-    update_MotorControlStatusMask(msg_status.Motor_Control_Status_Mask);
+    setChargeValue(extractBits32(motorBitSet,24,31));
+    setMotorControlStatusMask(msg_status.Motor_Control_Status_Mask);
 
 }
 
@@ -482,33 +547,33 @@ void HMI::showDataRLStatus(const mavlink_radio_link_status_pack_t msg_radio_stat
 */
 void HMI::showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_status)
 {
-    update_storageFreeDataSize(msg_storage_status.Storage_Free_Data_Size);
+    setstorageFreeDataSize(msg_storage_status.Storage_Free_Data_Size);
 
     std::bitset<64> bitSet(msg_storage_status.Storage_Module_Status_Mask);
-    update_storage0(bitSet.test(0));
-    update_storage1(bitSet.test(1));
-    update_storage2(bitSet.test(2));
-    update_storage3(bitSet.test(3));
-    update_storage4(bitSet.test(4));
-    update_storage5(bitSet.test(5));
-    update_storage6(bitSet.test(6));
-    update_storage7(bitSet.test(7));
-    update_storage8(bitSet.test(8));
-    update_storage9(bitSet.test(9));
-    update_storage10(bitSet.test(10));
-    update_storage11(bitSet.test(11));
-    update_storage12(bitSet.test(12));
-    update_storage13(bitSet.test(13));
-    update_storage14(bitSet.test(14));
-    update_storage15(bitSet.test(15));
-    update_storage16(bitSet.test(16));
-    update_storage17(bitSet.test(17));
-    update_storage18(bitSet.test(18));
-    update_storage19(bitSet.test(19));
-    update_storage20(bitSet.test(20));
-    update_storage21(bitSet.test(21));
-    update_storage22(bitSet.test(22));
-    update_storage23(bitSet.test(23));
+    setstorage0(bitSet.test(0));
+    setstorage1(bitSet.test(1));
+    setstorage2(bitSet.test(2));
+    setstorage3(bitSet.test(3));
+    setstorage4(bitSet.test(4));
+    setstorage5(bitSet.test(5));
+    setstorage6(bitSet.test(6));
+    setstorage7(bitSet.test(7));
+    setstorage8(bitSet.test(8));
+    setstorage9(bitSet.test(9));
+    setstorage10(bitSet.test(10));
+    setstorage11(bitSet.test(11));
+    setstorage12(bitSet.test(12));
+    setstorage13(bitSet.test(13));
+    setstorage14(bitSet.test(14));
+    setstorage15(bitSet.test(15));
+    setstorage16(bitSet.test(16));
+    setstorage17(bitSet.test(17));
+    setstorage18(bitSet.test(18));
+    setstorage19(bitSet.test(19));
+    setstorage20(bitSet.test(20));
+    setstorage21(bitSet.test(21));
+    setstorage22(bitSet.test(22));
+    setstorage23(bitSet.test(23));
 
 }
 
@@ -524,231 +589,256 @@ void HMI::showDataGuidanceStatus(const mavlink_guidance_status_pack_t msg_guidan
 
 void HMI::initValues()
 {
-    update_telemetryMsgCounter(0);
-    update_motorMsgCounter(0);
-    update_storageMsgCounter(0);
-    update_radiolinkMsgCounter(0);
-    update_guidanceMsgCounter(0);
-    update_systemMsgCounter(0);
+    settelemetryMsgCounter(0);
+    setmotorMsgCounter(0);
+    setstorageMsgCounter(0);
+    setradiolinkMsgCounter(0);
+    setguidanceMsgCounter(0);
+    setsystemMsgCounter(0);
 
-    update_TimeStamp(0);
-    update_Latitude(0);
-    update_Longitude(0);
-    update_GNSSAltitude(0);
-    update_AirSpeed_UVector(0);
-    update_AirSpeed_VVector(0);
-    update_AirSpeed_WVector(0);
-    update_AirTemperature(0);
-    update_AltitudeFromPayloadAltimeter(0);
-    update_AltitudeFromRadarAltimeter(0);
-    update_LinearVelocityHorizontal(0);
-    update_LinearVelocityVertical(0);
-    update_PositionAccuracy(0);
-    update_SpeedAccuracy(0);
-    update_LinearAccelerationX(0);
-    update_LinearAccelerationY(0);
-    update_LinearAccelerationZ(0);
-    update_ECEFVectorPositionX(0);
-    update_ECEFVectorPositionY(0);
-    update_ECEFVectorPositionZ(0);
-    update_ECEFVectorVelocityX(0);
-    update_ECEFVectorVelocityY(0);
-    update_ECEFVectorVelocityZ(0);
-    update_RollAngle(0);
-    update_YawAngle(0);
-    update_PitchAngle(0);
-    update_AngularRatePitch(0);
-    update_AngularRateRoll(0);
-    update_AngularRateYaw(0);
-    update_Quaternion0(0);
-    update_Quaternion1(0);
-    update_Quaternion2(0);
-    update_Quaternion3(0);
-    update_NumberOfGPSSatellite(0);
-
-
-    update_telemetry0(0);
-    update_telemetry1(0);
-    update_telemetry2(0);
-    update_telemetry3(0);
-    update_telemetry4(0);
-    update_telemetry5(0);
-    update_telemetry6(0);
-    update_telemetry7(0);
-    update_telemetry8(0);
-    update_telemetry9(0);
-    update_telemetry10(0);
-    update_telemetry11(0);
-    update_telemetry12(0);
-    update_telemetry13(0);
-    update_telemetry14(0);
-    update_telemetry15(0);
-    update_telemetry16(0);
-    update_telemetry17(0);
-    update_telemetry18(0);
-    update_telemetry19(0);
-    update_telemetry20(0);
-    update_telemetry21(0);
-    update_telemetry22(0);
-    update_telemetry23(0);
-    update_telemetry24(0);
-    update_telemetry25(0);
-    update_telemetry26(0);
-    update_telemetry27(0);
-    update_telemetry28(0);
-    update_telemetry29(0);
-    update_telemetry30(0);
-    update_telemetry31(0);
+    setTimeStamp(0);
+    setLatitude(0);
+    setLongitude(0);
+    setGNSSAltitude(0);
+    setAirSpeed_UVector(0);
+    setAirSpeed_VVector(0);
+    setAirSpeed_WVector(0);
+    setAirTemperature(0);
+    setAltitudeFromPayloadAltimeter(0);
+    setAltitudeFromRadarAltimeter(0);
+    setLinearVelocityHorizontal(0);
+    setLinearVelocityVertical(0);
+    setPositionAccuracy(0);
+    setSpeedAccuracy(0);
+    setLinearAccelerationX(0);
+    setLinearAccelerationY(0);
+    setLinearAccelerationZ(0);
+    setECEFVectorPositionX(0);
+    setECEFVectorPositionY(0);
+    setECEFVectorPositionZ(0);
+    setECEFVectorVelocityX(0);
+    setECEFVectorVelocityY(0);
+    setECEFVectorVelocityZ(0);
+    setRollAngle(0);
+    setYawAngle(0);
+    setPitchAngle(0);
+    setAngularRatePitch(0);
+    setAngularRateRoll(0);
+    setAngularRateYaw(0);
+    setQuaternion0(0);
+    setQuaternion1(0);
+    setQuaternion2(0);
+    setQuaternion3(0);
+    setNumberOfGPSSatellite(0);
 
 
-    update_AnemCommErrorCounter(0);
-    update_RDAltCommErrorCounter(0);
-    update_GNSSCommErrorCounter(0);
-    update_PLAltCommErrorCounter(0);
-
-    update_TimeStampRIO (0);
-    update_FlightMode (0);
-    update_FlightPhase(0);
-    update_FlightPhaseExecutionTime(0);
-    update_TelemetryModuleStatusMask(0);
-    update_StorageModuleStatusMask(0);
-    update_GuidanceModuleStatusMask(0);
-    update_CoreModuleStatusMask(0);
-    update_RadioLinkModuleStatusMask(0);
-
-
-    update_systemCoreMask0(0);
-    update_systemCoreMask1(0);
-    update_systemCoreMask2(0);
-    update_systemCoreMask3(0);
-    update_systemCoreMask4(0);
-    update_systemCoreMask5(0);
-    update_systemCoreMask6(0);
-    update_systemCoreMask7(0);
-    update_systemCoreMask8(0);
-    update_systemCoreMask9(0);
-    update_systemCoreMask10(0);
-    update_systemCoreMask11(0);
-    update_systemCoreMask12(0);
-    update_systemCoreMask13(0);
-    update_systemCoreMask14(0);
-    update_systemCoreMask15(0);
-
-    update_communicationErrorCounter(0);
+    settelemetry0(0);
+    settelemetry1(0);
+    settelemetry2(0);
+    settelemetry3(0);
+    settelemetry4(0);
+    settelemetry5(0);
+    settelemetry6(0);
+    settelemetry7(0);
+    settelemetry8(0);
+    settelemetry9(0);
+    settelemetry10(0);
+    settelemetry11(0);
+    settelemetry12(0);
+    settelemetry13(0);
+    settelemetry14(0);
+    settelemetry15(0);
+    settelemetry16(0);
+    settelemetry17(0);
+    settelemetry18(0);
+    settelemetry19(0);
+    settelemetry20(0);
+    settelemetry21(0);
+    settelemetry22(0);
+    settelemetry23(0);
+    settelemetry24(0);
+    settelemetry25(0);
+    settelemetry26(0);
+    settelemetry27(0);
+    settelemetry28(0);
+    settelemetry29(0);
+    settelemetry30(0);
+    settelemetry31(0);
 
 
+    setAnemCommErrorCounter(0);
+    setRDAltCommErrorCounter(0);
+    setGNSSCommErrorCounter(0);
+    setPLAltCommErrorCounter(0);
 
-    update_radiolinkMask0(0);
-    update_radiolinkMask1(0);
-    update_radiolinkMask2(0);
-    update_radiolinkMask3(0);
-    update_radiolinkMask8(0);
-    update_radiolinkMask9(0);
-    update_radiolinkErrorCounter(0);
-
-    update_MotorARealPosition(0);
-    update_MotorADemandPosition(0);
-    update_MotorATemp(0);
-    update_MotorATorque(0);
-    update_MotorAFaultsMask(0);
-
-    update_MotorBRealPosition(0);
-    update_MotorBDemandPosition(0);
-    update_MotorBTemp(0);
-    update_MotorBTorque(0);
-    update_MotorBFaultsMask(0);
-
-    update_BMSVoltage(0);
-    update_BMSAbsorption(0);
-    update_BMSTemp(0);
-
-    update_BMS0(0);
-    update_BMS1(0);
-    update_BMS2(0);
-    update_BMS3(0);
-    update_BMS4(0);
-    update_BMS5(0);
-    update_BMS6(0);
-    update_BMS7(0);
-    update_BMS8(0);
-    update_BMS9(0);
-    update_BMS10(0);
-    update_BMS11(0);
-    update_BMS12(0);
-    update_BMS13(0);
-    update_BMS14(0);
-    update_BMS15(0);
-    update_BMS16(0);
-    update_BMS17(0);
-    update_BMS18(0);
-    update_BMS19(0);
-    update_BMS20(0);
-    update_BMS21(0);
-    update_BMS22(0);
-    update_BMS23(0);
-    update_BMS24(0);
-    update_BMS25(0);
-    update_BMS26(0);
-    update_BMS27(0);
-    update_BMS28(0);
-    update_BMS29(0);
-    update_BMS30(0);
-    update_BMS31(0);
-
-    update_motor0(0);
-    update_motor1(0);
-    update_motor2(0);
-    update_motor3(0);
-    update_motor4(0);
-    update_motor5(0);
-    update_motor6(0);
-    update_motor7(0);
-    update_motor8(0);
-    update_motor10(0);
-    update_motor11(0);
-    update_motor12(0);
-    update_motor13(0);
-    update_motor14(0);
-    update_motor15(0);
-    update_motor16(0);
-    update_motor17(0);
-    update_motor18(0);
-    update_motor19(0);
-    update_motor20(0);
-    update_motor21(0);
-    update_motor22(0);
-    update_motor23(0);
+    setTimeStampRIO (0);
+    setFlightMode (0);
+    setFlightPhase(0);
+    setFlightPhaseExecutionTime(0);
+    setTelemetryModuleStatusMask(0);
+    setStorageModuleStatusMask(0);
+    setGuidanceModuleStatusMask(0);
+    setCoreModuleStatusMask(0);
+    setRadioLinkModuleStatusMask(0);
 
 
-    update_ChargeValue(0);
-    update_MotorControlStatusMask(0);
+    setsystemCoreMask0(0);
+    setsystemCoreMask1(0);
+    setsystemCoreMask2(0);
+    setsystemCoreMask3(0);
+    setsystemCoreMask4(0);
+    setsystemCoreMask5(0);
+    setsystemCoreMask6(0);
+    setsystemCoreMask7(0);
+    setsystemCoreMask8(0);
+    setsystemCoreMask9(0);
+    setsystemCoreMask10(0);
+    setsystemCoreMask11(0);
+    setsystemCoreMask12(0);
+    setsystemCoreMask13(0);
+    setsystemCoreMask14(0);
+    setsystemCoreMask15(0);
 
-    update_storageFreeDataSize(0);
+    setcommunicationErrorCounter(0);
 
-    update_storage0(0);
-    update_storage1(0);
-    update_storage2(0);
-    update_storage3(0);
-    update_storage4(0);
-    update_storage5(0);
-    update_storage6(0);
-    update_storage7(0);
-    update_storage8(0);
-    update_storage9(0);
-    update_storage10(0);
-    update_storage11(0);
-    update_storage12(0);
-    update_storage13(0);
-    update_storage14(0);
-    update_storage15(0);
-    update_storage16(0);
-    update_storage17(0);
-    update_storage18(0);
-    update_storage19(0);
-    update_storage20(0);
-    update_storage21(0);
-    update_storage22(0);
-    update_storage23(0);
+
+
+    setradiolinkMask0(0);
+    setradiolinkMask1(0);
+    setradiolinkMask2(0);
+    setradiolinkMask3(0);
+    setradiolinkMask8(0);
+    setradiolinkMask9(0);
+    setradiolinkErrorCounter(0);
+
+    setMotorARealPosition(0);
+    setMotorADemandPosition(0);
+    setMotorATemp(0);
+    setMotorATorque(0);
+    setMotorAFaultsMask(0);
+
+    setMotorBRealPosition(0);
+    setMotorBDemandPosition(0);
+    setMotorBTemp(0);
+    setMotorBTorque(0);
+    setMotorBFaultsMask(0);
+
+    setBMSVoltage(0);
+    setBMSAbsorption(0);
+    setBMSTemp(0);
+
+    setBMS0(0);
+    setBMS1(0);
+    setBMS2(0);
+    setBMS3(0);
+    setBMS4(0);
+    setBMS5(0);
+    setBMS6(0);
+    setBMS7(0);
+    setBMS8(0);
+    setBMS9(0);
+    setBMS10(0);
+    setBMS11(0);
+    setBMS12(0);
+    setBMS13(0);
+    setBMS14(0);
+    setBMS15(0);
+    setBMS16(0);
+    setBMS17(0);
+    setBMS18(0);
+    setBMS19(0);
+    setBMS20(0);
+    setBMS21(0);
+    setBMS22(0);
+    setBMS23(0);
+    setBMS24(0);
+    setBMS25(0);
+    setBMS26(0);
+    setBMS27(0);
+    setBMS28(0);
+    setBMS29(0);
+    setBMS30(0);
+    setBMS31(0);
+
+    setmotor0(0);
+    setmotor1(0);
+    setmotor2(0);
+    setmotor3(0);
+    setmotor4(0);
+    setmotor5(0);
+    setmotor6(0);
+    setmotor7(0);
+    setmotor8(0);
+    setmotor10(0);
+    setmotor11(0);
+    setmotor12(0);
+    setmotor13(0);
+    setmotor14(0);
+    setmotor15(0);
+    setmotor16(0);
+    setmotor17(0);
+    setmotor18(0);
+    setmotor19(0);
+    setmotor20(0);
+    setmotor21(0);
+    setmotor22(0);
+    setmotor23(0);
+
+
+    setChargeValue(0);
+    setMotorControlStatusMask(0);
+
+    setstorageFreeDataSize(0);
+
+    setstorage0(0);
+    setstorage1(0);
+    setstorage2(0);
+    setstorage3(0);
+    setstorage4(0);
+    setstorage5(0);
+    setstorage6(0);
+    setstorage7(0);
+    setstorage8(0);
+    setstorage9(0);
+    setstorage10(0);
+    setstorage11(0);
+    setstorage12(0);
+    setstorage13(0);
+    setstorage14(0);
+    setstorage15(0);
+    setstorage16(0);
+    setstorage17(0);
+    setstorage18(0);
+    setstorage19(0);
+    setstorage20(0);
+    setstorage21(0);
+    setstorage22(0);
+    setstorage23(0);
+}
+
+QString HMI::initDesc(const QString &str)
+{
+    QString defaultValue{str};
+    QString docFolder(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
+    const QString settingsFileName(docFolder + "/agu-settings/params-descriptions.ini");
+    const QString settingsTplName(docFolder + "/agu-settings/params-descriptions-template.ini");
+    if (!QFileInfo(settingsFileName).exists()) {
+        QFile::copy(settingsTplName, settingsFileName);
+    }
+    if (QFileInfo(settingsFileName).exists()) {
+        QSettings settings (settingsFileName, QSettings::IniFormat);
+        QStringList childKeys = settings.childKeys();
+        for (const QString& childKey : settings.childKeys())
+        {
+            if (str.compare(QVariant(childKey).toString()) == 0)
+            {
+                //printf("Found TimeStamp desc");
+                defaultValue = settings.value(childKey).toString();
+                break;
+            }
+        }
+    }
+    return defaultValue;
 }
 
 qint32 HMI::initMap(QString str)
@@ -775,30 +865,70 @@ qint32 HMI::initMap(QString str)
 
 void HMI::checkTelemetry()
 {
-    update_msgTelemetryOld(true);
+    setmsgTelemetryOld(true);
 }
 
 void HMI::checkGuidance()
 {
-    update_msgGuidanceOld(true);
+    setmsgGuidanceOld(true);
 }
 
 void HMI::checkSystem()
 {
-    update_msgSystemOld(true);
+    setmsgSystemOld(true);
 }
 
 void HMI::checkStorage()
 {
-    update_msgStorageOld(true);
+    setmsgStorageOld(true);
 }
 
 void HMI::checkMotor()
 {
-    update_msgMotorOld(true);
+    setmsgMotorOld(true);
 }
 
 void HMI::checkRadioLink()
 {
-    update_msgRadioLinkOld(true);
+    setmsgRadioLinkOld(true);
+}
+
+
+quint64 HMI::TimeStamp() const
+{
+    return m_TimeStamp;
+}
+
+void HMI::setTimeStamp(quint64 newTimeStamp)
+{
+    if (m_TimeStamp == newTimeStamp)
+        return;
+    m_TimeStamp = newTimeStamp;
+    emit TimeStampChanged();
+}
+
+quint64 HMI::TimeStampRIO() const
+{
+    return m_TimeStampRIO;
+}
+
+void HMI::setTimeStampRIO(quint64 newTimeStampRIO)
+{
+    if (m_TimeStampRIO == newTimeStampRIO)
+        return;
+    m_TimeStampRIO = newTimeStampRIO;
+    emit TimeStampRIOChanged();
+}
+
+qint32 HMI::Latitude() const
+{
+    return m_Latitude;
+}
+
+void HMI::setLatitude(qint32 newLatitude)
+{
+    if (m_Latitude == newLatitude)
+        return;
+    m_Latitude = newLatitude;
+    emit LatitudeChanged();
 }

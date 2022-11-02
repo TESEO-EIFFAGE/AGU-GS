@@ -14,17 +14,21 @@ Pane {
 
     property alias txtSystemMsgCounter: txtSystemMsgCounter.value
 
-    property alias txtLatitude: txtLatitude.value
-    property alias txtLongitude: txtLongitude.value
-    property alias txtGNSSAltitude: txtGNSSAltitude.value
-    property alias txtRollAngle: txtRollAngle.value
-    property alias txtPitchAngle: txtPitchAngle.value
-    property alias txtYawAngle: txtYawAngle.value
-    property alias txtLinearVelocityHorizontal: txtLinearVelocityHorizontal.value
-    property alias txtLinearVelocityVertical: txtLinearVelocityVertical.value
-    property alias txtAirSpeed_UVector: txtAirSpeed_UVector.value
-    property alias txtAirSpeed_VVector: txtAirSpeed_VVector.value
-    property alias txtAirSpeed_WVector: txtAirSpeed_WVector.value
+    property alias txtLatitude: txtLatitude
+    property alias txtLongitude: txtLongitude
+    property alias txtGNSSAltitude: txtGNSSAltitude
+
+
+    property alias txtRollAngle: txtRollAngle
+    property alias txtPitchAngle: txtPitchAngle
+    property alias txtYawAngle: txtYawAngle
+
+
+    property alias txtLinearVelocityHorizontal: txtLinearVelocityHorizontal
+    property alias txtLinearVelocityVertical: txtLinearVelocityVertical
+    property alias txtAirSpeed_UVector: txtAirSpeed_UVector
+    property alias txtAirSpeed_VVector: txtAirSpeed_VVector
+    property alias txtAirSpeed_WVector: txtAirSpeed_WVector
 
     property alias coreLight4: coreLight4
     property alias coreLight3: coreLight3
@@ -84,7 +88,7 @@ Pane {
             id: txtLatitude
             text: "Latitude (°)"
             span: 7
-            ToolTip.text: text
+            ToolTip.text: desc
             ToolTip.visible: pressed
         }
 
@@ -92,14 +96,14 @@ Pane {
             text: "Longitude (°)"
             span: 7
             id: txtLongitude
-            ToolTip.text: text
+            ToolTip.text: desc
             ToolTip.visible: pressed
         }
         ParamRow {
             text: "Altitude (m)"
             span: 7
             id: txtGNSSAltitude
-            ToolTip.text: text
+            ToolTip.text: desc
             ToolTip.visible: pressed
         }
         }
@@ -115,21 +119,21 @@ Pane {
             text: "Roll"
             span: 3
             id: txtRollAngle
-            ToolTip.text: text
+            ToolTip.text: desc
             ToolTip.visible: pressed
         }
         ParamRow {
             text: "Pitch"
             span: 3
             id: txtPitchAngle
-            ToolTip.text: text
+            ToolTip.text: desc
             ToolTip.visible: pressed
         }
         ParamRow {
             text: "Yaw"
             span: 3
             id: txtYawAngle
-            ToolTip.text: text
+            ToolTip.text: desc
             ToolTip.visible: pressed
         }
         }
@@ -145,7 +149,7 @@ Pane {
             text: "Horizontal Velocity"
             span: 7
             id: txtLinearVelocityHorizontal
-            ToolTip.text: text
+            ToolTip.text: desc
             ToolTip.visible: pressed
         }
 
@@ -153,7 +157,7 @@ Pane {
             text: "Vertical Velocity"
             span: 7
             id: txtLinearVelocityVertical
-            ToolTip.text: text
+            ToolTip.text: desc
             ToolTip.visible: pressed
         }
         }
@@ -169,7 +173,7 @@ Pane {
             text: "Air Speed U"
             span: 5
             id: txtAirSpeed_UVector
-            ToolTip.text: text
+            ToolTip.text: desc
             ToolTip.visible: pressed
         }
 
@@ -177,14 +181,14 @@ Pane {
             text: "Air Speed V"
             span: 5
             id: txtAirSpeed_VVector
-            ToolTip.text: text
+            ToolTip.text: desc
             ToolTip.visible: pressed
         }
         ParamRow {
             text: "Air Speed W"
             span: 5
             id: txtAirSpeed_WVector
-            ToolTip.text: text
+            ToolTip.text: desc
             ToolTip.visible: pressed
         }
         }

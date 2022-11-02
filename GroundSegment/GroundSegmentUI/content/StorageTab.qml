@@ -10,7 +10,7 @@ Pane {
     }
     property bool lit
 
-    property alias txtFreeDataStorageSize: txtFreeDataStorageSize.value
+    property alias txtFreeDataStorageSize: txtFreeDataStorageSize
     property alias txtStorageMsgCounter: txtStorageMsgCounter.value
 
 
@@ -97,7 +97,7 @@ Pane {
 
             text: "Free Data Size"
             span: 6
-            ToolTip.text: text
+            ToolTip.text: desc
             ToolTip.visible: pressed
         ParamRow{
             text: "N. Storage Msg"

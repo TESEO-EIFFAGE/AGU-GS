@@ -14,87 +14,59 @@ Pane {
 
     property bool lit
 
-    property alias txtLatitude: txtLatitude.value
-    property alias txtLongitude: txtLongitude.value
-    property alias txtGNSSAltitude: txtGNSSAltitude.value
-    property alias txtAirSpeed_UVector: txtAirSpeed_UVector.value
+    property alias txtLatitude: txtLatitude//.value
+    property alias txtLongitude: txtLongitude//.value
+    property alias txtGNSSAltitude: txtGNSSAltitude//.value
+    property alias txtAirSpeed_UVector: txtAirSpeed_UVector//.value
 
-    property alias txtAirSpeed_VVector: txtAirSpeed_VVector.value
-    property alias txtAirSpeed_WVector: txtAirSpeed_WVector.value
-    property alias txtAirTemperature: txtAirTemperature.value
+    property alias txtAirSpeed_VVector: txtAirSpeed_VVector//.value
+    property alias txtAirSpeed_WVector: txtAirSpeed_WVector//.value
+    property alias txtAirTemperature: txtAirTemperature//.value
 
     property alias payloadDrawer: payloadDrawer
     property alias radarDrawer: radarDrawer
     //property alias txtAltitudeFromPayloadAltimeter: txtAltitudeFromPayloadAltimeter.value
-    property alias txtLinearVelocityHorizontal: txtLinearVelocityHorizontal.value
+    property alias txtLinearVelocityHorizontal: txtLinearVelocityHorizontal//.value
 
-    property alias txtLinearVelocityVertical: txtLinearVelocityVertical.value
-    property alias txtPositionAccuracy: txtPositionAccuracy.value
-    property alias txtSpeedAccuracy: txtSpeedAccuracy.value
+    property alias txtLinearVelocityVertical: txtLinearVelocityVertical//.value
+    property alias txtPositionAccuracy: txtPositionAccuracy//.value
+    property alias txtSpeedAccuracy: txtSpeedAccuracy//.value
 
     property alias linearAccDrawer: linearAccDrawer
     //    property alias txtLinearAccelerationX: txtLinearAccelerationX.value
     //    property alias txtLinearAccelerationY: txtLinearAccelerationY.value
     //    property alias txtLinearAccelerationZ: txtLinearAccelerationZ.value
 
-    property alias txtECEFVectorPositionX: txtECEFVectorPositionX.value
-    property alias txtECEFVectorPositionY: txtECEFVectorPositionY.value
-    property alias txtECEFVectorPositionZ: txtECEFVectorPositionZ.value
+    property alias txtECEFVectorPositionX: txtECEFVectorPositionX//.value
+    property alias txtECEFVectorPositionY: txtECEFVectorPositionY//.value
+    property alias txtECEFVectorPositionZ: txtECEFVectorPositionZ//.value
 
     property alias ecefVelocityDrawer: ecefVelocityDrawer
     //    property alias txtECEFVectorVelocityX: txtECEFVectorVelocityX.value
     //    property alias txtECEFVectorVelocityY: txtECEFVectorVelocityY.value
     //    property alias txtECEFVectorVelocityZ: txtECEFVectorVelocityZ.value
 
-    property alias txtRollAngle: txtRollAngle.value
-    property alias txtPitchAngle: txtPitchAngle.value
-    property alias txtYawAngle: txtYawAngle.value
-    property alias txtAngularRateRoll: txtAngularRateRoll.value
-    property alias txtAngularRatePitch: txtAngularRatePitch.value
-    property alias txtAngularRateYaw: txtAngularRateYaw.value
+    property alias txtRollAngle: txtRollAngle//.value
+    property alias txtPitchAngle: txtPitchAngle//.value
+    property alias txtYawAngle: txtYawAngle//.value
+    property alias txtAngularRateRoll: txtAngularRateRoll//.value
+    property alias txtAngularRatePitch: txtAngularRatePitch//.value
+    property alias txtAngularRateYaw: txtAngularRateYaw//.value
 
-    property alias txtNumberOfGPSSatellite: txtNumberOfGPSSatellite.value
+    property alias txtNumberOfGPSSatellite: txtNumberOfGPSSatellite//.value
 
-    property alias txtAnemCommErrorCounter: txtAnemCommErrorCounter.value
-    property alias txtRDAltCommErrorCounter: txtRDAltCommErrorCounter.value
-    property alias txtGNSSCommErrorCounter: txtGNSSCommErrorCounter.value
-    property alias txtPLAltCommErrorCounter: txtPLAltCommErrorCounter.value
+    property alias txtAnemCommErrorCounter: txtAnemCommErrorCounter//.value
+    property alias txtRDAltCommErrorCounter: txtRDAltCommErrorCounter//.value
+    property alias txtGNSSCommErrorCounter: txtGNSSCommErrorCounter//.value
+    property alias txtPLAltCommErrorCounter: txtPLAltCommErrorCounter//.value
 
-    property alias txtTelemetryMsgCounter: txtTelemetryMsgCounter.value
+    property alias txtTelemetryMsgCounter: txtTelemetryMsgCounter//.value
 
     property alias telemetryLight0: telemetryLight0
     property alias telemetryLight3: telemetryLight3
     property alias telemetryLight2: telemetryLight2
     property alias telemetryLight1: telemetryLight1
     property alias telemetryStatusDrawer:telemetryStatusDrawer
-    //    property alias telemetryLight31: telemetryLight31
-    //    property alias telemetryLight30: telemetryLight30
-    //    property alias telemetryLight29: telemetryLight29
-    //    property alias telemetryLight28: telemetryLight28
-    //    property alias telemetryLight27: telemetryLight27
-    //    property alias telemetryLight26: telemetryLight26
-    //    property alias telemetryLight25: telemetryLight25
-    //    property alias telemetryLight24: telemetryLight24
-    //    property alias telemetryLight23: telemetryLight23
-    //    property alias telemetryLight22: telemetryLight22
-    //    property alias telemetryLight21: telemetryLight21
-    //    property alias telemetryLight20: telemetryLight20
-    //    property alias telemetryLight19: telemetryLight19
-    //    property alias telemetryLight18: telemetryLight18
-    //    property alias telemetryLight17: telemetryLight17
-    //    property alias telemetryLight16: telemetryLight16
-    //    property alias telemetryLight15: telemetryLight15
-    //    property alias telemetryLight14: telemetryLight14
-    //    property alias telemetryLight13: telemetryLight13
-    //    property alias telemetryLight12: telemetryLight12
-    //    property alias telemetryLight11: telemetryLight11
-    //    property alias telemetryLight10: telemetryLight10
-    //    property alias telemetryLight9: telemetryLight9
-    //    property alias telemetryLight8: telemetryLight8
-    //    property alias telemetryLight7: telemetryLight7
-    //    property alias telemetryLight6: telemetryLight6
-    //    property alias telemetryLight5: telemetryLight5
-    //    property alias telemetryLight4: telemetryLight4
 
 
     Column{
@@ -139,7 +111,7 @@ Pane {
                     id: txtLatitude
                     text: "Latitude"
                     span: 6
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -147,14 +119,14 @@ Pane {
                     text: "Longitude"
                     span: 6
                     id: txtLongitude
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
                 ParamRow {
                     text: "Altitude"
                     span: 6
                     id: txtGNSSAltitude
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
             }
@@ -169,19 +141,19 @@ Pane {
                 ParamRow {
                     text: "X"
                     id: txtECEFVectorPositionX
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
                 ParamRow {
                     text: "Y"
                     id: txtECEFVectorPositionY
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
                 ParamRow {
                     text: "Z"
                     id: txtECEFVectorPositionZ
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
             }
@@ -211,7 +183,7 @@ Pane {
                     text: "Horizontal"
                     span: 4
                     id: txtLinearVelocityHorizontal
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -219,7 +191,7 @@ Pane {
                     text: "Vertical"
                     span: 4
                     id: txtLinearVelocityVertical
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
             }
@@ -237,7 +209,7 @@ Pane {
                     text: "Position"
                     span: 7
                     id: txtPositionAccuracy
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -245,7 +217,7 @@ Pane {
                     text: "Speed"
                     span: 7
                     id: txtSpeedAccuracy
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -253,7 +225,7 @@ Pane {
                     text: "# GNSS satellites"
                     span: 7
                     id: txtNumberOfGPSSatellite
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
             }
@@ -269,21 +241,21 @@ Pane {
                     text: "Roll"
                     span: 2
                     id: txtRollAngle
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
                 ParamRow {
                     text: "Pitch"
                     span: 2
                     id: txtPitchAngle
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
                 ParamRow {
                     text: "Yaw"
                     span: 2
                     id: txtYawAngle
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
             }
@@ -300,14 +272,14 @@ Pane {
                     text: "Roll"
                     span: 2
                     id: txtAngularRateRoll
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
                 ParamRow {
                     text: "Pitch"
                     span: 2
                     id: txtAngularRatePitch
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -315,7 +287,7 @@ Pane {
                     text: "Yaw"
                     span: 2
                     id: txtAngularRateYaw
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
             }
@@ -371,7 +343,7 @@ Pane {
                     text: "Air Speed U"
                     span: 5
                     id: txtAirSpeed_UVector
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -379,14 +351,14 @@ Pane {
                     text: "Air Speed V"
                     span: 5
                     id: txtAirSpeed_VVector
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
                 ParamRow {
                     text: "Air Speed W"
                     span: 5
                     id: txtAirSpeed_WVector
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -394,7 +366,7 @@ Pane {
                     text: "Air Temp."
                     span: 5
                     id: txtAirTemperature
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 

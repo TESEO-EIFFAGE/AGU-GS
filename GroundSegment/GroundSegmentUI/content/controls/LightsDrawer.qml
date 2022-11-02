@@ -90,7 +90,7 @@ Rectangle {
         width: parent.width
         clip: true
         spacing: 8//0
-        anchors.top: parent.top
+        //anchors.top: parent.top
         Rectangle {
             id: overviewBox
             color: "transparent"
@@ -122,7 +122,7 @@ Rectangle {
                 ParamGrp2Label {
                     id: columnTitle
 
-anchors.verticalCenter: parent.verticalCenter
+                    anchors.verticalCenter: parent.verticalCenter
                     //anchors.topMargin: 8
                     //anchors.leftMargin: 16
                     text: "[title]"
@@ -148,7 +148,7 @@ anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.topMargin: 8
-            anchors.top: overviewBox.bottom
+//            anchors.top: overviewBox.bottom
             clip: true
             height: root.open ? 222 : 0
 

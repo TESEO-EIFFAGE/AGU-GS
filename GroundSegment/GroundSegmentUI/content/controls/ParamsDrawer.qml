@@ -65,7 +65,7 @@ Rectangle {
             color: "transparent"
             height: 16
             width: parent.width
-            anchors.top: parent.top
+            //anchors.top: parent.top
 
             MouseArea {
                 id: headerArea
@@ -117,7 +117,7 @@ Rectangle {
             color: "transparent"
             anchors.left: parent.left
             anchors.right: parent.right
-            anchors.top: overviewBox.bottom
+            //anchors.top: overviewBox.bottom
             clip: true
             height: root.open ? 80 : 0
 
@@ -135,7 +135,7 @@ Rectangle {
                     text: "[param1]"
 
                     id: param1
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -143,7 +143,7 @@ Rectangle {
                     text: "[param2]"
 
                     id: param2
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
 
@@ -151,7 +151,7 @@ Rectangle {
                     text: "[param3]"
 
                     id: param3
-                    ToolTip.text: text
+                    ToolTip.text: desc
                     ToolTip.visible: pressed
                 }
             }

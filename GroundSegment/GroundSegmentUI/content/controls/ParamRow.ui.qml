@@ -10,6 +10,7 @@ Row {
     property real span: 1
     property alias text: paramLabel.text
     property alias value: paramValue.text
+    property string desc
     ParamLabel {
         id: paramLabel
         anchors.verticalCenter: parent.verticalCenter

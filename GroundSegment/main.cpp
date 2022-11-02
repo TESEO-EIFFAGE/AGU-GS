@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QObject>
 #include <QFontDatabase>
+#include <iostream>
 
 #include "gs_core.h"
 #include "storage.h"
@@ -18,6 +19,8 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
+    // Setup fonts
+
     QFontDatabase::addApplicationFont(":/content/fonts/Roboto-Bold.ttf");
     QFontDatabase::addApplicationFont(":/content/fonts/Roboto-Regular.ttf");
     QFontDatabase::addApplicationFont(":/content/fonts/Roboto-Medium.ttf");
@@ -25,45 +28,11 @@ int main(int argc, char *argv[])
     QFontDatabase::addApplicationFont(":/content/fonts/RobotoMono-SemiBold.ttf");
     QFontDatabase::addApplicationFont(":/content/fonts/RobotoMono-Regular.ttf");
     QFontDatabase::addApplicationFont(":/content/fonts/RobotoMono-Medium.ttf");
-    //QApplication a(argc, argv);
-    //MainWindow w;
+    auto appFont = QFont("Roboto");
+    appFont.setPixelSize(12);
+    app.setFont(appFont);
 
-    QByteArray data  = "FD77000000FFAA000011"
-                       "000102030405060708090A0B0C0D0E0F"   /*  P  */
-                       "000102030405060708090A0B0C0D0E0F"   /*  A  */
-                       "000102030405060708090A0B0C0D0E0F"   /*  Y  */
-                       "000102030405060708090A0B0C0D0E0F"   /*  L  */
-                       "000102030405060708090A0B0C0D0E0F"   /*  O  */
-                       "000102030405060708090A0B0C0D0E0F"   /*  A  */
-                       "000102030405060708090A0B0C0D0E0F"   /*  D  */
-                       "00010203040506"
-                       "59E7";
-
-//    QByteArray data  = "FD010000000101010101010D3D";
-
-//    QSerialPort *Serial0 = new QSerialPort();
-
-    // Serial0 PORTA CHE TRASMETTE
-
-//    Serial0->setPortName("/dev/ttyUSB0");
-//    Serial0->setParity(QSerialPort::NoParity);
-//    Serial0->setBaudRate(QSerialPort::Baud115200);
-//    Serial0->setStopBits(QSerialPort::OneStop);
-//    Serial0->setFlowControl(QSerialPort::NoFlowControl);
-//    Serial0->open(QIODevice::ReadWrite);
-
-
-//    QProcess flight_segment_simulator;
-//    flight_segment_simulator.setProgram("libs/F9P-Viewer/simulate_flying_vehicle/simulate_flying_vehicle");
-//    flight_segment_simulator.start();
-
-//    QTimer timer;
-//    QObject::connect(&timer, &QTimer::timeout, [Serial0]() { Serial0->write("000000010100101001"); });
-//    timer.start(500);
-    /* PROVA */
-    //Serial0->write(data);
-
-     //w.show();
+    // Instantiate GS Core and expose some modules to QML
 
     QQmlApplicationEngine engine;
     auto gsCore = new GSCore(&app);
@@ -72,6 +41,8 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty("hmi", hmi);
     engine.rootContext()->setContextProperty("gpsData", gpsData);
+
+    // Load QML entry point
 
     engine.addImportPath("qrc:/imports");
     const QUrl url(QStringLiteral("qrc:/main.qml"));

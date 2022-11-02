@@ -33,6 +33,7 @@ Item{
     //    GroundControlStation {
     //        id: groundControlStation
     //    }
+
     CustomCursor {
         id: customCursor
         latitude: mapviewer.latitude
@@ -82,6 +83,7 @@ Item{
             anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
             visible: true
         }
+
         MapRectangle{
             id: mapBoundaries
             autoFadeIn: false
@@ -103,14 +105,6 @@ Item{
             //property variant region: QtPositioning.circle(QtPositioning.coordinate(-0.3354+1, 1.4524+1), 1000000)
         }
 
-        //        MapQuickItem {
-        //            id: flyingObjectBorder
-        //            sourceItem: Rectangle { width: 100; height: 100; color: "transparent"; border.width: 2; border.color: "green"; smooth: true;  }
-        //            coordinate : QtPositioning.coordinate(hmi.Latitude, hmi.Longitude)
-        //            opacity: 1.0
-        //            anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
-        //            visible: true
-        //        }
 
     }
 
@@ -186,7 +180,7 @@ Item{
             id: legendSection
             anchors.top:parent.top
             anchors.left: parent.left; anchors.leftMargin: 10
-            // anchors.right: parent.right
+
             Column{
                 anchors.top:parent.top
                 height: childrenRect.height+14
@@ -196,7 +190,6 @@ Item{
                     id: legendSectionTitle
                     text: "Legend"
                     font.pointSize: 13; font.bold: true
-
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
                 Row{
@@ -221,7 +214,7 @@ Item{
             }
         }
     }
-    Rectangle{
+    Rectangle {
         id: zoomLevelSection
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 5
@@ -230,11 +223,11 @@ Item{
         height: 100
         width: 50
         border.color: "black"
-        Column{
+        Column {
             anchors.centerIn: parent
             width:parent.width
             spacing:4
-            Button{
+            Button {
                 id: zoomInBtn
                 height: 40
                 width:parent.width-4
@@ -254,12 +247,11 @@ Item{
 
                 }
             }
-            Button{
+            Button {
                 id: zoomOutBtn
                 height: 40
                 width:parent.width-4
                 anchors.horizontalCenter: parent.horizontalCenter
-
                 text: "-"
                 onClicked:{ mapviewer.zoomLevel-=1
                     console.log("zooming out")
@@ -272,6 +264,7 @@ Item{
                     }
 
                 }
+
 
             }
         }

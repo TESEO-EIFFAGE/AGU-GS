@@ -33,22 +33,37 @@ Rectangle {
     property alias guidanceTabLight: guidanceTabLight
 
     property alias txtTimeStampRIO: txtTimeStampRIO.value
+
     property alias txtLatitude: telemetryTab.txtLatitude
     property alias txtLongitude: telemetryTab.txtLongitude
     property alias txtGNSSAltitude: telemetryTab.txtGNSSAltitude
-    property alias txtAirSpeed_UVector: telemetryTab.txtAirSpeed_UVector
+
+    property alias txtLatitudeHome: homeTab.txtLatitude
+    property alias txtLongitudeHome: homeTab.txtLongitude
+    property alias txtGNSSAltitudeHome: homeTab.txtGNSSAltitude
+
 
     property alias txtTelemetryMsgCounter: telemetryTab.txtTelemetryMsgCounter
 
+    property alias txtAirSpeed_UVector: telemetryTab.txtAirSpeed_UVector
     property alias txtAirSpeed_VVector: telemetryTab.txtAirSpeed_VVector
     property alias txtAirSpeed_WVector: telemetryTab.txtAirSpeed_WVector
+
+    property alias txtAirSpeed_UVectorHome: homeTab.txtAirSpeed_UVector
+    property alias txtAirSpeed_VVectorHome: homeTab.txtAirSpeed_VVector
+    property alias txtAirSpeed_WVectorHome: homeTab.txtAirSpeed_WVector
+
     property alias txtAirTemperature: telemetryTab.txtAirTemperature
 
     property alias payloadDrawer: telemetryTab.payloadDrawer
     property alias radarDrawer: telemetryTab.radarDrawer
-    property alias txtLinearVelocityHorizontal: telemetryTab.txtLinearVelocityHorizontal
 
+    property alias txtLinearVelocityHorizontal: telemetryTab.txtLinearVelocityHorizontal
     property alias txtLinearVelocityVertical: telemetryTab.txtLinearVelocityVertical
+
+    property alias txtLinearVelocityHorizontalHome: homeTab.txtLinearVelocityHorizontal
+    property alias txtLinearVelocityVerticalHome: homeTab.txtLinearVelocityVertical
+
     property alias txtPositionAccuracy: telemetryTab.txtPositionAccuracy
     property alias txtSpeedAccuracy: telemetryTab.txtSpeedAccuracy
 
@@ -69,6 +84,11 @@ Rectangle {
     property alias txtRollAngle: telemetryTab.txtRollAngle
     property alias txtPitchAngle: telemetryTab.txtPitchAngle
     property alias txtYawAngle: telemetryTab.txtYawAngle
+
+    property alias txtRollAngleHome: homeTab.txtRollAngle
+    property alias txtPitchAngleHome: homeTab.txtPitchAngle
+    property alias txtYawAngleHome: homeTab.txtYawAngle
+
     property alias txtAngularRateRoll: telemetryTab.txtAngularRateRoll
     property alias txtAngularRatePitch: telemetryTab.txtAngularRatePitch
     property alias txtAngularRateYaw: telemetryTab.txtAngularRateYaw
