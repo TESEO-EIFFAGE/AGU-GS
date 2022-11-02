@@ -24,7 +24,7 @@ RadioLink::RadioLink(QObject *parent) : QObject(parent)
     auto udpLink = qobject_cast<radiolink::UdpLink*>(m_link);
     udpLink->addEndpoint(radiolink::Endpoint(QHostAddress::LocalHost, 14551));
 
-    //m_link = new radiolink::SerialLink("/dev/ttyUSB0", 115200, this);
+//    m_link = new radiolink::SerialLink("/dev/ttyUSB0", 115200, this);
     //m_link = new radiolink::SerialLink("/dev/tty.usbserial-AH05K5MC", 115200);
 
     m_communicator->addLink(m_link, MAVLINK_COMM_0);
@@ -39,7 +39,7 @@ RadioLink::~RadioLink()
 /*!
     \fn void RadioLink::start()
 
-    It connects the RadioLink
+    Connects the RadioLink
 */
 void RadioLink::start()
 {
@@ -50,7 +50,7 @@ void RadioLink::start()
 /*!
     \fn void RadioLink::stop()
 
-    It disconnects the RadioLink
+    Disconnects the RadioLink
 */
 void RadioLink::stop()
 {
@@ -61,7 +61,7 @@ void RadioLink::stop()
 /*!
     \fn radiolink::MavLinkCommunicator *RadioLink::communicator() const
 
-    It returns the communicator object
+    Returns the communicator object
 */
 radiolink::MavLinkCommunicator *RadioLink::communicator() const
 {
