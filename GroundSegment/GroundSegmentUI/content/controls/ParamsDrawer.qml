@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.11
 
 import GroundSegmentUI 1.0
 
-Rectangle {
+Item {
     id: root
     property alias columnTitle: columnTitle
     property alias contentColumn: contentColumn
@@ -13,8 +13,6 @@ Rectangle {
     property alias param2: param2
     property alias param3: param3
 
-    color: "transparent"
-    radius: 8
     height: contentColumn.height
     width: 180
 
@@ -99,7 +97,6 @@ Rectangle {
             }
 
             Image {
-
                 anchors.right: parent.right
                 anchors.rightMargin: 8
                 anchors.verticalCenter: parent.verticalCenter
@@ -107,14 +104,14 @@ Rectangle {
                 fillMode: Image.PreserveAspectFit
                 height:16
                 width: 16
+                rotation: root.open ? 0 : 180
                 sourceSize.height: 16
                 sourceSize.width: 16
                 z:1
             }
         }
-        Rectangle {
+        Item {
             id: advancedSectionBody
-            color: "transparent"
             anchors.left: parent.left
             anchors.right: parent.right
             //anchors.top: overviewBox.bottom
@@ -155,7 +152,7 @@ Rectangle {
                     ToolTip.visible: pressed
                 }
             }
-        }
+        }/*
 
         Item {
             Layout.fillWidth: true
@@ -164,6 +161,6 @@ Rectangle {
                 implicitWidth: 1
                 implicitHeight: 1
             }
-        }
+        }*/
     }
 }

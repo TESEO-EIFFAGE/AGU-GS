@@ -6,7 +6,7 @@ import "controls"
 
 Pane {
     background: Rectangle{
-    color:"transparent"
+        color:"transparent"
     }
 
     property bool lit
@@ -67,10 +67,9 @@ Pane {
     property alias bmsLight1: bmsLight1
 
     Column{
-        //anchors.fill:parent
         width:parent.width
         spacing:24
-        RowLayout {
+        Row {
             width:parent.width
             height: childrenRect.height
             spacing: 16
@@ -119,10 +118,6 @@ Pane {
                     width:180
 
                     columnTitle.text: "General Motor Status"
-                    //open:true
-                    //                    gridColumns: 1
-                    //                    gridRows:7
-
                     light4.visible: false
                     light5.visible: false
 
@@ -336,16 +331,16 @@ Pane {
                 ParamGrp2Label {
                     text: "Message Counter"
                 }
-            ParamRow {
-                Layout.alignment: Qt.AlignTop
-                        text: "N. Motor Msg"
-                        span: 5
-                        id: txtMotorMsgCounter
-                        ToolTip.text: text
-                        ToolTip.visible: pressed
-                    }
+                ParamRow {
+                    Layout.alignment: Qt.AlignTop
+                    text: "N. Motor Msg"
+                    span: 5
+                    id: txtMotorMsgCounter
+                    ToolTip.text: text
+                    ToolTip.visible: pressed
+                }
             }
-            Item{
+            Item {
                 Layout.fillWidth: true
             }
         }
@@ -360,7 +355,6 @@ Pane {
                 ParamGrp2Label {
                     text: "BMS"
                 }
-
                 ParamRow {
                     id: txtChargeValue
                     text: "Charge %"
@@ -385,8 +379,6 @@ Pane {
                     id: motorLight22
                     text: "BMS REQUEST"
                 }
-
-
                 StatusLight {
                     id: bmsLight0
                     text: "Battery OVERVOLTAGE INDICATION"
@@ -399,12 +391,10 @@ Pane {
                     id: bmsLight2
                     text: "Battery UNDERVOLTAGE INDICATION"
                 }
-
                 StatusLight {
                     id: bmsLight3
                     text: "Battery UNDERVOLTAGE FAULT"
                 }
-
                 StatusLight {
                     id: bmsLight10
                     text: "Cell UNDERVOLTAGE INDICATION"
@@ -413,7 +403,6 @@ Pane {
                     id: bmsLight11
                     text: "Cell UNDERVOLTAGE FAULT"
                 }
-
                 StatusLight {
                     id: bmsLight12
                     text: "Cell OVERVOLTAGE INDICATION"
@@ -422,7 +411,6 @@ Pane {
                     id: bmsLight13
                     text: "Cell OVERVOLTAGE FAULT"
                 }
-
             }
             LightsDrawer{
                 id:bmsDrawer
@@ -446,7 +434,6 @@ Pane {
                 light12.visible:false
                 light13.visible: false
 
-
                 light14.visible: true
                 light15.visible: true
                 light16.visible: true
@@ -466,7 +453,6 @@ Pane {
                 light30.visible: true
                 light31.visible: true
 
-
                 light4.text: "Battery EXCESSIVE INDICATION"
                 light5.text: "Battery EXCESSIVE FAULT"
                 light6.text: "Battery temp HIGH INDICATION"
@@ -482,162 +468,16 @@ Pane {
                 light20.text: "Charge switch FAULT"
                 light21.text: "Discharge switch FAULT"
                 light22.text: "Self-test FAULT"
-
-
                 light23.text: "Collection line FAULT"
-
-
-
                 light24.text: "Temp line FAULT"
-
-
                 light25.text: "BMS alarm FAULT"
-
-
                 light26.text: "Activity limit request"
-
-
                 light27.text: "Discharge current limit request"
                 light28.text: "Consumption STOP request"
                 light29.text: "Charging temp low FAULT"
                 light30.text: "Charging temp high FAULT"
                 light31.text: "Excessive charging current FAULT"
-
-
             }
-            //        Column {
-            //            spacing: 8
-            //            Layout.preferredWidth: 240
-            //            Layout.alignment: Qt.AlignTop
-
-            //            Item {
-            //                height: 16
-            //                width: 1
-            //            }
-            //            StatusLight {
-            //                id: motorLight20
-            //                text: "BMS active INDICATION"
-            //            }
-            //            StatusLight {
-            //                id: motorLight21
-            //                text: "BMS active FAULT"
-            //            }
-            //            StatusLight {
-            //                id: motorLight22
-            //                text: "BMS active REQUEST"
-            //            }
-            //            StatusLight {
-            //                light4
-            //                text: "Battery EXCESSIVE INDICATION"
-            //            }
-            //            StatusLight {
-            //                light5
-            //                text: "Battery EXCESSIVE FAULT"
-            //            }
-            //            StatusLight {
-            //                light6
-            //                text: "Battery temp HIGH INDICATION"
-            //            }
-            //            StatusLight {
-            //                light7
-            //                text: "Battery temp HIGH FAULT"
-            //            }
-            //            StatusLight {
-            //                light8
-            //                text: "Battery temp LOW INDICATION"
-            //            }
-            //            StatusLight {
-            //                light9
-            //                text: "Battery temp LOW FAULT"
-            //            }
-
-            //            StatusLight {
-            //                light14
-            //                text: "Cell voltage difference INDICATION"
-            //            }
-            //            StatusLight {
-            //                light15
-            //                text: "Cell voltage difference FAULT"
-            //            }
-            //            StatusLight {
-            //                light16
-            //                text: "Cell temp difference INDICATION"
-            //            }
-            //            StatusLight {
-            //                light17
-            //                text: "Cell temp difference FAULT"
-            //            }
-
-            //            StatusLight {
-            //                light18
-            //                text: "Cell temp sensor FAULT"
-            //            }
-            //            StatusLight {
-            //                light19
-            //                text: "Generic HW FAULT"
-            //            }
-
-            //            StatusLight {
-            //                light20
-            //                text: "Charge switch FAULT"
-            //            }
-            //        }
-
-            //        Column {
-            //            spacing: 8
-            //            Layout.alignment: Qt.AlignTop
-            //            Item {
-            //                height: 16
-            //                width: 1
-            //            }
-
-            //            StatusLight {
-            //                light21
-            //                text: "Discharge switch FAULT"
-            //            }
-
-            //            StatusLight {
-            //                light22
-            //                text: "Self-test FAULT"
-            //            }
-            //            StatusLight {
-            //                light23
-            //                text: "Collection line FAULT"
-            //            }
-
-            //            StatusLight {
-            //                light24
-            //                text: "Temp line FAULT"
-            //            }
-            //            StatusLight {
-            //                light25
-            //                text: "BMS alarm FAULT"
-            //            }
-            //            StatusLight {
-            //                light26
-            //                text: "Activity limit request"
-            //            }
-            //            StatusLight {
-            //                light27
-            //                text: "Discharge current limit request"
-            //            }
-            //            StatusLight {
-            //                light28
-            //                text: "Consumption STOP request"
-            //            }
-            //            StatusLight {
-            //                light29
-            //                text: "Charging temp low FAULT"
-            //            }
-            //            StatusLight {
-            //                light30
-            //                text: "Charging temp high FAULT"
-            //            }
-            //            StatusLight {
-            //                light31
-            //                text: "Excessive charging current FAULT"
-            //            }
-            //        }
             Item{
                 Layout.fillWidth: true
             }

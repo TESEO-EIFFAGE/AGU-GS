@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.11
 
 import GroundSegmentUI 1.0
 
-Rectangle {
+Item {
     id: root
     property alias columnTitle: columnTitle
     property alias contentColumn: contentColumn
@@ -44,8 +44,6 @@ Rectangle {
     property alias light1: light1
     property alias light0: light0
 
-    color: "transparent"
-    radius: 8
     height: contentColumn.height
     width: 400
 
@@ -128,23 +126,21 @@ Rectangle {
                     text: "[title]"
                 }
                 Image {
-
-
                     anchors.rightMargin: 8
                     anchors.verticalCenter: parent.verticalCenter
                     source: "../images/svgs/solid/chevron-down.svg"
                     fillMode: Image.PreserveAspectFit
                     height:16
                     width: 16
+                    rotation: root.open ? 0 : 180
                     sourceSize.height: 16
                     sourceSize.width: 16
                     z:1
                 }
             }
         }
-        Rectangle {
+        Item {
             id: advancedSectionBody
-            color: "transparent"
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.topMargin: 8
@@ -319,13 +315,13 @@ Rectangle {
             }
         }
 
-        Item {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Item {
-                implicitWidth: 1
-                implicitHeight: 1
-            }
-        }
+//        Item {
+//            Layout.fillWidth: true
+//            Layout.fillHeight: true
+//            Item {
+//                implicitWidth: 1
+//                implicitHeight: 1
+//            }
+//        }
     }
 }
