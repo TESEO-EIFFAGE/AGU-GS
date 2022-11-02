@@ -8,8 +8,8 @@ using namespace std;
 CustomCursor::CustomCursor(QObject *parent) :
     QObject(parent)
 {
-    m_latitude = 180.0;
-    m_longitude = 360.0;
+    m_latitude = 0.0;
+    m_longitude = 0.0;
     m_latitudeIsSet = false;
     m_longitudeIsSet = false;
 }

@@ -1,51 +1,27 @@
 import QtQuick 2.0
-import QtQuick.Window 2.14
-import QtQuick.Controls 1.4
+import QtQuick.Window 2.15
+import QtQuick.Controls 2.15
 import QtLocation 5.15
-import QtPositioning 5.6
+import QtPositioning 5.15
 import agu.gnss 1.0
 
-Item{
-    id: mapviewer
-
-
+Item {
+    id: root
     property bool hasGps: gpsData.hasFix
-
-
-    property int latitude :0
-    property int longitude :0
-    property int zoomLevel: 1//0
-
+    property alias latitude: customCursor.latitude
+    property alias longitude: customCursor.longitude
     property alias customCursor: customCursor
     property alias customCursorIcon: customCursorIcon
-
     property alias mapBoundaries: mapBoundaries
-    //width: Qt.platform.os =ss= "android" ? Screen.width : 512
-    //height: Qt.platform.os == "android" ? Screen.height : 512
-
-
-    visible: true
-
-
-    //    GPSData {
-    //       id: gpsData
-    //    }
-    //    GroundControlStation {
-    //        id: groundControlStation
-    //    }
 
     CustomCursor {
         id: customCursor
-        latitude: mapviewer.latitude
-        longitude: mapviewer.longitude
     }
 
     Map {
         id: map
         anchors.fill: parent
         gesture.acceptedGestures: MapGestureArea.NoGesture
-
-
         plugin: Plugin {
             id: mapPlugin
             name: "osm"
@@ -54,8 +30,9 @@ Item{
                 value: ":/Offline_tiles/"
             }
         }
-        center: hasGps ? QtPositioning.coordinate(gpsData.latitude, gpsData.longitude) : QtPositioning.coordinate(customCursor.latitude, customCursor.longitude)
-        zoomLevel: mapviewer.zoomLevel
+        center: gpsData.hasFix ? QtPositioning.coordinate(gpsData.latitude, gpsData.longitude) : QtPositioning.coordinate(customCursor.latitude, customCursor.longitude)
+        zoomLevel: 0
+        minimumZoomLevel: -1
 
         MapQuickItem {
             id: gpsCursor
@@ -70,10 +47,10 @@ Item{
         MapQuickItem {
             id: customCursorIcon
             sourceItem: Rectangle { width: 20; height: 20; color: "yellow"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
-            coordinate : QtPositioning.coordinate(latitude, longitude)
+            coordinate : QtPositioning.coordinate(customCursor.latitude, customCursor.longitude)
             opacity: 1.0
             anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
-            visible: customCursor.latitudeIsSet && customCursor.longitudeIsSet
+            visible: !gpsData.hasFix && customCursor.latitudeIsSet && customCursor.longitudeIsSet
         }
         MapQuickItem {
             id: flyingObjectCursor
@@ -90,22 +67,9 @@ Item{
             opacity: 1
             border.color: "green"
             border.width: 3
-            topLeft:QtPositioning.coordinate(-0.3354, 1.4524)
-            bottomRight:QtPositioning.coordinate(1, 3)
-//            topLeft: {
-//                longitude:10
-//                latitude:-27
-//            }
-//            bottomRight:
-//            {
-//                longitude:100
-//                latitude:-29
-//            }
-
-            //property variant region: QtPositioning.circle(QtPositioning.coordinate(-0.3354+1, 1.4524+1), 1000000)
+            topLeft: QtPositioning.coordinate(-0.3354, 1.4524)
+            bottomRight: QtPositioning.coordinate(1, 3)
         }
-
-
     }
 
     Rectangle {
@@ -118,70 +82,12 @@ Item{
         x: 5; y: 5
         border.color: "black"
 
-        //        Rectangle {
-        //            id: gpsDataSection
-        //            anchors.left: gpsDataRectangle.left; anchors.leftMargin: 5
-        //            anchors.right: parent.right; anchors.rightMargin: 5
-        //            height: 150
-        //            color: "transparent"
-
-        //            Text {
-        //                id: gpsDataSectionTitle
-        //                visible: false
-        //                text: "GPS data"
-        //                font.pointSize: 13; font.bold: true
-        //                anchors.top: gpsDataSection.top
-        //                anchors.horizontalCenter: parent.horizontalCenter
-        //            }
-
-        //            Text {
-        //                id: longitude
-        //                visible: false
-        //                text: "Longitude: " + (gpsData.longitude).toFixed(5) + "°"
-        //                font.pointSize: 11;
-        //                anchors.top: gpsDataSectionTitle.bottom
-        //            }
-
-        //            Text {
-        //                id: latitude
-        //                visible: false
-        //                text: "Latitude: " + (gpsData.latitude).toFixed(5) + "°"
-        //                font.pointSize: 11;
-        //                anchors.top: longitude.bottom
-        //            }
-
-        //            Text {
-        //                id: altitude
-        //                visible: false
-        //                text: "Altitude: " + gpsData.altitude + "m"
-        //                font.pointSize: 11;
-        //                anchors.top: latitude.bottom
-        //            }
-
-        //            Text {
-        //                id: time
-        //                visible: false
-        //                text: "UTC Time: " + gpsData.hour.valueOf() + ":" + gpsData.minute.valueOf() + ":" + gpsData.second.valueOf()
-        //                font.pointSize: 11;
-        //                anchors.top: altitude.bottom
-        //            }
-
-        //            Text {
-        //                id: hasFix
-        //                visible: false
-        //                text: "Has fix: " + gpsData.hasFix
-        //                font.pointSize: 11;
-        //                anchors.top: time.bottom
-        //            }
-        //        }
-
-
         Rectangle {
             id: legendSection
             anchors.top:parent.top
             anchors.left: parent.left; anchors.leftMargin: 10
 
-            Column{
+            Column {
                 anchors.top:parent.top
                 height: childrenRect.height+14
                 anchors.topMargin: 8
@@ -192,25 +98,24 @@ Item{
                     font.pointSize: 13; font.bold: true
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
-                Row{
+                Row {
                     width: parent.width
                     spacing: 4
                     Rectangle { width: 20; height: 20; color: "yellow"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
                     Text{text: "GS (Manual)"; anchors.verticalCenter: parent.verticalCenter}
                 }
-                Row{
+                Row {
                     width: parent.width
                     spacing: 4
                     Rectangle { width: 20; height: 20; color: "purple"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
                     Text{text: "GS (GNSS)"; anchors.verticalCenter: parent.verticalCenter}
                 }
-                Row{
+                Row {
                     width: parent.width
                     spacing: 4
                     Rectangle { width: 20; height: 20; color: "blue"; border.width: 2; border.color: "black"; smooth: true; radius: 15 }
                     Text{text: "Flight Segment"; anchors.verticalCenter: parent.verticalCenter}
                 }
-
             }
         }
     }
@@ -234,17 +139,9 @@ Item{
                 anchors.topMargin: 2
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "+"
-
-                onClicked:{
-                    mapviewer.zoomLevel+=1
-                    console.log("zooming in")
-                    if(mapviewer.hasGps){
-                        map.center= QtPositioning.coordinate(gpsData.longitude, gpsData.latitude)
-                    }
-                    else{
-                        map.center= QtPositioning.coordinate(customCursor.longitude, customCursor.latitude)
-                    }
-
+                onClicked: {
+                    map.center = gpsData.hasFix ? QtPositioning.coordinate(gpsData.latitude, gpsData.longitude) : QtPositioning.coordinate(customCursor.latitude, customCursor.longitude)
+                    map.zoomLevel+=1
                 }
             }
             Button {
@@ -253,19 +150,10 @@ Item{
                 width:parent.width-4
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "-"
-                onClicked:{ mapviewer.zoomLevel-=1
-                    console.log("zooming out")
-
-                    if(mapviewer.hasGps){
-                        map.center= QtPositioning.coordinate(gpsData.longitude, gpsData.latitude)
-                    }
-                    else{
-                        map.center= QtPositioning.coordinate(customCursor.longitude, customCursor.latitude)
-                    }
-
+                onClicked: {
+                    map.center = gpsData.hasFix ? QtPositioning.coordinate(gpsData.latitude, gpsData.longitude) : QtPositioning.coordinate(customCursor.latitude, customCursor.longitude)
+                    map.zoomLevel-=1
                 }
-
-
             }
         }
     }

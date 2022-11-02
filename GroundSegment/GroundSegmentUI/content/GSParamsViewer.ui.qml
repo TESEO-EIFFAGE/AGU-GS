@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.11
 import "controls"
 
 Rectangle {
-    id: params
+    id: root
     property int latitude
     property int longitude
 
@@ -36,6 +36,9 @@ Rectangle {
     property alias radioLinkLight2: radioLinkLight2
     property alias radioLinkLight1: radioLinkLight1
     property alias radioLinkLight0: radioLinkLight0
+
+    property alias customLatField: customLatField
+    property alias customLonField: customLonField
 
 
     ColumnLayout {
@@ -207,12 +210,12 @@ Rectangle {
                             }
 
                             TextField {
+                                id: customLatField
                                 font.pixelSize: 12
                                 font.family: "Roboto Mono"
                                 height: 32
                                 width: 120
-                                placeholderText: qsTr("Latitude  ...")
-                                onEditingFinished: text !== "" ? params.latitude = text : params.latitudeIsSet = false
+                                placeholderText: qsTr("latitude")
                             }
                         }
                         Row {
@@ -230,13 +233,12 @@ Rectangle {
                             }
 
                             TextField {
+                                id: customLonField
                                 height: 32
                                 width: 120
                                 font.pixelSize: 12
                                 font.family: "Roboto Mono"
-                                placeholderText: qsTr("Longitude ...")
-
-                                onEditingFinished: text !== "" ? params.longitude = text : params.longitudeIsSet = false
+                                placeholderText: qsTr("longitude")
                             }
                         }
                     }
