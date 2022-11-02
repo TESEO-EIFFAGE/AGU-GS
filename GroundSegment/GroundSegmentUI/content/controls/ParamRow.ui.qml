@@ -13,6 +13,7 @@ Row {
     ParamLabel {
         id: paramLabel
         anchors.verticalCenter: parent.verticalCenter
+
         width: 16 * span
         color: enabled ? "#000000" : "#878787"
         MouseArea {

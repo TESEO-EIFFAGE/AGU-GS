@@ -174,6 +174,9 @@ Rectangle {
                     Text {
                         text: "Manual coordinates"
                         anchors.verticalCenter: parent.verticalCenter
+                        font.pixelSize: 12
+                        font.styleName: "Regular"
+                        font.family: "Roboto"
                     }
 
                     Switch {
@@ -197,10 +200,15 @@ Rectangle {
                                 text: "Latitude: "
                                 //font.pointSize: 11
                                 width: 72
+                                font.pixelSize: 12
+                                font.styleName: "Regular"
+                                font.family: "Roboto"
                                 anchors.verticalCenter: parent.verticalCenter
                             }
 
                             TextField {
+                                font.pixelSize: 12
+                                font.family: "Roboto Mono"
                                 height: 32
                                 width: 120
                                 placeholderText: qsTr("Latitude  ...")
@@ -213,6 +221,9 @@ Rectangle {
                             Text {
                                 id: longitudeLabel
                                 text: "Longitude: "
+                                font.pixelSize: 12
+                                font.styleName: "Regular"
+                                font.family: "Roboto"
                                 //font.pointSize: 11
                                 width: 72
                                 anchors.verticalCenter: parent.verticalCenter
@@ -221,6 +232,8 @@ Rectangle {
                             TextField {
                                 height: 32
                                 width: 120
+                                font.pixelSize: 12
+                                font.family: "Roboto Mono"
                                 placeholderText: qsTr("Longitude ...")
 
                                 onEditingFinished: text !== "" ? params.longitude = text : params.longitudeIsSet = false
