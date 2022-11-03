@@ -11,6 +11,7 @@ Pane {
     property bool lit
 
     property alias txtCommErrorCounter: txtCommErrorCounter.value
+    property alias txtRadioLinkErrorCounter: txtRadioLinkErrorCounter.value
     property alias coreLight15: coreLight15
     property alias coreLight14: coreLight14
     property alias coreLight13: coreLight13
@@ -37,17 +38,14 @@ Pane {
             id: coreLight0
             text: "EMERGENCY"
         }
-
         StatusLight {
             id: coreLight1
             text: "SAFETY CHAIN STATUS"
         }
-
         StatusLight {
             id: coreLight2
             text: "PARAFOIL DEP. STATUS"
         }
-
         StatusLight {
             id: coreLight3
             text: "EMERGENCY BOARD FAILURE"
@@ -56,7 +54,6 @@ Pane {
             id: coreLight4
             text: "POWER FAILURE"
         }
-
         StatusLight {
             id: coreLight5
             text: "STOA"
@@ -65,7 +62,6 @@ Pane {
             id: coreLight6
             text: "STOB"
         }
-
         StatusLight {
             id: coreLight7
             text: "TELEMETRY STATUS"
@@ -82,17 +78,14 @@ Pane {
             id: coreLight10
             text: "RADIO LINK"
         }
-
         StatusLight {
             id: coreLight11
             text: "GUIDANCE"
         }
-
         StatusLight {
             id: coreLight12
             text: "CORE"
         }
-
         StatusLight {
             id: coreLight13
             text: "Emergency BOARD NOT Present"
@@ -101,7 +94,6 @@ Pane {
             id: coreLight14
             text: "Communication Time Out"
         }
-
         StatusLight {
             id: coreLight15
             text: "Communication CRC Error"
@@ -111,6 +103,13 @@ Pane {
             id: txtCommErrorCounter
             text: "Comm Error counter"
             span: 6
+            ToolTip.text: text
+            ToolTip.visible: pressed
+        }
+        ParamRow {
+            id: txtRadioLinkErrorCounter
+            text: "RL Error counter"
+            span: 4
             ToolTip.text: text
             ToolTip.visible: pressed
         }

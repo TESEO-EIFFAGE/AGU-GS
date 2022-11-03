@@ -186,7 +186,7 @@ Rectangle {
     property alias radioLinkLight1: radioLinkTab.radioLinkLight1
     property alias radioLinkLight0: radioLinkTab.radioLinkLight0
 
-    property alias txtRadioLinkErrorCounter: radioLinkTab.txtRadioLinkErrorCounter
+    property alias txtRadioLinkErrorCounter: coreTab.txtRadioLinkErrorCounter
 
     property alias txtRadioLinkMsgCounter: radioLinkTab.txtRadioLinkMsgCounter
 
@@ -601,10 +601,7 @@ Rectangle {
                 Rectangle {
                     x: -10
                     Layout.alignment: Qt.AlignTop | Qt.AlignLeft
-
                     color: "#f5f5f5"
-                    //x: 40
-                    //z:-1
                     radius: 8
                     Layout.fillWidth: true
                     Layout.fillHeight: true
@@ -617,7 +614,6 @@ Rectangle {
                             Layout.fillHeight: true
                             Layout.fillWidth: true
                         }
-
                         TelemetryTab {
                             id: telemetryTab
                             Layout.fillHeight: true

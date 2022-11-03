@@ -371,10 +371,10 @@ Window {
         fsParams.telemetryStatusDrawer.light6.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry6
         fsParams.telemetryStatusDrawer.light5.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry5
         fsParams.telemetryStatusDrawer.light4.state: hmi.msgTelemetryOld ? "" :  hmi.telemetry4
-        fsParams.telemetryStatusDrawer.light3.state: hmi.msgTelemetryOld ? "" : hmi.telemetry3
-        fsParams.telemetryStatusDrawer.light2.state: hmi.msgTelemetryOld ? "" : hmi.telemetry2
-        fsParams.telemetryStatusDrawer.light1.state: hmi.msgTelemetryOld ? "" : hmi.telemetry1
-        fsParams.telemetryStatusDrawer.light0.state: hmi.msgTelemetryOld ? "" : hmi.telemetry0
+        fsParams.telemetryLight3.state: hmi.msgTelemetryOld ? "" : hmi.telemetry3
+        fsParams.telemetryLight2.state: hmi.msgTelemetryOld ? "" : hmi.telemetry2
+        fsParams.telemetryLight1.state: hmi.msgTelemetryOld ? "" : hmi.telemetry1
+        fsParams.telemetryLight0.state: hmi.msgTelemetryOld ? "" : hmi.telemetry0
 
         fsParams.storageDrawer.light23.state: hmi.msgStorageOld ? "" : hmi.storage23
         fsParams.storageDrawer.light22.state: hmi.msgStorageOld ? "" : hmi.storage22
@@ -442,37 +442,37 @@ Window {
         fsParams.bmsDrawer.light16.state: hmi.msgMotorOld ? "" : hmi.BMS16
         fsParams.bmsDrawer.light15.state: hmi.msgMotorOld ? "" : hmi.BMS15
         fsParams.bmsDrawer.light14.state: hmi.msgMotorOld ? "" : hmi.BMS14
-        fsParams.bmsDrawer.light13.state: hmi.msgMotorOld ? "" : hmi.BMS13
-        fsParams.bmsDrawer.light12.state: hmi.msgMotorOld ? "" : hmi.BMS12
-        fsParams.bmsDrawer.light11.state: hmi.msgMotorOld ? "" : hmi.BMS11
-        fsParams.bmsDrawer.light10.state: hmi.msgMotorOld ? "" : hmi.BMS10
+        fsParams.bmsLight13.state: hmi.msgMotorOld ? "" : hmi.BMS13
+        fsParams.bmsLight12.state: hmi.msgMotorOld ? "" : hmi.BMS12
+        fsParams.bmsLight11.state: hmi.msgMotorOld ? "" : hmi.BMS11
+        fsParams.bmsLight10.state: hmi.msgMotorOld ? "" : hmi.BMS10
         fsParams.bmsDrawer.light9.state: hmi.msgMotorOld ? "" : hmi.BMS9
         fsParams.bmsDrawer.light8.state: hmi.msgMotorOld ? "" : hmi.BMS8
         fsParams.bmsDrawer.light7.state: hmi.msgMotorOld ? "" : hmi.BMS7
         fsParams.bmsDrawer.light6.state: hmi.msgMotorOld ? "" : hmi.BMS6
         fsParams.bmsDrawer.light5.state: hmi.msgMotorOld ? "" : hmi.BMS5
         fsParams.bmsDrawer.light4.state: hmi.msgMotorOld ? "" : hmi.BMS4
-        fsParams.bmsDrawer.light3.state: hmi.msgMotorOld ? "" : hmi.BMS3
-        fsParams.bmsDrawer.light2.state: hmi.msgMotorOld ? "" : hmi.BMS2
-        fsParams.bmsDrawer.light1.state: hmi.msgMotorOld ? "" : hmi.BMS1
-        fsParams.bmsDrawer.light0.state: hmi.msgMotorOld ? "" : hmi.BMS0
+        fsParams.bmsLight3.state: hmi.msgMotorOld ? "" : hmi.BMS3
+        fsParams.bmsLight2.state: hmi.msgMotorOld ? "" : hmi.BMS2
+        fsParams.bmsLight1.state: hmi.msgMotorOld ? "" : hmi.BMS1
+        fsParams.bmsLight0.state: hmi.msgMotorOld ? "" : hmi.BMS0
 
         //fsParams.motorLight24.state: hmi.msgMotorOld ? "" : hmi.motor24
-        fsParams.generalMotorDrawer.light23.state: hmi.msgMotorOld ? "" : hmi.motor23
-        fsParams.generalMotorDrawer.light22.state: hmi.msgMotorOld ? "" : hmi.motor22
-        fsParams.generalMotorDrawer.light21.state: hmi.msgMotorOld ? "" : hmi.motor21
-        fsParams.generalMotorDrawer.light20.state: hmi.msgMotorOld ? "" : hmi.motor20
+        fsParams.motorLight23.state: hmi.msgMotorOld ? "" : hmi.motor23
+        fsParams.motorLight22.state: hmi.msgMotorOld ? "" : hmi.motor22
+        fsParams.motorLight21.state: hmi.msgMotorOld ? "" : hmi.motor21
+        fsParams.motorLight20.state: hmi.msgMotorOld ? "" : hmi.motor20
 
-        fsParams.generalMotorDrawer.light15.state: hmi.msgMotorOld ? "" : hmi.motor15
-        fsParams.generalMotorDrawer.light14.state: hmi.msgMotorOld ? "" : hmi.motor14
-        fsParams.generalMotorDrawer.light13.state: hmi.msgMotorOld ? "" : hmi.motor13
-        fsParams.generalMotorDrawer.light12.state: hmi.msgMotorOld ? "" : hmi.motor12
+        fsParams.motorLight15.state: hmi.msgMotorOld ? "" : hmi.motor15
+        fsParams.motorLight14.state: hmi.msgMotorOld ? "" : hmi.motor14
+        fsParams.motorLight13.state: hmi.msgMotorOld ? "" : hmi.motor13
+        fsParams.motorLight12.state: hmi.msgMotorOld ? "" : hmi.motor12
 
         fsParams.generalMotorDrawer.light8.state: hmi.msgMotorOld ? "" : hmi.motor8
         fsParams.generalMotorDrawer.light7.state: hmi.msgMotorOld ? "" : hmi.motor7
         fsParams.generalMotorDrawer.light6.state: hmi.msgMotorOld ? "" : hmi.motor6
-        fsParams.generalMotorDrawer.light5.state: hmi.msgMotorOld ? "" : hmi.motor5
-        fsParams.generalMotorDrawer.light4.state: hmi.msgMotorOld ? "" : hmi.motor4
+        fsParams.motorLight5.state: hmi.msgMotorOld ? "" : hmi.motor5
+        fsParams.motorLight4.state: hmi.msgMotorOld ? "" : hmi.motor4
         fsParams.generalMotorDrawer.light3.state: hmi.msgMotorOld ? "" : hmi.motor3
         fsParams.generalMotorDrawer.light2.state: hmi.msgMotorOld ? "" : hmi.motor2
         fsParams.generalMotorDrawer.light1.state: hmi.msgMotorOld ? "" : hmi.motor1

@@ -226,15 +226,15 @@ uint8_t HMI::extractBits8(const std::bitset<8> the_bitset, size_t start_bit, siz
 */
 void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
 {
-    update_TimeStampRIO ( msg_status.Log_Timestamp);
-    update_FlightMode ( msg_status.Flight_Mode);
-    update_FlightPhase( msg_status.Flight_Phase);
-    update_FlightPhaseExecutionTime( msg_status.Flight_Phase_Time);
-    update_TelemetryModuleStatusMask( msg_status.Telemetry_Module_Status_Mask);
-    update_StorageModuleStatusMask( msg_status.Storage_Module_Status_Mask);
-    update_GuidanceModuleStatusMask( msg_status.Guidance_Module_Status_Mask);
-    update_CoreModuleStatusMask( msg_status.Core_Module_Status_Mask);
-    update_RadioLinkModuleStatusMask( msg_status.Radio_Link_Module_Status_Mask);
+    update_TimeStampRIO(msg_status.Log_Timestamp);
+    update_FlightMode(msg_status.Flight_Mode);
+    update_FlightPhase(msg_status.Flight_Phase);
+    update_FlightPhaseExecutionTime(msg_status.Flight_Phase_Time);
+    update_TelemetryModuleStatusMask(msg_status.Telemetry_Module_Status_Mask);
+    update_StorageModuleStatusMask(msg_status.Storage_Module_Status_Mask);
+    update_GuidanceModuleStatusMask(msg_status.Guidance_Module_Status_Mask);
+    update_CoreModuleStatusMask(msg_status.Core_Module_Status_Mask);
+    update_RadioLinkModuleStatusMask(msg_status.Radio_Link_Module_Status_Mask);
 
     std::bitset<32> bitset(msg_status.Core_Module_Status_Mask);
 
@@ -254,10 +254,7 @@ void HMI::showDataSystemStatus(const mavlink_system_status_pack_t msg_status)
     update_systemCoreMask13(bitset.test(13));
     update_systemCoreMask14(bitset.test(14));
     update_systemCoreMask15(bitset.test(15));
-
     update_communicationErrorCounter(extractBits32(bitset,16,24));
-
-
 
     std::bitset<32> rlBitset(msg_status.Radio_Link_Module_Status_Mask);
     update_radiolinkMask0(rlBitset.test(0));
@@ -353,10 +350,8 @@ void HMI::showDataMotorStatus(const mavlink_motor_status_pack_t msg_status)
     update_motor22(motorBitset.test(22));
     update_motor23(motorBitset.test(23));
 
-
     update_ChargeValue(extractBits32(motorBitset,24,31));
     update_MotorControlStatusMask(msg_status.Motor_Control_Status_Mask);
-
 }
 
 /*!
@@ -405,7 +400,6 @@ void HMI::showDataStorageStatus(const mavlink_storage_status_pack_t msg_storage_
     update_storage21(bitset.test(21));
     update_storage22(bitset.test(22));
     update_storage23(bitset.test(23));
-
 }
 
 /*!

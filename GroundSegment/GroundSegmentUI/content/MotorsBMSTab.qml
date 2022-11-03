@@ -147,17 +147,11 @@ Pane {
 
                     light0.text: "RS232 HW failure"
                     light1.text: "CAN HW failure"
-
                     light2.text: "PT100 HW failure"
-
                     light3.text: "GPIO HW failure"
-
                     light6.text: "PT100 A sensor breakage"
-
                     light7.text: "PT100 B sensor breakage"
-
                     light8.text: "BMS comm error"
-
                 }
 
                 //            StatusLight {
