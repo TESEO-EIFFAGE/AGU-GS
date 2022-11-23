@@ -216,4 +216,5 @@ void GNSS::setSecond(const double second)
 void GNSS::setPort(const QString p)
 {
     port=p;
+    std::cout << port << std::endl;
 }
