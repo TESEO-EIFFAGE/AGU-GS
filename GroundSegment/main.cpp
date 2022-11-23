@@ -27,7 +27,6 @@ int main(int argc, char *argv[])
     QFontDatabase::addApplicationFont(":/content/fonts/RobotoMono-Medium.ttf");
     //QApplication a(argc, argv);
     //MainWindow w;
-
     QByteArray data  = "FD77000000FFAA000011"
                        "000102030405060708090A0B0C0D0E0F"   /*  P  */
                        "000102030405060708090A0B0C0D0E0F"   /*  A  */
@@ -69,6 +68,10 @@ int main(int argc, char *argv[])
     auto gsCore = new GSCore(&app);
     auto hmi = gsCore->hmi();
     auto gpsData = gsCore->gnss();
+
+    gsCore->setGNSSPort(QCoreApplication::arguments().at(0));
+    gsCore->setRLPort(QCoreApplication::arguments().at(1));
+
 
     engine.rootContext()->setContextProperty("hmi", hmi);
     engine.rootContext()->setContextProperty("gpsData", gpsData);

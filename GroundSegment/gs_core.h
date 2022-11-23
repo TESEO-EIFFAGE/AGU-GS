@@ -24,6 +24,8 @@ public:
     RadioLink* radioLink() const;
     void setStorage(Storage*);
     Storage* storage() const;
+    void setRLPort(const QString rl);
+    void setGNSSPort(const QString gnss);
 
 private:
     bool m_flagDeltaTime = false;

@@ -67,3 +67,8 @@ radiolink::MavLinkCommunicator *RadioLink::communicator() const
 {
     return m_communicator;
 }
+
+void RadioLink::setPort(const QString p)
+{
+    port=p;
+}

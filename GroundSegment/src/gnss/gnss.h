@@ -37,6 +37,7 @@ public:
     void setHour(const int hour);
     void setMinute(const int minute);
     void setSecond(const double sec);
+    void setPort(const QString p);
 
 signals:
     void latitudeChanged();
@@ -60,6 +61,8 @@ private:
     double m_second;
     QTimer* m_timer;
     PyHALDrotekF9P* m_gnss;
+
+    QString port;
 };
 
 #endif // GNSS_H
