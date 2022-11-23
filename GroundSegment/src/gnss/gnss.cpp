@@ -212,3 +212,8 @@ void GNSS::setSecond(const double second)
     m_second = second;
     emit secondChanged();
 }
+
+void GNSS::setPort(const QString p)
+{
+    port=p;
+}

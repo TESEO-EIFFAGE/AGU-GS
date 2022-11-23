@@ -166,6 +166,16 @@ Storage *GSCore::storage() const
     return m_storage;
 }
 
+void GSCore::setRLPort(const QString rl)
+{
+    m_radioLink->setPort(rl);
+}
+
+void GSCore::setGNSSPort(const QString gnss)
+{
+    m_gnss->setPort(gnss);
+}
+
 /*!
     \fn GNSS *GSCore::gnss() const
 

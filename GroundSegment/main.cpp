@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
     QFontDatabase::addApplicationFont(":/content/fonts/RobotoMono-SemiBold.ttf");
     QFontDatabase::addApplicationFont(":/content/fonts/RobotoMono-Regular.ttf");
     QFontDatabase::addApplicationFont(":/content/fonts/RobotoMono-Medium.ttf");
+
     auto appFont = QFont("Roboto");
     appFont.setPixelSize(12);
     app.setFont(appFont);
@@ -38,6 +39,10 @@ int main(int argc, char *argv[])
     auto gsCore = new GSCore(&app);
     auto hmi = gsCore->hmi();
     auto gpsData = gsCore->gnss();
+
+    gsCore->setGNSSPort(QCoreApplication::arguments().at(0));
+    gsCore->setRLPort(QCoreApplication::arguments().at(1));
+
 
     engine.rootContext()->setContextProperty("hmi", hmi);
     engine.rootContext()->setContextProperty("gpsData", gpsData);
