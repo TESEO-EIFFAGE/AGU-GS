@@ -19,9 +19,11 @@ GNSS::GNSS(QObject *parent) :
     m_minute = 0;
     m_second = 0.0;
 
+
+    if(port=="") {port="/dev/ttyACM0";}
     m_gnss = new PyHALDrotekF9P();
 
-    if (m_gnss->init("/dev/ttyACM0")) {
+    if (m_gnss->init(port.toStdString())) {
         m_timer = new QTimer(this);
         connect(m_timer, &QTimer::timeout, this, &GNSS::updateData);
         m_timer->start(250);
@@ -216,5 +218,5 @@ void GNSS::setSecond(const double second)
 void GNSS::setPort(const QString p)
 {
     port=p;
-    std::cout << port << std::endl;
+    std::cout << port.toStdString() << std::endl;
 }
