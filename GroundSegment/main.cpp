@@ -69,8 +69,8 @@ int main(int argc, char *argv[])
     auto hmi = gsCore->hmi();
     auto gpsData = gsCore->gnss();
 
-    gsCore->setGNSSPort(QCoreApplication::arguments().at(0));
-    gsCore->setRLPort(QCoreApplication::arguments().at(1));
+    gsCore->setGNSSPort(QCoreApplication::arguments().at(1));
+    gsCore->setRLPort(QCoreApplication::arguments().last());
 
 
     engine.rootContext()->setContextProperty("hmi", hmi);
