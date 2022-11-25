@@ -9,6 +9,7 @@
 #include <QStandardPaths>
 #include <QDir>
 #include<iostream>
+#include<QDebug>
 
 /*!
         \class GSCore
