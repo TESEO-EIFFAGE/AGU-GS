@@ -20,10 +20,12 @@ GNSS::GNSS(QObject *parent) :
     m_second = 0.0;
 
 
-    if(port=="") {port="/dev/ttyACM0";}
+    if (m_port == "") {
+        setPort("/dev/ttyACM0");
+    }
     m_gnss = new PyHALDrotekF9P();
 
-    if (m_gnss->init(port.toStdString())) {
+    if (m_gnss->init(m_port.toStdString())) {
         m_timer = new QTimer(this);
         connect(m_timer, &QTimer::timeout, this, &GNSS::updateData);
         m_timer->start(250);
@@ -34,6 +36,12 @@ GNSS::GNSS(QObject *parent) :
         std::cout << "Please make sure that the application is running as root and that the GNSS device is properly plugged." << std::endl;
     }
 }
+
+GNSS::~GNSS()
+{
+    delete m_gnss;
+}
+
 /*!
     \fn void GNSS::UpdateData()
 
@@ -215,8 +223,8 @@ void GNSS::setSecond(const double second)
     emit secondChanged();
 }
 
-void GNSS::setPort(const QString p)
+void GNSS::setPort(const QString &p)
 {
-    port=p;
-    std::cout << port.toStdString() << std::endl;
+    m_port=p;
+    //std::cout << m_port.toStdString() << std::endl;
 }

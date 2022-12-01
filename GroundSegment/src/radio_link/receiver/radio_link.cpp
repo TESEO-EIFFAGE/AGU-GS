@@ -20,13 +20,14 @@ RadioLink::RadioLink(QObject *parent) : QObject(parent)
     m_communicator = factory.create();
     m_communicator->setParent(this);
 
-    // Uncomment this block for UDP connection
-//    m_link = new radiolink::UdpLink(14550);
-//    auto udpLink = qobject_cast<radiolink::UdpLink*>(m_link);
-//    udpLink->addEndpoint(radiolink::Endpoint(QHostAddress::LocalHost, 14551));
+    //m_link = new radiolink::UdpLink(14550);
+    //auto udpLink = qobject_cast<radiolink::UdpLink*>(m_link);
+    //udpLink->addEndpoint(radiolink::Endpoint(QHostAddress::LocalHost, 14551));
 
-    if(port=="") {port="/dev/ttyUSB0";}
-    m_link = new radiolink::SerialLink(port, 115200, this);
+    if (m_port == "") {
+        setPort("/dev/ttyUSB0");
+    }
+    m_link = new radiolink::SerialLink(m_port, 115200, this);
 
     m_communicator->addLink(m_link, MAVLINK_COMM_0);
     this->start();
@@ -69,8 +70,8 @@ radiolink::MavLinkCommunicator *RadioLink::communicator() const
     return m_communicator;
 }
 
-void RadioLink::setPort(const QString p)
+void RadioLink::setPort(const QString &p)
 {
-    port=p;
-    std::cout << port.toStdString() << std::endl;
+    m_port = p;
+    //std::cout << m_port.toStdString() << std::endl;
 }
