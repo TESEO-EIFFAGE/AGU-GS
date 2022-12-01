@@ -60,8 +60,7 @@ Item {
             anchorPoint: Qt.point(sourceItem.width/2, sourceItem.height/2)
             visible: true
         }
-
-        MapRectangle{
+        MapRectangle {
             id: mapBoundaries
             autoFadeIn: false
             opacity: 1

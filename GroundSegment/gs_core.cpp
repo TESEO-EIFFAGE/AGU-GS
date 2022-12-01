@@ -34,8 +34,8 @@ GSCore::GSCore(QObject *parent)
 
     QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
                      m_hmi, &HMI::showData);
-    QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
-                     m_storage, &Storage::storeData);
+//    QObject::connect(m_radioLink->communicator(),&radiolink::MavLinkCommunicator::dispatchReceivedMessage,
+//                     m_storage, &Storage::storeData);
     QTimer *timer = new QTimer(this);
     QObject::connect(timer, &QTimer::timeout, this,&GSCore::SetFixOfTime);
 }

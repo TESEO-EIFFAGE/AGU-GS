@@ -56,7 +56,7 @@ Item {
         height: childrenRect.height+8
         width: parent.width
         clip: true
-        spacing: 8 //0
+        spacing: 0
         anchors.top: parent.top
         Rectangle {
             id: overviewBox
@@ -111,10 +111,13 @@ Item {
             }
         }
         Item {
+            implicitHeight: 1
+            implicitWidth: 1
+        }
+        Rectangle {
             id: advancedSectionBody
             anchors.left: parent.left
             anchors.right: parent.right
-            //anchors.top: overviewBox.bottom
             clip: true
             height: root.open ? 80 : 0
 
@@ -152,15 +155,6 @@ Item {
                     ToolTip.visible: pressed
                 }
             }
-        }/*
-
-        Item {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Item {
-                implicitWidth: 1
-                implicitHeight: 1
-            }
-        }*/
+        }
     }
 }

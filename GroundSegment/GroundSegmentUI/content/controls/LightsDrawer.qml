@@ -143,8 +143,13 @@ Item {
             id: advancedSectionBody
             anchors.left: parent.left
             anchors.right: parent.right
+                           <<<<<<< HEAD
             anchors.topMargin: 8
-//            anchors.top: overviewBox.bottom
+            //            anchors.top: overviewBox.bottom
+                               =======
+                               //anchors.topMargin: 8
+                               //anchors.top: overviewBox.bottom
+                               >>>>>>> e320413 (fixed qml errors)
             clip: true
             height: root.open ? 222 : 0
 
@@ -315,13 +320,9 @@ Item {
             }
         }
 
-//        Item {
-//            Layout.fillWidth: true
-//            Layout.fillHeight: true
-//            Item {
-//                implicitWidth: 1
-//                implicitHeight: 1
-//            }
-//        }
+        Item {
+            implicitWidth: 1
+            implicitHeight: 1
+        }
     }
 }
