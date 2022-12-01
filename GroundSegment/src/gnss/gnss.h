@@ -21,6 +21,8 @@ class GNSS : public QObject
 
 public:
     explicit GNSS(QObject *parent = nullptr);
+    ~GNSS();
+
 
     double latitude() const;
     double longitude() const;
@@ -37,7 +39,7 @@ public:
     void setHour(const int hour);
     void setMinute(const int minute);
     void setSecond(const double sec);
-    void setPort(const QString p);
+    void setPort(const QString& p);
 
 signals:
     void latitudeChanged();
@@ -61,8 +63,7 @@ private:
     double m_second;
     QTimer* m_timer;
     PyHALDrotekF9P* m_gnss;
-
-    QString port;
+    QString m_port;
 };
 
 #endif // GNSS_H

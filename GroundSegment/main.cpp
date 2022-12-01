@@ -68,10 +68,10 @@ int main(int argc, char *argv[])
     auto gsCore = new GSCore(&app);
     auto hmi = gsCore->hmi();
     auto gpsData = gsCore->gnss();
-    if(QCoreApplication::arguments().at(1) != "" && QCoreApplication::arguments().last() != "")
+    if(QCoreApplication::arguments().size() == 3)
     {
         gsCore->setGNSSPort(QCoreApplication::arguments().at(1));
-        gsCore->setRLPort(QCoreApplication::arguments().last());
+        gsCore->setRLPort(QCoreApplication::arguments().at(2));
     }
     engine.rootContext()->setContextProperty("hmi", hmi);
     engine.rootContext()->setContextProperty("gpsData", gpsData);
