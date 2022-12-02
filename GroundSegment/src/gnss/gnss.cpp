@@ -20,12 +20,12 @@ GNSS::GNSS(QObject *parent) :
     m_second = 0.0;
 
 
-    if (m_port == "") {
-        setPort("/dev/ttyACM0");
+    if (m_deviceAddress == "") {
+        setDeviceAddress("/dev/ttyACM0");
     }
     m_gnss = new PyHALDrotekF9P();
 
-    if (m_gnss->init(m_port.toStdString())) {
+    if (m_gnss->init(m_deviceAddress.toStdString())) {
         m_timer = new QTimer(this);
         connect(m_timer, &QTimer::timeout, this, &GNSS::updateData);
         m_timer->start(250);
@@ -45,7 +45,7 @@ GNSS::~GNSS()
 /*!
     \fn void GNSS::UpdateData()
 
-    It updates the GNSS object's position and time
+    Updates the GNSS object's position and time
 */
 void GNSS::updateData() {
     double hasFix;
@@ -70,7 +70,7 @@ void GNSS::updateData() {
 /*!
     \fn double GNSS::latitude() const
 
-    It returns the latitude value
+    Returns the latitude value
 */
 double GNSS::latitude() const
 {
@@ -79,7 +79,7 @@ double GNSS::latitude() const
 /*!
     \fn double GNSS::longitude() const
 
-    It returns the longitude value
+    Returns the longitude value
 */
 double GNSS::longitude() const
 {
@@ -88,7 +88,7 @@ double GNSS::longitude() const
 /*!
     \fn double GNSS::altitude() const
 
-    It returns the altitude value
+    Returns the altitude value
 */
 double GNSS::altitude() const
 {
@@ -97,7 +97,7 @@ double GNSS::altitude() const
 /*!
     \fn bool GNSS::hasFix() const
 
-    It returns the hasFix value
+    Returns the hasFix value
 */
 bool GNSS::hasFix() const
 {
@@ -106,7 +106,7 @@ bool GNSS::hasFix() const
 /*!
     \fn int GNSS::hour() const
 
-    It returns the hour value
+    Returns the hour value
 */
 int GNSS::hour() const
 {
@@ -114,8 +114,8 @@ int GNSS::hour() const
 }
 /*!
     \fn int GNSS::minute() const
- hasFix
-    It returns the minute value
+
+    Returns the minute value
 */
 int GNSS::minute() const
 {
@@ -124,7 +124,7 @@ int GNSS::minute() const
 /*!
     \fn double GNSS::second() const
 
-    It returns the second value
+    Returns the second value
 */
 double GNSS::second() const
 {
@@ -134,7 +134,7 @@ double GNSS::second() const
 /*!
     \fn void GNSS::setLatitude(const double latitude)
 
-    It sets a new value to latitude
+    Sets a new value to latitude
 */
 void GNSS::setLatitude(const double latitude)
 {
@@ -147,7 +147,7 @@ void GNSS::setLatitude(const double latitude)
 /*!
     \fn void GNSS::setLongitude(const double longitude)
 
-    It sets a new value to longitude
+    sets a new value to longitude
 */
 void GNSS::setLongitude(const double longitude)
 {
@@ -160,7 +160,7 @@ void GNSS::setLongitude(const double longitude)
 /*!
     \fn void GNSS::setAltitude(const double altitude)
 
-    It sets a new value to altitude
+    sets a new value to altitude
 */
 void GNSS::setAltitude(const double altitude)
 {
@@ -173,7 +173,7 @@ void GNSS::setAltitude(const double altitude)
 /*!
     \fn void GNSS::setHasFix(const bool hasFix)
 
-    It sets a new value to hasFix
+    sets a new value to hasFix
 */
 void GNSS::setHasFix(const bool hasFix)
 {
@@ -186,7 +186,7 @@ void GNSS::setHasFix(const bool hasFix)
 /*!
     \fn void GNSS::setHour(const int hour)
 
-    It sets a new value to hour
+    sets a new value to hour
 */
 void GNSS::setHour(const int hour)
 {
@@ -199,7 +199,7 @@ void GNSS::setHour(const int hour)
 /*!
     \fn void GNSS::setMinute(const int minute)
 
-    It sets a new value to minute
+    sets a new value to minute
 */
 void GNSS::setMinute(const int minute)
 {
@@ -212,7 +212,7 @@ void GNSS::setMinute(const int minute)
 /*!
     \fn void GNSS::setSecond(const double second)
 
-    It sets a new value to second
+    sets a new value to second
 */
 void GNSS::setSecond(const double second)
 {
@@ -222,9 +222,13 @@ void GNSS::setSecond(const double second)
     m_second = second;
     emit secondChanged();
 }
+/*!
+    \fn void GNSS::setDeviceAddress(const QString &d)
 
-void GNSS::setPort(const QString &p)
+    sets the GNSS serial device address
+*/
+void GNSS::setDeviceAddress(const QString &d)
 {
-    m_port=p;
+    m_deviceAddress=d;
     //std::cout << m_port.toStdString() << std::endl;
 }

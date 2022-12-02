@@ -169,12 +169,12 @@ Storage *GSCore::storage() const
 
 void GSCore::setRLPort(const QString rl)
 {
-    m_radioLink->setPort(rl);
+    m_radioLink->setDeviceAddress(rl);
 }
 
 void GSCore::setGNSSPort(const QString gnss)
 {
-    m_gnss->setPort(gnss);
+    m_gnss->setDeviceAddress(gnss);
 }
 
 /*!

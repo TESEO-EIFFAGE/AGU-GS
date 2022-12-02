@@ -15,11 +15,11 @@ public:
     void start();
     void stop();
     radiolink::MavLinkCommunicator* communicator() const;
-    void setPort(const QString& p);
+    void setDeviceAddress(const QString& p);
 private:
     radiolink::MavLinkCommunicator* m_communicator{};
     radiolink::AbstractLink* m_link{};
-    QString m_port;
+    QString m_deviceAddress;
 
 };
 
