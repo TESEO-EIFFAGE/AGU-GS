@@ -215,7 +215,8 @@ Rectangle {
                                 font.family: "Roboto Mono"
                                 height: 32
                                 width: 120
-                                placeholderText: qsTr("latitude")
+                                placeholderText: qsTr("Latitude  ...")
+                                onEditingFinished: params.latitude = text
                             }
                         }
                         Row {
@@ -238,7 +239,8 @@ Rectangle {
                                 width: 120
                                 font.pixelSize: 12
                                 font.family: "Roboto Mono"
-                                placeholderText: qsTr("longitude")
+                                placeholderText: qsTr("Longitude ...")
+                                onEditingFinished: params.longitude = text
                             }
                         }
                     }
