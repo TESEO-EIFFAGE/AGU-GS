@@ -5,10 +5,7 @@ import QtQuick.Layouts 1.11
 import "controls"
 
 Pane {
-    background: Rectangle{
-    color:"transparent"
-    }
-
+    background: Item {}
 
     property bool lit
 
@@ -18,11 +15,9 @@ Pane {
     property alias txtLongitude: txtLongitude
     property alias txtGNSSAltitude: txtGNSSAltitude
 
-
     property alias txtRollAngle: txtRollAngle
     property alias txtPitchAngle: txtPitchAngle
     property alias txtYawAngle: txtYawAngle
-
 
     property alias txtLinearVelocityHorizontal: txtLinearVelocityHorizontal
     property alias txtLinearVelocityVertical: txtLinearVelocityVertical
@@ -39,158 +34,147 @@ Pane {
     Flow {
         width:parent.width
         height: childrenRect.height
-        //anchors.fill:parent
         id: gridHome
         spacing: 32
-        //columnSpacing: 24
-        //rowSpacing: 12
-
-        //columns: 6
-        //rows: 1
         Column {
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-            //Layout.alignment: Qt.AlignRight
             spacing: 8
 
             ParamGrp2Label {
                 text: "Module Status"
             }
-        StatusLight {
-            id: coreLight0
-            text: "Telemetry module status"
+            StatusLight {
+                id: coreLight0
+                text: "Telemetry module status"
+            }
+            StatusLight {
+                id: coreLight1
+                text: "Guidance module status"
+            }
+            StatusLight {
+                id: coreLight2
+                text: "Motor Control module status"
+            }
+            StatusLight {
+                id: coreLight3
+                text: "Radio Link module status"
+            }
+            StatusLight {
+                id: coreLight4
+                text: "Storage module status"
+            }
         }
-        StatusLight {
-            id: coreLight1
-            text: "Guidance module status"
-        }
-        StatusLight {
-            id: coreLight2
-            text: "Motor Control module status"
-        }
-        StatusLight {
-            id: coreLight3
-            text: "Radio Link module status"
-        }
-        StatusLight {
-            id: coreLight4
-            text: "Storage module status"
-        }
-}
         Column {
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-            //Layout.alignment: Qt.AlignRight
             spacing: 8
 
             ParamGrp2Label {
                 text: "Coordinates"
             }
-        ParamRow {
-            id: txtLatitude
-            text: "Latitude (°)"
-            span: 7
-            ToolTip.text: desc
-            ToolTip.visible: pressed
-        }
+            ParamRow {
+                id: txtLatitude
+                text: "Latitude (°)"
+                span: 7
+                ToolTip.text: desc
+                ToolTip.visible: pressed
+            }
 
-        ParamRow {
-            text: "Longitude (°)"
-            span: 7
-            id: txtLongitude
-            ToolTip.text: desc
-            ToolTip.visible: pressed
-        }
-        ParamRow {
-            text: "Altitude (m)"
-            span: 7
-            id: txtGNSSAltitude
-            ToolTip.text: desc
-            ToolTip.visible: pressed
-        }
+            ParamRow {
+                text: "Longitude (°)"
+                span: 7
+                id: txtLongitude
+                ToolTip.text: desc
+                ToolTip.visible: pressed
+            }
+            ParamRow {
+                text: "Altitude (m)"
+                span: 7
+                id: txtGNSSAltitude
+                ToolTip.text: desc
+                ToolTip.visible: pressed
+            }
         }
         Column {
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-            //Layout.alignment: Qt.AlignRight
             spacing: 8
 
             ParamGrp2Label {
                 text: "Rotation (°)"
             }
-        ParamRow {
-            text: "Roll"
-            span: 3
-            id: txtRollAngle
-            ToolTip.text: desc
-            ToolTip.visible: pressed
-        }
-        ParamRow {
-            text: "Pitch"
-            span: 3
-            id: txtPitchAngle
-            ToolTip.text: desc
-            ToolTip.visible: pressed
-        }
-        ParamRow {
-            text: "Yaw"
-            span: 3
-            id: txtYawAngle
-            ToolTip.text: desc
-            ToolTip.visible: pressed
-        }
+            ParamRow {
+                text: "Roll"
+                span: 3
+                id: txtRollAngle
+                ToolTip.text: desc
+                ToolTip.visible: pressed
+            }
+            ParamRow {
+                text: "Pitch"
+                span: 3
+                id: txtPitchAngle
+                ToolTip.text: desc
+                ToolTip.visible: pressed
+            }
+            ParamRow {
+                text: "Yaw"
+                span: 3
+                id: txtYawAngle
+                ToolTip.text: desc
+                ToolTip.visible: pressed
+            }
         }
         Column {
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-            //Layout.alignment: Qt.AlignRight
             spacing: 8
 
             ParamGrp2Label {
                 text: "Velocity (m/s)"
             }
-        ParamRow {
-            text: "Horizontal Velocity"
-            span: 7
-            id: txtLinearVelocityHorizontal
-            ToolTip.text: desc
-            ToolTip.visible: pressed
-        }
+            ParamRow {
+                text: "Horizontal Velocity"
+                span: 7
+                id: txtLinearVelocityHorizontal
+                ToolTip.text: desc
+                ToolTip.visible: pressed
+            }
 
-        ParamRow {
-            text: "Vertical Velocity"
-            span: 7
-            id: txtLinearVelocityVertical
-            ToolTip.text: desc
-            ToolTip.visible: pressed
-        }
+            ParamRow {
+                text: "Vertical Velocity"
+                span: 7
+                id: txtLinearVelocityVertical
+                ToolTip.text: desc
+                ToolTip.visible: pressed
+            }
         }
         Column {
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-            //Layout.alignment: Qt.AlignRight
             spacing: 8
 
             ParamGrp2Label {
                 text: "Air Speed (m/s)"
             }
-        ParamRow {
-            text: "Air Speed U"
-            span: 5
-            id: txtAirSpeed_UVector
-            ToolTip.text: desc
-            ToolTip.visible: pressed
-        }
+            ParamRow {
+                text: "Air Speed U"
+                span: 5
+                id: txtAirSpeed_UVector
+                ToolTip.text: desc
+                ToolTip.visible: pressed
+            }
 
-        ParamRow {
-            text: "Air Speed V"
-            span: 5
-            id: txtAirSpeed_VVector
-            ToolTip.text: desc
-            ToolTip.visible: pressed
-        }
-        ParamRow {
-            text: "Air Speed W"
-            span: 5
-            id: txtAirSpeed_WVector
-            ToolTip.text: desc
-            ToolTip.visible: pressed
-        }
+            ParamRow {
+                text: "Air Speed V"
+                span: 5
+                id: txtAirSpeed_VVector
+                ToolTip.text: desc
+                ToolTip.visible: pressed
+            }
+            ParamRow {
+                text: "Air Speed W"
+                span: 5
+                id: txtAirSpeed_WVector
+                ToolTip.text: desc
+                ToolTip.visible: pressed
+            }
         }
         ParamRow {
             text: "N. System msg"

@@ -20,14 +20,16 @@ RadioLink::RadioLink(QObject *parent) : QObject(parent)
     m_communicator = factory.create();
     m_communicator->setParent(this);
 
-    //m_link = new radiolink::UdpLink(14550);
-    //auto udpLink = qobject_cast<radiolink::UdpLink*>(m_link);
-    //udpLink->addEndpoint(radiolink::Endpoint(QHostAddress::LocalHost, 14551));
+    // Uncomment this block for UDP link
+    m_link = new radiolink::UdpLink(14550);
+    auto udpLink = qobject_cast<radiolink::UdpLink*>(m_link);
+    udpLink->addEndpoint(radiolink::Endpoint(QHostAddress::LocalHost, 14551));
 
-    if (m_deviceAddress == "") {
-        setDeviceAddress("/dev/ttyUSB0");
-    }
-    m_link = new radiolink::SerialLink(m_deviceAddress, 115200, this);
+    // Uncomment this block for UART link
+//    if (m_deviceAddress == "") {
+//        setDeviceAddress("/dev/ttyUSB0");
+//    }
+//    m_link = new radiolink::SerialLink(m_deviceAddress, 115200, this);
 
     m_communicator->addLink(m_link, MAVLINK_COMM_0);
     this->start();

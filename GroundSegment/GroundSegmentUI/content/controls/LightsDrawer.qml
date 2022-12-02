@@ -143,13 +143,6 @@ Item {
             id: advancedSectionBody
             anchors.left: parent.left
             anchors.right: parent.right
-                           <<<<<<< HEAD
-            anchors.topMargin: 8
-            //            anchors.top: overviewBox.bottom
-                               =======
-                               //anchors.topMargin: 8
-                               //anchors.top: overviewBox.bottom
-                               >>>>>>> e320413 (fixed qml errors)
             clip: true
             height: root.open ? 222 : 0
 

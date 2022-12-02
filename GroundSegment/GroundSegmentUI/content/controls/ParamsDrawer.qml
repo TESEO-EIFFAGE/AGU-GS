@@ -114,7 +114,7 @@ Item {
             implicitHeight: 1
             implicitWidth: 1
         }
-        Rectangle {
+        Item {
             id: advancedSectionBody
             anchors.left: parent.left
             anchors.right: parent.right
